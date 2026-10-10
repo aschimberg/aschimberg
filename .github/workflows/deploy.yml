@@ -2,7 +2,7 @@ name: Deploy site
 
 on:
   push:
-    branches: [main]
+    branches: [main, claude/college-football-model-site-kru18z]
     paths: ["site/**"]
   workflow_dispatch:
   workflow_call:

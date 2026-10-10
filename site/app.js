@@ -140,7 +140,7 @@
     const d = new Date(g.start);
     const tags = [];
     if (final) tags.push(`<span class="tag final">Final</span>`);
-    else if (g.locked) tags.push(`<span class="tag">In progress</span>`);
+    else if (status(g) === "live") tags.push(`<span class="tag">In progress</span>`);
     if (g.neutral) tags.push(`<span class="tag">Neutral</span>`);
 
     const teamRow = (side) => {
@@ -219,6 +219,19 @@
     );
   }
 
+  // Status at view time: data refreshes daily, so "started" comes from the
+  // viewer's clock, while "final" needs a refresh with the score.
+  const STATUS_ORDER = { upcoming: 0, live: 1, final: 2 };
+  function status(g) {
+    if (g.result?.completed) return "final";
+    if (!g.start_tbd && new Date(g.start) <= Date.now()) return "live";
+    return "upcoming";
+  }
+
+  const daySection = (title, gs) =>
+    `<section><div class="day-heading"><h3>${esc(title)}</h3><span>${gs.length} game${gs.length === 1 ? "" : "s"}</span></div>
+      <div class="game-grid">${gs.map(gameCard).join("")}</div></section>`;
+
   function renderGames() {
     const q = $("#game-search").value.trim().toLowerCase();
     const conf = $("#game-conf").value;
@@ -234,22 +247,27 @@
       $("#games-list").innerHTML = `<div class="empty-state"><p class="muted">No games match these filters.</p></div>`;
       return;
     }
+    const byStatus = (a, b) => STATUS_ORDER[status(a)] - STATUS_ORDER[status(b)];
     if (sort !== "time") {
       const key = sort === "edge" ? (g) => g.pick?.edge ?? -1 : (g) => Math.abs(g.line?.move ?? 0);
-      games.sort((a, b) => key(b) - key(a));
+      games.sort((a, b) => byStatus(a, b) || key(b) - key(a));
       $("#games-list").innerHTML = `<div class="game-grid">${games.map(gameCard).join("")}</div>`;
       return;
     }
+    games.sort((a, b) => byStatus(a, b) || new Date(a.start) - new Date(b.start));
     const days = new Map();
-    for (const g of games) {
+    for (const g of games.filter((g) => status(g) === "upcoming")) {
       const k = fmtDay(new Date(g.start));
       if (!days.has(k)) days.set(k, []);
       days.get(k).push(g);
     }
-    $("#games-list").innerHTML = [...days]
-      .map(([day, gs]) => `<section><div class="day-heading"><h3>${esc(day)}</h3><span>${gs.length} game${gs.length === 1 ? "" : "s"}</span></div>
-        <div class="game-grid">${gs.map(gameCard).join("")}</div></section>`)
-      .join("");
+    const live = games.filter((g) => status(g) === "live");
+    const final = games.filter((g) => status(g) === "final");
+    $("#games-list").innerHTML = [
+      ...[...days].map(([day, gs]) => daySection(day, gs)),
+      live.length ? daySection("In progress", live) : "",
+      final.length ? daySection("Final", final) : "",
+    ].join("");
   }
 
   // --- Ratings ---------------------------------------------------------------
