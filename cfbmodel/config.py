@@ -66,6 +66,19 @@ LINE_PROVIDERS = [
     if p.strip()
 ]
 
+# --- Confidence --------------------------------------------------------------
+# 0-100 score, separate from edge. Component weights (sum to 1):
+CONF_WEIGHTS = {"agreement": 0.25, "consistency": 0.10, "edge": 0.25, "market": 0.15, "trends": 0.15, "data": 0.10}
+CONF_HIGH = _f("CFB_CONF_HIGH", 70)
+CONF_MEDIUM = _f("CFB_CONF_MEDIUM", 55)
+
+# --- Weekly weight tuning ---------------------------------------------------
+# After Sunday grading, refit SP+/FPI/Elo weights and home field on graded
+# games, shrunk toward the current values: alpha = n / (n + TUNE_PRIOR_GAMES).
+TUNING = os.environ.get("CFB_TUNING", "on") != "off"
+MIN_TUNE_GAMES = _i("CFB_MIN_TUNE_GAMES", 40)
+TUNE_PRIOR_GAMES = _f("CFB_TUNE_PRIOR_GAMES", 250)
+
 # --- ATS trends -------------------------------------------------------------
 TREND_SEASONS = _i("CFB_TREND_SEASONS", 6)  # completed seasons + current season
 BYE_DAYS = _i("CFB_BYE_DAYS", 13)  # gap that counts as "off a bye"

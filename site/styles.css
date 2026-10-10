@@ -264,3 +264,14 @@ table.data tbody tr:hover { background: var(--accent-soft); }
   .trend-cols { grid-template-columns: 1fr; }
   .footer-inner { flex-direction: column; justify-content: center; align-items: flex-start; gap: 9px; }
 }
+
+/* Confidence */
+.conf { display: inline-block; padding: 2px 6px; border: 1px solid var(--line); color: var(--muted); font: 700 8px var(--mono); letter-spacing: .08em; text-transform: uppercase; vertical-align: 1px; }
+.conf.high { border-color: var(--accent); background: var(--accent-tint); color: var(--accent); }
+.conf.medium { border-color: #b9bbb2; color: var(--ink); }
+.conf.low { color: var(--faint); }
+details.section > summary .conf { margin-left: auto; margin-right: 8px; }
+.src-lines { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 2px 0 10px; font: 600 10px var(--mono); }
+.conf-row { display: grid; grid-template-columns: 150px 1fr; align-items: center; gap: 8px; margin: 3px 0; font-size: 11px; color: var(--muted); }
+.conf-row em { margin-left: 6px; color: var(--faint); font: 9px var(--mono); font-style: normal; }
+.weights-table { margin-top: 10px; }

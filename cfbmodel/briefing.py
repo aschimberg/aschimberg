@@ -48,21 +48,27 @@ def build_briefing(meta, cards, record, today, tz, top_n=8):
             f"Season: ATS {fmt_rec(sr['ats'])} · {config.PLAY_EDGE:g}+ edge {fmt_rec(sr['ats_play'])} · SU {fmt_rec(sr['su'], ties=False)}"
         )
 
-    picks = sorted((c for c in games if c["pick"].get("edge") is not None), key=lambda c: -c["pick"]["edge"])
-    plays = [c for c in picks if c["pick"]["edge"] >= config.LEAN_EDGE]
+    def conf_of(c):
+        return c["pick"].get("confidence") or 0
+
+    picks = sorted((c for c in games if c["pick"].get("edge") is not None),
+                   key=lambda c: (-c["pick"]["edge"], -conf_of(c)))
+    # Plays: a real edge, or High confidence even when the edge is small.
+    plays = [c for c in picks if c["pick"]["edge"] >= config.LEAN_EDGE or c["pick"].get("conf_label") == "High"]
     lines.append("")
     lines.append("**🎯 Picks / biggest edges**")
     if not plays:
-        lines.append("No edges ≥ {:g} pts today.".format(config.LEAN_EDGE))
+        lines.append("No edges ≥ {:g} pts or High-confidence sides today.".format(config.LEAN_EDGE))
     for c in plays[:top_n]:
         p, m = c["pick"], c["model"]
-        tier = {"strong": "🔥", "play": "✅", "lean": "·"}.get(p["tier"], "·")
+        tier = {"strong": "🔥", "play": "✅", "lean": "·"}.get(p["tier"], "🎯")
+        conf = f", conf {p['confidence']} {p['conf_label']}" if p.get("confidence") is not None else ""
         lines.append(
             f"{tier} {p['ats_team']} {fmt_spread(p['ats_line'])} ({matchup(c)}, {kickoff(c, tz)}) "
-            f"— model {c['home']['name']} {fmt_spread(m['spread'])}, edge {p['edge']:g}, proj {m['away_pts']:.0f}-{m['home_pts']:.0f}"
+            f"— model {c['home']['name']} {fmt_spread(m['spread'])}, edge {p['edge']:g}{conf}, proj {m['away_pts']:.0f}-{m['home_pts']:.0f}"
         )
     if len(plays) > top_n:
-        lines.append(f"…plus {len(plays) - top_n} more leans on the site")
+        lines.append(f"…plus {len(plays) - top_n} more on the site")
 
     moves = sorted(
         (c for c in games if c.get("line") and c["line"].get("move") and abs(c["line"]["move"]) >= 1.0),
@@ -225,15 +231,30 @@ def run_briefing(now=None, force=False, dry_run=False):
     return body
 
 
-def run_recap(record, last_week):
+def tuning_line(tuned):
+    if not tuned:
+        return None
+    if tuned.get("status") != "updated":
+        return f"**Weights:** unchanged ({tuned['games']} graded games so far; tuning starts at {config.MIN_TUNE_GAMES})"
+    b, a = tuned["before"], tuned["after"]
+    pct = lambda w: "/".join(f"{w[k] * 100:.0f}" for k in ("sp", "fpi", "elo"))
+    return (f"**Weights (SP+/FPI/Elo):** {pct(b['weights'])} → {pct(a['weights'])} · "
+            f"HFA {b['home_field']:g} → {a['home_field']:g} · RMSE {tuned['rmse_before']} → {tuned['rmse_after']} "
+            f"on {tuned['games']} games")
+
+
+def run_recap(record, last_week, tuned=None):
     if not last_week:
         return None
     sr = record
     title = f"CFB model recap — {'Week ' + str(last_week['week']) if last_week['season_type'] == 'regular' else 'Postseason'}"
-    body = "\n".join([
+    bc = sr.get("ats_by_conf", {})
+    body = "\n".join(x for x in [
         f"**Last week:** ATS {fmt_rec(last_week['ats'])} · {config.PLAY_EDGE:g}+ edge {fmt_rec(last_week['ats_plays'])} · SU {fmt_rec(last_week['su'], ties=False)}",
         f"**Season:** ATS {fmt_rec(sr['ats'])} · {config.PLAY_EDGE:g}+ edge {fmt_rec(sr['ats_play'])} · "
         f"{config.STRONG_EDGE:g}+ edge {fmt_rec(sr['ats_strong'])} · SU {fmt_rec(sr['su'], ties=False)}",
-    ])
+        f"**By confidence:** High {fmt_rec(bc['High'])} · Medium {fmt_rec(bc['Medium'])} · Low {fmt_rec(bc['Low'])}" if bc else None,
+        tuning_line(tuned),
+    ] if x)
     send_ntfy(title, body, tags="football,white_check_mark", click=config.SITE_URL or None)
     return body

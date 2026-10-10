@@ -97,3 +97,29 @@ def grade(pick_side, line_home, home_pts, away_pts):
         return "P"
     home_covered = adj > 0
     return "W" if home_covered == (pick_side == "home") else "L"
+
+
+SOURCES = ("sp", "fpi", "elo")
+
+
+def source_diffs(game, ratings):
+    """Home-minus-away rating difference per source (no home field).
+
+    Teams without a rating (mostly FCS) use NON_FBS_RATING; a team missing
+    one source falls back to its blended rating for that source.
+    """
+    out = {}
+    for k in SOURCES:
+        vals = []
+        for side in ("home", "away"):
+            r = ratings.get(game[side])
+            if r is None:
+                vals.append(config.NON_FBS_RATING)
+            else:
+                vals.append(r.get("parts", {}).get(k, r["rating"]))
+        out[k] = round(vals[0] - vals[1], 2)
+    return out
+
+
+def home_flag(game):
+    return 0 if game.get("neutral") else 1

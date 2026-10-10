@@ -2,7 +2,7 @@
 from collections import defaultdict
 from datetime import datetime, timedelta, timezone
 
-from . import ats, config, model, splits, store
+from . import ats, confidence, config, model, splits, store, tuning
 from .cfbd import g
 from .normalize import closing_spread, lines_by_game, normalize_game, select_line
 from .ratings import blend
@@ -156,6 +156,8 @@ def compute_record(picks, season=None):
     return {
         "su": _rec(graded, "su"),
         "ats": _rec(ats_graded, "ats"),
+        "ats_by_conf": {lbl: _rec([p for p in ats_graded if p.get("conf_label") == lbl], "ats")
+                        for lbl in ("High", "Medium", "Low")},
         "ats_lean": tiered(config.LEAN_EDGE),
         "ats_play": tiered(config.PLAY_EDGE),
         "ats_strong": tiered(config.STRONG_EDGE),
@@ -222,6 +224,9 @@ def refresh(client, now=None, splits_provider=None, log=print):
         raw_lines += client.lines(season, slate["season_type"])
     lmap = lines_by_game(raw_lines)
 
+    tuned = tuning.apply()
+    if tuned:
+        log(f"Using tuned weights {config.WEIGHTS}, home field {config.HOME_FIELD} (from {tuned.get('updated')})")
     current = {"sp": client.sp(season), "fpi": client.fpi(season), "elo": client.elo(season)}
     prior = load_prior_ratings(client, season - 1)
     ratings, lg_off = blend(current, prior, fbs)
@@ -283,19 +288,6 @@ def refresh(client, now=None, splits_provider=None, log=print):
             line["move"] = move
             line["history"] = snaps
 
-        key = str(gm["id"])
-        if not started and not gm["completed"]:
-            picks[key] = {
-                "id": gm["id"], "season": season, "week": gm["week"], "season_type": gm["season_type"],
-                "start": gm["start"], "home": gm["home"], "away": gm["away"], "neutral": gm["neutral"],
-                "line": (line or {}).get("spread"), "book": (line or {}).get("book"),
-                "total_line": (line or {}).get("total"),
-                "model_spread": proj["spread"], "model_total": proj["total"],
-                "proj_home": proj["home_pts"], "proj_away": proj["away_pts"],
-                **pick, "updated": iso(now), "result": None,
-            }
-        logged = picks.get(key)
-
         trend_block = {}
         for side in ("home", "away"):
             team = gm[side]
@@ -307,6 +299,31 @@ def refresh(client, now=None, splits_provider=None, log=print):
         split_info = None
         if gm["id"] in split_map:
             split_info = splits.analyze(split_map[gm["id"]], move)
+
+        diffs = model.source_diffs(gm, ratings)
+        hflag = model.home_flag(gm)
+        conf = confidence.score(
+            pick, (line or {}).get("spread"), diffs, hflag, move, trend_block, split_info,
+            confidence.data_quality(gm, ratings),
+        )
+        pick["confidence"] = conf["score"] if conf else None
+        pick["conf_label"] = conf["label"] if conf else None
+
+        key = str(gm["id"])
+        if not started and not gm["completed"]:
+            picks[key] = {
+                "id": gm["id"], "season": season, "week": gm["week"], "season_type": gm["season_type"],
+                "start": gm["start"], "home": gm["home"], "away": gm["away"], "neutral": gm["neutral"],
+                "line": (line or {}).get("spread"), "book": (line or {}).get("book"),
+                "total_line": (line or {}).get("total"),
+                "model_spread": proj["spread"], "model_total": proj["total"],
+                "proj_home": proj["home_pts"], "proj_away": proj["away_pts"],
+                "diffs": diffs, "hfa_flag": hflag, "weights": dict(config.WEIGHTS), "home_field": config.HOME_FIELD,
+                **pick, "confidence_detail": conf, "updated": iso(now), "result": None,
+            }
+        logged = picks.get(key)
+        if logged and "confidence_detail" in logged:
+            conf = logged["confidence_detail"]  # locked picks keep their pre-kickoff confidence
 
         def team_block(side):
             t = gm[side]
@@ -324,7 +341,9 @@ def refresh(client, now=None, splits_provider=None, log=print):
             "tv": media.get(gm["id"]), "neutral": gm["neutral"], "conference_game": gm["conference_game"],
             "home": team_block("home"), "away": team_block("away"),
             "line": line, "model": proj,
-            "pick": {k: logged[k] for k in ("ats_side", "ats_team", "ats_line", "edge", "tier", "su_team", "su_wp", "line")} if logged else pick,
+            "pick": {k: logged.get(k) for k in ("ats_side", "ats_team", "ats_line", "edge", "tier", "su_team", "su_wp", "line",
+                                                 "confidence", "conf_label")} if logged else pick,
+            "confidence": conf,
             "locked": started or gm["completed"],
             "trends": trend_block, "splits": split_info,
             "result": {"completed": gm["completed"], "home_pts": gm["home_pts"], "away_pts": gm["away_pts"],
@@ -373,7 +392,9 @@ def write_site(now, season, slate, cards, ratings, team_recs, trends, fbs, picks
             "lean_edge": config.LEAN_EDGE, "play_edge": config.PLAY_EDGE, "strong_edge": config.STRONG_EDGE,
             "sharp_gap": config.SHARP_GAP, "public_bets": config.PUBLIC_BETS,
             "trend_min_games": config.TREND_MIN_GAMES, "bye_days": config.BYE_DAYS,
+            "conf_high": config.CONF_HIGH, "conf_medium": config.CONF_MEDIUM, "conf_weights": config.CONF_WEIGHTS,
         },
+        "tuning": tuning_summary(),
         "site_url": config.SITE_URL,
     }
     store.save(out / "meta.json", meta)
@@ -396,9 +417,27 @@ def write_site(now, season, slate, cards, ratings, team_recs, trends, fbs, picks
     store.save(out / "trends.json", {"generated_at": iso(now), "labels": ats.LABELS, "teams": trend_rows}, compact=True)
 
 
+def tuning_summary():
+    doc = tuning.load()
+    if not doc:
+        return {"enabled": config.TUNING, "status": "not yet tuned", "min_games": config.MIN_TUNE_GAMES}
+    hist = doc.get("history") or []
+    return {
+        "enabled": config.TUNING, "min_games": config.MIN_TUNE_GAMES, "updated": doc.get("updated"),
+        "games": doc.get("games"), "weights": doc.get("weights"), "home_field": doc.get("home_field"),
+        "last": hist[-1] if hist else None,
+        "history": [{"at": h["at"], "games": h["games"], "status": h["status"], "weights": h["after"]["weights"],
+                     "home_field": h["after"]["home_field"], "rmse_before": h.get("rmse_before"),
+                     "rmse_after": h.get("rmse_after")} for h in hist[-20:]],
+    }
+
+
+LOG_DROP = ("diffs", "confidence_detail", "weights", "home_field", "hfa_flag")
+
+
 def write_record(now, season, picks):
     log_rows = sorted(
-        (p for p in picks.values() if p["season"] == season),
+        ({k: v for k, v in p.items() if k not in LOG_DROP} for p in picks.values() if p["season"] == season),
         key=lambda p: p.get("start") or "", reverse=True,
     )
     store.save(
@@ -425,7 +464,18 @@ def grade_only(client, now=None, log=print):
     season = season_for(now)
     write_record(now, season, picks)
     log(f"Graded {graded} picks ({client.calls} CFBD calls)")
-    return graded, compute_record(picks, season)
+    tuned = tuning.tune(picks, season, now=now, log=log) if config.TUNING else None
+    _refresh_meta_tuning()
+    return graded, compute_record(picks, season), tuned
+
+
+def _refresh_meta_tuning():
+    """Update the tuning block in meta.json without a full refresh."""
+    path = config.SITE_DATA_DIR / "meta.json"
+    meta = store.load(path, None)
+    if meta is not None:
+        meta["tuning"] = tuning_summary()
+        store.save(path, meta)
 
 
 def last_week_summary(picks, season):

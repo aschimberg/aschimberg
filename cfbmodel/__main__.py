@@ -38,11 +38,11 @@ def main(argv=None):
     if args.cmd == "refresh":
         pipeline.refresh(client)
     elif args.cmd == "grade":
-        pipeline.grade_only(client)
+        _, _, tuned = pipeline.grade_only(client)
         if not args.no_recap:
             picks = store.load(pipeline.PICKS_PATH, {"picks": {}})["picks"]
             last_week, rec = pipeline.last_week_summary(picks, pipeline.season_for(pipeline.utcnow()))
-            briefing.run_recap(rec, last_week)
+            briefing.run_recap(rec, last_week, tuned)
     elif args.cmd == "history":
         season = args.season or pipeline.season_for(pipeline.utcnow())
         seasons = range(season - config.TREND_SEASONS, season)

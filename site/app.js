@@ -173,6 +173,7 @@
     if (p.ats_team) {
       sel = `<strong>${esc(teamLine(p.ats_team, p.ats_line))}${res(r.ats, { W: "Cover", L: "Miss", P: "Push" })}</strong>
         <span><span class="tier ${p.tier}">${p.tier === "pass" ? "No edge" : p.tier}</span> ${num(p.edge)}</span>
+        ${p.confidence != null ? `<span><span class="conf ${esc((p.conf_label || "").toLowerCase())}" title="Confidence ${p.confidence}/100">${esc(p.conf_label)} ${p.confidence}</span></span>` : ""}
         <span class="dim">SU ${esc(p.su_team)} ${Math.round(wp * 100)}%${res(r.su, { W: "W", L: "L" })}</span>`;
     } else if (p.su_team) {
       sel = `<span class="dim">No line</span><strong>SU ${esc(p.su_team)} ${Math.round(wp * 100)}%${res(r.su, { W: "W", L: "L" })}</strong>`;
@@ -186,6 +187,8 @@
         <div><h4>${esc(g.home.name)}</h4>${(g.trends.home || []).map(trendRow).join("") || '<p class="small-note">No ATS history</p>'}</div>
       </div></details>`;
 
+    const confHtml = confidenceSection(g);
+
     return `<article class="game-card">
       <div class="game-meta">
         <div><span class="kickoff">${g.start_tbd ? "TBD" : esc(fmtTime(d))}</span>${(g.tv || []).length ? `<span class="network">${esc(g.tv.join(" / "))}</span>` : ""}${tags.join("")}</div>
@@ -194,15 +197,47 @@
       <div class="teams">${teamRow("away")}${teamRow("home")}</div>
       ${market}
       <div class="pick-panel"><span class="pick-label">Model picks</span><div class="pick-sel">${sel}</div></div>
+      ${confHtml}
       ${trends}
       ${splitsSection(g)}
     </article>`;
+  }
+
+  const SRC_NAMES = { sp: "SP+", fpi: "FPI", elo: "Elo" };
+  const CONF_ROWS = [
+    ["agreement", "Source agreement", "Share of SP+/FPI/Elo (by weight) that cover the line on their own"],
+    ["consistency", "Source consistency", "How tightly the three sources' margins cluster"],
+    ["edge", "Edge size", "Blended edge relative to the strong-edge threshold"],
+    ["market", "Market", "Line moving toward the pick and sharp-money flags"],
+    ["trends", "ATS trends", "Notable situational trends for the pick vs against it"],
+    ["data", "Data quality", "Current-season SP+, FPI and Elo for both teams"],
+  ];
+
+  function confidenceSection(g) {
+    const c = g.confidence;
+    if (!c) return "";
+    const w = state.meta?.settings?.conf_weights || {};
+    const srcs = Object.entries(c.sources || {})
+      .map(([k, m]) => `<span>${SRC_NAMES[k]} ${esc(favLine(g, -m))}</span>`)
+      .join("");
+    const rows = CONF_ROWS.map(([k, label, tip]) => {
+      const v = c.components[k] ?? 0;
+      return `<div class="conf-row" title="${esc(tip)}"><span>${label}<em>${Math.round((w[k] ?? 0) * 100)}%</em></span>
+        <div class="bar money"><span style="width:${Math.round(v * 100)}%"></span><em>${Math.round(v * 100)}</em></div></div>`;
+    }).join("");
+    return `<details class="section"><summary>Confidence <span class="conf ${esc(c.label.toLowerCase())}">${esc(c.label)} ${c.score}</span></summary>
+      <div class="section-body">
+        <p class="small-note">${c.agree}/${c.n_sources} sources cover on their own · source lines: </p>
+        <div class="src-lines">${srcs}</div>
+        ${rows}
+      </div></details>`;
   }
 
   const FILTERS = [
     { key: "all", label: "All games", test: () => true },
     { key: "top25", label: "Top 25", test: (g) => g.home.poll_rank || g.away.poll_rank },
     { key: "edges", label: "Edges", test: (g) => g.pick?.edge >= (state.meta?.settings?.lean_edge ?? 2) },
+    { key: "highconf", label: "High confidence", test: (g) => g.pick?.conf_label === "High" },
     { key: "flags", label: "Split flags", test: (g) => g.splits?.flags?.length },
   ];
 
@@ -249,7 +284,7 @@
     }
     const byStatus = (a, b) => STATUS_ORDER[status(a)] - STATUS_ORDER[status(b)];
     if (sort !== "time") {
-      const key = sort === "edge" ? (g) => g.pick?.edge ?? -1 : (g) => Math.abs(g.line?.move ?? 0);
+      const key = sort === "edge" ? (g) => g.pick?.edge ?? -1 : sort === "conf" ? (g) => g.pick?.confidence ?? -1 : (g) => Math.abs(g.line?.move ?? 0);
       games.sort((a, b) => byStatus(a, b) || key(b) - key(a));
       $("#games-list").innerHTML = `<div class="game-grid">${games.map(gameCard).join("")}</div>`;
       return;
@@ -311,6 +346,11 @@
       tile(`ATS · edge ${s.play_edge ?? 4}+`, sr.ats_play) +
       tile(`ATS · edge ${s.strong_edge ?? 7}+`, sr.ats_strong) +
       tile("ATS · all-time", rec.all_time.ats, true, " · all seasons");
+    const bc = sr.ats_by_conf;
+    if (bc) {
+      $("#record-tiles").innerHTML +=
+        tile("ATS · High confidence", bc.High) + tile("ATS · Medium confidence", bc.Medium) + tile("ATS · Low confidence", bc.Low);
+    }
 
     const wk = $("#record-weeks");
     wk._rerender = renderRecord;
@@ -337,6 +377,7 @@
     const rows = rec.picks.filter((p) => {
       if (q && !(p.home + " " + p.away).toLowerCase().includes(q)) return false;
       if (f === "plays" && !(p.edge >= play)) return false;
+      if (f === "high" && p.conf_label !== "High") return false;
       if (f === "graded" && !p.result) return false;
       if (f === "pending" && p.result) return false;
       return true;
@@ -353,6 +394,7 @@
         { key: "model_spread", label: "Model", num: true, render: (p) => esc(favLine({ home: { name: p.home }, away: { name: p.away } }, p.model_spread)) },
         { key: "ats_team", label: "ATS pick", render: (p) => (p.ats_team ? esc(teamLine(p.ats_team, p.ats_line)) : "—") },
         { key: "edge", label: "Edge", num: true, render: (p) => num(p.edge) },
+        { key: "confidence", label: "Conf", num: true, render: (p) => (p.confidence == null ? "—" : `<span class="conf ${esc((p.conf_label || "").toLowerCase())}">${p.confidence}</span>`) },
         { key: "score", label: "Final", num: true, sortVal: (p) => (p.result ? 1 : 0), render: (p) => (p.result ? `${p.result.away_pts}–${p.result.home_pts}` : "—") },
         { key: "ats", label: "ATS", sortVal: (p) => p.result?.ats, render: (p) => res(p.result?.ats) },
         { key: "su", label: "SU", sortVal: (p) => p.result?.su, render: (p) => `${esc(p.su_team)} ${res(p.result?.su)}` },
@@ -414,11 +456,32 @@
       <p>Projected margin = home rating − away rating + ${s.home_field} points of home field (none at neutral sites). The total comes from SP+ offense and defense; the projected score splits it by the margin. Win probability assumes a normal margin distribution (σ = ${s.margin_sd}).</p>
       <h3>Picks</h3>
       <p>Every game with a line gets an against-the-spread side. The edge is the model's expected cover margin against the current line. Tiers: lean ${s.lean_edge}+, play ${s.play_edge}+, strong ${s.strong_edge}+. Picks re-price with each refresh until kickoff, lock at the last pre-kickoff line, and are graded straight up and ATS.</p>
+      <h3>Confidence</h3>
+      <p>A 0–100 score, separate from the edge, for how much to trust the side. It weighs ${confMix(s)}. A small edge can still be <strong>High</strong> (${s.conf_high}+) when SP+, FPI and Elo each cover on their own, the line is moving the pick's way and trends agree; <strong>Medium</strong> is ${s.conf_medium}–${s.conf_high - 1}. Game-day briefings include High-confidence sides even below the edge threshold. The Record tab tracks ATS results by confidence level so the score can be checked.</p>
+      <h3>Weekly tuning</h3>
+      ${tuningHtml(m.tuning)}
       <h3>ATS trends</h3>
       <p>Lines and results from ${m.trend_seasons[0]}–${m.trend_seasons[1]} (median closing spread across books): overall, favorite/underdog, home/away/neutral and combinations, conference play, off a bye (${s.bye_days}+ days) and last 10. Cards show the splits that apply to that game; splits with ${s.trend_min_games}+ decisions at 60%+ or 40%− are highlighted.</p>
       <h3>Bet splits</h3>
       <p>Bet % is the share of tickets; money % is the share of handle. <strong>Sharp $</strong>: money % exceeds bet % by ${s.sharp_gap}+ points on a side. <strong>Public</strong>: ${s.public_bets}%+ of tickets. <strong>Reverse line move</strong>: the line moved 1+ point away from the side holding most tickets. ${splitsLine}</p>
       <p>For entertainment and research only. Not betting advice.</p>`;
+  }
+
+  function confMix(s) {
+    const names = { agreement: "source agreement", consistency: "source consistency", edge: "edge size", market: "market movement and sharp flags", trends: "ATS trends", data: "data quality" };
+    return Object.entries(s.conf_weights || {}).map(([k, v]) => `${names[k]} ${Math.round(v * 100)}%`).join(", ");
+  }
+
+  function tuningHtml(t) {
+    const pct = (w) => (w ? `${Math.round(w.sp * 100)}/${Math.round(w.fpi * 100)}/${Math.round(w.elo * 100)}` : "—");
+    let html = `<p>Every pick stores what SP+, FPI and Elo each projected. After Sunday grading, the model refits the SP+/FPI/Elo weights and home-field points that best predict this season's actual margins, then moves part of the way there (more as games accumulate) so one noisy week can't swing it. Tuning starts after ${t?.min_games ?? 40} graded games.${t && t.enabled === false ? " <strong>Tuning is currently turned off.</strong>" : ""}</p>`;
+    if (!t || !t.history || !t.history.length) return html + `<p>Status: not tuned yet — running on default weights.</p>`;
+    const last = t.last || {};
+    if (last.by_source) {
+      html += `<p>Last fit on ${last.games} games: ${Object.entries(last.by_source).map(([k, v]) => `${SRC_NAMES[k]} alone ${v.rmse} RMSE${v.ats != null ? ", " + Math.round(v.ats * 100) + "% ATS" : ""}`).join(" · ")}.</p>`;
+    }
+    const rows = [...t.history].reverse().map((h) => `<tr><td>${esc(new Date(h.at).toLocaleDateString(undefined, { month: "short", day: "numeric" }))}</td><td class="n">${h.games}</td><td>${h.status === "updated" ? "Updated" : "Waiting for games"}</td><td class="n">${pct(h.weights)}</td><td class="n">${h.home_field}</td><td class="n">${h.rmse_before ?? "—"} → ${h.rmse_after ?? "—"}</td></tr>`).join("");
+    return html + `<div class="table-wrap weights-table"><table class="data"><thead><tr><th>Date</th><th class="n">Games</th><th>Status</th><th class="n">SP+/FPI/Elo %</th><th class="n">HFA</th><th class="n">RMSE</th></tr></thead><tbody>${rows}</tbody></table></div>`;
   }
 
   function fillConfSelect(sel, confs) {

@@ -75,6 +75,9 @@ def _blend_one_season(sp_raw, fpi_raw, elo_raw, fbs):
             "off": off.get(team),
             "def": de.get(team),
             "sources": sorted(parts),
+            # Each source on the shared points scale; used for per-source
+            # margins (confidence agreement + weekly weight tuning).
+            "parts": {k: round(v, 2) for k, v in parts.items()},
             "fbs": team in teams if fbs else True,
         }
     lg_off = mean([off[t] for t in teams if t in off]) if off else None
@@ -98,6 +101,8 @@ def blend(current, prior=None, fbs=None):
                 continue
             r = dict(r)
             r["rating"] = center + (r["rating"] - center) * config.PRIOR_SEASON_REGRESSION
+            r["parts"] = {k: round(center + (v - center) * config.PRIOR_SEASON_REGRESSION, 2)
+                          for k, v in r.get("parts", {}).items()}
             r["sources"] = ["prior"]
             cur[team] = r
     ranked = sorted((r for r in cur.values() if r.get("fbs", True)), key=lambda r: -r["rating"])
