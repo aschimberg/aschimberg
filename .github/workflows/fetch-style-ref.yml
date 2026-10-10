@@ -1,0 +1,34 @@
+name: Fetch style reference (temporary)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch page and stylesheets
+        run: |
+          set +e
+          UA="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126 Safari/537.36"
+          for u in https://davidsasser.com/cfb https://www.davidsasser.com/cfb https://davidsasser.com/cfb/; do
+            echo "=== $u"
+            curl -sSL -A "$UA" -m 30 -o page.html -w "HTTP %{http_code} final=%{url_effective}\n" "$u" && [ -s page.html ] && break
+          done
+          echo "=== HTML (first 400 lines)"
+          head -c 60000 page.html | head -400
+          echo "=== STYLESHEETS"
+          base=$(curl -sSL -A "$UA" -m 30 -o /dev/null -w "%{url_effective}" https://davidsasser.com/cfb)
+          grep -oE '<link[^>]+stylesheet[^>]*>' page.html | grep -oE 'href="[^"]+"' | cut -d'"' -f2 | while read -r href; do
+            case "$href" in http*) url="$href";; /*) url="https://davidsasser.com$href";; *) url="${base%/*}/$href";; esac
+            echo "--- $url"
+            curl -sSL -A "$UA" -m 30 "$url" | head -c 40000
+            echo
+          done
+          echo "=== SCRIPTS"
+          grep -oE '<script[^>]+src="[^"]+"' page.html
+          echo "=== DATA FILES REFERENCED"
+          grep -oE '"[^"]+\.json"' page.html | sort -u
