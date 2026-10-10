@@ -1,0 +1,34 @@
+{
+ "generated_at": "2026-10-10T16:23:54Z",
+ "poll": "AP Top 25",
+ "season": 2026,
+ "season_type": "regular",
+ "settings": {
+  "bye_days": 13,
+  "home_field": 2.5,
+  "lean_edge": 2.0,
+  "margin_sd": 15.5,
+  "play_edge": 4.0,
+  "prior_regression": 0.65,
+  "public_bets": 65.0,
+  "sharp_gap": 10.0,
+  "strong_edge": 7.0,
+  "trend_min_games": 8,
+  "weights": {
+   "elo": 0.25,
+   "fpi": 0.35,
+   "sp": 0.4
+  }
+ },
+ "site_url": "https://aschimberg.github.io/aschimberg/",
+ "slate_label": "Week 6",
+ "splits": {
+  "provider": "none",
+  "source": null
+ },
+ "trend_seasons": [
+  2020,
+  2026
+ ],
+ "week": 6
+}
