@@ -137,7 +137,15 @@ class FakeCFBD:
 
     def fbs_teams(self, year):
         self._tick()
-        return [{"school": t, "conference": self.conf_of[t]} for t in self.teams]
+        return [{"school": t, "conference": self.conf_of[t], "logos": None} for t in self.teams]
+
+    def rankings(self, year, week=None, season_type=None):
+        self._tick()
+        top = sorted(self.teams, key=lambda t: -self.strength[t])[:12]
+        return [{"season": year, "seasonType": "regular", "week": w, "polls": [
+            {"poll": "Coaches Poll", "ranks": []},
+            {"poll": "AP Top 25", "ranks": [{"rank": i + 1, "school": t} for i, t in enumerate(top)]}]}
+            for w in (1, self.completed_weeks + 1)]
 
     def media(self, year, week=None, season_type="regular"):
         self._tick()

@@ -101,3 +101,6 @@ class CFBDClient:
 
     def media(self, year, week=None, season_type="regular"):
         return self.get("/games/media", year=year, week=week, seasonType=season_type)
+
+    def rankings(self, year, week=None, season_type=None):
+        return self.get("/rankings", year=year, week=week, seasonType=season_type)

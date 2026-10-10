@@ -208,7 +208,14 @@ def refresh(client, now=None, splits_provider=None, log=print):
         raise RuntimeError(f"No CFBD calendar for {season}")
     log(f"Season {season}, slate: {slate['season_type']} week {slate['week']}")
 
-    fbs = {g(t, "school") for t in client.fbs_teams(season) or []}
+    fbs_raw = client.fbs_teams(season) or []
+    fbs = {g(t, "school") for t in fbs_raw}
+    logos = {g(t, "school"): (g(t, "logos") or [None])[0] for t in fbs_raw}
+    try:
+        poll = latest_poll(client.rankings(season))
+    except Exception as e:  # rankings are cosmetic
+        log(f"rankings lookup skipped: {e}")
+        poll = {"name": None, "ranks": {}}
     cur_games = [normalize_game(r) for r in client.games(season, "both")]
     raw_lines = client.lines(season, "regular")
     if slate["season_type"] != "regular":
@@ -307,6 +314,7 @@ def refresh(client, now=None, splits_provider=None, log=print):
             tr = team_recs.get(t)
             return {
                 "name": t, "conf": gm[f"{side}_conf"], "rank": r.get("rank"), "rating": r.get("rating"),
+                "poll_rank": poll["ranks"].get(t), "logo": logos.get(t),
                 "record": f"{tr['w']}-{tr['l']}" if tr else "0-0",
                 "rest_days": rest.get((t, gm["id"])),
             }
@@ -329,16 +337,34 @@ def refresh(client, now=None, splits_provider=None, log=print):
     write_site(
         now=now, season=season, slate=slate, cards=cards, ratings=ratings, team_recs=team_recs,
         trends=trends, fbs=fbs, picks=picks, provider=provider, hist_seasons=hist_seasons,
+        poll=poll, logos=logos,
     )
     return {"season": season, "slate": slate, "cards": cards, "graded": graded}
 
 
-def write_site(now, season, slate, cards, ratings, team_recs, trends, fbs, picks, provider, hist_seasons):
+def latest_poll(raw):
+    """Most recent poll ranks: {"name": "AP Top 25", "ranks": {team: rank}}."""
+    entries = sorted(raw or [], key=lambda e: (g(e, "seasonType") != "regular", g(e, "week") or 0))
+    if not entries:
+        return {"name": None, "ranks": {}}
+    polls = {g(p, "poll"): p for p in g(entries[-1], "polls") or []}
+    for name in ("AP Top 25", "Playoff Committee Rankings", "Coaches Poll"):
+        if name in polls:
+            ranks = {g(r, "school"): g(r, "rank") for r in g(polls[name], "ranks") or []}
+            return {"name": name, "ranks": ranks}
+    return {"name": None, "ranks": {}}
+
+
+def write_site(now, season, slate, cards, ratings, team_recs, trends, fbs, picks, provider, hist_seasons,
+               poll=None, logos=None):
+    poll = poll or {"name": None, "ranks": {}}
+    logos = logos or {}
     out = config.SITE_DATA_DIR
     label = f"Week {slate['week']}" if slate["season_type"] == "regular" else "Bowls & Playoff"
     meta = {
         "generated_at": iso(now), "season": season, "week": slate["week"], "season_type": slate["season_type"],
         "slate_label": label,
+        "poll": poll["name"],
         "splits": {"provider": provider.name, "source": provider.source_label},
         "trend_seasons": [hist_seasons[0] if hist_seasons else season, season],
         "settings": {
@@ -357,7 +383,8 @@ def write_site(now, season, slate, cards, ratings, team_recs, trends, fbs, picks
     for r in sorted((r for r in ratings.values() if r["team"] in fbs), key=lambda r: r.get("rank") or 999):
         tr = team_recs.get(r["team"], {"w": 0, "l": 0, "cw": 0, "cl": 0})
         rows.append({**{k: r.get(k) for k in ("team", "conference", "rank", "rating", "sp", "fpi", "elo", "off", "def", "sources")},
-                     "record": f"{tr['w']}-{tr['l']}", "conf_record": f"{tr['cw']}-{tr['cl']}"})
+                     "record": f"{tr['w']}-{tr['l']}", "conf_record": f"{tr['cw']}-{tr['cl']}",
+                     "poll_rank": poll["ranks"].get(r["team"]), "logo": logos.get(r["team"])})
     store.save(out / "ratings.json", {"generated_at": iso(now), "teams": rows}, compact=True)
 
     write_record(now, season, picks)

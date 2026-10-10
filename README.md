@@ -2,6 +2,7 @@
 
 A static college football model site on GitHub Pages, driven by
 [CollegeFootballData.com](https://collegefootballdata.com) and GitHub Actions.
+The visual design follows [davidsasser.com/cfb](https://davidsasser.com/cfb): warm paper background, square ruled cards, a deep-green accent, and Geist / Geist Mono type.
 
 - **Power ratings**: SP+, ESPN FPI and CFBD Elo are rescaled onto the SP+ points scale and blended (40/35/25 by default).
 - **Projections**: margin = rating diff + home field (2.5, 0 at neutral sites). Totals come from SP+ offense/defense. Output is a projected score, model spread and win probability.

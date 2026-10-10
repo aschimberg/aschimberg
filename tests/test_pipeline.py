@@ -150,6 +150,10 @@ class PipelineTests(unittest.TestCase):
             self.assertIsNotNone(card["pick"]["ats_team"])
             self.assertTrue(card["trends"]["home"])
             self.assertEqual(card["line"]["book"], "DraftKings")
+            self.assertEqual(meta["poll"], "AP Top 25")
+            ranked = [c for c in slate for side in ("home", "away") if c[side]["poll_rank"]]
+            self.assertTrue(ranked)
+            self.assertIn("logo", card["home"])
             picks = store.load(d.root / "data" / "picks.json", {})["picks"]
             self.assertEqual(len(picks), len([c for c in slate if not c["locked"]]))
             # History cached so a second refresh makes no history calls.
