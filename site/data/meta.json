@@ -1,10 +1,20 @@
 {
- "generated_at": "2026-10-10T16:57:46Z",
+ "generated_at": "2026-10-10T18:15:57Z",
  "poll": "AP Top 25",
  "season": 2026,
  "season_type": "regular",
  "settings": {
   "bye_days": 13,
+  "conf_high": 70.0,
+  "conf_medium": 55.0,
+  "conf_weights": {
+   "agreement": 0.25,
+   "consistency": 0.1,
+   "data": 0.1,
+   "edge": 0.25,
+   "market": 0.15,
+   "trends": 0.15
+  },
   "home_field": 2.5,
   "lean_edge": 2.0,
   "margin_sd": 15.5,
@@ -30,5 +40,10 @@
   2020,
   2026
  ],
+ "tuning": {
+  "enabled": true,
+  "min_games": 40,
+  "status": "not yet tuned"
+ },
  "week": 6
 }

@@ -6,8 +6,36 @@
    "ats_team": "Georgia",
    "away": "Georgia",
    "book": "DraftKings",
+   "conf_label": "Medium",
+   "confidence": 57,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.754,
+     "data": 1.0,
+     "edge": 0.586,
+     "market": 0.0,
+     "trends": 0.0
+    },
+    "label": "Medium",
+    "n_sources": 3,
+    "score": 57,
+    "sources": {
+     "elo": -0.8,
+     "fpi": 1.2,
+     "sp": -4.7
+    }
+   },
+   "diffs": {
+    "elo": -3.32,
+    "fpi": -1.26,
+    "sp": -7.2
+   },
    "edge": 4.1,
+   "hfa_flag": 1,
    "home": "Alabama",
+   "home_field": 2.5,
    "id": 401856712,
    "line": -2.5,
    "model_spread": 1.6,
@@ -23,8 +51,13 @@
    "su_wp": 0.542,
    "tier": "play",
    "total_line": 51.5,
-   "updated": "2026-10-10T16:57:46Z",
-   "week": 6
+   "updated": "2026-10-10T18:15:57Z",
+   "week": 6,
+   "weights": {
+    "elo": 0.25,
+    "fpi": 0.35,
+    "sp": 0.4
+   }
   },
   "401856713": {
    "ats_line": -13.5,
@@ -32,8 +65,36 @@
    "ats_team": "Tennessee",
    "away": "Tennessee",
    "book": "DraftKings",
+   "conf_label": "High",
+   "confidence": 70,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.938,
+     "data": 1.0,
+     "edge": 0.286,
+     "market": 0.5,
+     "trends": 0.75
+    },
+    "label": "High",
+    "n_sources": 3,
+    "score": 70,
+    "sources": {
+     "elo": -14.6,
+     "fpi": -16.1,
+     "sp": -15.5
+    }
+   },
+   "diffs": {
+    "elo": -17.08,
+    "fpi": -18.59,
+    "sp": -18.0
+   },
    "edge": 2.0,
+   "hfa_flag": 1,
    "home": "Arkansas",
+   "home_field": 2.5,
    "id": 401856713,
    "line": 13.5,
    "model_spread": 15.5,
@@ -49,8 +110,13 @@
    "su_wp": 0.841,
    "tier": "lean",
    "total_line": 51.5,
-   "updated": "2026-10-10T16:57:46Z",
-   "week": 6
+   "updated": "2026-10-10T18:15:57Z",
+   "week": 6,
+   "weights": {
+    "elo": 0.25,
+    "fpi": 0.35,
+    "sp": 0.4
+   }
   },
   "401856714": {
    "ats_line": 10.5,
@@ -84,8 +150,36 @@
    "ats_team": "LSU",
    "away": "LSU",
    "book": "DraftKings",
+   "conf_label": "Low",
+   "confidence": 48,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 0.75,
+     "consistency": 0.847,
+     "data": 1.0,
+     "edge": 0.0,
+     "market": 0.25,
+     "trends": 0.5
+    },
+    "label": "Low",
+    "n_sources": 3,
+    "score": 48,
+    "sources": {
+     "elo": -7.1,
+     "fpi": -9.6,
+     "sp": -10.8
+    }
+   },
+   "diffs": {
+    "elo": -9.63,
+    "fpi": -12.13,
+    "sp": -13.3
+   },
    "edge": 0.0,
+   "hfa_flag": 1,
    "home": "Kentucky",
+   "home_field": 2.5,
    "id": 401856715,
    "line": 9.5,
    "model_spread": 9.5,
@@ -101,8 +195,13 @@
    "su_wp": 0.729,
    "tier": "pass",
    "total_line": 50.5,
-   "updated": "2026-10-10T16:57:46Z",
-   "week": 6
+   "updated": "2026-10-10T18:15:57Z",
+   "week": 6,
+   "weights": {
+    "elo": 0.25,
+    "fpi": 0.35,
+    "sp": 0.4
+   }
   },
   "401856717": {
    "ats_line": -7.5,
@@ -110,8 +209,36 @@
    "ats_team": "Texas",
    "away": "Texas",
    "book": "DraftKings",
+   "conf_label": "High",
+   "confidence": 78,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.78,
+     "data": 1.0,
+     "edge": 0.6,
+     "market": 0.875,
+     "trends": 0.5
+    },
+    "label": "High",
+    "n_sources": 3,
+    "score": 78,
+    "sources": {
+     "elo": -10.8,
+     "fpi": -14.8,
+     "sp": -9.6
+    }
+   },
+   "diffs": {
+    "elo": -10.82,
+    "fpi": -14.76,
+    "sp": -9.6
+   },
    "edge": 4.2,
+   "hfa_flag": 0,
    "home": "Oklahoma",
+   "home_field": 2.5,
    "id": 401856717,
    "line": 7.5,
    "model_spread": 11.7,
@@ -127,8 +254,13 @@
    "su_wp": 0.775,
    "tier": "play",
    "total_line": 41.5,
-   "updated": "2026-10-10T16:57:46Z",
-   "week": 6
+   "updated": "2026-10-10T18:15:57Z",
+   "week": 6,
+   "weights": {
+    "elo": 0.25,
+    "fpi": 0.35,
+    "sp": 0.4
+   }
   },
   "401856718": {
    "ats_line": 9.5,
@@ -136,8 +268,36 @@
    "ats_team": "Vanderbilt",
    "away": "Ole Miss",
    "book": "DraftKings",
+   "conf_label": "High",
+   "confidence": 77,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.768,
+     "data": 1.0,
+     "edge": 0.929,
+     "market": 0.625,
+     "trends": 0.125
+    },
+    "label": "High",
+    "n_sources": 3,
+    "score": 77,
+    "sources": {
+     "elo": -1.5,
+     "fpi": -6.2,
+     "sp": -1.1
+    }
+   },
+   "diffs": {
+    "elo": -4.02,
+    "fpi": -8.71,
+    "sp": -3.6
+   },
    "edge": 6.5,
+   "hfa_flag": 1,
    "home": "Vanderbilt",
+   "home_field": 2.5,
    "id": 401856718,
    "line": 9.5,
    "model_spread": 3.0,
@@ -153,8 +313,13 @@
    "su_wp": 0.577,
    "tier": "play",
    "total_line": 54.5,
-   "updated": "2026-10-10T16:57:46Z",
-   "week": 6
+   "updated": "2026-10-10T18:15:57Z",
+   "week": 6,
+   "weights": {
+    "elo": 0.25,
+    "fpi": 0.35,
+    "sp": 0.4
+   }
   },
   "401856808": {
    "ats_line": 21.0,
@@ -162,8 +327,36 @@
    "ats_team": "Hawai'i",
    "away": "Hawai'i",
    "book": "DraftKings",
+   "conf_label": "High",
+   "confidence": 74,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.482,
+     "data": 1.0,
+     "edge": 1.0,
+     "market": 0.375,
+     "trends": 0.25
+    },
+    "label": "High",
+    "n_sources": 3,
+    "score": 74,
+    "sources": {
+     "elo": 5.5,
+     "fpi": 14.7,
+     "sp": 17.7
+    }
+   },
+   "diffs": {
+    "elo": 3.04,
+    "fpi": 12.23,
+    "sp": 15.2
+   },
    "edge": 7.4,
+   "hfa_flag": 1,
    "home": "Arizona State",
+   "home_field": 2.5,
    "id": 401856808,
    "line": -21.0,
    "model_spread": -13.6,
@@ -179,8 +372,13 @@
    "su_wp": 0.81,
    "tier": "strong",
    "total_line": 50.5,
-   "updated": "2026-10-10T16:57:46Z",
-   "week": 6
+   "updated": "2026-10-10T18:15:57Z",
+   "week": 6,
+   "weights": {
+    "elo": 0.25,
+    "fpi": 0.35,
+    "sp": 0.4
+   }
   },
   "401856825": {
    "ats_line": -2.5,
@@ -188,8 +386,36 @@
    "ats_team": "Kansas State",
    "away": "Houston",
    "book": "DraftKings",
+   "conf_label": "Low",
+   "confidence": 53,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 0.65,
+     "consistency": 0.568,
+     "data": 1.0,
+     "edge": 0.186,
+     "market": 0.5,
+     "trends": 0.625
+    },
+    "label": "Low",
+    "n_sources": 3,
+    "score": 53,
+    "sources": {
+     "elo": 9.5,
+     "fpi": -1.0,
+     "sp": 4.4
+    }
+   },
+   "diffs": {
+    "elo": 7.02,
+    "fpi": -3.55,
+    "sp": 1.9
+   },
    "edge": 1.3,
+   "hfa_flag": 1,
    "home": "Kansas State",
+   "home_field": 2.5,
    "id": 401856825,
    "line": -2.5,
    "model_spread": -3.8,
@@ -204,9 +430,14 @@
    "su_team": "Kansas State",
    "su_wp": 0.596,
    "tier": "pass",
-   "total_line": 55.5,
-   "updated": "2026-10-10T16:57:46Z",
-   "week": 6
+   "total_line": 54.5,
+   "updated": "2026-10-10T18:15:57Z",
+   "week": 6,
+   "weights": {
+    "elo": 0.25,
+    "fpi": 0.35,
+    "sp": 0.4
+   }
   },
   "401856827": {
    "ats_line": -15.5,
@@ -214,8 +445,36 @@
    "ats_team": "Utah",
    "away": "Kansas",
    "book": "DraftKings",
+   "conf_label": "High",
+   "confidence": 79,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.71,
+     "data": 1.0,
+     "edge": 0.557,
+     "market": 0.5,
+     "trends": 1.0
+    },
+    "label": "High",
+    "n_sources": 3,
+    "score": 79,
+    "sources": {
+     "elo": 18.4,
+     "fpi": 16.0,
+     "sp": 23.0
+    }
+   },
+   "diffs": {
+    "elo": 15.94,
+    "fpi": 13.5,
+    "sp": 20.5
+   },
    "edge": 3.9,
+   "hfa_flag": 1,
    "home": "Utah",
+   "home_field": 2.5,
    "id": 401856827,
    "line": -15.5,
    "model_spread": -19.4,
@@ -231,8 +490,13 @@
    "su_wp": 0.895,
    "tier": "lean",
    "total_line": 49.5,
-   "updated": "2026-10-10T16:57:46Z",
-   "week": 6
+   "updated": "2026-10-10T18:15:57Z",
+   "week": 6,
+   "weights": {
+    "elo": 0.25,
+    "fpi": 0.35,
+    "sp": 0.4
+   }
   },
   "401858255": {
    "ats_line": -4.5,
@@ -240,8 +504,36 @@
    "ats_team": "Duke",
    "away": "Duke",
    "book": "DraftKings",
+   "conf_label": "Medium",
+   "confidence": 63,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.954,
+     "data": 1.0,
+     "edge": 0.457,
+     "market": 0.0,
+     "trends": 0.5
+    },
+    "label": "Medium",
+    "n_sources": 3,
+    "score": 63,
+    "sources": {
+     "elo": -7.0,
+     "fpi": -8.1,
+     "sp": -7.8
+    }
+   },
+   "diffs": {
+    "elo": -9.47,
+    "fpi": -10.55,
+    "sp": -10.3
+   },
    "edge": 3.2,
+   "hfa_flag": 1,
    "home": "Georgia Tech",
+   "home_field": 2.5,
    "id": 401858255,
    "line": 4.5,
    "model_spread": 7.7,
@@ -257,19 +549,52 @@
    "su_wp": 0.69,
    "tier": "lean",
    "total_line": 45.5,
-   "updated": "2026-10-10T16:57:46Z",
-   "week": 6
+   "updated": "2026-10-10T18:15:57Z",
+   "week": 6,
+   "weights": {
+    "elo": 0.25,
+    "fpi": 0.35,
+    "sp": 0.4
+   }
   },
   "401858257": {
-   "ats_line": -40.5,
+   "ats_line": -39.5,
    "ats_side": "home",
    "ats_team": "Notre Dame",
    "away": "Stanford",
    "book": "DraftKings",
-   "edge": 2.4,
+   "conf_label": "Medium",
+   "confidence": 69,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 0.6,
+     "consistency": 0.575,
+     "data": 1.0,
+     "edge": 0.486,
+     "market": 0.75,
+     "trends": 1.0
+    },
+    "label": "Medium",
+    "n_sources": 3,
+    "score": 69,
+    "sources": {
+     "elo": 49.3,
+     "fpi": 42.7,
+     "sp": 39.0
+    }
+   },
+   "diffs": {
+    "elo": 46.77,
+    "fpi": 40.22,
+    "sp": 36.5
+   },
+   "edge": 3.4,
+   "hfa_flag": 1,
    "home": "Notre Dame",
+   "home_field": 2.5,
    "id": 401858257,
-   "line": -40.5,
+   "line": -39.5,
    "model_spread": -42.9,
    "model_total": 52.6,
    "neutral": false,
@@ -283,19 +608,52 @@
    "su_wp": 0.997,
    "tier": "lean",
    "total_line": 55.5,
-   "updated": "2026-10-10T16:57:46Z",
-   "week": 6
+   "updated": "2026-10-10T18:15:57Z",
+   "week": 6,
+   "weights": {
+    "elo": 0.25,
+    "fpi": 0.35,
+    "sp": 0.4
+   }
   },
   "401858258": {
-   "ats_line": -13.5,
+   "ats_line": -14.0,
    "ats_side": "home",
    "ats_team": "Virginia",
    "away": "Syracuse",
    "book": "DraftKings",
-   "edge": 1.8,
+   "conf_label": "Medium",
+   "confidence": 67,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 0.65,
+     "consistency": 0.597,
+     "data": 1.0,
+     "edge": 0.186,
+     "market": 1.0,
+     "trends": 1.0
+    },
+    "label": "Medium",
+    "n_sources": 3,
+    "score": 67,
+    "sources": {
+     "elo": 18.5,
+     "fpi": 9.8,
+     "sp": 18.1
+    }
+   },
+   "diffs": {
+    "elo": 16.04,
+    "fpi": 7.29,
+    "sp": 15.6
+   },
+   "edge": 1.3,
+   "hfa_flag": 1,
    "home": "Virginia",
+   "home_field": 2.5,
    "id": 401858258,
-   "line": -13.5,
+   "line": -14.0,
    "model_spread": -15.3,
    "model_total": 44.0,
    "neutral": false,
@@ -309,8 +667,13 @@
    "su_wp": 0.838,
    "tier": "pass",
    "total_line": 49.5,
-   "updated": "2026-10-10T16:57:46Z",
-   "week": 6
+   "updated": "2026-10-10T18:15:57Z",
+   "week": 6,
+   "weights": {
+    "elo": 0.25,
+    "fpi": 0.35,
+    "sp": 0.4
+   }
   },
   "401858259": {
    "ats_line": -10.0,
@@ -318,8 +681,36 @@
    "ats_team": "Virginia Tech",
    "away": "Virginia Tech",
    "book": "DraftKings",
+   "conf_label": "Low",
+   "confidence": 40,
+   "confidence_detail": {
+    "agree": 1,
+    "components": {
+     "agreement": 0.4,
+     "consistency": 0.736,
+     "data": 1.0,
+     "edge": 0.043,
+     "market": 0.625,
+     "trends": 0.125
+    },
+    "label": "Low",
+    "n_sources": 3,
+    "score": 40,
+    "sources": {
+     "elo": -6.5,
+     "fpi": -9.8,
+     "sp": -13.0
+    }
+   },
+   "diffs": {
+    "elo": -9.03,
+    "fpi": -12.31,
+    "sp": -15.5
+   },
    "edge": 0.3,
+   "hfa_flag": 1,
    "home": "California",
+   "home_field": 2.5,
    "id": 401858259,
    "line": 10.0,
    "model_spread": 10.3,
@@ -335,8 +726,13 @@
    "su_wp": 0.746,
    "tier": "pass",
    "total_line": 53.5,
-   "updated": "2026-10-10T16:57:46Z",
-   "week": 6
+   "updated": "2026-10-10T18:15:57Z",
+   "week": 6,
+   "weights": {
+    "elo": 0.25,
+    "fpi": 0.35,
+    "sp": 0.4
+   }
   },
   "401858480": {
    "ats_line": -2.5,
@@ -344,8 +740,36 @@
    "ats_team": "Illinois",
    "away": "Illinois",
    "book": "DraftKings",
+   "conf_label": "Low",
+   "confidence": 51,
+   "confidence_detail": {
+    "agree": 1,
+    "components": {
+     "agreement": 0.4,
+     "consistency": 0.799,
+     "data": 1.0,
+     "edge": 0.1,
+     "market": 0.5,
+     "trends": 0.875
+    },
+    "label": "Low",
+    "n_sources": 3,
+    "score": 51,
+    "sources": {
+     "elo": -2.4,
+     "fpi": -0.9,
+     "sp": -5.7
+    }
+   },
+   "diffs": {
+    "elo": -4.89,
+    "fpi": -3.39,
+    "sp": -8.2
+   },
    "edge": 0.7,
+   "hfa_flag": 1,
    "home": "Michigan State",
+   "home_field": 2.5,
    "id": 401858480,
    "line": 2.5,
    "model_spread": 3.2,
@@ -361,8 +785,13 @@
    "su_wp": 0.582,
    "tier": "pass",
    "total_line": 48.5,
-   "updated": "2026-10-10T16:57:46Z",
-   "week": 6
+   "updated": "2026-10-10T18:15:57Z",
+   "week": 6,
+   "weights": {
+    "elo": 0.25,
+    "fpi": 0.35,
+    "sp": 0.4
+   }
   },
   "401858482": {
    "ats_line": -34.5,
@@ -391,15 +820,43 @@
    "week": 6
   },
   "401858483": {
-   "ats_line": -33.5,
+   "ats_line": -31.5,
    "ats_side": "home",
    "ats_team": "Ohio State",
    "away": "Maryland",
    "book": "DraftKings",
-   "edge": 0.9,
+   "conf_label": "Low",
+   "confidence": 53,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 0.6,
+     "consistency": 0.313,
+     "data": 1.0,
+     "edge": 0.414,
+     "market": 0.0,
+     "trends": 1.0
+    },
+    "label": "Low",
+    "n_sources": 3,
+    "score": 53,
+    "sources": {
+     "elo": 44.2,
+     "fpi": 35.4,
+     "sp": 27.4
+    }
+   },
+   "diffs": {
+    "elo": 41.72,
+    "fpi": 32.87,
+    "sp": 24.9
+   },
+   "edge": 2.9,
+   "hfa_flag": 1,
    "home": "Ohio State",
+   "home_field": 2.5,
    "id": 401858483,
-   "line": -33.5,
+   "line": -31.5,
    "model_spread": -34.4,
    "model_total": 54.2,
    "neutral": false,
@@ -411,10 +868,15 @@
    "start": "2026-10-10T20:15:00.000Z",
    "su_team": "Ohio State",
    "su_wp": 0.987,
-   "tier": "pass",
+   "tier": "lean",
    "total_line": 56.5,
-   "updated": "2026-10-10T16:57:46Z",
-   "week": 6
+   "updated": "2026-10-10T18:15:57Z",
+   "week": 6,
+   "weights": {
+    "elo": 0.25,
+    "fpi": 0.35,
+    "sp": 0.4
+   }
   },
   "401858484": {
    "ats_line": -10.5,
@@ -422,8 +884,36 @@
    "ats_team": "Oregon",
    "away": "UCLA",
    "book": "DraftKings",
+   "conf_label": "Low",
+   "confidence": 42,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 0.6,
+     "consistency": 0.835,
+     "data": 1.0,
+     "edge": 0.257,
+     "market": 0.0,
+     "trends": 0.125
+    },
+    "label": "Low",
+    "n_sources": 3,
+    "score": 42,
+    "sources": {
+     "elo": 12.5,
+     "fpi": 14.3,
+     "sp": 10.3
+    }
+   },
+   "diffs": {
+    "elo": 10.0,
+    "fpi": 11.83,
+    "sp": 7.8
+   },
    "edge": 1.8,
+   "hfa_flag": 1,
    "home": "Oregon",
+   "home_field": 2.5,
    "id": 401858484,
    "line": -10.5,
    "model_spread": -12.3,
@@ -439,8 +929,13 @@
    "su_wp": 0.786,
    "tier": "pass",
    "total_line": 57.5,
-   "updated": "2026-10-10T16:57:46Z",
-   "week": 6
+   "updated": "2026-10-10T18:15:57Z",
+   "week": 6,
+   "weights": {
+    "elo": 0.25,
+    "fpi": 0.35,
+    "sp": 0.4
+   }
   },
   "401858485": {
    "ats_line": -1.5,
@@ -448,8 +943,36 @@
    "ats_team": "Penn State",
    "away": "USC",
    "book": "DraftKings",
+   "conf_label": "Medium",
+   "confidence": 68,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.874,
+     "data": 1.0,
+     "edge": 0.129,
+     "market": 0.5,
+     "trends": 0.875
+    },
+    "label": "Medium",
+    "n_sources": 3,
+    "score": 68,
+    "sources": {
+     "elo": 4.5,
+     "fpi": 2.0,
+     "sp": 1.6
+    }
+   },
+   "diffs": {
+    "elo": 1.96,
+    "fpi": -0.5,
+    "sp": -0.9
+   },
    "edge": 0.9,
+   "hfa_flag": 1,
    "home": "Penn State",
+   "home_field": 2.5,
    "id": 401858485,
    "line": -1.5,
    "model_spread": -2.4,
@@ -465,8 +988,13 @@
    "su_wp": 0.563,
    "tier": "pass",
    "total_line": 54.5,
-   "updated": "2026-10-10T16:57:46Z",
-   "week": 6
+   "updated": "2026-10-10T18:15:57Z",
+   "week": 6,
+   "weights": {
+    "elo": 0.25,
+    "fpi": 0.35,
+    "sp": 0.4
+   }
   },
   "401858486": {
    "ats_line": -2.5,
@@ -474,8 +1002,36 @@
    "ats_team": "Minnesota",
    "away": "Minnesota",
    "book": "DraftKings",
+   "conf_label": "Medium",
+   "confidence": 69,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 0.65,
+     "consistency": 0.596,
+     "data": 1.0,
+     "edge": 0.586,
+     "market": 0.5,
+     "trends": 1.0
+    },
+    "label": "Medium",
+    "n_sources": 3,
+    "score": 69,
+    "sources": {
+     "elo": -8.4,
+     "fpi": -1.0,
+     "sp": -10.4
+    }
+   },
+   "diffs": {
+    "elo": -10.88,
+    "fpi": -3.51,
+    "sp": -12.9
+   },
    "edge": 4.1,
+   "hfa_flag": 1,
    "home": "Purdue",
+   "home_field": 2.5,
    "id": 401858486,
    "line": 2.5,
    "model_spread": 6.6,
@@ -491,19 +1047,52 @@
    "su_wp": 0.665,
    "tier": "play",
    "total_line": 49.5,
-   "updated": "2026-10-10T16:57:46Z",
-   "week": 6
+   "updated": "2026-10-10T18:15:57Z",
+   "week": 6,
+   "weights": {
+    "elo": 0.25,
+    "fpi": 0.35,
+    "sp": 0.4
+   }
   },
   "401860901": {
-   "ats_line": 7.5,
+   "ats_line": 8.5,
    "ats_side": "home",
    "ats_team": "Fresno State",
    "away": "Boise State",
    "book": "DraftKings",
-   "edge": 2.6,
+   "conf_label": "Medium",
+   "confidence": 60,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.633,
+     "data": 1.0,
+     "edge": 0.514,
+     "market": 0.0,
+     "trends": 0.375
+    },
+    "label": "Medium",
+    "n_sources": 3,
+    "score": 60,
+    "sources": {
+     "elo": 0.5,
+     "fpi": -8.3,
+     "sp": -5.4
+    }
+   },
+   "diffs": {
+    "elo": -1.96,
+    "fpi": -10.76,
+    "sp": -7.9
+   },
+   "edge": 3.6,
+   "hfa_flag": 1,
    "home": "Fresno State",
+   "home_field": 2.5,
    "id": 401860901,
-   "line": 7.5,
+   "line": 8.5,
    "model_spread": 4.9,
    "model_total": 51.6,
    "neutral": false,
@@ -517,8 +1106,13 @@
    "su_wp": 0.624,
    "tier": "lean",
    "total_line": 48.5,
-   "updated": "2026-10-10T16:57:46Z",
-   "week": 6
+   "updated": "2026-10-10T18:15:57Z",
+   "week": 6,
+   "weights": {
+    "elo": 0.25,
+    "fpi": 0.35,
+    "sp": 0.4
+   }
   },
   "401860902": {
    "ats_line": 16.5,
@@ -526,8 +1120,36 @@
    "ats_team": "San Diego State",
    "away": "San Diego State",
    "book": "DraftKings",
+   "conf_label": "Medium",
+   "confidence": 68,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.593,
+     "data": 1.0,
+     "edge": 1.0,
+     "market": 0.0,
+     "trends": 0.125
+    },
+    "label": "Medium",
+    "n_sources": 3,
+    "score": 68,
+    "sources": {
+     "elo": 2.5,
+     "fpi": 10.8,
+     "sp": 11.5
+    }
+   },
+   "diffs": {
+    "elo": 0.05,
+    "fpi": 8.31,
+    "sp": 9.0
+   },
    "edge": 7.5,
+   "hfa_flag": 1,
    "home": "Oregon State",
+   "home_field": 2.5,
    "id": 401860902,
    "line": -16.5,
    "model_spread": -9.0,
@@ -543,8 +1165,13 @@
    "su_wp": 0.72,
    "tier": "strong",
    "total_line": 52.5,
-   "updated": "2026-10-10T16:57:46Z",
-   "week": 6
+   "updated": "2026-10-10T18:15:57Z",
+   "week": 6,
+   "weights": {
+    "elo": 0.25,
+    "fpi": 0.35,
+    "sp": 0.4
+   }
   },
   "401861964": {
    "ats_line": 3.5,
@@ -552,8 +1179,36 @@
    "ats_team": "UConn",
    "away": "UConn",
    "book": "DraftKings",
+   "conf_label": "Low",
+   "confidence": 52,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 0.65,
+     "consistency": 0.671,
+     "data": 1.0,
+     "edge": 0.329,
+     "market": 0.5,
+     "trends": 0.25
+    },
+    "label": "Low",
+    "n_sources": 3,
+    "score": 52,
+    "sources": {
+     "elo": -2.7,
+     "fpi": 5.3,
+     "sp": 0.1
+    }
+   },
+   "diffs": {
+    "elo": -5.17,
+    "fpi": 2.78,
+    "sp": -2.4
+   },
    "edge": 2.3,
+   "hfa_flag": 1,
    "home": "Temple",
+   "home_field": 2.5,
    "id": 401861964,
    "line": -3.5,
    "model_spread": -1.2,
@@ -569,19 +1224,52 @@
    "su_wp": 0.531,
    "tier": "lean",
    "total_line": 55.5,
-   "updated": "2026-10-10T16:57:46Z",
-   "week": 6
+   "updated": "2026-10-10T18:15:57Z",
+   "week": 6,
+   "weights": {
+    "elo": 0.25,
+    "fpi": 0.35,
+    "sp": 0.4
+   }
   },
   "401862796": {
-   "ats_line": 28.5,
-   "ats_side": "away",
-   "ats_team": "Charlotte",
+   "ats_line": -27.5,
+   "ats_side": "home",
+   "ats_team": "North Texas",
    "away": "Charlotte",
    "book": "DraftKings",
-   "edge": 0.4,
+   "conf_label": "Low",
+   "confidence": 35,
+   "confidence_detail": {
+    "agree": 1,
+    "components": {
+     "agreement": 0.25,
+     "consistency": 0.52,
+     "data": 1.0,
+     "edge": 0.086,
+     "market": 0.25,
+     "trends": 0.5
+    },
+    "label": "Low",
+    "n_sources": 3,
+    "score": 35,
+    "sources": {
+     "elo": 35.5,
+     "fpi": 27.3,
+     "sp": 24.1
+    }
+   },
+   "diffs": {
+    "elo": 33.01,
+    "fpi": 24.81,
+    "sp": 21.6
+   },
+   "edge": 0.6,
+   "hfa_flag": 1,
    "home": "North Texas",
+   "home_field": 2.5,
    "id": 401862796,
-   "line": -28.5,
+   "line": -27.5,
    "model_spread": -28.1,
    "model_total": 63.0,
    "neutral": false,
@@ -595,8 +1283,13 @@
    "su_wp": 0.965,
    "tier": "pass",
    "total_line": 57.5,
-   "updated": "2026-10-10T16:57:46Z",
-   "week": 6
+   "updated": "2026-10-10T18:15:57Z",
+   "week": 6,
+   "weights": {
+    "elo": 0.25,
+    "fpi": 0.35,
+    "sp": 0.4
+   }
   },
   "401862797": {
    "ats_line": -10.0,
@@ -630,8 +1323,36 @@
    "ats_team": "Memphis",
    "away": "UAB",
    "book": "DraftKings",
+   "conf_label": "High",
+   "confidence": 72,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.748,
+     "data": 1.0,
+     "edge": 0.586,
+     "market": 0.625,
+     "trends": 0.375
+    },
+    "label": "High",
+    "n_sources": 3,
+    "score": 72,
+    "sources": {
+     "elo": 14.8,
+     "fpi": 20.9,
+     "sp": 19.1
+    }
+   },
+   "diffs": {
+    "elo": 12.35,
+    "fpi": 18.35,
+    "sp": 16.6
+   },
    "edge": 4.1,
+   "hfa_flag": 1,
    "home": "Memphis",
+   "home_field": 2.5,
    "id": 401862798,
    "line": -14.5,
    "model_spread": -18.6,
@@ -647,8 +1368,13 @@
    "su_wp": 0.886,
    "tier": "play",
    "total_line": 54.5,
-   "updated": "2026-10-10T16:57:46Z",
-   "week": 6
+   "updated": "2026-10-10T18:15:57Z",
+   "week": 6,
+   "weights": {
+    "elo": 0.25,
+    "fpi": 0.35,
+    "sp": 0.4
+   }
   },
   "401862799": {
    "ats_line": -3.0,
@@ -656,8 +1382,36 @@
    "ats_team": "Navy",
    "away": "Tulsa",
    "book": "DraftKings",
+   "conf_label": "Low",
+   "confidence": 36,
+   "confidence_detail": {
+    "agree": 1,
+    "components": {
+     "agreement": 0.25,
+     "consistency": 0.237,
+     "data": 1.0,
+     "edge": 0.243,
+     "market": 0.625,
+     "trends": 0.125
+    },
+    "label": "Low",
+    "n_sources": 3,
+    "score": 36,
+    "sources": {
+     "elo": 16.6,
+     "fpi": -0.8,
+     "sp": 2.2
+    }
+   },
+   "diffs": {
+    "elo": 14.14,
+    "fpi": -3.34,
+    "sp": -0.3
+   },
    "edge": 1.7,
+   "hfa_flag": 1,
    "home": "Navy",
+   "home_field": 2.5,
    "id": 401862799,
    "line": -3.0,
    "model_spread": -4.7,
@@ -673,8 +1427,13 @@
    "su_wp": 0.62,
    "tier": "pass",
    "total_line": 47.5,
-   "updated": "2026-10-10T16:57:46Z",
-   "week": 6
+   "updated": "2026-10-10T18:15:57Z",
+   "week": 6,
+   "weights": {
+    "elo": 0.25,
+    "fpi": 0.35,
+    "sp": 0.4
+   }
   },
   "401864516": {
    "ats_line": -7.0,
@@ -682,8 +1441,36 @@
    "ats_team": "Air Force",
    "away": "Air Force",
    "book": "DraftKings",
+   "conf_label": "High",
+   "confidence": 83,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.635,
+     "data": 1.0,
+     "edge": 0.9,
+     "market": 0.375,
+     "trends": 0.875
+    },
+    "label": "High",
+    "n_sources": 3,
+    "score": 83,
+    "sources": {
+     "elo": -10.7,
+     "fpi": -9.8,
+     "sp": -18.0
+    }
+   },
+   "diffs": {
+    "elo": -13.22,
+    "fpi": -12.35,
+    "sp": -20.5
+   },
    "edge": 6.3,
+   "hfa_flag": 1,
    "home": "Northern Illinois",
+   "home_field": 2.5,
    "id": 401864516,
    "line": 7.0,
    "model_spread": 13.3,
@@ -699,8 +1486,13 @@
    "su_wp": 0.805,
    "tier": "play",
    "total_line": 48.5,
-   "updated": "2026-10-10T16:57:46Z",
-   "week": 6
+   "updated": "2026-10-10T18:15:57Z",
+   "week": 6,
+   "weights": {
+    "elo": 0.25,
+    "fpi": 0.35,
+    "sp": 0.4
+   }
   },
   "401864517": {
    "ats_line": -10.0,
@@ -708,8 +1500,36 @@
    "ats_team": "Nevada",
    "away": "Nevada",
    "book": "DraftKings",
+   "conf_label": "High",
+   "confidence": 73,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.585,
+     "data": 1.0,
+     "edge": 0.829,
+     "market": 0.625,
+     "trends": 0.125
+    },
+    "label": "High",
+    "n_sources": 3,
+    "score": 73,
+    "sources": {
+     "elo": -22.0,
+     "fpi": -12.2,
+     "sp": -15.0
+    }
+   },
+   "diffs": {
+    "elo": -24.53,
+    "fpi": -14.65,
+    "sp": -17.5
+   },
    "edge": 5.8,
+   "hfa_flag": 1,
    "home": "UTEP",
+   "home_field": 2.5,
    "id": 401864517,
    "line": 10.0,
    "model_spread": 15.8,
@@ -725,8 +1545,13 @@
    "su_wp": 0.845,
    "tier": "play",
    "total_line": 47.5,
-   "updated": "2026-10-10T16:57:46Z",
-   "week": 6
+   "updated": "2026-10-10T18:15:57Z",
+   "week": 6,
+   "weights": {
+    "elo": 0.25,
+    "fpi": 0.35,
+    "sp": 0.4
+   }
   },
   "401864518": {
    "ats_line": -2.5,
@@ -734,8 +1559,36 @@
    "ats_team": "North Dakota State",
    "away": "North Dakota State",
    "book": "DraftKings",
+   "conf_label": "Low",
+   "confidence": 53,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 0.65,
+     "consistency": 0.671,
+     "data": 1.0,
+     "edge": 0.257,
+     "market": 0.375,
+     "trends": 0.5
+    },
+    "label": "Low",
+    "n_sources": 3,
+    "score": 53,
+    "sources": {
+     "elo": -5.2,
+     "fpi": 0.2,
+     "sp": -7.7
+    }
+   },
+   "diffs": {
+    "elo": -7.72,
+    "fpi": -2.33,
+    "sp": -10.2
+   },
    "edge": 1.8,
+   "hfa_flag": 1,
    "home": "UNLV",
+   "home_field": 2.5,
    "id": 401864518,
    "line": 2.5,
    "model_spread": 4.3,
@@ -751,8 +1604,13 @@
    "su_wp": 0.61,
    "tier": "pass",
    "total_line": 47.5,
-   "updated": "2026-10-10T16:57:46Z",
-   "week": 6
+   "updated": "2026-10-10T18:15:57Z",
+   "week": 6,
+   "weights": {
+    "elo": 0.25,
+    "fpi": 0.35,
+    "sp": 0.4
+   }
   },
   "401866435": {
    "ats_line": -5.5,
@@ -760,8 +1618,36 @@
    "ats_team": "Eastern Michigan",
    "away": "Eastern Michigan",
    "book": "DraftKings",
+   "conf_label": "Low",
+   "confidence": 38,
+   "confidence_detail": {
+    "agree": 1,
+    "components": {
+     "agreement": 0.25,
+     "consistency": 0.278,
+     "data": 1.0,
+     "edge": 0.243,
+     "market": 0.125,
+     "trends": 0.75
+    },
+    "label": "Low",
+    "n_sources": 3,
+    "score": 38,
+    "sources": {
+     "elo": -18.7,
+     "fpi": -4.4,
+     "sp": -2.6
+    }
+   },
+   "diffs": {
+    "elo": -21.22,
+    "fpi": -6.86,
+    "sp": -5.1
+   },
    "edge": 1.7,
+   "hfa_flag": 1,
    "home": "Akron",
+   "home_field": 2.5,
    "id": 401866435,
    "line": 5.5,
    "model_spread": 7.2,
@@ -777,8 +1663,13 @@
    "su_wp": 0.68,
    "tier": "pass",
    "total_line": 51.5,
-   "updated": "2026-10-10T16:57:46Z",
-   "week": 6
+   "updated": "2026-10-10T18:15:57Z",
+   "week": 6,
+   "weights": {
+    "elo": 0.25,
+    "fpi": 0.35,
+    "sp": 0.4
+   }
   },
   "401866437": {
    "ats_line": -18.5,
@@ -786,8 +1677,36 @@
    "ats_team": "Toledo",
    "away": "Buffalo",
    "book": "DraftKings",
+   "conf_label": "Medium",
+   "confidence": 57,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.945,
+     "data": 1.0,
+     "edge": 0.2,
+     "market": 0.0,
+     "trends": 0.5
+    },
+    "label": "Medium",
+    "n_sources": 3,
+    "score": 57,
+    "sources": {
+     "elo": 19.0,
+     "fpi": 20.3,
+     "sp": 20.0
+    }
+   },
+   "diffs": {
+    "elo": 16.53,
+    "fpi": 17.81,
+    "sp": 17.5
+   },
    "edge": 1.4,
+   "hfa_flag": 1,
    "home": "Toledo",
+   "home_field": 2.5,
    "id": 401866437,
    "line": -18.5,
    "model_spread": -19.9,
@@ -803,8 +1722,13 @@
    "su_wp": 0.9,
    "tier": "pass",
    "total_line": 55.5,
-   "updated": "2026-10-10T16:57:46Z",
-   "week": 6
+   "updated": "2026-10-10T18:15:57Z",
+   "week": 6,
+   "weights": {
+    "elo": 0.25,
+    "fpi": 0.35,
+    "sp": 0.4
+   }
   },
   "401866438": {
    "ats_line": -2.5,
@@ -812,8 +1736,36 @@
    "ats_team": "Ohio",
    "away": "Central Michigan",
    "book": "DraftKings",
+   "conf_label": "High",
+   "confidence": 76,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.734,
+     "data": 1.0,
+     "edge": 0.686,
+     "market": 0.375,
+     "trends": 0.75
+    },
+    "label": "High",
+    "n_sources": 3,
+    "score": 76,
+    "sources": {
+     "elo": 5.7,
+     "fpi": 4.6,
+     "sp": 10.7
+    }
+   },
+   "diffs": {
+    "elo": 3.21,
+    "fpi": 2.07,
+    "sp": 8.2
+   },
    "edge": 4.8,
+   "hfa_flag": 1,
    "home": "Ohio",
+   "home_field": 2.5,
    "id": 401866438,
    "line": -2.5,
    "model_spread": -7.3,
@@ -829,8 +1781,13 @@
    "su_wp": 0.681,
    "tier": "play",
    "total_line": 45.5,
-   "updated": "2026-10-10T16:57:46Z",
-   "week": 6
+   "updated": "2026-10-10T18:15:57Z",
+   "week": 6,
+   "weights": {
+    "elo": 0.25,
+    "fpi": 0.35,
+    "sp": 0.4
+   }
   },
   "401866439": {
    "ats_line": -14.0,
@@ -838,8 +1795,36 @@
    "ats_team": "Western Michigan",
    "away": "Kent State",
    "book": "DraftKings",
+   "conf_label": "High",
+   "confidence": 88,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.707,
+     "data": 1.0,
+     "edge": 0.871,
+     "market": 0.625,
+     "trends": 1.0
+    },
+    "label": "High",
+    "n_sources": 3,
+    "score": 88,
+    "sources": {
+     "elo": 24.6,
+     "fpi": 19.6,
+     "sp": 17.7
+    }
+   },
+   "diffs": {
+    "elo": 22.13,
+    "fpi": 17.08,
+    "sp": 15.2
+   },
    "edge": 6.1,
+   "hfa_flag": 1,
    "home": "Western Michigan",
+   "home_field": 2.5,
    "id": 401866439,
    "line": -14.0,
    "model_spread": -20.1,
@@ -855,8 +1840,13 @@
    "su_wp": 0.903,
    "tier": "play",
    "total_line": 43.5,
-   "updated": "2026-10-10T16:57:46Z",
-   "week": 6
+   "updated": "2026-10-10T18:15:57Z",
+   "week": 6,
+   "weights": {
+    "elo": 0.25,
+    "fpi": 0.35,
+    "sp": 0.4
+   }
   },
   "401866440": {
    "ats_line": 6.0,
@@ -916,8 +1906,36 @@
    "ats_team": "Coastal Carolina",
    "away": "Coastal Carolina",
    "book": "DraftKings",
+   "conf_label": "Low",
+   "confidence": 53,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 0.75,
+     "consistency": 0.675,
+     "data": 1.0,
+     "edge": 0.243,
+     "market": 0.125,
+     "trends": 0.625
+    },
+    "label": "Low",
+    "n_sources": 3,
+    "score": 53,
+    "sources": {
+     "elo": 8.0,
+     "fpi": 0.8,
+     "sp": 1.4
+    }
+   },
+   "diffs": {
+    "elo": 5.49,
+    "fpi": -1.67,
+    "sp": -1.1
+   },
    "edge": 1.7,
+   "hfa_flag": 1,
    "home": "Marshall",
+   "home_field": 2.5,
    "id": 401869943,
    "line": -4.5,
    "model_spread": -2.8,
@@ -933,8 +1951,13 @@
    "su_wp": 0.573,
    "tier": "pass",
    "total_line": 57.5,
-   "updated": "2026-10-10T16:57:46Z",
-   "week": 6
+   "updated": "2026-10-10T18:15:57Z",
+   "week": 6,
+   "weights": {
+    "elo": 0.25,
+    "fpi": 0.35,
+    "sp": 0.4
+   }
   },
   "401869949": {
    "ats_line": -7.5,
@@ -942,8 +1965,36 @@
    "ats_team": "James Madison",
    "away": "James Madison",
    "book": "DraftKings",
+   "conf_label": "High",
+   "confidence": 86,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.505,
+     "data": 1.0,
+     "edge": 1.0,
+     "market": 0.5,
+     "trends": 0.875
+    },
+    "label": "High",
+    "n_sources": 3,
+    "score": 86,
+    "sources": {
+     "elo": -23.2,
+     "fpi": -11.1,
+     "sp": -16.0
+    }
+   },
+   "diffs": {
+    "elo": -25.67,
+    "fpi": -13.62,
+    "sp": -18.5
+   },
    "edge": 8.6,
+   "hfa_flag": 1,
    "home": "Georgia Southern",
+   "home_field": 2.5,
    "id": 401869949,
    "line": 7.5,
    "model_spread": 16.1,
@@ -959,8 +2010,13 @@
    "su_wp": 0.85,
    "tier": "strong",
    "total_line": 51.5,
-   "updated": "2026-10-10T16:57:46Z",
-   "week": 6
+   "updated": "2026-10-10T18:15:57Z",
+   "week": 6,
+   "weights": {
+    "elo": 0.25,
+    "fpi": 0.35,
+    "sp": 0.4
+   }
   },
   "401869965": {
    "ats_line": 3.0,
@@ -968,8 +2024,36 @@
    "ats_team": "Louisiana",
    "away": "Louisiana",
    "book": "DraftKings",
+   "conf_label": "High",
+   "confidence": 77,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.765,
+     "data": 1.0,
+     "edge": 0.643,
+     "market": 0.5,
+     "trends": 0.75
+    },
+    "label": "High",
+    "n_sources": 3,
+    "score": 77,
+    "sources": {
+     "elo": -0.9,
+     "fpi": 1.4,
+     "sp": -4.3
+    }
+   },
+   "diffs": {
+    "elo": -3.43,
+    "fpi": -1.08,
+    "sp": -6.8
+   },
    "edge": 4.5,
+   "hfa_flag": 1,
    "home": "Louisiana Tech",
+   "home_field": 2.5,
    "id": 401869965,
    "line": -3.0,
    "model_spread": 1.5,
@@ -985,8 +2069,13 @@
    "su_wp": 0.537,
    "tier": "play",
    "total_line": 48.5,
-   "updated": "2026-10-10T16:57:46Z",
-   "week": 6
+   "updated": "2026-10-10T18:15:57Z",
+   "week": 6,
+   "weights": {
+    "elo": 0.25,
+    "fpi": 0.35,
+    "sp": 0.4
+   }
   }
  }
 }
