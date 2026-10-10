@@ -1,0 +1,39 @@
+name: Daily refresh
+
+on:
+  schedule:
+    - cron: "0 11 * * *" # 11:00 UTC daily
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: cfb-data
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Refresh ratings, lines, picks, trends, splits
+        run: python -m cfbmodel refresh
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+          SPLITS_PROVIDER: ${{ vars.SPLITS_PROVIDER || 'none' }}
+          SPLITS_URL: ${{ vars.SPLITS_URL }}
+          SPLITS_API_KEY: ${{ secrets.SPLITS_API_KEY }}
+          SITE_URL: ${{ vars.SITE_URL || format('https://{0}.github.io/{1}/', github.repository_owner, github.event.repository.name) }}
+      - name: Commit data
+        if: always()
+        run: .github/scripts/commit-data.sh "Daily refresh"
+
+  deploy:
+    needs: refresh
+    uses: ./.github/workflows/deploy.yml

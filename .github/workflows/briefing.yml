@@ -1,0 +1,67 @@
+name: Game-day briefing
+
+on:
+  schedule:
+    # 9 AM Central = 14:00 UTC (CDT) or 15:00 UTC (CST). Run at both; the
+    # script sends once per game day inside a 9-11 AM CT window, which also
+    # absorbs GitHub's scheduling delays.
+    - cron: "7 14 * * *"
+    - cron: "7 15 * * *"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Send now even outside the 9 AM CT window / if already sent"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: cfb-data
+  cancel-in-progress: false
+
+env:
+  FORCE_FLAG: ${{ inputs.force && '--force' || '' }}
+
+jobs:
+  briefing:
+    runs-on: ubuntu-latest
+    outputs:
+      go: ${{ steps.check.outputs.go }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Is it game day and briefing time?
+        id: check
+        run: python -m cfbmodel briefing --check $FORCE_FLAG
+      - name: Refresh lines, splits and picks
+        if: steps.check.outputs.go == 'true'
+        # If CFBD is down, still send the briefing from the 11:00 UTC data.
+        continue-on-error: true
+        run: python -m cfbmodel refresh
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+          SPLITS_PROVIDER: ${{ vars.SPLITS_PROVIDER || 'none' }}
+          SPLITS_URL: ${{ vars.SPLITS_URL }}
+          SPLITS_API_KEY: ${{ secrets.SPLITS_API_KEY }}
+          SITE_URL: ${{ vars.SITE_URL || format('https://{0}.github.io/{1}/', github.repository_owner, github.event.repository.name) }}
+      - name: Send ntfy briefing
+        if: steps.check.outputs.go == 'true'
+        run: python -m cfbmodel briefing $FORCE_FLAG
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          NTFY_TOKEN: ${{ secrets.NTFY_TOKEN }}
+          NTFY_SERVER: ${{ vars.NTFY_SERVER || 'https://ntfy.sh' }}
+      - name: Commit data
+        if: always() && steps.check.outputs.go == 'true'
+        run: .github/scripts/commit-data.sh "Game-day refresh"
+
+  deploy:
+    needs: briefing
+    if: needs.briefing.outputs.go == 'true'
+    uses: ./.github/workflows/deploy.yml

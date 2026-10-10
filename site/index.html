@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CFB Model</title>
+  <meta name="description" content="College football power ratings, projected spreads, ATS picks, ATS trends and bet splits.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏈</text></svg>">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-row">
+      <div class="brand">
+        <h1>CFB Model</h1>
+        <p class="sub" id="subtitle">Power ratings · projections · picks</p>
+      </div>
+      <div class="record-pill" id="record-pill" hidden></div>
+    </div>
+    <nav class="wrap tabs" role="tablist">
+      <button role="tab" data-tab="games" aria-selected="true">Games</button>
+      <button role="tab" data-tab="ratings">Power Ratings</button>
+      <button role="tab" data-tab="record">Record</button>
+      <button role="tab" data-tab="trends">ATS Trends</button>
+      <button role="tab" data-tab="method">Method</button>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <div id="empty" class="notice" hidden>
+      No data yet. Add the <code>CFBD_API_KEY</code> repository secret and run the
+      <strong>Daily refresh</strong> workflow from the Actions tab.
+    </div>
+
+    <section id="tab-games" class="tab-panel">
+      <div class="toolbar">
+        <input type="search" id="game-search" placeholder="Search team…" aria-label="Search team">
+        <select id="game-conf" aria-label="Conference"><option value="">All conferences</option></select>
+        <select id="game-sort" aria-label="Sort">
+          <option value="time">Sort: kickoff</option>
+          <option value="edge">Sort: biggest edge</option>
+          <option value="move">Sort: line move</option>
+        </select>
+        <label class="check"><input type="checkbox" id="game-picks"> Edges only</label>
+        <label class="check"><input type="checkbox" id="game-flags"> Split flags only</label>
+      </div>
+      <p class="meta-line" id="games-meta"></p>
+      <div id="games" class="cards"></div>
+    </section>
+
+    <section id="tab-ratings" class="tab-panel" hidden>
+      <div class="toolbar">
+        <input type="search" id="rating-search" placeholder="Search team…" aria-label="Search team">
+        <select id="rating-conf" aria-label="Conference"><option value="">All conferences</option></select>
+      </div>
+      <div class="table-wrap"><table id="ratings" class="data"></table></div>
+    </section>
+
+    <section id="tab-record" class="tab-panel" hidden>
+      <div id="record-tiles" class="tiles"></div>
+      <h2>By week</h2>
+      <div class="table-wrap"><table id="record-weeks" class="data"></table></div>
+      <h2>Pick log</h2>
+      <div class="toolbar">
+        <input type="search" id="log-search" placeholder="Search team…" aria-label="Search team">
+        <select id="log-filter" aria-label="Filter">
+          <option value="all">All graded + pending</option>
+          <option value="plays">Edge ≥ play threshold</option>
+          <option value="graded">Graded only</option>
+          <option value="pending">Pending only</option>
+        </select>
+      </div>
+      <div class="table-wrap"><table id="record-log" class="data"></table></div>
+    </section>
+
+    <section id="tab-trends" class="tab-panel" hidden>
+      <div class="toolbar">
+        <input type="search" id="trend-search" placeholder="Search team…" aria-label="Search team">
+        <select id="trend-sort" aria-label="Sort by"></select>
+        <label class="check">Min games <input type="number" id="trend-min" value="5" min="0" max="60"></label>
+      </div>
+      <p class="meta-line" id="trends-meta"></p>
+      <div class="table-wrap"><table id="trends" class="data"></table></div>
+    </section>
+
+    <section id="tab-method" class="tab-panel" hidden>
+      <div class="prose" id="method"></div>
+    </section>
+  </main>
+
+  <footer class="wrap site-footer">
+    <span id="updated"></span>
+    <span>Data: <a href="https://collegefootballdata.com">CollegeFootballData.com</a>. For entertainment only.</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
