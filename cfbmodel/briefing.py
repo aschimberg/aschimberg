@@ -156,6 +156,7 @@ def send_ntfy(title, body, tags="football", priority="default", click=None):
         req = urllib.request.Request(url, data=part.encode("utf-8"), headers=headers, method="POST")
         with urllib.request.urlopen(req, timeout=30) as resp:
             resp.read()
+            print(f"ntfy: sent part {i}/{len(parts)} ({len(part.encode('utf-8'))} bytes), HTTP {resp.status}")
     return True
 
 
