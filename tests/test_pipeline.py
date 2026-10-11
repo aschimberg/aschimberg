@@ -162,6 +162,19 @@ class PipelineTests(unittest.TestCase):
             pipeline.refresh(client, now=self.NOW, log=lambda *_: None)
             self.assertLess(client.calls - calls_before, 12)
 
+    def test_slate_rolls_forward_once_week_is_final(self):
+        from datetime import timedelta
+        start = datetime(2026, 10, 4, tzinfo=timezone.utc)
+        weeks = [{"week": 6, "season_type": "regular", "start": start, "end": start + timedelta(days=8)},
+                 {"week": 7, "season_type": "regular", "start": start + timedelta(days=8), "end": start + timedelta(days=15)}]
+        sunday = datetime(2026, 10, 11, 17, tzinfo=timezone.utc)
+        games = [{"week": 6, "season_type": "regular", "completed": True},
+                 {"week": 7, "season_type": "regular", "completed": False}]
+        self.assertEqual(pipeline.current_slate(weeks, sunday, games)["week"], 7)
+        games[0]["completed"] = False  # a week-6 game still pending -> stay
+        self.assertEqual(pipeline.current_slate(weeks, sunday, games)["week"], 6)
+        self.assertEqual(pipeline.current_slate(weeks, sunday)["week"], 6)
+
     def test_picks_lock_at_kickoff_and_grade(self):
         with TempDirs() as d:
             client = FakeCFBD()

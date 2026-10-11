@@ -40,10 +40,17 @@ def calendar_weeks(raw):
     return weeks
 
 
-def current_slate(weeks, now):
-    for w in weeks:
-        if w["end"] > now:
-            return w
+def current_slate(weeks, now, games=None):
+    """First calendar week that hasn't ended. With `games`, also skip a week
+    whose games are all final, so the board rolls to next week as soon as
+    Saturday's slate is done instead of waiting for CFBD's week end."""
+    open_weeks = [w for w in weeks if w["end"] > now]
+    for i, w in enumerate(open_weeks):
+        if games is not None and i + 1 < len(open_weeks):
+            wk = [x for x in games if x["week"] == w["week"] and x["season_type"] == w["season_type"]]
+            if wk and all(x["completed"] for x in wk):
+                continue
+        return w
     return weeks[-1] if weeks else None
 
 
@@ -205,11 +212,6 @@ def refresh(client, now=None, splits_provider=None, log=print):
     now = now or utcnow()
     season = season_for(now)
     weeks = calendar_weeks(client.calendar(season))
-    slate = current_slate(weeks, now)
-    if slate is None:
-        raise RuntimeError(f"No CFBD calendar for {season}")
-    log(f"Season {season}, slate: {slate['season_type']} week {slate['week']}")
-
     fbs_raw = client.fbs_teams(season) or []
     fbs = {g(t, "school") for t in fbs_raw}
     logos = {g(t, "school"): (g(t, "logos") or [None])[0] for t in fbs_raw}
@@ -219,6 +221,10 @@ def refresh(client, now=None, splits_provider=None, log=print):
         log(f"rankings lookup skipped: {e}")
         poll = {"name": None, "ranks": {}}
     cur_games = [normalize_game(r) for r in client.games(season, "both")]
+    slate = current_slate(weeks, now, cur_games)
+    if slate is None:
+        raise RuntimeError(f"No CFBD calendar for {season}")
+    log(f"Season {season}, slate: {slate['season_type']} week {slate['week']}")
     raw_lines = client.lines(season, "regular")
     if slate["season_type"] != "regular":
         raw_lines += client.lines(season, slate["season_type"])
