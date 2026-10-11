@@ -42,8 +42,52 @@
  ],
  "tuning": {
   "enabled": true,
+  "games": 33,
+  "history": [
+   {
+    "at": "2026-10-11T17:13:35Z",
+    "games": 33,
+    "home_field": 2.5,
+    "rmse_after": null,
+    "rmse_before": null,
+    "status": "insufficient",
+    "weights": {
+     "elo": 0.25,
+     "fpi": 0.35,
+     "sp": 0.4
+    }
+   }
+  ],
+  "home_field": 2.5,
+  "last": {
+   "after": {
+    "home_field": 2.5,
+    "weights": {
+     "elo": 0.25,
+     "fpi": 0.35,
+     "sp": 0.4
+    }
+   },
+   "at": "2026-10-11T17:13:35Z",
+   "before": {
+    "home_field": 2.5,
+    "weights": {
+     "elo": 0.25,
+     "fpi": 0.35,
+     "sp": 0.4
+    }
+   },
+   "games": 33,
+   "season": 2026,
+   "status": "insufficient"
+  },
   "min_games": 40,
-  "status": "not yet tuned"
+  "updated": "2026-10-11T17:13:35Z",
+  "weights": {
+   "elo": 0.25,
+   "fpi": 0.35,
+   "sp": 0.4
+  }
  },
  "week": 6
 }

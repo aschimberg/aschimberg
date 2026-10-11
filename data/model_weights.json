@@ -1,0 +1,34 @@
+{
+ "games": 33,
+ "history": [
+  {
+   "after": {
+    "home_field": 2.5,
+    "weights": {
+     "elo": 0.25,
+     "fpi": 0.35,
+     "sp": 0.4
+    }
+   },
+   "at": "2026-10-11T17:13:35Z",
+   "before": {
+    "home_field": 2.5,
+    "weights": {
+     "elo": 0.25,
+     "fpi": 0.35,
+     "sp": 0.4
+    }
+   },
+   "games": 33,
+   "season": 2026,
+   "status": "insufficient"
+  }
+ ],
+ "home_field": 2.5,
+ "updated": "2026-10-11T17:13:35Z",
+ "weights": {
+  "elo": 0.25,
+  "fpi": 0.35,
+  "sp": 0.4
+ }
+}
