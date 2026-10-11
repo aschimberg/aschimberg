@@ -474,7 +474,7 @@
 
   function tuningHtml(t) {
     const pct = (w) => (w ? `${Math.round(w.sp * 100)}/${Math.round(w.fpi * 100)}/${Math.round(w.elo * 100)}` : "—");
-    let html = `<p>Every pick stores what SP+, FPI and Elo each projected. After Sunday grading, the model refits the SP+/FPI/Elo weights and home-field points that best predict this season's actual margins, then moves part of the way there (more as games accumulate) so one noisy week can't swing it. Tuning starts after ${t?.min_games ?? 40} graded games.${t && t.enabled === false ? " <strong>Tuning is currently turned off.</strong>" : ""}</p>`;
+    let html = `<p>Every pick stores what SP+, FPI and Elo each projected. After Sunday grading, the model refits the SP+/FPI/Elo weights and home-field points that best predict this season's actual margins, then moves part of the way there (more as games accumulate) so one noisy week can't swing it. Tuning starts after ${t?.min_games ?? 25} graded games.${t && t.enabled === false ? " <strong>Tuning is currently turned off.</strong>" : ""}</p>`;
     if (!t || !t.history || !t.history.length) return html + `<p>Status: not tuned yet — running on default weights.</p>`;
     const last = t.last || {};
     if (last.by_source) {

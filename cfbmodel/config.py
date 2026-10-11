@@ -76,7 +76,7 @@ CONF_MEDIUM = _f("CFB_CONF_MEDIUM", 55)
 # After Sunday grading, refit SP+/FPI/Elo weights and home field on graded
 # games, shrunk toward the current values: alpha = n / (n + TUNE_PRIOR_GAMES).
 TUNING = os.environ.get("CFB_TUNING", "on") != "off"
-MIN_TUNE_GAMES = _i("CFB_MIN_TUNE_GAMES", 40)
+MIN_TUNE_GAMES = _i("CFB_MIN_TUNE_GAMES", 25)
 TUNE_PRIOR_GAMES = _f("CFB_TUNE_PRIOR_GAMES", 250)
 
 # --- ATS trends -------------------------------------------------------------

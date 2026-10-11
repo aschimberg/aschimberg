@@ -2,11 +2,11 @@ name: Game-day briefing
 
 on:
   schedule:
-    # 9 AM Central = 14:00 UTC (CDT) or 15:00 UTC (CST). Run at both; the
-    # script sends once per game day inside a 9-11 AM CT window, which also
-    # absorbs GitHub's scheduling delays.
-    - cron: "7 14 * * *"
-    - cron: "7 15 * * *"
+    # 9 AM Central = 14:00 UTC (CDT) or 15:00 UTC (CST). GitHub can delay or
+    # drop individual scheduled runs, so fire every 30 minutes from 14:07 to
+    # 16:37 UTC; the script sends once per game day, only inside the
+    # 9-11 AM CT window, and every other run exits in seconds.
+    - cron: "7,37 14,15,16 * * *"
   workflow_dispatch:
     inputs:
       force:
