@@ -22,13 +22,62 @@
    "games": 33,
    "season": 2026,
    "status": "insufficient"
+  },
+  {
+   "after": {
+    "home_field": 2.6,
+    "weights": {
+     "elo": 0.221,
+     "fpi": 0.426,
+     "sp": 0.353
+    }
+   },
+   "alpha": 0.117,
+   "at": "2026-10-11T17:20:25Z",
+   "ats_after": 0.485,
+   "ats_before": 0.485,
+   "before": {
+    "home_field": 2.5,
+    "weights": {
+     "elo": 0.25,
+     "fpi": 0.35,
+     "sp": 0.4
+    }
+   },
+   "by_source": {
+    "elo": {
+     "ats": 0.515,
+     "rmse": 17.49
+    },
+    "fpi": {
+     "ats": 0.636,
+     "rmse": 15.11
+    },
+    "sp": {
+     "ats": 0.545,
+     "rmse": 16.13
+    }
+   },
+   "fit": {
+    "home_field": 3.34,
+    "weights": {
+     "elo": 0.0,
+     "fpi": 1.0,
+     "sp": 0.0
+    }
+   },
+   "games": 33,
+   "rmse_after": 15.68,
+   "rmse_before": 15.79,
+   "season": 2026,
+   "status": "updated"
   }
  ],
- "home_field": 2.5,
- "updated": "2026-10-11T17:13:35Z",
+ "home_field": 2.6,
+ "updated": "2026-10-11T17:20:25Z",
  "weights": {
-  "elo": 0.25,
-  "fpi": 0.35,
-  "sp": 0.4
+  "elo": 0.221,
+  "fpi": 0.426,
+  "sp": 0.353
  }
 }
