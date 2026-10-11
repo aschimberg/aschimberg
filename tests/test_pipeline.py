@@ -171,7 +171,11 @@ class PipelineTests(unittest.TestCase):
         games = [{"week": 6, "season_type": "regular", "completed": True},
                  {"week": 7, "season_type": "regular", "completed": False}]
         self.assertEqual(pipeline.current_slate(weeks, sunday, games)["week"], 7)
-        games[0]["completed"] = False  # a week-6 game still pending -> stay
+        games[0].update(completed=False, start="2026-10-10T23:00:00Z")  # in progress -> stay
+        self.assertEqual(pipeline.current_slate(weeks, sunday, games)["week"], 6)
+        games[0]["start"] = "2026-10-10T02:00:00Z"  # never marked final, 39h old -> roll
+        self.assertEqual(pipeline.current_slate(weeks, sunday, games)["week"], 7)
+        games[0]["start"] = "2026-10-10T23:00:00Z"
         self.assertEqual(pipeline.current_slate(weeks, sunday, games)["week"], 6)
         self.assertEqual(pipeline.current_slate(weeks, sunday)["week"], 6)
 

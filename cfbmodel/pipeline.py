@@ -40,6 +40,14 @@ def calendar_weeks(raw):
     return weeks
 
 
+def _game_done(game, now):
+    """Final, or kicked off 12+ hours ago (covers canceled/never-updated games)."""
+    if game.get("completed"):
+        return True
+    start = ats.parse_dt(game.get("start"))
+    return start is not None and start <= now - timedelta(hours=12)
+
+
 def current_slate(weeks, now, games=None):
     """First calendar week that hasn't ended. With `games`, also skip a week
     whose games are all final, so the board rolls to next week as soon as
@@ -48,7 +56,7 @@ def current_slate(weeks, now, games=None):
     for i, w in enumerate(open_weeks):
         if games is not None and i + 1 < len(open_weeks):
             wk = [x for x in games if x["week"] == w["week"] and x["season_type"] == w["season_type"]]
-            if wk and all(x["completed"] for x in wk):
+            if wk and all(_game_done(x, now) for x in wk):
                 continue
         return w
     return weeks[-1] if weeks else None
