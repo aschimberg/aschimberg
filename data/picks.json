@@ -351,6 +351,460 @@
     "sp": 0.4
    }
   },
+  "401856719": {
+   "ats_line": -18.5,
+   "ats_side": "home",
+   "ats_team": "Georgia",
+   "away": "Auburn",
+   "book": "DraftKings",
+   "conf_label": "High",
+   "confidence": 78,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.866,
+     "data": 1.0,
+     "edge": 0.314,
+     "market": 1.0,
+     "trends": 0.75
+    },
+    "label": "High",
+    "n_sources": 3,
+    "score": 78,
+    "sources": {
+     "elo": 22.9,
+     "fpi": 20.2,
+     "sp": 19.9
+    }
+   },
+   "diffs": {
+    "elo": 20.31,
+    "fpi": 17.65,
+    "sp": 17.3
+   },
+   "edge": 2.2,
+   "hfa_flag": 1,
+   "home": "Georgia",
+   "home_field": 2.6,
+   "id": 401856719,
+   "line": -18.5,
+   "model_spread": -20.7,
+   "model_total": 44.8,
+   "neutral": false,
+   "proj_away": 12.0,
+   "proj_home": 32.7,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T19:30:00.000Z",
+   "su_team": "Georgia",
+   "su_wp": 0.909,
+   "tier": "lean",
+   "total_line": 49.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401856720": {
+   "ats_line": -10.5,
+   "ats_side": "home",
+   "ats_team": "LSU",
+   "away": "Mississippi State",
+   "book": "DraftKings",
+   "conf_label": "Low",
+   "confidence": 54,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.81,
+     "data": 1.0,
+     "edge": 0.286,
+     "market": 0.0,
+     "trends": 0.25
+    },
+    "label": "Low",
+    "n_sources": 3,
+    "score": 54,
+    "sources": {
+     "elo": 15.7,
+     "fpi": 11.6,
+     "sp": 11.7
+    }
+   },
+   "diffs": {
+    "elo": 13.07,
+    "fpi": 8.98,
+    "sp": 9.1
+   },
+   "edge": 2.0,
+   "hfa_flag": 1,
+   "home": "LSU",
+   "home_field": 2.6,
+   "id": 401856720,
+   "line": -10.5,
+   "model_spread": -12.5,
+   "model_total": 61.5,
+   "neutral": false,
+   "proj_away": 24.5,
+   "proj_home": 37.0,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T16:00:00.000Z",
+   "su_team": "LSU",
+   "su_wp": 0.791,
+   "tier": "lean",
+   "total_line": 59.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401856721": {
+   "ats_line": 6.0,
+   "ats_side": "away",
+   "ats_team": "Missouri",
+   "away": "Missouri",
+   "book": "DraftKings",
+   "conf_label": "Medium",
+   "confidence": 68,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.798,
+     "data": 1.0,
+     "edge": 0.471,
+     "market": 0.5,
+     "trends": 0.375
+    },
+    "label": "Medium",
+    "n_sources": 3,
+    "score": 68,
+    "sources": {
+     "elo": 5.5,
+     "fpi": 3.2,
+     "sp": 0.5
+    }
+   },
+   "diffs": {
+    "elo": 2.85,
+    "fpi": 0.59,
+    "sp": -2.1
+   },
+   "edge": 3.3,
+   "hfa_flag": 1,
+   "home": "Ole Miss",
+   "home_field": 2.6,
+   "id": 401856721,
+   "line": -6.0,
+   "model_spread": -2.7,
+   "model_total": 58.8,
+   "neutral": false,
+   "proj_away": 28.0,
+   "proj_home": 30.7,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T19:30:00.000Z",
+   "su_team": "Ole Miss",
+   "su_wp": 0.57,
+   "tier": "lean",
+   "total_line": 58.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401856722": {
+   "ats_line": -6.5,
+   "ats_side": "home",
+   "ats_team": "Oklahoma",
+   "away": "Kentucky",
+   "book": "DraftKings",
+   "conf_label": "Low",
+   "confidence": 51,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 0.574,
+     "consistency": 0.733,
+     "data": 1.0,
+     "edge": 0.171,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "Low",
+    "n_sources": 3,
+    "score": 51,
+    "sources": {
+     "elo": 12.1,
+     "fpi": 6.1,
+     "sp": 6.8
+    }
+   },
+   "diffs": {
+    "elo": 9.47,
+    "fpi": 3.49,
+    "sp": 4.2
+   },
+   "edge": 1.2,
+   "hfa_flag": 1,
+   "home": "Oklahoma",
+   "home_field": 2.6,
+   "id": 401856722,
+   "line": -6.5,
+   "model_spread": -7.7,
+   "model_total": 43.9,
+   "neutral": false,
+   "proj_away": 18.1,
+   "proj_home": 25.8,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T23:30:00.000Z",
+   "su_team": "Oklahoma",
+   "su_wp": 0.689,
+   "tier": "pass",
+   "total_line": 43.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401856723": {
+   "ats_line": 7.0,
+   "ats_side": "home",
+   "ats_team": "Tennessee",
+   "away": "Alabama",
+   "book": "DraftKings",
+   "conf_label": "Low",
+   "confidence": 33,
+   "confidence_detail": {
+    "agree": 1,
+    "components": {
+     "agreement": 0.353,
+     "consistency": 0.791,
+     "data": 1.0,
+     "edge": 0.114,
+     "market": 0.0,
+     "trends": 0.25
+    },
+    "label": "Low",
+    "n_sources": 3,
+    "score": 33,
+    "sources": {
+     "elo": -8.7,
+     "fpi": -7.0,
+     "sp": -3.7
+    }
+   },
+   "diffs": {
+    "elo": -11.32,
+    "fpi": -9.64,
+    "sp": -6.3
+   },
+   "edge": 0.8,
+   "hfa_flag": 1,
+   "home": "Tennessee",
+   "home_field": 2.6,
+   "id": 401856723,
+   "line": 7.0,
+   "model_spread": 6.2,
+   "model_total": 57.1,
+   "neutral": false,
+   "proj_away": 31.6,
+   "proj_home": 25.4,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T19:30:00.000Z",
+   "su_team": "Alabama",
+   "su_wp": 0.656,
+   "tier": "pass",
+   "total_line": 55.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401856724": {
+   "ats_line": -10.0,
+   "ats_side": "home",
+   "ats_team": "Texas",
+   "away": "Florida",
+   "book": "DraftKings",
+   "conf_label": "High",
+   "confidence": 86,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.892,
+     "data": 1.0,
+     "edge": 0.914,
+     "market": 0.625,
+     "trends": 0.625
+    },
+    "label": "High",
+    "n_sources": 3,
+    "score": 86,
+    "sources": {
+     "elo": 18.2,
+     "fpi": 15.8,
+     "sp": 16.0
+    }
+   },
+   "diffs": {
+    "elo": 15.61,
+    "fpi": 13.24,
+    "sp": 13.4
+   },
+   "edge": 6.4,
+   "hfa_flag": 1,
+   "home": "Texas",
+   "home_field": 2.6,
+   "id": 401856724,
+   "line": -10.0,
+   "model_spread": -16.4,
+   "model_total": 54.9,
+   "neutral": false,
+   "proj_away": 19.2,
+   "proj_home": 35.6,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T16:00:00.000Z",
+   "su_team": "Texas",
+   "su_wp": 0.855,
+   "tier": "play",
+   "total_line": 53.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401856725": {
+   "ats_line": null,
+   "ats_side": null,
+   "ats_team": null,
+   "away": "The Citadel",
+   "book": null,
+   "conf_label": null,
+   "confidence": null,
+   "confidence_detail": null,
+   "diffs": {
+    "elo": 35.31,
+    "fpi": 36.63,
+    "sp": 30.0
+   },
+   "edge": null,
+   "hfa_flag": 1,
+   "home": "Texas A&M",
+   "home_field": 2.6,
+   "id": 401856725,
+   "line": null,
+   "model_spread": -36.6,
+   "model_total": 54.0,
+   "neutral": false,
+   "proj_away": 8.7,
+   "proj_home": 45.3,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T17:00:00.000Z",
+   "su_team": "Texas A&M",
+   "su_wp": 0.991,
+   "tier": null,
+   "total_line": null,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401856726": {
+   "ats_line": 6.5,
+   "ats_side": "away",
+   "ats_team": "Arkansas",
+   "away": "Arkansas",
+   "book": "DraftKings",
+   "conf_label": "Medium",
+   "confidence": 61,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 0.779,
+     "consistency": 0.723,
+     "data": 1.0,
+     "edge": 0.157,
+     "market": 0.5,
+     "trends": 0.875
+    },
+    "label": "Medium",
+    "n_sources": 3,
+    "score": 61,
+    "sources": {
+     "elo": 9.4,
+     "fpi": 2.6,
+     "sp": 6.2
+    }
+   },
+   "diffs": {
+    "elo": 6.77,
+    "fpi": 0.0,
+    "sp": 3.6
+   },
+   "edge": 1.1,
+   "hfa_flag": 1,
+   "home": "Vanderbilt",
+   "home_field": 2.6,
+   "id": 401856726,
+   "line": -6.5,
+   "model_spread": -5.4,
+   "model_total": 57.4,
+   "neutral": false,
+   "proj_away": 26.0,
+   "proj_home": 31.4,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T23:00:00.000Z",
+   "su_team": "Vanderbilt",
+   "su_wp": 0.635,
+   "tier": "pass",
+   "total_line": 50.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
   "401856808": {
    "ats_line": 21.0,
    "ats_side": "away",
@@ -413,6 +867,65 @@
     "elo": 0.25,
     "fpi": 0.35,
     "sp": 0.4
+   }
+  },
+  "401856809": {
+   "ats_line": 12.5,
+   "ats_side": "home",
+   "ats_team": "BYU",
+   "away": "Notre Dame",
+   "book": "DraftKings",
+   "conf_label": "Low",
+   "confidence": 45,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 0.779,
+     "consistency": 0.46,
+     "data": 1.0,
+     "edge": 0.357,
+     "market": 0.0,
+     "trends": 0.125
+    },
+    "label": "Low",
+    "n_sources": 3,
+    "score": 45,
+    "sources": {
+     "elo": -17.1,
+     "fpi": -11.5,
+     "sp": -3.9
+    }
+   },
+   "diffs": {
+    "elo": -19.68,
+    "fpi": -14.07,
+    "sp": -6.5
+   },
+   "edge": 2.5,
+   "hfa_flag": 1,
+   "home": "BYU",
+   "home_field": 2.6,
+   "id": 401856809,
+   "line": 12.5,
+   "model_spread": 10.0,
+   "model_total": 49.7,
+   "neutral": false,
+   "proj_away": 29.8,
+   "proj_home": 19.8,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T23:30:00.000Z",
+   "su_team": "Notre Dame",
+   "su_wp": 0.741,
+   "tier": "lean",
+   "total_line": 47.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
    }
   },
   "401856825": {
@@ -541,6 +1054,360 @@
     "elo": 0.25,
     "fpi": 0.35,
     "sp": 0.4
+   }
+  },
+  "401856828": {
+   "ats_line": -12.5,
+   "ats_side": "home",
+   "ats_team": "Texas Tech",
+   "away": "Arizona State",
+   "book": "DraftKings",
+   "conf_label": "High",
+   "confidence": 86,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.875,
+     "data": 1.0,
+     "edge": 1.0,
+     "market": 0.5,
+     "trends": 0.625
+    },
+    "label": "High",
+    "n_sources": 3,
+    "score": 86,
+    "sources": {
+     "elo": 23.7,
+     "fpi": 21.9,
+     "sp": 20.6
+    }
+   },
+   "diffs": {
+    "elo": 21.06,
+    "fpi": 19.33,
+    "sp": 18.0
+   },
+   "edge": 9.4,
+   "hfa_flag": 1,
+   "home": "Texas Tech",
+   "home_field": 2.6,
+   "id": 401856828,
+   "line": -12.5,
+   "model_spread": -21.9,
+   "model_total": 48.9,
+   "neutral": false,
+   "proj_away": 13.5,
+   "proj_home": 35.4,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T19:30:00.000Z",
+   "su_team": "Texas Tech",
+   "su_wp": 0.921,
+   "tier": "strong",
+   "total_line": 50.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401856829": {
+   "ats_line": 1.5,
+   "ats_side": "away",
+   "ats_team": "Cincinnati",
+   "away": "Cincinnati",
+   "book": "DraftKings",
+   "conf_label": "Medium",
+   "confidence": 67,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.883,
+     "data": 1.0,
+     "edge": 0.614,
+     "market": 0.5,
+     "trends": 0.0
+    },
+    "label": "Medium",
+    "n_sources": 3,
+    "score": 67,
+    "sources": {
+     "elo": -4.3,
+     "fpi": -1.5,
+     "sp": -3.3
+    }
+   },
+   "diffs": {
+    "elo": -6.93,
+    "fpi": -4.09,
+    "sp": -5.9
+   },
+   "edge": 4.3,
+   "hfa_flag": 1,
+   "home": "West Virginia",
+   "home_field": 2.6,
+   "id": 401856829,
+   "line": -1.5,
+   "model_spread": 2.8,
+   "model_total": 69.7,
+   "neutral": false,
+   "proj_away": 36.2,
+   "proj_home": 33.4,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T16:00:00.000Z",
+   "su_team": "Cincinnati",
+   "su_wp": 0.571,
+   "tier": "play",
+   "total_line": 61.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401856830": {
+   "ats_line": 7.5,
+   "ats_side": "away",
+   "ats_team": "Kansas",
+   "away": "Kansas",
+   "book": "DraftKings",
+   "conf_label": "Medium",
+   "confidence": 63,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.851,
+     "data": 1.0,
+     "edge": 0.386,
+     "market": 0.5,
+     "trends": 0.125
+    },
+    "label": "Medium",
+    "n_sources": 3,
+    "score": 63,
+    "sources": {
+     "elo": 2.8,
+     "fpi": 4.5,
+     "sp": 6.4
+    }
+   },
+   "diffs": {
+    "elo": 0.15,
+    "fpi": 1.95,
+    "sp": 3.8
+   },
+   "edge": 2.7,
+   "hfa_flag": 1,
+   "home": "Kansas State",
+   "home_field": 2.6,
+   "id": 401856830,
+   "line": -7.5,
+   "model_spread": -4.8,
+   "model_total": 54.5,
+   "neutral": false,
+   "proj_away": 24.8,
+   "proj_home": 29.6,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T16:00:00.000Z",
+   "su_team": "Kansas State",
+   "su_wp": 0.622,
+   "tier": "lean",
+   "total_line": 54.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401856831": {
+   "ats_line": -4.0,
+   "ats_side": "home",
+   "ats_team": "Houston",
+   "away": "Oklahoma State",
+   "book": "DraftKings",
+   "conf_label": "High",
+   "confidence": 75,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.561,
+     "data": 1.0,
+     "edge": 0.7,
+     "market": 0.625,
+     "trends": 0.5
+    },
+    "label": "High",
+    "n_sources": 3,
+    "score": 75,
+    "sources": {
+     "elo": 15.2,
+     "fpi": 9.3,
+     "sp": 4.5
+    }
+   },
+   "diffs": {
+    "elo": 12.64,
+    "fpi": 6.69,
+    "sp": 1.9
+   },
+   "edge": 4.9,
+   "hfa_flag": 1,
+   "home": "Houston",
+   "home_field": 2.6,
+   "id": 401856831,
+   "line": -4.0,
+   "model_spread": -8.9,
+   "model_total": 60.7,
+   "neutral": false,
+   "proj_away": 25.9,
+   "proj_home": 34.8,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T23:30:00.000Z",
+   "su_team": "Houston",
+   "su_wp": 0.717,
+   "tier": "play",
+   "total_line": 58.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401856832": {
+   "ats_line": 6.5,
+   "ats_side": "away",
+   "ats_team": "TCU",
+   "away": "TCU",
+   "book": "DraftKings",
+   "conf_label": "Low",
+   "confidence": 49,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 0.574,
+     "consistency": 0.905,
+     "data": 1.0,
+     "edge": 0.029,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "Low",
+    "n_sources": 3,
+    "score": 49,
+    "sources": {
+     "elo": 4.9,
+     "fpi": 7.2,
+     "sp": 6.1
+    }
+   },
+   "diffs": {
+    "elo": 2.27,
+    "fpi": 4.59,
+    "sp": 3.5
+   },
+   "edge": 0.2,
+   "hfa_flag": 1,
+   "home": "Baylor",
+   "home_field": 2.6,
+   "id": 401856832,
+   "line": -6.5,
+   "model_spread": -6.3,
+   "model_total": 40.5,
+   "neutral": false,
+   "proj_away": 17.1,
+   "proj_home": 23.4,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T23:00:00.000Z",
+   "su_team": "Baylor",
+   "su_wp": 0.658,
+   "tier": "pass",
+   "total_line": 50.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401856833": {
+   "ats_line": -16.5,
+   "ats_side": "away",
+   "ats_team": "Utah",
+   "away": "Utah",
+   "book": "DraftKings",
+   "conf_label": "High",
+   "confidence": 73,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.497,
+     "data": 1.0,
+     "edge": 0.786,
+     "market": 0.5,
+     "trends": 0.375
+    },
+    "label": "High",
+    "n_sources": 3,
+    "score": 73,
+    "sources": {
+     "elo": -29.3,
+     "fpi": -17.0,
+     "sp": -23.3
+    }
+   },
+   "diffs": {
+    "elo": -31.95,
+    "fpi": -19.64,
+    "sp": -25.9
+   },
+   "edge": 5.5,
+   "hfa_flag": 1,
+   "home": "Colorado",
+   "home_field": 2.6,
+   "id": 401856833,
+   "line": 16.5,
+   "model_spread": 22.0,
+   "model_total": 46.1,
+   "neutral": false,
+   "proj_away": 34.0,
+   "proj_home": 12.0,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-18T02:15:00.000Z",
+   "su_team": "Utah",
+   "su_wp": 0.922,
+   "tier": "play",
+   "total_line": 49.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
    }
   },
   "401858255": {
@@ -797,6 +1664,501 @@
     "elo": 0.25,
     "fpi": 0.35,
     "sp": 0.4
+   }
+  },
+  "401858261": {
+   "ats_line": null,
+   "ats_side": null,
+   "ats_team": null,
+   "away": "Charleston Southern",
+   "book": null,
+   "conf_label": null,
+   "confidence": null,
+   "confidence_detail": null,
+   "diffs": {
+    "elo": 25.15,
+    "fpi": 29.52,
+    "sp": 24.2
+   },
+   "edge": null,
+   "hfa_flag": 1,
+   "home": "Clemson",
+   "home_field": 2.6,
+   "id": 401858261,
+   "line": null,
+   "model_spread": -29.3,
+   "model_total": 54.0,
+   "neutral": false,
+   "proj_away": 12.4,
+   "proj_home": 41.6,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T16:00:00.000Z",
+   "su_team": "Clemson",
+   "su_wp": 0.971,
+   "tier": null,
+   "total_line": null,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401858262": {
+   "ats_line": null,
+   "ats_side": null,
+   "ats_team": null,
+   "away": "Elon",
+   "book": null,
+   "conf_label": null,
+   "confidence": null,
+   "confidence_detail": null,
+   "diffs": {
+    "elo": 4.52,
+    "fpi": 10.56,
+    "sp": 7.1
+   },
+   "edge": null,
+   "hfa_flag": 1,
+   "home": "Stanford",
+   "home_field": 2.6,
+   "id": 401858262,
+   "line": null,
+   "model_spread": -10.6,
+   "model_total": 54.0,
+   "neutral": false,
+   "proj_away": 21.7,
+   "proj_home": 32.3,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T23:30:00.000Z",
+   "su_team": "Stanford",
+   "su_wp": 0.753,
+   "tier": null,
+   "total_line": null,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401858263": {
+   "ats_line": -21.0,
+   "ats_side": "home",
+   "ats_team": "Miami",
+   "away": "Florida State",
+   "book": "DraftKings",
+   "conf_label": "High",
+   "confidence": 75,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.908,
+     "data": 1.0,
+     "edge": 0.343,
+     "market": 1.0,
+     "trends": 0.5
+    },
+    "label": "High",
+    "n_sources": 3,
+    "score": 75,
+    "sources": {
+     "elo": 23.5,
+     "fpi": 22.4,
+     "sp": 24.6
+    }
+   },
+   "diffs": {
+    "elo": 20.9,
+    "fpi": 19.75,
+    "sp": 22.0
+   },
+   "edge": 2.4,
+   "hfa_flag": 1,
+   "home": "Miami",
+   "home_field": 2.6,
+   "id": 401858263,
+   "line": -21.0,
+   "model_spread": -23.4,
+   "model_total": 59.1,
+   "neutral": false,
+   "proj_away": 17.8,
+   "proj_home": 41.2,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T23:00:00.000Z",
+   "su_team": "Miami",
+   "su_wp": 0.934,
+   "tier": "lean",
+   "total_line": 56.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401858264": {
+   "ats_line": 9.5,
+   "ats_side": "away",
+   "ats_team": "Georgia Tech",
+   "away": "Georgia Tech",
+   "book": "DraftKings",
+   "conf_label": "Low",
+   "confidence": 54,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 0.647,
+     "consistency": 0.632,
+     "data": 1.0,
+     "edge": 0.2,
+     "market": 0.625,
+     "trends": 0.5
+    },
+    "label": "Low",
+    "n_sources": 3,
+    "score": 54,
+    "sources": {
+     "elo": 2.2,
+     "fpi": 8.9,
+     "sp": 10.8
+    }
+   },
+   "diffs": {
+    "elo": -0.37,
+    "fpi": 6.32,
+    "sp": 8.2
+   },
+   "edge": 1.4,
+   "hfa_flag": 1,
+   "home": "Virginia Tech",
+   "home_field": 2.6,
+   "id": 401858264,
+   "line": -9.5,
+   "model_spread": -8.1,
+   "model_total": 55.6,
+   "neutral": false,
+   "proj_away": 23.7,
+   "proj_home": 31.8,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T19:30:00.000Z",
+   "su_team": "Virginia Tech",
+   "su_wp": 0.699,
+   "tier": "pass",
+   "total_line": 55.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401858265": {
+   "ats_line": 12.5,
+   "ats_side": "home",
+   "ats_team": "Syracuse",
+   "away": "Louisville",
+   "book": "DraftKings",
+   "conf_label": "Low",
+   "confidence": 45,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 0.779,
+     "consistency": 0.529,
+     "data": 1.0,
+     "edge": 0.043,
+     "market": 0.0,
+     "trends": 0.625
+    },
+    "label": "Low",
+    "n_sources": 3,
+    "score": 45,
+    "sources": {
+     "elo": -19.9,
+     "fpi": -9.3,
+     "sp": -10.8
+    }
+   },
+   "diffs": {
+    "elo": -22.54,
+    "fpi": -11.86,
+    "sp": -13.4
+   },
+   "edge": 0.3,
+   "hfa_flag": 1,
+   "home": "Syracuse",
+   "home_field": 2.6,
+   "id": 401858265,
+   "line": 12.5,
+   "model_spread": 12.2,
+   "model_total": 60.3,
+   "neutral": false,
+   "proj_away": 36.2,
+   "proj_home": 24.0,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T23:30:00.000Z",
+   "su_team": "Louisville",
+   "su_wp": 0.784,
+   "tier": "pass",
+   "total_line": 55.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401858266": {
+   "ats_line": -3.5,
+   "ats_side": "home",
+   "ats_team": "Duke",
+   "away": "North Carolina",
+   "book": "DraftKings",
+   "conf_label": "Low",
+   "confidence": 53,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 0.574,
+     "consistency": 0.529,
+     "data": 1.0,
+     "edge": 0.343,
+     "market": 0.25,
+     "trends": 0.75
+    },
+    "label": "Low",
+    "n_sources": 3,
+    "score": 53,
+    "sources": {
+     "elo": 13.4,
+     "fpi": 2.0,
+     "sp": 5.9
+    }
+   },
+   "diffs": {
+    "elo": 10.79,
+    "fpi": -0.55,
+    "sp": 3.3
+   },
+   "edge": 2.4,
+   "hfa_flag": 1,
+   "home": "Duke",
+   "home_field": 2.6,
+   "id": 401858266,
+   "line": -3.5,
+   "model_spread": -5.9,
+   "model_total": 49.4,
+   "neutral": false,
+   "proj_away": 21.7,
+   "proj_home": 27.6,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T19:30:00.000Z",
+   "su_team": "Duke",
+   "su_wp": 0.649,
+   "tier": "lean",
+   "total_line": 47.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401858267": {
+   "ats_line": -6.5,
+   "ats_side": "away",
+   "ats_team": "Pittsburgh",
+   "away": "Pittsburgh",
+   "book": "DraftKings",
+   "conf_label": "High",
+   "confidence": 84,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.87,
+     "data": 1.0,
+     "edge": 0.957,
+     "market": 0.375,
+     "trends": 0.75
+    },
+    "label": "High",
+    "n_sources": 3,
+    "score": 84,
+    "sources": {
+     "elo": -11.4,
+     "fpi": -14.5,
+     "sp": -12.8
+    }
+   },
+   "diffs": {
+    "elo": -13.97,
+    "fpi": -17.14,
+    "sp": -15.4
+   },
+   "edge": 6.7,
+   "hfa_flag": 1,
+   "home": "Boston College",
+   "home_field": 2.6,
+   "id": 401858267,
+   "line": 6.5,
+   "model_spread": 13.2,
+   "model_total": 39.6,
+   "neutral": false,
+   "proj_away": 26.4,
+   "proj_home": 13.2,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T16:00:00.000Z",
+   "su_team": "Pittsburgh",
+   "su_wp": 0.803,
+   "tier": "play",
+   "total_line": 46.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401858268": {
+   "ats_line": 7.5,
+   "ats_side": "away",
+   "ats_team": "Virginia",
+   "away": "Virginia",
+   "book": "DraftKings",
+   "conf_label": "Medium",
+   "confidence": 62,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 0.779,
+     "consistency": 0.879,
+     "data": 1.0,
+     "edge": 0.186,
+     "market": 0.5,
+     "trends": 0.75
+    },
+    "label": "Medium",
+    "n_sources": 3,
+    "score": 62,
+    "sources": {
+     "elo": 7.7,
+     "fpi": 4.8,
+     "sp": 6.9
+    }
+   },
+   "diffs": {
+    "elo": 5.13,
+    "fpi": 2.24,
+    "sp": 4.3
+   },
+   "edge": 1.3,
+   "hfa_flag": 1,
+   "home": "SMU",
+   "home_field": 2.6,
+   "id": 401858268,
+   "line": -7.5,
+   "model_spread": -6.2,
+   "model_total": 52.7,
+   "neutral": false,
+   "proj_away": 23.2,
+   "proj_home": 29.4,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T16:00:00.000Z",
+   "su_team": "SMU",
+   "su_wp": 0.656,
+   "tier": "pass",
+   "total_line": 53.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401858269": {
+   "ats_line": -8.5,
+   "ats_side": "away",
+   "ats_team": "Wake Forest",
+   "away": "Wake Forest",
+   "book": "DraftKings",
+   "conf_label": "High",
+   "confidence": 72,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.735,
+     "data": 1.0,
+     "edge": 0.643,
+     "market": 0.5,
+     "trends": 0.375
+    },
+    "label": "High",
+    "n_sources": 3,
+    "score": 72,
+    "sources": {
+     "elo": -16.9,
+     "fpi": -13.2,
+     "sp": -10.4
+    }
+   },
+   "diffs": {
+    "elo": -19.47,
+    "fpi": -15.84,
+    "sp": -13.0
+   },
+   "edge": 4.5,
+   "hfa_flag": 1,
+   "home": "California",
+   "home_field": 2.6,
+   "id": 401858269,
+   "line": 8.5,
+   "model_spread": 13.0,
+   "model_total": 52.5,
+   "neutral": false,
+   "proj_away": 32.7,
+   "proj_home": 19.7,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-18T02:30:00.000Z",
+   "su_team": "Wake Forest",
+   "su_wp": 0.8,
+   "tier": "play",
+   "total_line": 53.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
    }
   },
   "401858480": {
@@ -1150,6 +2512,419 @@
     "sp": 0.4
    }
   },
+  "401858488": {
+   "ats_line": 4.0,
+   "ats_side": "home",
+   "ats_team": "Indiana",
+   "away": "Ohio State",
+   "book": "DraftKings",
+   "conf_label": "Medium",
+   "confidence": 66,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.774,
+     "data": 1.0,
+     "edge": 0.7,
+     "market": 0.0,
+     "trends": 0.375
+    },
+    "label": "Medium",
+    "n_sources": 3,
+    "score": 66,
+    "sources": {
+     "elo": 4.6,
+     "fpi": -0.2,
+     "sp": -0.2
+    }
+   },
+   "diffs": {
+    "elo": 2.01,
+    "fpi": -2.77,
+    "sp": -2.8
+   },
+   "edge": 4.9,
+   "hfa_flag": 1,
+   "home": "Indiana",
+   "home_field": 2.6,
+   "id": 401858488,
+   "line": 4.0,
+   "model_spread": -0.9,
+   "model_total": 51.7,
+   "neutral": false,
+   "proj_away": 25.4,
+   "proj_home": 26.3,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T16:00:00.000Z",
+   "su_team": "Indiana",
+   "su_wp": 0.522,
+   "tier": "play",
+   "total_line": 50.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401858489": {
+   "ats_line": 4.5,
+   "ats_side": "away",
+   "ats_team": "Rutgers",
+   "away": "Rutgers",
+   "book": "DraftKings",
+   "conf_label": "Low",
+   "confidence": 43,
+   "confidence_detail": {
+    "agree": 1,
+    "components": {
+     "agreement": 0.221,
+     "consistency": 0.652,
+     "data": 1.0,
+     "edge": 0.071,
+     "market": 0.5,
+     "trends": 0.75
+    },
+    "label": "Low",
+    "n_sources": 3,
+    "score": 43,
+    "sources": {
+     "elo": -1.7,
+     "fpi": 5.3,
+     "sp": 5.9
+    }
+   },
+   "diffs": {
+    "elo": -4.34,
+    "fpi": 2.75,
+    "sp": 3.3
+   },
+   "edge": 0.5,
+   "hfa_flag": 1,
+   "home": "Maryland",
+   "home_field": 2.6,
+   "id": 401858489,
+   "line": -4.5,
+   "model_spread": -4.0,
+   "model_total": 64.9,
+   "neutral": false,
+   "proj_away": 30.4,
+   "proj_home": 34.4,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T16:30:00.000Z",
+   "su_team": "Maryland",
+   "su_wp": 0.601,
+   "tier": "pass",
+   "total_line": 58.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401858490": {
+   "ats_line": 6.0,
+   "ats_side": "away",
+   "ats_team": "Penn State",
+   "away": "Penn State",
+   "book": "DraftKings",
+   "conf_label": "Medium",
+   "confidence": 63,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 0.647,
+     "consistency": 0.673,
+     "data": 1.0,
+     "edge": 0.543,
+     "market": 0.625,
+     "trends": 0.5
+    },
+    "label": "Medium",
+    "n_sources": 3,
+    "score": 63,
+    "sources": {
+     "elo": -1.8,
+     "fpi": 1.0,
+     "sp": 6.1
+    }
+   },
+   "diffs": {
+    "elo": -4.39,
+    "fpi": -1.65,
+    "sp": 3.5
+   },
+   "edge": 3.8,
+   "hfa_flag": 1,
+   "home": "Michigan",
+   "home_field": 2.6,
+   "id": 401858490,
+   "line": -6.0,
+   "model_spread": -2.2,
+   "model_total": 37.1,
+   "neutral": false,
+   "proj_away": 17.4,
+   "proj_home": 19.6,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T19:30:00.000Z",
+   "su_team": "Michigan",
+   "su_wp": 0.555,
+   "tier": "lean",
+   "total_line": 43.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401858491": {
+   "ats_line": -9.5,
+   "ats_side": "away",
+   "ats_team": "Northwestern",
+   "away": "Northwestern",
+   "book": "DraftKings",
+   "conf_label": "High",
+   "confidence": 73,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.842,
+     "data": 1.0,
+     "edge": 0.371,
+     "market": 0.75,
+     "trends": 0.625
+    },
+    "label": "High",
+    "n_sources": 3,
+    "score": 73,
+    "sources": {
+     "elo": -12.2,
+     "fpi": -10.3,
+     "sp": -14.2
+    }
+   },
+   "diffs": {
+    "elo": -14.76,
+    "fpi": -12.93,
+    "sp": -16.8
+   },
+   "edge": 2.6,
+   "hfa_flag": 1,
+   "home": "Michigan State",
+   "home_field": 2.6,
+   "id": 401858491,
+   "line": 9.5,
+   "model_spread": 12.1,
+   "model_total": 52.6,
+   "neutral": false,
+   "proj_away": 32.3,
+   "proj_home": 20.2,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T16:00:00.000Z",
+   "su_team": "Northwestern",
+   "su_wp": 0.782,
+   "tier": "lean",
+   "total_line": 47.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401858492": {
+   "ats_line": 7.0,
+   "ats_side": "away",
+   "ats_team": "Nebraska",
+   "away": "Nebraska",
+   "book": "DraftKings",
+   "conf_label": "High",
+   "confidence": 73,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.918,
+     "data": 1.0,
+     "edge": 0.186,
+     "market": 1.0,
+     "trends": 0.625
+    },
+    "label": "High",
+    "n_sources": 3,
+    "score": 73,
+    "sources": {
+     "elo": 6.0,
+     "fpi": 4.7,
+     "sp": 6.7
+    }
+   },
+   "diffs": {
+    "elo": 3.39,
+    "fpi": 2.11,
+    "sp": 4.1
+   },
+   "edge": 1.3,
+   "hfa_flag": 1,
+   "home": "Oregon",
+   "home_field": 2.6,
+   "id": 401858492,
+   "line": -7.0,
+   "model_spread": -5.7,
+   "model_total": 54.6,
+   "neutral": false,
+   "proj_away": 24.4,
+   "proj_home": 30.1,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T04:00:00.000Z",
+   "su_team": "Oregon",
+   "su_wp": 0.643,
+   "tier": "pass",
+   "total_line": 52.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401858493": {
+   "ats_line": 2.5,
+   "ats_side": "away",
+   "ats_team": "Washington",
+   "away": "Washington",
+   "book": "DraftKings",
+   "conf_label": "High",
+   "confidence": 76,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.405,
+     "data": 1.0,
+     "edge": 0.743,
+     "market": 0.5,
+     "trends": 0.75
+    },
+    "label": "High",
+    "n_sources": 3,
+    "score": 76,
+    "sources": {
+     "elo": -12.1,
+     "fpi": 2.3,
+     "sp": -2.9
+    }
+   },
+   "diffs": {
+    "elo": -14.65,
+    "fpi": -0.26,
+    "sp": -5.5
+   },
+   "edge": 5.2,
+   "hfa_flag": 1,
+   "home": "Purdue",
+   "home_field": 2.6,
+   "id": 401858493,
+   "line": -2.5,
+   "model_spread": 2.7,
+   "model_total": 57.3,
+   "neutral": false,
+   "proj_away": 30.0,
+   "proj_home": 27.3,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T00:00:00.000Z",
+   "su_team": "Washington",
+   "su_wp": 0.569,
+   "tier": "play",
+   "total_line": 51.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401858494": {
+   "ats_line": -3.5,
+   "ats_side": "home",
+   "ats_team": "UCLA",
+   "away": "Wisconsin",
+   "book": "DraftKings",
+   "conf_label": "Low",
+   "confidence": 44,
+   "confidence_detail": {
+    "agree": 1,
+    "components": {
+     "agreement": 0.353,
+     "consistency": 0.774,
+     "data": 1.0,
+     "edge": 0.114,
+     "market": 0.625,
+     "trends": 0.375
+    },
+    "label": "Low",
+    "n_sources": 3,
+    "score": 44,
+    "sources": {
+     "elo": 2.6,
+     "fpi": 2.6,
+     "sp": 7.4
+    }
+   },
+   "diffs": {
+    "elo": 0.0,
+    "fpi": 0.0,
+    "sp": 4.8
+   },
+   "edge": 0.8,
+   "hfa_flag": 1,
+   "home": "UCLA",
+   "home_field": 2.6,
+   "id": 401858494,
+   "line": -3.5,
+   "model_spread": -4.3,
+   "model_total": 42.2,
+   "neutral": false,
+   "proj_away": 18.9,
+   "proj_home": 23.2,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T04:00:00.000Z",
+   "su_team": "UCLA",
+   "su_wp": 0.609,
+   "tier": "pass",
+   "total_line": 48.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
   "401860901": {
    "ats_line": 8.5,
    "ats_side": "home",
@@ -1276,6 +3051,183 @@
     "elo": 0.25,
     "fpi": 0.35,
     "sp": 0.4
+   }
+  },
+  "401860903": {
+   "ats_line": 17.5,
+   "ats_side": "away",
+   "ats_team": "Washington State",
+   "away": "Washington State",
+   "book": "DraftKings",
+   "conf_label": "Low",
+   "confidence": 33,
+   "confidence_detail": {
+    "agree": 1,
+    "components": {
+     "agreement": 0.221,
+     "consistency": 0.454,
+     "data": 1.0,
+     "edge": 0.086,
+     "market": 0.5,
+     "trends": 0.25
+    },
+    "label": "Low",
+    "n_sources": 3,
+    "score": 33,
+    "sources": {
+     "elo": 8.2,
+     "fpi": 18.2,
+     "sp": 20.8
+    }
+   },
+   "diffs": {
+    "elo": 5.55,
+    "fpi": 15.64,
+    "sp": 18.2
+   },
+   "edge": 0.6,
+   "hfa_flag": 1,
+   "home": "Oregon State",
+   "home_field": 2.6,
+   "id": 401860903,
+   "line": -17.5,
+   "model_spread": -16.9,
+   "model_total": 43.5,
+   "neutral": false,
+   "proj_away": 13.3,
+   "proj_home": 30.2,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T22:00:00.000Z",
+   "su_team": "Oregon State",
+   "su_wp": 0.862,
+   "tier": "pass",
+   "total_line": 53.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401860904": {
+   "ats_line": -8.5,
+   "ats_side": "away",
+   "ats_team": "Fresno State",
+   "away": "Fresno State",
+   "book": "DraftKings",
+   "conf_label": "Medium",
+   "confidence": 67,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.659,
+     "data": 1.0,
+     "edge": 0.5,
+     "market": 0.5,
+     "trends": 0.375
+    },
+    "label": "Medium",
+    "n_sources": 3,
+    "score": 67,
+    "sources": {
+     "elo": -17.6,
+     "fpi": -9.6,
+     "sp": -11.3
+    }
+   },
+   "diffs": {
+    "elo": -20.16,
+    "fpi": -12.24,
+    "sp": -13.9
+   },
+   "edge": 3.5,
+   "hfa_flag": 1,
+   "home": "San Diego State",
+   "home_field": 2.6,
+   "id": 401860904,
+   "line": 8.5,
+   "model_spread": 12.0,
+   "model_total": 45.5,
+   "neutral": false,
+   "proj_away": 28.7,
+   "proj_home": 16.7,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-18T02:30:00.000Z",
+   "su_team": "Fresno State",
+   "su_wp": 0.78,
+   "tier": "lean",
+   "total_line": 43.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401860923": {
+   "ats_line": 11.5,
+   "ats_side": "away",
+   "ats_team": "Colorado State",
+   "away": "Colorado State",
+   "book": "DraftKings",
+   "conf_label": "Medium",
+   "confidence": 57,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 0.779,
+     "consistency": 0.695,
+     "data": 1.0,
+     "edge": 0.057,
+     "market": 0.75,
+     "trends": 0.5
+    },
+    "label": "Medium",
+    "n_sources": 3,
+    "score": 57,
+    "sources": {
+     "elo": 16.1,
+     "fpi": 9.2,
+     "sp": 10.2
+    }
+   },
+   "diffs": {
+    "elo": 13.54,
+    "fpi": 6.65,
+    "sp": 7.6
+   },
+   "edge": 0.4,
+   "hfa_flag": 1,
+   "home": "Texas State",
+   "home_field": 2.6,
+   "id": 401860923,
+   "line": -11.5,
+   "model_spread": -11.1,
+   "model_total": 76.7,
+   "neutral": false,
+   "proj_away": 32.8,
+   "proj_home": 43.9,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-16T00:00:00.000Z",
+   "su_team": "Texas State",
+   "su_wp": 0.763,
+   "tier": "pass",
+   "total_line": 67.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
    }
   },
   "401861964": {
@@ -1565,6 +3517,419 @@
     "sp": 0.4
    }
   },
+  "401862800": {
+   "ats_line": -5.5,
+   "ats_side": "away",
+   "ats_team": "East Carolina",
+   "away": "East Carolina",
+   "book": "DraftKings",
+   "conf_label": "Medium",
+   "confidence": 55,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 0.779,
+     "consistency": 0.727,
+     "data": 1.0,
+     "edge": 0.271,
+     "market": 0.25,
+     "trends": 0.5
+    },
+    "label": "Medium",
+    "n_sources": 3,
+    "score": 55,
+    "sources": {
+     "elo": -2.9,
+     "fpi": -8.4,
+     "sp": -8.9
+    }
+   },
+   "diffs": {
+    "elo": -5.5,
+    "fpi": -11.04,
+    "sp": -11.5
+   },
+   "edge": 1.9,
+   "hfa_flag": 1,
+   "home": "UAB",
+   "home_field": 2.6,
+   "id": 401862800,
+   "line": 5.5,
+   "model_spread": 7.4,
+   "model_total": 43.3,
+   "neutral": false,
+   "proj_away": 25.3,
+   "proj_home": 17.9,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-15T23:30:00.000Z",
+   "su_team": "East Carolina",
+   "su_wp": 0.683,
+   "tier": "pass",
+   "total_line": 52.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401862801": {
+   "ats_line": -7.0,
+   "ats_side": "away",
+   "ats_team": "Memphis",
+   "away": "Memphis",
+   "book": "DraftKings",
+   "conf_label": "Low",
+   "confidence": 44,
+   "confidence_detail": {
+    "agree": 1,
+    "components": {
+     "agreement": 0.353,
+     "consistency": 0.655,
+     "data": 1.0,
+     "edge": 0.129,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "Low",
+    "n_sources": 3,
+    "score": 44,
+    "sources": {
+     "elo": -5.3,
+     "fpi": -5.3,
+     "sp": -12.6
+    }
+   },
+   "diffs": {
+    "elo": -7.88,
+    "fpi": -7.89,
+    "sp": -15.2
+   },
+   "edge": 0.9,
+   "hfa_flag": 1,
+   "home": "Tulane",
+   "home_field": 2.6,
+   "id": 401862801,
+   "line": 7.0,
+   "model_spread": 7.9,
+   "model_total": 52.8,
+   "neutral": false,
+   "proj_away": 30.3,
+   "proj_home": 22.4,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-16T23:30:00.000Z",
+   "su_team": "Memphis",
+   "su_wp": 0.694,
+   "tier": "pass",
+   "total_line": 53.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401862802": {
+   "ats_line": -3.0,
+   "ats_side": "home",
+   "ats_team": "Army",
+   "away": "Florida Atlantic",
+   "book": "DraftKings",
+   "conf_label": "Medium",
+   "confidence": 58,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 0.647,
+     "consistency": 0.508,
+     "data": 1.0,
+     "edge": 0.529,
+     "market": 0.5,
+     "trends": 0.375
+    },
+    "label": "Medium",
+    "n_sources": 3,
+    "score": 58,
+    "sources": {
+     "elo": 13.7,
+     "fpi": 7.2,
+     "sp": 1.6
+    }
+   },
+   "diffs": {
+    "elo": 11.05,
+    "fpi": 4.61,
+    "sp": -1.0
+   },
+   "edge": 3.7,
+   "hfa_flag": 1,
+   "home": "Army",
+   "home_field": 2.6,
+   "id": 401862802,
+   "line": -3.0,
+   "model_spread": -6.7,
+   "model_total": 60.5,
+   "neutral": false,
+   "proj_away": 26.9,
+   "proj_home": 33.6,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T16:00:00.000Z",
+   "su_team": "Army",
+   "su_wp": 0.666,
+   "tier": "lean",
+   "total_line": 55.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401862803": {
+   "ats_line": 24.5,
+   "ats_side": "away",
+   "ats_team": "Charlotte",
+   "away": "Charlotte",
+   "book": "DraftKings",
+   "conf_label": "Medium",
+   "confidence": 55,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 0.647,
+     "consistency": 0.835,
+     "data": 1.0,
+     "edge": 0.3,
+     "market": 0.25,
+     "trends": 0.625
+    },
+    "label": "Medium",
+    "n_sources": 3,
+    "score": 55,
+    "sources": {
+     "elo": 21.7,
+     "fpi": 20.9,
+     "sp": 24.7
+    }
+   },
+   "diffs": {
+    "elo": 19.05,
+    "fpi": 18.28,
+    "sp": 22.1
+   },
+   "edge": 2.1,
+   "hfa_flag": 1,
+   "home": "Temple",
+   "home_field": 2.6,
+   "id": 401862803,
+   "line": -24.5,
+   "model_spread": -22.4,
+   "model_total": 56.3,
+   "neutral": false,
+   "proj_away": 16.9,
+   "proj_home": 39.3,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T17:00:00.000Z",
+   "su_team": "Temple",
+   "su_wp": 0.926,
+   "tier": "lean",
+   "total_line": 50.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401862804": {
+   "ats_line": 7.0,
+   "ats_side": "away",
+   "ats_team": "Navy",
+   "away": "Navy",
+   "book": "DraftKings",
+   "conf_label": "Low",
+   "confidence": 51,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 0.574,
+     "consistency": 0.818,
+     "data": 1.0,
+     "edge": 0.229,
+     "market": 0.5,
+     "trends": 0.375
+    },
+    "label": "Low",
+    "n_sources": 3,
+    "score": 51,
+    "sources": {
+     "elo": 4.0,
+     "fpi": 7.6,
+     "sp": 3.6
+    }
+   },
+   "diffs": {
+    "elo": 1.38,
+    "fpi": 5.04,
+    "sp": 1.0
+   },
+   "edge": 1.6,
+   "hfa_flag": 1,
+   "home": "UTSA",
+   "home_field": 2.6,
+   "id": 401862804,
+   "line": -7.0,
+   "model_spread": -5.4,
+   "model_total": 55.1,
+   "neutral": false,
+   "proj_away": 24.8,
+   "proj_home": 30.2,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-18T00:00:00.000Z",
+   "su_team": "UTSA",
+   "su_wp": 0.636,
+   "tier": "pass",
+   "total_line": 55.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401862805": {
+   "ats_line": -3.0,
+   "ats_side": "away",
+   "ats_team": "Tulsa",
+   "away": "Tulsa",
+   "book": "DraftKings",
+   "conf_label": "Low",
+   "confidence": 53,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 0.779,
+     "consistency": 0.771,
+     "data": 1.0,
+     "edge": 0.243,
+     "market": 0.5,
+     "trends": 0.125
+    },
+    "label": "Low",
+    "n_sources": 3,
+    "score": 53,
+    "sources": {
+     "elo": -0.9,
+     "fpi": -5.9,
+     "sp": -5.7
+    }
+   },
+   "diffs": {
+    "elo": -3.54,
+    "fpi": -8.48,
+    "sp": -8.3
+   },
+   "edge": 1.7,
+   "hfa_flag": 1,
+   "home": "Rice",
+   "home_field": 2.6,
+   "id": 401862805,
+   "line": 3.0,
+   "model_spread": 4.7,
+   "model_total": 43.9,
+   "neutral": false,
+   "proj_away": 24.3,
+   "proj_home": 19.6,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T20:30:00.000Z",
+   "su_team": "Tulsa",
+   "su_wp": 0.62,
+   "tier": "pass",
+   "total_line": 46.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401862806": {
+   "ats_line": -18.5,
+   "ats_side": "home",
+   "ats_team": "South Florida",
+   "away": "Kent State",
+   "book": "DraftKings",
+   "conf_label": "High",
+   "confidence": 88,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.504,
+     "data": 1.0,
+     "edge": 1.0,
+     "market": 0.5,
+     "trends": 1.0
+    },
+    "label": "High",
+    "n_sources": 3,
+    "score": 88,
+    "sources": {
+     "elo": 33.9,
+     "fpi": 22.0,
+     "sp": 25.8
+    }
+   },
+   "diffs": {
+    "elo": 31.31,
+    "fpi": 19.42,
+    "sp": 23.2
+   },
+   "edge": 7.5,
+   "hfa_flag": 1,
+   "home": "South Florida",
+   "home_field": 2.6,
+   "id": 401862806,
+   "line": -18.5,
+   "model_spread": -26.0,
+   "model_total": 45.4,
+   "neutral": false,
+   "proj_away": 9.7,
+   "proj_home": 35.7,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T23:00:00.000Z",
+   "su_team": "South Florida",
+   "su_wp": 0.953,
+   "tier": "strong",
+   "total_line": 49.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
   "401864516": {
    "ats_line": -7.0,
    "ats_side": "away",
@@ -1755,6 +4120,301 @@
     "elo": 0.25,
     "fpi": 0.35,
     "sp": 0.4
+   }
+  },
+  "401864520": {
+   "ats_line": 14.5,
+   "ats_side": "away",
+   "ats_team": "Nevada",
+   "away": "Nevada",
+   "book": "DraftKings",
+   "conf_label": "Medium",
+   "confidence": 56,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 0.647,
+     "consistency": 0.827,
+     "data": 1.0,
+     "edge": 0.2,
+     "market": 0.5,
+     "trends": 0.625
+    },
+    "label": "Medium",
+    "n_sources": 3,
+    "score": 56,
+    "sources": {
+     "elo": 12.5,
+     "fpi": 11.4,
+     "sp": 15.5
+    }
+   },
+   "diffs": {
+    "elo": 9.95,
+    "fpi": 8.78,
+    "sp": 12.9
+   },
+   "edge": 1.4,
+   "hfa_flag": 1,
+   "home": "North Dakota State",
+   "home_field": 2.6,
+   "id": 401864520,
+   "line": -14.5,
+   "model_spread": -13.1,
+   "model_total": 37.9,
+   "neutral": false,
+   "proj_away": 12.4,
+   "proj_home": 25.5,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T23:00:00.000Z",
+   "su_team": "North Dakota State",
+   "su_wp": 0.801,
+   "tier": "pass",
+   "total_line": 46.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401864521": {
+   "ats_line": -15.5,
+   "ats_side": "away",
+   "ats_team": "New Mexico",
+   "away": "New Mexico",
+   "book": "DraftKings",
+   "conf_label": "Medium",
+   "confidence": 65,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.715,
+     "data": 1.0,
+     "edge": 0.614,
+     "market": 0.5,
+     "trends": 0.0
+    },
+    "label": "Medium",
+    "n_sources": 3,
+    "score": 65,
+    "sources": {
+     "elo": -15.7,
+     "fpi": -19.7,
+     "sp": -22.6
+    }
+   },
+   "diffs": {
+    "elo": -18.25,
+    "fpi": -22.29,
+    "sp": -25.2
+   },
+   "edge": 4.3,
+   "hfa_flag": 1,
+   "home": "Hawai'i",
+   "home_field": 2.6,
+   "id": 401864521,
+   "line": 15.5,
+   "model_spread": 19.8,
+   "model_total": 42.6,
+   "neutral": false,
+   "proj_away": 31.2,
+   "proj_home": 11.4,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-18T02:30:00.000Z",
+   "su_team": "New Mexico",
+   "su_wp": 0.9,
+   "tier": "play",
+   "total_line": 48.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401864522": {
+   "ats_line": -7.5,
+   "ats_side": "home",
+   "ats_team": "Wyoming",
+   "away": "Northern Illinois",
+   "book": "DraftKings",
+   "conf_label": "Low",
+   "confidence": 47,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 0.574,
+     "consistency": 0.67,
+     "data": 1.0,
+     "edge": 0.1,
+     "market": 0.5,
+     "trends": 0.375
+    },
+    "label": "Low",
+    "n_sources": 3,
+    "score": 47,
+    "sources": {
+     "elo": 9.2,
+     "fpi": 4.3,
+     "sp": 12.3
+    }
+   },
+   "diffs": {
+    "elo": 6.61,
+    "fpi": 1.69,
+    "sp": 9.7
+   },
+   "edge": 0.7,
+   "hfa_flag": 1,
+   "home": "Wyoming",
+   "home_field": 2.6,
+   "id": 401864522,
+   "line": -7.5,
+   "model_spread": -8.2,
+   "model_total": 35.1,
+   "neutral": false,
+   "proj_away": 13.4,
+   "proj_home": 21.6,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T19:30:00.000Z",
+   "su_team": "Wyoming",
+   "su_wp": 0.702,
+   "tier": "pass",
+   "total_line": 38.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401864523": {
+   "ats_line": -10.0,
+   "ats_side": "away",
+   "ats_team": "San Jos\u00e9 State",
+   "away": "San Jos\u00e9 State",
+   "book": "DraftKings",
+   "conf_label": "Low",
+   "confidence": 41,
+   "confidence_detail": {
+    "agree": 1,
+    "components": {
+     "agreement": 0.221,
+     "consistency": 0.559,
+     "data": 1.0,
+     "edge": 0.186,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "Low",
+    "n_sources": 3,
+    "score": 41,
+    "sources": {
+     "elo": -18.6,
+     "fpi": -8.7,
+     "sp": -9.8
+    }
+   },
+   "diffs": {
+    "elo": -21.16,
+    "fpi": -11.3,
+    "sp": -12.4
+   },
+   "edge": 1.3,
+   "hfa_flag": 1,
+   "home": "UTEP",
+   "home_field": 2.6,
+   "id": 401864523,
+   "line": 10.0,
+   "model_spread": 11.3,
+   "model_total": 41.2,
+   "neutral": false,
+   "proj_away": 26.2,
+   "proj_home": 14.9,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-18T01:00:00.000Z",
+   "su_team": "San Jos\u00e9 State",
+   "su_wp": 0.766,
+   "tier": "pass",
+   "total_line": 52.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401864524": {
+   "ats_line": 3.0,
+   "ats_side": "home",
+   "ats_team": "Air Force",
+   "away": "UNLV",
+   "book": "DraftKings",
+   "conf_label": "Medium",
+   "confidence": 68,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.762,
+     "data": 1.0,
+     "edge": 0.657,
+     "market": 0.5,
+     "trends": 0.125
+    },
+    "label": "Medium",
+    "n_sources": 3,
+    "score": 68,
+    "sources": {
+     "elo": 0.2,
+     "fpi": -0.4,
+     "sp": 4.9
+    }
+   },
+   "diffs": {
+    "elo": -2.38,
+    "fpi": -3.04,
+    "sp": 2.3
+   },
+   "edge": 4.6,
+   "hfa_flag": 1,
+   "home": "Air Force",
+   "home_field": 2.6,
+   "id": 401864524,
+   "line": 3.0,
+   "model_spread": -1.6,
+   "model_total": 48.2,
+   "neutral": false,
+   "proj_away": 23.3,
+   "proj_home": 24.9,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T19:30:00.000Z",
+   "su_team": "Air Force",
+   "su_wp": 0.541,
+   "tier": "play",
+   "total_line": 48.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
    }
   },
   "401866435": {
@@ -2044,6 +4704,360 @@
    "updated": "2026-10-10T16:57:46Z",
    "week": 6
   },
+  "401866441": {
+   "ats_line": -7.0,
+   "ats_side": "home",
+   "ats_team": "Bowling Green",
+   "away": "Ball State",
+   "book": "DraftKings",
+   "conf_label": "Medium",
+   "confidence": 57,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.787,
+     "data": 1.0,
+     "edge": 0.357,
+     "market": 0.125,
+     "trends": 0.25
+    },
+    "label": "Medium",
+    "n_sources": 3,
+    "score": 57,
+    "sources": {
+     "elo": 12.7,
+     "fpi": 7.5,
+     "sp": 9.9
+    }
+   },
+   "diffs": {
+    "elo": 10.11,
+    "fpi": 4.91,
+    "sp": 7.3
+   },
+   "edge": 2.5,
+   "hfa_flag": 1,
+   "home": "Bowling Green",
+   "home_field": 2.6,
+   "id": 401866441,
+   "line": -7.0,
+   "model_spread": -9.5,
+   "model_total": 45.2,
+   "neutral": false,
+   "proj_away": 17.8,
+   "proj_home": 27.3,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T16:00:00.000Z",
+   "su_team": "Bowling Green",
+   "su_wp": 0.73,
+   "tier": "lean",
+   "total_line": 44.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401866442": {
+   "ats_line": -3.5,
+   "ats_side": "home",
+   "ats_team": "Buffalo",
+   "away": "Massachusetts",
+   "book": "DraftKings",
+   "conf_label": "Low",
+   "confidence": 34,
+   "confidence_detail": {
+    "agree": 1,
+    "components": {
+     "agreement": 0.221,
+     "consistency": 0.298,
+     "data": 1.0,
+     "edge": 0.086,
+     "market": 0.5,
+     "trends": 0.375
+    },
+    "label": "Low",
+    "n_sources": 3,
+    "score": 34,
+    "sources": {
+     "elo": 15.0,
+     "fpi": 3.4,
+     "sp": -1.8
+    }
+   },
+   "diffs": {
+    "elo": 12.38,
+    "fpi": 0.77,
+    "sp": -4.4
+   },
+   "edge": 0.6,
+   "hfa_flag": 1,
+   "home": "Buffalo",
+   "home_field": 2.6,
+   "id": 401866442,
+   "line": -3.5,
+   "model_spread": -4.1,
+   "model_total": 39.6,
+   "neutral": false,
+   "proj_away": 17.7,
+   "proj_home": 21.8,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T17:00:00.000Z",
+   "su_team": "Buffalo",
+   "su_wp": 0.605,
+   "tier": "pass",
+   "total_line": 44.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401866443": {
+   "ats_line": -7.0,
+   "ats_side": "away",
+   "ats_team": "Western Michigan",
+   "away": "Western Michigan",
+   "book": "DraftKings",
+   "conf_label": "High",
+   "confidence": 73,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.923,
+     "data": 1.0,
+     "edge": 0.557,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "High",
+    "n_sources": 3,
+    "score": 73,
+    "sources": {
+     "elo": -12.1,
+     "fpi": -10.2,
+     "sp": -10.9
+    }
+   },
+   "diffs": {
+    "elo": -14.66,
+    "fpi": -12.78,
+    "sp": -13.5
+   },
+   "edge": 3.9,
+   "hfa_flag": 1,
+   "home": "Central Michigan",
+   "home_field": 2.6,
+   "id": 401866443,
+   "line": 7.0,
+   "model_spread": 10.9,
+   "model_total": 38.8,
+   "neutral": false,
+   "proj_away": 24.8,
+   "proj_home": 14.0,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T17:30:00.000Z",
+   "su_team": "Western Michigan",
+   "su_wp": 0.758,
+   "tier": "lean",
+   "total_line": 42.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401866444": {
+   "ats_line": -5.5,
+   "ats_side": "away",
+   "ats_team": "Toledo",
+   "away": "Toledo",
+   "book": "DraftKings",
+   "conf_label": "Medium",
+   "confidence": 65,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.731,
+     "data": 1.0,
+     "edge": 0.471,
+     "market": 0.25,
+     "trends": 0.5
+    },
+    "label": "Medium",
+    "n_sources": 3,
+    "score": 65,
+    "sources": {
+     "elo": -13.0,
+     "fpi": -8.6,
+     "sp": -6.5
+    }
+   },
+   "diffs": {
+    "elo": -15.55,
+    "fpi": -11.2,
+    "sp": -9.1
+   },
+   "edge": 3.3,
+   "hfa_flag": 1,
+   "home": "Eastern Michigan",
+   "home_field": 2.6,
+   "id": 401866444,
+   "line": 5.5,
+   "model_spread": 8.8,
+   "model_total": 46.5,
+   "neutral": false,
+   "proj_away": 27.6,
+   "proj_home": 18.8,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T19:30:00.000Z",
+   "su_team": "Toledo",
+   "su_wp": 0.715,
+   "tier": "lean",
+   "total_line": 52.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401866445": {
+   "ats_line": -13.5,
+   "ats_side": "away",
+   "ats_team": "Ohio",
+   "away": "Ohio",
+   "book": "DraftKings",
+   "conf_label": "Medium",
+   "confidence": 61,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 0.779,
+     "consistency": 0.644,
+     "data": 1.0,
+     "edge": 0.243,
+     "market": 0.5,
+     "trends": 0.75
+    },
+    "label": "Medium",
+    "n_sources": 3,
+    "score": 61,
+    "sources": {
+     "elo": -9.5,
+     "fpi": -18.0,
+     "sp": -15.4
+    }
+   },
+   "diffs": {
+    "elo": -12.12,
+    "fpi": -20.64,
+    "sp": -18.0
+   },
+   "edge": 1.7,
+   "hfa_flag": 1,
+   "home": "Sacramento State",
+   "home_field": 2.6,
+   "id": 401866445,
+   "line": 13.5,
+   "model_spread": 15.2,
+   "model_total": 44.9,
+   "neutral": false,
+   "proj_away": 30.0,
+   "proj_home": 14.8,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-18T02:00:00.000Z",
+   "su_team": "Ohio",
+   "su_wp": 0.837,
+   "tier": "pass",
+   "total_line": 49.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401866478": {
+   "ats_line": -10.0,
+   "ats_side": "home",
+   "ats_team": "Miami (OH)",
+   "away": "Akron",
+   "book": "DraftKings",
+   "conf_label": "High",
+   "confidence": 87,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.658,
+     "data": 1.0,
+     "edge": 1.0,
+     "market": 0.625,
+     "trends": 0.75
+    },
+    "label": "High",
+    "n_sources": 3,
+    "score": 87,
+    "sources": {
+     "elo": 22.1,
+     "fpi": 13.8,
+     "sp": 18.6
+    }
+   },
+   "diffs": {
+    "elo": 19.52,
+    "fpi": 11.18,
+    "sp": 16.0
+   },
+   "edge": 7.3,
+   "hfa_flag": 1,
+   "home": "Miami (OH)",
+   "home_field": 2.6,
+   "id": 401866478,
+   "line": -10.0,
+   "model_spread": -17.3,
+   "model_total": 49.3,
+   "neutral": false,
+   "proj_away": 16.0,
+   "proj_home": 33.3,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T19:30:00.000Z",
+   "su_team": "Miami (OH)",
+   "su_wp": 0.868,
+   "tier": "strong",
+   "total_line": 46.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
   "401869843": {
    "ats_line": 8.5,
    "ats_side": "away",
@@ -2074,6 +5088,124 @@
    "total_line": 45.5,
    "updated": "2026-10-10T16:57:46Z",
    "week": 6
+  },
+  "401869844": {
+   "ats_line": 1.5,
+   "ats_side": "home",
+   "ats_team": "Coastal Carolina",
+   "away": "App State",
+   "book": "DraftKings",
+   "conf_label": "Medium",
+   "confidence": 60,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 0.647,
+     "consistency": 0.83,
+     "data": 1.0,
+     "edge": 0.114,
+     "market": 0.5,
+     "trends": 1.0
+    },
+    "label": "Medium",
+    "n_sources": 3,
+    "score": 60,
+    "sources": {
+     "elo": 1.8,
+     "fpi": -0.6,
+     "sp": -2.4
+    }
+   },
+   "diffs": {
+    "elo": -0.85,
+    "fpi": -3.2,
+    "sp": -5.0
+   },
+   "edge": 0.8,
+   "hfa_flag": 1,
+   "home": "Coastal Carolina",
+   "home_field": 2.6,
+   "id": 401869844,
+   "line": 1.5,
+   "model_spread": 0.7,
+   "model_total": 52.6,
+   "neutral": false,
+   "proj_away": 26.6,
+   "proj_home": 25.9,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T00:00:00.000Z",
+   "su_team": "App State",
+   "su_wp": 0.519,
+   "tier": "pass",
+   "total_line": 51.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401869934": {
+   "ats_line": 7.5,
+   "ats_side": "home",
+   "ats_team": "Southern Miss",
+   "away": "Arkansas State",
+   "book": "DraftKings",
+   "conf_label": "Medium",
+   "confidence": 55,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 0.647,
+     "consistency": 0.731,
+     "data": 1.0,
+     "edge": 0.5,
+     "market": 0.375,
+     "trends": 0.25
+    },
+    "label": "Medium",
+    "n_sources": 3,
+    "score": 55,
+    "sources": {
+     "elo": -3.5,
+     "fpi": -1.2,
+     "sp": -7.7
+    }
+   },
+   "diffs": {
+    "elo": -6.13,
+    "fpi": -3.8,
+    "sp": -10.3
+   },
+   "edge": 3.5,
+   "hfa_flag": 1,
+   "home": "Southern Miss",
+   "home_field": 2.6,
+   "id": 401869934,
+   "line": 7.5,
+   "model_spread": 4.0,
+   "model_total": 67.4,
+   "neutral": false,
+   "proj_away": 35.7,
+   "proj_home": 31.7,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T23:00:00.000Z",
+   "su_team": "Arkansas State",
+   "su_wp": 0.602,
+   "tier": "lean",
+   "total_line": 57.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
   },
   "401869943": {
    "ats_line": 4.5,
@@ -2203,6 +5335,124 @@
     "sp": 0.4
    }
   },
+  "401869950": {
+   "ats_line": -3.5,
+   "ats_side": "away",
+   "ats_team": "Georgia Southern",
+   "away": "Georgia Southern",
+   "book": "DraftKings",
+   "conf_label": "Medium",
+   "confidence": 56,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 0.647,
+     "consistency": 0.866,
+     "data": 1.0,
+     "edge": 0.157,
+     "market": 0.75,
+     "trends": 0.375
+    },
+    "label": "Medium",
+    "n_sources": 3,
+    "score": 56,
+    "sources": {
+     "elo": -5.3,
+     "fpi": -5.7,
+     "sp": -2.7
+    }
+   },
+   "diffs": {
+    "elo": -7.94,
+    "fpi": -8.31,
+    "sp": -5.3
+   },
+   "edge": 1.1,
+   "hfa_flag": 1,
+   "home": "Old Dominion",
+   "home_field": 2.6,
+   "id": 401869950,
+   "line": 3.5,
+   "model_spread": 4.6,
+   "model_total": 45.4,
+   "neutral": false,
+   "proj_away": 25.0,
+   "proj_home": 20.4,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-15T23:30:00.000Z",
+   "su_team": "Georgia Southern",
+   "su_wp": 0.616,
+   "tier": "pass",
+   "total_line": 49.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401869957": {
+   "ats_line": -11.5,
+   "ats_side": "home",
+   "ats_team": "James Madison",
+   "away": "Georgia State",
+   "book": "DraftKings",
+   "conf_label": "Medium",
+   "confidence": 62,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 0.574,
+     "consistency": 0.498,
+     "data": 1.0,
+     "edge": 0.643,
+     "market": 0.25,
+     "trends": 0.875
+    },
+    "label": "Medium",
+    "n_sources": 3,
+    "score": 62,
+    "sources": {
+     "elo": 23.7,
+     "fpi": 11.4,
+     "sp": 16.8
+    }
+   },
+   "diffs": {
+    "elo": 21.06,
+    "fpi": 8.79,
+    "sp": 14.2
+   },
+   "edge": 4.5,
+   "hfa_flag": 1,
+   "home": "James Madison",
+   "home_field": 2.6,
+   "id": 401869957,
+   "line": -11.5,
+   "model_spread": -16.0,
+   "model_total": 59.3,
+   "neutral": false,
+   "proj_away": 21.6,
+   "proj_home": 37.6,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T16:00:00.000Z",
+   "su_team": "James Madison",
+   "su_wp": 0.849,
+   "tier": "play",
+   "total_line": 54.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
   "401869965": {
    "ats_line": 3.0,
    "ats_side": "away",
@@ -2265,6 +5515,360 @@
     "elo": 0.25,
     "fpi": 0.35,
     "sp": 0.4
+   }
+  },
+  "401869966": {
+   "ats_line": -4.5,
+   "ats_side": "home",
+   "ats_team": "Louisiana",
+   "away": "Troy",
+   "book": "DraftKings",
+   "conf_label": "Low",
+   "confidence": 42,
+   "confidence_detail": {
+    "agree": 1,
+    "components": {
+     "agreement": 0.353,
+     "consistency": 0.842,
+     "data": 1.0,
+     "edge": 0.057,
+     "market": 0.75,
+     "trends": 0.125
+    },
+    "label": "Low",
+    "n_sources": 3,
+    "score": 42,
+    "sources": {
+     "elo": 3.2,
+     "fpi": 4.1,
+     "sp": 6.9
+    }
+   },
+   "diffs": {
+    "elo": 0.58,
+    "fpi": 1.51,
+    "sp": 4.3
+   },
+   "edge": 0.4,
+   "hfa_flag": 1,
+   "home": "Louisiana",
+   "home_field": 2.6,
+   "id": 401869966,
+   "line": -4.5,
+   "model_spread": -4.9,
+   "model_total": 54.3,
+   "neutral": false,
+   "proj_away": 24.7,
+   "proj_home": 29.6,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-17T21:00:00.000Z",
+   "su_team": "Louisiana",
+   "su_wp": 0.624,
+   "tier": "pass",
+   "total_line": 47.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401871053": {
+   "ats_line": -2.5,
+   "ats_side": "home",
+   "ats_team": "Jacksonville State",
+   "away": "Florida International",
+   "book": "DraftKings",
+   "conf_label": "Medium",
+   "confidence": 69,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.874,
+     "data": 1.0,
+     "edge": 0.2,
+     "market": 0.375,
+     "trends": 1.0
+    },
+    "label": "Medium",
+    "n_sources": 3,
+    "score": 69,
+    "sources": {
+     "elo": 2.8,
+     "fpi": 3.0,
+     "sp": 5.6
+    }
+   },
+   "diffs": {
+    "elo": 0.21,
+    "fpi": 0.44,
+    "sp": 3.0
+   },
+   "edge": 1.4,
+   "hfa_flag": 1,
+   "home": "Jacksonville State",
+   "home_field": 2.6,
+   "id": 401871053,
+   "line": -2.5,
+   "model_spread": -3.9,
+   "model_total": 40.2,
+   "neutral": false,
+   "proj_away": 18.1,
+   "proj_home": 22.0,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-14T00:00:00.000Z",
+   "su_team": "Jacksonville State",
+   "su_wp": 0.599,
+   "tier": "pass",
+   "total_line": 45.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401871054": {
+   "ats_line": -3.0,
+   "ats_side": "away",
+   "ats_team": "Kennesaw State",
+   "away": "Kennesaw State",
+   "book": "DraftKings",
+   "conf_label": "Medium",
+   "confidence": 61,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 0.779,
+     "consistency": 0.731,
+     "data": 1.0,
+     "edge": 0.157,
+     "market": 0.5,
+     "trends": 0.875
+    },
+    "label": "Medium",
+    "n_sources": 3,
+    "score": 61,
+    "sources": {
+     "elo": -0.5,
+     "fpi": -3.6,
+     "sp": -7.1
+    }
+   },
+   "diffs": {
+    "elo": -3.12,
+    "fpi": -6.15,
+    "sp": -9.7
+   },
+   "edge": 1.1,
+   "hfa_flag": 1,
+   "home": "Missouri State",
+   "home_field": 2.6,
+   "id": 401871054,
+   "line": 3.0,
+   "model_spread": 4.1,
+   "model_total": 51.1,
+   "neutral": false,
+   "proj_away": 27.6,
+   "proj_home": 23.5,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-14T23:30:00.000Z",
+   "su_team": "Kennesaw State",
+   "su_wp": 0.605,
+   "tier": "pass",
+   "total_line": 50.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401871067": {
+   "ats_line": -2.5,
+   "ats_side": "away",
+   "ats_team": "Delaware",
+   "away": "Delaware",
+   "book": "DraftKings",
+   "conf_label": "High",
+   "confidence": 70,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.859,
+     "data": 1.0,
+     "edge": 0.314,
+     "market": 0.75,
+     "trends": 0.5
+    },
+    "label": "High",
+    "n_sources": 3,
+    "score": 70,
+    "sources": {
+     "elo": -7.0,
+     "fpi": -4.3,
+     "sp": -3.8
+    }
+   },
+   "diffs": {
+    "elo": -9.63,
+    "fpi": -6.93,
+    "sp": -6.4
+   },
+   "edge": 2.2,
+   "hfa_flag": 1,
+   "home": "Middle Tennessee",
+   "home_field": 2.6,
+   "id": 401871067,
+   "line": 2.5,
+   "model_spread": 4.7,
+   "model_total": 50.2,
+   "neutral": false,
+   "proj_away": 27.4,
+   "proj_home": 22.7,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-13T23:00:00.000Z",
+   "su_team": "Delaware",
+   "su_wp": 0.62,
+   "tier": "lean",
+   "total_line": 48.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401871068": {
+   "ats_line": 1.5,
+   "ats_side": "home",
+   "ats_team": "Sam Houston",
+   "away": "Western Kentucky",
+   "book": "DraftKings",
+   "conf_label": "Low",
+   "confidence": 53,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 0.779,
+     "consistency": 0.758,
+     "data": 1.0,
+     "edge": 0.129,
+     "market": 0.5,
+     "trends": 0.375
+    },
+    "label": "Low",
+    "n_sources": 3,
+    "score": 53,
+    "sources": {
+     "elo": -4.3,
+     "fpi": 1.6,
+     "sp": -0.9
+    }
+   },
+   "diffs": {
+    "elo": -6.93,
+    "fpi": -1.03,
+    "sp": -3.5
+   },
+   "edge": 0.9,
+   "hfa_flag": 1,
+   "home": "Sam Houston",
+   "home_field": 2.6,
+   "id": 401871068,
+   "line": 1.5,
+   "model_spread": 0.6,
+   "model_total": 50.9,
+   "neutral": false,
+   "proj_away": 25.7,
+   "proj_home": 25.1,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-15T00:00:00.000Z",
+   "su_team": "Western Kentucky",
+   "su_wp": 0.516,
+   "tier": "pass",
+   "total_line": 51.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
+   }
+  },
+  "401871091": {
+   "ats_line": -14.5,
+   "ats_side": "away",
+   "ats_team": "Louisiana Tech",
+   "away": "Louisiana Tech",
+   "book": "DraftKings",
+   "conf_label": "High",
+   "confidence": 72,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.872,
+     "data": 1.0,
+     "edge": 0.543,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "High",
+    "n_sources": 3,
+    "score": 72,
+    "sources": {
+     "elo": -16.9,
+     "fpi": -17.8,
+     "sp": -19.9
+    }
+   },
+   "diffs": {
+    "elo": -19.46,
+    "fpi": -20.36,
+    "sp": -22.5
+   },
+   "edge": 3.8,
+   "hfa_flag": 1,
+   "home": "UL Monroe",
+   "home_field": 2.6,
+   "id": 401871091,
+   "line": 14.5,
+   "model_spread": 18.3,
+   "model_total": 64.8,
+   "neutral": false,
+   "proj_away": 41.5,
+   "proj_home": 23.2,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-18T00:00:00.000Z",
+   "su_team": "Louisiana Tech",
+   "su_wp": 0.881,
+   "tier": "lean",
+   "total_line": 52.5,
+   "updated": "2026-10-11T17:27:08Z",
+   "week": 7,
+   "weights": {
+    "elo": 0.221,
+    "fpi": 0.426,
+    "sp": 0.353
    }
   }
  }
