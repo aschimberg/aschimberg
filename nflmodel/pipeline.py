@@ -250,6 +250,8 @@ def refresh(games=None, pbp_loader=None, now=None, log=print):
                 extra={"sources": {k: round(diffs[k] + config.HOME_FIELD * hflag + offset, 1) for k in SOURCES},
                        "source_names": {"epa": "EPA", "elo": "Elo"}},
             )
+            if pick["cover_prob"] is not None and pick["cover_prob"] < 0.5:
+                pick["tier"] = "pass"  # the point edge doesn't survive key numbers (e.g. -8.5 vs a 10-pt projection)
             pick["confidence"] = conf_detail["score"]
             pick["conf_label"] = conf_detail["label"]
 
@@ -355,7 +357,7 @@ def method_html():
 <h3>Projection</h3>
 <p>Margin = {w['epa']:.0%} EPA + {w['elo']:.0%} Elo + QB adjustment + {config.HOME_FIELD:.2g} points home field (none at neutral sites) + a small rest term ({config.REST_PER_DAY:g} pts/day, capped; post-2011 rest effects are near zero). Cover probability uses a margin distribution reweighted to real NFL final margins since 2005, so key numbers like 3 and 7 carry their true weight and pushes are priced.</p>
 <h3>Picks, confidence and tuning</h3>
-<p>Edge = projected margin vs the line. Tiers: lean {config.LEAN_EDGE:g}+, play {config.PLAY_EDGE:g}+, strong {config.STRONG_EDGE:g}+. Confidence (0–100) weighs whether EPA and Elo each cover on their own, edge, line movement, ATS trends, and data quality (games played, known starting QBs). After each week the EPA/Elo weights and home field are refit to this season's results and moved part of the way there.</p>
+<p>Edge = projected margin vs the line. Cover probability prices that edge on a margin distribution with real key-number frequencies (3, 7, 10...); a pick under 50% to cover is a pass whatever its edge. Tiers: lean {config.LEAN_EDGE:g}+, play {config.PLAY_EDGE:g}+, strong {config.STRONG_EDGE:g}+. Confidence (0–100) weighs whether EPA and Elo each cover on their own, edge, line movement, ATS trends, and data quality (games played, known starting QBs). After each week the EPA/Elo weights and home field are refit to this season's results and moved part of the way there.</p>
 <p>Data: <a href="https://github.com/nflverse">nflverse</a> (CC BY 4.0) schedules, lines and play-by-play. For entertainment only.</p>"""
 
 
