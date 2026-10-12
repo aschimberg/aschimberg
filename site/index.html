@@ -10,21 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Geist+Mono:wght@400..700&display=swap">
   <link rel="stylesheet" href="styles.css">
-  <script>
-    // Design previews: ?theme=night|broadsheet|dashboard (remembered); ?theme=default resets.
-    (function () {
-      var themes = ["night", "broadsheet", "dashboard"], t = null;
-      try {
-        var q = new URLSearchParams(location.search).get("theme");
-        if (q) localStorage.setItem("cfb-theme", q);
-        t = q || localStorage.getItem("cfb-theme");
-      } catch (e) {}
-      if (themes.indexOf(t) >= 0) {
-        document.documentElement.dataset.theme = t;
-        document.write('<link rel="stylesheet" href="themes/' + t + '.css">');
-      }
-    })();
-  </script>
+  <link rel="stylesheet" href="themes/dashboard.css">
 </head>
 <body>
   <header class="site-header">
@@ -148,7 +134,6 @@
   <footer class="footer">
     <div class="shell footer-inner">
       <span id="updated"></span>
-      <span>Design: <a href="?theme=default">Current</a> · <a href="?theme=night">Night Game</a> · <a href="?theme=broadsheet">Broadsheet</a> · <a href="?theme=dashboard">Dashboard</a></span>
       <span>Data: <a href="https://collegefootballdata.com">CollegeFootballData.com</a> · For entertainment only</span>
     </div>
   </footer>
