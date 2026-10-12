@@ -188,6 +188,9 @@
         <span><span class="tier ${p.tier}">${p.tier === "pass" ? "No edge" : p.tier}</span> ${num(p.edge)}</span>
         ${confBadge}
         <span class="dim">SU ${esc(p.su_team)} ${Math.round(wp * 100)}%${res(r.su, { W: "W", L: "L" })}</span>`;
+      const t = p.total_pick;
+      if (t) sel += `<strong class="ou-pick">${esc(ouText(t))}${res(r.total, { W: "Win", L: "Loss", P: "Push" })}</strong>
+        <span><span class="tier ${t.tier}">${t.tier === "pass" ? "No edge" : t.tier}</span> ${num(t.edge)} <span class="dim">vs proj ${num(t.model)}</span></span>`;
     } else if (p.su_team) {
       sel = `<span class="dim">No line</span><strong>SU ${esc(p.su_team)} ${Math.round(wp * 100)}%${res(r.su, { W: "W", L: "L" })}</strong>`;
     }
@@ -362,6 +365,15 @@
     );
   }
 
+  // --- Over/under -------------------------------------------------------------
+  const ouRec = (picks, playOnly = false) => {
+    const xs = picks.filter((p) => p.total_pick && p.result?.total && (!playOnly || p.total_pick.play)).map((p) => p.result.total);
+    const W = xs.filter((x) => x === "W").length, L = xs.filter((x) => x === "L").length, P = xs.filter((x) => x === "P").length;
+    return { W, L, P, pct: W + L ? W / (W + L) : null };
+  };
+  const ouText = (t) => (t ? `${t.side === "over" ? "Over" : "Under"} ${t.line}` : "—");
+  const ouEdge = (t) => (t?.ev != null ? `EV ${t.ev >= 0 ? "+" : ""}${(t.ev * 100).toFixed(1)}%` : t ? `${num(t.edge)} pts` : "");
+
   // --- Closing line value ----------------------------------------------------
   const isML = () => state.meta?.sport === "nhl";
   const fmtOdds = (v) => (v == null ? "—" : (v > 0 ? "+" : "") + Math.round(v));
@@ -406,6 +418,7 @@
 
     const seasonPicks = rec.picks || [];
     const playEdge = s.play_edge ?? 4;
+    if (!rec.tiles) $("#record-tiles").innerHTML += tile("O/U · all", ouRec(seasonPicks)) + tile("O/U · plays", ouRec(seasonPicks, true));
     $("#record-tiles").innerHTML +=
       clvTile(`CLV · all picks`, clvStats(seasonPicks)) +
       clvTile(`CLV · ${T("edge", "edge")} ${playEdge}+`, clvStats(seasonPicks.filter((p) => (p.edge ?? 0) >= playEdge)));
@@ -426,6 +439,8 @@
         { key: "ats", label: A, num: true, render: (r) => recStr(r.ats), sortVal: (r) => r.ats.pct },
         { key: "atspct", label: `${A} %`, num: true, render: (r) => pct(r.ats.pct), sortVal: (r) => r.ats.pct },
         { key: "plays", label: `${A} ${T("edge", "edge")} ${s.lean_edge ?? 4}+`, num: true, render: (r) => recStr(r.ats_plays), sortVal: (r) => r.ats_plays.pct },
+        { key: "ou", label: "O/U", num: true, sortVal: (r) => ouRec(clvByWeek.get(`${r.season}|${r.season_type}|${r.week}`) || []).pct ?? -1,
+          render: (r) => { const o = ouRec(clvByWeek.get(`${r.season}|${r.season_type}|${r.week}`) || []); return o.W + o.L + o.P ? recStr(o) : '<span class="muted">—</span>'; } },
         { key: "clv", label: "CLV", num: true, sortVal: (r) => clvStats(clvByWeek.get(`${r.season}|${r.season_type}|${r.week}`) || [])?.avg ?? -99,
           render: (r) => { const st = clvStats(clvByWeek.get(`${r.season}|${r.season_type}|${r.week}`) || []); return st ? `<span class="${st.avg > 0 ? "pos" : st.avg < 0 ? "neg" : ""}">${clvFmt(st.avg)}</span> <span class="muted">${st.beat}/${st.n}</span>` : '<span class="muted">—</span>'; } },
       ],
@@ -444,6 +459,7 @@
       if (q && !(p.home + " " + p.away).toLowerCase().includes(q)) return false;
       if (f === "plays" && !(p.edge >= play)) return false;
       if (f === "high" && p.conf_label !== "High") return false;
+      if (f === "totals" && !p.total_pick?.play) return false;
       if (f === "graded" && !p.result) return false;
       if (f === "pending" && p.result) return false;
       return true;
@@ -464,6 +480,8 @@
         { key: "score", label: "Final", num: true, sortVal: (p) => (p.result ? 1 : 0), render: (p) => (p.result ? `${p.result.away_pts}–${p.result.home_pts}` : "—") },
         { key: "ats", label: T("ats", "ATS"), sortVal: (p) => p.result?.ats, render: (p) => res(p.result?.ats) },
         { key: "su", label: "SU", sortVal: (p) => p.result?.su, render: (p) => `${esc(p.su_team)} ${res(p.result?.su)}` },
+        { key: "ou", label: "O/U pick", sortVal: (p) => p.total_pick?.edge ?? -1,
+          render: (p) => (p.total_pick ? `${esc(ouText(p.total_pick))} <span class="muted">${esc(ouEdge(p.total_pick))}</span> ${res(p.result?.total)}` : '<span class="muted">—</span>') },
         { key: "clv", label: "CLV", num: true, sortVal: (p) => p.clv ?? -99, render: (p) => {
           if (p.clv == null) return '<span class="muted">—</span>';
           const fmtN = (v) => (isML() ? fmtOdds(v) : (v > 0 ? "+" : "") + v);
@@ -501,6 +519,9 @@
       { key: "strong", label: `Edge ${s.strong_edge ?? 7}+`, num: true, render: (r) => recStr(r.ats_strong), sortVal: (r) => r.ats_strong?.pct },
       { key: "high", label: "High conf", num: true, render: (r) => recStr(r.ats_by_conf?.High), sortVal: (r) => r.ats_by_conf?.High?.pct },
       { key: "su", label: "SU", num: true, render: (r) => recStr(r.su, false), sortVal: (r) => r.su.pct },
+      ...(sumRows.some((r) => r.ou) ? [
+        { key: "ou", label: "O/U", num: true, render: (r) => recStr(r.ou), sortVal: (r) => r.ou?.pct },
+        { key: "ou_play", label: "O/U plays", num: true, render: (r) => recStr(r.ou_play), sortVal: (r) => r.ou_play?.pct }] : []),
     ], sumRows, el._sort);
 
     const sel = $("#bt-season");
@@ -523,6 +544,7 @@
       { key: "play", label: `Edge ${s.play_edge ?? 4}+`, num: true, render: (r) => recStr(r.ats_play), sortVal: (r) => r.ats_play?.pct },
       { key: "strong", label: `Edge ${s.strong_edge ?? 7}+`, num: true, render: (r) => recStr(r.ats_strong), sortVal: (r) => r.ats_strong?.pct },
       { key: "su", label: "SU", num: true, render: (r) => recStr(r.su, false), sortVal: (r) => r.su.pct },
+      ...(weeks.some((w) => w.ou) ? [{ key: "ou", label: "O/U", num: true, render: (r) => recStr(r.ou), sortVal: (r) => r.ou?.pct }] : []),
       { key: "w", label: "Weights after tuning", render: (r) => `<span class="muted">${esc(wFmt(r.weights))} · HFA ${num(r.home_field, 2)}${r.tune === "insufficient" ? " (too few games yet)" : ""}</span>` },
     ], weeks, wk._sort);
 
@@ -560,6 +582,8 @@
       { key: "score", label: "Final", num: true, sortVal: (p) => p.result.home_pts - p.result.away_pts, render: (p) => `${p.result.away_pts}–${p.result.home_pts}` },
       { key: "ats", label: T("ats", "ATS"), sortVal: (p) => p.result.ats, render: (p) => res(p.result.ats) },
       { key: "su", label: "SU", sortVal: (p) => p.result.su, render: (p) => `${esc(p.su_team)} ${res(p.result.su)}` },
+      ...(rows.some((p) => p.total_pick) ? [{ key: "ou", label: "O/U pick", sortVal: (p) => p.total_pick?.edge ?? -1,
+        render: (p) => (p.total_pick ? `${esc(ouText(p.total_pick))} <span class="muted">${esc(ouEdge(p.total_pick))}</span> ${res(p.result.total)}` : "—") }] : []),
     ], rows, el._sort);
   }
 

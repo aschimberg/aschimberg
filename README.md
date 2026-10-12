@@ -37,6 +37,17 @@ The same site serves `/nfl/` and `/nhl/` (switch sports in the header). Both run
 
 Tuning: NHL weights and home ice are refit on Mondays and the xG model is retrained; NFL weights and home field are refit on Tuesdays. NHL play-by-play is cached in `data/nhl/cache/` (the first run backfills last season, about 8 minutes).
 
+## Over/under picks
+
+Every game also gets a side against the market total.
+- **CFB:** the projected total comes from SP+ offense and defense. Games where those are missing get no total pick, rather than echoing the market. Tiers are lean 3+, play 5+, strong 8+ points.
+- **NFL:** the projected total is league scoring plus each EPA offense against the other defense. Tiers are lean 2+, play 3.5+, strong 5+.
+- **NHL:** totals are priced from the score simulation, with EV tiers.
+
+Totals are graded W/L/P on the final combined score. They appear on game cards, in the briefings (plays only) and on the Record tab (O/U records, by week and per pick).
+
+In the NFL walk-forward backtest (2023–2026) totals went 460-466 (49.7%), and play-level totals went 193-189. The market total predicted scoring better than the model, so treat totals as informational.
+
 ## Closing line value (CLV)
 
 The Record tab tracks CLV for every live pick. It compares the number when the model first took a side (the bet number; it resets if the side flips) with the closing number:

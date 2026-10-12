@@ -56,3 +56,9 @@ TUNE_PRIOR_GAMES = _f("NFL_TUNE_PRIOR_GAMES", 250)
 SITE_URL = os.environ.get("SITE_URL", "")
 
 ODDS_API_MAX_AGE = _f("NFL_ODDS_API_MAX_AGE", 6)  # hours between The Odds API refetches (credit budget)
+
+# Over/under picks: model total vs market total (points)
+TOTAL_SD = _f("NFL_TOTAL_SD", 13.5)  # sd of final combined score around a good projection
+TOTAL_LEAN_EDGE = _f("NFL_TOTAL_LEAN", 2.0)
+TOTAL_PLAY_EDGE = _f("NFL_TOTAL_PLAY", 3.5)
+TOTAL_STRONG_EDGE = _f("NFL_TOTAL_STRONG", 5.0)

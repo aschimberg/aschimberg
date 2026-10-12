@@ -4,6 +4,8 @@ import urllib.request
 from datetime import datetime, timezone
 from zoneinfo import ZoneInfo
 
+from sportscommon import totals
+
 from . import ats, config, splits, store
 from .model import fmt_spread
 from .pipeline import fmt_rec
@@ -69,6 +71,8 @@ def build_briefing(meta, cards, record, today, tz, top_n=8):
         )
     if len(plays) > top_n:
         lines.append(f"…plus {len(plays) - top_n} more on the site")
+
+    lines += totals.briefing_lines(games, matchup, kickoff, tz)
 
     moves = sorted(
         (c for c in games if c.get("line") and c["line"].get("move") and abs(c["line"]["move"]) >= 1.0),

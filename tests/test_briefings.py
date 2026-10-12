@@ -64,3 +64,17 @@ class ClvTests(unittest.TestCase):
         self.assertNotIn("clv", p)
         q = clv.finalize_spread({"ats_side": "home", "bet_line": -3, "line": -4})
         self.assertEqual(q["clv"], 1.0)
+
+
+class TotalsTests(unittest.TestCase):
+    def test_make_pick_and_grade(self):
+        from sportscommon import totals
+        t = totals.make_pick(52.4, 48.5, 13.5, 2, 3.5, 5)
+        self.assertEqual((t["side"], t["edge"], t["tier"], t["play"]), ("over", 3.9, "play", True))
+        self.assertGreater(t["prob"], 0.5)
+        self.assertEqual(totals.grade(t, 49), "W")
+        self.assertEqual(totals.grade(t, 48), "L")
+        self.assertEqual(totals.grade(dict(t, line=48), 48), "P")
+        u = totals.make_pick(44.0, 45.5, 13.5, 2, 3.5, 5)
+        self.assertEqual((u["side"], u["tier"]), ("under", "pass"))
+        self.assertIsNone(totals.make_pick(None, 45.5, 13.5, 2, 3.5, 5))

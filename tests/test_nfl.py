@@ -124,6 +124,8 @@ class NflTests(unittest.TestCase):
             wk6 = [p for p in rec["picks"] if p["week"] == 6]
             self.assertTrue(all(p.get("clv") is not None and p.get("clv_prob") is not None for p in wk6))
             self.assertTrue(all(p["close_line"] == next(g["spread"] for g in games if g["id"] == p["id"]) for p in wk6))
+            # over/under: every week-6 pick has a total pick graded against the final combined score
+            self.assertTrue(all(p["total_pick"] and p["result"]["total"] in ("W", "L", "P") for p in wk6))
             entry, _ = pipeline.tune(now=later, log=lambda *_: None)
             self.assertEqual(entry["status"], "updated")
             self.assertAlmostEqual(sum(entry["after"]["weights"].values()), 1.0, places=2)
@@ -190,6 +192,8 @@ class BacktestTests(unittest.TestCase):
             self.assertEqual({(w["season"], w["week"]) for w in res["weeks"]},
                              {(2025, w) for w in range(1, 19)} | {(2026, w) for w in range(1, 6)})
             self.assertTrue(all(p["result"]["ats"] in ("W", "L", "P") for p in res["picks"].values()))
+            self.assertIn("ou", res["summary"]["all"])
+            self.assertEqual(sum(res["summary"]["all"]["ou"][k] for k in "WLP"), len(res["picks"]))
             # week-1 2026 ratings can't depend on 2026 results: changing a week-3 score leaves week-1 picks unchanged
             wk1 = {k: v["model_spread"] for k, v in res["picks"].items() if v["season"] == 2026 and v["week"] == 1}
             for g in games:

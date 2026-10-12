@@ -27,6 +27,7 @@ def project(game, ratings, lg_off=None, market_total=None):
         home_pts = h["off"] + a["def"] - lg_off
         away_pts = a["off"] + h["def"] - lg_off
         total = home_pts + away_pts
+    total_src = "sp" if total is not None else None
     if total is None:
         total = market_total if market_total else config.DEFAULT_TOTAL
     total = max(total, abs(margin) + 7)
@@ -39,6 +40,7 @@ def project(game, ratings, lg_off=None, market_total=None):
         "home_pts": round(home_pts, 1),
         "away_pts": round(away_pts, 1),
         "home_wp": round(win_prob(margin), 3),
+        "total_src": total_src,  # None when the total is just the market's (no SP+ offense/defense)
     }
 
 

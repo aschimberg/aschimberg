@@ -2,7 +2,7 @@
 from collections import defaultdict
 from datetime import datetime, timedelta, timezone
 
-from sportscommon import clv
+from sportscommon import clv, totals
 
 from . import ats, confidence, config, model, splits, store, tuning
 from .cfbd import g
@@ -139,6 +139,8 @@ def grade_picks(picks, games_by_id):
         res = {"home_pts": hp, "away_pts": ap, "su": "W" if winner == p["su_team"] else "L"}
         if p.get("ats_side") and p.get("line") is not None:
             res["ats"] = model.grade(p["ats_side"], p["line"], hp, ap)
+        if p.get("total_pick"):
+            res["total"] = totals.grade(p["total_pick"], hp + ap)
         p["result"] = res
         clv.finalize_spread(p)
         graded += 1
@@ -291,6 +293,9 @@ def refresh(client, now=None, splits_provider=None, log=print):
     for gm, line in with_lines:
         proj = model.project(gm, ratings, lg_off, market_total=(line or {}).get("total"))
         pick = model.make_pick(gm, proj, line)
+        pick["total_pick"] = totals.make_pick(
+            proj["total"] if proj.get("total_src") else None, (line or {}).get("total"), config.TOTAL_SD,
+            config.TOTAL_LEAN_EDGE, config.TOTAL_PLAY_EDGE, config.TOTAL_STRONG_EDGE)
         start = ats.parse_dt(gm["start"])
         started = start is not None and start <= now
 
@@ -364,7 +369,7 @@ def refresh(client, now=None, splits_provider=None, log=print):
             "home": team_block("home"), "away": team_block("away"),
             "line": line, "model": proj,
             "pick": {k: logged.get(k) for k in ("ats_side", "ats_team", "ats_line", "edge", "tier", "su_team", "su_wp", "line",
-                                                 "confidence", "conf_label")} if logged else pick,
+                                                 "confidence", "conf_label", "total_pick")} if logged else pick,
             "confidence": conf,
             "locked": started or gm["completed"],
             "trends": trend_block, "splits": split_info,

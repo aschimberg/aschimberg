@@ -3,7 +3,7 @@ from datetime import datetime, timezone
 
 from cfbmodel import ats, store
 from cfbmodel.model import grade as ats_grade
-from sportscommon import clv, oddsapi
+from sportscommon import clv, oddsapi, totals
 from sportscommon import confidence as conf
 from sportscommon import record as recmod
 from sportscommon import tuning as tunemod
@@ -127,6 +127,21 @@ def margin_parts(g, fit, pregame, qb_values, baselines, replacement):
         rest = config.REST_PER_DAY * max(-7, min(7, g["home_rest"] - g["away_rest"]))
     offset = (qb_h - qb_a) + rest
     return {"epa": round(epa_m, 2), "elo": round(elo_m, 2)}, offset, hflag, qb_h, qb_a
+
+
+def project_total(fit, h, a, league_ppg, margin):
+    """Projected combined points: league scoring plus each offense vs the other defense (EPA x plays)."""
+    off_h = fit["off"].get(h, 0) if fit else 0
+    off_a = fit["off"].get(a, 0) if fit else 0
+    def_h = fit["def"].get(h, 0) if fit else 0
+    def_a = fit["def"].get(a, 0) if fit else 0
+    total = 2 * league_ppg + (off_h - def_a + off_a - def_h) * config.PLAYS_PER_GAME
+    return max(total, abs(margin) + 10)
+
+
+def total_pick(model_total, line_total):
+    return totals.make_pick(model_total, line_total, config.TOTAL_SD, config.TOTAL_LEAN_EDGE,
+                            config.TOTAL_PLAY_EDGE, config.TOTAL_STRONG_EDGE)
 
 
 def ats_pick(g, margin, dist, diffs, offset, hflag, s, move, trend_block, dq):
@@ -269,12 +284,7 @@ def refresh(games=None, pbp_loader=None, now=None, log=print, espn_loader=None):
         dist = margins.pmf(margin, kw)
         wp = margins.win_prob(dist)
 
-        off_h = fit["off"].get(h, 0) if fit else 0
-        off_a = fit["off"].get(a, 0) if fit else 0
-        def_h = fit["def"].get(h, 0) if fit else 0
-        def_a = fit["def"].get(a, 0) if fit else 0
-        total = 2 * league_ppg + (off_h - def_a + off_a - def_h) * config.PLAYS_PER_GAME
-        total = max(total, abs(margin) + 10)
+        total = project_total(fit, h, a, league_ppg, margin)
         proj = {"margin": round(margin, 1), "spread": round(-margin, 1), "total": round(total, 1),
                 "home_pts": round((total + margin) / 2, 1), "away_pts": round((total - margin) / 2, 1),
                 "home_wp": round(wp, 3)}
@@ -295,7 +305,7 @@ def refresh(games=None, pbp_loader=None, now=None, log=print, espn_loader=None):
         su_team = teams.name(h if margin >= 0 else a)
         pick = {"su_team": su_team, "su_wp": round(wp if margin >= 0 else 1 - wp, 3), "ats_side": None,
                 "ats_team": None, "ats_line": None, "edge": None, "tier": None, "cover_prob": None, "ev": None,
-                "confidence": None, "conf_label": None}
+                "confidence": None, "conf_label": None, "total_pick": total_pick(total, g["total"])}
         trend_block = {}
         for side in ("home", "away"):
             t = g[side]
@@ -361,7 +371,7 @@ def refresh(games=None, pbp_loader=None, now=None, log=print, espn_loader=None):
             "neutral": g["neutral"], "conference_game": g["div_game"], "home": tb("home"), "away": tb("away"),
             "line": line, "model": proj,
             "pick": {k: logged.get(k) for k in ("ats_side", "ats_team", "ats_line", "edge", "tier", "su_team", "su_wp",
-                                                 "line", "confidence", "conf_label", "cover_prob", "ev")} if logged else pick,
+                                                 "line", "confidence", "conf_label", "cover_prob", "ev", "total_pick")} if logged else pick,
             "confidence": conf_detail, "locked": started or g["completed"], "trends": trend_block, "splits": None,
             "result": res, "extras": extras,
         })
@@ -391,6 +401,8 @@ def grade_picks(picks, games_by_id, kw=None):
         res = {"home_pts": hp, "away_pts": ap, "su": "P" if winner is None else ("W" if winner == p["su_team"] else "L")}
         if p.get("ats_side") and p.get("line") is not None:
             res["ats"] = ats_grade(p["ats_side"], p["line"], hp, ap)
+        if p.get("total_pick"):
+            res["total"] = totals.grade(p["total_pick"], hp + ap)
         p["result"] = res
         clv.finalize_spread(p, g.get("spread"), cover_prob if kw else None)
         n += 1

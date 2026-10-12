@@ -394,7 +394,9 @@ def refresh(loader=None, now=None, log=print):
                 total_pick = {"side": tside, "line": o["total"], "ev": round(tev, 4),
                               "prob": round(mk[tside] / max(1e-9, mk["over"] + mk["under"]), 3),
                               "odds": o["over_odds"] if tside == "over" else o["under_odds"],
-                              "play": tev >= config.TOTAL_MIN_EV}
+                              "play": tev >= config.TOTAL_MIN_EV, "edge": round(tev * 100, 1),
+                              "tier": "strong" if tev >= 2 * config.TOTAL_MIN_EV else "play" if tev >= config.TOTAL_MIN_EV
+                              else "lean" if tev >= config.TOTAL_MIN_EV / 2 else "pass"}
 
         if not started and line:
             prev = picks.get(str(g["id"]))
@@ -496,8 +498,9 @@ def pick_rows(p, names):
         out.append({"tier": p["tier"], "text": f"EV {p['edge']:+.1f}%"})
         out.append({"text": f"Model {round(p['prob'] * 100)}% vs mkt {round(p.get('mkt_prob', 0) * 100)}%", "dim": True})
     t = p.get("total_pick")
-    if t and t.get("play"):
-        out.append({"text": f"{t['side'].title()} {t['line']:g} ({t['ev'] * 100:+.1f}%)", "dim": True})
+    if t:
+        out.append({"text": f"{t['side'].title()} {t['line']:g} {fmt_american(t['odds'])}", "strong": True, "result_key": "total"})
+        out.append({"tier": t.get("tier") or ("play" if t.get("play") else "pass"), "text": f"EV {t['ev'] * 100:+.1f}%"})
     return out
 
 
@@ -523,7 +526,7 @@ def grade_picks(picks, sched, cur_games):
             res["ats"] = "W" if won else "L"
             res["units"] = round(american_to_decimal(p["odds"]) - 1, 3) if won else -1.0
         t = p.get("total_pick")
-        if t and t.get("play"):
+        if t:
             tot = hs + as_
             res["total"] = "P" if tot == t["line"] else ("W" if (tot > t["line"]) == (t["side"] == "over") else "L")
             res["total_units"] = 0.0 if res["total"] == "P" else (round(american_to_decimal(t["odds"]) - 1, 3) if res["total"] == "W" else -1.0)
@@ -563,6 +566,7 @@ def compute_record(picks, season):
             "ats_play": _rec(by(config.PLAY_EV)), "ats_strong": _rec(by(config.STRONG_EV)),
             "ats_by_conf": {lbl: _rec([p for p in ml if p.get("conf_label") == lbl]) for lbl in ("High", "Medium", "Low")},
             "totals": _rec([p for p in graded if p["result"].get("total")], "total", "total_units"),
+            "totals_play": _rec([p for p in graded if p["result"].get("total") and (p.get("total_pick") or {}).get("play")], "total", "total_units"),
             "by_week": by_week}
 
 
@@ -574,7 +578,8 @@ def record_tiles(sr):
         {"k": f"ML · EV {config.PLAY_EV * 100:g}%+", "rec": sr["ats_play"], "sub": u(sr["ats_play"])},
         {"k": f"ML · EV {config.STRONG_EV * 100:g}%+", "rec": sr["ats_strong"], "sub": u(sr["ats_strong"])},
         {"k": "ML · High confidence", "rec": sr["ats_by_conf"]["High"], "sub": u(sr["ats_by_conf"]["High"])},
-        {"k": "Totals", "rec": sr["totals"], "sub": u(sr["totals"])},
+        {"k": "Totals · all", "rec": sr["totals"], "sub": u(sr["totals"])},
+        {"k": f"Totals · EV {config.TOTAL_MIN_EV * 100:g}%+", "rec": sr.get("totals_play") or sr["totals"], "sub": u(sr.get("totals_play") or sr["totals"])},
     ]
 
 

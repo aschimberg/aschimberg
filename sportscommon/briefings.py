@@ -17,6 +17,7 @@ from cfbmodel import config as cfbc
 from cfbmodel import store
 from nflmodel import config as nflc
 from nhlmodel import config as nhlc
+from sportscommon import totals
 from sportscommon.odds import fmt_american
 
 SPORTS = {"nfl": nflc, "nhl": nhlc}
@@ -83,6 +84,7 @@ def build_nfl(now_local):
         lt = "PK" if line == 0 else f"{line:+g}"
         cp = f", cover {p['cover_prob'] * 100:.0f}%" if p.get("cover_prob") else ""
         lines.append(f"{icon} {p['ats_team']} {lt} ({cfbb.matchup(c)}, {cfbb.kickoff(c, tz)}) — edge {p['edge']:g}{cp}, conf {p.get('confidence')} {p.get('conf_label')}")
+    lines += totals.briefing_lines(games, cfbb.matchup, cfbb.kickoff, tz)
     qb = [e for c in games for e in c.get("extras", []) if " QB " in e and "(" in e]
     if qb:
         lines += ["", "**🏈 QB adjustments**"] + qb[:6]

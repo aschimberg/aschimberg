@@ -22,6 +22,7 @@ from datetime import datetime, timezone
 from cfbmodel import ats, store
 from cfbmodel.model import grade as ats_grade
 from sportscommon import record as recmod
+from sportscommon import totals
 from sportscommon import tuning as tunemod
 
 from . import config, data, elo as elomod, margins, pipeline, qb as qbmod, ratings, teams
@@ -108,6 +109,11 @@ def run(seasons, games=None, pbp_loader=None, now=None, log=print, start_weights
                         played[g["home"]] = played.get(g["home"], 0) + 1
                         played[g["away"]] = played.get(g["away"], 0) + 1
 
+                # league scoring so far this season (last season's before any games)
+                done = [x for x in sg if x["completed"] and _wk(x["season_type"], x["week"]) < key] or \
+                       [x for x in games if x["season"] == season - 1 and x["completed"]]
+                league_ppg = sum(x["home_pts"] + x["away_pts"] for x in done) / (2 * len(done)) if done else 22.0
+
                 wk_picks = []
                 for g in wk_games:
                     h, a = g["home"], g["away"]
@@ -125,13 +131,16 @@ def run(seasons, games=None, pbp_loader=None, now=None, log=print, start_weights
                     dq = min(1.0, min(played.get(h, 0), played.get(a, 0)) / 4) * (1.0 if qb_known else 0.7)
                     fields, conf_detail = pipeline.ats_pick(g, margin, dist, diffs, offset, hflag, s, None, trend_block, dq)
                     hp, ap = g["home_pts"], g["away_pts"]
+                    model_total = pipeline.project_total(fit, h, a, league_ppg, margin)
+                    tp = pipeline.total_pick(model_total, g["total"])
                     su_team = teams.name(h if margin >= 0 else a)
                     winner = teams.name(h) if hp > ap else teams.name(a) if ap > hp else None
                     p = {
                         "id": g["id"], "season": season, "week": week, "season_type": stype, "start": g["start"],
                         "home": teams.name(h), "away": teams.name(a), "home_abbr": h, "away_abbr": a,
                         "neutral": g["neutral"], "line": s, "book": "nflverse closing consensus",
-                        "total_line": g["total"], "model_spread": round(-margin, 1),
+                        "total_line": g["total"], "model_spread": round(-margin, 1), "model_total": round(model_total, 1),
+                        "total_pick": tp,
                         "home_qb": g.get("home_qb"), "away_qb": g.get("away_qb"),
                         "diffs": diffs, "hfa_flag": hflag, "offset": round(offset, 2),
                         "weights": dict(config.WEIGHTS), "home_field": config.HOME_FIELD,
@@ -139,7 +148,8 @@ def run(seasons, games=None, pbp_loader=None, now=None, log=print, start_weights
                         **fields, "confidence_detail": conf_detail, "backtest": True,
                         "result": {"home_pts": hp, "away_pts": ap,
                                    "su": "P" if winner is None else ("W" if winner == su_team else "L"),
-                                   "ats": ats_grade(fields["ats_side"], s, hp, ap)},
+                                   "ats": ats_grade(fields["ats_side"], s, hp, ap),
+                                   "total": totals.grade(tp, hp + ap)},
                     }
                     picks[g["id"]] = p
                     wk_picks.append(p)
@@ -159,6 +169,7 @@ def run(seasons, games=None, pbp_loader=None, now=None, log=print, start_weights
                 r = recmod.compute({p["id"]: p for p in wk_picks}, season, config.LEAN_EDGE, config.PLAY_EDGE, config.STRONG_EDGE)
                 weeks_out.append({"season": season, "week": week, "season_type": stype, "n": len(wk_picks),
                                   "ats": r["ats"], "ats_play": r["ats_play"], "ats_strong": r["ats_strong"], "su": r["su"],
+                                  "ou": ou_record(wk_picks), "ou_play": ou_record(wk_picks, play=True),
                                   "tune": entry["status"], "weights": dict(config.WEIGHTS), "home_field": config.HOME_FIELD})
                 log(f"{season} {stype[:4]} wk {week:>2}: {len(wk_picks)} picks, ATS {r['ats']['W']}-{r['ats']['L']}"
                     f"{'-' + str(r['ats']['P']) if r['ats'].get('P') else ''}, plays {r['ats_play']['W']}-{r['ats_play']['L']}"
@@ -173,23 +184,32 @@ def run(seasons, games=None, pbp_loader=None, now=None, log=print, start_weights
     for season in seasons:
         r = recmod.compute(picks, season, config.LEAN_EDGE, config.PLAY_EDGE, config.STRONG_EDGE)
         summary[str(season)] = {k: r[k] for k in ("su", "ats", "ats_lean", "ats_play", "ats_strong", "ats_by_conf")}
+        sp = [p for p in picks.values() if p["season"] == season]
+        summary[str(season)].update({"ou": ou_record(sp), "ou_play": ou_record(sp, play=True)})
     allr = recmod.compute(picks, None, config.LEAN_EDGE, config.PLAY_EDGE, config.STRONG_EDGE)
     summary["all"] = {k: allr[k] for k in ("su", "ats", "ats_lean", "ats_play", "ats_strong", "ats_by_conf")}
+    summary["all"].update({"ou": ou_record(list(picks.values())), "ou_play": ou_record(list(picks.values()), play=True)})
     return {"seasons": list(seasons), "picks": picks, "history": history, "weeks": weeks_out,
             "summary": summary, "final": final, "start": {"weights": weights, "home_field": hfa},
             "generated_at": now.strftime("%Y-%m-%dT%H:%M:%SZ")}
+
+
+def ou_record(items, play=False):
+    xs = [p["result"].get("total") for p in items if p.get("total_pick") and (not play or p["total_pick"]["play"])]
+    w, l_, pu = xs.count("W"), xs.count("L"), xs.count("P")
+    return {"W": w, "L": l_, "P": pu, "pct": round(w / (w + l_), 3) if w + l_ else None}
 
 
 def site_doc(res):
     """Compact form for the site: per-season/week records and every pick."""
     keep = ("id", "season", "week", "season_type", "start", "home", "away", "home_abbr", "away_abbr", "line",
             "model_spread", "ats_team", "ats_line", "edge", "tier", "cover_prob", "confidence", "conf_label",
-            "su_team", "home_qb", "away_qb")
+            "su_team", "home_qb", "away_qb", "model_total", "total_pick")
     return {
         "sport": "nfl", "generated_at": res["generated_at"], "seasons": res["seasons"],
         "summary": {str(k): v for k, v in res["summary"].items()}, "weeks": res["weeks"],
         "start": res["start"], "final": res["final"],
-        "picks": [dict({k: p.get(k) for k in keep}, result={"ats": p["result"]["ats"], "su": p["result"]["su"],
+        "picks": [dict({k: p.get(k) for k in keep}, result={"ats": p["result"]["ats"], "su": p["result"]["su"], "total": p["result"].get("total"),
                                                              "home_pts": p["result"]["home_pts"], "away_pts": p["result"]["away_pts"]})
                   for p in sorted(res["picks"].values(), key=lambda p: (p["season"], _wk(p["season_type"], p["week"]), p["start"] or ""))],
         "method": "Walk-forward: each week rebuilt only from data available before kickoff (play-by-play, Elo, QB "
