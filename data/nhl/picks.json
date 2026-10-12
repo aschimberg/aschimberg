@@ -69,14 +69,16 @@
    "su_wp": 0.501,
    "tier": "pass",
    "total_pick": {
-    "ev": 0.0653,
+    "edge": 6.5,
+    "ev": 0.0647,
     "line": 5.5,
     "odds": 110.0,
     "play": true,
     "prob": 0.507,
-    "side": "under"
+    "side": "under",
+    "tier": "strong"
    },
-   "updated": "2026-10-12T20:03:42Z",
+   "updated": "2026-10-12T20:44:00Z",
    "week": 202642,
    "weights": {
     "elo": 0.25,
@@ -154,14 +156,16 @@
    "su_wp": 0.504,
    "tier": "pass",
    "total_pick": {
-    "ev": 0.146,
+    "edge": 14.6,
+    "ev": 0.1457,
     "line": 5.5,
     "odds": 114.0,
     "play": true,
-    "prob": 0.536,
-    "side": "under"
+    "prob": 0.535,
+    "side": "under",
+    "tier": "strong"
    },
-   "updated": "2026-10-12T20:03:42Z",
+   "updated": "2026-10-12T20:44:00Z",
    "week": 202642,
    "weights": {
     "elo": 0.25,
