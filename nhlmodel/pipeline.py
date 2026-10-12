@@ -78,6 +78,8 @@ def parse_partner_odds(doc):
                 val, q = _num(o.get("value")), str(o.get("qualifier") or "").strip()
                 if val is None:
                     continue
+                if "3_WAY" in desc:
+                    continue  # regulation 3-way (tie) market; we price the 2-way line
                 if desc.startswith("MONEY_LINE") or desc in ("MONEYLINE", "ML"):
                     rec[f"ml_{key}"] = val
                 elif desc.startswith("PUCK_LINE") and _num(q) is not None:
@@ -105,10 +107,10 @@ def default_loader(now, log):
         doc = api.partner_odds("US")
         odds = parse_partner_odds(doc)
         feed = (doc or {}).get("games", [])
-        log(f"NHL odds: {len(odds)} of {len(feed)} feed games priced")
-        if feed and not odds:
-            # keep a sample so a format change can be diagnosed from the repo
-            store.save(config.DATA_DIR / "odds_sample.json", {"fetched_at": iso(utcnow()), "doc": {**doc, "games": feed[:2]}})
+        full = sum(1 for r in odds.values() if "ml_home" in r and "ml_away" in r)
+        log(f"NHL odds: {full} of {len(feed)} feed games have both moneylines")
+        # keep the last raw feed so a format change can be diagnosed from the repo
+        store.save(config.DATA_DIR / "odds_last.json", {"fetched_at": iso(utcnow()), "parsed": {str(k): v for k, v in odds.items()}, "doc": doc})
     except Exception as e:
         log(f"NHL odds unavailable: {e}")
         odds = {}
