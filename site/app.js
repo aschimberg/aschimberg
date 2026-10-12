@@ -486,6 +486,7 @@
     if (wsel.dataset.season !== String(season)) {
       wsel.dataset.season = String(season);
       wsel.innerHTML = `<option value="">All weeks</option>` + weeks.map((w) => `<option value="${esc(wkKey(w))}">${esc(wkLabel(w))}</option>`).join("");
+      if (weeks.length) wsel.value = wkKey(weeks[weeks.length - 1]);
     }
     renderBacktestPicks();
   }
