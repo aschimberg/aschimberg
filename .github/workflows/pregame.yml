@@ -2,11 +2,15 @@ name: Pre-game refresh
 
 on:
   schedule:
-    # NHL: DraftKings lines for the day appear in the NHL feed during the day,
-    # so re-price before the evening slate (21:17 UTC = 5:17 PM ET in EDT).
-    # NFL: re-price late Sunday morning for closer-to-close lines.
+    # Re-check lineups (NFL starting QBs, NHL probable goalies) and re-price
+    # shortly before games; picks lock at kickoff with the last run's numbers.
+    # NHL: before the evening slate (21:17 UTC = 5:17 PM ET in EDT); the day's
+    #      DraftKings lines also appear in the NHL feed by then.
+    # NFL: Sun before the 1 PM, 4 PM and night windows; Thu and Mon nights.
     - cron: "17 21 * * *"
     - cron: "17 16 * * 0"
+    - cron: "47 19 * * 0"
+    - cron: "47 23 * * 0,1,4"
   workflow_dispatch:
 
 permissions:

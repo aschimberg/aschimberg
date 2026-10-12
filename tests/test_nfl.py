@@ -1,4 +1,7 @@
+import os
 import unittest
+
+os.environ.setdefault("NFL_ESPN", "off")  # tests never call ESPN
 from datetime import datetime, timezone
 from unittest import mock
 
@@ -118,3 +121,38 @@ class MarginPmfTests(unittest.TestCase):
             self.assertAlmostEqual(sum(m * v for m, v in d.items()), mu, places=3)
         hc, _, ac = margins.cover_probs(margins.pmf(10, kw), -8.5)
         self.assertGreater(hc, ac)
+
+
+class StarterTests(unittest.TestCase):
+    def setUp(self):
+        from nflmodel import starters
+        self.s = starters
+        games = [{"home": "SEA", "away": "DEN", "home_qb_id": "00-LOCK", "home_qb": "Drew Lock", "away_qb_id": "00-NIX", "away_qb": "Bo Nix"},
+                 {"home": "SEA", "away": "SF", "home_qb_id": "00-DARN", "home_qb": "Sam Darnold", "away_qb_id": None, "away_qb": None}]
+        rows = [{"team": "SEA", "qb": "00-DARN", "name": "S.Darnold", "season": 2026, "week": 5, "db": 38},
+                {"team": "SEA", "qb": "00-LOCK", "name": "D.Lock", "season": 2026, "week": 2, "db": 40},
+                {"team": "SEA", "qb": "00-LOCK", "name": "D.Lock", "season": 2026, "week": 5, "db": 2}]
+        self.dir = starters.qb_directory(games, rows)
+        self.last = starters.last_starters(rows)
+
+    def test_espn_depth_overrides_stale_projection(self):
+        espn = {"depth": {"SEA": ["Sam Darnold", "Drew Lock"]}, "status": {("SEA", "samdarnold"): "Active"}}
+        qid, nm, src, note = self.s.resolve("SEA", "00-LOCK", "Drew Lock", espn, self.dir, self.last)
+        self.assertEqual((qid, nm, src), ("00-DARN", "Sam Darnold", "espn"))
+        self.assertIn("nflverse listed Drew Lock", note)
+
+    def test_injured_qb1_falls_to_next(self):
+        espn = {"depth": {"SEA": ["Sam Darnold", "Drew Lock"]}, "status": {("SEA", "samdarnold"): "Out"}}
+        qid, nm, _, note = self.s.resolve("SEA", "00-DARN", "Sam Darnold", espn, self.dir, self.last)
+        self.assertEqual((qid, nm), ("00-LOCK", "Drew Lock"))
+        self.assertIn("Sam Darnold out", note)
+
+    def test_without_espn_keeps_projection_but_flags_it(self):
+        qid, nm, src, note = self.s.resolve("SEA", "00-LOCK", "Drew Lock", None, self.dir, self.last)
+        self.assertEqual((qid, src), ("00-LOCK", "nflverse"))
+        self.assertIn("last start S.Darnold", note)
+
+    def test_unknown_backup_has_no_id(self):
+        espn = {"depth": {"SEA": ["Sam Darnold", "Jalen Milroe"]}, "status": {("SEA", "samdarnold"): "Injured Reserve"}}
+        qid, nm, _, _ = self.s.resolve("SEA", "00-DARN", "Sam Darnold", espn, self.dir, self.last)
+        self.assertEqual((qid, nm), (None, "Jalen Milroe"))

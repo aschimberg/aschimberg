@@ -7,14 +7,14 @@ import urllib.request
 UA = "cfb-model-site/1.0 (+github actions)"
 
 
-def fetch(url, retries=4, timeout=90, headers=None):
+def fetch(url, retries=4, timeout=90, headers=None, want_headers=False):
     h = {"User-Agent": UA}
     h.update(headers or {})
     delay = 2
     for attempt in range(retries + 1):
         try:
             with urllib.request.urlopen(urllib.request.Request(url, headers=h), timeout=timeout) as r:
-                return r.read()
+                return (r.read(), dict(r.headers)) if want_headers else r.read()
         except urllib.error.HTTPError as e:
             if e.code in (429, 500, 502, 503, 504) and attempt < retries:
                 time.sleep(delay)

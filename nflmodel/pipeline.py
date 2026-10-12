@@ -8,7 +8,7 @@ from sportscommon import record as recmod
 from sportscommon import tuning as tunemod
 from sportscommon.odds import american_to_decimal
 
-from . import config, data, elo as elomod, margins, qb as qbmod, ratings, teams
+from . import starters, config, data, elo as elomod, margins, qb as qbmod, ratings, teams
 
 PICKS_PATH = config.DATA_DIR / "picks.json"
 LINE_HISTORY_PATH = config.DATA_DIR / "line_history.json"
@@ -112,7 +112,7 @@ def _relabel(trend_list):
     return trend_list
 
 
-def refresh(games=None, pbp_loader=None, now=None, log=print):
+def refresh(games=None, pbp_loader=None, now=None, log=print, espn_loader=None):
     now = now or utcnow()
     tuned = apply_tuning()
     if tuned:
@@ -170,6 +170,19 @@ def refresh(games=None, pbp_loader=None, now=None, log=print):
     done = [g for g in cur if g["completed"]]
     if done:
         league_ppg = sum(g["home_pts"] + g["away_pts"] for g in done) / (2 * len(done))
+
+    upcoming = [g for g in slate if not g["completed"] and (g["start"] is None or g["start"] > iso(now))]
+    if upcoming:
+        espn = espn_loader() if espn_loader else starters.fetch_espn(log=log)
+        directory = starters.qb_directory(games, db_rows)
+        last = starters.last_starters(pbp[season]["qb_games"])
+        for g in upcoming:
+            for side in ("home", "away"):
+                qid, nm, src, note = starters.resolve(g[side], g[f"{side}_qb_id"], g[f"{side}_qb"], espn, directory, last)
+                if qid is None and nm and src == "espn":
+                    qid = f"new:{nm}"  # no NFL dropbacks yet: rated at replacement level
+                g[f"{side}_qb_id"], g[f"{side}_qb"], g[f"{side}_qb_note"] = qid, nm, note
+                g[f"{side}_qb_src"] = src
 
     cards = []
     for g in sorted(slate, key=lambda x: (x["start"] or "", x["home"])):
@@ -277,7 +290,9 @@ def refresh(games=None, pbp_loader=None, now=None, log=print):
             qbn = g[f"{side}_qb"]
             adj = qb_h if side == "home" else qb_a
             if qbn:
-                extras.append(f"{teams.name(g[side]).split()[-1]} QB {qbn}" + (f" ({adj:+.1f})" if abs(adj) >= 0.5 else ""))
+                note = g.get(f"{side}_qb_note")
+                extras.append(f"{teams.name(g[side]).split()[-1]} QB {qbn}" + (f" ({adj:+.1f})" if abs(adj) >= 0.5 else "")
+                              + (f" · {note}" if note else ""))
         if g["home_rest"] is not None and g["away_rest"] is not None and g["home_rest"] != g["away_rest"]:
             extras.append(f"Rest {g['away_rest']}d / {g['home_rest']}d")
         if g["roof"] in ("dome", "closed"):

@@ -19,7 +19,7 @@ The same site serves `/nfl/` and `/nhl/` (switch sports in the header). Both run
 
 **NFL** (`nflmodel/`, data from [nflverse](https://github.com/nflverse), CC BY 4.0: schedules, consensus lines, projected starting QBs, play-by-play):
 - **Team strength:** opponent-adjusted EPA/play on offense and defense, fit with weighted ridge regression. Recent weeks count more and garbage time is excluded. Ratings are shrunk toward last season.
-- **QB adjustment:** the listed starter's shrunk EPA per dropback, compared with the QB play the team's rating was built on.
+- **QB adjustment:** the starter's shrunk EPA per dropback, compared with the QB play the team's rating was built on. Starters come from ESPN's current depth chart (QB1), skipping anyone ESPN's injury report lists as Out, Doubtful or on IR. If ESPN is unavailable, nflverse's projection is used and flagged when it differs from the team's last starter. The check reruns before each kickoff window.
 - **Elo:** a 538-style rating from game results, as a second source.
 - **Home field and rest:** about 1.6 points of home field (tuned weekly) and a tiny rest term.
 - **Cover probability:** uses a margin distribution reweighted to real NFL final margins, so key numbers like 3 and 7 and pushes are priced correctly.
@@ -54,7 +54,7 @@ Tuning: NHL weights and home ice are refit on Mondays and the xG model is retrai
 | `refresh.yml` | daily 11:00 UTC | ratings, lines, projections, picks (re-priced until kickoff), trends, splits, grading → commit → deploy |
 | `grade.yml` | Sundays 12:00 UTC | grades SU and ATS for every finished pick, rebuilds the record, sends an ntfy recap |
 | `briefing.yml` | every 30 min, 14:07–16:37 UTC | sends each sport's ntfy briefing once per game day, between 9 and 11 AM CT (covers CDT/CST and late cron starts). The NHL briefing waits until that day's odds are posted and only goes out when there's value |
-| `pregame.yml` | daily 21:17 UTC (+ Sun 16:17 UTC) | NFL and NHL re-price before puck drop / kickoff; picks up the day's DraftKings NHL lines |
+| `pregame.yml` | daily 21:17 UTC; Sun 16:17 + 19:47 UTC; Sun/Mon/Thu 23:47 UTC | re-checks lineups (NFL starting QBs, NHL probable goalies) and re-prices before kickoff / puck drop; picks up the day's DraftKings NHL lines |
 | `deploy.yml` | after each job above, or on push to `main` touching `site/` | publishes `site/` to Pages |
 | `ci.yml` | push / PR | unit tests and JS syntax check |
 
