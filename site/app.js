@@ -177,20 +177,27 @@
     let sel = "";
     const confBadge = p.confidence != null ? `<span><span class="conf ${esc((p.conf_label || "").toLowerCase())}" title="Confidence ${p.confidence}/100">${esc(p.conf_label)} ${p.confidence}</span></span>` : "";
     if (g.pick_rows) {
-      sel = g.pick_rows.map((row) => {
-        if (row.tier) return `<span><span class="tier ${row.tier}">${row.tier === "pass" ? "No value" : row.tier}</span> ${esc(row.text)}</span>`;
-        if (row.strong) return `<strong>${esc(row.text)}${row.result_key ? res(r[row.result_key], { W: "Win", L: "Loss", P: "Push" }) : ""}</strong>`;
-        return `<span class="${row.dim ? "dim" : ""}">${esc(row.text)}</span>`;
-      }).join("") + confBadge;
+      const lines = [[]];
+      for (const row of g.pick_rows) {
+        if (row.result_key === "total") lines.push([`<span class="ou-label">Total</span>`]);
+        let html;
+        if (row.tier) html = `<span><span class="tier ${row.tier}">${row.tier === "pass" ? "No value" : row.tier}</span> ${esc(row.text)}</span>`;
+        else if (row.strong) html = `<strong>${esc(row.text)}${row.result_key ? res(r[row.result_key], { W: "Win", L: "Loss", P: "Push" }) : ""}</strong>`;
+        else html = `<span class="${row.dim ? "dim" : ""}">${esc(row.text)}</span>`;
+        lines[lines.length - 1].push(html);
+      }
+      if (confBadge) lines[0].push(confBadge);
+      sel = lines.filter((l) => l.length).map((l) => `<div class="pick-line">${l.join("")}</div>`).join("");
       if (!g.pick_rows.length && p.su_team) sel = `<span class="dim">No line yet</span><strong>${esc(p.su_team)} ${Math.round(wp * 100)}%</strong>`;
     } else if (p.ats_team) {
-      sel = `<strong>${esc(teamLine(p.ats_team, p.ats_line))}${res(r.ats, { W: "Cover", L: "Miss", P: "Push" })}</strong>
+      sel = `<div class="pick-line"><strong>${esc(teamLine(p.ats_team, p.ats_line))}${res(r.ats, { W: "Cover", L: "Miss", P: "Push" })}</strong>
         <span><span class="tier ${p.tier}">${p.tier === "pass" ? "No edge" : p.tier}</span> ${num(p.edge)}</span>
         ${confBadge}
-        <span class="dim">SU ${esc(p.su_team)} ${Math.round(wp * 100)}%${res(r.su, { W: "W", L: "L" })}</span>`;
+        <span class="dim">SU ${esc(p.su_team)} ${Math.round(wp * 100)}%${res(r.su, { W: "W", L: "L" })}</span></div>`;
       const t = p.total_pick;
-      if (t) sel += `<strong class="ou-pick">${esc(ouText(t))}${res(r.total, { W: "Win", L: "Loss", P: "Push" })}</strong>
-        <span><span class="tier ${t.tier}">${t.tier === "pass" ? "No edge" : t.tier}</span> ${num(t.edge)} <span class="dim">vs proj ${num(t.model)}</span></span>`;
+      if (t) sel += `<div class="pick-line"><span class="ou-label">Total</span><strong>${esc(ouText(t))}${res(r.total, { W: "Win", L: "Loss", P: "Push" })}</strong>
+        <span><span class="tier ${t.tier}">${t.tier === "pass" ? "No edge" : t.tier}</span> ${num(t.edge)}</span>
+        <span class="dim">proj ${num(t.model)}</span></div>`;
     } else if (p.su_team) {
       sel = `<span class="dim">No line</span><strong>SU ${esc(p.su_team)} ${Math.round(wp * 100)}%${res(r.su, { W: "W", L: "L" })}</strong>`;
     }

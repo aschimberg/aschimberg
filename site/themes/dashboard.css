@@ -82,7 +82,7 @@
 .market dd { font-family: var(--sans); font-size: 12px; font-weight: 700; }
 .pick-panel { margin: 12px; border: 0; border-radius: 10px; background: var(--accent-soft); }
 .pick-label { color: var(--accent); font-family: var(--sans); text-transform: none; letter-spacing: 0; font-size: 12px; }
-.pick-sel > strong, .pick-sel > span { font-family: var(--sans); font-size: 12px; }
+.pick-sel > strong, .pick-sel > span, .pick-line > strong, .pick-line > span { font-family: var(--sans); font-size: 12px; }
 .tier, .conf, .res { border-radius: 999px; font-family: var(--sans); letter-spacing: .02em; padding: 3px 8px; }
 .tier { background: #fff; }
 .tier.strong { background: var(--accent); border-color: var(--accent); color: #fff; }
