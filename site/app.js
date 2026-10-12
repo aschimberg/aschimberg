@@ -417,7 +417,7 @@
     renderTable(
       el,
       [
-        { key: "start", label: "Date", render: (p) => new Date(p.start).toLocaleDateString(undefined, { month: "short", day: "numeric" }) },
+        { key: "start", label: "Date", render: (p) => new Date(p.start).toLocaleDateString(undefined, { month: "short", day: "numeric" }) + (p.backtest ? ' <span class="bt-tag" title="Backtest pick (simulated before live tracking began)">BT</span>' : "") },
         { key: "game", label: "Game", sortVal: (p) => p.away, render: (p) => `${esc(p.away)} ${p.neutral ? "vs" : "at"} ${esc(p.home)}` },
         { key: "line", label: "Line", num: true, render: (p) => esc(p.line_label ?? favLine({ home: { name: p.home }, away: { name: p.away } }, p.line)) },
         { key: "model_spread", label: "Model", num: true, render: (p) => esc(p.model_label ?? favLine({ home: { name: p.home }, away: { name: p.away } }, p.model_spread)) },
@@ -431,6 +431,91 @@
       rows,
       el._sort
     );
+  }
+
+  // --- Backtest --------------------------------------------------------------
+  const wkLabel = (r) => (r.season_type === "regular" ? `Week ${r.week}` : (state.meta?.sport === "nfl" ? { 19: "Wild Card", 20: "Divisional", 21: "Conference", 22: "Super Bowl" }[r.week] || `Post ${r.week}` : "Bowls"));
+  const wkKey = (r) => `${r.season}|${r.season_type}|${r.week}`;
+  const wFmt = (w) => Object.entries(w || {}).map(([k, v]) => `${k.toUpperCase()} ${Math.round(v * 100)}%`).join(" · ");
+
+  function renderBacktest() {
+    const bt = state.backtest;
+    if (!bt) return;
+    $("#backtest").hidden = false;
+    $("#bt-method").textContent = bt.method || "";
+    const s = state.meta?.settings || {};
+    const A = T("ats", "ATS");
+    const seasons = [...bt.seasons.map(String), "all"];
+    const sumRows = seasons.filter((k) => bt.summary[k]).map((k) => ({ season: k, ...bt.summary[k] }));
+    const el = $("#bt-seasons");
+    renderTable(el, [
+      { key: "season", label: "Season", render: (r) => (r.season === "all" ? "<strong>All</strong>" : esc(r.season)), sortVal: (r) => (r.season === "all" ? 9999 : +r.season) },
+      { key: "ats", label: A, num: true, render: (r) => recStr(r.ats), sortVal: (r) => r.ats.pct },
+      { key: "atspct", label: `${A} %`, num: true, render: (r) => pct(r.ats.pct), sortVal: (r) => r.ats.pct },
+      { key: "lean", label: `Edge ${s.lean_edge ?? 2}+`, num: true, render: (r) => recStr(r.ats_lean), sortVal: (r) => r.ats_lean?.pct },
+      { key: "play", label: `Edge ${s.play_edge ?? 4}+`, num: true, render: (r) => recStr(r.ats_play), sortVal: (r) => r.ats_play?.pct },
+      { key: "strong", label: `Edge ${s.strong_edge ?? 7}+`, num: true, render: (r) => recStr(r.ats_strong), sortVal: (r) => r.ats_strong?.pct },
+      { key: "high", label: "High conf", num: true, render: (r) => recStr(r.ats_by_conf?.High), sortVal: (r) => r.ats_by_conf?.High?.pct },
+      { key: "su", label: "SU", num: true, render: (r) => recStr(r.su, false), sortVal: (r) => r.su.pct },
+    ], sumRows, el._sort);
+
+    const sel = $("#bt-season");
+    if (!sel.options.length) {
+      sel.innerHTML = bt.seasons.map((x) => `<option value="${x}">${x}</option>`).join("");
+      sel.value = String(bt.seasons[bt.seasons.length - 1]);
+    }
+    const season = +sel.value;
+    const weeks = bt.weeks.filter((w) => w.season === season);
+    const last = weeks[weeks.length - 1];
+    const i0 = bt.weeks.indexOf(weeks[0]);
+    const startW = i0 > 0 ? bt.weeks[i0 - 1].weights : bt.start.weights;
+    $("#bt-tuning").textContent = last ? `Weights: start ${wFmt(startW)} → end ${wFmt(last.weights)} · home ${num(last.home_field, 2)}` : "";
+    const wk = $("#bt-weeks");
+    wk._rerender = renderBacktest;
+    renderTable(wk, [
+      { key: "week", label: "Week", render: wkLabel, sortVal: (r) => (r.season_type === "regular" ? 0 : 50) + r.week },
+      { key: "n", label: "Games", num: true, render: (r) => r.n },
+      { key: "ats", label: A, num: true, render: (r) => recStr(r.ats), sortVal: (r) => r.ats.pct },
+      { key: "play", label: `Edge ${s.play_edge ?? 4}+`, num: true, render: (r) => recStr(r.ats_play), sortVal: (r) => r.ats_play?.pct },
+      { key: "strong", label: `Edge ${s.strong_edge ?? 7}+`, num: true, render: (r) => recStr(r.ats_strong), sortVal: (r) => r.ats_strong?.pct },
+      { key: "su", label: "SU", num: true, render: (r) => recStr(r.su, false), sortVal: (r) => r.su.pct },
+      { key: "w", label: "Weights after tuning", render: (r) => `<span class="muted">${esc(wFmt(r.weights))} · HFA ${num(r.home_field, 2)}${r.tune === "insufficient" ? " (too few games yet)" : ""}</span>` },
+    ], weeks, wk._sort);
+
+    const wsel = $("#bt-week");
+    if (wsel.dataset.season !== String(season)) {
+      wsel.dataset.season = String(season);
+      wsel.innerHTML = `<option value="">All weeks</option>` + weeks.map((w) => `<option value="${esc(wkKey(w))}">${esc(wkLabel(w))}</option>`).join("");
+    }
+    renderBacktestPicks();
+  }
+
+  function renderBacktestPicks() {
+    const bt = state.backtest;
+    const s = state.meta?.settings || {};
+    const season = +$("#bt-season").value;
+    const wk = $("#bt-week").value;
+    const f = $("#bt-filter").value;
+    const q = $("#bt-search").value.trim().toLowerCase();
+    const rows = bt.picks.filter((p) => p.season === season && (!wk || wkKey(p) === wk)
+      && (f !== "plays" || p.edge >= (s.play_edge ?? 4)) && (f !== "strong" || p.edge >= (s.strong_edge ?? 7))
+      && (f !== "high" || p.conf_label === "High") && (!q || (p.home + " " + p.away).toLowerCase().includes(q)));
+    const res = (v) => (v ? `<span class="res ${v}">${v}</span>` : '<span class="muted">—</span>');
+    const el = $("#bt-picks");
+    el._rerender = renderBacktestPicks;
+    const gm = (p) => ({ home: { name: p.home }, away: { name: p.away } });
+    renderTable(el, [
+      { key: "week", label: "Week", render: (p) => esc(wkLabel(p)), sortVal: (p) => (p.season_type === "regular" ? 0 : 50) + p.week },
+      { key: "game", label: "Game", sortVal: (p) => p.away, render: (p) => `${esc(p.away)} at ${esc(p.home)}` },
+      { key: "line", label: "Close", num: true, render: (p) => esc(favLine(gm(p), p.line)) },
+      { key: "model_spread", label: "Model", num: true, render: (p) => esc(favLine(gm(p), p.model_spread)) },
+      { key: "ats_team", label: `${T("ats", "ATS")} pick`, render: (p) => (p.ats_team ? esc(teamLine(p.ats_team, p.ats_line)) : "—") },
+      { key: "edge", label: T("edge", "Edge"), num: true, render: (p) => num(p.edge) },
+      { key: "confidence", label: "Conf", num: true, render: (p) => (p.confidence == null ? "—" : `<span class="conf ${esc((p.conf_label || "").toLowerCase())}">${p.confidence}</span>`) },
+      { key: "score", label: "Final", num: true, sortVal: (p) => p.result.home_pts - p.result.away_pts, render: (p) => `${p.result.away_pts}–${p.result.home_pts}` },
+      { key: "ats", label: T("ats", "ATS"), sortVal: (p) => p.result.ats, render: (p) => res(p.result.ats) },
+      { key: "su", label: "SU", sortVal: (p) => p.result.su, render: (p) => `${esc(p.su_team)} ${res(p.result.su)}` },
+    ], rows, el._sort);
   }
 
   // --- Trends ----------------------------------------------------------------
@@ -556,13 +641,13 @@
   }
 
   async function init() {
-    const [meta, slate, ratings, record, trends] = await Promise.all(["meta", "slate", "ratings", "record", "trends"].map(getJSON));
+    const [meta, slate, ratings, record, trends, backtest] = await Promise.all(["meta", "slate", "ratings", "record", "trends", "backtest"].map(getJSON));
     if (!meta) {
       $("#empty").hidden = false;
       document.querySelectorAll(".tab-panel").forEach((p) => (p.hidden = true));
       return;
     }
-    Object.assign(state, { meta, slate: slate?.games || [], ratings: ratings?.teams || [], record, trends });
+    Object.assign(state, { meta, slate: slate?.games || [], ratings: ratings?.teams || [], record, trends, backtest });
 
     renderHero();
     fillConfSelect($("#game-conf"), new Set(state.slate.flatMap((g) => [g.home.conf, g.away.conf])));
@@ -573,6 +658,8 @@
     ["#rating-search", "#rating-conf"].forEach((s) => $(s).addEventListener("input", renderRatings));
     ["#log-search", "#log-filter"].forEach((s) => $(s).addEventListener("input", renderLog));
     ["#trend-search", "#trend-min"].forEach((s) => $(s).addEventListener("input", renderTrends));
+    $("#bt-season").addEventListener("input", renderBacktest);
+    ["#bt-week", "#bt-filter", "#bt-search"].forEach((s) => $(s).addEventListener("input", renderBacktestPicks));
     $("#trend-sort").addEventListener("input", () => {
       $("#trends-table")._sort = { key: $("#trend-sort").value, asc: false };
       renderTrends();
@@ -585,6 +672,7 @@
     renderGames();
     renderRatings();
     if (record) renderRecord();
+    if (backtest) renderBacktest();
     renderTrends();
     renderMethod();
     const initial = location.hash.slice(1);

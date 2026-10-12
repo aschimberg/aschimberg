@@ -144,7 +144,14 @@ def run(seasons, client=None, now=None, log=print, start_weights=None, start_hfa
         for season in seasons:
             anchor = {"weights": dict(config.WEIGHTS), "home_field": config.HOME_FIELD}
             if season == current:
-                games = current_games if current_games is not None else fetch_season_history(client, season)
+                snap = config.CACHE_DIR / BT_CACHE / f"games_{season}_current.json"
+                if current_games is not None:
+                    games = current_games
+                elif client is None:
+                    games = store.load(snap, [])  # offline rerun
+                else:
+                    games = fetch_season_history(client, season)
+                    store.save(snap, games, compact=True)
             else:
                 games = load_history(client, [season], log=log)
             fbs = set(_cached(f"fbs_{season}", lambda: [g(t, "school") for t in client.fbs_teams(season)]))
@@ -298,7 +305,10 @@ def site_doc(res):
 
 
 def save(res):
-    store.save(backtest_path(), {k: v for k, v in res.items() if k != "picks"} | {"n_picks": len(res["picks"])})
+    slim = ("id", "season", "week", "season_type", "home", "away", "line", "model_spread", "diffs", "hfa_flag",
+            "edge", "ats_side", "confidence", "conf_label", "result")
+    store.save(backtest_path(), {k: v for k, v in res.items() if k != "picks"} | {
+        "n_picks": len(res["picks"]), "picks": [{k: p.get(k) for k in slim} for p in res["picks"].values()]}, compact=True)
     store.save(site_backtest_path(), site_doc(res), compact=True)
 
 

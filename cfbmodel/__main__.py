@@ -38,7 +38,8 @@ def main(argv=None):
         briefing.run_briefing(force=args.force, dry_run=args.dry_run)
         return 0
 
-    client = CFBDClient()
+    offline = args.cmd == "backtest" and os.environ.get("CFB_BACKTEST_OFFLINE") == "1"
+    client = None if offline else CFBDClient()
     if args.cmd == "refresh":
         pipeline.refresh(client)
     elif args.cmd == "grade":
@@ -57,7 +58,7 @@ def main(argv=None):
             print(f"{k}: ATS {v['ats']['W']}-{v['ats']['L']}-{v['ats']['P']} ({(v['ats']['pct'] or 0) * 100:.1f}%), "
                   f"edge≥{config.PLAY_EDGE:g} {v['ats_play']['W']}-{v['ats_play']['L']}, "
                   f"edge≥{config.STRONG_EDGE:g} {v['ats_strong']['W']}-{v['ats_strong']['L']}, SU {v['su']['W']}-{v['su']['L']}")
-        print("final", res["final"], f"({client.calls} CFBD calls)")
+        print("final", res["final"], f"({client.calls if client else 0} CFBD calls)")
         if args.apply:
             backtest.apply(res, adopt_weights=args.adopt_weights)
             pipeline.refresh(client)

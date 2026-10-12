@@ -107,6 +107,32 @@
             </select>
           </div>
           <div class="table-wrap"><table id="record-log" class="data"></table></div>
+
+          <div id="backtest" hidden>
+            <div class="board-top bt-top">
+              <div><p class="section-label">Simulated, not live</p><h2>Backtest</h2></div>
+              <p id="bt-method"></p>
+            </div>
+            <div class="table-wrap"><table id="bt-seasons" class="data"></table></div>
+            <h3 class="day-heading-h">Week by week</h3>
+            <div class="toolbar">
+              <select id="bt-season" aria-label="Backtest season"></select>
+              <span class="showing" id="bt-tuning"></span>
+            </div>
+            <div class="table-wrap"><table id="bt-weeks" class="data"></table></div>
+            <h3 class="day-heading-h">Backtest picks</h3>
+            <div class="toolbar">
+              <select id="bt-week" aria-label="Backtest week"></select>
+              <select id="bt-filter" aria-label="Backtest filter">
+                <option value="all">All picks</option>
+                <option value="plays">Edge ≥ play threshold</option>
+                <option value="strong">Edge ≥ strong threshold</option>
+                <option value="high">High confidence</option>
+              </select>
+              <input type="search" id="bt-search" placeholder="Search team" aria-label="Search backtest team">
+            </div>
+            <div class="table-wrap"><table id="bt-picks" class="data"></table></div>
+          </div>
         </section>
 
         <section id="tab-trends" class="tab-panel" hidden>
