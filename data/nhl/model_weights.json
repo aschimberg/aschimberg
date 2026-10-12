@@ -1,0 +1,47 @@
+{
+ "anchor": {
+  "home_field": 0.2,
+  "season": 20262027,
+  "weights": {
+   "elo": 0.25,
+   "goals": 0.15,
+   "mp": 0.25,
+   "xg": 0.35
+  }
+ },
+ "games": 0,
+ "history": [
+  {
+   "after": {
+    "home_field": 0.2,
+    "weights": {
+     "elo": 0.25,
+     "goals": 0.15,
+     "mp": 0.25,
+     "xg": 0.35
+    }
+   },
+   "at": "2026-10-12T20:37:50Z",
+   "before": {
+    "home_field": 0.2,
+    "weights": {
+     "elo": 0.25,
+     "goals": 0.15,
+     "mp": 0.25,
+     "xg": 0.35
+    }
+   },
+   "games": 0,
+   "season": 20262027,
+   "status": "insufficient"
+  }
+ ],
+ "home_field": 0.2,
+ "updated": "2026-10-12T20:37:50Z",
+ "weights": {
+  "elo": 0.25,
+  "goals": 0.15,
+  "mp": 0.25,
+  "xg": 0.35
+ }
+}
