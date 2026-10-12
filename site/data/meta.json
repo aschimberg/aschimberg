@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-12T05:48:35Z",
+ "generated_at": "2026-10-12T14:04:08Z",
  "poll": "AP Top 25",
  "season": 2026,
  "season_type": "regular",
@@ -25,9 +25,9 @@
   "strong_edge": 7.0,
   "trend_min_games": 8,
   "weights": {
-   "elo": 0.221,
-   "fpi": 0.426,
-   "sp": 0.353
+   "elo": 0.05,
+   "fpi": 0.52,
+   "sp": 0.43
   }
  },
  "site_url": "https://aschimberg.github.io/aschimberg/",
@@ -69,6 +69,19 @@
      "fpi": 0.426,
      "sp": 0.353
     }
+   },
+   {
+    "at": "2026-10-12T14:04:08Z",
+    "games": 2241,
+    "home_field": 2.6,
+    "rmse_after": null,
+    "rmse_before": null,
+    "status": "backtest",
+    "weights": {
+     "elo": 0.05,
+     "fpi": 0.52,
+     "sp": 0.43
+    }
    }
   ],
   "home_field": 2.6,
@@ -76,57 +89,31 @@
    "after": {
     "home_field": 2.6,
     "weights": {
+     "elo": 0.05,
+     "fpi": 0.52,
+     "sp": 0.43
+    }
+   },
+   "at": "2026-10-12T14:04:08Z",
+   "before": {
+    "home_field": 2.6,
+    "weights": {
      "elo": 0.221,
      "fpi": 0.426,
      "sp": 0.353
     }
    },
-   "alpha": 0.117,
-   "at": "2026-10-11T17:20:25Z",
-   "ats_after": 0.485,
-   "ats_before": 0.485,
-   "before": {
-    "home_field": 2.5,
-    "weights": {
-     "elo": 0.25,
-     "fpi": 0.35,
-     "sp": 0.4
-    }
-   },
-   "by_source": {
-    "elo": {
-     "ats": 0.515,
-     "rmse": 17.49
-    },
-    "fpi": {
-     "ats": 0.636,
-     "rmse": 15.11
-    },
-    "sp": {
-     "ats": 0.545,
-     "rmse": 16.13
-    }
-   },
-   "fit": {
-    "home_field": 3.34,
-    "weights": {
-     "elo": 0.0,
-     "fpi": 1.0,
-     "sp": 0.0
-    }
-   },
-   "games": 33,
-   "rmse_after": 15.68,
-   "rmse_before": 15.79,
+   "games": 2241,
+   "note": "walk-forward backtest 2024-2026: Elo weight -> 0.05",
    "season": 2026,
-   "status": "updated"
+   "status": "backtest"
   },
   "min_games": 25,
-  "updated": "2026-10-11T17:20:25Z",
+  "updated": "2026-10-12T14:04:08Z",
   "weights": {
-   "elo": 0.221,
-   "fpi": 0.426,
-   "sp": 0.353
+   "elo": 0.05,
+   "fpi": 0.52,
+   "sp": 0.43
   }
  },
  "week": 7
