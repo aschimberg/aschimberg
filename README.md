@@ -1,5 +1,7 @@
 # CFB / NFL / NHL Model
 
+**🔗 Live site: [aschimberg.github.io/aschimberg](https://aschimberg.github.io/aschimberg/)** ([CFB](https://aschimberg.github.io/aschimberg/) · [NFL](https://aschimberg.github.io/aschimberg/nfl/) · [NHL](https://aschimberg.github.io/aschimberg/nhl/))
+
 A static college football model site on GitHub Pages, driven by
 [CollegeFootballData.com](https://collegefootballdata.com) and GitHub Actions.
 The visual design follows [davidsasser.com/cfb](https://davidsasser.com/cfb): warm paper background, square ruled cards, a deep-green accent, and Geist / Geist Mono type.
