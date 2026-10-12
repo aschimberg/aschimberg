@@ -3,7 +3,7 @@ from datetime import datetime, timezone
 
 from cfbmodel import ats, store
 from cfbmodel.model import grade as ats_grade
-from sportscommon import oddsapi
+from sportscommon import clv, oddsapi
 from sportscommon import confidence as conf
 from sportscommon import record as recmod
 from sportscommon import tuning as tunemod
@@ -205,7 +205,8 @@ def refresh(games=None, pbp_loader=None, now=None, log=print, espn_loader=None):
     picks_doc = store.load(PICKS_PATH, {"picks": {}})
     picks = picks_doc["picks"]
     by_id = {g["id"]: g for g in games}
-    graded = grade_picks(picks, by_id)
+    graded = grade_picks(picks, by_id, kw)
+    clv.backfill(picks, lambda gid, p: (lambda sn: (sn[0][0], sn[0][1]) if sn else None)(lh["games"].get(gid)))
 
     played = {t: 0 for t in teams.TEAMS}
     for g in cur:
@@ -310,6 +311,7 @@ def refresh(games=None, pbp_loader=None, now=None, log=print, espn_loader=None):
         start = datetime.fromisoformat(g["start"].replace("Z", "+00:00")) if g["start"] else None
         started = start is not None and start <= now
         if not started and not g["completed"]:
+            prev = picks.get(g["id"])
             picks[g["id"]] = {
                 "id": g["id"], "season": season, "week": g["week"], "season_type": g["season_type"],
                 "start": g["start"], "home": teams.name(h), "away": teams.name(a), "home_abbr": h, "away_abbr": a,
@@ -320,6 +322,9 @@ def refresh(games=None, pbp_loader=None, now=None, log=print, espn_loader=None):
                 "weights": dict(config.WEIGHTS), "home_field": config.HOME_FIELD,
                 **pick, "confidence_detail": conf_detail, "updated": iso(now), "result": None,
             }
+            snaps = lh["games"].get(g["id"]) or []
+            clv.carry_bet(picks[g["id"]], prev, iso(now), (line or {}).get("spread"),
+                          first_seen=(snaps[0][0], snaps[0][1]) if snaps else None)
         logged = picks.get(g["id"])
         if logged and logged.get("confidence_detail"):
             conf_detail = logged["confidence_detail"]
@@ -368,7 +373,12 @@ def refresh(games=None, pbp_loader=None, now=None, log=print, espn_loader=None):
     return {"season": season, "cards": cards, "graded": graded}
 
 
-def grade_picks(picks, games_by_id):
+def grade_picks(picks, games_by_id, kw=None):
+    def cover_prob(side, spread, close):
+        # priced on the closing market: home margin centered on -close, key-number weighted
+        hc, push, ac = margins.cover_probs(margins.pmf(-close, kw or {}), spread)
+        return (hc if side == "home" else ac) + 0.5 * push
+
     n = 0
     for gid, p in picks.items():
         if p.get("result"):
@@ -382,6 +392,7 @@ def grade_picks(picks, games_by_id):
         if p.get("ats_side") and p.get("line") is not None:
             res["ats"] = ats_grade(p["ats_side"], p["line"], hp, ap)
         p["result"] = res
+        clv.finalize_spread(p, g.get("spread"), cover_prob if kw else None)
         n += 1
     return n
 

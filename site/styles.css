@@ -293,3 +293,6 @@ details.section > summary .conf { margin-left: auto; margin-right: 8px; }
 .bt-tag { display: inline-block; margin-left: 6px; padding: 0 5px; border-radius: 3px; font-size: 10px; font-weight: 700;
   letter-spacing: .04em; color: var(--muted, #6b7280); border: 1px solid currentColor; vertical-align: 1px; }
 #bt-tuning { white-space: normal; text-align: right; flex: 1 1 260px; }
+.clv-note { margin: 10px 0 0; font-size: 13px; max-width: 80ch; }
+.tile.clv .v.pos { color: var(--win, var(--accent)); }
+.tile.clv .v.neg { color: var(--loss); }

@@ -39,3 +39,28 @@ class BriefingTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class ClvTests(unittest.TestCase):
+    def test_spread_and_moneyline_clv(self):
+        from sportscommon import clv
+        self.assertEqual(clv.spread_clv("home", -3, -5), 2.0)    # laid 3, closed 5
+        self.assertEqual(clv.spread_clv("away", -3, -5), -2.0)   # took +3, closed +5
+        self.assertAlmostEqual(clv.ml_clv("home", 120, -110, -110), 0.1, places=3)
+
+    def test_bet_number_held_until_side_flips(self):
+        from sportscommon import clv
+        p1 = clv.carry_bet({"ats_side": "home"}, None, "t1", -3)
+        p2 = clv.carry_bet({"ats_side": "home"}, p1, "t2", -4.5)
+        self.assertEqual((p2["bet_line"], p2["bet_at"]), (-3, "t1"))
+        p3 = clv.carry_bet({"ats_side": "away"}, p2, "t3", -6)
+        self.assertEqual((p3["bet_line"], p3["bet_at"]), (-6, "t3"))
+        legacy = clv.carry_bet({"ats_side": "home"}, {"ats_side": "home"}, "t4", -5, first_seen=("t0", -2.5))
+        self.assertEqual((legacy["bet_line"], legacy["bet_src"]), (-2.5, "first seen"))
+
+    def test_finalize_skips_backtests(self):
+        from sportscommon import clv
+        p = clv.finalize_spread({"ats_side": "home", "bet_line": -3, "line": -4, "backtest": True})
+        self.assertNotIn("clv", p)
+        q = clv.finalize_spread({"ats_side": "home", "bet_line": -3, "line": -4})
+        self.assertEqual(q["clv"], 1.0)

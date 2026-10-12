@@ -358,6 +358,25 @@
     );
   }
 
+  // --- Closing line value ----------------------------------------------------
+  const isML = () => state.meta?.sport === "nhl";
+  const fmtOdds = (v) => (v == null ? "—" : (v > 0 ? "+" : "") + Math.round(v));
+  const clvFmt = (v) => (v == null ? "—" : isML() ? `${v > 0 ? "+" : ""}${(v * 100).toFixed(1)}%` : `${v > 0 ? "+" : ""}${v.toFixed(1)}`);
+  function clvStats(picks) {
+    const xs = picks.filter((p) => p.clv != null && !p.backtest);
+    if (!xs.length) return null;
+    const beat = xs.filter((p) => p.clv > 0).length, same = xs.filter((p) => p.clv === 0).length;
+    const probs = xs.filter((p) => p.clv_prob != null);
+    return { n: xs.length, avg: xs.reduce((a, p) => a + p.clv, 0) / xs.length, beat, same, worse: xs.length - beat - same,
+      prob: probs.length ? probs.reduce((a, p) => a + p.clv_prob, 0) / probs.length : null };
+  }
+  function clvTile(label, st) {
+    if (!st) return `<div class="tile"><div class="k">${label}</div><div class="v">—</div><div class="s">no closed picks yet</div></div>`;
+    const cls = st.avg > 0 ? "pos" : st.avg < 0 ? "neg" : "";
+    const sub = `beat close ${st.beat}/${st.n} (${Math.round((st.beat / st.n) * 100)}%)` + (st.prob != null ? ` · cover prob ${st.prob >= 0 ? "+" : ""}${(st.prob * 100).toFixed(1)}%` : "");
+    return `<div class="tile clv"><div class="k">${label}</div><div class="v ${cls}">${clvFmt(st.avg)}${isML() ? "" : " pts"}</div><div class="s">${sub}</div></div>`;
+  }
+
   // --- Record ----------------------------------------------------------------
   function renderRecord() {
     const rec = state.record;
@@ -381,6 +400,18 @@
         tile("ATS · High confidence", bc.High) + tile("ATS · Medium confidence", bc.Medium) + tile("ATS · Low confidence", bc.Low);
     }
 
+    const seasonPicks = rec.picks || [];
+    const playEdge = s.play_edge ?? 4;
+    $("#record-tiles").innerHTML +=
+      clvTile(`CLV · all picks`, clvStats(seasonPicks)) +
+      clvTile(`CLV · ${T("edge", "edge")} ${playEdge}+`, clvStats(seasonPicks.filter((p) => (p.edge ?? 0) >= playEdge)));
+    const clvByWeek = new Map();
+    for (const p of seasonPicks) {
+      const k = `${p.season}|${p.season_type}|${p.week}`;
+      if (!clvByWeek.has(k)) clvByWeek.set(k, []);
+      clvByWeek.get(k).push(p);
+    }
+
     const wk = $("#record-weeks");
     wk._rerender = renderRecord;
     renderTable(
@@ -391,6 +422,8 @@
         { key: "ats", label: A, num: true, render: (r) => recStr(r.ats), sortVal: (r) => r.ats.pct },
         { key: "atspct", label: `${A} %`, num: true, render: (r) => pct(r.ats.pct), sortVal: (r) => r.ats.pct },
         { key: "plays", label: `${A} ${T("edge", "edge")} ${s.lean_edge ?? 4}+`, num: true, render: (r) => recStr(r.ats_plays), sortVal: (r) => r.ats_plays.pct },
+        { key: "clv", label: "CLV", num: true, sortVal: (r) => clvStats(clvByWeek.get(`${r.season}|${r.season_type}|${r.week}`) || [])?.avg ?? -99,
+          render: (r) => { const st = clvStats(clvByWeek.get(`${r.season}|${r.season_type}|${r.week}`) || []); return st ? `<span class="${st.avg > 0 ? "pos" : st.avg < 0 ? "neg" : ""}">${clvFmt(st.avg)}</span> <span class="muted">${st.beat}/${st.n}</span>` : '<span class="muted">—</span>'; } },
       ],
       [...sr.by_week].reverse(),
       wk._sort
@@ -427,6 +460,13 @@
         { key: "score", label: "Final", num: true, sortVal: (p) => (p.result ? 1 : 0), render: (p) => (p.result ? `${p.result.away_pts}–${p.result.home_pts}` : "—") },
         { key: "ats", label: T("ats", "ATS"), sortVal: (p) => p.result?.ats, render: (p) => res(p.result?.ats) },
         { key: "su", label: "SU", sortVal: (p) => p.result?.su, render: (p) => `${esc(p.su_team)} ${res(p.result?.su)}` },
+        { key: "clv", label: "CLV", num: true, sortVal: (p) => p.clv ?? -99, render: (p) => {
+          if (p.clv == null) return '<span class="muted">—</span>';
+          const fmtN = (v) => (isML() ? fmtOdds(v) : (v > 0 ? "+" : "") + v);
+          const side = p.ats_side === "home" ? 1 : -1;
+          const n = (v) => (isML() ? fmtN(v) : fmtN(side * v));
+          return `<span class="${p.clv > 0 ? "pos" : p.clv < 0 ? "neg" : ""}" title="Bet number ${esc(n(p.bet_line))}${p.bet_src ? " (" + esc(p.bet_src) + ")" : ""} → close ${esc(n(p.close_line))}">${clvFmt(p.clv)}</span>`;
+        } },
       ],
       rows,
       el._sort

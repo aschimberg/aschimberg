@@ -2,6 +2,8 @@
 from collections import defaultdict
 from datetime import datetime, timedelta, timezone
 
+from sportscommon import clv
+
 from . import ats, confidence, config, model, splits, store, tuning
 from .cfbd import g
 from .normalize import closing_spread, lines_by_game, normalize_game, select_line
@@ -138,6 +140,7 @@ def grade_picks(picks, games_by_id):
         if p.get("ats_side") and p.get("line") is not None:
             res["ats"] = model.grade(p["ats_side"], p["line"], hp, ap)
         p["result"] = res
+        clv.finalize_spread(p)
         graded += 1
     return graded
 
@@ -282,6 +285,7 @@ def refresh(client, now=None, splits_provider=None, log=print):
     picks = picks_doc["picks"]
     games_by_id = {gm["id"]: gm for gm in cur_games}
     graded = grade_picks(picks, games_by_id)
+    clv.backfill(picks, lambda gid, p: (lambda sn: (sn[0][0], sn[0][1]) if sn else None)(line_hist["games"].get(str(gid))))
 
     cards = []
     for gm, line in with_lines:
@@ -325,6 +329,7 @@ def refresh(client, now=None, splits_provider=None, log=print):
 
         key = str(gm["id"])
         if not started and not gm["completed"]:
+            prev = picks.get(key)
             picks[key] = {
                 "id": gm["id"], "season": season, "week": gm["week"], "season_type": gm["season_type"],
                 "start": gm["start"], "home": gm["home"], "away": gm["away"], "neutral": gm["neutral"],
@@ -335,6 +340,9 @@ def refresh(client, now=None, splits_provider=None, log=print):
                 "diffs": diffs, "hfa_flag": hflag, "weights": dict(config.WEIGHTS), "home_field": config.HOME_FIELD,
                 **pick, "confidence_detail": conf, "updated": iso(now), "result": None,
             }
+            snaps = line_hist["games"].get(key) or []
+            clv.carry_bet(picks[key], prev, iso(now), (line or {}).get("spread"),
+                          first_seen=(snaps[0][0], snaps[0][1]) if snaps else None)
         logged = picks.get(key)
         if logged and "confidence_detail" in logged:
             conf = logged["confidence_detail"]  # locked picks keep their pre-kickoff confidence

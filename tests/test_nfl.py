@@ -120,6 +120,10 @@ class NflTests(unittest.TestCase):
             self.assertEqual(res["graded"], 16)
             rec = store.load(d.root / "site_nfl" / "record.json", {})
             self.assertEqual(rec["season_record"]["su"]["W"] + rec["season_record"]["su"]["L"], 16)
+            # CLV: every graded pick has a bet number, the close and a key-number-aware CLV
+            wk6 = [p for p in rec["picks"] if p["week"] == 6]
+            self.assertTrue(all(p.get("clv") is not None and p.get("clv_prob") is not None for p in wk6))
+            self.assertTrue(all(p["close_line"] == next(g["spread"] for g in games if g["id"] == p["id"]) for p in wk6))
             entry, _ = pipeline.tune(now=later, log=lambda *_: None)
             self.assertEqual(entry["status"], "updated")
             self.assertAlmostEqual(sum(entry["after"]["weights"].values()), 1.0, places=2)

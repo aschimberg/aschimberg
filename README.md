@@ -35,6 +35,17 @@ The same site serves `/nfl/` and `/nhl/` (switch sports in the header). Both run
 
 Tuning: NHL weights and home ice are refit on Mondays and the xG model is retrained; NFL weights and home field are refit on Tuesdays. NHL play-by-play is cached in `data/nhl/cache/` (the first run backfills last season, about 8 minutes).
 
+## Closing line value (CLV)
+
+The Record tab tracks CLV for every live pick. It compares the number when the model first took a side (the bet number; it resets if the side flips) with the closing number:
+- **NFL:** nflverse's closing line.
+- **CFB:** the last line logged before kickoff.
+- **NHL:** the last pre-game moneyline.
+
+Spreads are measured in points from the pick side's view. Taking −3 when it closes −5 is +2.0. NFL also shows a key-number-aware version: the gain in cover probability on the closing market's margin distribution. NHL moneylines show the expected return of the price taken at the closing no-vig odds.
+
+CLV is the quickest honest read on whether the picks have an edge, because it becomes meaningful within a few hundred picks. Picks logged before CLV tracking use the first line we recorded as their bet number. Backtest picks have no CLV.
+
 ## Backtests
 
 `python -m nflmodel backtest --seasons 2023-2026` and `python -m cfbmodel backtest --seasons 2024-2026` replay each past week using only data available before kickoff. Each week is priced against the closing line with the live pick and confidence logic, then the weekly tuner runs, just as it does live. Results appear on each sport's **Record → Backtest** section: per-season and per-week records, the weights after every weekly tune, and every pick. You can also run them from Actions → **Backtest** (`apply` folds them into the live model).

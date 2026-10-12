@@ -4,7 +4,7 @@ from zoneinfo import ZoneInfo
 
 from cfbmodel import store
 from sportscommon import confidence as conf
-from sportscommon import oddsapi
+from sportscommon import clv, oddsapi
 from sportscommon import ridge
 from sportscommon import tuning as tunemod
 from sportscommon.odds import american_to_decimal, american_to_prob, fmt_american, no_vig, normal_cdf, prob_to_american
@@ -281,6 +281,11 @@ def refresh(loader=None, now=None, log=print):
     picks = picks_doc["picks"]
     graded = grade_picks(picks, sched, cur)
 
+    def _first(gid, p):
+        sn = lh["games"].get(str(gid)) or []
+        return (sn[0][0], sn[0][1] if p["ats_side"] == "home" else sn[0][2]) if sn else None
+    clv.backfill(picks, _first, kind="ml")
+
     slate_days = {(today + timedelta(days=i)).isoformat() for i in range(config.SLATE_DAYS)}
     slate = sorted((g for g in sched.values() if g.get("date") in slate_days), key=lambda g: (g["start"] or "", g["home"]))
     names = {t: v["name"] for t, v in teams.items()}
@@ -392,6 +397,7 @@ def refresh(loader=None, now=None, log=print):
                               "play": tev >= config.TOTAL_MIN_EV}
 
         if not started and line:
+            prev = picks.get(str(g["id"]))
             picks[str(g["id"])] = {
                 "id": g["id"], "season": season, "date": g["date"], "week": iso_week(g["date"]), "season_type": "regular" if g["type"] == 2 else "postseason",
                 "start": g["start"], "home": names.get(h, h), "away": names.get(a, a), "home_abbr": h, "away_abbr": a,
@@ -401,6 +407,10 @@ def refresh(loader=None, now=None, log=print):
                 "home_field": config.HOME_ICE, **pick, "total_pick": total_pick,
                 "confidence_detail": conf_detail, "updated": iso(now), "result": None,
             }
+            snaps = lh["games"].get(str(g["id"])) or []
+            side = pick.get("ats_side")
+            fs = (snaps[0][0], snaps[0][1] if side == "home" else snaps[0][2]) if snaps and side else None
+            clv.carry_bet(picks[str(g["id"])], prev, iso(now), pick.get("odds"), first_seen=fs)
         logged = picks.get(str(g["id"]))
         if logged and logged.get("confidence_detail"):
             conf_detail = logged["confidence_detail"]
@@ -518,6 +528,7 @@ def grade_picks(picks, sched, cur_games):
             res["total"] = "P" if tot == t["line"] else ("W" if (tot > t["line"]) == (t["side"] == "over") else "L")
             res["total_units"] = 0.0 if res["total"] == "P" else (round(american_to_decimal(t["odds"]) - 1, 3) if res["total"] == "W" else -1.0)
         p["result"] = res
+        clv.finalize_ml(p)
         n += 1
     return n
 
