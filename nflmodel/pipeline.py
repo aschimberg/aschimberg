@@ -184,6 +184,17 @@ def refresh(games=None, pbp_loader=None, now=None, log=print, espn_loader=None):
                 g[f"{side}_qb_id"], g[f"{side}_qb"], g[f"{side}_qb_note"] = qid, nm, note
                 g[f"{side}_qb_src"] = src
 
+    actual = {}
+    for q in pbp[season]["qb_games"]:
+        k = (q["game_id"], q["team"])
+        if k not in actual or q["db"] > actual[k][0]:
+            actual[k] = (q["db"], q.get("name"))
+    for g in slate:
+        if g["completed"]:
+            for side in ("home", "away"):
+                if (g["id"], g[side]) in actual:
+                    g[f"{side}_qb"] = actual[(g["id"], g[side])][1]
+
     cards = []
     for g in sorted(slate, key=lambda x: (x["start"] or "", x["home"])):
         h, a = g["home"], g["away"]
