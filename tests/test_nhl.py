@@ -2,6 +2,7 @@ import os
 import unittest
 
 os.environ.setdefault("NHL_ESPN", "off")  # tests never call ESPN
+os.environ.setdefault("NHL_MONEYPUCK", "off")
 from datetime import datetime, timezone
 from unittest import mock
 
@@ -146,3 +147,30 @@ class ProbableGoalieTests(unittest.TestCase):
         self.assertEqual(probables.match("Logan Thompson", "WSH", starts, gnames), 1)
         self.assertEqual(probables.match("Joey Daccord", "SEA", starts, gnames), 3)
         self.assertIsNone(probables.match("New Guy", "SEA", starts, gnames))
+
+
+class MoneyPuckTests(unittest.TestCase):
+    TEAMS = ("team,season,name,team,position,situation,games_played,xGoalsPercentage,xGoalsFor,xGoalsAgainst,"
+             "scoreVenueAdjustedxGoalsFor,scoreVenueAdjustedxGoalsAgainst,flurryScoreVenueAdjustedxGoalsFor,flurryScoreVenueAdjustedxGoalsAgainst\n"
+             "N.J,2026,N.J,N.J,Team Level,all,10,0.55,33,27,32,28,31.5,28.5\n"
+             "N.J,2026,N.J,N.J,Team Level,5on5,10,0.55,20,18,20,18,20,18\n"
+             "CAR,2026,CAR,CAR,Team Level,all,10,0.45,27,33,28,32,28.5,31.5\n")
+    GOALIES = ("playerId,season,name,team,position,situation,games_played,icetime,xGoals,goals,unblocked_shot_attempts\n"
+               "8479979,2026,Jake Oettinger,DAL,G,all,5,18000,14.0,9.0,180\n"
+               "8479979,2026,Jake Oettinger,DAL,G,5on5,5,15000,9.0,6.0,140\n")
+
+    def test_parse_and_strength(self):
+        from nhlmodel import moneypuck
+        t = moneypuck.parse_teams(self.TEAMS)
+        self.assertEqual(set(t), {"NJD", "CAR"})
+        self.assertEqual(t["NJD"]["xgf"], 31.5)
+        mp = {"cur": {"teams": t, "goalies": {}}, "prev": {"teams": {}, "goalies": {}}}
+        s = moneypuck.team_strength(mp, prior_games=0)
+        self.assertAlmostEqual(sum(s["NJD"]) - sum(s["CAR"]), 0.6, places=6)  # (3.15-2.85) - (2.85-3.15)
+
+    def test_goalie_rates(self):
+        from nhlmodel import moneypuck
+        g = moneypuck.parse_goalies(self.GOALIES)
+        self.assertEqual(g[8479979]["shots"], 180)
+        r = moneypuck.goalie_rates({"cur": {"teams": {}, "goalies": g}, "prev": {"teams": {}, "goalies": {}}}, n0=20)
+        self.assertAlmostEqual(r[8479979]["rate"], 5.0 / 200)

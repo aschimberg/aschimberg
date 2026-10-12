@@ -18,7 +18,9 @@ API = os.environ.get("NHL_API", "https://api-web.nhle.com/v1")
 REQUEST_PAUSE = _f("NHL_REQUEST_PAUSE", 0.15)  # be polite to the public API
 
 # Margin sources (goals), tuned weekly
-WEIGHTS = {"xg": _f("NHL_W_XG", 0.55), "goals": _f("NHL_W_GOALS", 0.20), "elo": _f("NHL_W_ELO", 0.25)}
+WEIGHTS = {"xg": _f("NHL_W_XG", 0.35), "mp": _f("NHL_W_MP", 0.25), "goals": _f("NHL_W_GOALS", 0.15), "elo": _f("NHL_W_ELO", 0.25)}
+MONEYPUCK = os.environ.get("NHL_MONEYPUCK", "on").lower() != "off"
+GOALIE_MP_SHARE = _f("NHL_GOALIE_MP_SHARE", 0.5)  # weight on MoneyPuck's GSAx vs ours
 HOME_ICE = _f("NHL_HOME_ICE", 0.20)  # goals of margin (~54% home win rate)
 B2B_PENALTY = _f("NHL_B2B", 0.25)  # goals of margin for the 2nd night of a back-to-back (~5% win prob)
 DECAY_PER_DAY = _f("NHL_DECAY", 0.985)  # ~46-day half-life

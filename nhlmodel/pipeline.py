@@ -8,13 +8,13 @@ from sportscommon import ridge
 from sportscommon import tuning as tunemod
 from sportscommon.odds import american_to_decimal, american_to_prob, fmt_american, no_vig, normal_cdf, prob_to_american
 
-from . import api, config, probables, data, elo as elomod, goalies, sim, xg
+from . import api, config, moneypuck, probables, data, elo as elomod, goalies, sim, xg
 
 ET = ZoneInfo("America/New_York")
 PICKS_PATH = config.DATA_DIR / "picks.json"
 LINE_HISTORY_PATH = config.DATA_DIR / "line_history.json"
-SOURCES = ("xg", "goals", "elo")
-NAMES = {"xg": "xG", "goals": "Goals", "elo": "Elo"}
+SOURCES = ("xg", "mp", "goals", "elo")
+NAMES = {"xg": "xG", "mp": "MoneyPuck", "goals": "Goals", "elo": "Elo"}
 
 
 def utcnow():
@@ -121,7 +121,8 @@ def default_loader(now, log):
     by_name = {info["name"]: t for t, info in teams.items()}
     probs = probables.fetch_probables([today + timedelta(days=i) for i in range(config.SLATE_DAYS)], by_name, log=log)
     return {"teams": teams, "season": cur_id, "prev": list(prev_doc["games"].values()),
-            "cur": list(cur_doc["games"].values()), "sched": sched, "odds": odds, "probables": probs}
+            "cur": list(cur_doc["games"].values()), "sched": sched, "odds": odds, "probables": probs,
+            "mp": moneypuck.load(cur_id, log=log) if config.MONEYPUCK else None}
 
 
 # --- model pieces -----------------------------------------------------------
@@ -211,6 +212,17 @@ def refresh(loader=None, now=None, log=print):
 
     gnames = goalie_names(prev + cur)
     rates = goalies.gsax([(1.0, cur), (config.GOALIE_LAST_SEASON_WEIGHT, prev)], lambda s: xg.predict(model, s))
+    mp = d.get("mp")
+    mp_str = moneypuck.team_strength(mp) if mp else {}
+    if mp:
+        mp_rates = moneypuck.goalie_rates(mp)
+        share = config.GOALIE_MP_SHARE
+        for gid in set(rates) | set(mp_rates):
+            ours, theirs = rates.get(gid), mp_rates.get(gid)
+            if ours and theirs:
+                rates[gid] = {"rate": (1 - share) * ours["rate"] + share * theirs["rate"], "shots": ours["shots"]}
+            elif theirs:
+                rates[gid] = theirs
     starts = goalies.team_starts(prev + cur)
     elo, _ = elomod.run(prev + cur)
 
@@ -253,6 +265,8 @@ def refresh(loader=None, now=None, log=print):
         }
         diffs = {"xg": round(lam["xg"][0] - lam["xg"][1], 3), "goals": round(lam["goals"][0] - lam["goals"][1], 3),
                  "elo": round((elo.get(h, 1500) - elo.get(a, 1500)) / config.ELO_PER_GOAL, 3)}
+        # MoneyPuck (flurry/score/venue-adjusted xG); our xG stands in if it's unavailable
+        diffs["mp"] = round(sum(mp_str[h]) - sum(mp_str[a]), 3) if h in mp_str and a in mp_str else diffs["xg"]
         total = 0.75 * sum(lam["xg"]) + 0.25 * sum(lam["goals"])
 
         b2b = {}
@@ -279,7 +293,7 @@ def refresh(loader=None, now=None, log=print):
 
         def goalie_effect(side):
             x = gls[side]
-            return w["xg"] * x["gsax_game"] + (w["goals"] + w["elo"]) * x["vs_base"]
+            return (w["xg"] + w.get("mp", 0)) * x["gsax_game"] + (w["goals"] + w["elo"]) * x["vs_base"]
 
         offset = goalie_effect("home") - goalie_effect("away")
         offset += (-config.B2B_PENALTY if b2b["home"] else 0) + (config.B2B_PENALTY if b2b["away"] else 0)
@@ -397,7 +411,7 @@ def refresh(loader=None, now=None, log=print):
     store.save(LINE_HISTORY_PATH, lh, compact=True)
     store.save(PICKS_PATH, picks_doc)
     log(f"NHL: {len(cards)} games on the board, {graded} picks graded")
-    write_site(now, season, cards, teams, xg_fit, gl_fit, elo, rates, starts, picks, model, gnames, league_fa)
+    write_site(now, season, cards, teams, xg_fit, gl_fit, elo, rates, starts, picks, model, gnames, league_fa, mp_str)
     return {"season": season, "cards": cards, "graded": graded}
 
 
@@ -540,19 +554,22 @@ def method_html(model):
 <h3>Expected goals</h3>
 <p>Our own xG model: a logistic regression on every unblocked shot in the NHL's play-by-play (distance, angle, shot type, rebounds, rush chances, power play / shorthanded). Currently trained on {model.get('n', 0):,} shots. xG measures chance quality, which predicts future scoring better than goals or raw shot counts.</p>
 <h3>Team strength</h3>
-<p>Opponent-adjusted offense and defense from regulation, non-empty-net xG and goals, fit by weighted ridge regression (recent games weighted {config.DECAY_PER_DAY:g}× per day; shrunk toward {config.PRIOR_KEEP:.0%} of last season). Blended as margin sources: xG {w['xg']:.0%}, goals {w['goals']:.0%}, Elo {w['elo']:.0%}.</p>
+<p>Opponent-adjusted offense and defense from regulation, non-empty-net xG and goals, fit by weighted ridge regression (recent games weighted {config.DECAY_PER_DAY:g}× per day; shrunk toward {config.PRIOR_KEEP:.0%} of last season). Blended as margin sources: our xG {w['xg']:.0%}, MoneyPuck xG {w.get('mp', 0):.0%}, goals {w['goals']:.0%}, Elo {w['elo']:.0%}.</p>
+<h3>MoneyPuck</h3>
+<p>Team expected goals and goalie GSAx from <a href="https://moneypuck.com">MoneyPuck.com</a> (data used with credit, non-commercial). Their xG model adds shooter talent and adjusts for flurries, score state and venue. Team xG for/against per game this season is shrunk toward last season by {config.RIDGE_GAMES:g} games and used as a fourth margin source. Each goalie's GSAx is a {config.GOALIE_MP_SHARE:.0%}/{1 - config.GOALIE_MP_SHARE:.0%} blend of MoneyPuck's and ours.</p>
 <h3>Goalies</h3>
-<p>Goaltending is the most decisive single position. Each goalie's goals saved above expected (GSAx) per unblocked shot over this season and last (60% weight), shrunk by {config.GOALIE_PRIOR_SHOTS:,.0f} shots toward average. The projected starter is the team's most frequent recent starter, or the backup when the starter played the night before. xG-based strength gets the full goalie effect; goals and Elo, which already include the usual goalie, get the difference vs the team's baseline.</p>
+<p>Goaltending is the most decisive single position. Each goalie's goals saved above expected (GSAx) per unblocked shot over this season and last (60% weight), shrunk by {config.GOALIE_PRIOR_SHOTS:,.0f} shots toward average. The starter is ESPN's listed probable goalie once posted; before that, the team's most frequent recent starter, or the backup when the starter played the night before. xG-based strength gets the full goalie effect; goals and Elo, which already include the usual goalie, get the difference vs the team's baseline.</p>
 <h3>Schedule and home ice</h3>
 <p>Home ice {config.HOME_ICE:.2g} goals of margin (~54% home win rate). Second night of a back-to-back costs {config.B2B_PENALTY:g} goals (~5% win probability).</p>
 <h3>Game simulation</h3>
 <p>Regulation goals are Poisson; a team leading by one late scores into the empty net {config.EN_GOAL_LEAD1:.0%} of the time (by two: {config.EN_GOAL_LEAD2:.0%}); ties go to 3-on-3 overtime ({config.OT_DECIDED:.0%} decided, in proportion to scoring rates) and then a shootout. That gives win, puck-line (±1.5) and total probabilities and fair odds.</p>
 <h3>Picks</h3>
-<p>Moneyline value: model win probability vs DraftKings odds published through the NHL's own API. EV tiers: lean {config.LEAN_EV:.1%}+, play {config.PLAY_EV:.1%}+, strong {config.STRONG_EV:.1%}+. Totals are flagged at {config.TOTAL_MIN_EV:.0%}+ EV. Records are kept in units (1 unit per pick). Confidence weighs whether xG, goals and Elo each see value on the side, EV, line movement and data quality. Weights and home ice are refit weekly to graded games.</p>
-<p>Data: NHL public API (schedule, play-by-play, odds). For entertainment only.</p>"""
+<p>Moneyline value: model win probability vs DraftKings odds published through the NHL's own API. EV tiers: lean {config.LEAN_EV:.1%}+, play {config.PLAY_EV:.1%}+, strong {config.STRONG_EV:.1%}+. Totals are flagged at {config.TOTAL_MIN_EV:.0%}+ EV. Records are kept in units (1 unit per pick). Confidence weighs whether our xG, MoneyPuck, goals and Elo each see value on the side, EV, line movement and data quality. Weights and home ice are refit weekly to graded games.</p>
+<p>Data: NHL public API (schedule, play-by-play, odds), MoneyPuck.com (team xG, goalie GSAx), ESPN (probable goalies). For entertainment only.</p>"""
 
 
-def write_site(now, season, cards, teams, xg_fit, gl_fit, elo, rates, starts, picks, model, gn, league_fa):
+def write_site(now, season, cards, teams, xg_fit, gl_fit, elo, rates, starts, picks, model, gn, league_fa, mp_str=None):
+    mp_str = mp_str or {}
     out = config.SITE_DATA_DIR
     today = now.astimezone(ET).date()
     label = "Today & tomorrow"
@@ -566,7 +583,7 @@ def write_site(now, season, cards, teams, xg_fit, gl_fit, elo, rates, starts, pi
                      "conf_high": config.CONF_HIGH, "conf_weights": conf.DEFAULT_WEIGHTS, "conf_medium": config.CONF_MEDIUM},
         "terms": {"ats": "ML", "edge": "EV %", "pick": "Moneyline pick", "record_week": "Week"},
         "tuning": tuning_summary(), "site_url": config.SITE_URL,
-        "board_note": "Scores are projected goals until final. Moneylines are DraftKings via the NHL API; fair odds are the model's no-vig price. Times in your local zone.", "data_source": '<a href="https://www.nhl.com">NHL public API</a>', "method_html": method_html(model),
+        "board_note": "Scores are projected goals until final. Moneylines are DraftKings via the NHL API; fair odds are the model's no-vig price. Times in your local zone.", "data_source": '<a href="https://www.nhl.com">NHL public API</a> · <a href="https://moneypuck.com">MoneyPuck.com</a>', "method_html": method_html(model),
         "rating_columns": [
             {"key": "rank", "label": "#", "digits": 0, "asc": True},
             {"key": "team", "label": "Team", "text": True},
@@ -575,6 +592,7 @@ def write_site(now, season, cards, teams, xg_fit, gl_fit, elo, rates, starts, pi
             {"key": "rating", "label": "Net goals/gm", "digits": 2},
             {"key": "xgf", "label": "xGF/gm", "digits": 2},
             {"key": "xga", "label": "xGA/gm", "digits": 2, "asc": True},
+            {"key": "mp", "label": "MoneyPuck xG±/gm", "digits": 2},
             {"key": "elo", "label": "Elo", "digits": 0},
             {"key": "goalie", "label": "Goalie", "text": True},
             {"key": "gsax", "label": "GSAx/gm", "digits": 2},
@@ -590,12 +608,15 @@ def write_site(now, season, cards, teams, xg_fit, gl_fit, elo, rates, starts, pi
         xga = xg_fit["mu"] - xg_fit["def"].get(t, 0) if xg_fit else None
         net_xg = (xg_fit["off"].get(t, 0) + xg_fit["def"].get(t, 0)) if xg_fit else 0
         net_gl = (gl_fit["off"].get(t, 0) + gl_fit["def"].get(t, 0)) if gl_fit else 0
-        net = config.WEIGHTS["xg"] * net_xg + config.WEIGHTS["goals"] * net_gl + config.WEIGHTS["elo"] * (elo.get(t, 1500) - 1500) / config.ELO_PER_GOAL
+        net_mp = sum(mp_str[t]) if t in mp_str else net_xg
+        w = config.WEIGHTS
+        net = w["xg"] * net_xg + w.get("mp", 0) * net_mp + w["goals"] * net_gl + w["elo"] * (elo.get(t, 1500) - 1500) / config.ELO_PER_GOAL
         hist = starts.get(t, [])[-10:]
         top = max(set(g for _, g in hist), key=lambda x: sum(1 for _, y in hist if y == x)) if hist else None
         rows.append({"team": info["name"], "abbr": t, "conference": info.get("division"), "record": info.get("record"),
                      "rating": round(net, 3), "xgf": round(xgf, 2) if xgf is not None else None,
                      "xga": round(xga, 2) if xga is not None else None, "elo": round(elo.get(t, 1500)),
+                     "mp": round(sum(mp_str[t]), 2) if t in mp_str else None,
                      "goalie": gn.get(top) if top else None,
                      "gsax": round(rates.get(top, {"rate": 0})["rate"] * league_fa, 2) if top else None,
                      "logo": info.get("logo"), "poll_rank": None})
