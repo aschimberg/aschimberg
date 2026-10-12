@@ -1,4 +1,7 @@
+import os
 import unittest
+
+os.environ.setdefault("NHL_ESPN", "off")  # tests never call ESPN
 from datetime import datetime, timezone
 from unittest import mock
 
@@ -123,3 +126,23 @@ class PartnerOddsTests(unittest.TestCase):
         self.assertEqual((r["ml_home"], r["ml_away"]), (-145, 114))
         self.assertEqual((r["pl_home"], r["pl_away"], r["total"]), (-1.5, 1.5, 6.5))
         self.assertEqual((r["over_odds"], r["under_odds"]), (-110, -110))
+
+
+class ProbableGoalieTests(unittest.TestCase):
+    def test_parse_and_match(self):
+        from datetime import date
+        from nhlmodel import probables
+        doc = {"events": [{"date": "2026-10-12T23:00Z", "competitions": [{"date": "2026-10-12T23:00Z", "competitors": [
+            {"team": {"displayName": "Washington Capitals"}, "probables": [
+                {"name": "probableStartingGoalie", "athlete": {"fullName": "Logan Thompson"}}]},
+            {"team": {"displayName": "Seattle Kraken"}, "probables": [
+                {"name": "probableStartingGoalie", "athlete": {"fullName": "Joey Daccord"}}]},
+        ]}]}]}
+        names = {"Washington Capitals": "WSH", "Seattle Kraken": "SEA"}
+        got = probables.fetch_probables([date(2026, 10, 12)], names, getter=lambda u: doc)
+        self.assertEqual(got[("2026-10-12", "WSH")], "Logan Thompson")
+        starts = {"WSH": [("2026-10-10", 1), ("2026-10-11", 2)]}
+        gnames = {1: "L. Thompson", 2: "C. Lindgren", 3: "J. Daccord"}
+        self.assertEqual(probables.match("Logan Thompson", "WSH", starts, gnames), 1)
+        self.assertEqual(probables.match("Joey Daccord", "SEA", starts, gnames), 3)
+        self.assertIsNone(probables.match("New Guy", "SEA", starts, gnames))

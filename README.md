@@ -28,7 +28,7 @@ The same site serves `/nfl/` and `/nhl/` (switch sports in the header). Both run
 **NHL** (`nhlmodel/`, data from the NHL public API: schedule, play-by-play, DraftKings odds):
 - **Expected goals:** our own xG model, a logistic regression on every unblocked shot (distance, angle, shot type, rebound, rush, strength). It is retrained weekly.
 - **Team strength:** opponent-adjusted xG and goals per game, blended with Elo.
-- **Goalies:** GSAx (goals saved above expected) for the projected starter. The backup is assumed on the second night of a back-to-back.
+- **Goalies:** GSAx (goals saved above expected) for the starter. The starter is ESPN's listed probable goalie once it's posted (usually the morning of the game). Until then it's projected from recent starts, with the backup assumed on the second night of a back-to-back. Cards mark each goalie as probable or projected.
 - **Back-to-backs:** a penalty for the second night.
 - **Score distribution:** regulation Poisson, plus empty-net goals and an overtime/shootout step. This gives win, puck-line and total probabilities.
 - **Picks:** moneyline value picks by EV%, totals at 3%+ EV, records in units, and a briefing only on days with value.

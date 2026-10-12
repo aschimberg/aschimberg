@@ -8,7 +8,7 @@ from sportscommon import ridge
 from sportscommon import tuning as tunemod
 from sportscommon.odds import american_to_decimal, american_to_prob, fmt_american, no_vig, normal_cdf, prob_to_american
 
-from . import api, config, data, elo as elomod, goalies, sim, xg
+from . import api, config, probables, data, elo as elomod, goalies, sim, xg
 
 ET = ZoneInfo("America/New_York")
 PICKS_PATH = config.DATA_DIR / "picks.json"
@@ -117,8 +117,11 @@ def default_loader(now, log):
     except Exception as e:
         log(f"NHL odds unavailable: {e}")
         odds = {}
+    today = now.astimezone(ET).date()
+    by_name = {info["name"]: t for t, info in teams.items()}
+    probs = probables.fetch_probables([today + timedelta(days=i) for i in range(config.SLATE_DAYS)], by_name, log=log)
     return {"teams": teams, "season": cur_id, "prev": list(prev_doc["games"].values()),
-            "cur": list(cur_doc["games"].values()), "sched": sched, "odds": odds}
+            "cur": list(cur_doc["games"].values()), "sched": sched, "odds": odds, "probables": probs}
 
 
 # --- model pieces -----------------------------------------------------------
@@ -258,10 +261,19 @@ def refresh(loader=None, now=None, log=print):
             t = g[side]
             b2b[side] = goalies.played_on(t, g["date"], played_dates)
             gid, backup = goalies.projected_starter(t, g["date"], starts, b2b[side])
+            prob_name = (d.get("probables") or {}).get((g["date"], t))
+            confirmed = False
+            if prob_name:
+                pid = probables.match(prob_name, t, starts, gnames)
+                usual, _ = goalies.projected_starter(t, g["date"], starts, False)
+                gid, backup, confirmed = pid, pid is not None and pid != usual, True
+                if pid is None:
+                    gnames[f"new:{prob_name}"] = prob_name
+                    gid = f"new:{prob_name}"  # no NHL shots faced yet: league-average
             r = rates.get(gid, {"rate": 0.0})["rate"] if gid else 0.0
             base = goalies.baseline(t, starts, rates)
             fa_t = fa_rate.get(t, league_fa)
-            gls[side] = {"id": gid, "backup": backup, "gsax_game": round(r * fa_t, 3),
+            gls[side] = {"id": gid, "backup": backup, "confirmed": confirmed, "gsax_game": round(r * fa_t, 3),
                          "vs_base": round((r - base) * fa_t, 3)}
         w = config.WEIGHTS
 
@@ -360,7 +372,7 @@ def refresh(loader=None, now=None, log=print):
         for side in ("away", "home"):
             nm = gname(side)
             if nm:
-                tag = " (backup)" if gls[side]["backup"] else ""
+                tag = (" (backup)" if gls[side]["backup"] else "") + (" · probable" if gls[side]["confirmed"] else " · projected")
                 extras.append(f"{g[side]} G {nm}{tag} · GSAx {gls[side]['gsax_game']:+.2f}/gm")
             if b2b[side]:
                 extras.append(f"{g[side]} on a back-to-back")
