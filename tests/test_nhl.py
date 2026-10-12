@@ -84,3 +84,10 @@ class NhlTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class CliTests(unittest.TestCase):
+    def test_entry_points_exist(self):
+        import importlib
+        for mod in ("cfbmodel.__main__", "nflmodel.__main__", "nhlmodel.__main__", "sportscommon.briefings"):
+            self.assertTrue(hasattr(importlib.import_module(mod), "main"), mod)
