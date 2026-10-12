@@ -53,28 +53,45 @@ def tier(ev):
 
 
 # --- data loading -----------------------------------------------------------
+def _num(x):
+    """'+125', '-110', '6.5', 125 -> float; anything else -> None."""
+    try:
+        return float(str(x).replace("\u2212", "-").strip())
+    except (TypeError, ValueError):
+        return None
+
+
 def parse_partner_odds(doc):
-    """DraftKings (US partner) pre-game markets by game id."""
+    """DraftKings (US partner) pre-game markets by game id.
+
+    Tolerant of the feed's variations: id as gameId or id, odds lists on each
+    team, string or numeric prices, and market names in any case.
+    """
     out = {}
-    for g in (doc or {}).get("games", []):
+    doc = doc or {}
+    for g in doc.get("games", []):
         rec = {}
         for side in ("homeTeam", "awayTeam"):
             key = "home" if side == "homeTeam" else "away"
-            for o in g.get(side, {}).get("odds", []):
-                desc, val, q = o.get("description"), o.get("value"), o.get("qualifier") or ""
+            for o in (g.get(side) or {}).get("odds", []) or []:
+                desc = str(o.get("description") or o.get("type") or "").upper().replace(" ", "_")
+                val, q = _num(o.get("value")), str(o.get("qualifier") or "").strip()
                 if val is None:
                     continue
-                if desc == "MONEY_LINE_2_WAY":
-                    rec[f"ml_{key}"] = float(val)
-                elif desc == "PUCK_LINE" and q:
-                    rec[f"pl_{key}"] = float(q)
-                    rec[f"pl_{key}_odds"] = float(val)
-                elif desc == "OVER_UNDER" and q[:1] in ("O", "U"):
-                    rec["total"] = float(q[1:])
-                    rec["over_odds" if q[0] == "O" else "under_odds"] = float(val)
-        if rec:
+                if desc.startswith("MONEY_LINE") or desc in ("MONEYLINE", "ML"):
+                    rec[f"ml_{key}"] = val
+                elif desc.startswith("PUCK_LINE") and _num(q) is not None:
+                    rec[f"pl_{key}"] = _num(q)
+                    rec[f"pl_{key}_odds"] = val
+                elif desc.startswith("OVER_UNDER") or desc == "TOTAL":
+                    u = q[:1].upper()
+                    if u in ("O", "U") and _num(q[1:]) is not None:
+                        rec["total"] = _num(q[1:])
+                        rec["over_odds" if u == "O" else "under_odds"] = val
+        gid = g.get("gameId") or g.get("id")
+        if rec and gid is not None:
             rec["book"] = (doc.get("bettingPartner") or {}).get("name", "DraftKings")
-            out[g["gameId"]] = rec
+            out[int(gid)] = rec
     return out
 
 
@@ -85,7 +102,13 @@ def default_loader(now, log):
     prev_doc, _ = data.update_season(prev_id, teams, log=log)
     cur_doc, sched = data.update_season(cur_id, teams, log=log)
     try:
-        odds = parse_partner_odds(api.partner_odds("US"))
+        doc = api.partner_odds("US")
+        odds = parse_partner_odds(doc)
+        feed = (doc or {}).get("games", [])
+        log(f"NHL odds: {len(odds)} of {len(feed)} feed games priced")
+        if feed and not odds:
+            # keep a sample so a format change can be diagnosed from the repo
+            store.save(config.DATA_DIR / "odds_sample.json", {"fetched_at": iso(utcnow()), "doc": {**doc, "games": feed[:2]}})
     except Exception as e:
         log(f"NHL odds unavailable: {e}")
         odds = {}
@@ -543,7 +566,6 @@ def write_site(now, season, cards, teams, xg_fit, gl_fit, elo, rates, starts, pi
         "today": today.isoformat(),
     }
     store.save(out / "meta.json", meta)
-    store.save(out / "slate.json", {"generated_at": iso(now), "games": cards}, compact=True)
 
     rows = []
     for t, info in teams.items():
@@ -563,6 +585,13 @@ def write_site(now, season, cards, teams, xg_fit, gl_fit, elo, rates, starts, pi
     rows.sort(key=lambda r: -r["rating"])
     for i, r in enumerate(rows, 1):
         r["rank"] = i
+    by_abbr = {r["abbr"]: r for r in rows}
+    for c in cards:
+        for side in ("home", "away"):
+            r = by_abbr.get(c[side]["abbr"])
+            if r:
+                c[side]["rank"], c[side]["rating"] = r["rank"], round(r["rating"], 2)
+    store.save(out / "slate.json", {"generated_at": iso(now), "games": cards}, compact=True)
     store.save(out / "ratings.json", {"generated_at": iso(now), "teams": rows}, compact=True)
     write_record(now, season, picks)
 
