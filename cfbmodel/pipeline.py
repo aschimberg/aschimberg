@@ -375,16 +375,24 @@ def refresh(client, now=None, splits_provider=None, log=print):
     return {"season": season, "slate": slate, "cards": cards, "graded": graded}
 
 
+POLL_PRIORITY = ("Playoff Committee Rankings", "AP Top 25", "Coaches Poll")
+
+
 def latest_poll(raw):
-    """Most recent poll ranks: {"name": "AP Top 25", "ranks": {team: rank}}."""
+    """Ranks to display: {"name": ..., "ranks": {team: rank}}.
+
+    CFP rankings once the committee has released any this season, else the
+    AP Top 25, else the Coaches Poll. Each comes from the most recent week
+    that poll was published, so a newer week holding only the Coaches Poll
+    (released before the AP on Sundays) doesn't replace the AP.
+    """
     entries = sorted(raw or [], key=lambda e: (g(e, "seasonType") != "regular", g(e, "week") or 0))
-    if not entries:
-        return {"name": None, "ranks": {}}
-    polls = {g(p, "poll"): p for p in g(entries[-1], "polls") or []}
-    for name in ("AP Top 25", "Playoff Committee Rankings", "Coaches Poll"):
-        if name in polls:
-            ranks = {g(r, "school"): g(r, "rank") for r in g(polls[name], "ranks") or []}
-            return {"name": name, "ranks": ranks}
+    for name in POLL_PRIORITY:
+        for e in reversed(entries):
+            for p in g(e, "polls") or []:
+                if g(p, "poll") == name and g(p, "ranks"):
+                    ranks = {g(r, "school"): g(r, "rank") for r in g(p, "ranks")}
+                    return {"name": name, "ranks": ranks, "week": g(e, "week"), "season_type": g(e, "seasonType")}
     return {"name": None, "ranks": {}}
 
 

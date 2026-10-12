@@ -179,6 +179,21 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(pipeline.current_slate(weeks, sunday, games)["week"], 6)
         self.assertEqual(pipeline.current_slate(weeks, sunday)["week"], 6)
 
+    def test_poll_priority_ap_until_cfp(self):
+        def wk(week, *polls, st="regular"):
+            return {"season": 2026, "seasonType": st, "week": week,
+                    "polls": [{"poll": n, "ranks": [{"rank": 1, "school": f"{n}-{week}"}]} for n in polls]}
+        # Newest week only has the Coaches Poll (Sunday before AP release) -> keep last AP.
+        p = pipeline.latest_poll([wk(6, "AP Top 25", "Coaches Poll"), wk(7, "Coaches Poll")])
+        self.assertEqual((p["name"], p["week"]), ("AP Top 25", 6))
+        # Once the committee publishes, CFP wins even if AP is newer.
+        p = pipeline.latest_poll([wk(10, "AP Top 25", "Playoff Committee Rankings"), wk(11, "AP Top 25", "Coaches Poll")])
+        self.assertEqual((p["name"], p["week"]), ("Playoff Committee Rankings", 10))
+        p = pipeline.latest_poll([wk(14, "Playoff Committee Rankings"), wk(1, "Playoff Committee Rankings", st="postseason")])
+        self.assertEqual(p["season_type"], "postseason")
+        self.assertEqual(pipeline.latest_poll([wk(1, "Coaches Poll")])["name"], "Coaches Poll")
+        self.assertIsNone(pipeline.latest_poll([])["name"])
+
     def test_picks_lock_at_kickoff_and_grade(self):
         with TempDirs() as d:
             client = FakeCFBD()

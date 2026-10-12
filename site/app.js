@@ -498,7 +498,7 @@
     const md = (d) => d.toLocaleDateString(undefined, { month: "long", day: "numeric" });
     const range = starts.length ? (md(starts[0]) === md(starts.at(-1)) ? md(starts[0]) : `${md(starts[0])} – ${md(starts.at(-1))}`) : "";
     const updated = new Date(m.generated_at).toLocaleString(undefined, { weekday: "long", month: "long", day: "numeric", hour: "numeric", minute: "2-digit", timeZoneName: "short" });
-    $("#hero-meta").innerHTML = `${range ? `<span>${esc(range)}</span>` : ""}<span>Updated ${esc(updated)}</span>${m.poll ? `<span>Ranks: ${esc(m.poll)}</span>` : ""}`;
+    $("#hero-meta").innerHTML = `${range ? `<span>${esc(range)}</span>` : ""}<span>Updated ${esc(updated)}</span>${m.poll ? `<span>Ranks: ${esc(m.poll === "Playoff Committee Rankings" ? "CFP Rankings" : m.poll)}</span>` : ""}`;
     $("#updated").textContent = `Updated ${new Date(m.generated_at).toLocaleString()}`;
 
     const sr = state.record?.season_record;
