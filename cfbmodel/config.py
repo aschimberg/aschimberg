@@ -39,6 +39,7 @@ WEIGHTS = {
 }
 # Points added to the home team's margin (0 at neutral sites).
 HOME_FIELD = _f("CFB_HFA", 2.5)
+DEFAULT_WEIGHTS, DEFAULT_HOME_FIELD = dict(WEIGHTS), HOME_FIELD  # untuned starting point (backtests)
 # Rating given to teams with no FBS rating (mostly FCS opponents).
 NON_FBS_RATING = _f("CFB_NON_FBS_RATING", -22.0)
 # When the current season has no rating yet for a team, fall back to last

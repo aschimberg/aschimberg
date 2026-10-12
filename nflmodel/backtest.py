@@ -40,12 +40,30 @@ def _wk(season_type, week):
     return week + (30 if season_type == "postseason" else 0)
 
 
+def data_offline():
+    """NFL_BACKTEST_OFFLINE=1: use the saved games/pbp snapshots instead of the network."""
+    import os
+    return os.environ.get("NFL_BACKTEST_OFFLINE") == "1"
+
+
 def run(seasons, games=None, pbp_loader=None, now=None, log=print, start_weights=None, start_hfa=None):
     now = now or datetime.now(timezone.utc)
-    games = games if games is not None else data.load_games()
+    offline = games is None and pbp_loader is None and data_offline()
+    games = games if games is not None else (data.load_games_snapshot() if offline else data.load_games(snapshot=True))
     first = min(seasons)
     current = pipeline.season_for(now)
-    loader = pbp_loader or (lambda s: data.load_pbp(s, current, log=log))
+    partial = config.CACHE_DIR / f"pbp_{current}_partial.json"
+
+    def default_loader(s):
+        if s == current:
+            if offline:
+                return store.load(partial, {"team_games": [], "qb_games": []})
+            agg = data.load_pbp(s, current, log=log)
+            store.save(partial, agg, compact=True)  # lets backtests rerun offline
+            return agg
+        return data.load_pbp(s, current, log=log)
+
+    loader = pbp_loader or default_loader
     pbp = {s: loader(s) for s in range(first - 2, max(seasons) + 1)}
 
     saved = (dict(config.WEIGHTS), config.HOME_FIELD)
@@ -210,5 +228,9 @@ def apply(res, now=None, log=print):
 
 
 def save(res):
-    store.save(backtest_path(), {k: v for k, v in res.items() if k != "picks"} | {"n_picks": len(res["picks"])})
+    slim = ("id", "season", "week", "season_type", "home_abbr", "away_abbr", "line", "model_spread", "diffs",
+            "hfa_flag", "offset", "edge", "ats_side", "cover_prob", "confidence", "result")
+    store.save(backtest_path(), {k: v for k, v in res.items() if k != "picks"} | {
+        "n_picks": len(res["picks"]),
+        "picks": [{k: p.get(k) for k in slim} for p in res["picks"].values()]}, compact=True)
     store.save(site_backtest_path(), site_doc(res), compact=True)

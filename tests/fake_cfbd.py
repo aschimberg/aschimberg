@@ -3,6 +3,7 @@
 Responses mimic the CFBD v2 camelCase shapes. None of these teams' numbers are
 real data.
 """
+import math
 import random
 from datetime import datetime, timedelta, timezone
 
@@ -134,6 +135,20 @@ class FakeCFBD:
         self._tick()
         return [{"year": year, "team": t, "conference": self.conf_of[t], "elo": round(v)}
                 for t, v in self._noisy(year, 4, 22, 1500).items()]
+
+    def get(self, path, **params):
+        """Generic endpoint: only ESPN pregame win probabilities are faked."""
+        self._tick()
+        if path != "/metrics/wp/pregame" or params.get("seasonType", "regular") != "regular":
+            return []
+        rng = random.Random(params["year"])
+        out = []
+        for gm in self._games.get(params["year"], []):
+            m = self.strength[gm["homeTeam"]] - self.strength[gm["awayTeam"]] + (0 if gm["neutralSite"] else 2.5)
+            p = 0.5 * (1 + math.erf((m + rng.gauss(0, 3)) / (15.5 * math.sqrt(2))))
+            out.append({"season": gm["season"], "week": gm["week"], "seasonType": "regular", "gameId": gm["id"],
+                        "homeTeam": gm["homeTeam"], "awayTeam": gm["awayTeam"], "homeWinProbability": round(p, 3)})
+        return out
 
     def fbs_teams(self, year):
         self._tick()

@@ -268,3 +268,35 @@ class PipelineTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class CfbBacktestTests(unittest.TestCase):
+    NOW = datetime(2026, 10, 10, 11, 0, tzinfo=timezone.utc)
+
+    def test_walk_forward_and_apply(self):
+        from cfbmodel import backtest
+        with TempDirs() as d:
+            client = FakeCFBD()
+            res = backtest.run([2025, 2026], client, now=self.NOW, log=lambda *_: None)
+            weeks = {(w["season"], w["week"]) for w in res["weeks"]}
+            self.assertIn((2025, 12), weeks)
+            self.assertIn((2026, 6), weeks)
+            self.assertNotIn((2026, 7), weeks)  # not played yet
+            self.assertTrue(all(set(p["diffs"]) == {"sp", "fpi", "elo"} for p in res["picks"].values()))
+            # no look-ahead: a later score change leaves week-2 2026 picks untouched
+            wk2 = {k: v["model_spread"] for k, v in res["picks"].items() if v["season"] == 2026 and v["week"] == 2}
+            for gm in client._games[2026]:
+                if gm["week"] == 5 and gm["homePoints"] is not None:
+                    gm["homePoints"] += 30
+            for f in (d.root / "data" / "cache" / "backtest").glob("*"):
+                pass  # cached CFBD ratings are point-in-time already; games are refetched for the current season
+            res2 = backtest.run([2025, 2026], client, now=self.NOW, log=lambda *_: None)
+            self.assertEqual(wk2, {k: v["model_spread"] for k, v in res2["picks"].items() if v["season"] == 2026 and v["week"] == 2})
+            backtest.save(res)
+            self.assertTrue((d.root / "site" / "backtest.json").exists())
+            before = config.WEIGHTS.copy()
+            added = backtest.apply(res, now=self.NOW, log=lambda *_: None)
+            self.assertGreater(added, 0)
+            w = store.load(d.root / "data" / "model_weights.json", {})
+            self.assertEqual(w["home_field"], res["final"]["home_field"])
+            self.assertEqual(config.WEIGHTS, before)  # source weights left to live tuning by default

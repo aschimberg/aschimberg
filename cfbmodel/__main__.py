@@ -20,6 +20,10 @@ def main(argv=None):
                     help="only decide whether to send now; writes go=true/false to $GITHUB_OUTPUT")
     hp = sub.add_parser("history", help="backfill historical games + lines for ATS trends")
     hp.add_argument("--season", type=int, help="current season (default: inferred from today)")
+    bt = sub.add_parser("backtest", help="walk-forward dry run over past seasons")
+    bt.add_argument("--seasons", default="2024-2026")
+    bt.add_argument("--apply", action="store_true", help="add this season's picks to the live log and adopt the backtest home field")
+    bt.add_argument("--adopt-weights", action="store_true", help="with --apply, also adopt the backtest's source weights")
     args = ap.parse_args(argv)
 
     if args.cmd == "briefing":
@@ -43,6 +47,20 @@ def main(argv=None):
             picks = store.load(pipeline.PICKS_PATH, {"picks": {}})["picks"]
             last_week, rec = pipeline.last_week_summary(picks, pipeline.season_for(pipeline.utcnow()))
             briefing.run_recap(rec, last_week, tuned)
+    elif args.cmd == "backtest":
+        from . import backtest
+        a, _, b = args.seasons.partition("-")
+        res = backtest.run(list(range(int(a), int(b or a) + 1)), client,
+                           start_weights=config.DEFAULT_WEIGHTS, start_hfa=config.DEFAULT_HOME_FIELD)
+        backtest.save(res)
+        for k, v in res["summary"].items():
+            print(f"{k}: ATS {v['ats']['W']}-{v['ats']['L']}-{v['ats']['P']} ({(v['ats']['pct'] or 0) * 100:.1f}%), "
+                  f"edge≥{config.PLAY_EDGE:g} {v['ats_play']['W']}-{v['ats_play']['L']}, "
+                  f"edge≥{config.STRONG_EDGE:g} {v['ats_strong']['W']}-{v['ats_strong']['L']}, SU {v['su']['W']}-{v['su']['L']}")
+        print("final", res["final"], f"({client.calls} CFBD calls)")
+        if args.apply:
+            backtest.apply(res, adopt_weights=args.adopt_weights)
+            pipeline.refresh(client)
     elif args.cmd == "history":
         season = args.season or pipeline.season_for(pipeline.utcnow())
         seasons = range(season - config.TREND_SEASONS, season)

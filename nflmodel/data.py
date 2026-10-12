@@ -76,8 +76,18 @@ def parse_games(text):
     return out
 
 
-def load_games():
-    return parse_games(fetch(config.GAMES_URL).decode("utf-8"))
+def load_games(snapshot=False):
+    """nflverse games.csv. snapshot=True also saves a gzipped copy for offline backtests."""
+    text = fetch(config.GAMES_URL).decode("utf-8")
+    if snapshot:
+        config.CACHE_DIR.mkdir(parents=True, exist_ok=True)
+        (config.CACHE_DIR / "games.csv.gz").write_bytes(gzip.compress(text.encode("utf-8")))
+    return parse_games(text)
+
+
+def load_games_snapshot():
+    path = config.CACHE_DIR / "games.csv.gz"
+    return parse_games(gzip.decompress(path.read_bytes()).decode("utf-8")) if path.exists() else None
 
 
 def aggregate_pbp(rows):
