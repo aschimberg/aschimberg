@@ -1,0 +1,42 @@
+{
+ "coef": [
+  -0.607961,
+  -1.372068,
+  -0.180946,
+  -0.797527,
+  -0.58329,
+  -0.035126,
+  0.213291,
+  0.176487,
+  0.425126,
+  0.279895,
+  0.443993,
+  -0.42251,
+  -1.006207,
+  -0.407705,
+  -1.059847,
+  -0.419337
+ ],
+ "features": [
+  "intercept",
+  "dist",
+  "dist2",
+  "angle",
+  "rebound",
+  "rush",
+  "pp",
+  "sh",
+  "reb_angle",
+  "type_snap",
+  "type_slap",
+  "type_backhand",
+  "type_tip-in",
+  "type_deflected",
+  "type_wrap-around",
+  "type_other"
+ ],
+ "goal_rate": 0.068,
+ "logloss": 0.22492,
+ "n": 125312,
+ "trained_at": "2026-10-12T05:38:56Z"
+}
