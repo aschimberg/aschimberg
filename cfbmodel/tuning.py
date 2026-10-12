@@ -40,6 +40,8 @@ def _samples(picks, season):
         res = p.get("result")
         if p.get("season") != season or not res or not p.get("diffs"):
             continue
+        if p.get("backtest"):  # backtest SP+/FPI columns are stand-ins, not the live sources
+            continue
         if any(k not in p["diffs"] for k in SOURCES):
             continue
         rows.append((p["diffs"], p.get("hfa_flag", 0 if p.get("neutral") else 1),

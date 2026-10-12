@@ -32,6 +32,7 @@ FPI_HFA = 2.5  # home field inside ESPN's pregame probabilities (points)
 SP_PRIOR_GAMES = 4.0  # games of evidence behind last season's SP+
 MARGIN_CAP = 35.0  # blowout cap for the stand-in's margins
 FCS = "FCS"
+ELO_FLOOR = 0.05  # never drop a source entirely on one backtest
 
 
 def backtest_path():
@@ -313,11 +314,16 @@ def save(res):
 
 
 def apply(res, now=None, log=print, adopt_weights=False):
-    """Add this season's backtest picks the live log doesn't have and adopt the
-    backtest's home field (and, with adopt_weights, its source weights).
+    """Fold the backtest into the live model.
 
-    Source weights default to staying with live tuning: the backtest's SP+
-    column is a stand-in, so a weight learned on it would understate real SP+.
+    - Adds this season's backtest picks the live log doesn't have (tagged).
+    - Elo weight: the backtest's Elo is the same CFBD Elo the live model uses,
+      so its learned weight transfers; it is adopted (floored at ELO_FLOOR) and
+      the rest is split between SP+ and FPI in the live ratio.
+    - SP+/FPI split and home field stay with live tuning: the backtest's SP+ is
+      a stand-in and its FPI margin bakes in ESPN's own home field, so those
+      fitted values don't carry over. adopt_weights=True overrides this and
+      takes all backtest weights.
     """
     from . import tuning
     from .pipeline import PICKS_PATH, season_for
@@ -331,13 +337,27 @@ def apply(res, now=None, log=print, adopt_weights=False):
             added += 1
     store.save(PICKS_PATH, doc)
     w = tuning.load() or {"history": [], "weights": dict(config.WEIGHTS), "home_field": config.HOME_FIELD}
-    w["home_field"] = res["final"]["home_field"]
+    live = dict(w.get("weights") or config.WEIGHTS)
     if adopt_weights:
-        w["weights"] = res["final"]["weights"]
-    w["backtest"] = {"seasons": res["seasons"], "final": res["final"], "applied": "weights+home field" if adopt_weights else "home field",
-                     "at": now.strftime("%Y-%m-%dT%H:%M:%SZ")}
-    w["updated"] = now.strftime("%Y-%m-%dT%H:%M:%SZ")
-    w.setdefault("weights", dict(config.WEIGHTS))
+        new = dict(res["final"]["weights"])
+    else:
+        elo = max(ELO_FLOOR, res["final"]["weights"]["elo"])
+        rest = (live.get("sp", 0) + live.get("fpi", 0)) or 1.0
+        new = {"sp": round((1 - elo) * live.get("sp", 0) / rest, 3), "fpi": round((1 - elo) * live.get("fpi", 0) / rest, 3),
+               "elo": round(elo, 3)}
+    stamp = now.strftime("%Y-%m-%dT%H:%M:%SZ")
+    w["history"] = (w.get("history") or [])[-51:] + [{
+        "at": stamp, "season": season, "games": res["summary"]["all"]["ats"]["W"] + res["summary"]["all"]["ats"]["L"],
+        "status": "backtest", "before": {"weights": live, "home_field": w.get("home_field", config.HOME_FIELD)},
+        "after": {"weights": new, "home_field": w.get("home_field", config.HOME_FIELD)},
+        "note": f"walk-forward backtest {res['seasons'][0]}-{res['seasons'][-1]}: Elo weight -> {new['elo']}"}]
+    w["weights"] = new
+    w.setdefault("home_field", config.HOME_FIELD)
+    # the season's shrinkage anchor moves with the adopted weights
+    w["anchor"] = {"season": season, "weights": dict(new), "home_field": w["home_field"]}
+    w["backtest"] = {"seasons": res["seasons"], "final": res["final"], "applied": new, "at": stamp}
+    w["updated"] = stamp
     store.save(tuning.path(), w)
-    log(f"Applied CFB backtest: +{added} {season} picks; home field {w['home_field']}; weights {w['weights']}")
+    config.WEIGHTS.update(new)
+    log(f"Applied CFB backtest: +{added} {season} picks; weights {live} -> {new}; home field {w['home_field']} (live)")
     return added

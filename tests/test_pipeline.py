@@ -294,9 +294,17 @@ class CfbBacktestTests(unittest.TestCase):
             self.assertEqual(wk2, {k: v["model_spread"] for k, v in res2["picks"].items() if v["season"] == 2026 and v["week"] == 2})
             backtest.save(res)
             self.assertTrue((d.root / "site" / "backtest.json").exists())
-            before = config.WEIGHTS.copy()
-            added = backtest.apply(res, now=self.NOW, log=lambda *_: None)
-            self.assertGreater(added, 0)
-            w = store.load(d.root / "data" / "model_weights.json", {})
-            self.assertEqual(w["home_field"], res["final"]["home_field"])
-            self.assertEqual(config.WEIGHTS, before)  # source weights left to live tuning by default
+            saved = config.WEIGHTS.copy()
+            try:
+                added = backtest.apply(res, now=self.NOW, log=lambda *_: None)
+                self.assertGreater(added, 0)
+                w = store.load(d.root / "data" / "model_weights.json", {})
+                self.assertEqual(w["weights"]["elo"], round(max(backtest.ELO_FLOOR, res["final"]["weights"]["elo"]), 3))
+                self.assertAlmostEqual(sum(w["weights"].values()), 1.0, places=2)
+                # SP+:FPI keep the live ratio; home field stays live
+                self.assertAlmostEqual(w["weights"]["sp"] / w["weights"]["fpi"], saved["sp"] / saved["fpi"], places=2)
+                self.assertEqual(w["home_field"], config.HOME_FIELD)
+                self.assertEqual(w["anchor"]["weights"], w["weights"])
+            finally:
+                config.WEIGHTS.clear()
+                config.WEIGHTS.update(saved)

@@ -48,7 +48,9 @@ def score(pick, line_home, diffs, hfa_flag, line_move, trends, split_info, data_
     spread_sd = pstdev(margins.values()) if len(margins) > 1 else 0.0
     consistency = _clamp(1 - spread_sd / 10)
 
-    edge = _clamp((pick.get("edge") or 0) / config.STRONG_EDGE)
+    # Saturates at the play threshold: in the 2024-26 backtest, 1-4 point edges
+    # covered ~54% while 4+ point edges lost (the market usually knew something).
+    edge = _clamp((pick.get("edge") or 0) / config.PLAY_EDGE)
 
     # Market: line moving toward our side (money agreeing) and sharp flags.
     market = 0.5

@@ -8,7 +8,7 @@ The visual design follows [davidsasser.com/cfb](https://davidsasser.com/cfb): wa
 - **Projections**: margin = rating diff + home field (2.5, 0 at neutral sites). Totals come from SP+ offense/defense. Output is a projected score, model spread and win probability.
 - **Picks**: an ATS side against the current line for every game, plus the edge (expected cover margin) and a tier: lean ≥ 2, play ≥ 4, strong ≥ 7. Every game also gets an SU pick. Picks lock at kickoff and are graded SU and ATS.
 - **Confidence**: a 0–100 score per pick, separate from edge. It combines how many of SP+/FPI/Elo cover on their own and how tightly they agree, the edge, line movement and sharp flags, situational ATS trends, and data quality. High is 70+ and Medium is 55+. A small-edge pick can still be High, and game-day briefings include High-confidence sides even when the edge is small. The Record tab tracks ATS results by confidence level.
-- **Weekly tuning**: every pick stores each source's projected margin. After Sunday grading, the model fits the SP+/FPI/Elo weights and home field that best predict this season's actual margins, then moves part of the way there: alpha = n/(n+250), so it moves more as games accumulate. Tuning starts after 25 graded games (each week's update is already scaled by sample size). The current weights and their history are saved in `data/model_weights.json`, shown on the Method tab and included in the Sunday recap. Set `CFB_TUNING=off` to freeze the weights.
+- **Weekly tuning**: every pick stores each source's projected margin. After Sunday grading, the model fits the SP+/FPI/Elo weights and home field that best predict this season's actual margins, then moves part of the way there: alpha = n/(n+250), so it moves more as games accumulate. Tuning starts after 25 graded games. Each week the live weights are set to `(1 - alpha) * season-start weights + alpha * fit` on all of this season's games, so weekly steps don't compound. The current weights and their history are saved in `data/model_weights.json`, shown on the Method tab and included in the Sunday recap. Set `CFB_TUNING=off` to freeze the weights.
 - **ATS trends**: closing lines and results for the last 6 seasons plus the current one. Each team's ATS record is split overall, as favorite or underdog, home/away/neutral (and combined, e.g. road dog), in conference play, off a bye (13+ days) and over the last 10 games. Each game card shows the splits that apply to that game.
 - **Bet splits**: public bet % and money % per side, with sharp/public/reverse-line-move flags. The feed is swappable (see below).
 - **ntfy briefing**: sent at 9 AM CT on game days with picks, biggest edges, line moves, key ATS trends and bet splits. A recap goes out after Sunday grading.
@@ -34,6 +34,22 @@ The same site serves `/nfl/` and `/nhl/` (switch sports in the header). Both run
 - **Picks:** moneyline value picks by EV%, totals at 3%+ EV, records in units, and a briefing only on days with value.
 
 Tuning: NHL weights and home ice are refit on Mondays and the xG model is retrained; NFL weights and home field are refit on Tuesdays. NHL play-by-play is cached in `data/nhl/cache/` (the first run backfills last season, about 8 minutes).
+
+## Backtests
+
+`python -m nflmodel backtest --seasons 2023-2026` and `python -m cfbmodel backtest --seasons 2024-2026` replay each past week using only data available before kickoff. Each week is priced against the closing line with the live pick and confidence logic, then the weekly tuner runs, just as it does live. Results appear on each sport's **Record → Backtest** section: per-season and per-week records, the weights after every weekly tune, and every pick. You can also run them from Actions → **Backtest** (`apply` folds them into the live model).
+
+- **NFL:**
+  - EPA ratings are refit from earlier weeks' play-by-play; Elo is computed game by game in order.
+  - QB values use only earlier dropbacks, combined with the game's actual starter.
+  - `--apply` adds this season's backtest picks to the live log (tagged **BT**) and adopts the tuned EPA/Elo weights and home field.
+- **CFB:**
+  - CFBD serves SP+ and FPI only as end-of-season numbers, so each past week uses:
+    - CFBD Elo as of the prior week;
+    - ESPN's pregame win probability (FPI-based), converted to a margin;
+    - an SP+ stand-in: opponent-adjusted scoring margin shrunk toward last season's SP+.
+  - `--apply` adds this season's backtest picks and adopts the backtest's Elo weight, since that is the same CFBD Elo the live model uses.
+  - The SP+/FPI split and home field stay with live tuning, and backtest picks are excluded from it, because their SP+/FPI columns are stand-ins.
 
 ## The Odds API (optional)
 
