@@ -272,7 +272,7 @@
 
   // Status at view time: data refreshes daily, so "started" comes from the
   // viewer's clock, while "final" needs a refresh with the score.
-  const STATUS_ORDER = { upcoming: 0, live: 1, final: 2 };
+  const STATUS_ORDER = { live: 0, upcoming: 1, final: 2 };
   function status(g) {
     if (g.result?.completed) return "final";
     if (!g.start_tbd && new Date(g.start) <= Date.now()) return "live";
@@ -315,8 +315,8 @@
     const live = games.filter((g) => status(g) === "live");
     const final = games.filter((g) => status(g) === "final");
     $("#games-list").innerHTML = [
-      ...[...days].map(([day, gs]) => daySection(day, gs)),
       live.length ? daySection("In progress", live) : "",
+      ...[...days].map(([day, gs]) => daySection(day, gs)),
       final.length ? daySection("Final", final) : "",
     ].join("");
   }
