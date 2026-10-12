@@ -116,5 +116,12 @@ table.data tbody tr:hover { background: var(--accent-soft); }
   .nav { background: transparent; padding: 0; }
   .record-strip { grid-template-columns: 1fr; }
   .record-strip dl { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .record-strip dl > div:first-child { padding-left: 14px; }
+  .record-strip dl { gap: 8px; }
+  .record-strip dl > div, .record-strip dl > div + div, .record-strip dl > div:first-child { padding: 12px 10px; container-type: inline-size; }
+  /* records like 230–210–8 must fit a third of a phone screen: scale with the tile */
+  .record-strip dd { font-size: 18px; font-size: clamp(13px, 17cqi, 24px); }
+  .record-strip dt { font-size: 10px; }
+  .record-strip dd small { font-size: 10px; white-space: normal; }
+  .tile { container-type: inline-size; min-width: 0; }
+  .tile .v { font-size: clamp(16px, 13cqi, 26px); white-space: nowrap; }
 }

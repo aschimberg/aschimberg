@@ -296,3 +296,14 @@ details.section > summary .conf { margin-left: auto; margin-right: 8px; }
 .clv-note { margin: 10px 0 0; font-size: 13px; max-width: 80ch; }
 .tile.clv .v.pos { color: var(--win, var(--accent)); }
 .tile.clv .v.neg { color: var(--loss); }
+
+/* Line boxes: never hide the number behind an ellipsis */
+.market:not(.custom) dd { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 4px; white-space: normal; text-overflow: clip; }
+.market .fl-team { min-width: 0; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.market .fl-num { flex: none; white-space: nowrap; }
+@media (max-width: 700px) {
+  .market .fl-team { flex: 1 1 100%; }          /* name on its own line, number below it */
+  .pick-sel { justify-content: flex-start; gap: 6px 12px; }
+  .pick-sel > * + *::before { content: none; }   /* no orphan "·" at line starts */
+  .pick-panel { align-items: flex-start; flex-direction: column; gap: 8px; }
+}

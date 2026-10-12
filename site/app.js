@@ -11,6 +11,10 @@
   const recStr = (r, ties = true) => (r ? `${r.W}–${r.L}${ties && r.P ? "–" + r.P : ""}` : "—");
   // Home-perspective spread -> "Favorite −X".
   const favLine = (g, s) => (s == null ? "—" : s === 0 ? "Pick'em" : s < 0 ? `${g.home.name} ${num(s)}` : `${g.away.name} ${num(-s)}`);
+  // Card version: team and number in separate spans so a long name can truncate
+  // (or wrap) while the number itself always stays visible.
+  const favLineHtml = (g, s) => (s == null ? "—" : s === 0 ? "Pick'em"
+    : `<span class="fl-team">${esc(s < 0 ? g.home.name : g.away.name)}</span><span class="fl-num">${esc(num(s < 0 ? s : -s))}</span>`);
   const teamLine = (team, s) => `${team} ${s === 0 ? "PK" : signed(s)}`;
 
   async function getJSON(name) {
@@ -162,9 +166,9 @@
 
     const mv = ln?.move ? `<span class="mv" title="Moved ${Math.abs(ln.move)} toward ${esc(ln.move < 0 ? g.home.name : g.away.name)} since open">${ln.move < 0 ? "▼" : "▲"}${Math.abs(ln.move)}</span>` : "";
     const market = g.market_rows ? `<dl class="market custom">${g.market_rows.map((m) => `<div><dt>${esc(m.label)}</dt><dd>${esc(m.value)}</dd></div>`).join("")}</dl>` : `<dl class="market">
-      <div><dt>Open</dt><dd>${esc(ln ? favLine(g, ln.open) : "—")}</dd></div>
-      <div><dt>Current${ln?.book ? " · " + esc(ln.book) : ""}</dt><dd>${esc(ln ? favLine(g, ln.spread) : "No line")}${mv}</dd></div>
-      <div><dt>Proj. Line</dt><dd>${esc(favLine(g, g.model.spread))}</dd></div>
+      <div><dt>Open</dt><dd>${ln ? favLineHtml(g, ln.open) : "—"}</dd></div>
+      <div><dt>Current${ln?.book ? " · " + esc(ln.book) : ""}</dt><dd>${ln ? favLineHtml(g, ln.spread) : "No line"}${mv}</dd></div>
+      <div><dt>Proj. Line</dt><dd>${favLineHtml(g, g.model.spread)}</dd></div>
       <div><dt>O/U · Proj</dt><dd>${ln?.total ?? "—"} · ${num(g.model.total)}</dd></div>
     </dl>`;
 
