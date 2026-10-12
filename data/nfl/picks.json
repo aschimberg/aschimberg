@@ -4612,7 +4612,7 @@
    "su_wp": 0.514,
    "tier": "play",
    "total_line": 54.5,
-   "updated": "2026-10-12T14:16:09Z",
+   "updated": "2026-10-12T20:03:38Z",
    "week": 5,
    "weights": {
     "elo": 0.925,
@@ -5591,7 +5591,7 @@
    "su_wp": 0.789,
    "tier": "pass",
    "total_line": 52.5,
-   "updated": "2026-10-12T14:16:09Z",
+   "updated": "2026-10-12T20:03:38Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -5660,7 +5660,7 @@
    "su_wp": 0.522,
    "tier": "strong",
    "total_line": 40.5,
-   "updated": "2026-10-12T14:16:09Z",
+   "updated": "2026-10-12T20:03:38Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -5668,7 +5668,7 @@
    }
   },
   "2026_06_BUF_LV": {
-   "ats_line": 6.0,
+   "ats_line": 5.5,
    "ats_side": "home",
    "ats_team": "Las Vegas Raiders",
    "away": "Buffalo Bills",
@@ -5685,8 +5685,8 @@
      "agreement": 1.0,
      "consistency": 0.989,
      "data": 1.0,
-     "edge": 0.449,
-     "market": 0.5,
+     "edge": 0.338,
+     "market": 0.7,
      "trends": 0.5
     },
     "label": "High",
@@ -5702,19 +5702,19 @@
      "epa": -3.8
     }
    },
-   "cover_prob": 0.586,
+   "cover_prob": 0.564,
    "diffs": {
     "elo": -8.14,
     "epa": -7.98
    },
-   "edge": 2.0,
-   "ev": 0.114,
+   "edge": 1.5,
+   "ev": 0.101,
    "hfa_flag": 1,
    "home": "Las Vegas Raiders",
    "home_abbr": "LV",
    "home_field": 1.805,
    "id": "2026_06_BUF_LV",
-   "line": 6.0,
+   "line": 5.5,
    "model_spread": 4.0,
    "model_total": 54.6,
    "neutral": false,
@@ -5729,7 +5729,7 @@
    "su_wp": 0.614,
    "tier": "lean",
    "total_line": 52.5,
-   "updated": "2026-10-12T14:16:09Z",
+   "updated": "2026-10-12T20:03:38Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -5797,8 +5797,8 @@
    "su_team": "Philadelphia Eagles",
    "su_wp": 0.594,
    "tier": "lean",
-   "total_line": 42.5,
-   "updated": "2026-10-12T14:16:09Z",
+   "total_line": 41.5,
+   "updated": "2026-10-12T20:03:38Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -5846,7 +5846,7 @@
     "epa": -1.0
    },
    "edge": 5.3,
-   "ev": 0.29,
+   "ev": 0.302,
    "hfa_flag": 1,
    "home": "Atlanta Falcons",
    "home_abbr": "ATL",
@@ -5866,8 +5866,8 @@
    "su_team": "Atlanta Falcons",
    "su_wp": 0.568,
    "tier": "strong",
-   "total_line": 47.5,
-   "updated": "2026-10-12T14:16:09Z",
+   "total_line": 48.5,
+   "updated": "2026-10-12T20:03:38Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -5936,7 +5936,7 @@
    "su_wp": 0.645,
    "tier": "play",
    "total_line": 52.5,
-   "updated": "2026-10-12T14:16:09Z",
+   "updated": "2026-10-12T20:03:38Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -5984,7 +5984,7 @@
     "epa": 5.35
    },
    "edge": 0.5,
-   "ev": 0.016,
+   "ev": 0.025,
    "hfa_flag": 0,
    "home": "Jacksonville Jaguars",
    "home_abbr": "JAX",
@@ -6004,8 +6004,8 @@
    "su_team": "Jacksonville Jaguars",
    "su_wp": 0.6,
    "tier": "pass",
-   "total_line": 43.5,
-   "updated": "2026-10-12T14:16:09Z",
+   "total_line": 42.5,
+   "updated": "2026-10-12T20:03:38Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6074,7 +6074,7 @@
    "su_wp": 0.738,
    "tier": "pass",
    "total_line": 42.5,
-   "updated": "2026-10-12T14:16:09Z",
+   "updated": "2026-10-12T20:03:38Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6122,7 +6122,7 @@
     "epa": 1.65
    },
    "edge": 4.1,
-   "ev": 0.088,
+   "ev": 0.131,
    "hfa_flag": 1,
    "home": "New York Giants",
    "home_abbr": "NYG",
@@ -6142,8 +6142,8 @@
    "su_team": "New York Giants",
    "su_wp": 0.574,
    "tier": "play",
-   "total_line": 44.5,
-   "updated": "2026-10-12T14:16:09Z",
+   "total_line": 45.5,
+   "updated": "2026-10-12T20:03:38Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6191,7 +6191,7 @@
     "epa": 9.27
    },
    "edge": 3.6,
-   "ev": 0.078,
+   "ev": 0.069,
    "hfa_flag": 1,
    "home": "New England Patriots",
    "home_abbr": "NE",
@@ -6211,8 +6211,8 @@
    "su_team": "New England Patriots",
    "su_wp": 0.778,
    "tier": "play",
-   "total_line": 44.5,
-   "updated": "2026-10-12T14:16:09Z",
+   "total_line": 43.5,
+   "updated": "2026-10-12T20:03:38Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6281,7 +6281,7 @@
    "su_wp": 0.568,
    "tier": "pass",
    "total_line": 40.5,
-   "updated": "2026-10-12T14:16:09Z",
+   "updated": "2026-10-12T20:03:38Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6349,8 +6349,8 @@
    "su_team": "Seattle Seahawks",
    "su_wp": 0.533,
    "tier": "lean",
-   "total_line": 41.5,
-   "updated": "2026-10-12T14:16:09Z",
+   "total_line": 40.5,
+   "updated": "2026-10-12T20:03:38Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6419,7 +6419,7 @@
    "su_wp": 0.739,
    "tier": "lean",
    "total_line": 44.5,
-   "updated": "2026-10-12T14:16:09Z",
+   "updated": "2026-10-12T20:03:38Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6488,7 +6488,7 @@
    "su_wp": 0.79,
    "tier": "play",
    "total_line": 50.5,
-   "updated": "2026-10-12T14:16:09Z",
+   "updated": "2026-10-12T20:03:38Z",
    "week": 6,
    "weights": {
     "elo": 0.925,

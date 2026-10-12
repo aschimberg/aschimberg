@@ -1,3 +1,174 @@
 {
- "picks": {}
+ "picks": {
+  "2026020088": {
+   "ats_side": "away",
+   "ats_team": "Ottawa Senators",
+   "away": "Ottawa Senators",
+   "away_abbr": "OTT",
+   "bet_at": "2026-10-12T20:03:42Z",
+   "bet_line": 102.0,
+   "conf_label": "Low",
+   "confidence": 42,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 0.65,
+     "consistency": 0.412,
+     "data": 0.36,
+     "edge": 0.109,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "Low",
+    "n_sources": 4,
+    "score": 42,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "goals": "Goals",
+     "mp": "MoneyPuck",
+     "xg": "xG"
+    },
+    "sources": {
+     "elo": -0.15,
+     "goals": -0.63,
+     "mp": 0.11,
+     "xg": 0.31
+    },
+    "units": "goals"
+   },
+   "date": "2026-10-12",
+   "diffs": {
+    "elo": -0.311,
+    "goals": -0.792,
+    "mp": -0.053,
+    "xg": 0.151
+   },
+   "edge": 0.9,
+   "ev": 0.0087,
+   "hfa_flag": 1,
+   "home": "New Jersey Devils",
+   "home_abbr": "NJD",
+   "home_field": 0.2,
+   "home_prob": 0.501,
+   "id": 2026020088,
+   "line": null,
+   "mkt_prob": 0.474,
+   "ml_away": 102.0,
+   "ml_home": -122.0,
+   "model_spread": null,
+   "neutral": false,
+   "odds": 102.0,
+   "offset": -0.039,
+   "prob": 0.499,
+   "result": null,
+   "season": 20262027,
+   "season_type": "regular",
+   "start": "2026-10-12T23:00:00Z",
+   "su_team": "New Jersey Devils",
+   "su_wp": 0.501,
+   "tier": "pass",
+   "total_pick": {
+    "ev": 0.0653,
+    "line": 5.5,
+    "odds": 110.0,
+    "play": true,
+    "prob": 0.507,
+    "side": "under"
+   },
+   "updated": "2026-10-12T20:03:42Z",
+   "week": 202642,
+   "weights": {
+    "elo": 0.25,
+    "goals": 0.15,
+    "mp": 0.25,
+    "xg": 0.35
+   }
+  },
+  "2026020089": {
+   "ats_side": "away",
+   "ats_team": "Vegas Golden Knights",
+   "away": "Vegas Golden Knights",
+   "away_abbr": "VGK",
+   "bet_at": "2026-10-12T20:03:42Z",
+   "bet_line": -108.0,
+   "conf_label": "Low",
+   "confidence": 40,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 0.6,
+     "consistency": 0.486,
+     "data": 0.5,
+     "edge": 0.0,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "Low",
+    "n_sources": 4,
+    "score": 40,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "goals": "Goals",
+     "mp": "MoneyPuck",
+     "xg": "xG"
+    },
+    "sources": {
+     "elo": 0.32,
+     "goals": 0.38,
+     "mp": -0.15,
+     "xg": -0.35
+    },
+    "units": "goals"
+   },
+   "date": "2026-10-12",
+   "diffs": {
+    "elo": -0.004,
+    "goals": 0.062,
+    "mp": -0.47,
+    "xg": -0.67
+   },
+   "edge": -3.0,
+   "ev": -0.0298,
+   "hfa_flag": 1,
+   "home": "Minnesota Wild",
+   "home_abbr": "MIN",
+   "home_field": 0.2,
+   "home_prob": 0.496,
+   "id": 2026020089,
+   "line": null,
+   "mkt_prob": 0.496,
+   "ml_away": -108.0,
+   "ml_home": -112.0,
+   "model_spread": null,
+   "neutral": false,
+   "odds": -108.0,
+   "offset": 0.123,
+   "prob": 0.504,
+   "result": null,
+   "season": 20262027,
+   "season_type": "regular",
+   "start": "2026-10-13T00:00:00Z",
+   "su_team": "Vegas Golden Knights",
+   "su_wp": 0.504,
+   "tier": "pass",
+   "total_pick": {
+    "ev": 0.146,
+    "line": 5.5,
+    "odds": 114.0,
+    "play": true,
+    "prob": 0.536,
+    "side": "under"
+   },
+   "updated": "2026-10-12T20:03:42Z",
+   "week": 202642,
+   "weights": {
+    "elo": 0.25,
+    "goals": 0.15,
+    "mp": 0.25,
+    "xg": 0.35
+   }
+  }
+ }
 }
