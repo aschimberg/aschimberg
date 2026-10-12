@@ -15,7 +15,7 @@ The visual design follows [davidsasser.com/cfb](https://davidsasser.com/cfb): wa
 
 ## NFL and NHL models
 
-The same site serves `/nfl/` and `/nhl/` (switch sports in the header). Both run daily inside the **Daily refresh** workflow and need no API keys.
+The same site serves `/nfl/` and `/nhl/` (switch sports in the header). Both run daily inside the **Daily refresh** workflow and work without API keys. An optional [The Odds API](https://the-odds-api.com) key adds multi-book lines (see below).
 
 **NFL** (`nflmodel/`, data from [nflverse](https://github.com/nflverse), CC BY 4.0: schedules, consensus lines, projected starting QBs, play-by-play):
 - **Team strength:** opponent-adjusted EPA/play on offense and defense, fit with weighted ridge regression. Recent weeks count more and garbage time is excluded. Ratings are shrunk toward last season.
@@ -35,6 +35,19 @@ The same site serves `/nfl/` and `/nhl/` (switch sports in the header). Both run
 
 Tuning: NHL weights and home ice are refit on Mondays and the xG model is retrained; NFL weights and home field are refit on Tuesdays. NHL play-by-play is cached in `data/nhl/cache/` (the first run backfills last season, about 8 minutes).
 
+## The Odds API (optional)
+
+Add a repository secret `ODDS_API_KEY` to turn this on. With no key, the free sources are used.
+
+- **NFL:** the line becomes the consensus (median) spread and total across US books, priced at DraftKings (then FanDuel, BetMGM, Caesars). Cards show the best available number for the pick side.
+- **NHL:** fills in moneylines and totals for games DraftKings hasn't posted in the NHL feed yet, and shows the best price for the pick.
+- **Credits:**
+  - Each call costs markets × regions (2 credits here).
+  - Responses are cached for 6 hours per sport (`NFL_ODDS_API_MAX_AGE`, `NHL_ODDS_API_MAX_AGE`), which works out to about 200–250 credits a month, under the free plan's 500.
+  - Calls stop once the remaining balance reaches `ODDS_API_RESERVE` (default 40).
+  - The balance is logged in `data/oddsapi/usage.json`.
+- **Books:** set `ODDS_API_BOOKS` (comma-separated book keys) to change the preferred book order.
+
 ## Setup
 
 1. **Secrets** (Settings → Secrets and variables → Actions → *Secrets*):
@@ -42,6 +55,7 @@ Tuning: NHL weights and home ice are refit on Mondays and the xG model is retrai
    - `NTFY_TOPIC` (required for push): your ntfy topic name. Pick a hard-to-guess one, because anyone who knows a public ntfy.sh topic can read it.
    - `NTFY_TOKEN` (optional): an access token if your topic is protected.
    - `SPLITS_API_KEY` (optional): a bearer token for an `http_json` splits feed.
+   - `ODDS_API_KEY` (optional): The Odds API key for multi-book NFL/NHL lines.
 2. **Variables** (optional, *Variables* tab): `SITE_URL`, `NTFY_SERVER`, `SPLITS_PROVIDER` (`none` | `file` | `http_json`), `SPLITS_URL`.
 3. **Pages**: Settings → Pages → Source: **GitHub Actions**.
 4. **Default branch**: scheduled workflows only run on the default branch, and the `github-pages` environment only deploys from it by default. Merge this work into `main` and make `main` the default branch.

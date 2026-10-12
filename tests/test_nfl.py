@@ -90,6 +90,24 @@ class NflTests(unittest.TestCase):
             picks = store.load(d.root / "nfl" / "picks.json", {})["picks"]
             self.assertEqual(len(picks), 16)
 
+    def test_odds_api_lines_override_when_available(self):
+        from nflmodel import teams as nflteams
+        with NflDirs():
+            games, loader = build()
+            g = next(x for x in games if x["season"] == 2026 and x["week"] == 6)
+            h, a = nflteams.name(g["home"]), nflteams.name(g["away"])
+            ev = {"home_team": h, "away_team": a, "commence_time": g["start"], "bookmakers": [
+                {"key": "draftkings", "title": "DraftKings", "markets": [{"key": "spreads", "outcomes": [
+                    {"name": h, "price": -110, "point": -13.5}, {"name": a, "price": -110, "point": 13.5}]}]},
+                {"key": "fanduel", "title": "FanDuel", "markets": [{"key": "spreads", "outcomes": [
+                    {"name": h, "price": -112, "point": -13.0}, {"name": a, "price": -108, "point": 13.0}]}]}]}
+            with mock.patch("sportscommon.oddsapi.get_odds", return_value=[ev]):
+                res = pipeline.refresh(games=games, pbp_loader=loader, now=NOW, log=lambda *_: None)
+            card = next(c for c in res["cards"] if c["id"] == g["id"])
+            self.assertEqual(card["line"]["spread"], -13.5)
+            self.assertEqual(card["line"]["book"], "consensus of 2 books")
+            self.assertTrue(any(e.startswith("Best line:") for e in card["extras"]), card["extras"])
+
     def test_grade_and_tune(self):
         with NflDirs() as d, mock.patch.object(config, "MIN_TUNE_GAMES", 5):
             games, loader = build()

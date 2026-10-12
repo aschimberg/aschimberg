@@ -53,3 +53,5 @@ TUNING = os.environ.get("NFL_TUNING", "on") != "off"
 MIN_TUNE_GAMES = int(_f("NFL_MIN_TUNE_GAMES", 25))
 TUNE_PRIOR_GAMES = _f("NFL_TUNE_PRIOR_GAMES", 250)
 SITE_URL = os.environ.get("SITE_URL", "")
+
+ODDS_API_MAX_AGE = _f("NFL_ODDS_API_MAX_AGE", 6)  # hours between The Odds API refetches (credit budget)

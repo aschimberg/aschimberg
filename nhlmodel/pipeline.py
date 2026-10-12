@@ -4,6 +4,7 @@ from zoneinfo import ZoneInfo
 
 from cfbmodel import store
 from sportscommon import confidence as conf
+from sportscommon import oddsapi
 from sportscommon import ridge
 from sportscommon import tuning as tunemod
 from sportscommon.odds import american_to_decimal, american_to_prob, fmt_american, no_vig, normal_cdf, prob_to_american
@@ -100,6 +101,33 @@ def parse_partner_odds(doc, now=None):
     return out
 
 
+def fill_odds_from_api(odds, sched, teams, today, now, log):
+    """The Odds API (if ODDS_API_KEY is set) for slate games the NHL feed hasn't priced yet."""
+    days = {(today + timedelta(days=i)).isoformat() for i in range(config.SLATE_DAYS)}
+    need = [g for g in sched.values() if g.get("date") in days and g.get("start") and g["start"] > iso(now)
+            and not ("ml_home" in odds.get(g["id"], {}) and "ml_away" in odds.get(g["id"], {}))]
+    if not need or not oddsapi.api_key():
+        return odds
+    events = oddsapi.get_odds("nhl", "h2h,totals", max_age_hours=config.ODDS_API_MAX_AGE, now=now, log=log)
+    n = 0
+    for g in need:
+        ev = oddsapi.find_event(events, teams.get(g["home"], {}).get("name", g["home"]),
+                                teams.get(g["away"], {}).get("name", g["away"]), g["start"])
+        ml = oddsapi.moneylines(ev) if ev else None
+        if not ml:
+            continue
+        rec = {"ml_home": float(ml["main"]["home"]), "ml_away": float(ml["main"]["away"]), "book": ml["main"]["book"],
+               "best": {"home": ml["best_home"], "away": ml["best_away"]}}
+        tot = oddsapi.totals(ev)
+        if tot:
+            rec.update({"total": tot["main"]["total"], "over_odds": float(tot["main"]["over_odds"]),
+                        "under_odds": float(tot["main"]["under_odds"])})
+        odds[g["id"]] = {**odds.get(g["id"], {}), **rec}
+        n += 1
+    log(f"NHL: {n} of {len(need)} unpriced games filled from The Odds API")
+    return odds
+
+
 def default_loader(now, log):
     teams = data.team_list()
     cur_id = config.season_id(now.date())
@@ -118,6 +146,7 @@ def default_loader(now, log):
         log(f"NHL odds unavailable: {e}")
         odds = {}
     today = now.astimezone(ET).date()
+    odds = fill_odds_from_api(odds, sched, teams, today, now, log)
     by_name = {info["name"]: t for t, info in teams.items()}
     probs = probables.fetch_probables([today + timedelta(days=i) for i in range(config.SLATE_DAYS)], by_name, log=log)
     return {"teams": teams, "season": cur_id, "prev": list(prev_doc["games"].values()),
@@ -390,6 +419,9 @@ def refresh(loader=None, now=None, log=print):
                 extras.append(f"{g[side]} G {nm}{tag} · GSAx {gls[side]['gsax_game']:+.2f}/gm")
             if b2b[side]:
                 extras.append(f"{g[side]} on a back-to-back")
+        b = (o.get("best") or {}).get(pick.get("ats_side") or "")
+        if b and not started and b["price"] != pick.get("odds"):
+            extras.append(f"Best price: {g[pick['ats_side']]} {fmt_american(b['price'])} ({b['book']})")
 
         res = {"completed": g["state"] in data.DONE_STATES, "home_pts": g.get("home_score"), "away_pts": g.get("away_score"),
                **((logged or {}).get("result") or {})}

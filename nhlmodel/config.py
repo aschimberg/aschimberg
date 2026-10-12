@@ -60,3 +60,5 @@ def season_id(d):
     """NHL season id (e.g. 20262027) for a date."""
     y = d.year if d.month >= 8 else d.year - 1
     return y * 10000 + y + 1
+
+ODDS_API_MAX_AGE = _f("NHL_ODDS_API_MAX_AGE", 6)  # hours between The Odds API refetches (credit budget)

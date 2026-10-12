@@ -24,6 +24,7 @@ concurrency:
   cancel-in-progress: false
 
 env:
+  ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
   FORCE_FLAG: ${{ inputs.force && '--force' || '' }}
 
 jobs:

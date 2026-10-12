@@ -22,6 +22,10 @@ concurrency:
   group: cfb-data
   cancel-in-progress: false
 
+env:
+  # Optional: The Odds API (multi-book NFL lines, NHL fallback odds). Unset = free sources only.
+  ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+
 jobs:
   refresh:
     runs-on: ubuntu-latest

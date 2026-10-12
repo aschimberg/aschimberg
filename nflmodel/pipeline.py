@@ -3,6 +3,7 @@ from datetime import datetime, timezone
 
 from cfbmodel import ats, store
 from cfbmodel.model import grade as ats_grade
+from sportscommon import oddsapi
 from sportscommon import confidence as conf
 from sportscommon import record as recmod
 from sportscommon import tuning as tunemod
@@ -184,6 +185,21 @@ def refresh(games=None, pbp_loader=None, now=None, log=print, espn_loader=None):
                 g[f"{side}_qb_id"], g[f"{side}_qb"], g[f"{side}_qb_note"] = qid, nm, note
                 g[f"{side}_qb_src"] = src
 
+    if upcoming:
+        events = oddsapi.get_odds("nfl", "spreads,totals", max_age_hours=config.ODDS_API_MAX_AGE, now=now, log=log)
+        for g in upcoming:
+            ev = oddsapi.find_event(events, teams.name(g["home"]), teams.name(g["away"]), g["start"])
+            sp = oddsapi.spreads(ev) if ev else None
+            if not sp:
+                continue
+            g["spread"] = sp["consensus"]
+            g["home_spread_odds"], g["away_spread_odds"] = sp["main"]["home_odds"], sp["main"]["away_odds"]
+            g["line_book"] = f"consensus of {sp['n_books']} books"
+            g["best"] = {"home": sp["best_home"], "away": sp["best_away"]}
+            tot = oddsapi.totals(ev)
+            if tot:
+                g["total"] = tot["consensus"]
+
     actual = {}
     for q in pbp[season]["qb_games"]:
         k = (q["game_id"], q["team"])
@@ -232,7 +248,7 @@ def refresh(games=None, pbp_loader=None, now=None, log=print, espn_loader=None):
                 snaps.append(snap)
             open_spread = snaps[0][1]
             move = round(g["spread"] - open_spread, 1) if open_spread is not None else None
-            line = {"spread": g["spread"], "open": open_spread, "total": g["total"], "book": "nflverse consensus",
+            line = {"spread": g["spread"], "open": open_spread, "total": g["total"], "book": g.get("line_book", "nflverse consensus"),
                     "move": move or None, "history": snaps,
                     "home_odds": g["home_spread_odds"], "away_odds": g["away_spread_odds"]}
 
@@ -304,6 +320,10 @@ def refresh(games=None, pbp_loader=None, now=None, log=print, espn_loader=None):
                 note = g.get(f"{side}_qb_note")
                 extras.append(f"{teams.name(g[side]).split()[-1]} QB {qbn}" + (f" ({adj:+.1f})" if abs(adj) >= 0.5 else "")
                               + (f" · {note}" if note else ""))
+        b = (g.get("best") or {}).get(pick.get("ats_side") or "")
+        if b and not started:
+            extras.append(f"Best line: {teams.name(g[pick['ats_side']]).split()[-1]} {'PK' if not b['point'] else format(b['point'], '+g')} "
+                          f"({b['price']:+.0f}, {b['book']})")
         if g["home_rest"] is not None and g["away_rest"] is not None and g["home_rest"] != g["away_rest"]:
             extras.append(f"Rest {g['away_rest']}d / {g['home_rest']}d")
         if g["roof"] in ("dome", "closed"):
