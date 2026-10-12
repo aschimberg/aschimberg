@@ -492,7 +492,7 @@
     const m = state.meta;
     const regular = m.season_type === "regular";
     $("#eyebrow").textContent = `${m.season} college football`;
-    $("#hero-title").innerHTML = regular ? `Week <span>${esc(m.week)}</span><br>Projections.` : `Bowl <span>${esc(m.season)}</span><br>Projections.`;
+    $("#hero-title").innerHTML = regular ? `Week <span>${esc(m.week)}</span> <br>Projections.` : `Bowl <span>${esc(m.season)}</span> <br>Projections.`;
     $("#games-title").textContent = `${m.slate_label} games`;
     const starts = state.slate.map((g) => new Date(g.start)).sort((a, b) => a - b);
     const md = (d) => d.toLocaleDateString(undefined, { month: "long", day: "numeric" });
