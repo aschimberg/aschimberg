@@ -14,4 +14,6 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: python tools/probe_lineups.py 2026020100
+      - run: python tools/probe_cfbd.py
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
