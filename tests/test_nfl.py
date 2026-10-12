@@ -106,3 +106,15 @@ class NflTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class MarginPmfTests(unittest.TestCase):
+    def test_key_weighting_keeps_mean_and_side(self):
+        from nflmodel import margins
+        kw = {k: 1.0 for k in range(61)}
+        kw.update({0: 0.05, 3: 3.0, 7: 2.0, 10: 1.4})
+        for mu in (-6.5, 0, 3, 10):
+            d = margins.pmf(mu, kw)
+            self.assertAlmostEqual(sum(m * v for m, v in d.items()), mu, places=3)
+        hc, _, ac = margins.cover_probs(margins.pmf(10, kw), -8.5)
+        self.assertGreater(hc, ac)

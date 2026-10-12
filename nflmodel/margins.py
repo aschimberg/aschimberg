@@ -22,13 +22,28 @@ def key_weights(games):
     return w
 
 
-def pmf(mu, weights, sd=None):
-    sd = sd or config.MARGIN_SD
-    p = {}
-    for m in range(-MAXM, MAXM + 1):
-        p[m] = math.exp(-0.5 * ((m - mu) / sd) ** 2) * weights.get(abs(m), 1.0)
+def _raw(loc, weights, sd):
+    p = {m: math.exp(-0.5 * ((m - loc) / sd) ** 2) * weights.get(abs(m), 1.0) for m in range(-MAXM, MAXM + 1)}
     s = sum(p.values())
     return {m: v / s for m, v in p.items()}
+
+
+def pmf(mu, weights, sd=None):
+    """Key-number-weighted margin pmf whose mean is exactly mu.
+
+    Reweighting toward 3/7/10 pulls the mean toward those numbers, so the
+    normal's location is solved (bisection) to keep the model's projected
+    margin as the distribution mean.
+    """
+    sd = sd or config.MARGIN_SD
+    if not weights:
+        return _raw(mu, weights, sd)
+    lo, hi = mu - 6, mu + 6
+    for _ in range(40):
+        mid = (lo + hi) / 2
+        mean = sum(m * v for m, v in _raw(mid, weights, sd).items())
+        lo, hi = (mid, hi) if mean < mu else (lo, mid)
+    return _raw((lo + hi) / 2, weights, sd)
 
 
 def cover_probs(dist, home_spread):

@@ -225,7 +225,8 @@ def refresh(games=None, pbp_loader=None, now=None, log=print):
         if line:
             s = line["spread"]
             hc, push, ac = margins.cover_probs(dist, s)
-            side = "home" if hc >= ac else "away"
+            # side follows the projected margin vs the line (the edge); cover_prob prices it
+            side = "home" if margin + s >= 0 else "away"
             sign = 1 if side == "home" else -1
             edge = abs(margin + s)
             p_cover = hc if side == "home" else ac
