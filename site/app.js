@@ -373,7 +373,7 @@
   function clvTile(label, st) {
     if (!st) return `<div class="tile"><div class="k">${label}</div><div class="v">—</div><div class="s">no closed picks yet</div></div>`;
     const cls = st.avg > 0 ? "pos" : st.avg < 0 ? "neg" : "";
-    const sub = `beat close ${st.beat}/${st.n} (${Math.round((st.beat / st.n) * 100)}%)` + (st.prob != null ? ` · cover prob ${st.prob >= 0 ? "+" : ""}${(st.prob * 100).toFixed(1)}%` : "");
+    const sub = `${st.n} picks: ${st.beat} beat · ${st.same} same · ${st.worse} worse than close` + (st.prob != null ? ` · cover prob ${st.prob >= 0 ? "+" : ""}${(st.prob * 100).toFixed(1)}%` : "");
     return `<div class="tile clv"><div class="k">${label}</div><div class="v ${cls}">${clvFmt(st.avg)}${isML() ? "" : " pts"}</div><div class="s">${sub}</div></div>`;
   }
 
