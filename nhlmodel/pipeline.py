@@ -696,9 +696,11 @@ def tune(loader=None, now=None, log=print, retrain_xg=True):
         if p.get("season") != season or not r or not p.get("diffs"):
             continue
         rows.append((p["diffs"], p.get("hfa_flag", 1), (r["home_pts"] - r["away_pts"]) - p.get("offset", 0)))
-    entry = tunemod.tune(rows, {k: config.WEIGHTS[k] for k in SOURCES}, config.HOME_ICE, config.MIN_TUNE_GAMES,
-                         config.TUNE_PRIOR_GAMES, (0.0, 0.5), now=now)
     doc = store.load(weights_path(), {"history": []})
+    anchor = tunemod.season_anchor(doc, season, {k: config.WEIGHTS[k] for k in SOURCES}, config.HOME_ICE)
+    entry = tunemod.tune(rows, {k: config.WEIGHTS[k] for k in SOURCES}, config.HOME_ICE, config.MIN_TUNE_GAMES,
+                         config.TUNE_PRIOR_GAMES, (0.0, 0.5), now=now, anchor=anchor)
+    entry["season"] = season
     doc.update({**entry["after"], "updated": entry["at"], "games": entry["games"]})
     doc["history"] = (doc.get("history") or [])[-51:] + [entry]
     store.save(weights_path(), doc)

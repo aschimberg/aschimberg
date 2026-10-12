@@ -3,10 +3,12 @@
 Each logged pick stores every source's home-minus-away rating difference.
 After grading, fit  actual_margin ~ sum(w_k * diff_k) + hfa * home_flag
 over this season's graded games (weights on the simplex, hfa in [0, 5]),
-then move the live settings toward the fit by alpha = n / (n + prior_games)
-so a single noisy week can't swing the model.
+then set  live = (1 - alpha) * season-start + alpha * fit,  alpha = n / (n + prior_games),
+so a single noisy week can't swing the model (and weekly steps don't compound).
 """
 from datetime import datetime, timezone
+
+from sportscommon.tuning import season_anchor
 
 from . import config, store
 from .model import SOURCES
@@ -105,11 +107,12 @@ def tune(picks, season, now=None, log=print):
             best = (m, w, h)
     _, fit_w, fit_h = best
 
+    anchor = season_anchor(doc, season, current["weights"], current["home_field"])
     alpha = len(rows) / (len(rows) + config.TUNE_PRIOR_GAMES)
-    new_w = {k: (1 - alpha) * current["weights"][k] + alpha * fit_w[k] for k in SOURCES}
+    new_w = {k: (1 - alpha) * anchor["weights"].get(k, current["weights"][k]) + alpha * fit_w[k] for k in SOURCES}
     tot = sum(new_w.values())
     new_w = {k: round(v / tot, 3) for k, v in new_w.items()}
-    new_h = round((1 - alpha) * current["home_field"] + alpha * fit_h, 2)
+    new_h = round((1 - alpha) * anchor["home_field"] + alpha * fit_h, 2)
 
     solo = {}
     for k in SOURCES:
@@ -120,6 +123,7 @@ def tune(picks, season, now=None, log=print):
     entry.update({
         "status": "updated",
         "alpha": round(alpha, 3),
+        "anchor": {"weights": anchor["weights"], "home_field": anchor["home_field"]},
         "fit": {"weights": {k: round(v, 3) for k, v in fit_w.items()}, "home_field": round(fit_h, 2)},
         "after": {"weights": new_w, "home_field": new_h},
         "rmse_before": round(_mse(rows, current["weights"], current["home_field"]) ** 0.5, 2),

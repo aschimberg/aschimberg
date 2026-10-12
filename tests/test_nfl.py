@@ -174,3 +174,34 @@ class StarterTests(unittest.TestCase):
         espn = {"depth": {"SEA": ["Sam Darnold", "Jalen Milroe"]}, "status": {("SEA", "samdarnold"): "Injured Reserve"}}
         qid, nm, _, _ = self.s.resolve("SEA", "00-DARN", "Sam Darnold", espn, self.dir, self.last)
         self.assertEqual((qid, nm), (None, "Jalen Milroe"))
+
+
+class BacktestTests(unittest.TestCase):
+    def test_walk_forward_has_no_lookahead_and_applies(self):
+        from nflmodel import backtest
+        with NflDirs() as d:
+            games, loader = build()
+            res = backtest.run([2025, 2026], games=games, pbp_loader=loader, now=NOW, log=lambda *_: None)
+            # every completed 2025 week (18) and 2026 weeks 1-5 priced; nothing after
+            self.assertEqual({(w["season"], w["week"]) for w in res["weeks"]},
+                             {(2025, w) for w in range(1, 19)} | {(2026, w) for w in range(1, 6)})
+            self.assertTrue(all(p["result"]["ats"] in ("W", "L", "P") for p in res["picks"].values()))
+            # week-1 2026 ratings can't depend on 2026 results: changing a week-3 score leaves week-1 picks unchanged
+            wk1 = {k: v["model_spread"] for k, v in res["picks"].items() if v["season"] == 2026 and v["week"] == 1}
+            for g in games:
+                if g["season"] == 2026 and g["week"] == 3:
+                    g["home_pts"] += 21
+            res2 = backtest.run([2025, 2026], games=games, pbp_loader=loader, now=NOW, log=lambda *_: None)
+            self.assertEqual(wk1, {k: v["model_spread"] for k, v in res2["picks"].items() if v["season"] == 2026 and v["week"] == 1})
+            backtest.save(res)
+            added = backtest.apply(res, now=NOW, log=lambda *_: None)
+            self.assertEqual(added, 16 * 5)
+            w = store.load(d.root / "nfl" / "model_weights.json", {})
+            self.assertEqual(w["weights"], res["final"]["weights"])
+            self.assertEqual(w["anchor"]["season"], 2026)
+            site = store.load(d.root / "site_nfl" / "backtest.json", {})
+            self.assertEqual(len(site["picks"]), len(res["picks"]))
+            # live refresh keeps working with backtest picks in the log
+            pipeline.refresh(games=games, pbp_loader=loader, now=NOW, log=lambda *_: None)
+            rec = store.load(d.root / "site_nfl" / "record.json", {})
+            self.assertGreaterEqual(rec["season_record"]["ats"]["W"] + rec["season_record"]["ats"]["L"], 70)

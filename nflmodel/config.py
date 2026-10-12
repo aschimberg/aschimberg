@@ -21,6 +21,7 @@ PBP_URL = "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_
 # Blend of independent margin sources (tuned weekly).
 WEIGHTS = {"epa": _f("NFL_W_EPA", 0.6), "elo": _f("NFL_W_ELO", 0.4)}
 HOME_FIELD = _f("NFL_HFA", 1.6)  # points; league HFA has shrunk to ~1.5
+DEFAULT_WEIGHTS, DEFAULT_HOME_FIELD = dict(WEIGHTS), HOME_FIELD  # untuned starting point (backtests)
 PLAYS_PER_GAME = _f("NFL_PLAYS", 62)  # converts EPA/play to points
 EPA_DECAY = _f("NFL_EPA_DECAY", 0.93)  # weight per week of age
 EPA_RIDGE = _f("NFL_EPA_RIDGE", 350)  # plays of evidence behind the prior

@@ -1,0 +1,47 @@
+name: Backtest
+
+on:
+  workflow_dispatch:
+    inputs:
+      sport:
+        description: "nfl or cfb"
+        type: choice
+        options: [nfl, cfb]
+        default: nfl
+      seasons:
+        description: "Seasons, e.g. 2023-2026"
+        default: "2023-2026"
+      apply:
+        description: "Add this season's backtest picks to the live log and adopt the tuned settings"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: cfb-data
+  cancel-in-progress: false
+
+jobs:
+  backtest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Walk-forward backtest
+        run: python -m ${{ inputs.sport }}model backtest --seasons ${{ inputs.seasons }} ${{ inputs.apply && '--apply' || '' }}
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+          SITE_URL: ${{ vars.SITE_URL || format('https://{0}.github.io/{1}/', github.repository_owner, github.event.repository.name) }}
+      - name: Commit data
+        run: .github/scripts/commit-data.sh "Backtest ${{ inputs.sport }} ${{ inputs.seasons }}"
+
+  deploy:
+    needs: backtest
+    uses: ./.github/workflows/deploy.yml

@@ -113,6 +113,55 @@ def _relabel(trend_list):
     return trend_list
 
 
+def margin_parts(g, fit, pregame, qb_values, baselines, replacement):
+    """Per-source margins (diffs), QB/rest offset and home flag for one game."""
+    h, a = g["home"], g["away"]
+    hflag = 0 if g["neutral"] else 1
+    epa_m = (ratings.team_net(fit, h) - ratings.team_net(fit, a)) * config.PLAYS_PER_GAME
+    eh, ea = pregame.get(g["id"], (elomod.BASE, elomod.BASE))
+    elo_m = (eh - ea) / config.ELO_PER_POINT
+    qb_h, _ = qbmod.adjustment(h, g["home_qb_id"], qb_values, baselines, replacement)
+    qb_a, _ = qbmod.adjustment(a, g["away_qb_id"], qb_values, baselines, replacement)
+    rest = 0.0
+    if g["home_rest"] is not None and g["away_rest"] is not None:
+        rest = config.REST_PER_DAY * max(-7, min(7, g["home_rest"] - g["away_rest"]))
+    offset = (qb_h - qb_a) + rest
+    return {"epa": round(epa_m, 2), "elo": round(elo_m, 2)}, offset, hflag, qb_h, qb_a
+
+
+def ats_pick(g, margin, dist, diffs, offset, hflag, s, move, trend_block, dq):
+    """ATS side, edge, tier, cover probability, EV and confidence vs home spread s."""
+    hc, push, ac = margins.cover_probs(dist, s)
+    # side follows the projected margin vs the line (the edge); cover_prob prices it
+    side = "home" if margin + s >= 0 else "away"
+    sign = 1 if side == "home" else -1
+    edge = abs(margin + s)
+    p_cover = hc if side == "home" else ac
+    odds = (g["home_spread_odds"] if side == "home" else g["away_spread_odds"]) or -110
+    p_lose = 1 - p_cover - push
+    pick = {
+        "ats_side": side, "ats_team": teams.name(g[side]), "ats_line": s if side == "home" else -s,
+        "edge": round(edge, 1), "tier": tier(edge),
+        "cover_prob": round(p_cover / (p_cover + p_lose), 3) if p_cover + p_lose else None,
+        # profit per unit staked; a push returns the stake
+        "ev": round(p_cover * (american_to_decimal(odds) - 1) - p_lose, 3),
+    }
+    covers = {k: sign * (diffs[k] + config.HOME_FIELD * hflag + offset + s) for k in SOURCES}
+    conf_detail = conf.score(
+        side, covers, config.WEIGHTS, edge / config.STRONG_EDGE, 7.0,
+        market=conf.market_component(sign, move, 2.5),
+        trends=conf.trend_component(trend_block, side, "away" if side == "home" else "home"),
+        data=dq, high=config.CONF_HIGH, medium=config.CONF_MEDIUM,
+        extra={"sources": {k: round(diffs[k] + config.HOME_FIELD * hflag + offset, 1) for k in SOURCES},
+               "source_names": {"epa": "EPA", "elo": "Elo"}},
+    )
+    if pick["cover_prob"] is not None and pick["cover_prob"] < 0.5:
+        pick["tier"] = "pass"  # the point edge doesn't survive key numbers (e.g. -8.5 vs a 10-pt projection)
+    pick["confidence"] = conf_detail["score"]
+    pick["conf_label"] = conf_detail["label"]
+    return pick, conf_detail
+
+
 def refresh(games=None, pbp_loader=None, now=None, log=print, espn_loader=None):
     now = now or utcnow()
     tuned = apply_tuning()
@@ -214,17 +263,7 @@ def refresh(games=None, pbp_loader=None, now=None, log=print, espn_loader=None):
     cards = []
     for g in sorted(slate, key=lambda x: (x["start"] or "", x["home"])):
         h, a = g["home"], g["away"]
-        hflag = 0 if g["neutral"] else 1
-        epa_m = (ratings.team_net(fit, h) - ratings.team_net(fit, a)) * config.PLAYS_PER_GAME
-        eh, ea = pregame.get(g["id"], (elomod.BASE, elomod.BASE))
-        elo_m = (eh - ea) / config.ELO_PER_POINT
-        qb_h, qbv_h = qbmod.adjustment(h, g["home_qb_id"], qb_values, baselines, replacement)
-        qb_a, qbv_a = qbmod.adjustment(a, g["away_qb_id"], qb_values, baselines, replacement)
-        rest = 0.0
-        if g["home_rest"] is not None and g["away_rest"] is not None:
-            rest = config.REST_PER_DAY * max(-7, min(7, g["home_rest"] - g["away_rest"]))
-        offset = (qb_h - qb_a) + rest
-        diffs = {"epa": round(epa_m, 2), "elo": round(elo_m, 2)}
+        diffs, offset, hflag, qb_h, qb_a = margin_parts(g, fit, pregame, qb_values, baselines, replacement)
         margin = sum(config.WEIGHTS[k] * diffs[k] for k in SOURCES) + config.HOME_FIELD * hflag + offset
         dist = margins.pmf(margin, kw)
         wp = margins.win_prob(dist)
@@ -263,37 +302,10 @@ def refresh(games=None, pbp_loader=None, now=None, log=print, espn_loader=None):
             trend_block[side] = _relabel(ats.relevant_trends(trends, t, _history_record(g), ts, rest_map.get((t, g["id"]))))
         conf_detail = None
         if line:
-            s = line["spread"]
-            hc, push, ac = margins.cover_probs(dist, s)
-            # side follows the projected margin vs the line (the edge); cover_prob prices it
-            side = "home" if margin + s >= 0 else "away"
-            sign = 1 if side == "home" else -1
-            edge = abs(margin + s)
-            p_cover = hc if side == "home" else ac
-            odds = (g["home_spread_odds"] if side == "home" else g["away_spread_odds"]) or -110
-            p_lose = 1 - p_cover - push
-            pick.update({
-                "ats_side": side, "ats_team": teams.name(g[side]), "ats_line": s if side == "home" else -s,
-                "edge": round(edge, 1), "tier": tier(edge),
-                "cover_prob": round(p_cover / (p_cover + p_lose), 3) if p_cover + p_lose else None,
-                # profit per unit staked; a push returns the stake
-                "ev": round(p_cover * (american_to_decimal(odds) - 1) - p_lose, 3),
-            })
-            covers = {k: sign * (diffs[k] + config.HOME_FIELD * hflag + offset + s) for k in SOURCES}
             qb_known = bool(g["home_qb_id"] and g["away_qb_id"])
             dq = min(1.0, min(played.get(h, 0), played.get(a, 0)) / 4) * (1.0 if qb_known else 0.7)
-            conf_detail = conf.score(
-                side, covers, config.WEIGHTS, edge / config.STRONG_EDGE, 7.0,
-                market=conf.market_component(sign, move, 2.5),
-                trends=conf.trend_component(trend_block, side, "away" if side == "home" else "home"),
-                data=dq, high=config.CONF_HIGH, medium=config.CONF_MEDIUM,
-                extra={"sources": {k: round(diffs[k] + config.HOME_FIELD * hflag + offset, 1) for k in SOURCES},
-                       "source_names": {"epa": "EPA", "elo": "Elo"}},
-            )
-            if pick["cover_prob"] is not None and pick["cover_prob"] < 0.5:
-                pick["tier"] = "pass"  # the point edge doesn't survive key numbers (e.g. -8.5 vs a 10-pt projection)
-            pick["confidence"] = conf_detail["score"]
-            pick["conf_label"] = conf_detail["label"]
+            fields, conf_detail = ats_pick(g, margin, dist, diffs, offset, hflag, line["spread"], move, trend_block, dq)
+            pick.update(fields)
 
         start = datetime.fromisoformat(g["start"].replace("Z", "+00:00")) if g["start"] else None
         started = start is not None and start <= now
@@ -480,9 +492,11 @@ def tune(now=None, log=print):
         if p.get("season") != season or not r or not p.get("diffs"):
             continue
         rows.append((p["diffs"], p.get("hfa_flag", 1), (r["home_pts"] - r["away_pts"]) - p.get("offset", 0)))
-    entry = tunemod.tune(rows, {k: config.WEIGHTS[k] for k in SOURCES}, config.HOME_FIELD, config.MIN_TUNE_GAMES,
-                         config.TUNE_PRIOR_GAMES, (0.0, 4.0), now=now)
     doc = store.load(weights_path(), {"history": []})
+    anchor = tunemod.season_anchor(doc, season, {k: config.WEIGHTS[k] for k in SOURCES}, config.HOME_FIELD)
+    entry = tunemod.tune(rows, {k: config.WEIGHTS[k] for k in SOURCES}, config.HOME_FIELD, config.MIN_TUNE_GAMES,
+                         config.TUNE_PRIOR_GAMES, (0.0, 4.0), now=now, anchor=anchor)
+    entry["season"] = season
     doc.update({**entry["after"], "updated": entry["at"], "games": entry["games"]})
     doc["history"] = (doc.get("history") or [])[-51:] + [entry]
     store.save(weights_path(), doc)
