@@ -65,7 +65,7 @@
             <input type="search" id="game-search" placeholder="Search team" aria-label="Search team">
             <select id="game-conf" aria-label="Conference"><option value="">All conferences</option></select>
             <select id="game-sort" aria-label="Sort">
-              <option value="time">By kickoff</option>
+              <option value="time" id="sort-time">By kickoff</option>
               <option value="edge">Biggest edge</option>
               <option value="conf">Highest confidence</option>
               <option value="move">Biggest line move</option>
@@ -90,7 +90,7 @@
         <section id="tab-record" class="tab-panel" hidden>
           <div class="board-top">
             <div><p class="section-label">Model history</p><h2>Record</h2></div>
-            <p>Picks lock at the last line before kickoff and are graded straight up and against the spread. Pushes count as neither.</p>
+            <p id="record-note">Picks lock at the last line before kickoff and are graded straight up and against the spread. Pushes count as neither.</p>
           </div>
           <div id="record-tiles" class="tiles"></div>
           <p class="muted clv-note"><strong>CLV (closing line value)</strong> compares the number when the model first made a pick with the closing number. Positive means the market moved toward our side after we picked it. It's the standard early read on whether picks have an edge, and it becomes meaningful within a few hundred picks, well before win–loss records do. Hover a pick's CLV for both numbers. Backtest picks have no CLV, since the backtest only had closing lines.</p>

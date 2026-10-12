@@ -624,7 +624,8 @@ def write_site(now, season, cards, teams, xg_fit, gl_fit, elo, rates, starts, pi
         "settings": {"weights": config.WEIGHTS, "home_field": config.HOME_ICE, "lean_edge": config.LEAN_EV * 100,
                      "play_edge": config.PLAY_EV * 100, "strong_edge": config.STRONG_EV * 100,
                      "conf_high": config.CONF_HIGH, "conf_weights": conf.DEFAULT_WEIGHTS, "conf_medium": config.CONF_MEDIUM},
-        "terms": {"ats": "ML", "edge": "EV %", "pick": "Moneyline pick", "record_week": "Week"},
+        "terms": {"ats": "ML", "edge": "EV %", "pick": "Moneyline pick", "record_week": "Week", "start": "puck drop",
+                  "record_note": "Picks lock at the last moneyline before puck drop and are graded straight up and in units (1 unit per pick)."},
         "tuning": tuning_summary(), "site_url": config.SITE_URL,
         "board_note": "Scores are projected goals until final. Moneylines are DraftKings via the NHL API; fair odds are the model's no-vig price. Times in your local zone.", "data_source": '<a href="https://www.nhl.com">NHL public API</a> · <a href="https://moneypuck.com">MoneyPuck.com</a>', "method_html": method_html(model),
         "rating_columns": [

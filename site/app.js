@@ -691,6 +691,8 @@
     Object.assign(state, { meta, slate: slate?.games || [], ratings: ratings?.teams || [], record, trends, backtest });
 
     renderHero();
+    if (meta.terms?.start) $("#sort-time").textContent = `By ${meta.terms.start}`;
+    if (meta.terms?.record_note) $("#record-note").textContent = meta.terms.record_note;
     fillConfSelect($("#game-conf"), new Set(state.slate.flatMap((g) => [g.home.conf, g.away.conf])));
     fillConfSelect($("#rating-conf"), new Set(state.ratings.map((r) => r.conference)));
     if (trends) $("#trend-sort").innerHTML = TREND_COLS.map((k) => `<option value="${k}">Sort: ${esc(trends.labels[k])}</option>`).join("");
