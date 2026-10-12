@@ -91,3 +91,35 @@ class CliTests(unittest.TestCase):
         import importlib
         for mod in ("cfbmodel.__main__", "nflmodel.__main__", "nhlmodel.__main__", "sportscommon.briefings"):
             self.assertTrue(hasattr(importlib.import_module(mod), "main"), mod)
+
+
+class PartnerOddsTests(unittest.TestCase):
+    """Real feed shape (api-web.nhle.com/v1/partner-game/US/now)."""
+
+    def _team(self, ml, tnb, pl, plo, ou, ouo):
+        return {"odds": [
+            {"description": "MONEY_LINE_3_WAY", "qualifier": "Draw", "value": -205.0},
+            {"description": "MONEY_LINE_3_WAY", "qualifier": "", "value": 400.0},
+            {"description": "OVER_UNDER", "qualifier": ou, "value": ouo},
+            {"description": "MONEY_LINE_2_WAY", "qualifier": "", "value": ml},
+            {"description": "PUCK_LINE", "qualifier": pl, "value": plo},
+            {"description": "MONEY_LINE_2_WAY_TNB", "qualifier": "", "value": tnb},
+        ]}
+
+    def test_parses_two_way_line_and_drops_started_games(self):
+        from datetime import datetime, timezone
+        from nhlmodel.pipeline import parse_partner_odds
+        doc = {"bettingPartner": {"name": "DraftKings"}, "currentOddsDate": "2026-10-12", "games": [
+            {"gameId": 1, "startTimeUTC": "2026-10-12T23:00:00Z",
+             "awayTeam": self._team(114, 120, "+1.5", -250, "U6.5", -110),
+             "homeTeam": self._team(-145, -154, "-1.5", 200, "O6.5", -110)},
+            {"gameId": 2, "startTimeUTC": "2026-10-11T23:00:00Z",
+             "awayTeam": self._team(3500, 3500, "+4.5", -1150, "U8.5", -750),
+             "homeTeam": self._team(-80000, -80000, "-4.5", 650, "O8.5", 470)},
+        ]}
+        out = parse_partner_odds(doc, datetime(2026, 10, 12, 15, tzinfo=timezone.utc))
+        self.assertEqual(list(out), [1])
+        r = out[1]
+        self.assertEqual((r["ml_home"], r["ml_away"]), (-145, 114))
+        self.assertEqual((r["pl_home"], r["pl_away"], r["total"]), (-1.5, 1.5, 6.5))
+        self.assertEqual((r["over_odds"], r["under_odds"]), (-110, -110))

@@ -61,7 +61,7 @@ def _num(x):
         return None
 
 
-def parse_partner_odds(doc):
+def parse_partner_odds(doc, now=None):
     """DraftKings (US partner) pre-game markets by game id.
 
     Tolerant of the feed's variations: id as gameId or id, odds lists on each
@@ -78,9 +78,9 @@ def parse_partner_odds(doc):
                 val, q = _num(o.get("value")), str(o.get("qualifier") or "").strip()
                 if val is None:
                     continue
-                if "3_WAY" in desc:
-                    continue  # regulation 3-way (tie) market; we price the 2-way line
-                if desc.startswith("MONEY_LINE") or desc in ("MONEYLINE", "ML"):
+                # MONEY_LINE_3_WAY (regulation, with draw) and MONEY_LINE_2_WAY_TNB
+                # (tie-no-bet) are different bets; we price the full-game 2-way line.
+                if desc in ("MONEY_LINE_2_WAY", "MONEYLINE", "ML"):
                     rec[f"ml_{key}"] = val
                 elif desc.startswith("PUCK_LINE") and _num(q) is not None:
                     rec[f"pl_{key}"] = _num(q)
@@ -91,6 +91,9 @@ def parse_partner_odds(doc):
                         rec["total"] = _num(q[1:])
                         rec["over_odds" if u == "O" else "under_odds"] = val
         gid = g.get("gameId") or g.get("id")
+        start = g.get("startTimeUTC")
+        if now is not None and start and datetime.fromisoformat(start.replace("Z", "+00:00")) <= now:
+            continue  # the feed lingers on last night's games with live in-game prices
         if rec and gid is not None:
             rec["book"] = (doc.get("bettingPartner") or {}).get("name", "DraftKings")
             out[int(gid)] = rec
@@ -105,10 +108,10 @@ def default_loader(now, log):
     cur_doc, sched = data.update_season(cur_id, teams, log=log)
     try:
         doc = api.partner_odds("US")
-        odds = parse_partner_odds(doc)
+        odds = parse_partner_odds(doc, now)
         feed = (doc or {}).get("games", [])
         full = sum(1 for r in odds.values() if "ml_home" in r and "ml_away" in r)
-        log(f"NHL odds: {full} of {len(feed)} feed games have both moneylines")
+        log(f"NHL odds ({(doc or {}).get('currentOddsDate')}): {full} pre-game of {len(feed)} feed games priced")
         # keep the last raw feed so a format change can be diagnosed from the repo
         store.save(config.DATA_DIR / "odds_last.json", {"fetched_at": iso(utcnow()), "parsed": {str(k): v for k, v in odds.items()}, "doc": doc})
     except Exception as e:

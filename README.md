@@ -53,7 +53,8 @@ Tuning: NHL weights and home ice are refit on Mondays and the xG model is retrai
 |---|---|---|
 | `refresh.yml` | daily 11:00 UTC | ratings, lines, projections, picks (re-priced until kickoff), trends, splits, grading → commit → deploy |
 | `grade.yml` | Sundays 12:00 UTC | grades SU and ATS for every finished pick, rebuilds the record, sends an ntfy recap |
-| `briefing.yml` | 14:07 and 15:07 UTC | sends the ntfy briefing once per game day, between 9 and 11 AM CT (covers CDT/CST and late cron starts) |
+| `briefing.yml` | every 30 min, 14:07–16:37 UTC | sends each sport's ntfy briefing once per game day, between 9 and 11 AM CT (covers CDT/CST and late cron starts). The NHL briefing waits until that day's odds are posted and only goes out when there's value |
+| `pregame.yml` | daily 21:17 UTC (+ Sun 16:17 UTC) | NFL and NHL re-price before puck drop / kickoff; picks up the day's DraftKings NHL lines |
 | `deploy.yml` | after each job above, or on push to `main` touching `site/` | publishes `site/` to Pages |
 | `ci.yml` | push / PR | unit tests and JS syntax check |
 

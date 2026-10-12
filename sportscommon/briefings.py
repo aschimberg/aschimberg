@@ -154,6 +154,10 @@ def send(sport, now=None, force=False, dry_run=False):
     if not ok:
         print(f"{sport}: skip ({reason})")
         return None
+    if sport == "nhl" and not any(c.get("line") for c in todays(sport, now_local)):
+        # DraftKings lines for today aren't in the NHL feed yet; a later run retries
+        print("nhl: today's odds not posted yet")
+        return None
     body = BUILDERS[sport](now_local)
     if body is None:
         print(f"{sport}: nothing worth sending today")

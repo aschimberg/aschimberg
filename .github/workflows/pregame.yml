@@ -1,0 +1,46 @@
+name: Pre-game refresh
+
+on:
+  schedule:
+    # NHL: DraftKings lines for the day appear in the NHL feed during the day,
+    # so re-price before the evening slate (21:17 UTC = 5:17 PM ET in EDT).
+    # NFL: re-price late Sunday morning for closer-to-close lines.
+    - cron: "17 21 * * *"
+    - cron: "17 16 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: cfb-data
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: NFL refresh (nflverse)
+        continue-on-error: true
+        run: python -m nflmodel refresh
+        env:
+          SITE_URL: ${{ vars.SITE_URL || format('https://{0}.github.io/{1}/', github.repository_owner, github.event.repository.name) }}
+      - name: NHL refresh (NHL API)
+        if: always()
+        continue-on-error: true
+        run: python -m nhlmodel refresh
+        env:
+          SITE_URL: ${{ vars.SITE_URL || format('https://{0}.github.io/{1}/', github.repository_owner, github.event.repository.name) }}
+      - name: Commit data
+        if: always()
+        run: .github/scripts/commit-data.sh "Pre-game refresh"
+
+  deploy:
+    needs: refresh
+    uses: ./.github/workflows/deploy.yml
