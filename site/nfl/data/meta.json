@@ -1,9 +1,9 @@
 {
  "board_note": "Scores are model projections until final. Lines are the nflverse consensus; open is the first line the model saw. Times in your local zone.",
  "data_source": "<a href=\"https://github.com/nflverse\">nflverse</a> (CC BY 4.0)",
- "generated_at": "2026-10-12T11:38:16Z",
+ "generated_at": "2026-10-12T14:02:59Z",
  "hero_title": "Weeks 5\u20136 <span>NFL</span> <br>Projections.",
- "method_html": "\n<h3>Team strength</h3>\n<p>Opponent-adjusted <strong>EPA per play</strong> on offense and defense (nflverse play-by-play), fit by weighted ridge regression each week. Recent games count more (0.93\u00d7 per week of age), garbage time is excluded (win probability outside 5\u201395%), and ratings are shrunk toward 50% of last season's values so early weeks stay stable. Net EPA/play \u00d7 62 plays converts to points.</p>\n<h3>Elo</h3>\n<p>A 538-style Elo from game results since 2009 (K=20, margin-of-victory multiplier, \u2153 regression each off-season), 25 Elo points per point of spread.</p>\n<h3>Quarterbacks</h3>\n<p>Each starter's EPA per dropback (this season, last season at 70%, two seasons ago at 40%), shrunk toward replacement level (250 dropbacks of prior). The starter listed in the nflverse schedule is compared with the QB play the team's ratings were built on; the difference \u00d7 35 dropbacks moves the line (capped at \u00b19). Backup starts are the biggest single adjustment in the model.</p>\n<h3>Projection</h3>\n<p>Margin = 60% EPA + 40% Elo + QB adjustment + 1.6 points home field (none at neutral sites) + a small rest term (0.05 pts/day, capped; post-2011 rest effects are near zero). Cover probability uses a margin distribution reweighted to real NFL final margins since 2005, so key numbers like 3 and 7 carry their true weight and pushes are priced.</p>\n<h3>Picks, confidence and tuning</h3>\n<p>Edge = projected margin vs the line. Cover probability prices that edge on a margin distribution with real key-number frequencies (3, 7, 10...); a pick under 50% to cover is a pass whatever its edge. Tiers: lean 1.5+, play 3+, strong 4.5+. Confidence (0\u2013100) weighs whether EPA and Elo each cover on their own, edge, line movement, ATS trends, and data quality (games played, known starting QBs). After each week the EPA/Elo weights and home field are refit to this season's results and moved part of the way there.</p>\n<p>Data: <a href=\"https://github.com/nflverse\">nflverse</a> (CC BY 4.0) schedules, lines and play-by-play. For entertainment only.</p>",
+ "method_html": "\n<h3>Team strength</h3>\n<p>Opponent-adjusted <strong>EPA per play</strong> on offense and defense (nflverse play-by-play), fit by weighted ridge regression each week. Recent games count more (0.93\u00d7 per week of age), garbage time is excluded (win probability outside 5\u201395%), and ratings are shrunk toward 50% of last season's values so early weeks stay stable. Net EPA/play \u00d7 62 plays converts to points.</p>\n<h3>Elo</h3>\n<p>A 538-style Elo from game results since 2009 (K=20, margin-of-victory multiplier, \u2153 regression each off-season), 25 Elo points per point of spread.</p>\n<h3>Quarterbacks</h3>\n<p>Each starter's EPA per dropback (this season, last season at 70%, two seasons ago at 40%), shrunk toward replacement level (250 dropbacks of prior). The starter listed in the nflverse schedule is compared with the QB play the team's ratings were built on; the difference \u00d7 35 dropbacks moves the line (capped at \u00b19). Backup starts are the biggest single adjustment in the model.</p>\n<h3>Projection</h3>\n<p>Margin = 8% EPA + 92% Elo + QB adjustment + 1.8 points home field (none at neutral sites) + a small rest term (0.05 pts/day, capped; post-2011 rest effects are near zero). Cover probability uses a margin distribution reweighted to real NFL final margins since 2005, so key numbers like 3 and 7 carry their true weight and pushes are priced.</p>\n<h3>Picks, confidence and tuning</h3>\n<p>Edge = projected margin vs the line. Cover probability prices that edge on a margin distribution with real key-number frequencies (3, 7, 10...); a pick under 50% to cover is a pass whatever its edge. Tiers: lean 1.5+, play 3+, strong 4.5+. Confidence (0\u2013100) weighs whether EPA and Elo each cover on their own, edge, line movement, ATS trends, and data quality (games played, known starting QBs). After each week the EPA/Elo weights and home field are refit to this season's results and moved part of the way there.</p>\n<p>Data: <a href=\"https://github.com/nflverse\">nflverse</a> (CC BY 4.0) schedules, lines and play-by-play. For entertainment only.</p>",
  "poll": null,
  "rating_columns": [
   {
@@ -72,14 +72,14 @@
    "market": 0.15,
    "trends": 0.15
   },
-  "home_field": 1.6,
+  "home_field": 1.805,
   "lean_edge": 1.5,
   "play_edge": 3.0,
   "strong_edge": 4.5,
   "trend_min_games": 8,
   "weights": {
-   "elo": 0.4,
-   "epa": 0.6
+   "elo": 0.925,
+   "epa": 0.075
   }
  },
  "site_url": "https://aschimberg.github.io/aschimberg/",
@@ -97,8 +97,304 @@
  ],
  "tuning": {
   "enabled": true,
+  "games": 78,
+  "history": [
+   {
+    "at": "2025-10-28T00:15:00Z",
+    "games": 121,
+    "home_field": 2.686,
+    "rmse_after": 13.134,
+    "rmse_before": 13.141,
+    "status": "updated",
+    "weights": {
+     "elo": 0.842,
+     "epa": 0.158
+    }
+   },
+   {
+    "at": "2025-11-04T01:15:00Z",
+    "games": 135,
+    "home_field": 2.424,
+    "rmse_after": 13.073,
+    "rmse_before": 13.065,
+    "status": "updated",
+    "weights": {
+     "elo": 0.863,
+     "epa": 0.137
+    }
+   },
+   {
+    "at": "2025-11-11T01:15:00Z",
+    "games": 149,
+    "home_field": 2.402,
+    "rmse_after": 12.902,
+    "rmse_before": 12.902,
+    "status": "updated",
+    "weights": {
+     "elo": 0.868,
+     "epa": 0.132
+    }
+   },
+   {
+    "at": "2025-11-18T01:15:00Z",
+    "games": 164,
+    "home_field": 2.483,
+    "rmse_after": 12.75,
+    "rmse_before": 12.755,
+    "status": "updated",
+    "weights": {
+     "elo": 0.873,
+     "epa": 0.127
+    }
+   },
+   {
+    "at": "2025-11-25T01:15:00Z",
+    "games": 178,
+    "home_field": 2.498,
+    "rmse_after": 12.516,
+    "rmse_before": 12.517,
+    "status": "updated",
+    "weights": {
+     "elo": 0.877,
+     "epa": 0.123
+    }
+   },
+   {
+    "at": "2025-12-02T01:15:00Z",
+    "games": 194,
+    "home_field": 2.356,
+    "rmse_after": 12.504,
+    "rmse_before": 12.501,
+    "status": "updated",
+    "weights": {
+     "elo": 0.881,
+     "epa": 0.119
+    }
+   },
+   {
+    "at": "2025-12-09T01:15:00Z",
+    "games": 208,
+    "home_field": 2.264,
+    "rmse_after": 12.682,
+    "rmse_before": 12.681,
+    "status": "updated",
+    "weights": {
+     "elo": 0.885,
+     "epa": 0.115
+    }
+   },
+   {
+    "at": "2025-12-16T01:15:00Z",
+    "games": 224,
+    "home_field": 2.255,
+    "rmse_after": 12.639,
+    "rmse_before": 12.638,
+    "status": "updated",
+    "weights": {
+     "elo": 0.865,
+     "epa": 0.135
+    }
+   },
+   {
+    "at": "2025-12-23T01:15:00Z",
+    "games": 240,
+    "home_field": 2.115,
+    "rmse_after": 12.705,
+    "rmse_before": 12.705,
+    "status": "updated",
+    "weights": {
+     "elo": 0.868,
+     "epa": 0.132
+    }
+   },
+   {
+    "at": "2025-12-30T01:15:00Z",
+    "games": 256,
+    "home_field": 2.039,
+    "rmse_after": 12.72,
+    "rmse_before": 12.72,
+    "status": "updated",
+    "weights": {
+     "elo": 0.87,
+     "epa": 0.13
+    }
+   },
+   {
+    "at": "2026-01-05T01:20:00Z",
+    "games": 272,
+    "home_field": 2.129,
+    "rmse_after": 12.637,
+    "rmse_before": 12.638,
+    "status": "updated",
+    "weights": {
+     "elo": 0.847,
+     "epa": 0.153
+    }
+   },
+   {
+    "at": "2026-01-13T01:00:00Z",
+    "games": 278,
+    "home_field": 2.1,
+    "rmse_after": 12.587,
+    "rmse_before": 12.588,
+    "status": "updated",
+    "weights": {
+     "elo": 0.874,
+     "epa": 0.126
+    }
+   },
+   {
+    "at": "2026-01-18T23:30:00Z",
+    "games": 282,
+    "home_field": 2.178,
+    "rmse_after": 12.638,
+    "rmse_before": 12.641,
+    "status": "updated",
+    "weights": {
+     "elo": 0.901,
+     "epa": 0.099
+    }
+   },
+   {
+    "at": "2026-01-25T23:30:00Z",
+    "games": 284,
+    "home_field": 2.169,
+    "rmse_after": 12.595,
+    "rmse_before": 12.595,
+    "status": "updated",
+    "weights": {
+     "elo": 0.901,
+     "epa": 0.099
+    }
+   },
+   {
+    "at": "2026-02-08T23:30:00Z",
+    "games": 285,
+    "home_field": 2.169,
+    "rmse_after": 12.594,
+    "rmse_before": 12.594,
+    "status": "updated",
+    "weights": {
+     "elo": 0.901,
+     "epa": 0.099
+    }
+   },
+   {
+    "at": "2026-09-15T00:15:00Z",
+    "games": 16,
+    "home_field": 2.169,
+    "rmse_after": null,
+    "rmse_before": null,
+    "status": "insufficient",
+    "weights": {
+     "elo": 0.901,
+     "epa": 0.099
+    }
+   },
+   {
+    "at": "2026-09-22T00:15:00Z",
+    "games": 32,
+    "home_field": 1.923,
+    "rmse_after": 14.283,
+    "rmse_before": 14.326,
+    "status": "updated",
+    "weights": {
+     "elo": 0.912,
+     "epa": 0.088
+    }
+   },
+   {
+    "at": "2026-09-29T00:15:00Z",
+    "games": 48,
+    "home_field": 1.967,
+    "rmse_after": 13.627,
+    "rmse_before": 13.625,
+    "status": "updated",
+    "weights": {
+     "elo": 0.917,
+     "epa": 0.083
+    }
+   },
+   {
+    "at": "2026-10-06T00:15:00Z",
+    "games": 64,
+    "home_field": 1.842,
+    "rmse_after": 12.645,
+    "rmse_before": 12.658,
+    "status": "updated",
+    "weights": {
+     "elo": 0.921,
+     "epa": 0.079
+    }
+   },
+   {
+    "at": "2026-10-12T00:20:00Z",
+    "games": 78,
+    "home_field": 1.805,
+    "rmse_after": 12.655,
+    "rmse_before": 12.659,
+    "status": "updated",
+    "weights": {
+     "elo": 0.925,
+     "epa": 0.075
+    }
+   }
+  ],
+  "home_field": 1.805,
+  "last": {
+   "after": {
+    "home_field": 1.805,
+    "weights": {
+     "elo": 0.925,
+     "epa": 0.075
+    }
+   },
+   "alpha": 0.238,
+   "anchor": {
+    "home_field": 2.169,
+    "weights": {
+     "elo": 0.901,
+     "epa": 0.099
+    }
+   },
+   "at": "2026-10-12T00:20:00Z",
+   "backtest": true,
+   "before": {
+    "home_field": 1.842,
+    "weights": {
+     "elo": 0.921,
+     "epa": 0.079
+    }
+   },
+   "by_source": {
+    "elo": {
+     "rmse": 12.588
+    },
+    "epa": {
+     "rmse": 13.029
+    }
+   },
+   "fit": {
+    "home_field": 0.638,
+    "weights": {
+     "elo": 1.0,
+     "epa": 0.0
+    }
+   },
+   "games": 78,
+   "rmse_after": 12.655,
+   "rmse_before": 12.659,
+   "season": 2026,
+   "season_type": "regular",
+   "status": "updated",
+   "week": 5
+  },
   "min_games": 25,
-  "status": "not yet tuned"
+  "updated": "2026-10-12T14:02:59Z",
+  "weights": {
+   "elo": 0.925,
+   "epa": 0.075
+  }
  },
  "week": 5
 }

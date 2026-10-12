@@ -1,89 +1,375 @@
 {
  "picks": {
-  "2026_05_BUF_LA": {
-   "ats_line": 3.5,
+  "2026_01_ARI_LAC": {
+   "ats_line": 8.5,
    "ats_side": "away",
-   "ats_team": "Buffalo Bills",
-   "away": "Buffalo Bills",
-   "away_abbr": "BUF",
-   "book": "nflverse consensus",
+   "ats_team": "Arizona Cardinals",
+   "away": "Arizona Cardinals",
+   "away_abbr": "ARI",
+   "away_qb": "Jacoby Brissett",
+   "backtest": true,
+   "book": "nflverse closing consensus",
    "conf_label": "Low",
-   "confidence": 46,
+   "confidence": 52,
    "confidence_detail": {
-    "agree": 1,
+    "agree": 2,
     "components": {
-     "agreement": 0.4,
-     "consistency": 0.727,
-     "data": 1.0,
-     "edge": 0.277,
-     "market": 0.3,
-     "trends": 0.5
+     "agreement": 1.0,
+     "consistency": 0.77,
+     "data": 0.0,
+     "edge": 0.09,
+     "market": 0.5,
+     "trends": 0.625
     },
     "label": "Low",
     "n_sources": 2,
-    "score": 46,
+    "score": 52,
     "side": "away",
     "source_names": {
      "elo": "Elo",
      "epa": "EPA"
     },
     "sources": {
-     "elo": -0.0,
-     "epa": 3.8
+     "elo": 8.4,
+     "epa": 5.2
     }
    },
-   "cover_prob": 0.563,
+   "cover_prob": 0.561,
    "diffs": {
-    "elo": -1.54,
-    "epa": 2.28
+    "elo": 5.33,
+    "epa": 2.11
    },
-   "edge": 1.2,
-   "ev": 0.041,
+   "edge": 0.4,
+   "ev": 0.11,
    "hfa_flag": 1,
-   "home": "Los Angeles Rams",
-   "home_abbr": "LA",
-   "home_field": 1.6,
-   "id": "2026_05_BUF_LA",
-   "line": -3.5,
-   "model_spread": -2.3,
-   "model_total": 55.8,
+   "home": "Los Angeles Chargers",
+   "home_abbr": "LAC",
+   "home_field": 2.169,
+   "home_qb": "Justin Herbert",
+   "id": "2026_01_ARI_LAC",
+   "line": -8.5,
+   "model_spread": -8.1,
    "neutral": false,
-   "offset": -0.1,
-   "proj_away": 26.8,
-   "proj_home": 29.0,
-   "result": null,
+   "offset": 0.91,
+   "result": {
+    "ats": "W",
+    "away_pts": 26.0,
+    "home_pts": 14.0,
+    "su": "L"
+   },
    "season": 2026,
    "season_type": "regular",
-   "start": "2026-10-13T00:15:00Z",
-   "su_team": "Los Angeles Rams",
-   "su_wp": 0.565,
+   "start": "2026-09-13T20:25:00Z",
+   "su_team": "Los Angeles Chargers",
+   "su_wp": 0.721,
    "tier": "pass",
-   "total_line": 54.5,
-   "updated": "2026-10-12T11:38:16Z",
-   "week": 5,
+   "total_line": 47.5,
+   "week": 1,
    "weights": {
-    "elo": 0.4,
-    "epa": 0.6
+    "elo": 0.901,
+    "epa": 0.099
    }
   },
-  "2026_06_ARI_LA": {
-   "ats_line": 12.5,
+  "2026_01_ATL_PIT": {
+   "ats_line": 6.5,
    "ats_side": "away",
-   "ats_team": "Arizona Cardinals",
-   "away": "Arizona Cardinals",
-   "away_abbr": "ARI",
-   "book": "nflverse consensus",
+   "ats_team": "Atlanta Falcons",
+   "away": "Atlanta Falcons",
+   "away_abbr": "ATL",
+   "away_qb": "Cooper Rush",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Low",
+   "confidence": 52,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.823,
+     "data": 0.0,
+     "edge": 0.152,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "Low",
+    "n_sources": 2,
+    "score": 52,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 6.1,
+     "epa": 3.6
+    }
+   },
+   "cover_prob": 0.548,
+   "diffs": {
+    "elo": 1.55,
+    "epa": -0.93
+   },
+   "edge": 0.7,
+   "ev": 0.056,
+   "hfa_flag": 1,
+   "home": "Pittsburgh Steelers",
+   "home_abbr": "PIT",
+   "home_field": 2.169,
+   "home_qb": "Aaron Rodgers",
+   "id": "2026_01_ATL_PIT",
+   "line": -6.5,
+   "model_spread": -5.8,
+   "neutral": false,
+   "offset": 2.34,
+   "result": {
+    "ats": "L",
+    "away_pts": 13.0,
+    "home_pts": 20.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-13T17:00:00Z",
+   "su_team": "Pittsburgh Steelers",
+   "su_wp": 0.664,
+   "tier": "pass",
+   "total_line": 40.5,
+   "week": 1,
+   "weights": {
+    "elo": 0.901,
+    "epa": 0.099
+   }
+  },
+  "2026_01_BAL_IND": {
+   "ats_line": 3.0,
+   "ats_side": "home",
+   "ats_team": "Indianapolis Colts",
+   "away": "Baltimore Ravens",
+   "away_abbr": "BAL",
+   "away_qb": "Lamar Jackson",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 58,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.671,
+     "data": 0.0,
+     "edge": 0.466,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 58,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": -1.4,
+     "epa": 3.2
+    }
+   },
+   "cover_prob": 0.567,
+   "diffs": {
+    "elo": -3.0,
+    "epa": 1.6
+   },
+   "edge": 2.1,
+   "ev": 0.067,
+   "hfa_flag": 1,
+   "home": "Indianapolis Colts",
+   "home_abbr": "IND",
+   "home_field": 2.169,
+   "home_qb": "Daniel Jones",
+   "id": "2026_01_BAL_IND",
+   "line": 3.0,
+   "model_spread": 0.9,
+   "neutral": false,
+   "offset": -0.53,
+   "result": {
+    "ats": "L",
+    "away_pts": 41.0,
+    "home_pts": 23.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-13T17:00:00Z",
+   "su_team": "Baltimore Ravens",
+   "su_wp": 0.526,
+   "tier": "lean",
+   "total_line": 48.5,
+   "week": 1,
+   "weights": {
+    "elo": 0.901,
+    "epa": 0.099
+   }
+  },
+  "2026_01_BUF_HOU": {
+   "ats_line": 1.5,
+   "ats_side": "home",
+   "ats_team": "Houston Texans",
+   "away": "Buffalo Bills",
+   "away_abbr": "BUF",
+   "away_qb": "Josh Allen",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "High",
+   "confidence": 73,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.974,
+     "data": 0.0,
+     "edge": 0.935,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "High",
+    "n_sources": 2,
+    "score": 73,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 2.7,
+     "epa": 2.4
+    }
+   },
+   "cover_prob": 0.602,
+   "diffs": {
+    "elo": 0.05,
+    "epa": -0.31
+   },
+   "edge": 4.2,
+   "ev": 0.125,
+   "hfa_flag": 1,
+   "home": "Houston Texans",
+   "home_abbr": "HOU",
+   "home_field": 2.169,
+   "home_qb": "C.J. Stroud",
+   "id": "2026_01_BUF_HOU",
+   "line": 1.5,
+   "model_spread": -2.7,
+   "neutral": false,
+   "offset": 0.52,
+   "result": {
+    "ats": "L",
+    "away_pts": 36.0,
+    "home_pts": 31.0,
+    "su": "L"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-13T17:00:00Z",
+   "su_team": "Houston Texans",
+   "su_wp": 0.579,
+   "tier": "play",
+   "total_line": 44.5,
+   "week": 1,
+   "weights": {
+    "elo": 0.901,
+    "epa": 0.099
+   }
+  },
+  "2026_01_CHI_CAR": {
+   "ats_line": 3.0,
+   "ats_side": "home",
+   "ats_team": "Carolina Panthers",
+   "away": "Chicago Bears",
+   "away_abbr": "CHI",
+   "away_qb": "Caleb Williams",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 55,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.991,
+     "data": 0.0,
+     "edge": 0.282,
+     "market": 0.5,
+     "trends": 0.375
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 55,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": -1.7,
+     "epa": -1.8
+    }
+   },
+   "cover_prob": 0.541,
+   "diffs": {
+    "elo": -3.96,
+    "epa": -4.09
+   },
+   "edge": 1.3,
+   "ev": 0.039,
+   "hfa_flag": 1,
+   "home": "Carolina Panthers",
+   "home_abbr": "CAR",
+   "home_field": 2.169,
+   "home_qb": "Bryce Young",
+   "id": "2026_01_CHI_CAR",
+   "line": 3.0,
+   "model_spread": 1.7,
+   "neutral": false,
+   "offset": 0.07,
+   "result": {
+    "ats": "L",
+    "away_pts": 59.0,
+    "home_pts": 37.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-13T17:00:00Z",
+   "su_team": "Chicago Bears",
+   "su_wp": 0.55,
+   "tier": "pass",
+   "total_line": 47.5,
+   "week": 1,
+   "weights": {
+    "elo": 0.901,
+    "epa": 0.099
+   }
+  },
+  "2026_01_CLE_JAX": {
+   "ats_line": 8.5,
+   "ats_side": "away",
+   "ats_team": "Cleveland Browns",
+   "away": "Cleveland Browns",
+   "away_abbr": "CLE",
+   "away_qb": "Deshaun Watson",
+   "backtest": true,
+   "book": "nflverse closing consensus",
    "conf_label": "Low",
    "confidence": 47,
    "confidence_detail": {
-    "agree": 1,
+    "agree": 2,
     "components": {
-     "agreement": 0.4,
-     "consistency": 0.863,
-     "data": 1.0,
-     "edge": 0.13,
+     "agreement": 1.0,
+     "consistency": 0.929,
+     "data": 0.0,
+     "edge": 0.073,
      "market": 0.5,
-     "trends": 0.5
+     "trends": 0.25
     },
     "label": "Low",
     "n_sources": 2,
@@ -94,126 +380,2374 @@
      "epa": "EPA"
     },
     "sources": {
-     "elo": 10.8,
-     "epa": 12.7
+     "elo": 8.3,
+     "epa": 7.3
     }
    },
-   "cover_prob": 0.525,
+   "cover_prob": 0.558,
    "diffs": {
-    "elo": 8.82,
-    "epa": 10.74
+    "elo": 5.88,
+    "epa": 4.89
    },
-   "edge": 0.6,
-   "ev": 0.003,
+   "edge": 0.3,
+   "ev": 0.09,
    "hfa_flag": 1,
-   "home": "Los Angeles Rams",
-   "home_abbr": "LA",
-   "home_field": 1.6,
-   "id": "2026_06_ARI_LA",
-   "line": -12.5,
-   "model_spread": -11.9,
-   "model_total": 49.2,
+   "home": "Jacksonville Jaguars",
+   "home_abbr": "JAX",
+   "home_field": 2.169,
+   "home_qb": "Trevor Lawrence",
+   "id": "2026_01_CLE_JAX",
+   "line": -8.5,
+   "model_spread": -8.2,
    "neutral": false,
-   "offset": 0.34,
-   "proj_away": 18.6,
-   "proj_home": 30.5,
-   "result": null,
+   "offset": 0.22,
+   "result": {
+    "ats": "L",
+    "away_pts": 10.0,
+    "home_pts": 34.0,
+    "su": "W"
+   },
    "season": 2026,
    "season_type": "regular",
-   "start": "2026-10-18T20:05:00Z",
-   "su_team": "Los Angeles Rams",
-   "su_wp": 0.805,
+   "start": "2026-09-13T17:00:00Z",
+   "su_team": "Jacksonville Jaguars",
+   "su_wp": 0.723,
    "tier": "pass",
-   "total_line": 52.5,
-   "updated": "2026-10-12T11:38:16Z",
-   "week": 6,
+   "total_line": 40.5,
+   "week": 1,
    "weights": {
-    "elo": 0.4,
-    "epa": 0.6
+    "elo": 0.901,
+    "epa": 0.099
    }
   },
-  "2026_06_BAL_CLE": {
-   "ats_line": 3.5,
+  "2026_01_DAL_NYG": {
+   "ats_line": 3.0,
    "ats_side": "home",
-   "ats_team": "Cleveland Browns",
-   "away": "Baltimore Ravens",
-   "away_abbr": "BAL",
-   "book": "nflverse consensus",
+   "ats_team": "New York Giants",
+   "away": "Dallas Cowboys",
+   "away_abbr": "DAL",
+   "away_qb": "Dak Prescott",
+   "backtest": true,
+   "book": "nflverse closing consensus",
    "conf_label": "High",
-   "confidence": 78,
+   "confidence": 72,
    "confidence_detail": {
     "agree": 2,
     "components": {
      "agreement": 1.0,
-     "consistency": 0.875,
-     "data": 1.0,
-     "edge": 0.696,
+     "consistency": 0.911,
+     "data": 0.0,
+     "edge": 0.983,
      "market": 0.5,
-     "trends": 0.625
+     "trends": 0.375
     },
     "label": "High",
     "n_sources": 2,
-    "score": 78,
+    "score": 72,
     "side": "home",
     "source_names": {
      "elo": "Elo",
      "epa": "EPA"
     },
     "sources": {
-     "elo": 0.7,
-     "epa": -1.1
+     "elo": 1.3,
+     "epa": 2.5
     }
    },
-   "cover_prob": 0.617,
+   "cover_prob": 0.637,
    "diffs": {
-    "elo": -5.39,
-    "epa": -7.14
+    "elo": -1.25,
+    "epa": -0.0
+   },
+   "edge": 4.4,
+   "ev": 0.21,
+   "hfa_flag": 1,
+   "home": "New York Giants",
+   "home_abbr": "NYG",
+   "home_field": 2.169,
+   "home_qb": "Jaxson Dart",
+   "id": "2026_01_DAL_NYG",
+   "line": 3.0,
+   "model_spread": -1.4,
+   "neutral": false,
+   "offset": 0.38,
+   "result": {
+    "ats": "W",
+    "away_pts": 20.0,
+    "home_pts": 28.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-14T00:20:00Z",
+   "su_team": "New York Giants",
+   "su_wp": 0.542,
+   "tier": "play",
+   "total_line": 47.5,
+   "week": 1,
+   "weights": {
+    "elo": 0.901,
+    "epa": 0.099
+   }
+  },
+  "2026_01_DEN_KC": {
+   "ats_line": 2.5,
+   "ats_side": "away",
+   "ats_team": "Denver Broncos",
+   "away": "Denver Broncos",
+   "away_abbr": "DEN",
+   "away_qb": "Bo Nix",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "High",
+   "confidence": 71,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.775,
+     "data": 0.0,
+     "edge": 0.934,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "High",
+    "n_sources": 2,
+    "score": 71,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": -2.0,
+     "epa": 1.1
+    }
+   },
+   "cover_prob": 0.596,
+   "diffs": {
+    "elo": -4.77,
+    "epa": -1.62
+   },
+   "edge": 4.2,
+   "ev": 0.128,
+   "hfa_flag": 1,
+   "home": "Kansas City Chiefs",
+   "home_abbr": "KC",
+   "home_field": 2.169,
+   "home_qb": "Patrick Mahomes",
+   "id": "2026_01_DEN_KC",
+   "line": -2.5,
+   "model_spread": 1.7,
+   "neutral": false,
+   "offset": 0.59,
+   "result": {
+    "ats": "L",
+    "away_pts": 10.0,
+    "home_pts": 31.0,
+    "su": "L"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-15T00:15:00Z",
+   "su_team": "Denver Broncos",
+   "su_wp": 0.55,
+   "tier": "play",
+   "total_line": 42.5,
+   "week": 1,
+   "weights": {
+    "elo": 0.901,
+    "epa": 0.099
+   }
+  },
+  "2026_01_GB_MIN": {
+   "ats_line": -1.5,
+   "ats_side": "home",
+   "ats_team": "Minnesota Vikings",
+   "away": "Green Bay Packers",
+   "away_abbr": "GB",
+   "away_qb": "Jordan Love",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 69,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.732,
+     "data": 0.0,
+     "edge": 1.0,
+     "market": 0.5,
+     "trends": 0.25
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 69,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 6.5,
+     "epa": 2.7
+    }
+   },
+   "cover_prob": 0.65,
+   "diffs": {
+    "elo": 1.06,
+    "epa": -2.69
+   },
+   "edge": 4.6,
+   "ev": 0.215,
+   "hfa_flag": 1,
+   "home": "Minnesota Vikings",
+   "home_abbr": "MIN",
+   "home_field": 2.169,
+   "home_qb": "Kyler Murray",
+   "id": "2026_01_GB_MIN",
+   "line": -1.5,
+   "model_spread": -6.1,
+   "neutral": false,
+   "offset": 3.27,
+   "result": {
+    "ats": "W",
+    "away_pts": 22.0,
+    "home_pts": 39.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-13T20:25:00Z",
+   "su_team": "Minnesota Vikings",
+   "su_wp": 0.672,
+   "tier": "strong",
+   "total_line": 46.5,
+   "week": 1,
+   "weights": {
+    "elo": 0.901,
+    "epa": 0.099
+   }
+  },
+  "2026_01_MIA_LV": {
+   "ats_line": 3.0,
+   "ats_side": "away",
+   "ats_team": "Miami Dolphins",
+   "away": "Miami Dolphins",
+   "away_abbr": "MIA",
+   "away_qb": "Malik Willis",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 65,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.894,
+     "data": 0.0,
+     "edge": 0.703,
+     "market": 0.5,
+     "trends": 0.375
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 65,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": -0.3,
+     "epa": 1.2
+    }
+   },
+   "cover_prob": 0.6,
+   "diffs": {
+    "elo": -4.25,
+    "epa": -2.76
+   },
+   "edge": 3.2,
+   "ev": 0.133,
+   "hfa_flag": 1,
+   "home": "Las Vegas Raiders",
+   "home_abbr": "LV",
+   "home_field": 2.169,
+   "home_qb": "Kirk Cousins",
+   "id": "2026_01_MIA_LV",
+   "line": -3.0,
+   "model_spread": 0.2,
+   "neutral": false,
+   "offset": 1.77,
+   "result": {
+    "ats": "L",
+    "away_pts": 13.0,
+    "home_pts": 27.0,
+    "su": "L"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-13T20:25:00Z",
+   "su_team": "Miami Dolphins",
+   "su_wp": 0.505,
+   "tier": "play",
+   "total_line": 40.5,
+   "week": 1,
+   "weights": {
+    "elo": 0.901,
+    "epa": 0.099
+   }
+  },
+  "2026_01_NE_SEA": {
+   "ats_line": -3.0,
+   "ats_side": "home",
+   "ats_team": "Seattle Seahawks",
+   "away": "New England Patriots",
+   "away_abbr": "NE",
+   "away_qb": "Drake Maye",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 61,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.918,
+     "data": 0.0,
+     "edge": 0.454,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 61,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 5.2,
+     "epa": 4.0
+    }
+   },
+   "cover_prob": 0.562,
+   "diffs": {
+    "elo": 3.0,
+    "epa": 1.85
+   },
+   "edge": 2.0,
+   "ev": 0.036,
+   "hfa_flag": 1,
+   "home": "Seattle Seahawks",
+   "home_abbr": "SEA",
+   "home_field": 2.169,
+   "home_qb": "Sam Darnold",
+   "id": "2026_01_NE_SEA",
+   "line": -3.0,
+   "model_spread": -5.0,
+   "neutral": false,
+   "offset": -0.01,
+   "result": {
+    "ats": "P",
+    "away_pts": 10.0,
+    "home_pts": 13.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-10T00:20:00Z",
+   "su_team": "Seattle Seahawks",
+   "su_wp": 0.644,
+   "tier": "lean",
+   "total_line": 44.5,
+   "week": 1,
+   "weights": {
+    "elo": 0.901,
+    "epa": 0.099
+   }
+  },
+  "2026_01_NO_DET": {
+   "ats_line": 7.0,
+   "ats_side": "away",
+   "ats_team": "New Orleans Saints",
+   "away": "New Orleans Saints",
+   "away_abbr": "NO",
+   "away_qb": "Tyler Shough",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Low",
+   "confidence": 53,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.915,
+     "data": 0.0,
+     "edge": 0.367,
+     "market": 0.5,
+     "trends": 0.125
+    },
+    "label": "Low",
+    "n_sources": 2,
+    "score": 53,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 5.5,
+     "epa": 4.3
+    }
+   },
+   "cover_prob": 0.594,
+   "diffs": {
+    "elo": 4.57,
+    "epa": 3.38
+   },
+   "edge": 1.6,
+   "ev": 0.126,
+   "hfa_flag": 1,
+   "home": "Detroit Lions",
+   "home_abbr": "DET",
+   "home_field": 2.169,
+   "home_qb": "Jared Goff",
+   "id": "2026_01_NO_DET",
+   "line": -7.0,
+   "model_spread": -5.4,
+   "neutral": false,
+   "offset": -1.27,
+   "result": {
+    "ats": "W",
+    "away_pts": 30.0,
+    "home_pts": 31.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-13T17:00:00Z",
+   "su_team": "Detroit Lions",
+   "su_wp": 0.652,
+   "tier": "lean",
+   "total_line": 49.5,
+   "week": 1,
+   "weights": {
+    "elo": 0.901,
+    "epa": 0.099
+   }
+  },
+  "2026_01_NYJ_TEN": {
+   "ats_line": -1.5,
+   "ats_side": "home",
+   "ats_team": "Tennessee Titans",
+   "away": "New York Jets",
+   "away_abbr": "NYJ",
+   "away_qb": "Geno Smith",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 56,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.919,
+     "data": 0.0,
+     "edge": 0.123,
+     "market": 0.5,
+     "trends": 0.75
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 56,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 1.9,
+     "epa": 3.1
+    }
+   },
+   "cover_prob": 0.536,
+   "diffs": {
+    "elo": -0.12,
+    "epa": 1.02
+   },
+   "edge": 0.6,
+   "ev": 0.046,
+   "hfa_flag": 1,
+   "home": "Tennessee Titans",
+   "home_abbr": "TEN",
+   "home_field": 2.169,
+   "home_qb": "Cam Ward",
+   "id": "2026_01_NYJ_TEN",
+   "line": -1.5,
+   "model_spread": -2.1,
+   "neutral": false,
+   "offset": -0.11,
+   "result": {
+    "ats": "L",
+    "away_pts": 23.0,
+    "home_pts": 10.0,
+    "su": "L"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-13T17:00:00Z",
+   "su_team": "Tennessee Titans",
+   "su_wp": 0.56,
+   "tier": "pass",
+   "total_line": 39.5,
+   "week": 1,
+   "weights": {
+    "elo": 0.901,
+    "epa": 0.099
+   }
+  },
+  "2026_01_SF_LA": {
+   "ats_line": 3.5,
+   "ats_side": "away",
+   "ats_team": "San Francisco 49ers",
+   "away": "San Francisco 49ers",
+   "away_abbr": "SF",
+   "away_qb": "Brock Purdy",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 58,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.854,
+     "data": 0.0,
+     "edge": 0.537,
+     "market": 0.5,
+     "trends": 0.25
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 58,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 0.9,
+     "epa": 2.9
+    }
+   },
+   "cover_prob": 0.597,
+   "diffs": {
+    "elo": 2.03,
+    "epa": 4.07
+   },
+   "edge": 2.4,
+   "ev": 0.165,
+   "hfa_flag": 0,
+   "home": "Los Angeles Rams",
+   "home_abbr": "LA",
+   "home_field": 2.169,
+   "home_qb": "Matthew Stafford",
+   "id": "2026_01_SF_LA",
+   "line": -3.5,
+   "model_spread": -1.1,
+   "neutral": true,
+   "offset": -1.15,
+   "result": {
+    "ats": "W",
+    "away_pts": 27.0,
+    "home_pts": 7.0,
+    "su": "L"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-11T00:35:00Z",
+   "su_team": "Los Angeles Rams",
+   "su_wp": 0.532,
+   "tier": "lean",
+   "total_line": 47.5,
+   "week": 1,
+   "weights": {
+    "elo": 0.901,
+    "epa": 0.099
+   }
+  },
+  "2026_01_TB_CIN": {
+   "ats_line": -3.5,
+   "ats_side": "home",
+   "ats_team": "Cincinnati Bengals",
+   "away": "Tampa Bay Buccaneers",
+   "away_abbr": "TB",
+   "away_qb": "Baker Mayfield",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Low",
+   "confidence": 50,
+   "confidence_detail": {
+    "agree": 1,
+    "components": {
+     "agreement": 0.901,
+     "consistency": 0.787,
+     "data": 0.0,
+     "edge": 0.266,
+     "market": 0.5,
+     "trends": 0.375
+    },
+    "label": "Low",
+    "n_sources": 2,
+    "score": 50,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 5.0,
+     "epa": 2.0
+    }
+   },
+   "cover_prob": 0.507,
+   "diffs": {
+    "elo": 0.07,
+    "epa": -2.91
+   },
+   "edge": 1.2,
+   "ev": -0.064,
+   "hfa_flag": 1,
+   "home": "Cincinnati Bengals",
+   "home_abbr": "CIN",
+   "home_field": 2.169,
+   "home_qb": "Joe Burrow",
+   "id": "2026_01_TB_CIN",
+   "line": -3.5,
+   "model_spread": -4.7,
+   "neutral": false,
+   "offset": 2.75,
+   "result": {
+    "ats": "W",
+    "away_pts": 27.0,
+    "home_pts": 33.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-13T17:00:00Z",
+   "su_team": "Cincinnati Bengals",
+   "su_wp": 0.634,
+   "tier": "pass",
+   "total_line": 50.5,
+   "week": 1,
+   "weights": {
+    "elo": 0.901,
+    "epa": 0.099
+   }
+  },
+  "2026_01_WAS_PHI": {
+   "ats_line": 6.0,
+   "ats_side": "away",
+   "ats_team": "Washington Commanders",
+   "away": "Washington Commanders",
+   "away_abbr": "WAS",
+   "away_qb": "Jayden Daniels",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Low",
+   "confidence": 51,
+   "confidence_detail": {
+    "agree": 1,
+    "components": {
+     "agreement": 0.901,
+     "consistency": 0.921,
+     "data": 0.0,
+     "edge": 0.156,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "Low",
+    "n_sources": 2,
+    "score": 51,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 5.2,
+     "epa": 6.3
+    }
+   },
+   "cover_prob": 0.546,
+   "diffs": {
+    "elo": 3.86,
+    "epa": 4.96
+   },
+   "edge": 0.7,
+   "ev": 0.042,
+   "hfa_flag": 1,
+   "home": "Philadelphia Eagles",
+   "home_abbr": "PHI",
+   "home_field": 2.169,
+   "home_qb": "Jalen Hurts",
+   "id": "2026_01_WAS_PHI",
+   "line": -6.0,
+   "model_spread": -5.3,
+   "neutral": false,
+   "offset": -0.84,
+   "result": {
+    "ats": "W",
+    "away_pts": 22.0,
+    "home_pts": 24.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-13T20:25:00Z",
+   "su_team": "Philadelphia Eagles",
+   "su_wp": 0.65,
+   "tier": "pass",
+   "total_line": 43.5,
+   "week": 1,
+   "weights": {
+    "elo": 0.901,
+    "epa": 0.099
+   }
+  },
+  "2026_02_CAR_ATL": {
+   "ats_line": 2.5,
+   "ats_side": "home",
+   "ats_team": "Atlanta Falcons",
+   "away": "Carolina Panthers",
+   "away_abbr": "CAR",
+   "away_qb": "Bryce Young",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "High",
+   "confidence": 76,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.804,
+     "data": 0.25,
+     "edge": 1.0,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "High",
+    "n_sources": 2,
+    "score": 76,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 5.1,
+     "epa": 7.9
+    }
+   },
+   "cover_prob": 0.695,
+   "diffs": {
+    "elo": 2.03,
+    "epa": 4.77
+   },
+   "edge": 7.9,
+   "ev": 0.391,
+   "hfa_flag": 1,
+   "home": "Atlanta Falcons",
+   "home_abbr": "ATL",
+   "home_field": 2.169,
+   "home_qb": "Tua Tagovailoa",
+   "id": "2026_02_CAR_ATL",
+   "line": 2.5,
+   "model_spread": -5.4,
+   "neutral": false,
+   "offset": 0.95,
+   "result": {
+    "ats": "L",
+    "away_pts": 34.0,
+    "home_pts": 3.0,
+    "su": "L"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-20T17:00:00Z",
+   "su_team": "Atlanta Falcons",
+   "su_wp": 0.654,
+   "tier": "strong",
+   "total_line": 43.5,
+   "week": 2,
+   "weights": {
+    "elo": 0.901,
+    "epa": 0.099
+   }
+  },
+  "2026_02_CIN_HOU": {
+   "ats_line": -3.0,
+   "ats_side": "home",
+   "ats_team": "Houston Texans",
+   "away": "Cincinnati Bengals",
+   "away_abbr": "CIN",
+   "away_qb": "Joe Burrow",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Low",
+   "confidence": 53,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.956,
+     "data": 0.25,
+     "edge": 0.182,
+     "market": 0.5,
+     "trends": 0.25
+    },
+    "label": "Low",
+    "n_sources": 2,
+    "score": 53,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 3.9,
+     "epa": 3.3
+    }
+   },
+   "cover_prob": 0.524,
+   "diffs": {
+    "elo": 3.47,
+    "epa": 2.86
+   },
+   "edge": 0.8,
+   "ev": 0.035,
+   "hfa_flag": 1,
+   "home": "Houston Texans",
+   "home_abbr": "HOU",
+   "home_field": 2.169,
+   "home_qb": "C.J. Stroud",
+   "id": "2026_02_CIN_HOU",
+   "line": -3.0,
+   "model_spread": -3.8,
+   "neutral": false,
+   "offset": -1.76,
+   "result": {
+    "ats": "L",
+    "away_pts": 20.0,
+    "home_pts": 6.0,
+    "su": "L"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-20T17:00:00Z",
+   "su_team": "Houston Texans",
+   "su_wp": 0.61,
+   "tier": "pass",
+   "total_line": 45.5,
+   "week": 2,
+   "weights": {
+    "elo": 0.901,
+    "epa": 0.099
+   }
+  },
+  "2026_02_CLE_TB": {
+   "ats_line": 8.5,
+   "ats_side": "away",
+   "ats_team": "Cleveland Browns",
+   "away": "Cleveland Browns",
+   "away_abbr": "CLE",
+   "away_qb": "Deshaun Watson",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 65,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.809,
+     "data": 0.25,
+     "edge": 0.655,
+     "market": 0.5,
+     "trends": 0.375
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 65,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 5.3,
+     "epa": 8.0
+    }
+   },
+   "cover_prob": 0.634,
+   "diffs": {
+    "elo": 2.13,
+    "epa": 4.8
+   },
+   "edge": 2.9,
+   "ev": 0.185,
+   "hfa_flag": 1,
+   "home": "Tampa Bay Buccaneers",
+   "home_abbr": "TB",
+   "home_field": 2.169,
+   "home_qb": "Baker Mayfield",
+   "id": "2026_02_CLE_TB",
+   "line": -8.5,
+   "model_spread": -5.6,
+   "neutral": false,
+   "offset": 0.99,
+   "result": {
+    "ats": "W",
+    "away_pts": 23.0,
+    "home_pts": 19.0,
+    "su": "L"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-20T17:00:00Z",
+   "su_team": "Tampa Bay Buccaneers",
+   "su_wp": 0.657,
+   "tier": "lean",
+   "total_line": 41.5,
+   "week": 2,
+   "weights": {
+    "elo": 0.901,
+    "epa": 0.099
+   }
+  },
+  "2026_02_DET_BUF": {
+   "ats_line": 5.5,
+   "ats_side": "away",
+   "ats_team": "Detroit Lions",
+   "away": "Detroit Lions",
+   "away_abbr": "DET",
+   "away_qb": "Jared Goff",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 61,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.964,
+     "data": 0.25,
+     "edge": 0.145,
+     "market": 0.5,
+     "trends": 0.875
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 61,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 4.9,
+     "epa": 4.4
+    }
+   },
+   "cover_prob": 0.539,
+   "diffs": {
+    "elo": 2.63,
+    "epa": 2.12
+   },
+   "edge": 0.7,
+   "ev": 0.008,
+   "hfa_flag": 1,
+   "home": "Buffalo Bills",
+   "home_abbr": "BUF",
+   "home_field": 2.169,
+   "home_qb": "Josh Allen",
+   "id": "2026_02_DET_BUF",
+   "line": -5.5,
+   "model_spread": -4.8,
+   "neutral": false,
+   "offset": 0.1,
+   "result": {
+    "ats": "L",
+    "away_pts": 31.0,
+    "home_pts": 41.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-18T00:15:00Z",
+   "su_team": "Buffalo Bills",
+   "su_wp": 0.638,
+   "tier": "pass",
+   "total_line": 54.5,
+   "week": 2,
+   "weights": {
+    "elo": 0.901,
+    "epa": 0.099
+   }
+  },
+  "2026_02_GB_NYJ": {
+   "ats_line": 3.5,
+   "ats_side": "home",
+   "ats_team": "New York Jets",
+   "away": "Green Bay Packers",
+   "away_abbr": "GB",
+   "away_qb": "Jordan Love",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 59,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.951,
+     "data": 0.25,
+     "edge": 0.299,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 59,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": -2.1,
+     "epa": -2.8
+    }
+   },
+   "cover_prob": 0.566,
+   "diffs": {
+    "elo": -4.39,
+    "epa": -5.07
+   },
+   "edge": 1.3,
+   "ev": 0.072,
+   "hfa_flag": 1,
+   "home": "New York Jets",
+   "home_abbr": "NYJ",
+   "home_field": 2.169,
+   "home_qb": "Geno Smith",
+   "id": "2026_02_GB_NYJ",
+   "line": 3.5,
+   "model_spread": 2.2,
+   "neutral": false,
+   "offset": 0.13,
+   "result": {
+    "ats": "W",
+    "away_pts": 20.0,
+    "home_pts": 17.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-20T17:00:00Z",
+   "su_team": "Green Bay Packers",
+   "su_wp": 0.563,
+   "tier": "pass",
+   "total_line": 44.5,
+   "week": 2,
+   "weights": {
+    "elo": 0.901,
+    "epa": 0.099
+   }
+  },
+  "2026_02_IND_KC": {
+   "ats_line": -6.0,
+   "ats_side": "home",
+   "ats_team": "Kansas City Chiefs",
+   "away": "Indianapolis Colts",
+   "away_abbr": "IND",
+   "away_qb": "Daniel Jones",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Low",
+   "confidence": 27,
+   "confidence_detail": {
+    "agree": 1,
+    "components": {
+     "agreement": 0.099,
+     "consistency": 0.816,
+     "data": 0.25,
+     "edge": 0.039,
+     "market": 0.5,
+     "trends": 0.375
+    },
+    "label": "Low",
+    "n_sources": 2,
+    "score": 27,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 5.9,
+     "epa": 8.5
+    }
+   },
+   "cover_prob": 0.48,
+   "diffs": {
+    "elo": 3.5,
+    "epa": 6.07
+   },
+   "edge": 0.2,
+   "ev": -0.073,
+   "hfa_flag": 1,
+   "home": "Kansas City Chiefs",
+   "home_abbr": "KC",
+   "home_field": 2.169,
+   "home_qb": "Patrick Mahomes",
+   "id": "2026_02_IND_KC",
+   "line": -6.0,
+   "model_spread": -6.2,
+   "neutral": false,
+   "offset": 0.25,
+   "result": {
+    "ats": "L",
+    "away_pts": 30.0,
+    "home_pts": 33.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-21T00:20:00Z",
+   "su_team": "Kansas City Chiefs",
+   "su_wp": 0.674,
+   "tier": "pass",
+   "total_line": 46.5,
+   "week": 2,
+   "weights": {
+    "elo": 0.901,
+    "epa": 0.099
+   }
+  },
+  "2026_02_JAX_DEN": {
+   "ats_line": 2.5,
+   "ats_side": "away",
+   "ats_team": "Jacksonville Jaguars",
+   "away": "Jacksonville Jaguars",
+   "away_abbr": "JAX",
+   "away_qb": "Trevor Lawrence",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 56,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.563,
+     "data": 0.25,
+     "edge": 0.313,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 56,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 1.7,
+     "epa": -4.4
+    }
+   },
+   "cover_prob": 0.516,
+   "diffs": {
+    "elo": -0.62,
+    "epa": -6.74
+   },
+   "edge": 1.4,
+   "ev": 0.007,
+   "hfa_flag": 1,
+   "home": "Denver Broncos",
+   "home_abbr": "DEN",
+   "home_field": 2.169,
+   "home_qb": "Bo Nix",
+   "id": "2026_02_JAX_DEN",
+   "line": -2.5,
+   "model_spread": -1.1,
+   "neutral": false,
+   "offset": 0.15,
+   "result": {
+    "ats": "L",
+    "away_pts": 13.0,
+    "home_pts": 20.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-20T20:05:00Z",
+   "su_team": "Denver Broncos",
+   "su_wp": 0.532,
+   "tier": "pass",
+   "total_line": 45.5,
+   "week": 2,
+   "weights": {
+    "elo": 0.901,
+    "epa": 0.099
+   }
+  },
+  "2026_02_LV_LAC": {
+   "ats_line": 6.5,
+   "ats_side": "away",
+   "ats_team": "Las Vegas Raiders",
+   "away": "Las Vegas Raiders",
+   "away_abbr": "LV",
+   "away_qb": "Kirk Cousins",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 65,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.724,
+     "data": 0.25,
+     "edge": 0.697,
+     "market": 0.5,
+     "trends": 0.375
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 65,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 3.7,
+     "epa": -0.1
+    }
+   },
+   "cover_prob": 0.618,
+   "diffs": {
+    "elo": 4.03,
+    "epa": 0.16
    },
    "edge": 3.1,
-   "ev": 0.221,
+   "ev": 0.249,
+   "hfa_flag": 1,
+   "home": "Los Angeles Chargers",
+   "home_abbr": "LAC",
+   "home_field": 2.169,
+   "home_qb": "Justin Herbert",
+   "id": "2026_02_LV_LAC",
+   "line": -6.5,
+   "model_spread": -3.4,
+   "neutral": false,
+   "offset": -2.45,
+   "result": {
+    "ats": "W",
+    "away_pts": 26.0,
+    "home_pts": 14.0,
+    "su": "L"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-20T20:05:00Z",
+   "su_team": "Los Angeles Chargers",
+   "su_wp": 0.597,
+   "tier": "play",
+   "total_line": 43.5,
+   "week": 2,
+   "weights": {
+    "elo": 0.901,
+    "epa": 0.099
+   }
+  },
+  "2026_02_MIA_SF": {
+   "ats_line": 12.5,
+   "ats_side": "away",
+   "ats_team": "Miami Dolphins",
+   "away": "Miami Dolphins",
+   "away_abbr": "MIA",
+   "away_qb": "Malik Willis",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 68,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.927,
+     "data": 0.25,
+     "edge": 0.714,
+     "market": 0.5,
+     "trends": 0.375
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 68,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 9.2,
+     "epa": 10.2
+    }
+   },
+   "cover_prob": 0.602,
+   "diffs": {
+    "elo": 6.68,
+    "epa": 7.7
+   },
+   "edge": 3.2,
+   "ev": 0.176,
+   "hfa_flag": 1,
+   "home": "San Francisco 49ers",
+   "home_abbr": "SF",
+   "home_field": 2.169,
+   "home_qb": "Brock Purdy",
+   "id": "2026_02_MIA_SF",
+   "line": -12.5,
+   "model_spread": -9.3,
+   "neutral": false,
+   "offset": 0.34,
+   "result": {
+    "ats": "L",
+    "away_pts": 13.0,
+    "home_pts": 35.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-20T20:25:00Z",
+   "su_team": "San Francisco 49ers",
+   "su_wp": 0.749,
+   "tier": "play",
+   "total_line": 44.5,
+   "week": 2,
+   "weights": {
+    "elo": 0.901,
+    "epa": 0.099
+   }
+  },
+  "2026_02_MIN_CHI": {
+   "ats_line": 4.5,
+   "ats_side": "away",
+   "ats_team": "Minnesota Vikings",
+   "away": "Minnesota Vikings",
+   "away_abbr": "MIN",
+   "away_qb": "Carson Wentz",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "High",
+   "confidence": 71,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.744,
+     "data": 0.25,
+     "edge": 0.862,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "High",
+    "n_sources": 2,
+    "score": 71,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 0.3,
+     "epa": 3.9
+    }
+   },
+   "cover_prob": 0.638,
+   "diffs": {
+    "elo": -0.74,
+    "epa": 2.85
+   },
+   "edge": 3.9,
+   "ev": 0.229,
+   "hfa_flag": 1,
+   "home": "Chicago Bears",
+   "home_abbr": "CHI",
+   "home_field": 2.169,
+   "home_qb": "Caleb Williams",
+   "id": "2026_02_MIN_CHI",
+   "line": -4.5,
+   "model_spread": -0.6,
+   "neutral": false,
+   "offset": -1.16,
+   "result": {
+    "ats": "W",
+    "away_pts": 9.0,
+    "home_pts": 3.0,
+    "su": "L"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-20T17:00:00Z",
+   "su_team": "Chicago Bears",
+   "su_wp": 0.518,
+   "tier": "play",
+   "total_line": 46.5,
+   "week": 2,
+   "weights": {
+    "elo": 0.901,
+    "epa": 0.099
+   }
+  },
+  "2026_02_NO_BAL": {
+   "ats_line": 8.5,
+   "ats_side": "away",
+   "ats_team": "New Orleans Saints",
+   "away": "New Orleans Saints",
+   "away_abbr": "NO",
+   "away_qb": "Tyler Shough",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 55,
+   "confidence_detail": {
+    "agree": 1,
+    "components": {
+     "agreement": 0.901,
+     "consistency": 0.939,
+     "data": 0.25,
+     "edge": 0.144,
+     "market": 0.5,
+     "trends": 0.625
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 55,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 7.8,
+     "epa": 8.6
+    }
+   },
+   "cover_prob": 0.568,
+   "diffs": {
+    "elo": 5.32,
+    "epa": 6.17
+   },
+   "edge": 0.6,
+   "ev": 0.061,
+   "hfa_flag": 1,
+   "home": "Baltimore Ravens",
+   "home_abbr": "BAL",
+   "home_field": 2.169,
+   "home_qb": "Lamar Jackson",
+   "id": "2026_02_NO_BAL",
+   "line": -8.5,
+   "model_spread": -7.9,
+   "neutral": false,
+   "offset": 0.28,
+   "result": {
+    "ats": "W",
+    "away_pts": 24.0,
+    "home_pts": 17.0,
+    "su": "L"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-20T17:00:00Z",
+   "su_team": "Baltimore Ravens",
+   "su_wp": 0.716,
+   "tier": "pass",
+   "total_line": 45.5,
+   "week": 2,
+   "weights": {
+    "elo": 0.901,
+    "epa": 0.099
+   }
+  },
+  "2026_02_NYG_LA": {
+   "ats_line": 6.5,
+   "ats_side": "away",
+   "ats_team": "New York Giants",
+   "away": "New York Giants",
+   "away_abbr": "NYG",
+   "away_qb": "Jaxson Dart",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Low",
+   "confidence": 53,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.826,
+     "data": 0.25,
+     "edge": 0.072,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "Low",
+    "n_sources": 2,
+    "score": 53,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 6.4,
+     "epa": 4.0
+    }
+   },
+   "cover_prob": 0.538,
+   "diffs": {
+    "elo": 4.96,
+    "epa": 2.53
+   },
+   "edge": 0.3,
+   "ev": 0.05,
+   "hfa_flag": 1,
+   "home": "Los Angeles Rams",
+   "home_abbr": "LA",
+   "home_field": 2.169,
+   "home_qb": "Matthew Stafford",
+   "id": "2026_02_NYG_LA",
+   "line": -6.5,
+   "model_spread": -6.2,
+   "neutral": false,
+   "offset": -0.71,
+   "result": {
+    "ats": "L",
+    "away_pts": 6.0,
+    "home_pts": 28.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-22T00:15:00Z",
+   "su_team": "Los Angeles Rams",
+   "su_wp": 0.674,
+   "tier": "pass",
+   "total_line": 47.5,
+   "week": 2,
+   "weights": {
+    "elo": 0.901,
+    "epa": 0.099
+   }
+  },
+  "2026_02_PHI_TEN": {
+   "ats_line": -7.0,
+   "ats_side": "away",
+   "ats_team": "Philadelphia Eagles",
+   "away": "Philadelphia Eagles",
+   "away_abbr": "PHI",
+   "away_qb": "Jalen Hurts",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Low",
+   "confidence": 54,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.902,
+     "data": 0.25,
+     "edge": 0.114,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "Low",
+    "n_sources": 2,
+    "score": 54,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": -7.4,
+     "epa": -8.7
+    }
+   },
+   "cover_prob": 0.472,
+   "diffs": {
+    "elo": -9.32,
+    "epa": -10.69
+   },
+   "edge": 0.5,
+   "ev": -0.11,
+   "hfa_flag": 1,
+   "home": "Tennessee Titans",
+   "home_abbr": "TEN",
+   "home_field": 2.169,
+   "home_qb": "Cam Ward",
+   "id": "2026_02_PHI_TEN",
+   "line": 7.0,
+   "model_spread": 7.5,
+   "neutral": false,
+   "offset": -0.23,
+   "result": {
+    "ats": "L",
+    "away_pts": 24.0,
+    "home_pts": 20.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-20T17:00:00Z",
+   "su_team": "Philadelphia Eagles",
+   "su_wp": 0.707,
+   "tier": "pass",
+   "total_line": 39.5,
+   "week": 2,
+   "weights": {
+    "elo": 0.901,
+    "epa": 0.099
+   }
+  },
+  "2026_02_PIT_NE": {
+   "ats_line": -4.5,
+   "ats_side": "home",
+   "ats_team": "New England Patriots",
+   "away": "Pittsburgh Steelers",
+   "away_abbr": "PIT",
+   "away_qb": "Aaron Rodgers",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Low",
+   "confidence": 51,
+   "confidence_detail": {
+    "agree": 1,
+    "components": {
+     "agreement": 0.901,
+     "consistency": 0.964,
+     "data": 0.25,
+     "edge": 0.065,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "Low",
+    "n_sources": 2,
+    "score": 51,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 4.8,
+     "epa": 4.3
+    }
+   },
+   "cover_prob": 0.481,
+   "diffs": {
+    "elo": 2.49,
+    "epa": 1.99
+   },
+   "edge": 0.3,
+   "ev": -0.112,
+   "hfa_flag": 1,
+   "home": "New England Patriots",
+   "home_abbr": "NE",
+   "home_field": 2.169,
+   "home_qb": "Drake Maye",
+   "id": "2026_02_PIT_NE",
+   "line": -4.5,
+   "model_spread": -4.8,
+   "neutral": false,
+   "offset": 0.18,
+   "result": {
+    "ats": "W",
+    "away_pts": 3.0,
+    "home_pts": 20.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-20T17:00:00Z",
+   "su_team": "New England Patriots",
+   "su_wp": 0.637,
+   "tier": "pass",
+   "total_line": 41.5,
+   "week": 2,
+   "weights": {
+    "elo": 0.901,
+    "epa": 0.099
+   }
+  },
+  "2026_02_SEA_ARI": {
+   "ats_line": -3.5,
+   "ats_side": "away",
+   "ats_team": "Seattle Seahawks",
+   "away": "Seattle Seahawks",
+   "away_abbr": "SEA",
+   "away_qb": "Drew Lock",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Low",
+   "confidence": 50,
+   "confidence_detail": {
+    "agree": 1,
+    "components": {
+     "agreement": 0.901,
+     "consistency": 0.637,
+     "data": 0.25,
+     "edge": 0.053,
+     "market": 0.5,
+     "trends": 0.625
+    },
+    "label": "Low",
+    "n_sources": 2,
+    "score": 50,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": -4.2,
+     "epa": 0.8
+    }
+   },
+   "cover_prob": 0.479,
+   "diffs": {
+    "elo": -9.94,
+    "epa": -4.86
+   },
+   "edge": 0.2,
+   "ev": -0.122,
+   "hfa_flag": 1,
+   "home": "Arizona Cardinals",
+   "home_abbr": "ARI",
+   "home_field": 2.169,
+   "home_qb": "Jacoby Brissett",
+   "id": "2026_02_SEA_ARI",
+   "line": 3.5,
+   "model_spread": 3.7,
+   "neutral": false,
+   "offset": 3.53,
+   "result": {
+    "ats": "W",
+    "away_pts": 31.0,
+    "home_pts": 7.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-20T20:25:00Z",
+   "su_team": "Seattle Seahawks",
+   "su_wp": 0.608,
+   "tier": "pass",
+   "total_line": 40.5,
+   "week": 2,
+   "weights": {
+    "elo": 0.901,
+    "epa": 0.099
+   }
+  },
+  "2026_02_WAS_DAL": {
+   "ats_line": 3.5,
+   "ats_side": "away",
+   "ats_team": "Washington Commanders",
+   "away": "Washington Commanders",
+   "away_abbr": "WAS",
+   "away_qb": "Jayden Daniels",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 67,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.923,
+     "data": 0.25,
+     "edge": 0.676,
+     "market": 0.5,
+     "trends": 0.375
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 67,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 0.6,
+     "epa": -0.5
+    }
+   },
+   "cover_prob": 0.614,
+   "diffs": {
+    "elo": -0.72,
+    "epa": -1.8
+   },
+   "edge": 3.0,
+   "ev": 0.229,
+   "hfa_flag": 1,
+   "home": "Dallas Cowboys",
+   "home_abbr": "DAL",
+   "home_field": 2.169,
+   "home_qb": "Dak Prescott",
+   "id": "2026_02_WAS_DAL",
+   "line": -3.5,
+   "model_spread": -0.5,
+   "neutral": false,
+   "offset": -0.89,
+   "result": {
+    "ats": "L",
+    "away_pts": 20.0,
+    "home_pts": 37.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-20T20:25:00Z",
+   "su_team": "Dallas Cowboys",
+   "su_wp": 0.513,
+   "tier": "play",
+   "total_line": 51.5,
+   "week": 2,
+   "weights": {
+    "elo": 0.901,
+    "epa": 0.099
+   }
+  },
+  "2026_03_ARI_SF": {
+   "ats_line": -7.5,
+   "ats_side": "home",
+   "ats_team": "San Francisco 49ers",
+   "away": "Arizona Cardinals",
+   "away_abbr": "ARI",
+   "away_qb": "Jacoby Brissett",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "High",
+   "confidence": 71,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.88,
+     "data": 0.5,
+     "edge": 0.775,
+     "market": 0.5,
+     "trends": 0.375
+    },
+    "label": "High",
+    "n_sources": 2,
+    "score": 71,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 11.1,
+     "epa": 9.5
+    }
+   },
+   "cover_prob": 0.548,
+   "diffs": {
+    "elo": 7.4,
+    "epa": 5.72
+   },
+   "edge": 3.5,
+   "ev": 0.047,
+   "hfa_flag": 1,
+   "home": "San Francisco 49ers",
+   "home_abbr": "SF",
+   "home_field": 1.923,
+   "home_qb": "Brock Purdy",
+   "id": "2026_03_ARI_SF",
+   "line": -7.5,
+   "model_spread": -11.0,
+   "neutral": false,
+   "offset": 1.81,
+   "result": {
+    "ats": "L",
+    "away_pts": 30.0,
+    "home_pts": 36.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-27T20:05:00Z",
+   "su_team": "San Francisco 49ers",
+   "su_wp": 0.786,
+   "tier": "play",
+   "total_line": 48.5,
+   "week": 3,
+   "weights": {
+    "elo": 0.912,
+    "epa": 0.088
+   }
+  },
+  "2026_03_ATL_GB": {
+   "ats_line": -4.5,
+   "ats_side": "home",
+   "ats_team": "Green Bay Packers",
+   "away": "Atlanta Falcons",
+   "away_abbr": "ATL",
+   "away_qb": "Michael Penix Jr.",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 64,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.961,
+     "data": 0.5,
+     "edge": 0.317,
+     "market": 0.5,
+     "trends": 0.625
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 64,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 6.0,
+     "epa": 5.4
+    }
+   },
+   "cover_prob": 0.513,
+   "diffs": {
+    "elo": 4.07,
+    "epa": 3.53
+   },
+   "edge": 1.4,
+   "ev": -0.028,
+   "hfa_flag": 1,
+   "home": "Green Bay Packers",
+   "home_abbr": "GB",
+   "home_field": 1.923,
+   "home_qb": "Jordan Love",
+   "id": "2026_03_ATL_GB",
+   "line": -4.5,
+   "model_spread": -5.9,
+   "neutral": false,
+   "offset": -0.02,
+   "result": {
+    "ats": "L",
+    "away_pts": 35.0,
+    "home_pts": 14.0,
+    "su": "L"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-25T00:15:00Z",
+   "su_team": "Green Bay Packers",
+   "su_wp": 0.667,
+   "tier": "pass",
+   "total_line": 43.5,
+   "week": 3,
+   "weights": {
+    "elo": 0.912,
+    "epa": 0.088
+   }
+  },
+  "2026_03_BAL_DAL": {
+   "ats_line": -3.0,
+   "ats_side": "away",
+   "ats_team": "Baltimore Ravens",
+   "away": "Baltimore Ravens",
+   "away_abbr": "BAL",
+   "away_qb": "Lamar Jackson",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 59,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.784,
+     "data": 0.5,
+     "edge": 0.263,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 59,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": -3.9,
+     "epa": -6.9
+    }
+   },
+   "cover_prob": 0.536,
+   "diffs": {
+    "elo": -2.93,
+    "epa": -5.95
+   },
+   "edge": 1.2,
+   "ev": -0.016,
+   "hfa_flag": 0,
+   "home": "Dallas Cowboys",
+   "home_abbr": "DAL",
+   "home_field": 1.923,
+   "home_qb": "Dak Prescott",
+   "id": "2026_03_BAL_DAL",
+   "line": 3.0,
+   "model_spread": 4.2,
+   "neutral": true,
+   "offset": -0.99,
+   "result": {
+    "ats": "P",
+    "away_pts": 34.0,
+    "home_pts": 31.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-27T20:25:00Z",
+   "su_team": "Baltimore Ravens",
+   "su_wp": 0.62,
+   "tier": "pass",
+   "total_line": 53.5,
+   "week": 3,
+   "weights": {
+    "elo": 0.912,
+    "epa": 0.088
+   }
+  },
+  "2026_03_CAR_CLE": {
+   "ats_line": 2.5,
+   "ats_side": "home",
+   "ats_team": "Cleveland Browns",
+   "away": "Carolina Panthers",
+   "away_abbr": "CAR",
+   "away_qb": "Bryce Young",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "High",
+   "confidence": 74,
+   "confidence_detail": {
+    "agree": 1,
+    "components": {
+     "agreement": 0.912,
+     "consistency": 0.719,
+     "data": 0.5,
+     "edge": 0.739,
+     "market": 0.5,
+     "trends": 0.875
+    },
+    "label": "High",
+    "n_sources": 2,
+    "score": 74,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 1.2,
+     "epa": -2.8
+    }
+   },
+   "cover_prob": 0.571,
+   "diffs": {
+    "elo": -0.88,
+    "epa": -4.81
+   },
+   "edge": 3.3,
+   "ev": 0.081,
    "hfa_flag": 1,
    "home": "Cleveland Browns",
    "home_abbr": "CLE",
-   "home_field": 1.6,
-   "id": "2026_06_BAL_CLE",
-   "line": 3.5,
-   "model_spread": 0.4,
-   "model_total": 42.2,
+   "home_field": 1.923,
+   "home_qb": "Deshaun Watson",
+   "id": "2026_03_CAR_CLE",
+   "line": 2.5,
+   "model_spread": -0.8,
    "neutral": false,
-   "offset": 4.47,
-   "proj_away": 21.3,
-   "proj_home": 20.9,
-   "result": null,
+   "offset": 0.13,
+   "result": {
+    "ats": "W",
+    "away_pts": 18.0,
+    "home_pts": 21.0,
+    "su": "W"
+   },
    "season": 2026,
    "season_type": "regular",
-   "start": "2026-10-18T17:00:00Z",
-   "su_team": "Baltimore Ravens",
-   "su_wp": 0.511,
+   "start": "2026-09-27T17:00:00Z",
+   "su_team": "Cleveland Browns",
+   "su_wp": 0.524,
    "tier": "play",
-   "total_line": 40.5,
-   "updated": "2026-10-12T11:38:16Z",
-   "week": 6,
+   "total_line": 41.5,
+   "week": 3,
    "weights": {
-    "elo": 0.4,
-    "epa": 0.6
+    "elo": 0.912,
+    "epa": 0.088
    }
   },
-  "2026_06_BUF_LV": {
-   "ats_line": 6.0,
+  "2026_03_CIN_PIT": {
+   "ats_line": 3.5,
    "ats_side": "home",
-   "ats_team": "Las Vegas Raiders",
-   "away": "Buffalo Bills",
-   "away_abbr": "BUF",
-   "book": "nflverse consensus",
+   "ats_team": "Pittsburgh Steelers",
+   "away": "Cincinnati Bengals",
+   "away_abbr": "CIN",
+   "away_qb": "Joe Burrow",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 61,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.877,
+     "data": 0.5,
+     "edge": 0.432,
+     "market": 0.5,
+     "trends": 0.25
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 61,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": -1.4,
+     "epa": -3.1
+    }
+   },
+   "cover_prob": 0.584,
+   "diffs": {
+    "elo": -1.15,
+    "epa": -2.87
+   },
+   "edge": 1.9,
+   "ev": 0.078,
+   "hfa_flag": 1,
+   "home": "Pittsburgh Steelers",
+   "home_abbr": "PIT",
+   "home_field": 1.923,
+   "home_qb": "Aaron Rodgers",
+   "id": "2026_03_CIN_PIT",
+   "line": 3.5,
+   "model_spread": 1.6,
+   "neutral": false,
+   "offset": -2.18,
+   "result": {
+    "ats": "W",
+    "away_pts": 27.0,
+    "home_pts": 30.0,
+    "su": "L"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-27T17:00:00Z",
+   "su_team": "Cincinnati Bengals",
+   "su_wp": 0.545,
+   "tier": "lean",
+   "total_line": 42.5,
+   "week": 3,
+   "weights": {
+    "elo": 0.912,
+    "epa": 0.088
+   }
+  },
+  "2026_03_HOU_IND": {
+   "ats_line": -1.5,
+   "ats_side": "away",
+   "ats_team": "Houston Texans",
+   "away": "Houston Texans",
+   "away_abbr": "HOU",
+   "away_qb": "C.J. Stroud",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 58,
+   "confidence_detail": {
+    "agree": 1,
+    "components": {
+     "agreement": 0.912,
+     "consistency": 0.903,
+     "data": 0.5,
+     "edge": 0.237,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 58,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": -2.7,
+     "epa": -1.3
+    }
+   },
+   "cover_prob": 0.551,
+   "diffs": {
+    "elo": -4.47,
+    "epa": -3.11
+   },
+   "edge": 1.1,
+   "ev": 0.042,
+   "hfa_flag": 1,
+   "home": "Indianapolis Colts",
+   "home_abbr": "IND",
+   "home_field": 1.923,
+   "home_qb": "Daniel Jones",
+   "id": "2026_03_HOU_IND",
+   "line": 1.5,
+   "model_spread": 2.6,
+   "neutral": false,
+   "offset": -0.14,
+   "result": {
+    "ats": "L",
+    "away_pts": 17.0,
+    "home_pts": 19.0,
+    "su": "L"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-27T17:00:00Z",
+   "su_team": "Houston Texans",
+   "su_wp": 0.575,
+   "tier": "pass",
+   "total_line": 41.5,
+   "week": 3,
+   "weights": {
+    "elo": 0.912,
+    "epa": 0.088
+   }
+  },
+  "2026_03_KC_MIA": {
+   "ats_line": 10.0,
+   "ats_side": "home",
+   "ats_team": "Miami Dolphins",
+   "away": "Kansas City Chiefs",
+   "away_abbr": "KC",
+   "away_qb": "Patrick Mahomes",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "High",
+   "confidence": 80,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.774,
+     "data": 0.5,
+     "edge": 1.0,
+     "market": 0.5,
+     "trends": 0.625
+    },
+    "label": "High",
+    "n_sources": 2,
+    "score": 80,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": -3.0,
+     "epa": -6.2
+    }
+   },
+   "cover_prob": 0.729,
+   "diffs": {
+    "elo": -5.06,
+    "epa": -8.23
+   },
+   "edge": 6.7,
+   "ev": 0.368,
+   "hfa_flag": 1,
+   "home": "Miami Dolphins",
+   "home_abbr": "MIA",
+   "home_field": 1.923,
+   "home_qb": "Malik Willis",
+   "id": "2026_03_KC_MIA",
+   "line": 10.0,
+   "model_spread": 3.3,
+   "neutral": false,
+   "offset": 0.13,
+   "result": {
+    "ats": "L",
+    "away_pts": 24.0,
+    "home_pts": 10.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-27T17:00:00Z",
+   "su_team": "Kansas City Chiefs",
+   "su_wp": 0.595,
+   "tier": "strong",
+   "total_line": 45.5,
+   "week": 3,
+   "weights": {
+    "elo": 0.912,
+    "epa": 0.088
+   }
+  },
+  "2026_03_LAC_BUF": {
+   "ats_line": -7.0,
+   "ats_side": "home",
+   "ats_team": "Buffalo Bills",
+   "away": "Los Angeles Chargers",
+   "away_abbr": "LAC",
+   "away_qb": "Justin Herbert",
+   "backtest": true,
+   "book": "nflverse closing consensus",
    "conf_label": "High",
    "confidence": 70,
    "confidence_detail": {
     "agree": 2,
     "components": {
      "agreement": 1.0,
-     "consistency": 0.989,
-     "data": 1.0,
-     "edge": 0.423,
+     "consistency": 0.895,
+     "data": 0.5,
+     "edge": 0.624,
      "market": 0.5,
      "trends": 0.5
     },
@@ -226,108 +2760,3034 @@
      "epa": "EPA"
     },
     "sources": {
-     "elo": -4.2,
-     "epa": -4.0
+     "elo": 9.7,
+     "epa": 11.1
     }
    },
-   "cover_prob": 0.582,
+   "cover_prob": 0.543,
    "diffs": {
-    "elo": -8.14,
-    "epa": -7.98
+    "elo": 7.68,
+    "epa": 9.15
    },
-   "edge": 1.9,
-   "ev": 0.107,
+   "edge": 2.8,
+   "ev": 0.026,
    "hfa_flag": 1,
-   "home": "Las Vegas Raiders",
-   "home_abbr": "LV",
-   "home_field": 1.6,
-   "id": "2026_06_BUF_LV",
-   "line": 6.0,
-   "model_spread": 4.1,
-   "model_total": 54.6,
+   "home": "Buffalo Bills",
+   "home_abbr": "BUF",
+   "home_field": 1.923,
+   "home_qb": "Josh Allen",
+   "id": "2026_03_LAC_BUF",
+   "line": -7.0,
+   "model_spread": -9.8,
    "neutral": false,
-   "offset": 2.35,
-   "proj_away": 29.3,
-   "proj_home": 25.2,
-   "result": null,
+   "offset": 0.08,
+   "result": {
+    "ats": "W",
+    "away_pts": 16.0,
+    "home_pts": 24.0,
+    "su": "W"
+   },
    "season": 2026,
    "season_type": "regular",
-   "start": "2026-10-18T20:25:00Z",
+   "start": "2026-09-27T17:00:00Z",
    "su_team": "Buffalo Bills",
-   "su_wp": 0.618,
+   "su_wp": 0.761,
    "tier": "lean",
-   "total_line": 52.5,
-   "updated": "2026-10-12T11:38:16Z",
-   "week": 6,
+   "total_line": 50.5,
+   "week": 3,
    "weights": {
-    "elo": 0.4,
-    "epa": 0.6
+    "elo": 0.912,
+    "epa": 0.088
    }
   },
-  "2026_06_CAR_PHI": {
-   "ats_line": 1.5,
-   "ats_side": "away",
-   "ats_team": "Carolina Panthers",
-   "away": "Carolina Panthers",
-   "away_abbr": "CAR",
-   "book": "nflverse consensus",
+  "2026_03_LA_DEN": {
+   "ats_line": -1.5,
+   "ats_side": "home",
+   "ats_team": "Denver Broncos",
+   "away": "Los Angeles Rams",
+   "away_abbr": "LA",
+   "away_qb": "Matthew Stafford",
+   "backtest": true,
+   "book": "nflverse closing consensus",
    "conf_label": "Low",
-   "confidence": 50,
+   "confidence": 51,
    "confidence_detail": {
     "agree": 1,
     "components": {
-     "agreement": 0.6,
-     "consistency": 0.671,
-     "data": 1.0,
-     "edge": 0.195,
+     "agreement": 0.912,
+     "consistency": 0.637,
+     "data": 0.5,
+     "edge": 0.064,
      "market": 0.5,
-     "trends": 0.375
+     "trends": 0.5
     },
     "label": "Low",
     "n_sources": 2,
-    "score": 50,
+    "score": 51,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 2.2,
+     "epa": -2.8
+    }
+   },
+   "cover_prob": 0.528,
+   "diffs": {
+    "elo": 0.07,
+    "epa": -5.01
+   },
+   "edge": 0.3,
+   "ev": 0.067,
+   "hfa_flag": 1,
+   "home": "Denver Broncos",
+   "home_abbr": "DEN",
+   "home_field": 1.923,
+   "home_qb": "Bo Nix",
+   "id": "2026_03_LA_DEN",
+   "line": -1.5,
+   "model_spread": -1.8,
+   "neutral": false,
+   "offset": 0.24,
+   "result": {
+    "ats": "W",
+    "away_pts": 26.0,
+    "home_pts": 30.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-28T00:20:00Z",
+   "su_team": "Denver Broncos",
+   "su_wp": 0.552,
+   "tier": "pass",
+   "total_line": 43.5,
+   "week": 3,
+   "weights": {
+    "elo": 0.912,
+    "epa": 0.088
+   }
+  },
+  "2026_03_LV_NO": {
+   "ats_line": 3.5,
+   "ats_side": "away",
+   "ats_team": "Las Vegas Raiders",
+   "away": "Las Vegas Raiders",
+   "away_abbr": "LV",
+   "away_qb": "Kirk Cousins",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 63,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.91,
+     "data": 0.5,
+     "edge": 0.268,
+     "market": 0.5,
+     "trends": 0.625
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 63,
     "side": "away",
     "source_names": {
      "elo": "Elo",
      "epa": "EPA"
     },
     "sources": {
-     "elo": 3.4,
-     "epa": -1.2
+     "elo": 2.4,
+     "epa": 1.1
     }
    },
-   "cover_prob": 0.506,
+   "cover_prob": 0.562,
    "diffs": {
-    "elo": 2.14,
-    "epa": -2.46
+    "elo": 1.84,
+    "epa": 0.58
    },
-   "edge": 0.9,
-   "ev": -0.054,
+   "edge": 1.2,
+   "ev": 0.065,
+   "hfa_flag": 1,
+   "home": "New Orleans Saints",
+   "home_abbr": "NO",
+   "home_field": 1.923,
+   "home_qb": "Tyler Shough",
+   "id": "2026_03_LV_NO",
+   "line": -3.5,
+   "model_spread": -2.3,
+   "neutral": false,
+   "offset": -1.36,
+   "result": {
+    "ats": "W",
+    "away_pts": 35.0,
+    "home_pts": 27.0,
+    "su": "L"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-27T20:25:00Z",
+   "su_team": "New Orleans Saints",
+   "su_wp": 0.567,
+   "tier": "pass",
+   "total_line": 43.5,
+   "week": 3,
+   "weights": {
+    "elo": 0.912,
+    "epa": 0.088
+   }
+  },
+  "2026_03_MIN_TB": {
+   "ats_line": -1.5,
+   "ats_side": "away",
+   "ats_team": "Minnesota Vikings",
+   "away": "Minnesota Vikings",
+   "away_abbr": "MIN",
+   "away_qb": "Kyler Murray",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "High",
+   "confidence": 86,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.877,
+     "data": 0.5,
+     "edge": 1.0,
+     "market": 0.5,
+     "trends": 1.0
+    },
+    "label": "High",
+    "n_sources": 2,
+    "score": 86,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": -7.4,
+     "epa": -5.7
+    }
+   },
+   "cover_prob": 0.679,
+   "diffs": {
+    "elo": -6.2,
+    "epa": -4.48
+   },
+   "edge": 5.7,
+   "ev": 0.344,
+   "hfa_flag": 1,
+   "home": "Tampa Bay Buccaneers",
+   "home_abbr": "TB",
+   "home_field": 1.923,
+   "home_qb": "Baker Mayfield",
+   "id": "2026_03_MIN_TB",
+   "line": 1.5,
+   "model_spread": 7.2,
+   "neutral": false,
+   "offset": -3.11,
+   "result": {
+    "ats": "W",
+    "away_pts": 23.0,
+    "home_pts": 16.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-27T20:05:00Z",
+   "su_team": "Minnesota Vikings",
+   "su_wp": 0.7,
+   "tier": "strong",
+   "total_line": 42.5,
+   "week": 3,
+   "weights": {
+    "elo": 0.912,
+    "epa": 0.088
+   }
+  },
+  "2026_03_NE_JAX": {
+   "ats_line": 3.0,
+   "ats_side": "away",
+   "ats_team": "New England Patriots",
+   "away": "New England Patriots",
+   "away_abbr": "NE",
+   "away_qb": "Drake Maye",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 69,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.905,
+     "data": 0.5,
+     "edge": 0.592,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 69,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 0.2,
+     "epa": 1.5
+    }
+   },
+   "cover_prob": 0.584,
+   "diffs": {
+    "elo": -1.69,
+    "epa": -0.36
+   },
+   "edge": 2.7,
+   "ev": 0.085,
+   "hfa_flag": 1,
+   "home": "Jacksonville Jaguars",
+   "home_abbr": "JAX",
+   "home_field": 1.923,
+   "home_qb": "Trevor Lawrence",
+   "id": "2026_03_NE_JAX",
+   "line": -3.0,
+   "model_spread": -0.3,
+   "neutral": false,
+   "offset": -0.02,
+   "result": {
+    "ats": "L",
+    "away_pts": 6.0,
+    "home_pts": 35.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-27T17:00:00Z",
+   "su_team": "Jacksonville Jaguars",
+   "su_wp": 0.51,
+   "tier": "lean",
+   "total_line": 46.5,
+   "week": 3,
+   "weights": {
+    "elo": 0.912,
+    "epa": 0.088
+   }
+  },
+  "2026_03_NYJ_DET": {
+   "ats_line": -7.0,
+   "ats_side": "home",
+   "ats_team": "Detroit Lions",
+   "away": "New York Jets",
+   "away_abbr": "NYJ",
+   "away_qb": "Geno Smith",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 62,
+   "confidence_detail": {
+    "agree": 1,
+    "components": {
+     "agreement": 0.912,
+     "consistency": 0.774,
+     "data": 0.5,
+     "edge": 0.148,
+     "market": 0.5,
+     "trends": 1.0
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 62,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 7.9,
+     "epa": 4.8
+    }
+   },
+   "cover_prob": 0.477,
+   "diffs": {
+    "elo": 6.38,
+    "epa": 3.22
+   },
+   "edge": 0.7,
+   "ev": -0.084,
+   "hfa_flag": 1,
+   "home": "Detroit Lions",
+   "home_abbr": "DET",
+   "home_field": 1.923,
+   "home_qb": "Jared Goff",
+   "id": "2026_03_NYJ_DET",
+   "line": -7.0,
+   "model_spread": -7.7,
+   "neutral": false,
+   "offset": -0.36,
+   "result": {
+    "ats": "P",
+    "away_pts": 24.0,
+    "home_pts": 31.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-27T17:00:00Z",
+   "su_team": "Detroit Lions",
+   "su_wp": 0.711,
+   "tier": "pass",
+   "total_line": 49.5,
+   "week": 3,
+   "weights": {
+    "elo": 0.912,
+    "epa": 0.088
+   }
+  },
+  "2026_03_PHI_CHI": {
+   "ats_line": 3.5,
+   "ats_side": "home",
+   "ats_team": "Chicago Bears",
+   "away": "Philadelphia Eagles",
+   "away_abbr": "PHI",
+   "away_qb": "Jalen Hurts",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 61,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.709,
+     "data": 0.5,
+     "edge": 0.37,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 61,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": -2.2,
+     "epa": 1.9
+    }
+   },
+   "cover_prob": 0.576,
+   "diffs": {
+    "elo": -1.42,
+    "epa": 2.66
+   },
+   "edge": 1.7,
+   "ev": 0.108,
+   "hfa_flag": 1,
+   "home": "Chicago Bears",
+   "home_abbr": "CHI",
+   "home_field": 1.923,
+   "home_qb": "Case Keenum",
+   "id": "2026_03_PHI_CHI",
+   "line": 3.5,
+   "model_spread": 1.8,
+   "neutral": false,
+   "offset": -2.7,
+   "result": {
+    "ats": "W",
+    "away_pts": 7.0,
+    "home_pts": 27.0,
+    "su": "L"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-29T00:15:00Z",
+   "su_team": "Philadelphia Eagles",
+   "su_wp": 0.553,
+   "tier": "lean",
+   "total_line": 42.5,
+   "week": 3,
+   "weights": {
+    "elo": 0.912,
+    "epa": 0.088
+   }
+  },
+  "2026_03_SEA_WAS": {
+   "ats_line": 8.5,
+   "ats_side": "home",
+   "ats_team": "Washington Commanders",
+   "away": "Seattle Seahawks",
+   "away_abbr": "SEA",
+   "away_qb": "Drew Lock",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 68,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.958,
+     "data": 0.5,
+     "edge": 0.672,
+     "market": 0.5,
+     "trends": 0.25
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 68,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": -5.4,
+     "epa": -6.0
+    }
+   },
+   "cover_prob": 0.636,
+   "diffs": {
+    "elo": -10.75,
+    "epa": -11.34
+   },
+   "edge": 3.0,
+   "ev": 0.189,
+   "hfa_flag": 1,
+   "home": "Washington Commanders",
+   "home_abbr": "WAS",
+   "home_field": 1.923,
+   "home_qb": "Jayden Daniels",
+   "id": "2026_03_SEA_WAS",
+   "line": 8.5,
+   "model_spread": 5.5,
+   "neutral": false,
+   "offset": 3.4,
+   "result": {
+    "ats": "W",
+    "away_pts": 31.0,
+    "home_pts": 33.0,
+    "su": "L"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-27T17:00:00Z",
+   "su_team": "Seattle Seahawks",
+   "su_wp": 0.655,
+   "tier": "play",
+   "total_line": 40.5,
+   "week": 3,
+   "weights": {
+    "elo": 0.912,
+    "epa": 0.088
+   }
+  },
+  "2026_03_TEN_NYG": {
+   "ats_line": -2.5,
+   "ats_side": "home",
+   "ats_team": "New York Giants",
+   "away": "Tennessee Titans",
+   "away_abbr": "TEN",
+   "away_qb": "Cam Ward",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 61,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.969,
+     "data": 0.5,
+     "edge": 0.309,
+     "market": 0.5,
+     "trends": 0.375
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 61,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 3.9,
+     "epa": 3.5
+    }
+   },
+   "cover_prob": 0.565,
+   "diffs": {
+    "elo": 4.32,
+    "epa": 3.88
+   },
+   "edge": 1.4,
+   "ev": 0.079,
+   "hfa_flag": 1,
+   "home": "New York Giants",
+   "home_abbr": "NYG",
+   "home_field": 1.923,
+   "home_qb": "Jameis Winston",
+   "id": "2026_03_TEN_NYG",
+   "line": -2.5,
+   "model_spread": -3.9,
+   "neutral": false,
+   "offset": -2.31,
+   "result": {
+    "ats": "W",
+    "away_pts": 7.0,
+    "home_pts": 12.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-09-27T17:00:00Z",
+   "su_team": "New York Giants",
+   "su_wp": 0.612,
+   "tier": "pass",
+   "total_line": 37.5,
+   "week": 3,
+   "weights": {
+    "elo": 0.912,
+    "epa": 0.088
+   }
+  },
+  "2026_04_ARI_NYG": {
+   "ats_line": 2.5,
+   "ats_side": "home",
+   "ats_team": "New York Giants",
+   "away": "Arizona Cardinals",
+   "away_abbr": "ARI",
+   "away_qb": "Jacoby Brissett",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "High",
+   "confidence": 70,
+   "confidence_detail": {
+    "agree": 1,
+    "components": {
+     "agreement": 0.917,
+     "consistency": 0.733,
+     "data": 0.75,
+     "edge": 0.673,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "High",
+    "n_sources": 2,
+    "score": 70,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 0.8,
+     "epa": -2.9
+    }
+   },
+   "cover_prob": 0.563,
+   "diffs": {
+    "elo": 1.14,
+    "epa": -2.6
+   },
+   "edge": 3.0,
+   "ev": 0.074,
+   "hfa_flag": 1,
+   "home": "New York Giants",
+   "home_abbr": "NYG",
+   "home_field": 1.967,
+   "home_qb": "Jameis Winston",
+   "id": "2026_04_ARI_NYG",
+   "line": 2.5,
+   "model_spread": -0.5,
+   "neutral": false,
+   "offset": -2.27,
+   "result": {
+    "ats": "W",
+    "away_pts": 24.0,
+    "home_pts": 36.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-04T17:00:00Z",
+   "su_team": "New York Giants",
+   "su_wp": 0.515,
+   "tier": "play",
+   "total_line": 44.5,
+   "week": 4,
+   "weights": {
+    "elo": 0.917,
+    "epa": 0.083
+   }
+  },
+  "2026_04_ATL_NO": {
+   "ats_line": -1.5,
+   "ats_side": "home",
+   "ats_team": "New Orleans Saints",
+   "away": "Atlanta Falcons",
+   "away_abbr": "ATL",
+   "away_qb": "Michael Penix Jr.",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 56,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.975,
+     "data": 0.75,
+     "edge": 0.099,
+     "market": 0.5,
+     "trends": 0.25
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 56,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 2.0,
+     "epa": 1.6
+    }
+   },
+   "cover_prob": 0.533,
+   "diffs": {
+    "elo": -0.68,
+    "epa": -1.03
+   },
+   "edge": 0.4,
+   "ev": 0.065,
+   "hfa_flag": 1,
+   "home": "New Orleans Saints",
+   "home_abbr": "NO",
+   "home_field": 1.967,
+   "home_qb": "Tyler Shough",
+   "id": "2026_04_ATL_NO",
+   "line": -1.5,
+   "model_spread": -1.9,
+   "neutral": false,
+   "offset": 0.69,
+   "result": {
+    "ats": "L",
+    "away_pts": 45.0,
+    "home_pts": 24.0,
+    "su": "L"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-06T00:15:00Z",
+   "su_team": "New Orleans Saints",
+   "su_wp": 0.557,
+   "tier": "pass",
+   "total_line": 47.5,
+   "week": 4,
+   "weights": {
+    "elo": 0.917,
+    "epa": 0.083
+   }
+  },
+  "2026_04_DAL_HOU": {
+   "ats_line": -3.0,
+   "ats_side": "home",
+   "ats_team": "Houston Texans",
+   "away": "Dallas Cowboys",
+   "away_abbr": "DAL",
+   "away_qb": "Dak Prescott",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 67,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.951,
+     "data": 0.75,
+     "edge": 0.556,
+     "market": 0.5,
+     "trends": 0.25
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 67,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 5.6,
+     "epa": 4.9
+    }
+   },
+   "cover_prob": 0.576,
+   "diffs": {
+    "elo": 3.17,
+    "epa": 2.49
+   },
+   "edge": 2.5,
+   "ev": 0.115,
+   "hfa_flag": 1,
+   "home": "Houston Texans",
+   "home_abbr": "HOU",
+   "home_field": 1.967,
+   "home_qb": "C.J. Stroud",
+   "id": "2026_04_DAL_HOU",
+   "line": -3.0,
+   "model_spread": -5.5,
+   "neutral": false,
+   "offset": 0.42,
+   "result": {
+    "ats": "L",
+    "away_pts": 34.0,
+    "home_pts": 30.0,
+    "su": "L"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-04T17:00:00Z",
+   "su_team": "Houston Texans",
+   "su_wp": 0.656,
+   "tier": "lean",
+   "total_line": 48.5,
+   "week": 4,
+   "weights": {
+    "elo": 0.917,
+    "epa": 0.083
+   }
+  },
+  "2026_04_DEN_SF": {
+   "ats_line": -3.0,
+   "ats_side": "home",
+   "ats_team": "San Francisco 49ers",
+   "away": "Denver Broncos",
+   "away_abbr": "DEN",
+   "away_qb": "Bo Nix",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 63,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.736,
+     "data": 0.75,
+     "edge": 0.238,
+     "market": 0.5,
+     "trends": 0.625
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 63,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 3.8,
+     "epa": 7.5
+    }
+   },
+   "cover_prob": 0.532,
+   "diffs": {
+    "elo": 0.38,
+    "epa": 4.07
+   },
+   "edge": 1.1,
+   "ev": 0.036,
+   "hfa_flag": 1,
+   "home": "San Francisco 49ers",
+   "home_abbr": "SF",
+   "home_field": 1.967,
+   "home_qb": "Brock Purdy",
+   "id": "2026_04_DEN_SF",
+   "line": -3.0,
+   "model_spread": -4.1,
+   "neutral": false,
+   "offset": 1.42,
+   "result": {
+    "ats": "W",
+    "away_pts": 14.0,
+    "home_pts": 24.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-04T20:25:00Z",
+   "su_team": "San Francisco 49ers",
+   "su_wp": 0.617,
+   "tier": "pass",
+   "total_line": 48.5,
+   "week": 4,
+   "weights": {
+    "elo": 0.917,
+    "epa": 0.083
+   }
+  },
+  "2026_04_DET_CAR": {
+   "ats_line": 4.5,
+   "ats_side": "home",
+   "ats_team": "Carolina Panthers",
+   "away": "Detroit Lions",
+   "away_abbr": "DET",
+   "away_qb": "Jared Goff",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 61,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.823,
+     "data": 0.75,
+     "edge": 0.506,
+     "market": 0.5,
+     "trends": 0.0
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 61,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": -2.4,
+     "epa": 0.0
+    }
+   },
+   "cover_prob": 0.593,
+   "diffs": {
+    "elo": -4.48,
+    "epa": -2.0
+   },
+   "edge": 2.3,
+   "ev": 0.109,
+   "hfa_flag": 1,
+   "home": "Carolina Panthers",
+   "home_abbr": "CAR",
+   "home_field": 1.967,
+   "home_qb": "Bryce Young",
+   "id": "2026_04_DET_CAR",
+   "line": 4.5,
+   "model_spread": 2.2,
+   "neutral": false,
+   "offset": 0.08,
+   "result": {
+    "ats": "W",
+    "away_pts": 26.0,
+    "home_pts": 32.0,
+    "su": "L"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-05T00:20:00Z",
+   "su_team": "Detroit Lions",
+   "su_wp": 0.565,
+   "tier": "lean",
+   "total_line": 52.5,
+   "week": 4,
+   "weights": {
+    "elo": 0.917,
+    "epa": 0.083
+   }
+  },
+  "2026_04_GB_TB": {
+   "ats_line": 3.0,
+   "ats_side": "home",
+   "ats_team": "Tampa Bay Buccaneers",
+   "away": "Green Bay Packers",
+   "away_abbr": "GB",
+   "away_qb": "Jordan Love",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 61,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.952,
+     "data": 0.75,
+     "edge": 0.238,
+     "market": 0.5,
+     "trends": 0.375
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 61,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": -2.0,
+     "epa": -1.3
+    }
+   },
+   "cover_prob": 0.535,
+   "diffs": {
+    "elo": -1.62,
+    "epa": -0.95
+   },
+   "edge": 1.1,
+   "ev": 0.0,
+   "hfa_flag": 1,
+   "home": "Tampa Bay Buccaneers",
+   "home_abbr": "TB",
+   "home_field": 1.967,
+   "home_qb": "Jalon Daniels",
+   "id": "2026_04_GB_TB",
+   "line": 3.0,
+   "model_spread": 1.9,
+   "neutral": false,
+   "offset": -2.33,
+   "result": {
+    "ats": "P",
+    "away_pts": 17.0,
+    "home_pts": 14.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-04T17:00:00Z",
+   "su_team": "Green Bay Packers",
+   "su_wp": 0.556,
+   "tier": "pass",
+   "total_line": 38.5,
+   "week": 4,
+   "weights": {
+    "elo": 0.917,
+    "epa": 0.083
+   }
+  },
+  "2026_04_IND_WAS": {
+   "ats_line": 4.5,
+   "ats_side": "home",
+   "ats_team": "Washington Commanders",
+   "away": "Indianapolis Colts",
+   "away_abbr": "IND",
+   "away_qb": "Daniel Jones",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "High",
+   "confidence": 76,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.971,
+     "data": 0.75,
+     "edge": 0.767,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "High",
+    "n_sources": 2,
+    "score": 76,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": -1.1,
+     "epa": -0.7
+    }
+   },
+   "cover_prob": 0.626,
+   "diffs": {
+    "elo": -0.02,
+    "epa": 0.39
+   },
+   "edge": 3.5,
+   "ev": 0.24,
+   "hfa_flag": 0,
+   "home": "Washington Commanders",
+   "home_abbr": "WAS",
+   "home_field": 1.967,
+   "home_qb": "Marcus Mariota",
+   "id": "2026_04_IND_WAS",
+   "line": 4.5,
+   "model_spread": 1.0,
+   "neutral": true,
+   "offset": -1.06,
+   "result": {
+    "ats": "L",
+    "away_pts": 30.0,
+    "home_pts": 13.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-04T13:30:00Z",
+   "su_team": "Indianapolis Colts",
+   "su_wp": 0.531,
+   "tier": "play",
+   "total_line": 46.5,
+   "week": 4,
+   "weights": {
+    "elo": 0.917,
+    "epa": 0.083
+   }
+  },
+  "2026_04_JAX_CIN": {
+   "ats_line": 2.5,
+   "ats_side": "away",
+   "ats_team": "Jacksonville Jaguars",
+   "away": "Jacksonville Jaguars",
+   "away_abbr": "JAX",
+   "away_qb": "Trevor Lawrence",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 65,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.799,
+     "data": 0.75,
+     "edge": 0.388,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 65,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 1.0,
+     "epa": -1.8
+    }
+   },
+   "cover_prob": 0.525,
+   "diffs": {
+    "elo": -3.13,
+    "epa": -5.94
+   },
+   "edge": 1.7,
+   "ev": 0.041,
+   "hfa_flag": 1,
+   "home": "Cincinnati Bengals",
+   "home_abbr": "CIN",
+   "home_field": 1.967,
+   "home_qb": "Joe Burrow",
+   "id": "2026_04_JAX_CIN",
+   "line": -2.5,
+   "model_spread": -0.8,
+   "neutral": false,
+   "offset": 2.15,
+   "result": {
+    "ats": "W",
+    "away_pts": 22.0,
+    "home_pts": 17.0,
+    "su": "L"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-04T17:00:00Z",
+   "su_team": "Cincinnati Bengals",
+   "su_wp": 0.522,
+   "tier": "lean",
+   "total_line": 51.5,
+   "week": 4,
+   "weights": {
+    "elo": 0.917,
+    "epa": 0.083
+   }
+  },
+  "2026_04_KC_LV": {
+   "ats_line": 4.5,
+   "ats_side": "home",
+   "ats_team": "Las Vegas Raiders",
+   "away": "Kansas City Chiefs",
+   "away_abbr": "KC",
+   "away_qb": "Patrick Mahomes",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "High",
+   "confidence": 81,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.965,
+     "data": 0.75,
+     "edge": 0.86,
+     "market": 0.5,
+     "trends": 0.625
+    },
+    "label": "High",
+    "n_sources": 2,
+    "score": 81,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": -0.7,
+     "epa": -0.2
+    }
+   },
+   "cover_prob": 0.638,
+   "diffs": {
+    "elo": -4.26,
+    "epa": -3.77
+   },
+   "edge": 3.9,
+   "ev": 0.275,
+   "hfa_flag": 1,
+   "home": "Las Vegas Raiders",
+   "home_abbr": "LV",
+   "home_field": 1.967,
+   "home_qb": "Kirk Cousins",
+   "id": "2026_04_KC_LV",
+   "line": 4.5,
+   "model_spread": 0.6,
+   "neutral": false,
+   "offset": 1.62,
+   "result": {
+    "ats": "W",
+    "away_pts": 30.0,
+    "home_pts": 27.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-04T20:25:00Z",
+   "su_team": "Kansas City Chiefs",
+   "su_wp": 0.518,
+   "tier": "play",
+   "total_line": 47.5,
+   "week": 4,
+   "weights": {
+    "elo": 0.917,
+    "epa": 0.083
+   }
+  },
+  "2026_04_LAC_SEA": {
+   "ats_line": -7.0,
+   "ats_side": "home",
+   "ats_team": "Seattle Seahawks",
+   "away": "Los Angeles Chargers",
+   "away_abbr": "LAC",
+   "away_qb": "Justin Herbert",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 67,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.982,
+     "data": 0.75,
+     "edge": 0.393,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 67,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 8.8,
+     "epa": 8.5
+    }
+   },
+   "cover_prob": 0.511,
+   "diffs": {
+    "elo": 9.48,
+    "epa": 9.23
+   },
+   "edge": 1.8,
+   "ev": -0.015,
+   "hfa_flag": 1,
+   "home": "Seattle Seahawks",
+   "home_abbr": "SEA",
+   "home_field": 1.967,
+   "home_qb": "Drew Lock",
+   "id": "2026_04_LAC_SEA",
+   "line": -7.0,
+   "model_spread": -8.8,
+   "neutral": false,
+   "offset": -2.66,
+   "result": {
+    "ats": "P",
+    "away_pts": 23.0,
+    "home_pts": 30.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-04T20:25:00Z",
+   "su_team": "Seattle Seahawks",
+   "su_wp": 0.737,
+   "tier": "lean",
+   "total_line": 42.5,
+   "week": 4,
+   "weights": {
+    "elo": 0.917,
+    "epa": 0.083
+   }
+  },
+  "2026_04_LA_PHI": {
+   "ats_line": 3.5,
+   "ats_side": "home",
+   "ats_team": "Philadelphia Eagles",
+   "away": "Los Angeles Rams",
+   "away_abbr": "LA",
+   "away_qb": "Matthew Stafford",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "High",
+   "confidence": 72,
+   "confidence_detail": {
+    "agree": 1,
+    "components": {
+     "agreement": 0.917,
+     "consistency": 0.569,
+     "data": 0.75,
+     "edge": 0.832,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "High",
+    "n_sources": 2,
+    "score": 72,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 0.7,
+     "epa": -5.3
+    }
+   },
+   "cover_prob": 0.634,
+   "diffs": {
+    "elo": -1.32,
+    "epa": -7.35
+   },
+   "edge": 3.7,
+   "ev": 0.267,
    "hfa_flag": 1,
    "home": "Philadelphia Eagles",
    "home_abbr": "PHI",
-   "home_field": 1.6,
+   "home_field": 1.967,
+   "home_qb": "Jalen Hurts",
+   "id": "2026_04_LA_PHI",
+   "line": 3.5,
+   "model_spread": -0.2,
+   "neutral": false,
+   "offset": 0.1,
+   "result": {
+    "ats": "L",
+    "away_pts": 24.0,
+    "home_pts": 20.0,
+    "su": "L"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-04T17:00:00Z",
+   "su_team": "Philadelphia Eagles",
+   "su_wp": 0.507,
+   "tier": "play",
+   "total_line": 42.5,
+   "week": 4,
+   "weights": {
+    "elo": 0.917,
+    "epa": 0.083
+   }
+  },
+  "2026_04_MIA_MIN": {
+   "ats_line": -10.0,
+   "ats_side": "home",
+   "ats_team": "Minnesota Vikings",
+   "away": "Miami Dolphins",
+   "away_abbr": "MIA",
+   "away_qb": "Malik Willis",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 66,
+   "confidence_detail": {
+    "agree": 1,
+    "components": {
+     "agreement": 0.917,
+     "consistency": 0.839,
+     "data": 0.75,
+     "edge": 0.395,
+     "market": 0.5,
+     "trends": 0.625
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 66,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 12.0,
+     "epa": 9.7
+    }
+   },
+   "cover_prob": 0.519,
+   "diffs": {
+    "elo": 8.69,
+    "epa": 6.44
+   },
+   "edge": 1.8,
+   "ev": 0.013,
+   "hfa_flag": 1,
+   "home": "Minnesota Vikings",
+   "home_abbr": "MIN",
+   "home_field": 1.967,
+   "home_qb": "Kyler Murray",
+   "id": "2026_04_MIA_MIN",
+   "line": -10.0,
+   "model_spread": -11.8,
+   "neutral": false,
+   "offset": 1.31,
+   "result": {
+    "ats": "L",
+    "away_pts": 10.0,
+    "home_pts": 15.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-04T20:05:00Z",
+   "su_team": "Minnesota Vikings",
+   "su_wp": 0.802,
+   "tier": "lean",
+   "total_line": 38.5,
+   "week": 4,
+   "weights": {
+    "elo": 0.917,
+    "epa": 0.083
+   }
+  },
+  "2026_04_NE_BUF": {
+   "ats_line": 7.0,
+   "ats_side": "away",
+   "ats_team": "New England Patriots",
+   "away": "New England Patriots",
+   "away_abbr": "NE",
+   "away_qb": "Drake Maye",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 69,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.998,
+     "data": 0.75,
+     "edge": 0.449,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 69,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 5.0,
+     "epa": 5.0
+    }
+   },
+   "cover_prob": 0.605,
+   "diffs": {
+    "elo": 2.93,
+    "epa": 2.9
+   },
+   "edge": 2.0,
+   "ev": 0.146,
+   "hfa_flag": 1,
+   "home": "Buffalo Bills",
+   "home_abbr": "BUF",
+   "home_field": 1.967,
+   "home_qb": "Josh Allen",
+   "id": "2026_04_NE_BUF",
+   "line": -7.0,
+   "model_spread": -5.0,
+   "neutral": false,
+   "offset": 0.09,
+   "result": {
+    "ats": "W",
+    "away_pts": 29.0,
+    "home_pts": 26.0,
+    "su": "L"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-04T17:00:00Z",
+   "su_team": "Buffalo Bills",
+   "su_wp": 0.642,
+   "tier": "lean",
+   "total_line": 49.5,
+   "week": 4,
+   "weights": {
+    "elo": 0.917,
+    "epa": 0.083
+   }
+  },
+  "2026_04_NYJ_CHI": {
+   "ats_line": -3.5,
+   "ats_side": "home",
+   "ats_team": "Chicago Bears",
+   "away": "New York Jets",
+   "away_abbr": "NYJ",
+   "away_qb": "Geno Smith",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "High",
+   "confidence": 86,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.98,
+     "data": 0.75,
+     "edge": 0.913,
+     "market": 0.5,
+     "trends": 0.875
+    },
+    "label": "High",
+    "n_sources": 2,
+    "score": 86,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 7.6,
+     "epa": 7.9
+    }
+   },
+   "cover_prob": 0.59,
+   "diffs": {
+    "elo": 7.7,
+    "epa": 7.98
+   },
+   "edge": 4.1,
+   "ev": 0.126,
+   "hfa_flag": 1,
+   "home": "Chicago Bears",
+   "home_abbr": "CHI",
+   "home_field": 1.967,
+   "home_qb": "Case Keenum",
+   "id": "2026_04_NYJ_CHI",
+   "line": -3.5,
+   "model_spread": -7.6,
+   "neutral": false,
+   "offset": -2.08,
+   "result": {
+    "ats": "W",
+    "away_pts": 12.0,
+    "home_pts": 23.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-04T17:00:00Z",
+   "su_team": "Chicago Bears",
+   "su_wp": 0.71,
+   "tier": "play",
+   "total_line": 43.5,
+   "week": 4,
+   "weights": {
+    "elo": 0.917,
+    "epa": 0.083
+   }
+  },
+  "2026_04_PIT_CLE": {
+   "ats_line": 2.5,
+   "ats_side": "home",
+   "ats_team": "Cleveland Browns",
+   "away": "Pittsburgh Steelers",
+   "away_abbr": "PIT",
+   "away_qb": "Aaron Rodgers",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 68,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.796,
+     "data": 0.75,
+     "edge": 0.498,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 68,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": -0.5,
+     "epa": 2.4
+    }
+   },
+   "cover_prob": 0.54,
+   "diffs": {
+    "elo": -3.11,
+    "epa": -0.26
+   },
+   "edge": 2.2,
+   "ev": 0.08,
+   "hfa_flag": 1,
+   "home": "Cleveland Browns",
+   "home_abbr": "CLE",
+   "home_field": 1.967,
+   "home_qb": "Deshaun Watson",
+   "id": "2026_04_PIT_CLE",
+   "line": 2.5,
+   "model_spread": 0.3,
+   "neutral": false,
+   "offset": 0.65,
+   "result": {
+    "ats": "W",
+    "away_pts": 24.0,
+    "home_pts": 27.0,
+    "su": "L"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-02T00:15:00Z",
+   "su_team": "Pittsburgh Steelers",
+   "su_wp": 0.508,
+   "tier": "lean",
+   "total_line": 38.5,
+   "week": 4,
+   "weights": {
+    "elo": 0.917,
+    "epa": 0.083
+   }
+  },
+  "2026_04_TEN_BAL": {
+   "ats_line": -11.5,
+   "ats_side": "home",
+   "ats_team": "Baltimore Ravens",
+   "away": "Tennessee Titans",
+   "away_abbr": "TEN",
+   "away_qb": "Cam Ward",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 64,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.94,
+     "data": 0.75,
+     "edge": 0.218,
+     "market": 0.5,
+     "trends": 0.625
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 64,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 12.4,
+     "epa": 13.2
+    }
+   },
+   "cover_prob": 0.505,
+   "diffs": {
+    "elo": 9.34,
+    "epa": 10.18
+   },
+   "edge": 1.0,
+   "ev": -0.037,
+   "hfa_flag": 1,
+   "home": "Baltimore Ravens",
+   "home_abbr": "BAL",
+   "home_field": 1.967,
+   "home_qb": "Lamar Jackson",
+   "id": "2026_04_TEN_BAL",
+   "line": -11.5,
+   "model_spread": -12.5,
+   "neutral": false,
+   "offset": 1.1,
+   "result": {
+    "ats": "L",
+    "away_pts": 18.0,
+    "home_pts": 24.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-04T17:00:00Z",
+   "su_team": "Baltimore Ravens",
+   "su_wp": 0.815,
+   "tier": "pass",
+   "total_line": 42.5,
+   "week": 4,
+   "weights": {
+    "elo": 0.917,
+    "epa": 0.083
+   }
+  },
+  "2026_05_BAL_ATL": {
+   "ats_line": -3.5,
+   "ats_side": "home",
+   "ats_team": "Atlanta Falcons",
+   "away": "Baltimore Ravens",
+   "away_abbr": "BAL",
+   "away_qb": "Tyler Huntley",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Low",
+   "confidence": 52,
+   "confidence_detail": {
+    "agree": 1,
+    "components": {
+     "agreement": 0.921,
+     "consistency": 0.963,
+     "data": 1.0,
+     "edge": 0.087,
+     "market": 0.5,
+     "trends": 0.0
+    },
+    "label": "Low",
+    "n_sources": 2,
+    "score": 52,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 3.9,
+     "epa": 3.4
+    }
+   },
+   "cover_prob": 0.484,
+   "diffs": {
+    "elo": -2.47,
+    "epa": -2.99
+   },
+   "edge": 0.4,
+   "ev": -0.009,
+   "hfa_flag": 1,
+   "home": "Atlanta Falcons",
+   "home_abbr": "ATL",
+   "home_field": 1.842,
+   "home_qb": "Michael Penix Jr.",
+   "id": "2026_05_BAL_ATL",
+   "line": -3.5,
+   "model_spread": -3.9,
+   "neutral": false,
+   "offset": 4.56,
+   "result": {
+    "ats": "L",
+    "away_pts": 30.0,
+    "home_pts": 23.0,
+    "su": "L"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-12T00:20:00Z",
+   "su_team": "Atlanta Falcons",
+   "su_wp": 0.612,
+   "tier": "pass",
+   "total_line": 44.5,
+   "week": 5,
+   "weights": {
+    "elo": 0.921,
+    "epa": 0.079
+   }
+  },
+  "2026_05_BUF_LA": {
+   "ats_line": 3.5,
+   "ats_side": "away",
+   "ats_team": "Buffalo Bills",
+   "away": "Buffalo Bills",
+   "away_abbr": "BUF",
+   "book": "nflverse consensus",
+   "conf_label": "Medium",
+   "confidence": 69,
+   "confidence_detail": {
+    "agree": 1,
+    "components": {
+     "agreement": 0.925,
+     "consistency": 0.729,
+     "data": 1.0,
+     "edge": 0.673,
+     "market": 0.3,
+     "trends": 0.5
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 69,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 0.2,
+     "epa": 4.0
+    }
+   },
+   "cover_prob": 0.614,
+   "diffs": {
+    "elo": -1.52,
+    "epa": 2.28
+   },
+   "edge": 3.0,
+   "ev": 0.134,
+   "hfa_flag": 1,
+   "home": "Los Angeles Rams",
+   "home_abbr": "LA",
+   "home_field": 1.805,
+   "id": "2026_05_BUF_LA",
+   "line": -3.5,
+   "model_spread": -0.5,
+   "model_total": 55.8,
+   "neutral": false,
+   "offset": -0.1,
+   "proj_away": 27.7,
+   "proj_home": 28.1,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-13T00:15:00Z",
+   "su_team": "Los Angeles Rams",
+   "su_wp": 0.514,
+   "tier": "play",
+   "total_line": 54.5,
+   "updated": "2026-10-12T14:02:59Z",
+   "week": 5,
+   "weights": {
+    "elo": 0.925,
+    "epa": 0.075
+   }
+  },
+  "2026_05_CHI_GB": {
+   "ats_line": 1.5,
+   "ats_side": "home",
+   "ats_team": "Green Bay Packers",
+   "away": "Chicago Bears",
+   "away_abbr": "CHI",
+   "away_qb": "Tyson Bagent",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 68,
+   "confidence_detail": {
+    "agree": 1,
+    "components": {
+     "agreement": 0.921,
+     "consistency": 0.844,
+     "data": 1.0,
+     "edge": 0.319,
+     "market": 0.5,
+     "trends": 0.75
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 68,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 0.1,
+     "epa": -2.1
+    }
+   },
+   "cover_prob": 0.522,
+   "diffs": {
+    "elo": -3.73,
+    "epa": -5.92
+   },
+   "edge": 1.4,
+   "ev": 0.02,
+   "hfa_flag": 1,
+   "home": "Green Bay Packers",
+   "home_abbr": "GB",
+   "home_field": 1.842,
+   "home_qb": "Jordan Love",
+   "id": "2026_05_CHI_GB",
+   "line": 1.5,
+   "model_spread": 0.1,
+   "neutral": false,
+   "offset": 2.0,
+   "result": {
+    "ats": "W",
+    "away_pts": 7.0,
+    "home_pts": 31.0,
+    "su": "L"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-11T17:00:00Z",
+   "su_team": "Chicago Bears",
+   "su_wp": 0.502,
+   "tier": "pass",
+   "total_line": 46.5,
+   "week": 5,
+   "weights": {
+    "elo": 0.921,
+    "epa": 0.079
+   }
+  },
+  "2026_05_CIN_MIA": {
+   "ats_line": 7.0,
+   "ats_side": "home",
+   "ats_team": "Miami Dolphins",
+   "away": "Cincinnati Bengals",
+   "away_abbr": "CIN",
+   "away_qb": "Joe Burrow",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 68,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.939,
+     "data": 1.0,
+     "edge": 0.476,
+     "market": 0.5,
+     "trends": 0.25
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 68,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": -4.8,
+     "epa": -5.6
+    }
+   },
+   "cover_prob": 0.608,
+   "diffs": {
+    "elo": -4.84,
+    "epa": -5.69
+   },
+   "edge": 2.1,
+   "ev": 0.178,
+   "hfa_flag": 1,
+   "home": "Miami Dolphins",
+   "home_abbr": "MIA",
+   "home_field": 1.842,
+   "home_qb": "Malik Willis",
+   "id": "2026_05_CIN_MIA",
+   "line": 7.0,
+   "model_spread": 4.9,
+   "neutral": false,
+   "offset": -1.79,
+   "result": {
+    "ats": "P",
+    "away_pts": 31.0,
+    "home_pts": 24.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-11T17:00:00Z",
+   "su_team": "Cincinnati Bengals",
+   "su_wp": 0.639,
+   "tier": "lean",
+   "total_line": 44.5,
+   "week": 5,
+   "weights": {
+    "elo": 0.921,
+    "epa": 0.079
+   }
+  },
+  "2026_05_CLE_NYJ": {
+   "ats_line": 2.5,
+   "ats_side": "away",
+   "ats_team": "Cleveland Browns",
+   "away": "Cleveland Browns",
+   "away_abbr": "CLE",
+   "away_qb": "Deshaun Watson",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "High",
+   "confidence": 84,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.914,
+     "data": 1.0,
+     "edge": 1.0,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "High",
+    "n_sources": 2,
+    "score": 84,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": -2.9,
+     "epa": -1.7
+    }
+   },
+   "cover_prob": 0.628,
+   "diffs": {
+    "elo": -3.8,
+    "epa": -2.6
+   },
+   "edge": 5.3,
+   "ev": 0.226,
+   "hfa_flag": 1,
+   "home": "New York Jets",
+   "home_abbr": "NYJ",
+   "home_field": 1.842,
+   "home_qb": "Geno Smith",
+   "id": "2026_05_CLE_NYJ",
+   "line": -2.5,
+   "model_spread": 2.8,
+   "neutral": false,
+   "offset": -0.99,
+   "result": {
+    "ats": "L",
+    "away_pts": 12.0,
+    "home_pts": 17.0,
+    "su": "L"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-11T17:00:00Z",
+   "su_team": "Cleveland Browns",
+   "su_wp": 0.583,
+   "tier": "strong",
+   "total_line": 38.5,
+   "week": 5,
+   "weights": {
+    "elo": 0.921,
+    "epa": 0.079
+   }
+  },
+  "2026_05_DEN_LAC": {
+   "ats_line": -3.5,
+   "ats_side": "away",
+   "ats_team": "Denver Broncos",
+   "away": "Denver Broncos",
+   "away_abbr": "DEN",
+   "away_qb": "Bo Nix",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 58,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.91,
+     "data": 1.0,
+     "edge": 0.176,
+     "market": 0.5,
+     "trends": 0.125
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 58,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": -4.2,
+     "epa": -5.5
+    }
+   },
+   "cover_prob": 0.495,
+   "diffs": {
+    "elo": -6.0,
+    "epa": -7.26
+   },
+   "edge": 0.8,
+   "ev": -0.046,
+   "hfa_flag": 1,
+   "home": "Los Angeles Chargers",
+   "home_abbr": "LAC",
+   "home_field": 1.842,
+   "home_qb": "Justin Herbert",
+   "id": "2026_05_DEN_LAC",
+   "line": 3.5,
+   "model_spread": 4.3,
+   "neutral": false,
+   "offset": -0.03,
+   "result": {
+    "ats": "W",
+    "away_pts": 23.0,
+    "home_pts": 17.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-11T20:05:00Z",
+   "su_team": "Denver Broncos",
+   "su_wp": 0.623,
+   "tier": "pass",
+   "total_line": 42.5,
+   "week": 5,
+   "weights": {
+    "elo": 0.921,
+    "epa": 0.079
+   }
+  },
+  "2026_05_DET_ARI": {
+   "ats_line": 5.5,
+   "ats_side": "home",
+   "ats_team": "Arizona Cardinals",
+   "away": "Detroit Lions",
+   "away_abbr": "DET",
+   "away_qb": "Jared Goff",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 61,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.701,
+     "data": 1.0,
+     "edge": 0.455,
+     "market": 0.5,
+     "trends": 0.0
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 61,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": -3.8,
+     "epa": 0.4
+    }
+   },
+   "cover_prob": 0.579,
+   "diffs": {
+    "elo": -5.36,
+    "epa": -1.18
+   },
+   "edge": 2.0,
+   "ev": 0.096,
+   "hfa_flag": 1,
+   "home": "Arizona Cardinals",
+   "home_abbr": "ARI",
+   "home_field": 1.842,
+   "home_qb": "Jacoby Brissett",
+   "id": "2026_05_DET_ARI",
+   "line": 5.5,
+   "model_spread": 3.5,
+   "neutral": false,
+   "offset": -0.26,
+   "result": {
+    "ats": "L",
+    "away_pts": 45.0,
+    "home_pts": 21.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-11T20:25:00Z",
+   "su_team": "Detroit Lions",
+   "su_wp": 0.6,
+   "tier": "lean",
+   "total_line": 55.5,
+   "week": 5,
+   "weights": {
+    "elo": 0.921,
+    "epa": 0.079
+   }
+  },
+  "2026_05_HOU_TEN": {
+   "ats_line": -6.5,
+   "ats_side": "away",
+   "ats_team": "Houston Texans",
+   "away": "Houston Texans",
+   "away_abbr": "HOU",
+   "away_qb": "C.J. Stroud",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 61,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.896,
+     "data": 1.0,
+     "edge": 0.095,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 61,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": -6.8,
+     "epa": -8.3
+    }
+   },
+   "cover_prob": 0.484,
+   "diffs": {
+    "elo": -8.07,
+    "epa": -9.53
+   },
+   "edge": 0.4,
+   "ev": -0.095,
+   "hfa_flag": 1,
+   "home": "Tennessee Titans",
+   "home_abbr": "TEN",
+   "home_field": 1.842,
+   "home_qb": "Cam Ward",
+   "id": "2026_05_HOU_TEN",
+   "line": 6.5,
+   "model_spread": 6.9,
+   "neutral": false,
+   "offset": -0.58,
+   "result": {
+    "ats": "W",
+    "away_pts": 26.0,
+    "home_pts": 3.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-11T17:00:00Z",
+   "su_team": "Houston Texans",
+   "su_wp": 0.693,
+   "tier": "pass",
+   "total_line": 37.5,
+   "week": 5,
+   "weights": {
+    "elo": 0.921,
+    "epa": 0.079
+   }
+  },
+  "2026_05_IND_PIT": {
+   "ats_line": 3.0,
+   "ats_side": "away",
+   "ats_team": "Indianapolis Colts",
+   "away": "Indianapolis Colts",
+   "away_abbr": "IND",
+   "away_qb": "Daniel Jones",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Low",
+   "confidence": 38,
+   "confidence_detail": {
+    "agree": 1,
+    "components": {
+     "agreement": 0.079,
+     "consistency": 0.885,
+     "data": 1.0,
+     "edge": 0.023,
+     "market": 0.5,
+     "trends": 0.625
+    },
+    "label": "Low",
+    "n_sources": 2,
+    "score": 38,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 3.0,
+     "epa": 1.4
+    }
+   },
+   "cover_prob": 0.505,
+   "diffs": {
+    "elo": 1.16,
+    "epa": -0.45
+   },
+   "edge": 0.1,
+   "ev": -0.034,
+   "hfa_flag": 1,
+   "home": "Pittsburgh Steelers",
+   "home_abbr": "PIT",
+   "home_field": 1.842,
+   "home_qb": "Aaron Rodgers",
+   "id": "2026_05_IND_PIT",
+   "line": -3.0,
+   "model_spread": -2.9,
+   "neutral": false,
+   "offset": 0.02,
+   "result": {
+    "ats": "L",
+    "away_pts": 22.0,
+    "home_pts": 34.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-11T17:00:00Z",
+   "su_team": "Pittsburgh Steelers",
+   "su_wp": 0.584,
+   "tier": "pass",
+   "total_line": 41.5,
+   "week": 5,
+   "weights": {
+    "elo": 0.921,
+    "epa": 0.079
+   }
+  },
+  "2026_05_LV_NE": {
+   "ats_line": -3.5,
+   "ats_side": "home",
+   "ats_team": "New England Patriots",
+   "away": "Las Vegas Raiders",
+   "away_abbr": "LV",
+   "away_qb": "Kirk Cousins",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "High",
+   "confidence": 75,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.919,
+     "data": 1.0,
+     "edge": 0.469,
+     "market": 0.5,
+     "trends": 0.75
+    },
+    "label": "High",
+    "n_sources": 2,
+    "score": 75,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 5.7,
+     "epa": 4.6
+    }
+   },
+   "cover_prob": 0.533,
+   "diffs": {
+    "elo": 6.14,
+    "epa": 5.01
+   },
+   "edge": 2.1,
+   "ev": 0.041,
+   "hfa_flag": 1,
+   "home": "New England Patriots",
+   "home_abbr": "NE",
+   "home_field": 1.842,
+   "home_qb": "Drake Maye",
+   "id": "2026_05_LV_NE",
+   "line": -3.5,
+   "model_spread": -5.6,
+   "neutral": false,
+   "offset": -2.28,
+   "result": {
+    "ats": "W",
+    "away_pts": 17.0,
+    "home_pts": 45.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-11T17:00:00Z",
+   "su_team": "New England Patriots",
+   "su_wp": 0.659,
+   "tier": "lean",
+   "total_line": 45.5,
+   "week": 5,
+   "weights": {
+    "elo": 0.921,
+    "epa": 0.079
+   }
+  },
+  "2026_05_MIN_NO": {
+   "ats_line": -2.5,
+   "ats_side": "away",
+   "ats_team": "Minnesota Vikings",
+   "away": "Minnesota Vikings",
+   "away_abbr": "MIN",
+   "away_qb": "Kyler Murray",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "High",
+   "confidence": 90,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.791,
+     "data": 1.0,
+     "edge": 1.0,
+     "market": 0.5,
+     "trends": 1.0
+    },
+    "label": "High",
+    "n_sources": 2,
+    "score": 90,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": -7.5,
+     "epa": -4.6
+    }
+   },
+   "cover_prob": 0.659,
+   "diffs": {
+    "elo": -8.31,
+    "epa": -5.39
+   },
+   "edge": 4.8,
+   "ev": 0.248,
+   "hfa_flag": 1,
+   "home": "New Orleans Saints",
+   "home_abbr": "NO",
+   "home_field": 1.842,
+   "home_qb": "Tyler Shough",
+   "id": "2026_05_MIN_NO",
+   "line": 2.5,
+   "model_spread": 7.3,
+   "neutral": false,
+   "offset": -1.08,
+   "result": {
+    "ats": "W",
+    "away_pts": 23.0,
+    "home_pts": 13.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-11T17:00:00Z",
+   "su_team": "Minnesota Vikings",
+   "su_wp": 0.702,
+   "tier": "strong",
+   "total_line": 41.5,
+   "week": 5,
+   "weights": {
+    "elo": 0.921,
+    "epa": 0.079
+   }
+  },
+  "2026_05_NYG_WAS": {
+   "ats_line": 3.5,
+   "ats_side": "away",
+   "ats_team": "New York Giants",
+   "away": "New York Giants",
+   "away_abbr": "NYG",
+   "away_qb": "Jameis Winston",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "Medium",
+   "confidence": 58,
+   "confidence_detail": {
+    "agree": 1,
+    "components": {
+     "agreement": 0.921,
+     "consistency": 0.902,
+     "data": 1.0,
+     "edge": 0.052,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 58,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 3.2,
+     "epa": 4.5
+    }
+   },
+   "cover_prob": 0.534,
+   "diffs": {
+    "elo": -1.74,
+    "epa": -0.37
+   },
+   "edge": 0.2,
+   "ev": -0.001,
+   "hfa_flag": 1,
+   "home": "Washington Commanders",
+   "home_abbr": "WAS",
+   "home_field": 1.842,
+   "home_qb": "Jayden Daniels",
+   "id": "2026_05_NYG_WAS",
+   "line": -3.5,
+   "model_spread": -3.3,
+   "neutral": false,
+   "offset": 3.05,
+   "result": {
+    "ats": "W",
+    "away_pts": 27.0,
+    "home_pts": 27.0,
+    "su": "P"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-11T17:00:00Z",
+   "su_team": "Washington Commanders",
+   "su_wp": 0.594,
+   "tier": "pass",
+   "total_line": 41.5,
+   "week": 5,
+   "weights": {
+    "elo": 0.921,
+    "epa": 0.079
+   }
+  },
+  "2026_05_PHI_JAX": {
+   "ats_line": 7.5,
+   "ats_side": "away",
+   "ats_team": "Philadelphia Eagles",
+   "away": "Philadelphia Eagles",
+   "away_abbr": "PHI",
+   "away_qb": "Jalen Hurts",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "High",
+   "confidence": 74,
+   "confidence_detail": {
+    "agree": 1,
+    "components": {
+     "agreement": 0.921,
+     "consistency": 0.661,
+     "data": 1.0,
+     "edge": 0.792,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "High",
+    "n_sources": 2,
+    "score": 74,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 3.6,
+     "epa": 8.3
+    }
+   },
+   "cover_prob": 0.655,
+   "diffs": {
+    "elo": 3.69,
+    "epa": 8.44
+   },
+   "edge": 3.6,
+   "ev": 0.31,
+   "hfa_flag": 0,
+   "home": "Jacksonville Jaguars",
+   "home_abbr": "JAX",
+   "home_field": 1.842,
+   "home_qb": "Trevor Lawrence",
+   "id": "2026_05_PHI_JAX",
+   "line": -7.5,
+   "model_spread": -3.9,
+   "neutral": true,
+   "offset": -0.13,
+   "result": {
+    "ats": "W",
+    "away_pts": 17.0,
+    "home_pts": 19.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-11T13:30:00Z",
+   "su_team": "Jacksonville Jaguars",
+   "su_wp": 0.613,
+   "tier": "play",
+   "total_line": 41.5,
+   "week": 5,
+   "weights": {
+    "elo": 0.921,
+    "epa": 0.079
+   }
+  },
+  "2026_05_SF_SEA": {
+   "ats_line": 3.0,
+   "ats_side": "away",
+   "ats_team": "San Francisco 49ers",
+   "away": "San Francisco 49ers",
+   "away_abbr": "SF",
+   "away_qb": "Brock Purdy",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "High",
+   "confidence": 74,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.936,
+     "data": 1.0,
+     "edge": 0.667,
+     "market": 0.5,
+     "trends": 0.375
+    },
+    "label": "High",
+    "n_sources": 2,
+    "score": 74,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": -0.1,
+     "epa": 0.8
+    }
+   },
+   "cover_prob": 0.595,
+   "diffs": {
+    "elo": 1.99,
+    "epa": 2.88
+   },
+   "edge": 3.0,
+   "ev": 0.125,
+   "hfa_flag": 1,
+   "home": "Seattle Seahawks",
+   "home_abbr": "SEA",
+   "home_field": 1.842,
+   "home_qb": "Drew Lock",
+   "id": "2026_05_SF_SEA",
+   "line": -3.0,
+   "model_spread": 0.0,
+   "neutral": false,
+   "offset": -3.9,
+   "result": {
+    "ats": "W",
+    "away_pts": 32.0,
+    "home_pts": 29.0,
+    "su": "W"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-11T20:25:00Z",
+   "su_team": "San Francisco 49ers",
+   "su_wp": 0.5,
+   "tier": "play",
+   "total_line": 46.5,
+   "week": 5,
+   "weights": {
+    "elo": 0.921,
+    "epa": 0.079
+   }
+  },
+  "2026_05_TB_DAL": {
+   "ats_line": 9.5,
+   "ats_side": "away",
+   "ats_team": "Tampa Bay Buccaneers",
+   "away": "Tampa Bay Buccaneers",
+   "away_abbr": "TB",
+   "away_qb": "Jalon Daniels",
+   "backtest": true,
+   "book": "nflverse closing consensus",
+   "conf_label": "High",
+   "confidence": 77,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.876,
+     "data": 1.0,
+     "edge": 0.718,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "High",
+    "n_sources": 2,
+    "score": 77,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 6.4,
+     "epa": 4.7
+    }
+   },
+   "cover_prob": 0.624,
+   "diffs": {
+    "elo": 2.46,
+    "epa": 0.72
+   },
+   "edge": 3.2,
+   "ev": 0.181,
+   "hfa_flag": 1,
+   "home": "Dallas Cowboys",
+   "home_abbr": "DAL",
+   "home_field": 1.842,
+   "home_qb": "Dak Prescott",
+   "id": "2026_05_TB_DAL",
+   "line": -9.5,
+   "model_spread": -6.3,
+   "neutral": false,
+   "offset": 2.1,
+   "result": {
+    "ats": "W",
+    "away_pts": 24.0,
+    "home_pts": 16.0,
+    "su": "L"
+   },
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-09T00:15:00Z",
+   "su_team": "Dallas Cowboys",
+   "su_wp": 0.676,
+   "tier": "play",
+   "total_line": 49.5,
+   "week": 5,
+   "weights": {
+    "elo": 0.921,
+    "epa": 0.079
+   }
+  },
+  "2026_06_ARI_LA": {
+   "ats_line": 12.5,
+   "ats_side": "away",
+   "ats_team": "Arizona Cardinals",
+   "away": "Arizona Cardinals",
+   "away_abbr": "ARI",
+   "book": "nflverse consensus",
+   "conf_label": "Medium",
+   "confidence": 64,
+   "confidence_detail": {
+    "agree": 1,
+    "components": {
+     "agreement": 0.925,
+     "consistency": 0.864,
+     "data": 1.0,
+     "edge": 0.304,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 64,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 11.0,
+     "epa": 12.9
+    }
+   },
+   "cover_prob": 0.549,
+   "diffs": {
+    "elo": 8.84,
+    "epa": 10.74
+   },
+   "edge": 1.4,
+   "ev": 0.047,
+   "hfa_flag": 1,
+   "home": "Los Angeles Rams",
+   "home_abbr": "LA",
+   "home_field": 1.805,
+   "id": "2026_06_ARI_LA",
+   "line": -12.5,
+   "model_spread": -11.1,
+   "model_total": 49.2,
+   "neutral": false,
+   "offset": 0.34,
+   "proj_away": 19.0,
+   "proj_home": 30.2,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-18T20:05:00Z",
+   "su_team": "Los Angeles Rams",
+   "su_wp": 0.789,
+   "tier": "pass",
+   "total_line": 52.5,
+   "updated": "2026-10-12T14:02:59Z",
+   "week": 6,
+   "weights": {
+    "elo": 0.925,
+    "epa": 0.075
+   }
+  },
+  "2026_06_BAL_CLE": {
+   "ats_line": 4.5,
+   "ats_side": "home",
+   "ats_team": "Cleveland Browns",
+   "away": "Baltimore Ravens",
+   "away_abbr": "BAL",
+   "book": "nflverse consensus",
+   "conf_label": "High",
+   "confidence": 80,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.874,
+     "data": 1.0,
+     "edge": 1.0,
+     "market": 0.1,
+     "trends": 0.625
+    },
+    "label": "High",
+    "n_sources": 2,
+    "score": 80,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 0.9,
+     "epa": -0.9
+    }
+   },
+   "cover_prob": 0.675,
+   "diffs": {
+    "elo": -5.38,
+    "epa": -7.14
+   },
+   "edge": 5.3,
+   "ev": 0.262,
+   "hfa_flag": 1,
+   "home": "Cleveland Browns",
+   "home_abbr": "CLE",
+   "home_field": 1.805,
+   "id": "2026_06_BAL_CLE",
+   "line": 4.5,
+   "model_spread": -0.8,
+   "model_total": 42.2,
+   "neutral": false,
+   "offset": 4.47,
+   "proj_away": 20.7,
+   "proj_home": 21.5,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-18T17:00:00Z",
+   "su_team": "Cleveland Browns",
+   "su_wp": 0.522,
+   "tier": "strong",
+   "total_line": 40.5,
+   "updated": "2026-10-12T14:02:59Z",
+   "week": 6,
+   "weights": {
+    "elo": 0.925,
+    "epa": 0.075
+   }
+  },
+  "2026_06_BUF_LV": {
+   "ats_line": 6.0,
+   "ats_side": "home",
+   "ats_team": "Las Vegas Raiders",
+   "away": "Buffalo Bills",
+   "away_abbr": "BUF",
+   "book": "nflverse consensus",
+   "conf_label": "High",
+   "confidence": 71,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.989,
+     "data": 1.0,
+     "edge": 0.449,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "High",
+    "n_sources": 2,
+    "score": 71,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": -4.0,
+     "epa": -3.8
+    }
+   },
+   "cover_prob": 0.586,
+   "diffs": {
+    "elo": -8.14,
+    "epa": -7.98
+   },
+   "edge": 2.0,
+   "ev": 0.114,
+   "hfa_flag": 1,
+   "home": "Las Vegas Raiders",
+   "home_abbr": "LV",
+   "home_field": 1.805,
+   "id": "2026_06_BUF_LV",
+   "line": 6.0,
+   "model_spread": 4.0,
+   "model_total": 54.6,
+   "neutral": false,
+   "offset": 2.35,
+   "proj_away": 29.3,
+   "proj_home": 25.3,
+   "result": null,
+   "season": 2026,
+   "season_type": "regular",
+   "start": "2026-10-18T20:25:00Z",
+   "su_team": "Buffalo Bills",
+   "su_wp": 0.614,
+   "tier": "lean",
+   "total_line": 52.5,
+   "updated": "2026-10-12T14:02:59Z",
+   "week": 6,
+   "weights": {
+    "elo": 0.925,
+    "epa": 0.075
+   }
+  },
+  "2026_06_CAR_PHI": {
+   "ats_line": -1.5,
+   "ats_side": "home",
+   "ats_team": "Philadelphia Eagles",
+   "away": "Carolina Panthers",
+   "away_abbr": "CAR",
+   "book": "nflverse consensus",
+   "conf_label": "Medium",
+   "confidence": 66,
+   "confidence_detail": {
+    "agree": 1,
+    "components": {
+     "agreement": 0.925,
+     "consistency": 0.671,
+     "data": 1.0,
+     "edge": 0.389,
+     "market": 0.5,
+     "trends": 0.625
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 66,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 3.6,
+     "epa": -1.0
+    }
+   },
+   "cover_prob": 0.57,
+   "diffs": {
+    "elo": 2.15,
+    "epa": -2.46
+   },
+   "edge": 1.8,
+   "ev": 0.114,
+   "hfa_flag": 1,
+   "home": "Philadelphia Eagles",
+   "home_abbr": "PHI",
+   "home_field": 1.805,
    "id": "2026_06_CAR_PHI",
    "line": -1.5,
-   "model_spread": -0.6,
+   "model_spread": -3.3,
    "model_total": 46.8,
    "neutral": false,
    "offset": -0.36,
-   "proj_away": 23.1,
-   "proj_home": 23.7,
+   "proj_away": 21.8,
+   "proj_home": 25.0,
    "result": null,
    "season": 2026,
    "season_type": "regular",
    "start": "2026-10-18T17:00:00Z",
    "su_team": "Philadelphia Eagles",
-   "su_wp": 0.518,
-   "tier": "pass",
+   "su_wp": 0.594,
+   "tier": "lean",
    "total_line": 42.5,
-   "updated": "2026-10-12T11:38:16Z",
+   "updated": "2026-10-12T14:02:59Z",
    "week": 6,
    "weights": {
-    "elo": 0.4,
-    "epa": 0.6
+    "elo": 0.925,
+    "epa": 0.075
    }
   },
   "2026_06_CHI_ATL": {
@@ -343,7 +5803,7 @@
     "agree": 2,
     "components": {
      "agreement": 1.0,
-     "consistency": 0.885,
+     "consistency": 0.887,
      "data": 1.0,
      "edge": 1.0,
      "market": 0.5,
@@ -358,42 +5818,42 @@
      "epa": "EPA"
     },
     "sources": {
-     "elo": 2.0,
-     "epa": 3.6
+     "elo": 2.2,
+     "epa": 3.8
     }
    },
-   "cover_prob": 0.681,
+   "cover_prob": 0.664,
    "diffs": {
-    "elo": -2.61,
+    "elo": -2.58,
     "epa": -1.0
    },
-   "edge": 6.0,
-   "ev": 0.322,
+   "edge": 5.3,
+   "ev": 0.29,
    "hfa_flag": 1,
    "home": "Atlanta Falcons",
    "home_abbr": "ATL",
-   "home_field": 1.6,
+   "home_field": 1.805,
    "id": "2026_06_CHI_ATL",
    "line": 3.0,
-   "model_spread": -3.0,
+   "model_spread": -2.3,
    "model_total": 44.2,
    "neutral": false,
    "offset": 2.99,
-   "proj_away": 20.6,
-   "proj_home": 23.6,
+   "proj_away": 20.9,
+   "proj_home": 23.2,
    "result": null,
    "season": 2026,
    "season_type": "regular",
    "start": "2026-10-18T17:00:00Z",
    "su_team": "Atlanta Falcons",
-   "su_wp": 0.585,
+   "su_wp": 0.568,
    "tier": "strong",
    "total_line": 47.5,
-   "updated": "2026-10-12T11:38:16Z",
+   "updated": "2026-10-12T14:02:59Z",
    "week": 6,
    "weights": {
-    "elo": 0.4,
-    "epa": 0.6
+    "elo": 0.925,
+    "epa": 0.075
    }
   },
   "2026_06_DAL_GB": {
@@ -404,62 +5864,62 @@
    "away_abbr": "DAL",
    "book": "nflverse consensus",
    "conf_label": "High",
-   "confidence": 83,
+   "confidence": 78,
    "confidence_detail": {
     "agree": 2,
     "components": {
      "agreement": 1.0,
-     "consistency": 0.82,
+     "consistency": 0.819,
      "data": 1.0,
-     "edge": 1.0,
+     "edge": 0.799,
      "market": 0.5,
      "trends": 0.5
     },
     "label": "High",
     "n_sources": 2,
-    "score": 83,
+    "score": 78,
     "side": "home",
     "source_names": {
      "elo": "Elo",
      "epa": "EPA"
     },
     "sources": {
-     "elo": 4.7,
-     "epa": 7.2
+     "elo": 4.9,
+     "epa": 7.4
     }
    },
-   "cover_prob": 0.653,
+   "cover_prob": 0.622,
    "diffs": {
-    "elo": 2.97,
+    "elo": 2.96,
     "epa": 5.49
    },
-   "edge": 4.7,
-   "ev": 0.305,
+   "edge": 3.6,
+   "ev": 0.232,
    "hfa_flag": 1,
    "home": "Green Bay Packers",
    "home_abbr": "GB",
-   "home_field": 1.6,
+   "home_field": 1.805,
    "id": "2026_06_DAL_GB",
    "line": -1.5,
-   "model_spread": -6.2,
+   "model_spread": -5.1,
    "model_total": 60.3,
    "neutral": false,
    "offset": 0.14,
-   "proj_away": 27.0,
-   "proj_home": 33.2,
+   "proj_away": 27.6,
+   "proj_home": 32.7,
    "result": null,
    "season": 2026,
    "season_type": "regular",
    "start": "2026-10-19T00:20:00Z",
    "su_team": "Green Bay Packers",
-   "su_wp": 0.675,
-   "tier": "strong",
+   "su_wp": 0.645,
+   "tier": "play",
    "total_line": 52.5,
-   "updated": "2026-10-12T11:38:16Z",
+   "updated": "2026-10-12T14:02:59Z",
    "week": 6,
    "weights": {
-    "elo": 0.4,
-    "epa": 0.6
+    "elo": 0.925,
+    "epa": 0.075
    }
   },
   "2026_06_HOU_JAX": {
@@ -470,20 +5930,20 @@
    "away_abbr": "HOU",
    "book": "nflverse consensus",
    "conf_label": "Medium",
-   "confidence": 68,
+   "confidence": 63,
    "confidence_detail": {
     "agree": 2,
     "components": {
      "agreement": 1.0,
-     "consistency": 0.9,
+     "consistency": 0.899,
      "data": 1.0,
-     "edge": 0.272,
+     "edge": 0.105,
      "market": 0.5,
      "trends": 0.625
     },
     "label": "Medium",
     "n_sources": 2,
-    "score": 68,
+    "score": 63,
     "side": "home",
     "source_names": {
      "elo": "Elo",
@@ -494,38 +5954,38 @@
      "epa": 4.8
     }
    },
-   "cover_prob": 0.537,
+   "cover_prob": 0.514,
    "diffs": {
-    "elo": 3.95,
+    "elo": 3.93,
     "epa": 5.35
    },
-   "edge": 1.2,
-   "ev": 0.059,
+   "edge": 0.5,
+   "ev": 0.016,
    "hfa_flag": 0,
    "home": "Jacksonville Jaguars",
    "home_abbr": "JAX",
-   "home_field": 1.6,
+   "home_field": 1.805,
    "id": "2026_06_HOU_JAX",
    "line": -3.0,
-   "model_spread": -4.2,
+   "model_spread": -3.5,
    "model_total": 42.2,
    "neutral": true,
    "offset": -0.56,
-   "proj_away": 19.0,
-   "proj_home": 23.2,
+   "proj_away": 19.4,
+   "proj_home": 22.8,
    "result": null,
    "season": 2026,
    "season_type": "regular",
    "start": "2026-10-18T13:30:00Z",
    "su_team": "Jacksonville Jaguars",
-   "su_wp": 0.621,
+   "su_wp": 0.6,
    "tier": "pass",
    "total_line": 43.5,
-   "updated": "2026-10-12T11:38:16Z",
+   "updated": "2026-10-12T14:02:59Z",
    "week": 6,
    "weights": {
-    "elo": 0.4,
-    "epa": 0.6
+    "elo": 0.925,
+    "epa": 0.075
    }
   },
   "2026_06_LAC_KC": {
@@ -535,63 +5995,63 @@
    "away": "Los Angeles Chargers",
    "away_abbr": "LAC",
    "book": "nflverse consensus",
-   "conf_label": "Low",
-   "confidence": 53,
+   "conf_label": "Medium",
+   "confidence": 56,
    "confidence_detail": {
-    "agree": 1,
+    "agree": 2,
     "components": {
-     "agreement": 0.6,
+     "agreement": 1.0,
      "consistency": 0.806,
      "data": 1.0,
-     "edge": 0.34,
+     "edge": 0.07,
      "market": 0.5,
      "trends": 0.25
     },
-    "label": "Low",
+    "label": "Medium",
     "n_sources": 2,
-    "score": 53,
+    "score": 56,
     "side": "home",
     "source_names": {
      "elo": "Elo",
      "epa": "EPA"
     },
     "sources": {
-     "elo": 8.4,
-     "epa": 11.1
+     "elo": 8.6,
+     "epa": 11.3
     }
    },
-   "cover_prob": 0.496,
+   "cover_prob": 0.46,
    "diffs": {
-    "elo": 5.93,
+    "elo": 5.94,
     "epa": 8.65
    },
-   "edge": 1.5,
-   "ev": -0.032,
+   "edge": 0.3,
+   "ev": -0.101,
    "hfa_flag": 1,
    "home": "Kansas City Chiefs",
    "home_abbr": "KC",
-   "home_field": 1.6,
+   "home_field": 1.805,
    "id": "2026_06_LAC_KC",
    "line": -8.5,
-   "model_spread": -10.0,
+   "model_spread": -8.8,
    "model_total": 40.3,
    "neutral": false,
    "offset": 0.87,
-   "proj_away": 15.2,
-   "proj_home": 25.2,
+   "proj_away": 15.8,
+   "proj_home": 24.6,
    "result": null,
    "season": 2026,
    "season_type": "regular",
    "start": "2026-10-18T20:25:00Z",
    "su_team": "Kansas City Chiefs",
-   "su_wp": 0.766,
+   "su_wp": 0.738,
    "tier": "pass",
-   "total_line": 43.5,
-   "updated": "2026-10-12T11:38:16Z",
+   "total_line": 42.5,
+   "updated": "2026-10-12T14:02:59Z",
    "week": 6,
    "weights": {
-    "elo": 0.4,
-    "epa": 0.6
+    "elo": 0.925,
+    "epa": 0.075
    }
   },
   "2026_06_NO_NYG": {
@@ -602,62 +6062,62 @@
    "away_abbr": "NO",
    "book": "nflverse consensus",
    "conf_label": "High",
-   "confidence": 81,
+   "confidence": 86,
    "confidence_detail": {
     "agree": 2,
     "components": {
      "agreement": 1.0,
-     "consistency": 0.929,
+     "consistency": 0.928,
      "data": 1.0,
-     "edge": 0.738,
+     "edge": 0.903,
      "market": 0.5,
      "trends": 0.75
     },
     "label": "High",
     "n_sources": 2,
-    "score": 81,
+    "score": 86,
     "side": "home",
     "source_names": {
      "elo": "Elo",
      "epa": "EPA"
     },
     "sources": {
-     "elo": 2.4,
-     "epa": 1.4
+     "elo": 2.6,
+     "epa": 1.6
     }
    },
-   "cover_prob": 0.577,
+   "cover_prob": 0.598,
    "diffs": {
-    "elo": 2.64,
+    "elo": 2.66,
     "epa": 1.65
    },
-   "edge": 3.3,
-   "ev": 0.049,
+   "edge": 4.1,
+   "ev": 0.088,
    "hfa_flag": 1,
    "home": "New York Giants",
    "home_abbr": "NYG",
-   "home_field": 1.6,
+   "home_field": 1.805,
    "id": "2026_06_NO_NYG",
    "line": 1.5,
-   "model_spread": -1.8,
+   "model_spread": -2.6,
    "model_total": 42.1,
    "neutral": false,
    "offset": -1.82,
-   "proj_away": 20.1,
-   "proj_home": 22.0,
+   "proj_away": 19.8,
+   "proj_home": 22.3,
    "result": null,
    "season": 2026,
    "season_type": "regular",
    "start": "2026-10-18T17:00:00Z",
    "su_team": "New York Giants",
-   "su_wp": 0.553,
+   "su_wp": 0.574,
    "tier": "play",
    "total_line": 45.5,
-   "updated": "2026-10-12T11:38:16Z",
+   "updated": "2026-10-12T14:02:59Z",
    "week": 6,
    "weights": {
-    "elo": 0.4,
-    "epa": 0.6
+    "elo": 0.925,
+    "epa": 0.075
    }
   },
   "2026_06_NYJ_NE": {
@@ -673,9 +6133,9 @@
     "agree": 2,
     "components": {
      "agreement": 1.0,
-     "consistency": 0.979,
+     "consistency": 0.978,
      "data": 1.0,
-     "edge": 0.794,
+     "edge": 0.801,
      "market": 0.5,
      "trends": 1.0
     },
@@ -688,21 +6148,21 @@
      "epa": "EPA"
     },
     "sources": {
-     "elo": 10.4,
-     "epa": 10.7
+     "elo": 10.6,
+     "epa": 10.9
     }
    },
-   "cover_prob": 0.566,
+   "cover_prob": 0.567,
    "diffs": {
-    "elo": 8.98,
+    "elo": 8.96,
     "epa": 9.27
    },
    "edge": 3.6,
-   "ev": 0.067,
+   "ev": 0.078,
    "hfa_flag": 1,
    "home": "New England Patriots",
    "home_abbr": "NE",
-   "home_field": 1.6,
+   "home_field": 1.805,
    "id": "2026_06_NYJ_NE",
    "line": -7.0,
    "model_spread": -10.6,
@@ -716,14 +6176,14 @@
    "season_type": "regular",
    "start": "2026-10-18T17:00:00Z",
    "su_team": "New England Patriots",
-   "su_wp": 0.777,
+   "su_wp": 0.778,
    "tier": "play",
    "total_line": 44.5,
-   "updated": "2026-10-12T11:38:16Z",
+   "updated": "2026-10-12T14:02:59Z",
    "week": 6,
    "weights": {
-    "elo": 0.4,
-    "epa": 0.6
+    "elo": 0.925,
+    "epa": 0.075
    }
   },
   "2026_06_PIT_TB": {
@@ -734,62 +6194,62 @@
    "away_abbr": "PIT",
    "book": "nflverse consensus",
    "conf_label": "Medium",
-   "confidence": 68,
+   "confidence": 57,
    "confidence_detail": {
     "agree": 2,
     "components": {
      "agreement": 1.0,
-     "consistency": 0.696,
+     "consistency": 0.698,
      "data": 1.0,
-     "edge": 0.592,
+     "edge": 0.147,
      "market": 0.5,
      "trends": 0.25
     },
     "label": "Medium",
     "n_sources": 2,
-    "score": 68,
+    "score": 57,
     "side": "home",
     "source_names": {
      "elo": "Elo",
      "epa": "EPA"
     },
     "sources": {
-     "elo": -2.9,
-     "epa": 1.4
+     "elo": -2.7,
+     "epa": 1.6
     }
    },
-   "cover_prob": 0.584,
+   "cover_prob": 0.522,
    "diffs": {
-    "elo": -3.28,
+    "elo": -3.25,
     "epa": 0.98
    },
-   "edge": 2.7,
-   "ev": 0.073,
+   "edge": 0.7,
+   "ev": -0.033,
    "hfa_flag": 1,
    "home": "Tampa Bay Buccaneers",
    "home_abbr": "TB",
-   "home_field": 1.6,
+   "home_field": 1.805,
    "id": "2026_06_PIT_TB",
    "line": 3.0,
-   "model_spread": 0.3,
+   "model_spread": 2.3,
    "model_total": 44.9,
    "neutral": false,
    "offset": -1.21,
-   "proj_away": 22.6,
-   "proj_home": 22.3,
+   "proj_away": 23.6,
+   "proj_home": 21.3,
    "result": null,
    "season": 2026,
    "season_type": "regular",
    "start": "2026-10-18T17:00:00Z",
    "su_team": "Pittsburgh Steelers",
-   "su_wp": 0.51,
-   "tier": "lean",
+   "su_wp": 0.568,
+   "tier": "pass",
    "total_line": 40.5,
-   "updated": "2026-10-12T11:38:16Z",
+   "updated": "2026-10-12T14:02:59Z",
    "week": 6,
    "weights": {
-    "elo": 0.4,
-    "epa": 0.6
+    "elo": 0.925,
+    "epa": 0.075
    }
   },
   "2026_06_SEA_DEN": {
@@ -799,63 +6259,63 @@
    "away": "Seattle Seahawks",
    "away_abbr": "SEA",
    "book": "nflverse consensus",
-   "conf_label": "Medium",
-   "confidence": 69,
+   "conf_label": "High",
+   "confidence": 72,
    "confidence_detail": {
     "agree": 2,
     "components": {
      "agreement": 1.0,
-     "consistency": 0.956,
+     "consistency": 0.957,
      "data": 1.0,
-     "edge": 0.299,
+     "edge": 0.414,
      "market": 0.5,
      "trends": 0.625
     },
-    "label": "Medium",
+    "label": "High",
     "n_sources": 2,
-    "score": 69,
+    "score": 72,
     "side": "home",
     "source_names": {
      "elo": "Elo",
      "epa": "EPA"
     },
     "sources": {
-     "elo": -1.3,
-     "epa": -1.9
+     "elo": -1.1,
+     "epa": -1.7
     }
    },
-   "cover_prob": 0.543,
+   "cover_prob": 0.559,
    "diffs": {
-    "elo": -2.74,
+    "elo": -2.75,
     "epa": -3.35
    },
-   "edge": 1.3,
-   "ev": 0.026,
+   "edge": 1.9,
+   "ev": 0.054,
    "hfa_flag": 1,
    "home": "Denver Broncos",
    "home_abbr": "DEN",
-   "home_field": 1.6,
+   "home_field": 1.805,
    "id": "2026_06_SEA_DEN",
    "line": 3.0,
-   "model_spread": 1.7,
+   "model_spread": 1.1,
    "model_total": 32.3,
    "neutral": false,
    "offset": -0.15,
-   "proj_away": 17.0,
-   "proj_home": 15.3,
+   "proj_away": 16.7,
+   "proj_home": 15.6,
    "result": null,
    "season": 2026,
    "season_type": "regular",
    "start": "2026-10-16T00:15:00Z",
    "su_team": "Seattle Seahawks",
-   "su_wp": 0.548,
-   "tier": "pass",
+   "su_wp": 0.533,
+   "tier": "lean",
    "total_line": 41.5,
-   "updated": "2026-10-12T11:38:16Z",
+   "updated": "2026-10-12T14:02:59Z",
    "week": 6,
    "weights": {
-    "elo": 0.4,
-    "epa": 0.6
+    "elo": 0.925,
+    "epa": 0.075
    }
   },
   "2026_06_TEN_IND": {
@@ -866,62 +6326,62 @@
    "away_abbr": "TEN",
    "book": "nflverse consensus",
    "conf_label": "High",
-   "confidence": 75,
+   "confidence": 71,
    "confidence_detail": {
     "agree": 2,
     "components": {
      "agreement": 1.0,
-     "consistency": 0.849,
+     "consistency": 0.853,
      "data": 1.0,
-     "edge": 0.599,
+     "edge": 0.409,
      "market": 0.5,
      "trends": 0.625
     },
     "label": "High",
     "n_sources": 2,
-    "score": 75,
+    "score": 71,
     "side": "home",
     "source_names": {
      "elo": "Elo",
      "epa": "EPA"
     },
     "sources": {
-     "elo": 8.4,
-     "epa": 10.5
+     "elo": 8.7,
+     "epa": 10.7
     }
    },
-   "cover_prob": 0.539,
+   "cover_prob": 0.513,
    "diffs": {
-    "elo": 6.62,
+    "elo": 6.67,
     "epa": 8.73
    },
-   "edge": 2.7,
-   "ev": 0.037,
+   "edge": 1.8,
+   "ev": -0.011,
    "hfa_flag": 1,
    "home": "Indianapolis Colts",
    "home_abbr": "IND",
-   "home_field": 1.6,
+   "home_field": 1.805,
    "id": "2026_06_TEN_IND",
    "line": -7.0,
-   "model_spread": -9.7,
+   "model_spread": -8.8,
    "model_total": 49.0,
    "neutral": false,
    "offset": 0.21,
-   "proj_away": 19.6,
-   "proj_home": 29.3,
+   "proj_away": 20.1,
+   "proj_home": 28.9,
    "result": null,
    "season": 2026,
    "season_type": "regular",
    "start": "2026-10-18T17:00:00Z",
    "su_team": "Indianapolis Colts",
-   "su_wp": 0.758,
+   "su_wp": 0.739,
    "tier": "lean",
-   "total_line": 43.5,
-   "updated": "2026-10-12T11:38:16Z",
+   "total_line": 44.5,
+   "updated": "2026-10-12T14:02:59Z",
    "week": 6,
    "weights": {
-    "elo": 0.4,
-    "epa": 0.6
+    "elo": 0.925,
+    "epa": 0.075
    }
   },
   "2026_06_WAS_SF": {
@@ -937,9 +6397,9 @@
     "agree": 2,
     "components": {
      "agreement": 1.0,
-     "consistency": 0.991,
+     "consistency": 0.989,
      "data": 1.0,
-     "edge": 0.792,
+     "edge": 0.818,
      "market": 0.5,
      "trends": 0.5
     },
@@ -952,42 +6412,42 @@
      "epa": "EPA"
     },
     "sources": {
-     "elo": 11.0,
-     "epa": 11.1
+     "elo": 11.2,
+     "epa": 11.3
     }
    },
-   "cover_prob": 0.551,
+   "cover_prob": 0.554,
    "diffs": {
-    "elo": 9.33,
+    "elo": 9.31,
     "epa": 9.46
    },
-   "edge": 3.6,
-   "ev": 0.06,
+   "edge": 3.7,
+   "ev": 0.067,
    "hfa_flag": 1,
    "home": "San Francisco 49ers",
    "home_abbr": "SF",
-   "home_field": 1.6,
+   "home_field": 1.805,
    "id": "2026_06_WAS_SF",
    "line": -7.5,
-   "model_spread": -11.1,
+   "model_spread": -11.2,
    "model_total": 55.2,
    "neutral": false,
    "offset": 0.06,
-   "proj_away": 22.1,
-   "proj_home": 33.1,
+   "proj_away": 22.0,
+   "proj_home": 33.2,
    "result": null,
    "season": 2026,
    "season_type": "regular",
    "start": "2026-10-20T00:15:00Z",
    "su_team": "San Francisco 49ers",
-   "su_wp": 0.788,
+   "su_wp": 0.79,
    "tier": "play",
    "total_line": 50.5,
-   "updated": "2026-10-12T11:38:16Z",
+   "updated": "2026-10-12T14:02:59Z",
    "week": 6,
    "weights": {
-    "elo": 0.4,
-    "epa": 0.6
+    "elo": 0.925,
+    "epa": 0.075
    }
   }
  }
