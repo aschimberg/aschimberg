@@ -97,7 +97,8 @@ def load(season_id, log=print, fetcher=None):
 
 def team_strength(mp, prior_games=None):
     """{team: (off, def)} in xG per game vs league average; this season shrunk
-    toward last season's per-game rates (prior_games of weight)."""
+    toward last season's per-game rates (regressed by PRIOR_KEEP) with
+    prior_games of weight."""
     k = prior_games if prior_games is not None else config.RIDGE_GAMES
     cur, prev = mp["cur"]["teams"], mp["prev"]["teams"]
 
@@ -110,8 +111,10 @@ def team_strength(mp, prior_games=None):
     rates = {}
     for t in teams:
         c = cur.get(t, {"gp": 0, "xgf": 0.0, "xga": 0.0})
-        pf = pg(prev, t, "xgf") or prev_mean or 0.0
-        pa = pg(prev, t, "xga") or prev_mean or 0.0
+        m = prev_mean or 0.0
+        # last season regressed toward average, like our own ratings' prior
+        pf = m + config.PRIOR_KEEP * ((pg(prev, t, "xgf") or m) - m)
+        pa = m + config.PRIOR_KEEP * ((pg(prev, t, "xga") or m) - m)
         n = c["gp"] + k
         rates[t] = ((c["xgf"] + k * pf) / n, (c["xga"] + k * pa) / n)
     if not rates:
