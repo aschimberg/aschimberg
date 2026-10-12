@@ -4,7 +4,7 @@ set -euo pipefail
 msg="${1:-Data update}"
 git config user.name "github-actions[bot]"
 git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-git add data site/data
+git add data site
 if git diff --cached --quiet; then
   echo "No data changes"
   exit 0

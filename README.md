@@ -1,4 +1,4 @@
-# CFB Model
+# CFB / NFL / NHL Model
 
 A static college football model site on GitHub Pages, driven by
 [CollegeFootballData.com](https://collegefootballdata.com) and GitHub Actions.
@@ -12,6 +12,28 @@ The visual design follows [davidsasser.com/cfb](https://davidsasser.com/cfb): wa
 - **ATS trends**: closing lines and results for the last 6 seasons plus the current one. Each team's ATS record is split overall, as favorite or underdog, home/away/neutral (and combined, e.g. road dog), in conference play, off a bye (13+ days) and over the last 10 games. Each game card shows the splits that apply to that game.
 - **Bet splits**: public bet % and money % per side, with sharp/public/reverse-line-move flags. The feed is swappable (see below).
 - **ntfy briefing**: sent at 9 AM CT on game days with picks, biggest edges, line moves, key ATS trends and bet splits. A recap goes out after Sunday grading.
+
+## NFL and NHL models
+
+The same site serves `/nfl/` and `/nhl/` (switch sports in the header). Both run daily inside the **Daily refresh** workflow and need no API keys.
+
+**NFL** (`nflmodel/`, data from [nflverse](https://github.com/nflverse), CC BY 4.0: schedules, consensus lines, projected starting QBs, play-by-play):
+- **Team strength:** opponent-adjusted EPA/play on offense and defense, fit with weighted ridge regression. Recent weeks count more and garbage time is excluded. Ratings are shrunk toward last season.
+- **QB adjustment:** the listed starter's shrunk EPA per dropback, compared with the QB play the team's rating was built on.
+- **Elo:** a 538-style rating from game results, as a second source.
+- **Home field and rest:** about 1.6 points of home field (tuned weekly) and a tiny rest term.
+- **Cover probability:** uses a margin distribution reweighted to real NFL final margins, so key numbers like 3 and 7 and pushes are priced correctly.
+- **Picks:** ATS edges with tiers, confidence, a weekly record, ATS trends (with division games) and an ntfy briefing on game days.
+
+**NHL** (`nhlmodel/`, data from the NHL public API: schedule, play-by-play, DraftKings odds):
+- **Expected goals:** our own xG model, a logistic regression on every unblocked shot (distance, angle, shot type, rebound, rush, strength). It is retrained weekly.
+- **Team strength:** opponent-adjusted xG and goals per game, blended with Elo.
+- **Goalies:** GSAx (goals saved above expected) for the projected starter. The backup is assumed on the second night of a back-to-back.
+- **Back-to-backs:** a penalty for the second night.
+- **Score distribution:** regulation Poisson, plus empty-net goals and an overtime/shootout step. This gives win, puck-line and total probabilities.
+- **Picks:** moneyline value picks by EV%, totals at 3%+ EV, records in units, and a briefing only on days with value.
+
+Tuning: NHL weights and home ice are refit on Mondays and the xG model is retrained; NFL weights and home field are refit on Tuesdays. NHL play-by-play is cached in `data/nhl/cache/` (the first run backfills last season, about 8 minutes).
 
 ## Setup
 

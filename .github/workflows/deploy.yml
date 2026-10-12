@@ -28,6 +28,8 @@ jobs:
           # When called after a data commit, deploy the branch head, not the
           # SHA that triggered the caller.
           ref: ${{ github.ref }}
+      - name: Build sport pages (NFL, NHL) from the main page
+        run: python3 tools/build_pages.py
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

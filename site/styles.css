@@ -275,3 +275,15 @@ details.section > summary .conf { margin-left: auto; margin-right: 8px; }
 .conf-row { display: grid; grid-template-columns: 150px 1fr; align-items: center; gap: 8px; margin: 3px 0; font-size: 11px; color: var(--muted); }
 .conf-row em { margin-left: 6px; color: var(--faint); font: 9px var(--mono); font-style: normal; }
 .weights-table { margin-top: 10px; }
+
+/* Sport switcher + game info chips */
+.sports { justify-self: start; display: inline-flex; gap: 4px; padding: 3px; border: 1px solid var(--line); border-radius: 999px; background: var(--card); }
+.sports a { padding: 5px 12px; border-radius: 999px; color: var(--muted); font: 600 12px var(--sans); letter-spacing: .02em; }
+.sports a[aria-current="page"] { background: var(--accent); color: #fff; }
+.sports a:hover { color: var(--ink); }
+.sports a[aria-current="page"]:hover { color: #fff; }
+.extras { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 16px 10px; }
+.extras span { padding: 3px 8px; border-radius: 999px; background: var(--market); color: var(--muted); font-size: 11px; }
+.market.custom { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+.market.custom dd { white-space: normal; }
+@media (max-width: 700px) { .header-inner { grid-template-columns: auto 1fr; } .sports { justify-self: end; } }

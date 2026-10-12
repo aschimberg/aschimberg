@@ -30,6 +30,18 @@ jobs:
           SPLITS_URL: ${{ vars.SPLITS_URL }}
           SPLITS_API_KEY: ${{ secrets.SPLITS_API_KEY }}
           SITE_URL: ${{ vars.SITE_URL || format('https://{0}.github.io/{1}/', github.repository_owner, github.event.repository.name) }}
+      - name: NFL refresh (nflverse)
+        if: always()
+        continue-on-error: true
+        run: python -m nflmodel refresh
+        env:
+          SITE_URL: ${{ vars.SITE_URL || format('https://{0}.github.io/{1}/', github.repository_owner, github.event.repository.name) }}
+      - name: NHL refresh (NHL API)
+        if: always()
+        continue-on-error: true
+        run: python -m nhlmodel refresh
+        env:
+          SITE_URL: ${{ vars.SITE_URL || format('https://{0}.github.io/{1}/', github.repository_owner, github.event.repository.name) }}
       - name: Commit data
         if: always()
         run: .github/scripts/commit-data.sh "Daily refresh"

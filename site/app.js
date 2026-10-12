@@ -15,13 +15,14 @@
 
   async function getJSON(name) {
     try {
-      const res = await fetch(`data/${name}.json`, { cache: "no-cache" });
+      const res = await fetch(`${window.DATA_PATH || "data/"}${name}.json`, { cache: "no-cache" });
       return res.ok ? await res.json() : null;
     } catch {
       return null;
     }
   }
 
+  const T = (k, d) => state.meta?.terms?.[k] ?? d;
   const fmtTime = (d) => d.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit", timeZoneName: "short" });
   const fmtDay = (d) => d.toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric" });
 
@@ -155,12 +156,12 @@
           <div class="team-name-line">${t.poll_rank ? `<span class="rank">${t.poll_rank}</span>` : ""}<strong>${esc(t.name)}</strong></div>
           <span class="team-record">${esc(sub)}</span>
         </div>
-        <div class="score-block"><small>${final ? "Final" : "Projected"}</small><strong>${score == null ? "—" : final ? score : Number(score).toFixed(1)}</strong></div>
+        <div class="score-block"><small>${final ? "Final" : "Projected"}</small><strong>${score == null ? "—" : final ? score : Number(score).toFixed(g.score_decimals ?? 1)}</strong></div>
       </div>`;
     };
 
     const mv = ln?.move ? `<span class="mv" title="Moved ${Math.abs(ln.move)} toward ${esc(ln.move < 0 ? g.home.name : g.away.name)} since open">${ln.move < 0 ? "▼" : "▲"}${Math.abs(ln.move)}</span>` : "";
-    const market = `<dl class="market">
+    const market = g.market_rows ? `<dl class="market custom">${g.market_rows.map((m) => `<div><dt>${esc(m.label)}</dt><dd>${esc(m.value)}</dd></div>`).join("")}</dl>` : `<dl class="market">
       <div><dt>Open</dt><dd>${esc(ln ? favLine(g, ln.open) : "—")}</dd></div>
       <div><dt>Current${ln?.book ? " · " + esc(ln.book) : ""}</dt><dd>${esc(ln ? favLine(g, ln.spread) : "No line")}${mv}</dd></div>
       <div><dt>Proj. Line</dt><dd>${esc(favLine(g, g.model.spread))}</dd></div>
@@ -170,18 +171,26 @@
     const res = (v, labels) => (v ? `<span class="res ${v}">${labels[v]}</span>` : "");
     const wp = g.model.home_wp >= 0.5 ? g.model.home_wp : 1 - g.model.home_wp;
     let sel = "";
-    if (p.ats_team) {
+    const confBadge = p.confidence != null ? `<span><span class="conf ${esc((p.conf_label || "").toLowerCase())}" title="Confidence ${p.confidence}/100">${esc(p.conf_label)} ${p.confidence}</span></span>` : "";
+    if (g.pick_rows) {
+      sel = g.pick_rows.map((row) => {
+        if (row.tier) return `<span><span class="tier ${row.tier}">${row.tier === "pass" ? "No value" : row.tier}</span> ${esc(row.text)}</span>`;
+        if (row.strong) return `<strong>${esc(row.text)}${row.result_key ? res(r[row.result_key], { W: "Win", L: "Loss", P: "Push" }) : ""}</strong>`;
+        return `<span class="${row.dim ? "dim" : ""}">${esc(row.text)}</span>`;
+      }).join("") + confBadge;
+      if (!g.pick_rows.length && p.su_team) sel = `<span class="dim">No line yet</span><strong>${esc(p.su_team)} ${Math.round(wp * 100)}%</strong>`;
+    } else if (p.ats_team) {
       sel = `<strong>${esc(teamLine(p.ats_team, p.ats_line))}${res(r.ats, { W: "Cover", L: "Miss", P: "Push" })}</strong>
         <span><span class="tier ${p.tier}">${p.tier === "pass" ? "No edge" : p.tier}</span> ${num(p.edge)}</span>
-        ${p.confidence != null ? `<span><span class="conf ${esc((p.conf_label || "").toLowerCase())}" title="Confidence ${p.confidence}/100">${esc(p.conf_label)} ${p.confidence}</span></span>` : ""}
+        ${confBadge}
         <span class="dim">SU ${esc(p.su_team)} ${Math.round(wp * 100)}%${res(r.su, { W: "W", L: "L" })}</span>`;
     } else if (p.su_team) {
       sel = `<span class="dim">No line</span><strong>SU ${esc(p.su_team)} ${Math.round(wp * 100)}%${res(r.su, { W: "W", L: "L" })}</strong>`;
     }
 
     const ts = state.meta?.trend_seasons || [];
-    const notable = [...(g.trends.home || []), ...(g.trends.away || [])].some((t) => t.notable);
-    const trends = `<details class="section" ${notable ? "open" : ""}><summary>ATS trends ${ts.length ? ts[0] + "–" + ts[1] : ""}</summary>
+    const notable = g.trends && [...(g.trends.home || []), ...(g.trends.away || [])].some((t) => t.notable);
+    const trends = !g.trends ? "" : `<details class="section" ${notable ? "open" : ""}><summary>ATS trends ${ts.length ? ts[0] + "–" + ts[1] : ""}</summary>
       <div class="section-body trend-cols">
         <div><h4>${esc(g.away.name)}</h4>${(g.trends.away || []).map(trendRow).join("") || '<p class="small-note">No ATS history</p>'}</div>
         <div><h4>${esc(g.home.name)}</h4>${(g.trends.home || []).map(trendRow).join("") || '<p class="small-note">No ATS history</p>'}</div>
@@ -195,11 +204,12 @@
         <p class="venue">${esc(g.venue || "")}</p>
       </div>
       <div class="teams">${teamRow("away")}${teamRow("home")}</div>
+      ${(g.extras || []).length ? `<div class="extras">${g.extras.map((e) => `<span>${esc(e)}</span>`).join("")}</div>` : ""}
       ${market}
       <div class="pick-panel"><span class="pick-label">Model picks</span><div class="pick-sel">${sel}</div></div>
       ${confHtml}
       ${trends}
-      ${splitsSection(g)}
+      ${state.meta?.sport && state.meta.sport !== "cfb" && !g.splits ? "" : splitsSection(g)}
     </article>`;
   }
 
@@ -217,8 +227,11 @@
     const c = g.confidence;
     if (!c) return "";
     const w = state.meta?.settings?.conf_weights || {};
+    const names = c.source_names || SRC_NAMES;
     const srcs = Object.entries(c.sources || {})
-      .map(([k, m]) => `<span>${SRC_NAMES[k]} ${esc(favLine(g, -m))}</span>`)
+      .map(([k, m]) => c.units === "goals"
+        ? `<span>${esc(names[k] || k)} ${esc(g.home.abbr || g.home.name)} ${m >= 0 ? "+" : "−"}${Math.abs(m).toFixed(2)}</span>`
+        : `<span>${esc(names[k] || k)} ${esc(favLine(g, -m))}</span>`)
       .join("");
     const rows = CONF_ROWS.map(([k, label, tip]) => {
       const v = c.components[k] ?? 0;
@@ -227,7 +240,7 @@
     }).join("");
     return `<details class="section"><summary>Confidence <span class="conf ${esc(c.label.toLowerCase())}">${esc(c.label)} ${c.score}</span></summary>
       <div class="section-body">
-        <p class="small-note">${c.agree}/${c.n_sources} sources cover on their own · source lines: </p>
+        <p class="small-note">${c.agree}/${c.n_sources} ${c.units === "goals" ? "sources see value on this side · projected home margin (goals)" : "sources cover on their own · source lines"}: </p>
         <div class="src-lines">${srcs}</div>
         ${rows}
       </div></details>`;
@@ -242,7 +255,10 @@
   ];
 
   function renderFilters() {
-    $("#game-filters").innerHTML = FILTERS.map(
+    const hasPoll = state.slate.some((g) => g.home.poll_rank || g.away.poll_rank);
+    const hasSplits = state.slate.some((g) => g.splits);
+    const shown = FILTERS.filter((f) => (f.key !== "top25" || hasPoll) && (f.key !== "flags" || hasSplits || state.meta?.sport === "cfb"));
+    $("#game-filters").innerHTML = shown.map(
       (f) => `<button role="tab" data-f="${f.key}" class="${state.filter === f.key ? "active" : ""}">${f.label}<span>${state.slate.filter(f.test).length}</span></button>`
     ).join("");
     $("#game-filters").querySelectorAll("button").forEach((b) =>
@@ -313,6 +329,16 @@
     const n = (k, d = 1) => ({ key: k, num: true, render: (r) => num(r[k], d) });
     const el = $("#ratings-table");
     el._rerender = renderRatings;
+    const teamCell = (r) => `<span class="team-cell">${r.logo ? `<img src="${esc(r.logo)}" alt="" loading="lazy">` : ""}<strong>${esc(r.team)}</strong>${r.poll_rank ? ` <span class="rank">${r.poll_rank}</span>` : ""}</span>`;
+    const cfg = state.meta?.rating_columns;
+    if (cfg) {
+      const cols = cfg.map((c) => c.key === "team"
+        ? { key: "team", label: c.label, ascFirst: true, render: teamCell }
+        : c.text ? { key: c.key, label: c.label, ascFirst: true, render: (r) => esc(r[c.key] ?? "—") }
+        : { key: c.key, label: c.label, num: true, ascFirst: !!c.asc, render: (r) => num(r[c.key], c.digits ?? 1) });
+      renderTable(el, cols, rows, el._sort?.key ? el._sort : { key: "rank", asc: true });
+      return;
+    }
     renderTable(
       el,
       [
@@ -339,7 +365,10 @@
     const sr = rec.season_record;
     const s = state.meta?.settings || {};
     const tile = (k, r, ties = true, sub = "") => `<div class="tile"><div class="k">${k}</div><div class="v">${recStr(r, ties)}</div><div class="s">${pct(r?.pct)}${sub}</div></div>`;
-    $("#record-tiles").innerHTML =
+    const A = T("ats", "ATS");
+    if (rec.tiles) {
+      $("#record-tiles").innerHTML = rec.tiles.map((t) => tile(esc(t.k), t.rec, true, t.sub ? " · " + esc(t.sub) : "")).join("");
+    } else $("#record-tiles").innerHTML =
       tile("Straight up", sr.su, false) +
       tile("ATS · all", sr.ats) +
       tile(`ATS · edge ${s.lean_edge ?? 2}+`, sr.ats_lean) +
@@ -347,7 +376,7 @@
       tile(`ATS · edge ${s.strong_edge ?? 7}+`, sr.ats_strong) +
       tile("ATS · all-time", rec.all_time.ats, true, " · all seasons");
     const bc = sr.ats_by_conf;
-    if (bc) {
+    if (bc && !rec.tiles) {
       $("#record-tiles").innerHTML +=
         tile("ATS · High confidence", bc.High) + tile("ATS · Medium confidence", bc.Medium) + tile("ATS · Low confidence", bc.Low);
     }
@@ -357,11 +386,11 @@
     renderTable(
       wk,
       [
-        { key: "week", label: "Week", ascFirst: true, render: (r) => (r.season_type === "regular" ? `Week ${r.week}` : "Postseason") + ` <span class="muted">${r.season}</span>`, sortVal: (r) => r.season * 100 + (r.season_type === "regular" ? 0 : 50) + r.week },
+        { key: "week", label: "Week", ascFirst: true, render: (r) => r.label ? esc(r.label) : (r.season_type === "regular" ? `Week ${r.week}` : "Postseason") + ` <span class="muted">${r.season}</span>`, sortVal: (r) => r.season * 100 + (r.season_type === "regular" ? 0 : 50) + r.week },
         { key: "su", label: "SU", num: true, render: (r) => recStr(r.su, false), sortVal: (r) => r.su.pct },
-        { key: "ats", label: "ATS", num: true, render: (r) => recStr(r.ats), sortVal: (r) => r.ats.pct },
-        { key: "atspct", label: "ATS %", num: true, render: (r) => pct(r.ats.pct), sortVal: (r) => r.ats.pct },
-        { key: "plays", label: `ATS edge ${s.play_edge ?? 4}+`, num: true, render: (r) => recStr(r.ats_plays), sortVal: (r) => r.ats_plays.pct },
+        { key: "ats", label: A, num: true, render: (r) => recStr(r.ats), sortVal: (r) => r.ats.pct },
+        { key: "atspct", label: `${A} %`, num: true, render: (r) => pct(r.ats.pct), sortVal: (r) => r.ats.pct },
+        { key: "plays", label: `${A} ${T("edge", "edge")} ${s.lean_edge ?? 4}+`, num: true, render: (r) => recStr(r.ats_plays), sortVal: (r) => r.ats_plays.pct },
       ],
       [...sr.by_week].reverse(),
       wk._sort
@@ -390,13 +419,13 @@
       [
         { key: "start", label: "Date", render: (p) => new Date(p.start).toLocaleDateString(undefined, { month: "short", day: "numeric" }) },
         { key: "game", label: "Game", sortVal: (p) => p.away, render: (p) => `${esc(p.away)} ${p.neutral ? "vs" : "at"} ${esc(p.home)}` },
-        { key: "line", label: "Line", num: true, render: (p) => esc(favLine({ home: { name: p.home }, away: { name: p.away } }, p.line)) },
-        { key: "model_spread", label: "Model", num: true, render: (p) => esc(favLine({ home: { name: p.home }, away: { name: p.away } }, p.model_spread)) },
-        { key: "ats_team", label: "ATS pick", render: (p) => (p.ats_team ? esc(teamLine(p.ats_team, p.ats_line)) : "—") },
-        { key: "edge", label: "Edge", num: true, render: (p) => num(p.edge) },
+        { key: "line", label: "Line", num: true, render: (p) => esc(p.line_label ?? favLine({ home: { name: p.home }, away: { name: p.away } }, p.line)) },
+        { key: "model_spread", label: "Model", num: true, render: (p) => esc(p.model_label ?? favLine({ home: { name: p.home }, away: { name: p.away } }, p.model_spread)) },
+        { key: "ats_team", label: `${T("ats", "ATS")} pick`, render: (p) => (p.ats_team ? esc(p.pick_label ?? teamLine(p.ats_team, p.ats_line)) : "—") },
+        { key: "edge", label: T("edge", "Edge"), num: true, render: (p) => num(p.edge) },
         { key: "confidence", label: "Conf", num: true, render: (p) => (p.confidence == null ? "—" : `<span class="conf ${esc((p.conf_label || "").toLowerCase())}">${p.confidence}</span>`) },
         { key: "score", label: "Final", num: true, sortVal: (p) => (p.result ? 1 : 0), render: (p) => (p.result ? `${p.result.away_pts}–${p.result.home_pts}` : "—") },
-        { key: "ats", label: "ATS", sortVal: (p) => p.result?.ats, render: (p) => res(p.result?.ats) },
+        { key: "ats", label: T("ats", "ATS"), sortVal: (p) => p.result?.ats, render: (p) => res(p.result?.ats) },
         { key: "su", label: "SU", sortVal: (p) => p.result?.su, render: (p) => `${esc(p.su_team)} ${res(p.result?.su)}` },
       ],
       rows,
@@ -442,6 +471,10 @@
   // --- Method ----------------------------------------------------------------
   function renderMethod() {
     const m = state.meta;
+    if (m.method_html) {
+      $("#method-body").innerHTML = m.method_html + `<h3>Weekly tuning</h3>${tuningHtml(m.tuning)}`;
+      return;
+    }
     const s = m.settings;
     const w = s.weights;
     const pc = (v) => Math.round(v * 100);
@@ -473,15 +506,16 @@
   }
 
   function tuningHtml(t) {
-    const pct = (w) => (w ? `${Math.round(w.sp * 100)}/${Math.round(w.fpi * 100)}/${Math.round(w.elo * 100)}` : "—");
-    let html = `<p>Every pick stores what SP+, FPI and Elo each projected. After Sunday grading, the model refits the SP+/FPI/Elo weights and home-field points that best predict this season's actual margins, then moves part of the way there (more as games accumulate) so one noisy week can't swing it. Tuning starts after ${t?.min_games ?? 25} graded games.${t && t.enabled === false ? " <strong>Tuning is currently turned off.</strong>" : ""}</p>`;
+    const SN = { sp: "SP+", fpi: "FPI", elo: "Elo", epa: "EPA", xg: "xG", goals: "Goals" };
+    const pct = (w) => (w ? Object.entries(w).map(([k, v]) => `${SN[k] || k} ${Math.round(v * 100)}`).join(" / ") : "—");
+    let html = `<p>Every pick stores what each rating source projected. After weekly grading, the model refits the source weights and home advantage that best predict this season's actual margins, then moves part of the way there (more as games accumulate) so one noisy week can't swing it. Tuning starts after ${t?.min_games ?? 25} graded games.${t && t.enabled === false ? " <strong>Tuning is currently turned off.</strong>" : ""}</p>`;
     if (!t || !t.history || !t.history.length) return html + `<p>Status: not tuned yet — running on default weights.</p>`;
     const last = t.last || {};
     if (last.by_source) {
-      html += `<p>Last fit on ${last.games} games: ${Object.entries(last.by_source).map(([k, v]) => `${SRC_NAMES[k]} alone ${v.rmse} RMSE${v.ats != null ? ", " + Math.round(v.ats * 100) + "% ATS" : ""}`).join(" · ")}.</p>`;
+      html += `<p>Last fit on ${last.games} games: ${Object.entries(last.by_source).map(([k, v]) => `${SN[k] || k} alone ${v.rmse} RMSE${v.ats != null ? ", " + Math.round(v.ats * 100) + "% ATS" : ""}`).join(" · ")}.</p>`;
     }
     const rows = [...t.history].reverse().map((h) => `<tr><td>${esc(new Date(h.at).toLocaleDateString(undefined, { month: "short", day: "numeric" }))}</td><td class="n">${h.games}</td><td>${h.status === "updated" ? "Updated" : "Waiting for games"}</td><td class="n">${pct(h.weights)}</td><td class="n">${h.home_field}</td><td class="n">${h.rmse_before ?? "—"} → ${h.rmse_after ?? "—"}</td></tr>`).join("");
-    return html + `<div class="table-wrap weights-table"><table class="data"><thead><tr><th>Date</th><th class="n">Games</th><th>Status</th><th class="n">SP+/FPI/Elo %</th><th class="n">HFA</th><th class="n">RMSE</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+    return html + `<div class="table-wrap weights-table"><table class="data"><thead><tr><th>Date</th><th class="n">Games</th><th>Status</th><th class="n">Weights %</th><th class="n">Home adv.</th><th class="n">RMSE</th></tr></thead><tbody>${rows}</tbody></table></div>`;
   }
 
   function fillConfSelect(sel, confs) {
@@ -491,8 +525,14 @@
   function renderHero() {
     const m = state.meta;
     const regular = m.season_type === "regular";
-    $("#eyebrow").textContent = `${m.season} college football`;
-    $("#hero-title").innerHTML = regular ? `Week <span>${esc(m.week)}</span> <br>Projections.` : `Bowl <span>${esc(m.season)}</span> <br>Projections.`;
+    $("#eyebrow").textContent = m.sport_label || `${m.season} college football`;
+    $("#hero-title").innerHTML = m.hero_title || (regular ? `Week <span>${esc(m.week)}</span> <br>Projections.` : `Bowl <span>${esc(m.season)}</span> <br>Projections.`);
+    if (m.subtitle) $("#hero-intro").textContent = m.subtitle + ".";
+    if (m.board_note) $("#board-note").textContent = m.board_note;
+    if (m.data_source) $("#data-source").innerHTML = m.data_source;
+    document.title = `${(m.sport || "cfb").toUpperCase()} Model`;
+    $(".wordmark").textContent = (m.sport || "cfb").toUpperCase();
+    document.querySelectorAll(".sports a").forEach((a) => a.setAttribute("aria-current", a.dataset.sport === (m.sport || "cfb") ? "page" : "false"));
     $("#games-title").textContent = `${m.slate_label} games`;
     const starts = state.slate.map((g) => new Date(g.start)).sort((a, b) => a - b);
     const md = (d) => d.toLocaleDateString(undefined, { month: "long", day: "numeric" });
@@ -502,7 +542,11 @@
     $("#updated").textContent = `Updated ${new Date(m.generated_at).toLocaleString()}`;
 
     const sr = state.record?.season_record;
-    if (sr && (sr.su.W + sr.su.L > 0)) {
+    if (state.record?.strip && sr && (sr.su.W + sr.su.L > 0)) {
+      $("#record-strip").hidden = false;
+      $("#record-label").textContent = `${m.sport_label || m.season} model record`;
+      $("#record-dl").innerHTML = state.record.strip.map((c) => `<div><dt>${esc(c.k)}</dt><dd>${recStr(c.rec)}<small>${pct(c.rec.pct)} · ${esc(c.sub || "")}</small></dd></div>`).join("");
+    } else if (sr && (sr.su.W + sr.su.L > 0)) {
       $("#record-strip").hidden = false;
       $("#record-label").textContent = `${m.season} model record`;
       const cell = (k, r, ties) => `<div><dt>${k}</dt><dd>${recStr(r, ties)}<small>${pct(r.pct)} win rate</small></dd></div>`;
@@ -534,6 +578,9 @@
       renderTrends();
     });
 
+    if (!trends) {
+      document.querySelectorAll('.nav a[data-tab="trends"]').forEach((a) => (a.hidden = true));
+    }
     renderFilters();
     renderGames();
     renderRatings();

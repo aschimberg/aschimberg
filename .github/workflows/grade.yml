@@ -1,9 +1,17 @@
-name: Sunday grading
+name: Weekly grading
 
 on:
   schedule:
-    - cron: "0 12 * * 0" # Sundays 12:00 UTC, after Saturday's late games are final
+    - cron: "0 12 * * 0" # Sun: CFB grading + tuning, after Saturday's late games
+    - cron: "0 12 * * 1" # Mon: NHL weekly tuning + xG retrain
+    - cron: "0 12 * * 2" # Tue: NFL weekly tuning, after Monday Night Football
   workflow_dispatch:
+    inputs:
+      sport:
+        description: "Which sport to grade/tune"
+        type: choice
+        options: [auto, cfb, nfl, nhl, all]
+        default: auto
 
 permissions:
   contents: write
@@ -22,7 +30,18 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Grade picks (SU + ATS) and send weekly recap
+      - name: Pick sports for today
+        id: which
+        run: |
+          s="${{ inputs.sport || 'auto' }}"
+          if [ "$s" = "auto" ]; then
+            case "$(date -u +%u)" in 7) s=cfb ;; 1) s=nhl ;; 2) s=nfl ;; *) s=all ;; esac
+          fi
+          for k in cfb nfl nhl; do
+            if [ "$s" = "all" ] || [ "$s" = "$k" ]; then echo "$k=true" >> "$GITHUB_OUTPUT"; else echo "$k=false" >> "$GITHUB_OUTPUT"; fi
+          done
+      - name: CFB - grade picks (SU + ATS), tune, send weekly recap
+        if: steps.which.outputs.cfb == 'true'
         run: python -m cfbmodel grade
         env:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
@@ -30,9 +49,17 @@ jobs:
           NTFY_TOKEN: ${{ secrets.NTFY_TOKEN }}
           NTFY_SERVER: ${{ vars.NTFY_SERVER || 'https://ntfy.sh' }}
           SITE_URL: ${{ vars.SITE_URL || format('https://{0}.github.io/{1}/', github.repository_owner, github.event.repository.name) }}
+      - name: NFL - weekly tuning
+        if: always() && steps.which.outputs.nfl == 'true'
+        continue-on-error: true
+        run: python -m nflmodel tune
+      - name: NHL - weekly tuning + xG retrain
+        if: always() && steps.which.outputs.nhl == 'true'
+        continue-on-error: true
+        run: python -m nhlmodel tune
       - name: Commit data
         if: always()
-        run: .github/scripts/commit-data.sh "Sunday grading"
+        run: .github/scripts/commit-data.sh "Weekly grading"
 
   deploy:
     needs: grade

@@ -36,11 +36,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Is it game day and briefing time?
+      - name: Which sports have games today and are due a briefing?
         id: check
-        run: python -m cfbmodel briefing --check $FORCE_FLAG
-      - name: Refresh lines, splits and picks
-        if: steps.check.outputs.go == 'true'
+        run: python -m sportscommon.briefings check $FORCE_FLAG
+      - name: CFB - refresh lines, splits and picks
+        if: steps.check.outputs.go_cfb == 'true'
         # If CFBD is down, still send the briefing from the 11:00 UTC data.
         continue-on-error: true
         run: python -m cfbmodel refresh
@@ -50,13 +50,35 @@ jobs:
           SPLITS_URL: ${{ vars.SPLITS_URL }}
           SPLITS_API_KEY: ${{ secrets.SPLITS_API_KEY }}
           SITE_URL: ${{ vars.SITE_URL || format('https://{0}.github.io/{1}/', github.repository_owner, github.event.repository.name) }}
-      - name: Send ntfy briefing
-        if: steps.check.outputs.go == 'true'
+      - name: CFB - send briefing
+        if: steps.check.outputs.go_cfb == 'true'
         run: python -m cfbmodel briefing $FORCE_FLAG
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
           NTFY_TOKEN: ${{ secrets.NTFY_TOKEN }}
           NTFY_SERVER: ${{ vars.NTFY_SERVER || 'https://ntfy.sh' }}
+      - name: NFL - refresh and send briefing
+        if: always() && steps.check.outputs.go_nfl == 'true'
+        continue-on-error: true
+        run: |
+          python -m nflmodel refresh || echo "NFL refresh failed; sending from last data"
+          python -m sportscommon.briefings send nfl $FORCE_FLAG
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          NTFY_TOKEN: ${{ secrets.NTFY_TOKEN }}
+          NTFY_SERVER: ${{ vars.NTFY_SERVER || 'https://ntfy.sh' }}
+          SITE_URL: ${{ vars.SITE_URL || format('https://{0}.github.io/{1}/', github.repository_owner, github.event.repository.name) }}
+      - name: NHL - refresh and send briefing
+        if: always() && steps.check.outputs.go_nhl == 'true'
+        continue-on-error: true
+        run: |
+          python -m nhlmodel refresh || echo "NHL refresh failed; sending from last data"
+          python -m sportscommon.briefings send nhl $FORCE_FLAG
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          NTFY_TOKEN: ${{ secrets.NTFY_TOKEN }}
+          NTFY_SERVER: ${{ vars.NTFY_SERVER || 'https://ntfy.sh' }}
+          SITE_URL: ${{ vars.SITE_URL || format('https://{0}.github.io/{1}/', github.repository_owner, github.event.repository.name) }}
       - name: Commit data
         if: always() && steps.check.outputs.go == 'true'
         run: .github/scripts/commit-data.sh "Game-day refresh"
