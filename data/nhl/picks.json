@@ -7,6 +7,8 @@
    "away_abbr": "OTT",
    "bet_at": "2026-10-12T20:03:42Z",
    "bet_line": 102.0,
+   "close_line": 102.0,
+   "clv": -0.0427,
    "conf_label": "Low",
    "confidence": 42,
    "confidence_detail": {
@@ -61,7 +63,15 @@
    "odds": 102.0,
    "offset": -0.039,
    "prob": 0.499,
-   "result": null,
+   "result": {
+    "ats": "W",
+    "away_pts": 4,
+    "home_pts": 1,
+    "su": "L",
+    "total": "W",
+    "total_units": 1.1,
+    "units": 1.02
+   },
    "season": 20262027,
    "season_type": "regular",
    "start": "2026-10-12T23:00:00Z",
