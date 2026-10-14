@@ -104,7 +104,8 @@ def parse_partner_odds(doc, now=None):
 def fill_odds_from_api(odds, sched, teams, today, now, log):
     """The Odds API (if ODDS_API_KEY is set) for slate games the NHL feed hasn't priced yet."""
     days = {(today + timedelta(days=i)).isoformat() for i in range(config.SLATE_DAYS)}
-    need = [g for g in sched.values() if g.get("date") in days and g.get("start") and g["start"] > iso(now)
+    soon = iso(now + timedelta(hours=14))  # only games close enough to have real lines; saves credits
+    need = [g for g in sched.values() if g.get("date") in days and g.get("start") and iso(now) < g["start"] <= soon
             and not ("ml_home" in odds.get(g["id"], {}) and "ml_away" in odds.get(g["id"], {}))]
     if not need or not oddsapi.api_key():
         return odds
