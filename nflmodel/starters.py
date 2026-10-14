@@ -43,7 +43,8 @@ def _get(url):
 
 
 def fetch_espn(log=print, getter=None):
-    """{'depth': {abbr: [names in QB order]}, 'status': {(abbr, norm_name): status}} or None."""
+    """{'depth': {abbr: [QB names in order]}, 'skill': {abbr: [(pos, rank, name)]} for QB/RB/WR/TE/FB,
+    'status': {(abbr, norm_name): injury status}} or None."""
     if getter is None and os.environ.get("NFL_ESPN", "on").lower() == "off":
         return None
     getter = getter or _get
@@ -53,18 +54,29 @@ def fetch_espn(log=print, getter=None):
         for t in doc["sports"][0]["leagues"][0]["teams"]:
             t = t["team"]
             ids[teams.norm(_ESPN_ABBR.get(t["abbreviation"], t["abbreviation"]))] = (t["id"], t.get("displayName"))
-        depth = {}
+        depth, skill = {}, {}
         for abbr, (tid, _) in ids.items():
             try:
                 dc = getter(f"{ESPN}/teams/{tid}/depthcharts")
             except Exception as e:
                 log(f"ESPN depth chart {abbr}: {e}")
                 continue
+            seen = set()
             for formation in dc.get("depthchart", []):
-                qb = (formation.get("positions") or {}).get("qb")
-                if qb and qb.get("athletes"):
+                positions = formation.get("positions") or {}
+                qb = positions.get("qb")
+                if qb and qb.get("athletes") and abbr not in depth:
                     depth[abbr] = [a.get("displayName") for a in qb["athletes"] if a.get("displayName")]
-                    break
+                for key, pos in positions.items():
+                    base = re.sub(r"[^a-z]", "", key.lower())
+                    base = "wr" if base in ("wr", "lwr", "rwr", "swr", "slwr") else base
+                    if base not in ("qb", "rb", "wr", "te", "fb"):
+                        continue
+                    for rank, a in enumerate(pos.get("athletes") or [], 1):
+                        nm = a.get("displayName")
+                        if nm and nm not in seen:
+                            seen.add(nm)
+                            skill.setdefault(abbr, []).append((base, rank, nm))
         by_name = {disp: abbr for abbr, (_, disp) in ids.items()}
         status = {}
         inj = getter(f"{ESPN}/injuries")
@@ -74,10 +86,10 @@ def fetch_espn(log=print, getter=None):
                 continue
             for i in t.get("injuries", []):
                 a = i.get("athlete") or {}
-                if (a.get("position") or {}).get("abbreviation") == "QB":
+                if (a.get("position") or {}).get("abbreviation") in ("QB", "RB", "WR", "TE", "FB"):
                     status[(abbr, norm_name(a.get("displayName")))] = i.get("status") or ""
-        log(f"ESPN: QB depth for {len(depth)} teams, {len(status)} QB injury entries")
-        return {"depth": depth, "status": status}
+        log(f"ESPN: QB depth for {len(depth)} teams, skill players for {len(skill)}, {len(status)} injury entries")
+        return {"depth": depth, "skill": skill, "status": status}
     except Exception as e:
         log(f"ESPN depth/injuries unavailable: {e}")
         return None

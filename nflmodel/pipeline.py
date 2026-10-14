@@ -1,15 +1,16 @@
 """NFL refresh / grade / tune pipeline."""
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 from cfbmodel import ats, store
 from cfbmodel.model import grade as ats_grade
 from sportscommon import clv, oddsapi, totals
+from sportscommon import props as sprops
 from sportscommon import confidence as conf
 from sportscommon import record as recmod
 from sportscommon import tuning as tunemod
 from sportscommon.odds import american_to_decimal
 
-from . import starters, config, data, elo as elomod, margins, qb as qbmod, ratings, teams
+from . import props as nflprops, starters, config, data, elo as elomod, margins, qb as qbmod, ratings, teams
 
 PICKS_PATH = config.DATA_DIR / "picks.json"
 LINE_HISTORY_PATH = config.DATA_DIR / "line_history.json"
@@ -221,6 +222,11 @@ def refresh(games=None, pbp_loader=None, now=None, log=print, espn_loader=None):
     picks = picks_doc["picks"]
     by_id = {g["id"]: g for g in games}
     graded = grade_picks(picks, by_id, kw)
+    grade_props(picks, by_id, pbp[season].get("td_scorers") or {}, now)
+    pg_all = (pbp[season].get("player_games") or []) + (pbp[season - 1].get("player_games") or [])
+    prop_rates = nflprops.league_rates(pg_all)
+    prop_acc = {}
+    prop_events = None
     clv.backfill(picks, lambda gid, p: (lambda sn: (sn[0][0], sn[0][1]) if sn else None)(lh["games"].get(gid)))
 
     played = {t: 0 for t in teams.TEAMS}
@@ -238,6 +244,7 @@ def refresh(games=None, pbp_loader=None, now=None, log=print, espn_loader=None):
         league_ppg = sum(g["home_pts"] + g["away_pts"] for g in done) / (2 * len(done))
 
     upcoming = [g for g in slate if not g["completed"] and (g["start"] is None or g["start"] > iso(now))]
+    espn = None
     if upcoming:
         espn = espn_loader() if espn_loader else starters.fetch_espn(log=log)
         directory = starters.qb_directory(games, db_rows)
@@ -306,6 +313,24 @@ def refresh(games=None, pbp_loader=None, now=None, log=print, espn_loader=None):
         pick = {"su_team": su_team, "su_wp": round(wp if margin >= 0 else 1 - wp, 3), "ats_side": None,
                 "ats_team": None, "ats_line": None, "edge": None, "tier": None, "cover_prob": None, "ev": None,
                 "confidence": None, "conf_label": None, "total_pick": total_pick(total, g["total"])}
+        if not g["completed"] and (g["start"] is None or g["start"] > iso(now)):
+            wk = g["week"]
+            if wk not in prop_acc:
+                prop_acc[wk] = (nflprops.player_rates(pbp[season].get("player_games") or [],
+                                                      pbp[season - 1].get("player_games") or [], prop_rates, wk),
+                                nflprops.team_avg_points(games, season, wk))
+            acc_w, (avg_pts, lg_pts) = prop_acc[wk]
+            players = (nflprops.team_players(h, proj["home_pts"], espn, acc_w, avg_pts.get(h, lg_pts), wk)
+                       + nflprops.team_players(a, proj["away_pts"], espn, acc_w, avg_pts.get(a, lg_pts), wk))
+            market = None
+            if players and oddsapi.api_key() and g["start"] and g["start"] <= iso(now + timedelta(hours=config.PROPS_HOURS)):
+                if prop_events is None:
+                    prop_events = oddsapi.events("nfl", log=log) or []
+                ev = oddsapi.find_event(prop_events, teams.name(h), teams.name(a), g["start"])
+                if ev:
+                    market = sprops.parse_market(oddsapi.event_props("nfl", ev, now=now, log=log), oddsapi.PROP_MARKETS["nfl"])
+            pick["props"] = sprops.best_bets(sprops.price(players, market), n=config.PROPS_PER_GAME,
+                                             min_ev=config.PROPS_MIN_EV, min_prob=config.PROPS_MIN_PROB)
         trend_block = {}
         for side in ("home", "away"):
             t = g[side]
@@ -371,7 +396,7 @@ def refresh(games=None, pbp_loader=None, now=None, log=print, espn_loader=None):
             "neutral": g["neutral"], "conference_game": g["div_game"], "home": tb("home"), "away": tb("away"),
             "line": line, "model": proj,
             "pick": {k: logged.get(k) for k in ("ats_side", "ats_team", "ats_line", "edge", "tier", "su_team", "su_wp",
-                                                 "line", "confidence", "conf_label", "cover_prob", "ev", "total_pick")} if logged else pick,
+                                                 "line", "confidence", "conf_label", "cover_prob", "ev", "total_pick", "props")} if logged else pick,
             "confidence": conf_detail, "locked": started or g["completed"], "trends": trend_block, "splits": None,
             "result": res, "extras": extras,
         })
@@ -381,6 +406,27 @@ def refresh(games=None, pbp_loader=None, now=None, log=print, espn_loader=None):
     log(f"NFL: {len(cards)} games, {graded} picks graded")
     write_site(now, season, slate, cards, fit, elo, team_ratings, power_rank, recs, trends, picks, qb_values)
     return {"season": season, "cards": cards, "graded": graded}
+
+
+def grade_props(picks, games_by_id, td_scorers, now):
+    """Grade anytime-TD best bets once the game's TDs are in play-by-play (or 3 days after, if none)."""
+    n = 0
+    for gid, p in picks.items():
+        if not p.get("props") or p.get("props_graded"):
+            continue
+        g = games_by_id.get(gid)
+        if not g or not g["completed"]:
+            continue
+        scorers = td_scorers.get(gid)
+        if scorers is None:
+            started = datetime.fromisoformat(g["start"].replace("Z", "+00:00")) if g.get("start") else now
+            if (now - started).days < 3:
+                continue  # play-by-play not posted yet
+            scorers = []
+        sprops.grade(p["props"], [s[0] for s in scorers], [s[1] for s in scorers if s[1]])
+        p["props_graded"] = True
+        n += 1
+    return n
 
 
 def grade_picks(picks, games_by_id, kw=None):

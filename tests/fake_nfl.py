@@ -20,7 +20,7 @@ def build(current=2026, completed_weeks=5, seed=3):
     qbs = {t: (f"00-{i:07d}", f"QB {t}") for i, t in enumerate(abbrs)}
     rows, pbp = [], {}
     for season in range(current - 20, current + 1):
-        agg = {"team_games": [], "qb_games": []}
+        agg = {"team_games": [], "qb_games": [], "player_games": [], "td_scorers": {}}
         kick = date(season, 9, 10)
         for week in range(1, 19):
             order = abbrs[:]
@@ -61,6 +61,15 @@ def build(current=2026, completed_weeks=5, seed=3):
                                                   "rush_epa": round(24 * e, 3)})
                         agg["qb_games"].append({"game_id": gid, "season": season, "week": week, "team": off,
                                                 "qb": qbs[off][0], "name": qbs[off][1], "db": 36, "epa": round(36 * (e + 0.05), 3)})
+                        # skill players: RB1 gets goal-line carries, WR1/TE1 targets; TDs ~ usage
+                        for role, cells in (("RB", {"car_gl": 2, "car_rz": 3, "car_o": 14, "tgt_o": 3}),
+                                            ("WR", {"tgt_rz": 2, "tgt_o": 7}), ("TE", {"tgt_gl": 1, "tgt_o": 4})):
+                            pid = f"{off}-{role}1"
+                            o = {z: [n, 1 if rng.random() < 0.08 * n else 0] for z, n in cells.items()}
+                            agg["player_games"].append({"game_id": gid, "season": season, "week": week, "team": off,
+                                                        "pid": pid, "name": f"{role[0]}.{off}{role}", "o": o})
+                            if any(t for _, t in o.values()):
+                                agg["td_scorers"].setdefault(gid, []).append([pid, f"{role[0]}.{off}{role}", off])
         pbp[season] = agg
     buf = io.StringIO()
     w = csv.DictWriter(buf, fieldnames=HEADER)

@@ -118,6 +118,31 @@
     return `<div class="split"><div class="split-title">${label}</div>${rows}</div>`;
   }
 
+  // Anytime scorer best bets (NFL anytime TD, NHL anytime goal)
+  function propsSection(g) {
+    const rows = g.pick?.props;
+    if (!rows || !rows.length) return "";
+    const title = state.meta?.sport === "nhl" ? "Anytime goal" : "Anytime TD";
+    const anyBet = rows.some((b) => b.bet);
+    const odds = (v) => (v == null ? "—" : (v > 0 ? "+" : "") + Math.round(v));
+    const resTag = (b) => (b.result ? `<span class="res ${b.result}">${b.result === "W" ? "Scored" : "No"}</span>` : "");
+    const body = rows.map((b) => `<div class="prop-row">
+        <div class="prop-who"><strong>${esc(b.name)}</strong> <span class="muted">${esc([b.pos, b.team].filter(Boolean).join(" · "))}</span></div>
+        <div class="prop-nums">
+          <span title="Model probability to score">${Math.round(b.p * 100)}%</span>
+          <span class="muted" title="Model fair odds">fair ${odds(b.fair)}</span>
+          ${b.odds != null ? `<span title="Best price${b.n_books ? " of " + b.n_books + " books" : ""}">${odds(b.odds)}${b.book ? ` <span class="muted">${esc(b.book)}</span>` : ""}</span>` : ""}
+          ${b.ev != null ? `<span class="${b.ev > 0 ? "pos" : "neg"}">EV ${b.ev > 0 ? "+" : ""}${(b.ev * 100).toFixed(1)}%</span>` : ""}
+          ${b.bet ? '<span class="tier play">bet</span>' : ""}${resTag(b)}
+        </div>
+      </div>`).join("");
+    const note = anyBet ? "Best bets ranked by Kelly (EV vs the best price, weighted by scoring chance)."
+      : rows[0]?.note === "no value at market price" ? "No player priced with enough value; top scoring chances shown."
+      : "Top scoring chances (no market prices yet).";
+    return `<details class="section props" ${anyBet ? "open" : ""}><summary>${title}${anyBet ? ` <span class="tier play">${rows.filter((b) => b.bet).length} bet${rows.filter((b) => b.bet).length > 1 ? "s" : ""}</span>` : ""}</summary>
+      <div class="section-body">${body}<p class="small-note">${esc(note)}</p></div></details>`;
+  }
+
   function splitsSection(g) {
     const provider = state.meta?.splits?.provider;
     if (!g.splits) {
@@ -221,6 +246,7 @@
       ${(g.extras || []).length ? `<div class="extras">${g.extras.map((e) => `<span>${esc(e)}</span>`).join("")}</div>` : ""}
       ${market}
       <div class="pick-panel"><span class="pick-label">Model picks</span><div class="pick-sel">${sel}</div></div>
+      ${propsSection(g)}
       ${confHtml}
       ${trends}
       ${state.meta?.sport && state.meta.sport !== "cfb" && !g.splits ? "" : splitsSection(g)}
@@ -426,6 +452,14 @@
     const seasonPicks = rec.picks || [];
     const playEdge = s.play_edge ?? 4;
     if (!rec.tiles) $("#record-tiles").innerHTML += tile("O/U · all", ouRec(seasonPicks)) + tile("O/U · plays", ouRec(seasonPicks, true));
+    if (["nfl", "nhl"].includes(state.meta?.sport)) {
+      const bets = seasonPicks.flatMap((p) => (p.props || []).filter((b) => b.bet && b.result));
+      const W = bets.filter((b) => b.result === "W").length, L = bets.length - W;
+      const units = bets.reduce((a, b) => a + (b.units || 0), 0);
+      const label = state.meta.sport === "nhl" ? "Anytime goal · best bets" : "Anytime TD · best bets";
+      $("#record-tiles").innerHTML += tile(label, { W, L, P: 0, pct: W + L ? W / (W + L) : null }, false,
+        bets.length ? ` · ${units >= 0 ? "+" : ""}${units.toFixed(1)}u` : " · none graded yet");
+    }
     $("#record-tiles").innerHTML +=
       clvTile(`CLV · all picks`, clvStats(seasonPicks)) +
       clvTile(`CLV · ${T("edge", "edge")} ${playEdge}+`, clvStats(seasonPicks.filter((p) => (p.edge ?? 0) >= playEdge)));

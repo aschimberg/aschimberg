@@ -18,6 +18,7 @@ from cfbmodel import store
 from nflmodel import config as nflc
 from nhlmodel import config as nhlc
 from sportscommon import totals
+from sportscommon import props as sprops
 from sportscommon.odds import fmt_american
 
 SPORTS = {"nfl": nflc, "nhl": nhlc}
@@ -85,6 +86,7 @@ def build_nfl(now_local):
         cp = f", cover {p['cover_prob'] * 100:.0f}%" if p.get("cover_prob") else ""
         lines.append(f"{icon} {p['ats_team']} {lt} ({cfbb.matchup(c)}, {cfbb.kickoff(c, tz)}) — edge {p['edge']:g}{cp}, conf {p.get('confidence')} {p.get('conf_label')}")
     lines += totals.briefing_lines(games, cfbb.matchup, cfbb.kickoff, tz)
+    lines += sprops.briefing_lines(games, "Anytime TD", cfbb.matchup)
     qb = [e for c in games for e in c.get("extras", []) if " QB " in e and "(" in e]
     if qb:
         lines += ["", "**🏈 QB adjustments**"] + qb[:6]
@@ -120,7 +122,8 @@ def build_nhl(now_local):
     plays = sorted((c for c in games if (c["pick"].get("ev") or 0) >= nhlc.LEAN_EV or c["pick"].get("conf_label") == "High"),
                    key=lambda c: -(c["pick"].get("ev") or 0))
     totals = [c for c in games if (c["pick"].get("total_pick") or {}).get("play")]
-    if not plays and not totals:
+    scorer_lines = sprops.briefing_lines(games, "Anytime goal", cfbb.matchup)
+    if not plays and not totals and not scorer_lines:
         return None  # quiet day: no value on the board
     lines = [f"**{now_local:%a %b %-d} · NHL · {len(games)} games**"]
     if sr.get("ats", {}).get("W", 0) + sr.get("ats", {}).get("L", 0):
@@ -138,6 +141,7 @@ def build_nhl(now_local):
         for c in totals[:5]:
             t = c["pick"]["total_pick"]
             lines.append(f"{cfbb.matchup(c)}: {t['side'].title()} {t['line']:g} {fmt_american(t['odds'])} (EV {t['ev'] * 100:+.1f}%)")
+    lines += scorer_lines
     notes = [e for c in games for e in c.get("extras", []) if "backup" in e or "back-to-back" in e]
     if notes:
         lines += ["", "**🧤 Goalies & schedule**"] + notes[:8]

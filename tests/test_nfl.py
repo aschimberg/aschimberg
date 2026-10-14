@@ -124,6 +124,10 @@ class NflTests(unittest.TestCase):
             wk6 = [p for p in rec["picks"] if p["week"] == 6]
             self.assertTrue(all(p.get("clv") is not None and p.get("clv_prob") is not None for p in wk6))
             self.assertTrue(all(p["close_line"] == next(g["spread"] for g in games if g["id"] == p["id"]) for p in wk6))
+            # anytime TD best bets: logged per game and graded from the TD scorers in play-by-play
+            logged = store.load(d.root / "nfl" / "picks.json", {})["picks"]
+            wk6_logged = [p for p in logged.values() if p["week"] == 6]
+            self.assertTrue(all(1 <= len(p["props"]) <= 3 for p in wk6_logged))
             # over/under: every week-6 pick has a total pick graded against the final combined score
             self.assertTrue(all(p["total_pick"] and p["result"]["total"] in ("W", "L", "P") for p in wk6))
             entry, _ = pipeline.tune(now=later, log=lambda *_: None)

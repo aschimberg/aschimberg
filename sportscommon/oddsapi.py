@@ -167,3 +167,71 @@ def moneylines(event):
             "main": {"book": main[1], "home": main[2][home]["price"], "away": main[2][away]["price"]},
             "best_home": {"book": best_home[1], "price": best_home[2][home]["price"]},
             "best_away": {"book": best_away[1], "price": best_away[2][away]["price"]}}
+
+
+# --- player props (event-level odds) ------------------------------------------
+PROP_MARKETS = {"nfl": "player_anytime_td", "nhl": "player_goal_scorer_anytime"}
+_props_fetched = {"n": 0}  # per-process (per refresh run) count of credit-costing prop calls
+
+
+def props_per_run():
+    return int(os.environ.get("ODDS_API_PROPS_PER_RUN", "4"))
+
+
+def events(sport, log=print, fetcher=None):
+    """Upcoming events (ids, teams, start). The /events endpoint doesn't use credits."""
+    key = api_key()
+    if not key:
+        return None
+    url = f"{BASE}/sports/{SPORT_KEYS[sport]}/events?" + urllib.parse.urlencode({"apiKey": key, "dateFormat": "iso"})
+    try:
+        body, _ = (fetcher or (lambda u_: http.fetch(u_, retries=2, timeout=30, want_headers=True)))(url)
+        return json.loads(body)
+    except Exception as e:
+        log(f"Odds API {sport} events: {e}")
+        return None
+
+
+def event_props(sport, event, max_age_hours=6, now=None, log=print, fetcher=None):
+    """Anytime-scorer odds for one event, cached; costs 1 credit (1 market x 1 region) when fetched.
+
+    Respects ODDS_API_PROPS_PER_RUN and the credit reserve; returns the cached
+    copy (if any) when it won't fetch.
+    """
+    now = now or _utcnow()
+    market = PROP_MARKETS[sport]
+    path = CACHE_DIR / f"props_{sport}.json"
+    cache = store.load(path, {})
+    ent = cache.get(event["id"])
+    if ent:
+        age = (now - datetime.fromisoformat(ent["fetched_at"].replace("Z", "+00:00"))).total_seconds() / 3600
+        if age < max_age_hours:
+            return ent["data"]
+    key = api_key()
+    if not key:
+        return ent["data"] if ent else None
+    u = usage()
+    if (u.get("remaining") is not None and u["remaining"] <= reserve()) or _props_fetched["n"] >= props_per_run():
+        return ent["data"] if ent else None
+    q = urllib.parse.urlencode({"apiKey": key, "regions": "us", "markets": market, "oddsFormat": "american",
+                                "dateFormat": "iso"})
+    url = f"{BASE}/sports/{SPORT_KEYS[sport]}/events/{event['id']}/odds?{q}"
+    try:
+        body, headers = (fetcher or (lambda u_: http.fetch(u_, retries=2, timeout=30, want_headers=True)))(url)
+    except Exception as e:
+        log(f"Odds API {sport} props {event['id']}: {e}")
+        return ent["data"] if ent else None
+    _props_fetched["n"] += 1
+    data = json.loads(body)
+    h = {k.lower(): v for k, v in headers.items()}
+    rem = h.get("x-requests-remaining")
+    store.save(_usage_path(), {"remaining": int(float(rem)) if rem not in (None, "") else None,
+                               "used": h.get("x-requests-used"), "last_cost": h.get("x-requests-last"),
+                               "updated": now.strftime("%Y-%m-%dT%H:%M:%SZ")})
+    # keep only upcoming events' props so the file stays small
+    cache = {k: v for k, v in cache.items() if v.get("commence_time", "") >= (now.strftime("%Y-%m-%dT%H:%M:%SZ"))[:10]}
+    cache[event["id"]] = {"fetched_at": now.strftime("%Y-%m-%dT%H:%M:%SZ"), "commence_time": event.get("commence_time"),
+                          "data": data}
+    store.save(path, cache, compact=True)
+    log(f"Odds API {sport} props {event.get('away_team')} @ {event.get('home_team')}: cost {h.get('x-requests-last')}, {rem} left")
+    return data

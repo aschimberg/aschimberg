@@ -62,3 +62,9 @@ TOTAL_SD = _f("NFL_TOTAL_SD", 13.5)  # sd of final combined score around a good 
 TOTAL_LEAN_EDGE = _f("NFL_TOTAL_LEAN", 2.0)
 TOTAL_PLAY_EDGE = _f("NFL_TOTAL_PLAY", 3.5)
 TOTAL_STRONG_EDGE = _f("NFL_TOTAL_STRONG", 5.0)
+
+# Anytime-TD best bets
+PROPS_PER_GAME = int(_f("NFL_PROPS_PER_GAME", 3))
+PROPS_MIN_EV = _f("NFL_PROPS_MIN_EV", 0.03)
+PROPS_MIN_PROB = _f("NFL_PROPS_MIN_PROB", 0.20)
+PROPS_HOURS = _f("NFL_PROPS_HOURS", 36)  # fetch prop odds only for games starting within this window

@@ -39,6 +39,27 @@ The same site serves `/nfl/` and `/nhl/` (switch sports in the header). Both run
 
 Tuning: NHL weights and home ice are refit on Mondays and the xG model is retrained; NFL weights and home field are refit on Tuesdays. NHL play-by-play is cached in `data/nhl/cache/` (the first run backfills last season, about 8 minutes).
 
+## Anytime scorer best bets (NFL anytime TD, NHL anytime goal)
+
+Each NFL and NHL game card has a section with the top 2–3 scorer bets.
+- **NFL:**
+  - A player's expected TDs come from his carries and targets by field zone (goal line, red zone, elsewhere), each valued at the league TD rate for that kind of touch, blended 75/25 with his actual TDs. Recent games count more, and thin samples are shrunk toward a depth-chart prior.
+  - The result is scaled by tonight's projected team points against the team's usual output.
+  - Players come from ESPN's depth chart, minus anyone listed Out, Doubtful or on IR.
+- **NHL:**
+  - A skater's expected goals come from MoneyPuck's individual xG plus actual goals per game, with last season at half weight, shrunk toward the position average.
+  - The result is scaled by the model's projected team goals.
+  - The lineup is the skaters dressed in the team's last game.
+- **Pricing and ranking:**
+  - P(scores) = 1 − e^(−expected scores).
+  - With `ODDS_API_KEY` set, market prices come from The Odds API (`player_anytime_td` / `player_goal_scorer_anytime`), using the best price across books.
+  - Best bets need 3%+ EV and a 20% (NFL) or 15% (NHL) chance to score, ranked by Kelly fraction (EV weighted by probability).
+  - Without prices, the section shows the top scoring chances with fair odds.
+- **Grading:** bets are graded from play-by-play TD and goal scorers and tracked in units on the Record tab.
+- **Credits:**
+  - Prop odds cost 1 credit per game. Lookups are limited to games starting within 36 hours (NFL) or 10 hours (NHL), at most `ODDS_API_PROPS_PER_RUN` (default 4) per run, and are cached 6 hours.
+  - Covering every game needs a paid Odds API plan (20K credits for $30/month); the free 500 covers a handful of games a day.
+
 ## Over/under picks
 
 Every game also gets a side against the market total.

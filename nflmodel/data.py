@@ -90,13 +90,46 @@ def load_games_snapshot():
     return parse_games(gzip.decompress(path.read_bytes()).decode("utf-8")) if path.exists() else None
 
 
+def _zone(yl):
+    """Field zone of the ball: goal line (5 or in), red zone (6-20) or other."""
+    if yl is None:
+        return "o"
+    return "gl" if yl <= 5 else "rz" if yl <= 20 else "o"
+
+
+def _player_usage(r, pg, tds):
+    """Per-player carries/targets by zone and TDs (all plays, garbage time included)."""
+    gid = r["game_id"]
+    if r.get("touchdown") == "1" and r.get("td_player_id") not in (None, "", "NA"):
+        tds.setdefault(gid, []).append([r["td_player_id"], r.get("td_player_name"), teams.norm(r.get("td_team") or "")])
+    if r.get("play_type") not in ("pass", "run") or r.get("two_point_attempt") == "1":
+        return
+    zone = _zone(_num(r.get("yardline_100")))
+    off = teams.norm(r["posteam"])
+    for kind, pid_col, name_col, flag in (("car", "rusher_player_id", "rusher_player_name", "rush_attempt"),
+                                          ("tgt", "receiver_player_id", "receiver_player_name", "pass_attempt")):
+        pid = r.get(pid_col)
+        if r.get(flag) != "1" or pid in (None, "", "NA"):
+            continue
+        row = pg.get((gid, pid))
+        if row is None:
+            row = pg[(gid, pid)] = {"game_id": gid, "season": int(r["season"]), "week": int(r["week"]), "team": off,
+                                    "pid": pid, "name": r.get(name_col), "o": {}}
+        cell = row["o"].setdefault(f"{kind}_{zone}", [0, 0])
+        cell[0] += 1
+        if r.get("touchdown") == "1" and r.get("td_player_id") == pid:
+            cell[1] += 1
+
+
 def aggregate_pbp(rows):
-    """Condense play-by-play rows into team-game offense lines and QB-game lines."""
-    tg, qg = {}, {}
+    """Condense play-by-play rows into team-game offense lines, QB-game lines,
+    player-game usage (carries/targets by field zone, TDs) and TD scorers."""
+    tg, qg, pg, tds = {}, {}, {}, {}
     lo, hi = config.GARBAGE_WP
     for r in rows:
         if r.get("season_type") not in ("REG", "POST"):
             continue
+        _player_usage(r, pg, tds)
         if r.get("play_type") not in ("pass", "run"):
             continue
         if r.get("two_point_attempt") == "1" or r.get("qb_kneel") == "1" or r.get("qb_spike") == "1":
@@ -139,7 +172,7 @@ def aggregate_pbp(rows):
             t[k] = round(t[k], 3)
     for q in qg.values():
         q["epa"] = round(q["epa"], 3)
-    return {"team_games": list(tg.values()), "qb_games": list(qg.values())}
+    return {"team_games": list(tg.values()), "qb_games": list(qg.values()), "player_games": list(pg.values()), "td_scorers": tds}
 
 
 def fetch_pbp(season):
@@ -151,15 +184,14 @@ def fetch_pbp(season):
 def load_pbp(season, current, log=print):
     """Aggregated pbp for a season; completed seasons are cached in the repo."""
     path = config.CACHE_DIR / f"pbp_{season}.json"
-    if season < current:
-        cached = store.load(path, None)
-        if cached is not None:
-            return cached
+    cached = store.load(path, None) if season < current else None
+    if cached is not None and "player_games" in cached:
+        return cached  # caches from before player usage was tracked are rebuilt once
     try:
         agg = fetch_pbp(season)
-    except Exception as e:  # e.g. new season with no pbp file yet
+    except Exception as e:  # e.g. new season with no pbp file yet, or offline
         log(f"pbp {season} unavailable: {e}")
-        return {"team_games": [], "qb_games": []}
+        return cached or {"team_games": [], "qb_games": [], "player_games": [], "td_scorers": {}}
     if season < current:
         store.save(path, agg, compact=True)
     log(f"pbp {season}: {len(agg['team_games'])} team-games, {len(agg['qb_games'])} QB-games")

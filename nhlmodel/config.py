@@ -62,3 +62,9 @@ def season_id(d):
     return y * 10000 + y + 1
 
 ODDS_API_MAX_AGE = _f("NHL_ODDS_API_MAX_AGE", 6)  # hours between The Odds API refetches (credit budget)
+
+# Anytime-goal best bets
+PROPS_PER_GAME = int(_f("NHL_PROPS_PER_GAME", 3))
+PROPS_MIN_EV = _f("NHL_PROPS_MIN_EV", 0.03)
+PROPS_MIN_PROB = _f("NHL_PROPS_MIN_PROB", 0.15)
+PROPS_HOURS = _f("NHL_PROPS_HOURS", 10)  # fetch prop odds only for games starting within this window

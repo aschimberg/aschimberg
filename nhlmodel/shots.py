@@ -26,6 +26,7 @@ def parse(pbp):
     prev = None
     reg = {"home": 0, "away": 0}
     en_goals = {"home": 0, "away": 0}
+    scorers = []  # non-shootout goal scorers (anytime-goal grading)
     for p in pbp.get("plays", []):
         pd = p.get("periodDescriptor") or {}
         ptype = pd.get("periodType", "REG")
@@ -36,6 +37,8 @@ def parse(pbp):
         owner = d.get("eventOwnerTeamId")
         if ptype == "SO":
             continue
+        if etype == "goal" and d.get("scoringPlayerId"):
+            scorers.append(d["scoringPlayerId"])
         if etype in SHOT_EVENTS and d.get("xCoord") is not None and owner is not None:
             is_home = owner == hid
             sc = p.get("situationCode") or "1551"
@@ -75,10 +78,16 @@ def parse(pbp):
         if etype not in ("stoppage", "period-start", "period-end"):
             prev = {"period": period, "sec": sec, "type": etype, "owner": owner, "zone": d.get("zoneCode")}
     names = {}
+    skaters = {"home": [], "away": []}
+    skater_names = {}
     for r in pbp.get("rosterSpots", []):
+        first = (r.get("firstName") or {}).get("default", "")
+        last = (r.get("lastName") or {}).get("default", "")
         if r.get("positionCode") == "G":
-            first = (r.get("firstName") or {}).get("default", "")
-            names[str(r["playerId"])] = f"{first[:1]}. {(r.get('lastName') or {}).get('default', '')}".strip(". ")
+            names[str(r["playerId"])] = f"{first[:1]}. {last}".strip(". ")
+        elif r.get("playerId"):
+            skaters["home" if r.get("teamId") == hid else "away"].append(r["playerId"])
+            skater_names[str(r["playerId"])] = f"{first} {last}".strip()
     outcome = (pbp.get("gameOutcome") or {}).get("lastPeriodType", "REG")
     return {
         "id": pbp["id"], "date": pbp.get("gameDate"), "start": pbp.get("startTimeUTC"), "type": pbp.get("gameType"),
@@ -86,4 +95,5 @@ def parse(pbp):
         "last_period": outcome, "reg_home": reg["home"], "reg_away": reg["away"],
         "en_home": en_goals["home"], "en_away": en_goals["away"],
         "home_goalie": starters.get("home"), "away_goalie": starters.get("away"), "goalies": names, "shots": shots,
+        "scorers": scorers, "skaters": skaters, "skater_names": skater_names,
     }
