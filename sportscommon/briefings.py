@@ -147,7 +147,7 @@ def build_nhl(now_local):
 
 
 BUILDERS = {"nfl": build_nfl, "nhl": build_nhl}
-TITLES = {"nfl": "🏈 NFL game-day briefing", "nhl": "🏒 NHL briefing"}
+TITLES = {"nfl": "🏈 ASPicks · NFL game-day briefing", "nhl": "🏒 ASPicks · NHL briefing"}
 
 
 def send(sport, now=None, force=False, dry_run=False):

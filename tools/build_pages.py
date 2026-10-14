@@ -16,7 +16,7 @@ def build():
             '<meta name="viewport" content="width=device-width, initial-scale=1">\n'
             f'  <base href="../">\n  <script>window.DATA_PATH = "{sport}/data/";</script>',
             1,
-        ).replace("<title>CFB Model</title>", f"<title>{sport.upper()} Model</title>", 1)
+        ).replace("<title>ASPicks Model · CFB</title>", f"<title>ASPicks Model · {sport.upper()}</title>", 1)
         (SITE / sport).mkdir(exist_ok=True)
         (SITE / sport / "index.html").write_text(page)
 

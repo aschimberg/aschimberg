@@ -1,4 +1,6 @@
-# CFB / NFL / NHL Model
+# ASPicks Model
+
+College football, NFL and NHL projections and picks.
 
 **🔗 Live site: [aschimberg.github.io/aschimberg](https://aschimberg.github.io/aschimberg/)** ([CFB](https://aschimberg.github.io/aschimberg/) · [NFL](https://aschimberg.github.io/aschimberg/nfl/) · [NHL](https://aschimberg.github.io/aschimberg/nhl/))
 

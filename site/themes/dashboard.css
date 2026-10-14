@@ -32,7 +32,7 @@
 }
 
 .site-header { background: rgba(255, 255, 255, .85); border-bottom-color: var(--line); }
-.wordmark { border: 0; border-radius: 10px; background: linear-gradient(135deg, #1f3a68, #2f5597); color: #fff; font: 800 12px var(--sans); }
+.wordmark { width: auto; padding: 0 12px; border: 0; border-radius: 10px; background: linear-gradient(135deg, #1f3a68, #2f5597); color: #fff; font: 800 14px var(--sans); letter-spacing: -.01em; white-space: nowrap; }
 .masthead strong { font-weight: 700; }
 .nav { gap: 4px; padding: 4px; background: #eef1f7; border-radius: 999px; font-weight: 600; }
 .nav a { padding: 7px 14px; border-radius: 999px; border-bottom: 0; color: var(--muted); }

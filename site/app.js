@@ -691,8 +691,7 @@
     if (m.subtitle) $("#hero-intro").textContent = m.subtitle + ".";
     if (m.board_note) $("#board-note").textContent = m.board_note;
     if (m.data_source) $("#data-source").innerHTML = m.data_source;
-    document.title = `${(m.sport || "cfb").toUpperCase()} Model`;
-    $(".wordmark").textContent = (m.sport || "cfb").toUpperCase();
+    document.title = `ASPicks Model · ${(m.sport || "cfb").toUpperCase()}`;
     document.querySelectorAll(".sports a").forEach((a) => a.setAttribute("aria-current", a.dataset.sport === (m.sport || "cfb") ? "page" : "false"));
     $("#games-title").textContent = `${m.slate_label} games`;
     const starts = state.slate.map((g) => new Date(g.start)).sort((a, b) => a - b);

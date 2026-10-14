@@ -228,7 +228,7 @@ def run_briefing(now=None, force=False, dry_run=False):
     if dry_run:
         print(body)
         return body
-    sent = send_ntfy("🏈 CFB game-day briefing", body, tags="football,chart_with_upwards_trend",
+    sent = send_ntfy("🏈 ASPicks · CFB game-day briefing", body, tags="football,chart_with_upwards_trend",
                      priority="high", click=meta.get("site_url") or None)
     if sent:
         store.save(STATE_PATH, {"last_sent": now.date().isoformat(), "sent_at": now.isoformat()})
@@ -251,7 +251,7 @@ def run_recap(record, last_week, tuned=None):
     if not last_week:
         return None
     sr = record
-    title = f"CFB model recap — {'Week ' + str(last_week['week']) if last_week['season_type'] == 'regular' else 'Postseason'}"
+    title = f"ASPicks · CFB recap — {'Week ' + str(last_week['week']) if last_week['season_type'] == 'regular' else 'Postseason'}"
     bc = sr.get("ats_by_conf", {})
     body = "\n".join(x for x in [
         f"**Last week:** ATS {fmt_rec(last_week['ats'])} · {config.PLAY_EDGE:g}+ edge {fmt_rec(last_week['ats_plays'])} · SU {fmt_rec(last_week['su'], ties=False)}",
