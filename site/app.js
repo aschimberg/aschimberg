@@ -118,11 +118,11 @@
     return `<div class="split"><div class="split-title">${label}</div>${rows}</div>`;
   }
 
-  // Anytime scorer best bets (NFL anytime TD, NHL anytime goal)
+  // Anytime TD best bets (NFL)
   function propsSection(g) {
     const rows = g.pick?.props;
     if (!rows || !rows.length) return "";
-    const title = state.meta?.sport === "nhl" ? "Anytime goal" : "Anytime TD";
+    const title = "Anytime TD";
     const anyBet = rows.some((b) => b.bet);
     const odds = (v) => (v == null ? "—" : (v > 0 ? "+" : "") + Math.round(v));
     const resTag = (b) => (b.result ? `<span class="res ${b.result}">${b.result === "W" ? "Scored" : "No"}</span>` : "");
@@ -452,11 +452,11 @@
     const seasonPicks = rec.picks || [];
     const playEdge = s.play_edge ?? 4;
     if (!rec.tiles) $("#record-tiles").innerHTML += tile("O/U · all", ouRec(seasonPicks)) + tile("O/U · plays", ouRec(seasonPicks, true));
-    if (["nfl", "nhl"].includes(state.meta?.sport)) {
+    if (state.meta?.sport === "nfl") {
       const bets = seasonPicks.flatMap((p) => (p.props || []).filter((b) => b.bet && b.result));
       const W = bets.filter((b) => b.result === "W").length, L = bets.length - W;
       const units = bets.reduce((a, b) => a + (b.units || 0), 0);
-      const label = state.meta.sport === "nhl" ? "Anytime goal · best bets" : "Anytime TD · best bets";
+      const label = "Anytime TD · best bets";
       $("#record-tiles").innerHTML += tile(label, { W, L, P: 0, pct: W + L ? W / (W + L) : null }, false,
         bets.length ? ` · ${units >= 0 ? "+" : ""}${units.toFixed(1)}u` : " · none graded yet");
     }

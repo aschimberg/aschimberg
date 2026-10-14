@@ -66,44 +66,6 @@ def parse_goalies(text):
     return out
 
 
-def parse_skaters(text):
-    """{playerId: {name, team, pos, gp, toi (s), ixg, goals}} for all situations."""
-    out = {}
-    for r in _rows(text):
-        if r.get("situation") != "all":
-            continue
-        try:
-            pid = int(r.get("playerId"))
-        except (TypeError, ValueError):
-            continue
-        out[pid] = {"name": r.get("name"), "team": TEAM_CODES.get(r.get("team"), r.get("team")), "pos": r.get("position"),
-                    "gp": _f(r.get("games_played")) or 0, "toi": _f(r.get("icetime")) or 0,
-                    "ixg": _f(r.get("I_F_xGoals")) or 0, "goals": _f(r.get("I_F_goals")) or 0}
-    return out
-
-
-def load_skaters(season_id, log=print, fetcher=None):
-    """Skater season summaries for this season and last (last season cached as compact JSON)."""
-    import json
-    fetcher = fetcher or (lambda u: fetch(u, retries=2, timeout=90).decode("utf-8"))
-    year = season_id // 10000
-    cache = config.DATA_DIR / "cache"
-    out = {}
-    for key, y in (("cur", year), ("prev", year - 1)):
-        path = cache / f"moneypuck_{y}_skaters.json"
-        if key == "prev" and path.exists():
-            out[key] = {int(k): v for k, v in json.loads(path.read_text()).items()}
-            continue
-        try:
-            out[key] = parse_skaters(fetcher(URL.format(year=y, kind="skaters")))
-            cache.mkdir(parents=True, exist_ok=True)
-            path.write_text(json.dumps(out[key], separators=(",", ":")))
-        except Exception as e:
-            log(f"MoneyPuck {y} skaters: {e}")
-            out[key] = {int(k): v for k, v in json.loads(path.read_text()).items()} if path.exists() else {}
-    return out
-
-
 def load(season_id, log=print, fetcher=None):
     """{'cur': {'teams','goalies'}, 'prev': {...}} for an NHL season id like 20262027, or None."""
     fetcher = fetcher or (lambda u: fetch(u, retries=2, timeout=60).decode("utf-8"))

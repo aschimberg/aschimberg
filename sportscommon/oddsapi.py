@@ -170,7 +170,7 @@ def moneylines(event):
 
 
 # --- player props (event-level odds) ------------------------------------------
-PROP_MARKETS = {"nfl": "player_anytime_td", "nhl": "player_goal_scorer_anytime"}
+PROP_MARKETS = {"nfl": "player_anytime_td"}
 _props_fetched = {"n": 0}  # per-process (per refresh run) count of credit-costing prop calls
 
 

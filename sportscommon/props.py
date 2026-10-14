@@ -1,4 +1,4 @@
-"""Anytime scorer props (NFL anytime TD, NHL anytime goal): pricing, best bets, grading.
+"""Anytime TD props (NFL): pricing, best bets, grading.
 
 Each player gets an expected number of scores in the game, lam. P(anytime) =
 1 - exp(-lam) (Poisson). With a market price, EV = p * decimal - 1, and best

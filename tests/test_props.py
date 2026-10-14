@@ -37,25 +37,5 @@ class PropsTests(unittest.TestCase):
         self.assertEqual((rec["W"], rec["L"], rec["units"]), (1, 1, 0.25))
 
 
-class NhlPropsTests(unittest.TestCase):
-    def test_lineup_scaled_rates(self):
-        from nhlmodel import props as nhlprops
-        mp = {"cur": {1: {"name": "Top Sniper", "team": "TOR", "pos": "C", "gp": 20, "toi": 0, "ixg": 9.0, "goals": 12},
-                      2: {"name": "Stay Home D", "team": "TOR", "pos": "D", "gp": 20, "toi": 0, "ixg": 1.0, "goals": 1},
-                      **{10 + i: {"name": f"Depth F{i}", "team": "OTT", "pos": "L", "gp": 20, "toi": 0, "ixg": 3.0, "goals": 3}
-                         for i in range(6)}},
-              "prev": {}}
-        means = nhlprops.position_means(mp["cur"])
-        game = {"home": "TOR", "away": "MTL", "skaters": {"home": [1, 2, 3], "away": []},
-                "skater_names": {"1": "Top Sniper", "2": "Stay Home D", "3": "Call Up"}}
-        rows = nhlprops.team_players("TOR", game, 3.3, 3.0, mp, means)
-        lam = {r["name"]: r["lam"] for r in rows}
-        self.assertGreater(lam["Top Sniper"], lam["Call Up"])
-        self.assertGreater(lam["Call Up"], 0)  # unknown call-up gets the position prior
-        self.assertGreater(lam["Top Sniper"], lam["Stay Home D"])
-        base = nhlprops.team_players("TOR", game, 3.0, 3.0, mp, means)
-        self.assertAlmostEqual(rows[0]["lam"] / base[0]["lam"], 1.1, places=3)  # scales with projected goals
-
-
 if __name__ == "__main__":
     unittest.main()

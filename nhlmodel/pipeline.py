@@ -5,12 +5,11 @@ from zoneinfo import ZoneInfo
 from cfbmodel import store
 from sportscommon import confidence as conf
 from sportscommon import clv, oddsapi
-from sportscommon import props as sprops
 from sportscommon import ridge
 from sportscommon import tuning as tunemod
 from sportscommon.odds import american_to_decimal, american_to_prob, fmt_american, no_vig, normal_cdf, prob_to_american
 
-from . import api, config, moneypuck, probables, props as nhlprops, data, elo as elomod, goalies, sim, xg
+from . import api, config, moneypuck, probables, data, elo as elomod, goalies, sim, xg
 
 ET = ZoneInfo("America/New_York")
 PICKS_PATH = config.DATA_DIR / "picks.json"
@@ -153,11 +152,7 @@ def default_loader(now, log):
     probs = probables.fetch_probables([today + timedelta(days=i) for i in range(config.SLATE_DAYS)], by_name, log=log)
     return {"teams": teams, "season": cur_id, "prev": list(prev_doc["games"].values()),
             "cur": list(cur_doc["games"].values()), "sched": sched, "odds": odds, "probables": probs,
-            "mp": moneypuck.load(cur_id, log=log) if config.MONEYPUCK else None,
-            "mp_skaters": moneypuck.load_skaters(cur_id, log=log) if config.MONEYPUCK else None,
-            "lineups": data.ensure_lineups(cur_doc, {t for g in sched.values() if g.get("date") in
-                                                     {(today + timedelta(days=i)).isoformat() for i in range(config.SLATE_DAYS)}
-                                                     for t in (g["home"], g["away"])}, log=log)}
+            "mp": moneypuck.load(cur_id, log=log) if config.MONEYPUCK else None}
 
 
 # --- model pieces -----------------------------------------------------------
@@ -286,12 +281,6 @@ def refresh(loader=None, now=None, log=print):
     picks_doc = store.load(PICKS_PATH, {"picks": {}})
     picks = picks_doc["picks"]
     graded = grade_picks(picks, sched, cur)
-    grade_props(picks, {str(g["id"]): g for g in cur})
-    mp_sk = d.get("mp_skaters") or {}
-    prop_means = nhlprops.position_means(mp_sk.get("cur") or mp_sk.get("prev") or {})
-    prop_avg, prop_lg = nhlprops.team_avg_goals(cur or prev)
-    lineups = d.get("lineups") or {}
-    prop_events = None
 
     def _first(gid, p):
         sn = lh["games"].get(str(gid)) or []
@@ -410,21 +399,6 @@ def refresh(loader=None, now=None, log=print):
                               "tier": "strong" if tev >= 2 * config.TOTAL_MIN_EV else "play" if tev >= config.TOTAL_MIN_EV
                               else "lean" if tev >= config.TOTAL_MIN_EV / 2 else "pass"}
 
-        if not started:
-            players = []
-            if mp_sk:
-                players = (nhlprops.team_players(h, lineups.get(h), lh_, prop_avg.get(h, prop_lg), mp_sk, prop_means)
-                           + nhlprops.team_players(a, lineups.get(a), la_, prop_avg.get(a, prop_lg), mp_sk, prop_means))
-            market = None
-            if players and oddsapi.api_key() and g.get("start") and g["start"] <= iso(now + timedelta(hours=config.PROPS_HOURS)):
-                if prop_events is None:
-                    prop_events = oddsapi.events("nhl", log=log) or []
-                ev = oddsapi.find_event(prop_events, names.get(h, h), names.get(a, a), g["start"])
-                if ev:
-                    market = sprops.parse_market(oddsapi.event_props("nhl", ev, now=now, log=log), oddsapi.PROP_MARKETS["nhl"])
-            pick["props"] = sprops.best_bets(sprops.price(players, market), n=config.PROPS_PER_GAME,
-                                             min_ev=config.PROPS_MIN_EV, min_prob=config.PROPS_MIN_PROB)
-
         if not started and line:
             prev = picks.get(str(g["id"]))
             picks[str(g["id"])] = {
@@ -532,21 +506,6 @@ def pick_rows(p, names):
 
 
 # --- grading / record -------------------------------------------------------
-def grade_props(picks, parsed_games):
-    """Grade anytime-goal best bets from the goal scorers in the parsed play-by-play."""
-    n = 0
-    for gid, p in picks.items():
-        if not p.get("props") or p.get("props_graded"):
-            continue
-        g = parsed_games.get(str(gid))
-        if not g or "scorers" not in g or g.get("home_score") is None:
-            continue
-        sprops.grade(p["props"], g["scorers"])
-        p["props_graded"] = True
-        n += 1
-    return n
-
-
 def grade_picks(picks, sched, cur_games):
     finals = {}
     for g in sched.values():

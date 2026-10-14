@@ -122,8 +122,7 @@ def build_nhl(now_local):
     plays = sorted((c for c in games if (c["pick"].get("ev") or 0) >= nhlc.LEAN_EV or c["pick"].get("conf_label") == "High"),
                    key=lambda c: -(c["pick"].get("ev") or 0))
     totals = [c for c in games if (c["pick"].get("total_pick") or {}).get("play")]
-    scorer_lines = sprops.briefing_lines(games, "Anytime goal", cfbb.matchup)
-    if not plays and not totals and not scorer_lines:
+    if not plays and not totals:
         return None  # quiet day: no value on the board
     lines = [f"**{now_local:%a %b %-d} · NHL · {len(games)} games**"]
     if sr.get("ats", {}).get("W", 0) + sr.get("ats", {}).get("L", 0):
@@ -141,7 +140,6 @@ def build_nhl(now_local):
         for c in totals[:5]:
             t = c["pick"]["total_pick"]
             lines.append(f"{cfbb.matchup(c)}: {t['side'].title()} {t['line']:g} {fmt_american(t['odds'])} (EV {t['ev'] * 100:+.1f}%)")
-    lines += scorer_lines
     notes = [e for c in games for e in c.get("extras", []) if "backup" in e or "back-to-back" in e]
     if notes:
         lines += ["", "**🧤 Goalies & schedule**"] + notes[:8]

@@ -56,30 +56,6 @@ def season_schedule(season, teams):
     return games
 
 
-def ensure_lineups(doc, teams_needed, log=print):
-    """Make sure each team's most recent cached game records its dressed skaters
-    (games cached before lineups were tracked are re-parsed once)."""
-    latest = {}
-    for gid, g in doc["games"].items():
-        for side in ("home", "away"):
-            t = g[side]
-            if t in teams_needed and (t not in latest or (g.get("start") or "") > (doc["games"][latest[t]].get("start") or "")):
-                latest[t] = gid
-    changed = 0
-    for gid in set(latest.values()):
-        if doc["games"][gid].get("skaters"):
-            continue
-        try:
-            doc["games"][gid] = shots.parse(api.play_by_play(int(gid)))
-            changed += 1
-        except Exception as e:
-            log(f"lineup re-parse {gid} failed: {e}")
-    if changed:
-        save_cache(doc)
-        log(f"NHL: re-parsed {changed} recent games for lineups")
-    return {t: doc["games"][gid] for t, gid in latest.items()}
-
-
 def update_season(season, teams, log=print, max_new=None):
     """Fetch play-by-play for completed games not yet cached. Returns (cache, schedule)."""
     doc = load_cache(season)
