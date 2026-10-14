@@ -23,28 +23,33 @@
      "odds": [
       {
        "description": "PUCK_LINE",
-       "qualifier": "+1.5",
-       "value": -278.0
+       "qualifier": "-1.5",
+       "value": 120.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "",
-       "value": 135.0
+       "value": -205.0
       },
       {
        "description": "OVER_UNDER",
-       "qualifier": "U6.5",
-       "value": -135.0
+       "qualifier": "U9.5",
+       "value": -270.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 300.0
+       "value": 250.0
       },
       {
        "description": "MONEY_LINE_2_WAY",
        "qualifier": "",
-       "value": -105.0
+       "value": -445.0
+      },
+      {
+       "description": "MONEY_LINE_2_WAY_TNB",
+       "qualifier": "",
+       "value": -1025.0
       }
      ]
     },
@@ -60,28 +65,33 @@
      "odds": [
       {
        "description": "PUCK_LINE",
-       "qualifier": "-1.5",
-       "value": 225.0
+       "qualifier": "+1.5",
+       "value": -154.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "",
-       "value": 145.0
+       "value": 850.0
       },
       {
        "description": "OVER_UNDER",
-       "qualifier": "O6.5",
-       "value": 114.0
+       "qualifier": "O9.5",
+       "value": 200.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 300.0
+       "value": 250.0
       },
       {
        "description": "MONEY_LINE_2_WAY",
        "qualifier": "",
-       "value": -115.0
+       "value": 310.0
+      },
+      {
+       "description": "MONEY_LINE_2_WAY_TNB",
+       "qualifier": "",
+       "value": 575.0
       }
      ]
     },
@@ -99,27 +109,32 @@
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 310.0
+       "value": 650.0
       },
       {
        "description": "PUCK_LINE",
-       "qualifier": "+1.5",
-       "value": -230.0
+       "qualifier": "-2.5",
+       "value": -125.0
       },
       {
        "description": "MONEY_LINE_2_WAY",
        "qualifier": "",
-       "value": 114.0
+       "value": -1300.0
       },
       {
        "description": "OVER_UNDER",
-       "qualifier": "U5.5",
-       "value": 114.0
+       "qualifier": "U6.5",
+       "value": 105.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "",
-       "value": 160.0
+       "value": -650.0
+      },
+      {
+       "description": "MONEY_LINE_2_WAY_TNB",
+       "qualifier": "",
+       "value": -4000.0
       }
      ]
     },
@@ -136,27 +151,32 @@
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 310.0
+       "value": 650.0
       },
       {
        "description": "PUCK_LINE",
-       "qualifier": "-1.5",
-       "value": 190.0
+       "qualifier": "+2.5",
+       "value": -105.0
       },
       {
        "description": "MONEY_LINE_2_WAY",
        "qualifier": "",
-       "value": -135.0
+       "value": 700.0
       },
       {
        "description": "OVER_UNDER",
-       "qualifier": "O5.5",
+       "qualifier": "O6.5",
        "value": -135.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "",
-       "value": 120.0
+       "value": 2000.0
+      },
+      {
+       "description": "MONEY_LINE_2_WAY_TNB",
+       "qualifier": "",
+       "value": 1400.0
       }
      ]
     },
@@ -174,27 +194,32 @@
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 330.0
+       "value": 290.0
       },
       {
        "description": "OVER_UNDER",
        "qualifier": "U6.5",
-       "value": -115.0
+       "value": -125.0
       },
       {
        "description": "MONEY_LINE_2_WAY",
        "qualifier": "",
-       "value": 130.0
+       "value": 260.0
       },
       {
        "description": "PUCK_LINE",
        "qualifier": "+1.5",
-       "value": -192.0
+       "value": -120.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "",
-       "value": 180.0
+       "value": 550.0
+      },
+      {
+       "description": "MONEY_LINE_2_WAY_TNB",
+       "qualifier": "",
+       "value": 390.0
       }
      ]
     },
@@ -211,7 +236,7 @@
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 330.0
+       "value": 290.0
       },
       {
        "description": "OVER_UNDER",
@@ -221,17 +246,22 @@
       {
        "description": "MONEY_LINE_2_WAY",
        "qualifier": "",
-       "value": -155.0
+       "value": -360.0
       },
       {
        "description": "PUCK_LINE",
        "qualifier": "-1.5",
-       "value": 160.0
+       "value": -110.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "",
-       "value": 105.0
+       "value": -190.0
+      },
+      {
+       "description": "MONEY_LINE_2_WAY_TNB",
+       "qualifier": "",
+       "value": -600.0
       }
      ]
     },
@@ -249,27 +279,32 @@
       {
        "description": "PUCK_LINE",
        "qualifier": "+1.5",
-       "value": -192.0
+       "value": -220.0
       },
       {
        "description": "MONEY_LINE_2_WAY",
        "qualifier": "",
-       "value": 130.0
+       "value": 124.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 330.0
+       "value": 240.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "",
-       "value": 170.0
+       "value": 230.0
       },
       {
        "description": "OVER_UNDER",
-       "qualifier": "U6.5",
-       "value": -125.0
+       "qualifier": "U5.5",
+       "value": 105.0
+      },
+      {
+       "description": "MONEY_LINE_2_WAY_TNB",
+       "qualifier": "",
+       "value": 140.0
       }
      ]
     },
@@ -286,17 +321,17 @@
       {
        "description": "PUCK_LINE",
        "qualifier": "-1.5",
-       "value": 160.0
+       "value": 170.0
       },
       {
        "description": "MONEY_LINE_2_WAY",
        "qualifier": "",
-       "value": -155.0
+       "value": -160.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 330.0
+       "value": 240.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
@@ -305,8 +340,13 @@
       },
       {
        "description": "OVER_UNDER",
-       "qualifier": "O6.5",
-       "value": 105.0
+       "qualifier": "O5.5",
+       "value": -135.0
+      },
+      {
+       "description": "MONEY_LINE_2_WAY_TNB",
+       "qualifier": "",
+       "value": -182.0
       }
      ]
     },
@@ -323,28 +363,33 @@
      "odds": [
       {
        "description": "PUCK_LINE",
-       "qualifier": "+1.5",
-       "value": -258.0
+       "qualifier": "-1.5",
+       "value": 114.0
       },
       {
        "description": "MONEY_LINE_2_WAY",
        "qualifier": "",
-       "value": 102.0
+       "value": -238.0
       },
       {
        "description": "OVER_UNDER",
        "qualifier": "U5.5",
-       "value": 114.0
+       "value": -175.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "",
-       "value": 140.0
+       "value": -140.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 310.0
+       "value": 300.0
+      },
+      {
+       "description": "MONEY_LINE_2_WAY_TNB",
+       "qualifier": "",
+       "value": -320.0
       }
      ]
     },
@@ -360,28 +405,33 @@
      "odds": [
       {
        "description": "PUCK_LINE",
-       "qualifier": "-1.5",
-       "value": 210.0
+       "qualifier": "+1.5",
+       "value": -145.0
       },
       {
        "description": "MONEY_LINE_2_WAY",
        "qualifier": "",
-       "value": -122.0
+       "value": 180.0
       },
       {
        "description": "OVER_UNDER",
        "qualifier": "O5.5",
-       "value": -135.0
-      },
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "",
        "value": 135.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
+       "qualifier": "",
+       "value": 330.0
+      },
+      {
+       "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 310.0
+       "value": 300.0
+      },
+      {
+       "description": "MONEY_LINE_2_WAY_TNB",
+       "qualifier": "",
+       "value": 230.0
       }
      ]
     },
@@ -399,27 +449,32 @@
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "",
-       "value": 105.0
+       "value": 235.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 300.0
+       "value": 275.0
       },
       {
        "description": "MONEY_LINE_2_WAY",
        "qualifier": "",
-       "value": -162.0
+       "value": 120.0
       },
       {
        "description": "PUCK_LINE",
-       "qualifier": "-1.5",
-       "value": 160.0
+       "qualifier": "+1.5",
+       "value": -215.0
       },
       {
        "description": "OVER_UNDER",
-       "qualifier": "U6.5",
-       "value": -135.0
+       "qualifier": "U7.5",
+       "value": -125.0
+      },
+      {
+       "description": "MONEY_LINE_2_WAY_TNB",
+       "qualifier": "",
+       "value": 150.0
       }
      ]
     },
@@ -436,27 +491,32 @@
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "",
-       "value": 190.0
+       "value": 100.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 300.0
+       "value": 275.0
       },
       {
        "description": "MONEY_LINE_2_WAY",
        "qualifier": "",
-       "value": 136.0
+       "value": -154.0
       },
       {
        "description": "PUCK_LINE",
-       "qualifier": "+1.5",
-       "value": -192.0
+       "qualifier": "-1.5",
+       "value": 165.0
       },
       {
        "description": "OVER_UNDER",
-       "qualifier": "O6.5",
-       "value": 114.0
+       "qualifier": "O7.5",
+       "value": -105.0
+      },
+      {
+       "description": "MONEY_LINE_2_WAY_TNB",
+       "qualifier": "",
+       "value": -198.0
       }
      ]
     },
@@ -473,28 +533,33 @@
      "odds": [
       {
        "description": "OVER_UNDER",
-       "qualifier": "U5.5",
-       "value": 102.0
+       "qualifier": "U4.5",
+       "value": 124.0
       },
       {
        "description": "MONEY_LINE_2_WAY",
        "qualifier": "",
-       "value": -105.0
+       "value": -120.0
       },
       {
        "description": "PUCK_LINE",
        "qualifier": "+1.5",
-       "value": -278.0
+       "value": -315.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 295.0
+       "value": 275.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "",
-       "value": 135.0
+       "value": 150.0
+      },
+      {
+       "description": "MONEY_LINE_2_WAY_TNB",
+       "qualifier": "",
+       "value": -115.0
       }
      ]
     },
@@ -511,28 +576,33 @@
      "odds": [
       {
        "description": "OVER_UNDER",
-       "qualifier": "O5.5",
-       "value": -122.0
+       "qualifier": "O4.5",
+       "value": -160.0
       },
       {
        "description": "MONEY_LINE_2_WAY",
        "qualifier": "",
-       "value": -115.0
+       "value": -110.0
       },
       {
        "description": "PUCK_LINE",
        "qualifier": "-1.5",
-       "value": 225.0
+       "value": 230.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 295.0
+       "value": 275.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "",
        "value": 150.0
+      },
+      {
+       "description": "MONEY_LINE_2_WAY_TNB",
+       "qualifier": "",
+       "value": -115.0
       }
      ]
     },
@@ -550,27 +620,32 @@
       {
        "description": "PUCK_LINE",
        "qualifier": "+1.5",
-       "value": -142.0
+       "value": -154.0
       },
       {
        "description": "MONEY_LINE_2_WAY",
        "qualifier": "",
-       "value": 180.0
+       "value": 154.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 340.0
+       "value": 320.0
       },
       {
        "description": "OVER_UNDER",
-       "qualifier": "U6.5",
-       "value": -135.0
+       "qualifier": "U5.5",
+       "value": -110.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "",
-       "value": 240.0
+       "value": 250.0
+      },
+      {
+       "description": "MONEY_LINE_2_WAY_TNB",
+       "qualifier": "",
+       "value": 170.0
       }
      ]
     },
@@ -592,22 +667,27 @@
       {
        "description": "MONEY_LINE_2_WAY",
        "qualifier": "",
-       "value": -218.0
+       "value": -200.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 340.0
+       "value": 320.0
       },
       {
        "description": "OVER_UNDER",
-       "qualifier": "O6.5",
-       "value": 114.0
+       "qualifier": "O5.5",
+       "value": -120.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "",
-       "value": -125.0
+       "value": -120.0
+      },
+      {
+       "description": "MONEY_LINE_2_WAY_TNB",
+       "qualifier": "",
+       "value": -225.0
       }
      ]
     },
@@ -635,17 +715,17 @@
       {
        "description": "OVER_UNDER",
        "qualifier": "U6.5",
-       "value": -115.0
+       "value": 100.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "",
-       "value": 110.0
+       "value": 105.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 330.0
+       "value": 320.0
       }
      ]
     },
@@ -672,17 +752,17 @@
       {
        "description": "OVER_UNDER",
        "qualifier": "O6.5",
-       "value": -105.0
+       "value": -120.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "",
-       "value": 170.0
+       "value": 175.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 330.0
+       "value": 320.0
       }
      ]
     },
@@ -700,7 +780,7 @@
       {
        "description": "OVER_UNDER",
        "qualifier": "U6.5",
-       "value": -125.0
+       "value": -130.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
@@ -710,12 +790,12 @@
       {
        "description": "MONEY_LINE_2_WAY",
        "qualifier": "",
-       "value": -105.0
+       "value": -110.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 310.0
+       "value": 300.0
       },
       {
        "description": "PUCK_LINE",
@@ -737,22 +817,22 @@
       {
        "description": "OVER_UNDER",
        "qualifier": "O6.5",
-       "value": 105.0
+       "value": 110.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "",
-       "value": 145.0
+       "value": 150.0
       },
       {
        "description": "MONEY_LINE_2_WAY",
        "qualifier": "",
-       "value": -115.0
+       "value": -110.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 310.0
+       "value": 300.0
       },
       {
        "description": "PUCK_LINE",
@@ -780,7 +860,7 @@
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "",
-       "value": 140.0
+       "value": 135.0
       },
       {
        "description": "PUCK_LINE",
@@ -790,7 +870,7 @@
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 300.0
+       "value": 310.0
       },
       {
        "description": "MONEY_LINE_2_WAY",
@@ -827,7 +907,7 @@
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 300.0
+       "value": 310.0
       },
       {
        "description": "MONEY_LINE_2_WAY",
@@ -860,7 +940,7 @@
       {
        "description": "MONEY_LINE_2_WAY",
        "qualifier": "",
-       "value": -125.0
+       "value": -130.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
@@ -897,7 +977,7 @@
       {
        "description": "MONEY_LINE_2_WAY",
        "qualifier": "",
-       "value": 105.0
+       "value": 110.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
@@ -925,7 +1005,7 @@
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "",
-       "value": 180.0
+       "value": 175.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
@@ -935,7 +1015,7 @@
       {
        "description": "OVER_UNDER",
        "qualifier": "U6.5",
-       "value": -108.0
+       "value": -102.0
       },
       {
        "description": "MONEY_LINE_2_WAY",
@@ -972,7 +1052,7 @@
       {
        "description": "OVER_UNDER",
        "qualifier": "O6.5",
-       "value": -112.0
+       "value": -118.0
       },
       {
        "description": "MONEY_LINE_2_WAY",
@@ -1000,7 +1080,7 @@
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 320.0
+       "value": 330.0
       },
       {
        "description": "MONEY_LINE_2_WAY",
@@ -1020,7 +1100,7 @@
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "",
-       "value": 200.0
+       "value": 195.0
       }
      ]
     },
@@ -1037,7 +1117,7 @@
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 320.0
+       "value": 330.0
       },
       {
        "description": "MONEY_LINE_2_WAY",
@@ -1080,7 +1160,7 @@
       {
        "description": "OVER_UNDER",
        "qualifier": "U6.5",
-       "value": -125.0
+       "value": -130.0
       },
       {
        "description": "MONEY_LINE_2_WAY",
@@ -1117,7 +1197,7 @@
       {
        "description": "OVER_UNDER",
        "qualifier": "O6.5",
-       "value": 105.0
+       "value": 110.0
       },
       {
        "description": "MONEY_LINE_2_WAY",
@@ -1155,7 +1235,7 @@
       {
        "description": "MONEY_LINE_2_WAY",
        "qualifier": "",
-       "value": -125.0
+       "value": -130.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
@@ -1165,7 +1245,7 @@
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 320.0
+       "value": 310.0
       },
       {
        "description": "OVER_UNDER",
@@ -1192,7 +1272,7 @@
       {
        "description": "MONEY_LINE_2_WAY",
        "qualifier": "",
-       "value": 105.0
+       "value": 110.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
@@ -1202,7 +1282,7 @@
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 320.0
+       "value": 310.0
       },
       {
        "description": "OVER_UNDER",
@@ -1214,130 +1294,10 @@
     "startTimeUTC": "2026-10-14T03:00:00Z"
    }
   ],
-  "lastUpdatedUTC": "2026-10-13T17:30:38Z"
+  "lastUpdatedUTC": "2026-10-14T00:00:40Z"
  },
- "fetched_at": "2026-10-13T17:52:12Z",
+ "fetched_at": "2026-10-14T00:18:43Z",
  "parsed": {
-  "2026020090": {
-   "book": "DraftKings",
-   "ml_away": -105.0,
-   "ml_home": -115.0,
-   "over_odds": 114.0,
-   "pl_away": 1.5,
-   "pl_away_odds": -278.0,
-   "pl_home": -1.5,
-   "pl_home_odds": 225.0,
-   "total": 6.5,
-   "under_odds": -135.0
-  },
-  "2026020091": {
-   "book": "DraftKings",
-   "ml_away": 114.0,
-   "ml_home": -135.0,
-   "over_odds": -135.0,
-   "pl_away": 1.5,
-   "pl_away_odds": -230.0,
-   "pl_home": -1.5,
-   "pl_home_odds": 190.0,
-   "total": 5.5,
-   "under_odds": 114.0
-  },
-  "2026020092": {
-   "book": "DraftKings",
-   "ml_away": 130.0,
-   "ml_home": -155.0,
-   "over_odds": -105.0,
-   "pl_away": 1.5,
-   "pl_away_odds": -192.0,
-   "pl_home": -1.5,
-   "pl_home_odds": 160.0,
-   "total": 6.5,
-   "under_odds": -115.0
-  },
-  "2026020093": {
-   "book": "DraftKings",
-   "ml_away": 130.0,
-   "ml_home": -155.0,
-   "over_odds": 105.0,
-   "pl_away": 1.5,
-   "pl_away_odds": -192.0,
-   "pl_home": -1.5,
-   "pl_home_odds": 160.0,
-   "total": 6.5,
-   "under_odds": -125.0
-  },
-  "2026020094": {
-   "book": "DraftKings",
-   "ml_away": 102.0,
-   "ml_home": -122.0,
-   "over_odds": -135.0,
-   "pl_away": 1.5,
-   "pl_away_odds": -258.0,
-   "pl_home": -1.5,
-   "pl_home_odds": 210.0,
-   "total": 5.5,
-   "under_odds": 114.0
-  },
-  "2026020095": {
-   "book": "DraftKings",
-   "ml_away": -162.0,
-   "ml_home": 136.0,
-   "over_odds": 114.0,
-   "pl_away": -1.5,
-   "pl_away_odds": 160.0,
-   "pl_home": 1.5,
-   "pl_home_odds": -192.0,
-   "total": 6.5,
-   "under_odds": -135.0
-  },
-  "2026020096": {
-   "book": "DraftKings",
-   "ml_away": -105.0,
-   "ml_home": -115.0,
-   "over_odds": -122.0,
-   "pl_away": 1.5,
-   "pl_away_odds": -278.0,
-   "pl_home": -1.5,
-   "pl_home_odds": 225.0,
-   "total": 5.5,
-   "under_odds": 102.0
-  },
-  "2026020097": {
-   "book": "DraftKings",
-   "ml_away": 180.0,
-   "ml_home": -218.0,
-   "over_odds": 114.0,
-   "pl_away": 1.5,
-   "pl_away_odds": -142.0,
-   "pl_home": -1.5,
-   "pl_home_odds": 120.0,
-   "total": 6.5,
-   "under_odds": -135.0
-  },
-  "2026020098": {
-   "book": "DraftKings",
-   "ml_away": -162.0,
-   "ml_home": 136.0,
-   "over_odds": -105.0,
-   "pl_away": -1.5,
-   "pl_away_odds": 160.0,
-   "pl_home": 1.5,
-   "pl_home_odds": -192.0,
-   "total": 6.5,
-   "under_odds": -115.0
-  },
-  "2026020099": {
-   "book": "DraftKings",
-   "ml_away": -105.0,
-   "ml_home": -115.0,
-   "over_odds": 105.0,
-   "pl_away": 1.5,
-   "pl_away_odds": -278.0,
-   "pl_home": -1.5,
-   "pl_home_odds": 225.0,
-   "total": 6.5,
-   "under_odds": -125.0
-  },
   "2026020100": {
    "book": "DraftKings",
    "ml_away": -102.0,
@@ -1352,8 +1312,8 @@
   },
   "2026020101": {
    "book": "DraftKings",
-   "ml_away": -125.0,
-   "ml_home": 105.0,
+   "ml_away": -130.0,
+   "ml_home": 110.0,
    "over_odds": 110.0,
    "pl_away": -1.5,
    "pl_away_odds": 200.0,
@@ -1366,13 +1326,13 @@
    "book": "DraftKings",
    "ml_away": 136.0,
    "ml_home": -162.0,
-   "over_odds": -112.0,
+   "over_odds": -118.0,
    "pl_away": 1.5,
    "pl_away_odds": -180.0,
    "pl_home": -1.5,
    "pl_home_odds": 150.0,
    "total": 6.5,
-   "under_odds": -108.0
+   "under_odds": -102.0
   },
   "2026020103": {
    "book": "DraftKings",
@@ -1390,18 +1350,18 @@
    "book": "DraftKings",
    "ml_away": -130.0,
    "ml_home": 110.0,
-   "over_odds": 105.0,
+   "over_odds": 110.0,
    "pl_away": -1.5,
    "pl_away_odds": 190.0,
    "pl_home": 1.5,
    "pl_home_odds": -230.0,
    "total": 6.5,
-   "under_odds": -125.0
+   "under_odds": -130.0
   },
   "2026020105": {
    "book": "DraftKings",
-   "ml_away": -125.0,
-   "ml_home": 105.0,
+   "ml_away": -130.0,
+   "ml_home": 110.0,
    "over_odds": 110.0,
    "pl_away": -1.5,
    "pl_away_odds": 205.0,
