@@ -1753,6 +1753,8 @@
    "away_abbr": "DAL",
    "bet_at": "2026-10-14T23:55:14Z",
    "bet_line": -162.0,
+   "close_line": -162.0,
+   "clv": -0.0404,
    "conf_label": "Low",
    "confidence": 44,
    "confidence_detail": {
@@ -1807,7 +1809,15 @@
    "odds": -162.0,
    "offset": 0.081,
    "prob": 0.604,
-   "result": null,
+   "result": {
+    "ats": "L",
+    "away_pts": 3,
+    "home_pts": 2,
+    "su": "L",
+    "total": "W",
+    "total_units": 0.741,
+    "units": -1.0
+   },
    "season": 20262027,
    "season_type": "regular",
    "start": "2026-10-15T00:30:00Z",
