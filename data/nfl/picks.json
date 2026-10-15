@@ -5654,7 +5654,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-15T20:39:56Z",
+   "updated": "2026-10-15T23:20:58Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -5662,7 +5662,7 @@
    }
   },
   "2026_06_BAL_CLE": {
-   "ats_line": -4.5,
+   "ats_line": -3.5,
    "ats_side": "away",
    "ats_team": "Baltimore Ravens",
    "away": "Baltimore Ravens",
@@ -5670,21 +5670,21 @@
    "bet_at": "2026-10-15T20:39:56Z",
    "bet_line": 4.5,
    "book": "nflverse consensus",
-   "conf_label": "Low",
-   "confidence": 40,
+   "conf_label": "Medium",
+   "confidence": 62,
    "confidence_detail": {
-    "agree": 1,
+    "agree": 2,
     "components": {
-     "agreement": 0.075,
+     "agreement": 1.0,
      "consistency": 0.875,
      "data": 1.0,
-     "edge": 0.002,
-     "market": 0.9,
+     "edge": 0.224,
+     "market": 0.5,
      "trends": 0.375
     },
-    "label": "Low",
+    "label": "Medium",
     "n_sources": 2,
-    "score": 40,
+    "score": 62,
     "side": "away",
     "source_names": {
      "elo": "Elo",
@@ -5695,19 +5695,19 @@
      "epa": -6.1
     }
    },
-   "cover_prob": 0.473,
+   "cover_prob": 0.502,
    "diffs": {
     "elo": -5.38,
     "epa": -7.13
    },
-   "edge": 0.0,
-   "ev": -0.077,
+   "edge": 1.0,
+   "ev": -0.062,
    "hfa_flag": 1,
    "home": "Cleveland Browns",
    "home_abbr": "CLE",
    "home_field": 1.795,
    "id": "2026_06_BAL_CLE",
-   "line": 4.5,
+   "line": 3.5,
    "model_spread": 4.5,
    "model_total": 42.2,
    "neutral": false,
@@ -5767,7 +5767,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-15T20:39:56Z",
+   "updated": "2026-10-15T23:20:58Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -5775,30 +5775,30 @@
    }
   },
   "2026_06_BUF_LV": {
-   "ats_line": 5.5,
-   "ats_side": "home",
-   "ats_team": "Las Vegas Raiders",
+   "ats_line": -4.5,
+   "ats_side": "away",
+   "ats_team": "Buffalo Bills",
    "away": "Buffalo Bills",
    "away_abbr": "BUF",
-   "bet_at": "2026-10-14T00:18:25Z",
-   "bet_line": 5.5,
+   "bet_at": "2026-10-15T23:20:58Z",
+   "bet_line": 4.5,
    "book": "nflverse consensus",
-   "conf_label": "Medium",
-   "confidence": 68,
+   "conf_label": "Low",
+   "confidence": 50,
    "confidence_detail": {
-    "agree": 2,
+    "agree": 1,
     "components": {
-     "agreement": 1.0,
+     "agreement": 0.925,
      "consistency": 0.963,
      "data": 1.0,
-     "edge": 0.215,
-     "market": 0.7,
+     "edge": 0.008,
+     "market": 0.0,
      "trends": 0.5
     },
-    "label": "Medium",
+    "label": "Low",
     "n_sources": 2,
-    "score": 68,
-    "side": "home",
+    "score": 50,
+    "side": "away",
     "source_names": {
      "elo": "Elo",
      "epa": "EPA"
@@ -5808,19 +5808,19 @@
      "epa": -4.1
     }
    },
-   "cover_prob": 0.548,
+   "cover_prob": 0.473,
    "diffs": {
     "elo": -8.71,
     "epa": -8.19
    },
-   "edge": 1.0,
-   "ev": 0.025,
+   "edge": 0.0,
+   "ev": -0.104,
    "hfa_flag": 1,
    "home": "Las Vegas Raiders",
    "home_abbr": "LV",
    "home_field": 1.795,
    "id": "2026_06_BUF_LV",
-   "line": 5.5,
+   "line": 4.5,
    "model_spread": 4.5,
    "model_total": 56.9,
    "neutral": false,
@@ -5880,7 +5880,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-15T20:39:56Z",
+   "updated": "2026-10-15T23:20:58Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -5994,7 +5994,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-15T20:39:56Z",
+   "updated": "2026-10-15T23:20:58Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6108,7 +6108,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-15T20:39:56Z",
+   "updated": "2026-10-15T23:20:58Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6222,7 +6222,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-15T20:39:56Z",
+   "updated": "2026-10-15T23:20:58Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6336,7 +6336,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-15T20:39:56Z",
+   "updated": "2026-10-15T23:20:58Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6439,18 +6439,18 @@
    "su_team": "Kansas City Chiefs",
    "su_wp": 0.738,
    "tier": "pass",
-   "total_line": 42.5,
+   "total_line": 41.5,
    "total_pick": {
-    "edge": 2.2,
-    "line": 42.5,
+    "edge": 1.2,
+    "line": 41.5,
     "model": 40.3,
     "odds": null,
     "play": false,
-    "prob": 0.565,
+    "prob": 0.536,
     "side": "under",
-    "tier": "lean"
+    "tier": "pass"
    },
-   "updated": "2026-10-15T20:39:56Z",
+   "updated": "2026-10-15T23:20:58Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6564,7 +6564,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-15T20:39:56Z",
+   "updated": "2026-10-15T23:20:58Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6678,7 +6678,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-15T20:39:56Z",
+   "updated": "2026-10-15T23:20:58Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6792,7 +6792,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-15T20:39:56Z",
+   "updated": "2026-10-15T23:20:58Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6840,7 +6840,7 @@
     "epa": -3.34
    },
    "edge": 1.4,
-   "ev": -0.01,
+   "ev": 0.018,
    "hfa_flag": 1,
    "home": "Denver Broncos",
    "home_abbr": "DEN",
@@ -6906,7 +6906,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-15T20:39:56Z",
+   "updated": "2026-10-15T23:20:58Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -7020,7 +7020,7 @@
     "side": "over",
     "tier": "play"
    },
-   "updated": "2026-10-15T20:39:56Z",
+   "updated": "2026-10-15T23:20:58Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -7134,7 +7134,7 @@
     "side": "over",
     "tier": "play"
    },
-   "updated": "2026-10-15T20:39:56Z",
+   "updated": "2026-10-15T23:20:58Z",
    "week": 6,
    "weights": {
     "elo": 0.925,

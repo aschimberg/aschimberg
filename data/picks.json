@@ -3802,28 +3802,28 @@
    }
   },
   "401856719": {
-   "ats_line": 21.0,
-   "ats_side": "away",
-   "ats_team": "Auburn",
+   "ats_line": -19.5,
+   "ats_side": "home",
+   "ats_team": "Georgia",
    "away": "Auburn",
-   "bet_at": "2026-10-12T20:03:31Z",
-   "bet_line": -20.5,
+   "bet_at": "2026-10-15T23:20:53Z",
+   "bet_line": -19.5,
    "book": "DraftKings",
-   "conf_label": "Low",
-   "confidence": 51,
+   "conf_label": "High",
+   "confidence": 74,
    "confidence_detail": {
-    "agree": 2,
+    "agree": 3,
     "components": {
-     "agreement": 0.95,
+     "agreement": 1.0,
      "consistency": 0.866,
      "data": 1.0,
-     "edge": 0.2,
-     "market": 0.0,
-     "trends": 0.25
+     "edge": 0.175,
+     "market": 1.0,
+     "trends": 0.75
     },
-    "label": "Low",
+    "label": "High",
     "n_sources": 3,
-    "score": 51,
+    "score": 74,
     "sources": {
      "elo": 22.9,
      "fpi": 20.2,
@@ -3835,12 +3835,12 @@
     "fpi": 17.65,
     "sp": 17.3
    },
-   "edge": 0.8,
+   "edge": 0.7,
    "hfa_flag": 1,
    "home": "Georgia",
    "home_field": 2.6,
    "id": 401856719,
-   "line": -21.0,
+   "line": -19.5,
    "model_spread": -20.2,
    "model_total": 44.8,
    "neutral": false,
@@ -3864,7 +3864,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -3936,7 +3936,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -4008,7 +4008,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -4079,7 +4079,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -4151,7 +4151,7 @@
     "side": "over",
     "tier": "play"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -4223,7 +4223,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -4285,7 +4285,7 @@
    "tier": "strong",
    "total_line": 56.5,
    "total_pick": null,
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -4357,7 +4357,7 @@
     "side": "over",
     "tier": "play"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -6958,7 +6958,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -8128,7 +8128,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -8200,7 +8200,7 @@
     "side": "over",
     "tier": "play"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -8271,7 +8271,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -8343,7 +8343,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -8352,7 +8352,7 @@
    }
   },
   "401856832": {
-   "ats_line": -6.0,
+   "ats_line": -5.5,
    "ats_side": "home",
    "ats_team": "Baylor",
    "away": "TCU",
@@ -8361,20 +8361,20 @@
    "bet_src": "first seen",
    "book": "DraftKings",
    "conf_label": "Medium",
-   "confidence": 60,
+   "confidence": 61,
    "confidence_detail": {
     "agree": 2,
     "components": {
      "agreement": 0.95,
      "consistency": 0.906,
      "data": 1.0,
-     "edge": 0.15,
-     "market": 0.375,
+     "edge": 0.275,
+     "market": 0.25,
      "trends": 0.5
     },
     "label": "Medium",
     "n_sources": 3,
-    "score": 60,
+    "score": 61,
     "sources": {
      "elo": 4.9,
      "fpi": 7.2,
@@ -8386,12 +8386,12 @@
     "fpi": 4.59,
     "sp": 3.5
    },
-   "edge": 0.6,
+   "edge": 1.1,
    "hfa_flag": 1,
    "home": "Baylor",
    "home_field": 2.6,
    "id": 401856832,
-   "line": -6.0,
+   "line": -5.5,
    "model_spread": -6.6,
    "model_total": 40.5,
    "neutral": false,
@@ -8415,7 +8415,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -8487,7 +8487,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -12065,7 +12065,7 @@
    "tier": "strong",
    "total_line": 58.5,
    "total_pick": null,
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -12127,7 +12127,7 @@
    "tier": "strong",
    "total_line": 56.5,
    "total_pick": null,
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -12199,7 +12199,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -12271,7 +12271,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -12343,7 +12343,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -12415,7 +12415,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -12487,7 +12487,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -12559,7 +12559,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -12631,7 +12631,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -16684,7 +16684,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -16755,7 +16755,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -16827,7 +16827,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -16899,7 +16899,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -16971,7 +16971,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -17043,7 +17043,7 @@
     "side": "over",
     "tier": "play"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -17115,7 +17115,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -18765,7 +18765,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -18837,7 +18837,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -19018,18 +19018,18 @@
    "su_team": "Texas State",
    "su_wp": 0.741,
    "tier": "play",
-   "total_line": 70.5,
+   "total_line": 69.5,
    "total_pick": {
-    "edge": 6.2,
-    "line": 70.5,
+    "edge": 7.2,
+    "line": 69.5,
     "model": 76.7,
     "odds": null,
     "play": true,
-    "prob": 0.646,
+    "prob": 0.669,
     "side": "over",
     "tier": "play"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -21922,18 +21922,18 @@
    "su_team": "East Carolina",
    "su_wp": 0.705,
    "tier": "lean",
-   "total_line": 48.5,
+   "total_line": 49.5,
    "total_pick": {
-    "edge": 5.2,
-    "line": 48.5,
+    "edge": 6.2,
+    "line": 49.5,
     "model": 43.3,
     "odds": null,
     "play": true,
-    "prob": 0.624,
+    "prob": 0.646,
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -22005,7 +22005,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -22077,7 +22077,7 @@
     "side": "over",
     "tier": "play"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -22149,7 +22149,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -22221,7 +22221,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -22293,7 +22293,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -22365,7 +22365,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -24204,7 +24204,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -24213,7 +24213,7 @@
    }
   },
   "401864521": {
-   "ats_line": -14.5,
+   "ats_line": -15.5,
    "ats_side": "away",
    "ats_team": "New Mexico",
    "away": "New Mexico",
@@ -24222,7 +24222,7 @@
    "bet_src": "first seen",
    "book": "DraftKings",
    "conf_label": "High",
-   "confidence": 71,
+   "confidence": 75,
    "confidence_detail": {
     "agree": 3,
     "components": {
@@ -24230,12 +24230,12 @@
      "consistency": 0.715,
      "data": 1.0,
      "edge": 1.0,
-     "market": 0.25,
+     "market": 0.5,
      "trends": 0.0
     },
     "label": "High",
     "n_sources": 3,
-    "score": 71,
+    "score": 75,
     "sources": {
      "elo": -15.6,
      "fpi": -19.7,
@@ -24247,12 +24247,12 @@
     "fpi": -22.29,
     "sp": -25.2
    },
-   "edge": 6.2,
+   "edge": 5.2,
    "hfa_flag": 1,
    "home": "Hawai'i",
    "home_field": 2.6,
    "id": 401864521,
-   "line": 14.5,
+   "line": 15.5,
    "model_spread": 20.7,
    "model_total": 42.6,
    "neutral": false,
@@ -24276,7 +24276,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -24348,7 +24348,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -24420,7 +24420,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -24492,7 +24492,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -27156,7 +27156,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -27165,7 +27165,7 @@
    }
   },
   "401866442": {
-   "ats_line": 6.5,
+   "ats_line": 7.0,
    "ats_side": "away",
    "ats_team": "Massachusetts",
    "away": "Massachusetts",
@@ -27199,12 +27199,12 @@
     "fpi": 0.77,
     "sp": -4.4
    },
-   "edge": 4.8,
+   "edge": 5.3,
    "hfa_flag": 1,
    "home": "Buffalo",
    "home_field": 2.6,
    "id": 401866442,
-   "line": -6.5,
+   "line": -7.0,
    "model_spread": -1.7,
    "model_total": 39.6,
    "neutral": false,
@@ -27217,18 +27217,18 @@
    "su_team": "Buffalo",
    "su_wp": 0.544,
    "tier": "play",
-   "total_line": 41.5,
+   "total_line": 42.5,
    "total_pick": {
-    "edge": 1.9,
-    "line": 41.5,
+    "edge": 2.9,
+    "line": 42.5,
     "model": 39.6,
     "odds": null,
     "play": false,
-    "prob": 0.546,
+    "prob": 0.57,
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -27300,7 +27300,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -27372,7 +27372,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -27444,7 +27444,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -27576,7 +27576,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -28933,18 +28933,18 @@
    "su_team": "App State",
    "su_wp": 0.532,
    "tier": "pass",
-   "total_line": 49.5,
+   "total_line": 48.5,
    "total_pick": {
-    "edge": 3.1,
-    "line": 49.5,
+    "edge": 4.1,
+    "line": 48.5,
     "model": 52.6,
     "odds": null,
     "play": false,
-    "prob": 0.575,
+    "prob": 0.598,
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -29196,7 +29196,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -29635,18 +29635,18 @@
    "su_team": "Georgia Southern",
    "su_wp": 0.611,
    "tier": "pass",
-   "total_line": 45.5,
+   "total_line": 44.5,
    "total_pick": {
-    "edge": 0.1,
-    "line": 45.5,
+    "edge": 0.9,
+    "line": 44.5,
     "model": 45.4,
     "odds": null,
     "play": false,
-    "prob": 0.502,
-    "side": "under",
+    "prob": 0.522,
+    "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -29775,7 +29775,7 @@
    }
   },
   "401869957": {
-   "ats_line": -12.5,
+   "ats_line": -10.5,
    "ats_side": "home",
    "ats_team": "James Madison",
    "away": "Georgia State",
@@ -29783,21 +29783,21 @@
    "bet_line": -11.5,
    "bet_src": "first seen",
    "book": "DraftKings",
-   "conf_label": "Medium",
-   "confidence": 59,
+   "conf_label": "High",
+   "confidence": 77,
    "confidence_detail": {
-    "agree": 2,
+    "agree": 3,
     "components": {
-     "agreement": 0.48,
+     "agreement": 1.0,
      "consistency": 0.498,
      "data": 1.0,
-     "edge": 0.45,
-     "market": 0.5,
+     "edge": 0.95,
+     "market": 0.0,
      "trends": 0.875
     },
-    "label": "Medium",
+    "label": "High",
     "n_sources": 3,
-    "score": 59,
+    "score": 77,
     "sources": {
      "elo": 23.7,
      "fpi": 11.4,
@@ -29809,12 +29809,12 @@
     "fpi": 8.79,
     "sp": 14.2
    },
-   "edge": 1.8,
+   "edge": 3.8,
    "hfa_flag": 1,
    "home": "James Madison",
    "home_field": 2.6,
    "id": 401869957,
-   "line": -12.5,
+   "line": -10.5,
    "model_spread": -14.3,
    "model_total": 59.3,
    "neutral": false,
@@ -29826,7 +29826,7 @@
    "start": "2026-10-17T16:00:00.000Z",
    "su_team": "James Madison",
    "su_wp": 0.822,
-   "tier": "pass",
+   "tier": "lean",
    "total_line": 57.5,
    "total_pick": {
     "edge": 1.8,
@@ -29838,7 +29838,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -30096,7 +30096,7 @@
    }
   },
   "401869966": {
-   "ats_line": -4.0,
+   "ats_line": -3.0,
    "ats_side": "home",
    "ats_team": "Louisiana",
    "away": "Troy",
@@ -30105,20 +30105,20 @@
    "bet_src": "first seen",
    "book": "DraftKings",
    "conf_label": "Medium",
-   "confidence": 62,
+   "confidence": 65,
    "confidence_detail": {
-    "agree": 2,
+    "agree": 3,
     "components": {
-     "agreement": 0.95,
+     "agreement": 1.0,
      "consistency": 0.842,
      "data": 1.0,
-     "edge": 0.325,
-     "market": 0.625,
+     "edge": 0.575,
+     "market": 0.375,
      "trends": 0.125
     },
     "label": "Medium",
     "n_sources": 3,
-    "score": 62,
+    "score": 65,
     "sources": {
      "elo": 3.2,
      "fpi": 4.1,
@@ -30130,12 +30130,12 @@
     "fpi": 1.51,
     "sp": 4.3
    },
-   "edge": 1.3,
+   "edge": 2.3,
    "hfa_flag": 1,
    "home": "Louisiana",
    "home_field": 2.6,
    "id": 401869966,
-   "line": -4.0,
+   "line": -3.0,
    "model_spread": -5.3,
    "model_total": 54.3,
    "neutral": false,
@@ -30147,7 +30147,7 @@
    "start": "2026-10-17T21:00:00.000Z",
    "su_team": "Louisiana",
    "su_wp": 0.633,
-   "tier": "pass",
+   "tier": "lean",
    "total_line": 49.5,
    "total_pick": {
     "edge": 4.8,
@@ -30159,7 +30159,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -31500,18 +31500,18 @@
    "su_team": "Louisiana Tech",
    "su_wp": 0.885,
    "tier": "lean",
-   "total_line": 57.5,
+   "total_line": 55.5,
    "total_pick": {
-    "edge": 7.3,
-    "line": 57.5,
+    "edge": 9.3,
+    "line": 55.5,
     "model": 64.8,
     "odds": null,
     "play": true,
-    "prob": 0.671,
+    "prob": 0.713,
     "side": "over",
-    "tier": "play"
+    "tier": "strong"
    },
-   "updated": "2026-10-15T20:39:11Z",
+   "updated": "2026-10-15T23:20:53Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
