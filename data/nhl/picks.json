@@ -2285,6 +2285,8 @@
    "away_abbr": "NYR",
    "bet_at": "2026-10-15T20:40:00Z",
    "bet_line": 114.0,
+   "close_line": 114.0,
+   "clv": -0.0401,
    "conf_label": "Medium",
    "confidence": 58,
    "confidence_detail": {
@@ -2339,7 +2341,15 @@
    "odds": 114.0,
    "offset": -0.132,
    "prob": 0.498,
-   "result": null,
+   "result": {
+    "ats": "L",
+    "away_pts": 1,
+    "home_pts": 7,
+    "su": "W",
+    "total": "L",
+    "total_units": -1.0,
+    "units": -1.0
+   },
    "season": 20262027,
    "season_type": "regular",
    "start": "2026-10-15T23:00:00Z",
@@ -2728,7 +2738,7 @@
      "agreement": 0.85,
      "consistency": 0.467,
      "data": 0.6,
-     "edge": 0.207,
+     "edge": 0.199,
      "market": 0.9,
      "trends": 0.5
     },
@@ -2757,8 +2767,8 @@
     "mp": 0.917,
     "xg": 0.706
    },
-   "edge": 1.7,
-   "ev": 0.0165,
+   "edge": 1.6,
+   "ev": 0.0159,
    "hfa_flag": 1,
    "home": "Vegas Golden Knights",
    "home_abbr": "VGK",
@@ -2782,16 +2792,16 @@
    "su_wp": 0.692,
    "tier": "pass",
    "total_pick": {
-    "edge": 14.4,
-    "ev": 0.1437,
+    "edge": 14.7,
+    "ev": 0.147,
     "line": 6.5,
     "odds": -125.0,
     "play": true,
-    "prob": 0.635,
+    "prob": 0.637,
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-16T00:27:17Z",
+   "updated": "2026-10-16T01:42:19Z",
    "week": 202642,
    "weights": {
     "elo": 0.25,
