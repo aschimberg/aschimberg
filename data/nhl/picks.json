@@ -2909,6 +2909,180 @@
     "mp": 0.25,
     "xg": 0.35
    }
+  },
+  "2026020119": {
+   "ats_side": "away",
+   "ats_team": "Pittsburgh Penguins",
+   "away": "Pittsburgh Penguins",
+   "away_abbr": "PIT",
+   "bet_at": "2026-10-16T23:21:23Z",
+   "bet_line": 170.0,
+   "conf_label": "Medium",
+   "confidence": 63,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 0.75,
+     "consistency": 0.792,
+     "data": 0.7,
+     "edge": 0.565,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "Medium",
+    "n_sources": 4,
+    "score": 63,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "goals": "Goals",
+     "mp": "MoneyPuck",
+     "xg": "xG"
+    },
+    "sources": {
+     "elo": 0.62,
+     "goals": 0.77,
+     "mp": 0.85,
+     "xg": 0.53
+    },
+    "units": "goals"
+   },
+   "date": "2026-10-16",
+   "diffs": {
+    "elo": 0.377,
+    "goals": 0.522,
+    "mp": 0.608,
+    "xg": 0.286
+   },
+   "edge": 4.5,
+   "ev": 0.0452,
+   "hfa_flag": 1,
+   "home": "Colorado Avalanche",
+   "home_abbr": "COL",
+   "home_field": 0.2,
+   "home_prob": 0.613,
+   "id": 2026020119,
+   "line": null,
+   "mkt_prob": 0.355,
+   "ml_away": 170.0,
+   "ml_home": -205.0,
+   "model_spread": null,
+   "neutral": false,
+   "odds": 170.0,
+   "offset": 0.045,
+   "prob": 0.387,
+   "result": null,
+   "season": 20262027,
+   "season_type": "regular",
+   "start": "2026-10-17T01:00:00Z",
+   "su_team": "Colorado Avalanche",
+   "su_wp": 0.613,
+   "tier": "lean",
+   "total_pick": {
+    "edge": 19.4,
+    "ev": 0.1938,
+    "line": 6.5,
+    "odds": 105.0,
+    "play": true,
+    "prob": 0.582,
+    "side": "under",
+    "tier": "strong"
+   },
+   "updated": "2026-10-16T23:21:23Z",
+   "week": 202642,
+   "weights": {
+    "elo": 0.25,
+    "goals": 0.15,
+    "mp": 0.25,
+    "xg": 0.35
+   }
+  },
+  "2026020120": {
+   "ats_side": "home",
+   "ats_team": "Anaheim Ducks",
+   "away": "Boston Bruins",
+   "away_abbr": "BOS",
+   "bet_at": "2026-10-16T23:21:23Z",
+   "bet_line": -108.0,
+   "conf_label": "Medium",
+   "confidence": 55,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 0.85,
+     "consistency": 0.561,
+     "data": 0.54,
+     "edge": 0.309,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "Medium",
+    "n_sources": 4,
+    "score": 55,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "goals": "Goals",
+     "mp": "MoneyPuck",
+     "xg": "xG"
+    },
+    "sources": {
+     "elo": 0.05,
+     "goals": -0.28,
+     "mp": 0.34,
+     "xg": 0.38
+    },
+    "units": "goals"
+   },
+   "date": "2026-10-16",
+   "diffs": {
+    "elo": -0.228,
+    "goals": -0.554,
+    "mp": 0.062,
+    "xg": 0.102
+   },
+   "edge": 2.5,
+   "ev": 0.0247,
+   "hfa_flag": 1,
+   "home": "Anaheim Ducks",
+   "home_abbr": "ANA",
+   "home_field": 0.2,
+   "home_prob": 0.532,
+   "id": 2026020120,
+   "line": null,
+   "mkt_prob": 0.496,
+   "ml_away": -112.0,
+   "ml_home": -108.0,
+   "model_spread": null,
+   "neutral": false,
+   "odds": -108.0,
+   "offset": 0.073,
+   "prob": 0.532,
+   "result": null,
+   "season": 20262027,
+   "season_type": "regular",
+   "start": "2026-10-17T02:00:00Z",
+   "su_team": "Anaheim Ducks",
+   "su_wp": 0.532,
+   "tier": "pass",
+   "total_pick": {
+    "edge": 15.2,
+    "ev": 0.1523,
+    "line": 6.5,
+    "odds": -115.0,
+    "play": true,
+    "prob": 0.616,
+    "side": "under",
+    "tier": "strong"
+   },
+   "updated": "2026-10-16T23:21:23Z",
+   "week": 202642,
+   "weights": {
+    "elo": 0.25,
+    "goals": 0.15,
+    "mp": 0.25,
+    "xg": 0.35
+   }
   }
  }
 }

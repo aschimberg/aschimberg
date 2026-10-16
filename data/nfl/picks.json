@@ -5654,7 +5654,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-16T14:55:05Z",
+   "updated": "2026-10-16T23:21:14Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -5662,112 +5662,112 @@
    }
   },
   "2026_06_BAL_CLE": {
-   "ats_line": -3.5,
-   "ats_side": "away",
-   "ats_team": "Baltimore Ravens",
+   "ats_line": 3.0,
+   "ats_side": "home",
+   "ats_team": "Cleveland Browns",
    "away": "Baltimore Ravens",
    "away_abbr": "BAL",
-   "bet_at": "2026-10-15T20:39:56Z",
-   "bet_line": 4.5,
+   "bet_at": "2026-10-16T23:21:14Z",
+   "bet_line": 3.0,
    "book": "nflverse consensus",
-   "conf_label": "Medium",
-   "confidence": 63,
+   "conf_label": "High",
+   "confidence": 85,
    "confidence_detail": {
     "agree": 2,
     "components": {
      "agreement": 1.0,
      "consistency": 0.884,
      "data": 1.0,
-     "edge": 0.222,
-     "market": 0.5,
-     "trends": 0.375
+     "edge": 0.835,
+     "market": 0.7,
+     "trends": 0.625
     },
-    "label": "Medium",
+    "label": "High",
     "n_sources": 2,
-    "score": 63,
-    "side": "away",
+    "score": 85,
+    "side": "home",
     "source_names": {
      "elo": "Elo",
      "epa": "EPA"
     },
     "sources": {
-     "elo": -4.4,
-     "epa": -6.0
+     "elo": 0.9,
+     "epa": -0.7
     }
    },
-   "cover_prob": 0.501,
+   "cover_prob": 0.617,
    "diffs": {
     "elo": -5.38,
     "epa": -7.0
    },
-   "edge": 1.0,
-   "ev": -0.063,
+   "edge": 3.8,
+   "ev": 0.174,
    "hfa_flag": 1,
    "home": "Cleveland Browns",
    "home_abbr": "CLE",
    "home_field": 1.795,
    "id": "2026_06_BAL_CLE",
-   "line": 3.5,
-   "model_spread": 4.5,
+   "line": 3.0,
+   "model_spread": -0.8,
    "model_total": 42.1,
    "neutral": false,
-   "offset": -0.79,
-   "proj_away": 23.3,
-   "proj_home": 18.8,
+   "offset": 4.47,
+   "proj_away": 20.6,
+   "proj_home": 21.4,
    "props": [
     {
      "bet": false,
-     "fair": -129,
-     "lam": 0.8264,
+     "fair": -108,
+     "lam": 0.7307,
      "name": "Derrick Henry",
      "note": "no market price yet",
-     "p": 0.562,
+     "p": 0.518,
      "pid": "00-0032764",
      "pos": "RB",
      "team": "BAL"
     },
     {
      "bet": false,
-     "fair": 160,
-     "lam": 0.4845,
+     "fair": 136,
+     "lam": 0.5515,
      "name": "Quinshon Judkins",
      "note": "no market price yet",
-     "p": 0.384,
+     "p": 0.424,
      "pid": "00-0040784",
      "pos": "RB",
      "team": "CLE"
     },
     {
      "bet": false,
-     "fair": 282,
-     "lam": 0.3038,
-     "name": "Mark Andrews",
+     "fair": 244,
+     "lam": 0.3435,
+     "name": "Denzel Boston",
      "note": "no market price yet",
-     "p": 0.262,
-     "pid": "00-0034753",
-     "pos": "TE",
-     "team": "BAL"
+     "p": 0.291,
+     "pid": "00-0041037",
+     "pos": "WR",
+     "team": "CLE"
     }
    ],
    "result": null,
    "season": 2026,
    "season_type": "regular",
    "start": "2026-10-18T17:00:00Z",
-   "su_team": "Baltimore Ravens",
-   "su_wp": 0.629,
-   "tier": "pass",
-   "total_line": 40.5,
+   "su_team": "Cleveland Browns",
+   "su_wp": 0.522,
+   "tier": "play",
+   "total_line": 39.5,
    "total_pick": {
-    "edge": 1.6,
-    "line": 40.5,
+    "edge": 2.6,
+    "line": 39.5,
     "model": 42.1,
     "odds": null,
     "play": false,
-    "prob": 0.546,
+    "prob": 0.575,
     "side": "over",
-    "tier": "pass"
+    "tier": "lean"
    },
-   "updated": "2026-10-16T14:55:05Z",
+   "updated": "2026-10-16T23:21:14Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -5814,7 +5814,7 @@
     "epa": -8.14
    },
    "edge": 0.0,
-   "ev": -0.104,
+   "ev": -0.126,
    "hfa_flag": 1,
    "home": "Las Vegas Raiders",
    "home_abbr": "LV",
@@ -5880,7 +5880,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-16T14:55:05Z",
+   "updated": "2026-10-16T23:21:14Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -5888,7 +5888,7 @@
    }
   },
   "2026_06_CAR_PHI": {
-   "ats_line": 3.5,
+   "ats_line": 3.0,
    "ats_side": "home",
    "ats_team": "Philadelphia Eagles",
    "away": "Carolina Panthers",
@@ -5898,20 +5898,20 @@
    "bet_src": "first seen",
    "book": "nflverse consensus",
    "conf_label": "High",
-   "confidence": 78,
+   "confidence": 76,
    "confidence_detail": {
     "agree": 2,
     "components": {
      "agreement": 1.0,
      "consistency": 0.693,
      "data": 1.0,
-     "edge": 1.0,
+     "edge": 0.894,
      "market": 0.0,
      "trends": 0.75
     },
     "label": "High",
     "n_sources": 2,
-    "score": 78,
+    "score": 76,
     "side": "home",
     "source_names": {
      "elo": "Elo",
@@ -5922,19 +5922,19 @@
      "epa": -3.0
     }
    },
-   "cover_prob": 0.655,
+   "cover_prob": 0.625,
    "diffs": {
     "elo": 2.15,
     "epa": -2.15
    },
-   "edge": 4.5,
-   "ev": 0.25,
+   "edge": 4.0,
+   "ev": 0.22,
    "hfa_flag": 1,
    "home": "Philadelphia Eagles",
    "home_abbr": "PHI",
    "home_field": 1.795,
    "id": "2026_06_CAR_PHI",
-   "line": 3.5,
+   "line": 3.0,
    "model_spread": -1.0,
    "model_total": 46.3,
    "neutral": false,
@@ -5942,17 +5942,6 @@
    "proj_away": 22.7,
    "proj_home": 23.7,
    "props": [
-    {
-     "bet": false,
-     "fair": 126,
-     "lam": 0.5842,
-     "name": "Saquon Barkley",
-     "note": "no market price yet",
-     "p": 0.442,
-     "pid": "00-0034844",
-     "pos": "RB",
-     "team": "PHI"
-    },
     {
      "bet": false,
      "fair": 178,
@@ -5974,6 +5963,17 @@
      "pid": "00-0036555",
      "pos": "RB",
      "team": "CAR"
+    },
+    {
+     "bet": false,
+     "fair": 203,
+     "lam": 0.4012,
+     "name": "Darius Cooper",
+     "note": "no market price yet",
+     "p": 0.33,
+     "pid": "00-0040024",
+     "pos": "WR",
+     "team": "PHI"
     }
    ],
    "result": null,
@@ -5982,19 +5982,19 @@
    "start": "2026-10-18T17:00:00Z",
    "su_team": "Philadelphia Eagles",
    "su_wp": 0.53,
-   "tier": "strong",
-   "total_line": 38.5,
+   "tier": "play",
+   "total_line": 39.5,
    "total_pick": {
-    "edge": 7.8,
-    "line": 38.5,
+    "edge": 6.8,
+    "line": 39.5,
     "model": 46.3,
     "odds": null,
     "play": true,
-    "prob": 0.719,
+    "prob": 0.694,
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-16T14:55:05Z",
+   "updated": "2026-10-16T23:21:14Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6042,7 +6042,7 @@
     "epa": -0.98
    },
    "edge": 0.6,
-   "ev": -0.071,
+   "ev": -0.089,
    "hfa_flag": 1,
    "home": "Atlanta Falcons",
    "home_abbr": "ATL",
@@ -6080,13 +6080,13 @@
     },
     {
      "bet": false,
-     "fair": 170,
-     "lam": 0.4628,
-     "name": "Kyle Monangai",
+     "fair": 254,
+     "lam": 0.3316,
+     "name": "Rome Odunze",
      "note": "no market price yet",
-     "p": 0.37,
-     "pid": "00-0040236",
-     "pos": "RB",
+     "p": 0.282,
+     "pid": "00-0039919",
+     "pos": "WR",
      "team": "CHI"
     }
    ],
@@ -6108,7 +6108,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-16T14:55:05Z",
+   "updated": "2026-10-16T23:21:14Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6222,7 +6222,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-16T14:55:05Z",
+   "updated": "2026-10-16T23:21:14Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6336,7 +6336,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-16T14:55:05Z",
+   "updated": "2026-10-16T23:21:14Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6384,7 +6384,7 @@
     "epa": 8.28
    },
    "edge": 1.3,
-   "ev": -0.096,
+   "ev": -0.055,
    "hfa_flag": 1,
    "home": "Kansas City Chiefs",
    "home_abbr": "KC",
@@ -6411,23 +6411,23 @@
     },
     {
      "bet": false,
-     "fair": 164,
-     "lam": 0.4754,
-     "name": "Rashee Rice",
-     "note": "no market price yet",
-     "p": 0.378,
-     "pid": "00-0039067",
-     "pos": "WR",
-     "team": "KC"
-    },
-    {
-     "bet": false,
      "fair": 187,
      "lam": 0.4279,
      "name": "Omarion Hampton",
      "note": "no market price yet",
      "p": 0.348,
      "pid": "00-0040666",
+     "pos": "RB",
+     "team": "LAC"
+    },
+    {
+     "bet": false,
+     "fair": 362,
+     "lam": 0.2442,
+     "name": "Kimani Vidal",
+     "note": "no market price yet",
+     "p": 0.217,
+     "pid": "00-0039391",
      "pos": "RB",
      "team": "LAC"
     }
@@ -6450,7 +6450,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-16T14:55:05Z",
+   "updated": "2026-10-16T23:21:14Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6553,18 +6553,18 @@
    "su_team": "New York Giants",
    "su_wp": 0.574,
    "tier": "play",
-   "total_line": 45.5,
+   "total_line": 46.5,
    "total_pick": {
-    "edge": 3.5,
-    "line": 45.5,
+    "edge": 4.5,
+    "line": 46.5,
     "model": 42.0,
     "odds": null,
-    "play": false,
-    "prob": 0.602,
+    "play": true,
+    "prob": 0.63,
     "side": "under",
-    "tier": "lean"
+    "tier": "play"
    },
-   "updated": "2026-10-16T14:55:05Z",
+   "updated": "2026-10-16T23:21:14Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6678,7 +6678,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-16T14:55:05Z",
+   "updated": "2026-10-16T23:21:14Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6792,7 +6792,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-16T14:55:05Z",
+   "updated": "2026-10-16T23:21:14Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -7033,7 +7033,7 @@
     "side": "over",
     "tier": "play"
    },
-   "updated": "2026-10-16T14:55:05Z",
+   "updated": "2026-10-16T23:21:14Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -7136,18 +7136,18 @@
    "su_team": "San Francisco 49ers",
    "su_wp": 0.789,
    "tier": "play",
-   "total_line": 51.5,
+   "total_line": 52.5,
    "total_pick": {
-    "edge": 3.4,
-    "line": 51.5,
+    "edge": 2.4,
+    "line": 52.5,
     "model": 54.9,
     "odds": null,
     "play": false,
-    "prob": 0.599,
+    "prob": 0.57,
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-16T14:55:05Z",
+   "updated": "2026-10-16T23:21:14Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
