@@ -24,12 +24,12 @@
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 330.0
+       "value": 340.0
       },
       {
        "description": "OVER_UNDER",
        "qualifier": "U6.5",
-       "value": 105.0
+       "value": 110.0
       },
       {
        "description": "PUCK_LINE",
@@ -39,7 +39,7 @@
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "",
-       "value": 265.0
+       "value": 250.0
       },
       {
        "description": "MONEY_LINE_2_WAY",
@@ -61,12 +61,12 @@
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 330.0
+       "value": 340.0
       },
       {
        "description": "OVER_UNDER",
        "qualifier": "O6.5",
-       "value": -125.0
+       "value": -130.0
       },
       {
        "description": "PUCK_LINE",
@@ -163,21 +163,21 @@
     "startTimeUTC": "2026-10-17T02:00:00Z"
    }
   ],
-  "lastUpdatedUTC": "2026-10-16T23:30:38Z"
+  "lastUpdatedUTC": "2026-10-17T00:30:38Z"
  },
- "fetched_at": "2026-10-16T23:35:57Z",
+ "fetched_at": "2026-10-17T00:33:06Z",
  "parsed": {
   "2026020119": {
    "book": "DraftKings",
    "ml_away": 170.0,
    "ml_home": -205.0,
-   "over_odds": -125.0,
+   "over_odds": -130.0,
    "pl_away": 1.5,
    "pl_away_odds": -142.0,
    "pl_home": -1.5,
    "pl_home_odds": 120.0,
    "total": 6.5,
-   "under_odds": 105.0
+   "under_odds": 110.0
   },
   "2026020120": {
    "book": "DraftKings",
