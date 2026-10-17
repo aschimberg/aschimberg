@@ -126,7 +126,7 @@ Add a repository secret `ODDS_API_KEY` to turn this on. With no key, the free so
 |---|---|---|
 | `refresh.yml` | twice daily, 10:23 and 22:23 UTC | ratings, lines, projections, picks (re-priced until kickoff), trends, splits, grading → commit → deploy |
 | `grade.yml` | Sun/Mon/Tue 12:11 UTC | grades SU and ATS for every finished pick, rebuilds the record, sends an ntfy recap |
-| `briefing.yml` | every 30 min, 14:07–16:37 UTC | sends each sport's ntfy briefing once per game day, between 9 and 11 AM CT (covers CDT/CST and late cron starts). The NHL briefing waits until that day's odds are posted and only goes out when there's value |
+| `briefing.yml` | every 30 min, 14:07–18:37 UTC, plus a Claude routine that starts it at 9:05 AM CT | sends each sport's ntfy briefing once per game day, between 9 AM and 2 PM CT (GitHub often runs these crons hours late or skips them). The NHL briefing waits until that day's odds are posted and only goes out when there's value |
 | `pregame.yml` | daily 21:17 UTC; Sun 16:17 + 19:47 UTC; Sun/Mon/Thu 23:47 UTC | re-checks lineups (NFL starting QBs, NHL probable goalies) and re-prices before kickoff / puck drop; picks up the day's DraftKings NHL lines |
 | `deploy.yml` | after each job above, or on push to `main` touching `site/` | publishes `site/` to Pages |
 | `ci.yml` | push / PR | unit tests and JS syntax check |

@@ -247,7 +247,8 @@ class PipelineTests(unittest.TestCase):
             self.assertTrue(briefing.gate(at(14), {})[0])  # 9:07 CDT
             self.assertTrue(briefing.gate(at(15), {})[0])  # 10:07 CDT (late cron) still ok
             self.assertFalse(briefing.gate(at(15), {"last_sent": "2026-10-10"})[0])  # already sent
-            self.assertFalse(briefing.gate(at(16), {})[0])
+            self.assertTrue(briefing.gate(at(18), {})[0])  # 1:07 PM CDT (very late cron) still ok
+            self.assertFalse(briefing.gate(at(19), {})[0])  # 2:07 PM CDT: too late
             # CST (after DST ends): 15:07 UTC = 9:07 CST
             nov = datetime(2026, 11, 14, 15, 7, tzinfo=timezone.utc).astimezone(tz)
             self.assertEqual(nov.hour, 9)
