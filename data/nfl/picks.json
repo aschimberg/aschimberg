@@ -5654,7 +5654,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-17T11:20:52Z",
+   "updated": "2026-10-17T13:48:08Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -5701,7 +5701,7 @@
     "epa": -7.0
    },
    "edge": 3.8,
-   "ev": 0.174,
+   "ev": 0.165,
    "hfa_flag": 1,
    "home": "Cleveland Browns",
    "home_abbr": "CLE",
@@ -5767,7 +5767,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-17T11:20:52Z",
+   "updated": "2026-10-17T13:48:08Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -5775,30 +5775,30 @@
    }
   },
   "2026_06_BUF_LV": {
-   "ats_line": -4.5,
-   "ats_side": "away",
-   "ats_team": "Buffalo Bills",
+   "ats_line": 5.5,
+   "ats_side": "home",
+   "ats_team": "Las Vegas Raiders",
    "away": "Buffalo Bills",
    "away_abbr": "BUF",
-   "bet_at": "2026-10-15T23:20:58Z",
-   "bet_line": 4.5,
+   "bet_at": "2026-10-17T13:48:08Z",
+   "bet_line": 5.5,
    "book": "nflverse consensus",
-   "conf_label": "Low",
-   "confidence": 50,
+   "conf_label": "Medium",
+   "confidence": 68,
    "confidence_detail": {
-    "agree": 1,
+    "agree": 2,
     "components": {
-     "agreement": 0.925,
+     "agreement": 1.0,
      "consistency": 0.959,
      "data": 1.0,
-     "edge": 0.007,
-     "market": 0.0,
+     "edge": 0.215,
+     "market": 0.7,
      "trends": 0.5
     },
-    "label": "Low",
+    "label": "Medium",
     "n_sources": 2,
-    "score": 50,
-    "side": "away",
+    "score": 68,
+    "side": "home",
     "source_names": {
      "elo": "Elo",
      "epa": "EPA"
@@ -5808,19 +5808,19 @@
      "epa": -4.0
     }
    },
-   "cover_prob": 0.473,
+   "cover_prob": 0.548,
    "diffs": {
     "elo": -8.71,
     "epa": -8.14
    },
-   "edge": 0.0,
-   "ev": -0.126,
+   "edge": 1.0,
+   "ev": 0.013,
    "hfa_flag": 1,
    "home": "Las Vegas Raiders",
    "home_abbr": "LV",
    "home_field": 1.795,
    "id": "2026_06_BUF_LV",
-   "line": 4.5,
+   "line": 5.5,
    "model_spread": 4.5,
    "model_total": 56.2,
    "neutral": false,
@@ -5880,7 +5880,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-17T11:20:52Z",
+   "updated": "2026-10-17T13:48:08Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -5994,7 +5994,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-17T11:20:52Z",
+   "updated": "2026-10-17T13:48:08Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6108,7 +6108,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-17T11:20:52Z",
+   "updated": "2026-10-17T13:48:08Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6222,7 +6222,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-17T11:20:52Z",
+   "updated": "2026-10-17T13:48:08Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6336,7 +6336,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-17T11:20:52Z",
+   "updated": "2026-10-17T13:48:08Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6384,7 +6384,7 @@
     "epa": 8.28
    },
    "edge": 1.3,
-   "ev": -0.084,
+   "ev": -0.068,
    "hfa_flag": 1,
    "home": "Kansas City Chiefs",
    "home_abbr": "KC",
@@ -6450,7 +6450,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-17T11:20:52Z",
+   "updated": "2026-10-17T13:48:08Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6564,7 +6564,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-10-17T11:20:52Z",
+   "updated": "2026-10-17T13:48:08Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6678,7 +6678,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-17T11:20:52Z",
+   "updated": "2026-10-17T13:48:08Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6792,7 +6792,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-17T11:20:52Z",
+   "updated": "2026-10-17T13:48:08Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -7033,7 +7033,7 @@
     "side": "over",
     "tier": "play"
    },
-   "updated": "2026-10-17T11:20:52Z",
+   "updated": "2026-10-17T13:48:08Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -7147,7 +7147,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-17T11:20:52Z",
+   "updated": "2026-10-17T13:48:08Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
