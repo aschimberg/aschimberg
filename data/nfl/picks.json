@@ -5654,7 +5654,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-18T00:05:50Z",
+   "updated": "2026-10-18T11:20:50Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -5767,7 +5767,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-18T00:05:50Z",
+   "updated": "2026-10-18T11:20:50Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -5880,7 +5880,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-18T00:05:50Z",
+   "updated": "2026-10-18T11:20:50Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -5928,7 +5928,7 @@
     "epa": -2.15
    },
    "edge": 4.0,
-   "ev": 0.204,
+   "ev": 0.188,
    "hfa_flag": 1,
    "home": "Philadelphia Eagles",
    "home_abbr": "PHI",
@@ -5994,7 +5994,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-18T00:05:50Z",
+   "updated": "2026-10-18T11:20:50Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6042,7 +6042,7 @@
     "epa": -0.98
    },
    "edge": 0.6,
-   "ev": -0.089,
+   "ev": -0.082,
    "hfa_flag": 1,
    "home": "Atlanta Falcons",
    "home_abbr": "ATL",
@@ -6108,7 +6108,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-18T00:05:50Z",
+   "updated": "2026-10-18T11:20:50Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6156,7 +6156,7 @@
     "epa": 5.41
    },
    "edge": 3.6,
-   "ev": 0.214,
+   "ev": 0.231,
    "hfa_flag": 1,
    "home": "Green Bay Packers",
    "home_abbr": "GB",
@@ -6222,7 +6222,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-18T00:05:50Z",
+   "updated": "2026-10-18T11:20:50Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6270,7 +6270,7 @@
     "epa": 5.08
    },
    "edge": 1.0,
-   "ev": 0.013,
+   "ev": 0.021,
    "hfa_flag": 0,
    "home": "Jacksonville Jaguars",
    "home_abbr": "JAX",
@@ -6336,7 +6336,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-18T00:05:50Z",
+   "updated": "2026-10-18T11:20:50Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6439,18 +6439,18 @@
    "su_team": "Kansas City Chiefs",
    "su_wp": 0.738,
    "tier": "pass",
-   "total_line": 40.5,
+   "total_line": 41.5,
    "total_pick": {
-    "edge": 0.1,
-    "line": 40.5,
+    "edge": 1.1,
+    "line": 41.5,
     "model": 40.4,
     "odds": null,
     "play": false,
-    "prob": 0.504,
+    "prob": 0.534,
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-18T00:05:50Z",
+   "updated": "2026-10-18T11:20:50Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6458,7 +6458,7 @@
    }
   },
   "2026_06_NO_NYG": {
-   "ats_line": 1.5,
+   "ats_line": -1.5,
    "ats_side": "home",
    "ats_team": "New York Giants",
    "away": "New Orleans Saints",
@@ -6468,20 +6468,20 @@
    "bet_src": "first seen",
    "book": "nflverse consensus",
    "conf_label": "High",
-   "confidence": 85,
+   "confidence": 71,
    "confidence_detail": {
     "agree": 2,
     "components": {
      "agreement": 1.0,
      "consistency": 0.923,
      "data": 1.0,
-     "edge": 0.9,
-     "market": 0.5,
-     "trends": 0.75
+     "edge": 0.233,
+     "market": 1.0,
+     "trends": 0.375
     },
     "label": "High",
     "n_sources": 2,
-    "score": 85,
+    "score": 71,
     "side": "home",
     "source_names": {
      "elo": "Elo",
@@ -6492,19 +6492,19 @@
      "epa": 1.6
     }
    },
-   "cover_prob": 0.597,
+   "cover_prob": 0.55,
    "diffs": {
     "elo": 2.66,
     "epa": 1.58
    },
-   "edge": 4.1,
-   "ev": 0.087,
+   "edge": 1.1,
+   "ev": 0.111,
    "hfa_flag": 1,
    "home": "New York Giants",
    "home_abbr": "NYG",
    "home_field": 1.795,
    "id": "2026_06_NO_NYG",
-   "line": 1.5,
+   "line": -1.5,
    "model_spread": -2.6,
    "model_total": 42.0,
    "neutral": false,
@@ -6552,7 +6552,7 @@
    "start": "2026-10-18T17:00:00Z",
    "su_team": "New York Giants",
    "su_wp": 0.574,
-   "tier": "play",
+   "tier": "pass",
    "total_line": 46.5,
    "total_pick": {
     "edge": 4.5,
@@ -6564,7 +6564,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-10-18T00:05:50Z",
+   "updated": "2026-10-18T11:20:50Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6678,7 +6678,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-18T00:05:50Z",
+   "updated": "2026-10-18T11:20:50Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6792,7 +6792,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-18T00:05:50Z",
+   "updated": "2026-10-18T11:20:50Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6927,7 +6927,7 @@
    }
   },
   "2026_06_TEN_IND": {
-   "ats_line": -7.0,
+   "ats_line": -6.5,
    "ats_side": "home",
    "ats_team": "Indianapolis Colts",
    "away": "Tennessee Titans",
@@ -6937,20 +6937,20 @@
    "bet_src": "first seen",
    "book": "nflverse consensus",
    "conf_label": "High",
-   "confidence": 71,
+   "confidence": 70,
    "confidence_detail": {
     "agree": 2,
     "components": {
      "agreement": 1.0,
      "consistency": 0.859,
      "data": 1.0,
-     "edge": 0.403,
-     "market": 0.5,
+     "edge": 0.514,
+     "market": 0.3,
      "trends": 0.625
     },
     "label": "High",
     "n_sources": 2,
-    "score": 71,
+    "score": 70,
     "side": "home",
     "source_names": {
      "elo": "Elo",
@@ -6961,19 +6961,19 @@
      "epa": 10.6
     }
    },
-   "cover_prob": 0.512,
+   "cover_prob": 0.538,
    "diffs": {
     "elo": 6.66,
     "epa": 8.64
    },
-   "edge": 1.8,
-   "ev": -0.0,
+   "edge": 2.3,
+   "ev": -0.013,
    "hfa_flag": 1,
    "home": "Indianapolis Colts",
    "home_abbr": "IND",
    "home_field": 1.795,
    "id": "2026_06_TEN_IND",
-   "line": -7.0,
+   "line": -6.5,
    "model_spread": -8.8,
    "model_total": 49.0,
    "neutral": false,
@@ -7033,7 +7033,7 @@
     "side": "over",
     "tier": "play"
    },
-   "updated": "2026-10-18T00:05:50Z",
+   "updated": "2026-10-18T11:20:50Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -7081,7 +7081,7 @@
     "epa": 9.14
    },
    "edge": 3.7,
-   "ev": 0.065,
+   "ev": 0.056,
    "hfa_flag": 1,
    "home": "San Francisco 49ers",
    "home_abbr": "SF",
@@ -7147,7 +7147,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-18T00:05:50Z",
+   "updated": "2026-10-18T11:20:50Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
