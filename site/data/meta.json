@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-18T14:03:17Z",
+ "generated_at": "2026-10-18T23:20:49Z",
  "poll": "AP Top 25",
  "season": 2026,
  "season_type": "regular",
@@ -15,7 +15,7 @@
    "market": 0.15,
    "trends": 0.15
   },
-  "home_field": 2.6,
+  "home_field": 2.96,
   "lean_edge": 2.0,
   "margin_sd": 15.5,
   "play_edge": 4.0,
@@ -25,13 +25,13 @@
   "strong_edge": 7.0,
   "trend_min_games": 8,
   "weights": {
-   "elo": 0.05,
-   "fpi": 0.52,
-   "sp": 0.43
+   "elo": 0.036,
+   "fpi": 0.652,
+   "sp": 0.312
   }
  },
  "site_url": "https://aschimberg.github.io/aschimberg/",
- "slate_label": "Week 7",
+ "slate_label": "Week 8",
  "splits": {
   "provider": "none",
   "source": null
@@ -163,5 +163,5 @@
    "sp": 0.312
   }
  },
- "week": 7
+ "week": 8
 }
