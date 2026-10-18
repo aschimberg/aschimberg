@@ -24,7 +24,7 @@
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "",
-       "value": 215.0
+       "value": 225.0
       },
       {
        "description": "OVER_UNDER",
@@ -34,7 +34,7 @@
       {
        "description": "PUCK_LINE",
        "qualifier": "+1.5",
-       "value": -162.0
+       "value": -155.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
@@ -71,7 +71,7 @@
       {
        "description": "PUCK_LINE",
        "qualifier": "-1.5",
-       "value": 136.0
+       "value": 130.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
@@ -109,7 +109,7 @@
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "",
-       "value": -130.0
+       "value": -125.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
@@ -163,9 +163,9 @@
     "startTimeUTC": "2026-10-19T00:00:00Z"
    }
   ],
-  "lastUpdatedUTC": "2026-10-18T18:30:38Z"
+  "lastUpdatedUTC": "2026-10-18T21:30:38Z"
  },
- "fetched_at": "2026-10-18T18:40:33Z",
+ "fetched_at": "2026-10-18T21:53:28Z",
  "parsed": {
   "2026020135": {
    "book": "DraftKings",
@@ -173,9 +173,9 @@
    "ml_home": -192.0,
    "over_odds": 102.0,
    "pl_away": 1.5,
-   "pl_away_odds": -162.0,
+   "pl_away_odds": -155.0,
    "pl_home": -1.5,
-   "pl_home_odds": 136.0,
+   "pl_home_odds": 130.0,
    "total": 6.5,
    "under_odds": -122.0
   },

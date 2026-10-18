@@ -5670,6 +5670,9 @@
    "bet_at": "2026-10-16T23:21:14Z",
    "bet_line": 3.0,
    "book": "nflverse consensus",
+   "close_line": 3.0,
+   "clv": 0.0,
+   "clv_prob": 0.0,
    "conf_label": "High",
    "confidence": 85,
    "confidence_detail": {
@@ -5724,6 +5727,7 @@
      "p": 0.518,
      "pid": "00-0032764",
      "pos": "RB",
+     "result": "L",
      "team": "BAL"
     },
     {
@@ -5735,6 +5739,7 @@
      "p": 0.424,
      "pid": "00-0040784",
      "pos": "RB",
+     "result": "L",
      "team": "CLE"
     },
     {
@@ -5746,10 +5751,18 @@
      "p": 0.291,
      "pid": "00-0041037",
      "pos": "WR",
+     "result": "L",
      "team": "CLE"
     }
    ],
-   "result": null,
+   "props_graded": true,
+   "result": {
+    "ats": "W",
+    "away_pts": 10.0,
+    "home_pts": 13.0,
+    "su": "W",
+    "total": "L"
+   },
    "season": 2026,
    "season_type": "regular",
    "start": "2026-10-18T17:00:00Z",
@@ -5897,6 +5910,9 @@
    "bet_line": -1.5,
    "bet_src": "first seen",
    "book": "nflverse consensus",
+   "close_line": 3.0,
+   "clv": -4.5,
+   "clv_prob": -0.1108,
    "conf_label": "High",
    "confidence": 76,
    "confidence_detail": {
@@ -5951,6 +5967,7 @@
      "p": 0.36,
      "pid": "00-0034351",
      "pos": "TE",
+     "result": "L",
      "team": "PHI"
     },
     {
@@ -5962,6 +5979,7 @@
      "p": 0.34,
      "pid": "00-0036555",
      "pos": "RB",
+     "result": "W",
      "team": "CAR"
     },
     {
@@ -5973,10 +5991,18 @@
      "p": 0.33,
      "pid": "00-0040024",
      "pos": "WR",
+     "result": "L",
      "team": "PHI"
     }
    ],
-   "result": null,
+   "props_graded": true,
+   "result": {
+    "ats": "L",
+    "away_pts": 25.0,
+    "home_pts": 14.0,
+    "su": "L",
+    "total": "L"
+   },
    "season": 2026,
    "season_type": "regular",
    "start": "2026-10-18T17:00:00Z",
@@ -6011,6 +6037,9 @@
    "bet_line": 3.0,
    "bet_src": "first seen",
    "book": "nflverse consensus",
+   "close_line": 1.5,
+   "clv": 1.5,
+   "clv_prob": 0.0641,
    "conf_label": "Medium",
    "confidence": 64,
    "confidence_detail": {
@@ -6065,6 +6094,7 @@
      "p": 0.485,
      "pid": "00-0038542",
      "pos": "RB",
+     "result": "L",
      "team": "ATL"
     },
     {
@@ -6076,6 +6106,7 @@
      "p": 0.479,
      "pid": "00-0036275",
      "pos": "RB",
+     "result": "W",
      "team": "CHI"
     },
     {
@@ -6087,10 +6118,18 @@
      "p": 0.282,
      "pid": "00-0039919",
      "pos": "WR",
+     "result": "L",
      "team": "CHI"
     }
    ],
-   "result": null,
+   "props_graded": true,
+   "result": {
+    "ats": "L",
+    "away_pts": 31.0,
+    "home_pts": 23.0,
+    "su": "W",
+    "total": "L"
+   },
    "season": 2026,
    "season_type": "regular",
    "start": "2026-10-18T17:00:00Z",
@@ -6116,7 +6155,7 @@
    }
   },
   "2026_06_DAL_GB": {
-   "ats_line": -1.5,
+   "ats_line": 1.5,
    "ats_side": "home",
    "ats_team": "Green Bay Packers",
    "away": "Dallas Cowboys",
@@ -6126,20 +6165,20 @@
    "bet_src": "first seen",
    "book": "nflverse consensus",
    "conf_label": "High",
-   "confidence": 78,
+   "confidence": 79,
    "confidence_detail": {
     "agree": 2,
     "components": {
      "agreement": 1.0,
-     "consistency": 0.825,
+     "consistency": 0.821,
      "data": 1.0,
-     "edge": 0.795,
-     "market": 0.5,
-     "trends": 0.5
+     "edge": 1.0,
+     "market": 0.0,
+     "trends": 0.75
     },
     "label": "High",
     "n_sources": 2,
-    "score": 78,
+    "score": 79,
     "side": "home",
     "source_names": {
      "elo": "Elo",
@@ -6147,58 +6186,58 @@
     },
     "sources": {
      "elo": 4.9,
-     "epa": 7.3
+     "epa": 7.4
     }
    },
-   "cover_prob": 0.622,
+   "cover_prob": 0.666,
    "diffs": {
     "elo": 2.96,
-    "epa": 5.41
+    "epa": 5.47
    },
-   "edge": 3.6,
-   "ev": 0.231,
+   "edge": 6.6,
+   "ev": 0.212,
    "hfa_flag": 1,
    "home": "Green Bay Packers",
    "home_abbr": "GB",
    "home_field": 1.795,
    "id": "2026_06_DAL_GB",
-   "line": -1.5,
+   "line": 1.5,
    "model_spread": -5.1,
-   "model_total": 60.3,
+   "model_total": 60.8,
    "neutral": false,
    "offset": 0.14,
-   "proj_away": 27.6,
-   "proj_home": 32.7,
+   "proj_away": 27.8,
+   "proj_home": 32.9,
    "props": [
     {
      "bet": false,
-     "fair": -175,
-     "lam": 1.0129,
+     "fair": -177,
+     "lam": 1.0188,
      "name": "Javonte Williams",
      "note": "no market price yet",
-     "p": 0.637,
+     "p": 0.639,
      "pid": "00-0036997",
      "pos": "RB",
      "team": "DAL"
     },
     {
      "bet": false,
-     "fair": -118,
-     "lam": 0.7784,
+     "fair": -119,
+     "lam": 0.782,
      "name": "MarShawn Lloyd",
      "note": "no market price yet",
-     "p": 0.541,
+     "p": 0.543,
      "pid": "00-0039811",
      "pos": "RB",
      "team": "GB"
     },
     {
      "bet": false,
-     "fair": -103,
-     "lam": 0.7082,
+     "fair": -104,
+     "lam": 0.7127,
      "name": "Christian Watson",
      "note": "no market price yet",
-     "p": 0.507,
+     "p": 0.51,
      "pid": "00-0038124",
      "pos": "WR",
      "team": "GB"
@@ -6210,19 +6249,19 @@
    "start": "2026-10-19T00:20:00Z",
    "su_team": "Green Bay Packers",
    "su_wp": 0.645,
-   "tier": "play",
+   "tier": "strong",
    "total_line": 53.5,
    "total_pick": {
-    "edge": 6.8,
+    "edge": 7.3,
     "line": 53.5,
-    "model": 60.3,
+    "model": 60.8,
     "odds": null,
     "play": true,
-    "prob": 0.692,
+    "prob": 0.705,
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-18T18:40:13Z",
+   "updated": "2026-10-18T21:53:12Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6296,6 +6335,7 @@
      "p": 0.331,
      "pid": "00-0040719",
      "pos": "RB",
+     "result": "W",
      "team": "JAX"
     },
     {
@@ -6307,6 +6347,7 @@
      "p": 0.308,
      "pid": "00-0038611",
      "pos": "RB",
+     "result": "L",
      "team": "JAX"
     },
     {
@@ -6318,9 +6359,11 @@
      "p": 0.306,
      "pid": "00-0038606",
      "pos": "WR",
+     "result": "L",
      "team": "JAX"
     }
    ],
+   "props_graded": true,
    "result": {
     "ats": "L",
     "away_pts": 34.0,
@@ -6476,6 +6519,9 @@
    "bet_line": 1.5,
    "bet_src": "first seen",
    "book": "nflverse consensus",
+   "close_line": 1.5,
+   "clv": 0.0,
+   "clv_prob": 0.0,
    "conf_label": "High",
    "confidence": 85,
    "confidence_detail": {
@@ -6530,6 +6576,7 @@
      "p": 0.389,
      "pid": "00-0040715",
      "pos": "RB",
+     "result": "L",
      "team": "NYG"
     },
     {
@@ -6541,6 +6588,7 @@
      "p": 0.347,
      "pid": "00-0039337",
      "pos": "WR",
+     "result": "L",
      "team": "NYG"
     },
     {
@@ -6552,10 +6600,18 @@
      "p": 0.295,
      "pid": "00-0037838",
      "pos": "TE",
+     "result": "W",
      "team": "NYG"
     }
    ],
-   "result": null,
+   "props_graded": true,
+   "result": {
+    "ats": "L",
+    "away_pts": 34.0,
+    "home_pts": 27.0,
+    "su": "L",
+    "total": "L"
+   },
    "season": 2026,
    "season_type": "regular",
    "start": "2026-10-18T17:00:00Z",
@@ -6590,6 +6646,9 @@
    "bet_line": -7.0,
    "bet_src": "first seen",
    "book": "nflverse consensus",
+   "close_line": -7.5,
+   "clv": 0.5,
+   "clv_prob": 0.027,
    "conf_label": "High",
    "confidence": 88,
    "confidence_detail": {
@@ -6644,6 +6703,7 @@
      "p": 0.445,
      "pid": "00-0036875",
      "pos": "RB",
+     "result": "L",
      "team": "NE"
     },
     {
@@ -6655,6 +6715,7 @@
      "p": 0.373,
      "pid": "00-0037816",
      "pos": "WR",
+     "result": "W",
      "team": "NE"
     },
     {
@@ -6666,10 +6727,18 @@
      "p": 0.324,
      "pid": "00-0035676",
      "pos": "WR",
+     "result": "L",
      "team": "NE"
     }
    ],
-   "result": null,
+   "props_graded": true,
+   "result": {
+    "ats": "L",
+    "away_pts": 19.0,
+    "home_pts": 26.0,
+    "su": "W",
+    "total": "W"
+   },
    "season": 2026,
    "season_type": "regular",
    "start": "2026-10-18T17:00:00Z",
@@ -6704,6 +6773,9 @@
    "bet_line": 3.0,
    "bet_src": "first seen",
    "book": "nflverse consensus",
+   "close_line": 2.5,
+   "clv": 0.5,
+   "clv_prob": 0.0409,
    "conf_label": "Low",
    "confidence": 34,
    "confidence_detail": {
@@ -6758,6 +6830,7 @@
      "p": 0.395,
      "pid": "00-0039361",
      "pos": "RB",
+     "result": "L",
      "team": "TB"
     },
     {
@@ -6769,6 +6842,7 @@
      "p": 0.395,
      "pid": "00-0037228",
      "pos": "RB",
+     "result": "L",
      "team": "PIT"
     },
     {
@@ -6780,10 +6854,18 @@
      "p": 0.306,
      "pid": "00-0040129",
      "pos": "WR",
+     "result": "W",
      "team": "TB"
     }
    ],
-   "result": null,
+   "props_graded": true,
+   "result": {
+    "ats": "L",
+    "away_pts": 26.0,
+    "home_pts": 19.0,
+    "su": "W",
+    "total": "W"
+   },
    "season": 2026,
    "season_type": "regular",
    "start": "2026-10-18T17:00:00Z",
@@ -6945,6 +7027,9 @@
    "bet_line": -7.0,
    "bet_src": "first seen",
    "book": "nflverse consensus",
+   "close_line": -6.5,
+   "clv": -0.5,
+   "clv_prob": -0.027,
    "conf_label": "High",
    "confidence": 70,
    "confidence_detail": {
@@ -6999,6 +7084,7 @@
      "p": 0.664,
      "pid": "00-0036223",
      "pos": "RB",
+     "result": "W",
      "team": "IND"
     },
     {
@@ -7010,6 +7096,7 @@
      "p": 0.421,
      "pid": "00-0035261",
      "pos": "RB",
+     "result": "L",
      "team": "TEN"
     },
     {
@@ -7021,10 +7108,18 @@
      "p": 0.364,
      "pid": "00-0038117",
      "pos": "WR",
+     "result": "L",
      "team": "TEN"
     }
    ],
-   "result": null,
+   "props_graded": true,
+   "result": {
+    "ats": "L",
+    "away_pts": 26.0,
+    "home_pts": 20.0,
+    "su": "L",
+    "total": "W"
+   },
    "season": 2026,
    "season_type": "regular",
    "start": "2026-10-18T17:00:00Z",
@@ -7065,9 +7160,9 @@
     "agree": 2,
     "components": {
      "agreement": 1.0,
-     "consistency": 0.988,
+     "consistency": 0.999,
      "data": 1.0,
-     "edge": 0.811,
+     "edge": 0.813,
      "market": 0.5,
      "trends": 0.5
     },
@@ -7081,13 +7176,13 @@
     },
     "sources": {
      "elo": 11.2,
-     "epa": 11.0
+     "epa": 11.1
     }
    },
    "cover_prob": 0.553,
    "diffs": {
     "elo": 9.31,
-    "epa": 9.14
+    "epa": 9.3
    },
    "edge": 3.7,
    "ev": 0.056,
@@ -7098,16 +7193,16 @@
    "id": "2026_06_WAS_SF",
    "line": -7.5,
    "model_spread": -11.2,
-   "model_total": 55.1,
+   "model_total": 55.3,
    "neutral": false,
-   "offset": 0.06,
-   "proj_away": 22.0,
-   "proj_home": 33.1,
+   "offset": 0.05,
+   "proj_away": 22.1,
+   "proj_home": 33.2,
    "props": [
     {
      "bet": false,
      "fair": -195,
-     "lam": 1.0809,
+     "lam": 1.0821,
      "name": "Christian McCaffrey",
      "note": "no market price yet",
      "p": 0.661,
@@ -7117,22 +7212,22 @@
     },
     {
      "bet": false,
-     "fair": 145,
-     "lam": 0.5259,
+     "fair": 144,
+     "lam": 0.5278,
      "name": "Mike Evans",
      "note": "no market price yet",
-     "p": 0.409,
+     "p": 0.41,
      "pid": "00-0031408",
      "pos": "WR",
      "team": "SF"
     },
     {
      "bet": false,
-     "fair": 192,
-     "lam": 0.4191,
+     "fair": 191,
+     "lam": 0.4208,
      "name": "George Kittle",
      "note": "no market price yet",
-     "p": 0.342,
+     "p": 0.343,
      "pid": "00-0033288",
      "pos": "TE",
      "team": "SF"
@@ -7147,16 +7242,16 @@
    "tier": "play",
    "total_line": 52.5,
    "total_pick": {
-    "edge": 2.6,
+    "edge": 2.8,
     "line": 52.5,
-    "model": 55.1,
+    "model": 55.3,
     "odds": null,
     "play": false,
-    "prob": 0.577,
+    "prob": 0.582,
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-18T18:40:13Z",
+   "updated": "2026-10-18T21:53:12Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
