@@ -5557,6 +5557,9 @@
    "bet_at": "2026-10-13T17:51:57Z",
    "bet_line": -12.5,
    "book": "nflverse consensus",
+   "close_line": -12.5,
+   "clv": -0.0,
+   "clv_prob": 0.0,
    "conf_label": "Medium",
    "confidence": 67,
    "confidence_detail": {
@@ -5636,7 +5639,13 @@
      "team": "LA"
     }
    ],
-   "result": null,
+   "result": {
+    "ats": "W",
+    "away_pts": 18.0,
+    "home_pts": 16.0,
+    "su": "L",
+    "total": "L"
+   },
    "season": 2026,
    "season_type": "regular",
    "start": "2026-10-18T20:05:00Z",
@@ -6203,7 +6212,7 @@
    "id": "2026_06_DAL_GB",
    "line": 1.5,
    "model_spread": -5.1,
-   "model_total": 60.8,
+   "model_total": 60.6,
    "neutral": false,
    "offset": 0.14,
    "proj_away": 27.8,
@@ -6252,16 +6261,16 @@
    "tier": "strong",
    "total_line": 53.5,
    "total_pick": {
-    "edge": 7.3,
+    "edge": 7.1,
     "line": 53.5,
-    "model": 60.8,
+    "model": 60.6,
     "odds": null,
     "play": true,
-    "prob": 0.705,
+    "prob": 0.701,
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-18T21:53:12Z",
+   "updated": "2026-10-18T23:12:30Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -7193,10 +7202,10 @@
    "id": "2026_06_WAS_SF",
    "line": -7.5,
    "model_spread": -11.2,
-   "model_total": 55.3,
+   "model_total": 55.2,
    "neutral": false,
    "offset": 0.05,
-   "proj_away": 22.1,
+   "proj_away": 22.0,
    "proj_home": 33.2,
    "props": [
     {
@@ -7242,16 +7251,16 @@
    "tier": "play",
    "total_line": 52.5,
    "total_pick": {
-    "edge": 2.8,
+    "edge": 2.7,
     "line": 52.5,
-    "model": 55.3,
+    "model": 55.2,
     "odds": null,
     "play": false,
-    "prob": 0.582,
+    "prob": 0.578,
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-18T21:53:12Z",
+   "updated": "2026-10-18T23:12:30Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
