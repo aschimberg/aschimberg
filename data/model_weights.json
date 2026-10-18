@@ -29,7 +29,7 @@
    2026
   ]
  },
- "games": 33,
+ "games": 95,
  "history": [
   {
    "after": {
@@ -124,13 +124,70 @@
    "note": "walk-forward backtest 2024-2026: Elo weight -> 0.05",
    "season": 2026,
    "status": "backtest"
+  },
+  {
+   "after": {
+    "home_field": 2.96,
+    "weights": {
+     "elo": 0.036,
+     "fpi": 0.652,
+     "sp": 0.312
+    }
+   },
+   "alpha": 0.275,
+   "anchor": {
+    "home_field": 2.6,
+    "weights": {
+     "elo": 0.05,
+     "fpi": 0.52,
+     "sp": 0.43
+    }
+   },
+   "at": "2026-10-18T15:47:04Z",
+   "ats_after": 0.511,
+   "ats_before": 0.5,
+   "before": {
+    "home_field": 2.5,
+    "weights": {
+     "elo": 0.25,
+     "fpi": 0.35,
+     "sp": 0.4
+    }
+   },
+   "by_source": {
+    "elo": {
+     "ats": 0.522,
+     "rmse": 15.46
+    },
+    "fpi": {
+     "ats": 0.522,
+     "rmse": 14.08
+    },
+    "sp": {
+     "ats": 0.424,
+     "rmse": 14.85
+    }
+   },
+   "fit": {
+    "home_field": 3.89,
+    "weights": {
+     "elo": 0.0,
+     "fpi": 1.0,
+     "sp": 0.0
+    }
+   },
+   "games": 95,
+   "rmse_after": 14.24,
+   "rmse_before": 14.47,
+   "season": 2026,
+   "status": "updated"
   }
  ],
- "home_field": 2.6,
- "updated": "2026-10-12T14:04:08Z",
+ "home_field": 2.96,
+ "updated": "2026-10-18T15:47:04Z",
  "weights": {
-  "elo": 0.05,
-  "fpi": 0.52,
-  "sp": 0.43
+  "elo": 0.036,
+  "fpi": 0.652,
+  "sp": 0.312
  }
 }
