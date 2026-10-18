@@ -5654,7 +5654,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-18T11:20:50Z",
+   "updated": "2026-10-18T14:04:59Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -5767,7 +5767,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-18T11:20:50Z",
+   "updated": "2026-10-18T14:04:59Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -5814,7 +5814,7 @@
     "epa": -8.14
    },
    "edge": 1.0,
-   "ev": 0.047,
+   "ev": 0.038,
    "hfa_flag": 1,
    "home": "Las Vegas Raiders",
    "home_abbr": "LV",
@@ -5880,7 +5880,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-18T11:20:50Z",
+   "updated": "2026-10-18T14:04:59Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -5994,7 +5994,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-18T11:20:50Z",
+   "updated": "2026-10-18T14:04:59Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6108,7 +6108,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-18T11:20:50Z",
+   "updated": "2026-10-18T14:04:59Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6222,7 +6222,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-18T11:20:50Z",
+   "updated": "2026-10-18T14:04:59Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6450,7 +6450,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-18T11:20:50Z",
+   "updated": "2026-10-18T14:04:59Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6458,7 +6458,7 @@
    }
   },
   "2026_06_NO_NYG": {
-   "ats_line": -1.5,
+   "ats_line": 1.5,
    "ats_side": "home",
    "ats_team": "New York Giants",
    "away": "New Orleans Saints",
@@ -6468,20 +6468,20 @@
    "bet_src": "first seen",
    "book": "nflverse consensus",
    "conf_label": "High",
-   "confidence": 71,
+   "confidence": 85,
    "confidence_detail": {
     "agree": 2,
     "components": {
      "agreement": 1.0,
      "consistency": 0.923,
      "data": 1.0,
-     "edge": 0.233,
-     "market": 1.0,
-     "trends": 0.375
+     "edge": 0.9,
+     "market": 0.5,
+     "trends": 0.75
     },
     "label": "High",
     "n_sources": 2,
-    "score": 71,
+    "score": 85,
     "side": "home",
     "source_names": {
      "elo": "Elo",
@@ -6492,19 +6492,19 @@
      "epa": 1.6
     }
    },
-   "cover_prob": 0.55,
+   "cover_prob": 0.597,
    "diffs": {
     "elo": 2.66,
     "epa": 1.58
    },
-   "edge": 1.1,
-   "ev": 0.111,
+   "edge": 4.1,
+   "ev": 0.087,
    "hfa_flag": 1,
    "home": "New York Giants",
    "home_abbr": "NYG",
    "home_field": 1.795,
    "id": "2026_06_NO_NYG",
-   "line": -1.5,
+   "line": 1.5,
    "model_spread": -2.6,
    "model_total": 42.0,
    "neutral": false,
@@ -6552,7 +6552,7 @@
    "start": "2026-10-18T17:00:00Z",
    "su_team": "New York Giants",
    "su_wp": 0.574,
-   "tier": "pass",
+   "tier": "play",
    "total_line": 46.5,
    "total_pick": {
     "edge": 4.5,
@@ -6564,7 +6564,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-10-18T11:20:50Z",
+   "updated": "2026-10-18T14:04:59Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6678,7 +6678,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-18T11:20:50Z",
+   "updated": "2026-10-18T14:04:59Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6792,7 +6792,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-18T11:20:50Z",
+   "updated": "2026-10-18T14:04:59Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -6967,7 +6967,7 @@
     "epa": 8.64
    },
    "edge": 2.3,
-   "ev": -0.013,
+   "ev": 0.019,
    "hfa_flag": 1,
    "home": "Indianapolis Colts",
    "home_abbr": "IND",
@@ -7033,7 +7033,7 @@
     "side": "over",
     "tier": "play"
    },
-   "updated": "2026-10-18T11:20:50Z",
+   "updated": "2026-10-18T14:04:59Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -7147,7 +7147,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-18T11:20:50Z",
+   "updated": "2026-10-18T14:04:59Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
