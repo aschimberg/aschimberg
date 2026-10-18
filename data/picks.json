@@ -8509,7 +8509,7 @@
     "agree": 3,
     "components": {
      "agreement": 1.0,
-     "consistency": 0.514,
+     "consistency": 0.516,
      "data": 1.0,
      "edge": 1.0,
      "market": 0.25,
@@ -8525,7 +8525,7 @@
     }
    },
    "diffs": {
-    "elo": -31.53,
+    "elo": -31.5,
     "fpi": -19.64,
     "sp": -25.9
    },
@@ -8558,7 +8558,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-17T23:21:16Z",
+   "updated": "2026-10-18T00:05:14Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -12691,7 +12691,7 @@
     "agree": 2,
     "components": {
      "agreement": 0.57,
-     "consistency": 0.746,
+     "consistency": 0.747,
      "data": 1.0,
      "edge": 0.425,
      "market": 1.0,
@@ -12707,7 +12707,7 @@
     }
    },
    "diffs": {
-    "elo": -19.21,
+    "elo": -19.19,
     "fpi": -15.84,
     "sp": -13.0
    },
@@ -12729,18 +12729,18 @@
    "su_team": "Wake Forest",
    "su_wp": 0.784,
    "tier": "pass",
-   "total_line": 53.5,
+   "total_line": 54.5,
    "total_pick": {
-    "edge": 1.0,
-    "line": 53.5,
+    "edge": 2.0,
+    "line": 54.5,
     "model": 52.5,
     "odds": null,
     "play": false,
-    "prob": 0.524,
+    "prob": 0.548,
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-17T23:21:16Z",
+   "updated": "2026-10-18T00:05:14Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -17112,7 +17112,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-17T23:21:16Z",
+   "updated": "2026-10-18T00:05:14Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -18953,7 +18953,7 @@
     }
    },
    "diffs": {
-    "elo": -19.88,
+    "elo": -19.87,
     "fpi": -12.24,
     "sp": -13.9
    },
@@ -18986,7 +18986,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-17T23:21:16Z",
+   "updated": "2026-10-18T00:05:14Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -22426,6 +22426,8 @@
    "bet_line": 3.0,
    "bet_src": "first seen",
    "book": "DraftKings",
+   "close_line": 4.5,
+   "clv": 1.5,
    "conf_label": "Medium",
    "confidence": 63,
    "confidence_detail": {
@@ -22463,7 +22465,13 @@
    "neutral": false,
    "proj_away": 24.7,
    "proj_home": 19.2,
-   "result": null,
+   "result": {
+    "ats": "W",
+    "away_pts": 38.0,
+    "home_pts": 17.0,
+    "su": "W",
+    "total": "L"
+   },
    "season": 2026,
    "season_type": "regular",
    "start": "2026-10-17T20:30:00.000Z",
@@ -24415,7 +24423,7 @@
     "agree": 3,
     "components": {
      "agreement": 1.0,
-     "consistency": 0.705,
+     "consistency": 0.704,
      "data": 1.0,
      "edge": 1.0,
      "market": 0.25,
@@ -24431,7 +24439,7 @@
     }
    },
    "diffs": {
-    "elo": -18.01,
+    "elo": -17.99,
     "fpi": -22.29,
     "sp": -25.2
    },
@@ -24464,7 +24472,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-17T23:21:16Z",
+   "updated": "2026-10-18T00:05:14Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -24566,7 +24574,7 @@
     "agree": 3,
     "components": {
      "agreement": 1.0,
-     "consistency": 0.572,
+     "consistency": 0.573,
      "data": 1.0,
      "edge": 0.8,
      "market": 0.0,
@@ -24582,7 +24590,7 @@
     }
    },
    "diffs": {
-    "elo": -20.88,
+    "elo": -20.86,
     "fpi": -11.3,
     "sp": -12.4
    },
@@ -24615,7 +24623,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-17T23:21:16Z",
+   "updated": "2026-10-18T00:05:14Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
@@ -27646,7 +27654,7 @@
     }
    },
    "diffs": {
-    "elo": -11.95,
+    "elo": -11.94,
     "fpi": -20.64,
     "sp": -18.0
    },
@@ -27679,7 +27687,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-17T23:21:16Z",
+   "updated": "2026-10-18T00:05:14Z",
    "week": 7,
    "weights": {
     "elo": 0.05,
