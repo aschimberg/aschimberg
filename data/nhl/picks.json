@@ -4469,6 +4469,8 @@
    "away_abbr": "CBJ",
    "bet_at": "2026-10-18T16:06:25Z",
    "bet_line": -192.0,
+   "close_line": -192.0,
+   "clv": -0.0404,
    "conf_label": "Medium",
    "confidence": 63,
    "confidence_detail": {
@@ -4523,7 +4525,15 @@
    "odds": -192.0,
    "offset": 0.534,
    "prob": 0.681,
-   "result": null,
+   "result": {
+    "ats": "W",
+    "away_pts": 1,
+    "home_pts": 2,
+    "su": "W",
+    "total": "W",
+    "total_units": 0.82,
+    "units": 0.521
+   },
    "season": 20262027,
    "season_type": "regular",
    "start": "2026-10-18T22:00:00Z",
