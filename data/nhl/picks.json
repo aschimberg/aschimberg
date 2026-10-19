@@ -4664,20 +4664,20 @@
    "bet_at": "2026-10-19T16:06:47Z",
    "bet_line": 120.0,
    "conf_label": "Low",
-   "confidence": 44,
+   "confidence": 51,
    "confidence_detail": {
-    "agree": 2,
+    "agree": 3,
     "components": {
-     "agreement": 0.6,
+     "agreement": 0.85,
      "consistency": 0.8,
      "data": 0.63,
-     "edge": 0.0,
-     "market": 0.5,
+     "edge": 0.214,
+     "market": 0.175,
      "trends": 0.5
     },
     "label": "Low",
     "n_sources": 4,
-    "score": 44,
+    "score": 51,
     "side": "away",
     "source_names": {
      "elo": "Elo",
@@ -4686,10 +4686,10 @@
      "xg": "xG"
     },
     "sources": {
-     "elo": 0.35,
-     "goals": 0.56,
-     "mp": 0.39,
-     "xg": 0.22
+     "elo": 0.32,
+     "goals": 0.53,
+     "mp": 0.37,
+     "xg": 0.2
     },
     "units": "goals"
    },
@@ -4700,41 +4700,41 @@
     "mp": 0.104,
     "xg": -0.063
    },
-   "edge": -3.7,
-   "ev": -0.0365,
+   "edge": 1.7,
+   "ev": 0.0171,
    "hfa_flag": 1,
    "home": "New York Rangers",
    "home_abbr": "NYR",
    "home_field": 0.2,
-   "home_prob": 0.562,
+   "home_prob": 0.558,
    "id": 2026020137,
    "line": null,
-   "mkt_prob": 0.437,
-   "ml_away": 120.0,
-   "ml_home": -142.0,
+   "mkt_prob": 0.417,
+   "ml_away": 130.0,
+   "ml_home": -155.0,
    "model_spread": null,
    "neutral": false,
-   "odds": 120.0,
-   "offset": 0.087,
-   "prob": 0.438,
+   "odds": 130.0,
+   "offset": 0.063,
+   "prob": 0.442,
    "result": null,
    "season": 20262027,
    "season_type": "regular",
    "start": "2026-10-19T23:00:00Z",
    "su_team": "New York Rangers",
-   "su_wp": 0.562,
+   "su_wp": 0.558,
    "tier": "pass",
    "total_pick": {
-    "edge": 21.8,
-    "ev": 0.2176,
+    "edge": 27.7,
+    "ev": 0.2773,
     "line": 6.5,
-    "odds": -122.0,
+    "odds": -110.0,
     "play": true,
     "prob": 0.669,
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-19T16:06:47Z",
+   "updated": "2026-10-19T17:03:32Z",
    "week": 202643,
    "weights": {
     "elo": 0.25,
@@ -4821,7 +4821,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-19T16:06:47Z",
+   "updated": "2026-10-19T17:03:32Z",
    "week": 202643,
    "weights": {
     "elo": 0.25,
@@ -4908,7 +4908,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-19T16:06:47Z",
+   "updated": "2026-10-19T17:03:32Z",
    "week": 202643,
    "weights": {
     "elo": 0.25,
@@ -4995,7 +4995,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-19T16:06:47Z",
+   "updated": "2026-10-19T17:03:32Z",
    "week": 202643,
    "weights": {
     "elo": 0.25,

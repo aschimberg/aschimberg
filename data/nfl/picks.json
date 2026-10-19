@@ -7303,7 +7303,7 @@
     "side": "over",
     "tier": "play"
    },
-   "updated": "2026-10-19T14:10:46Z",
+   "updated": "2026-10-19T17:03:26Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -7350,7 +7350,7 @@
     "epa": 1.19
    },
    "edge": 5.4,
-   "ev": 0.226,
+   "ev": 0.24,
    "hfa_flag": 1,
    "home": "Baltimore Ravens",
    "home_abbr": "BAL",
@@ -7416,7 +7416,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-19T14:10:46Z",
+   "updated": "2026-10-19T17:03:26Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -7518,18 +7518,18 @@
    "su_team": "Cleveland Browns",
    "su_wp": 0.619,
    "tier": "lean",
-   "total_line": 36.5,
+   "total_line": 38.5,
    "total_pick": {
-    "edge": 1.0,
-    "line": 36.5,
+    "edge": 3.0,
+    "line": 38.5,
     "model": 35.5,
     "odds": null,
     "play": false,
-    "prob": 0.529,
+    "prob": 0.588,
     "side": "under",
-    "tier": "pass"
+    "tier": "lean"
    },
-   "updated": "2026-10-19T14:10:46Z",
+   "updated": "2026-10-19T17:03:26Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -7576,7 +7576,7 @@
     "epa": 1.29
    },
    "edge": 5.9,
-   "ev": 0.311,
+   "ev": 0.334,
    "hfa_flag": 1,
    "home": "Philadelphia Eagles",
    "home_abbr": "PHI",
@@ -7642,7 +7642,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-19T14:10:46Z",
+   "updated": "2026-10-19T17:03:26Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -7689,7 +7689,7 @@
     "epa": -4.92
    },
    "edge": 2.9,
-   "ev": 0.083,
+   "ev": 0.059,
    "hfa_flag": 1,
    "home": "Arizona Cardinals",
    "home_abbr": "ARI",
@@ -7744,18 +7744,18 @@
    "su_team": "Denver Broncos",
    "su_wp": 0.703,
    "tier": "lean",
-   "total_line": 42.5,
+   "total_line": 43.5,
    "total_pick": {
-    "edge": 0.7,
-    "line": 42.5,
+    "edge": 1.7,
+    "line": 43.5,
     "model": 41.8,
     "odds": null,
     "play": false,
-    "prob": 0.52,
+    "prob": 0.55,
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-19T14:10:46Z",
+   "updated": "2026-10-19T17:03:26Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -7868,7 +7868,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-19T14:10:46Z",
+   "updated": "2026-10-19T17:03:26Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -7981,7 +7981,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-10-19T14:10:46Z",
+   "updated": "2026-10-19T17:03:26Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -8094,7 +8094,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-19T14:10:46Z",
+   "updated": "2026-10-19T17:03:26Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -8196,18 +8196,18 @@
    "su_team": "Los Angeles Rams",
    "su_wp": 0.552,
    "tier": "play",
-   "total_line": 46.5,
+   "total_line": 47.5,
    "total_pick": {
-    "edge": 3.0,
-    "line": 46.5,
+    "edge": 2.0,
+    "line": 47.5,
     "model": 49.5,
     "odds": null,
     "play": false,
-    "prob": 0.588,
+    "prob": 0.559,
     "side": "over",
-    "tier": "lean"
+    "tier": "pass"
    },
-   "updated": "2026-10-19T14:10:46Z",
+   "updated": "2026-10-19T17:03:26Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -8320,7 +8320,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-19T14:10:46Z",
+   "updated": "2026-10-19T17:03:26Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -8367,7 +8367,7 @@
     "epa": 0.52
    },
    "edge": 2.8,
-   "ev": 0.116,
+   "ev": 0.094,
    "hfa_flag": 1,
    "home": "Chicago Bears",
    "home_abbr": "CHI",
@@ -8433,7 +8433,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-19T14:10:46Z",
+   "updated": "2026-10-19T17:03:26Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -8535,18 +8535,18 @@
    "su_team": "Houston Texans",
    "su_wp": 0.726,
    "tier": "pass",
-   "total_line": 43.5,
+   "total_line": 42.5,
    "total_pick": {
-    "edge": 0.3,
-    "line": 43.5,
+    "edge": 1.3,
+    "line": 42.5,
     "model": 43.8,
     "odds": null,
     "play": false,
-    "prob": 0.508,
+    "prob": 0.538,
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-19T14:10:46Z",
+   "updated": "2026-10-19T17:03:26Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -8593,7 +8593,7 @@
     "epa": -3.31
    },
    "edge": 1.5,
-   "ev": 0.064,
+   "ev": 0.087,
    "hfa_flag": 0,
    "home": "New Orleans Saints",
    "home_abbr": "NO",
@@ -8648,18 +8648,18 @@
    "su_team": "Pittsburgh Steelers",
    "su_wp": 0.616,
    "tier": "lean",
-   "total_line": 43.5,
+   "total_line": 44.5,
    "total_pick": {
-    "edge": 0.4,
-    "line": 43.5,
+    "edge": 0.6,
+    "line": 44.5,
     "model": 43.9,
     "odds": null,
     "play": false,
-    "prob": 0.512,
-    "side": "over",
+    "prob": 0.518,
+    "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-19T14:10:46Z",
+   "updated": "2026-10-19T17:03:26Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -8772,7 +8772,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-19T14:10:46Z",
+   "updated": "2026-10-19T17:03:26Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -8885,7 +8885,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-19T14:10:46Z",
+   "updated": "2026-10-19T17:03:26Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
