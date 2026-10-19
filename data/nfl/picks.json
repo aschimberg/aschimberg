@@ -6190,6 +6190,9 @@
    "bet_line": -1.5,
    "bet_src": "first seen",
    "book": "nflverse consensus",
+   "close_line": 1.5,
+   "clv": -3.0,
+   "clv_prob": -0.0474,
    "conf_label": "High",
    "confidence": 79,
    "confidence_detail": {
@@ -6244,6 +6247,7 @@
      "p": 0.639,
      "pid": "00-0036997",
      "pos": "RB",
+     "result": "W",
      "team": "DAL"
     },
     {
@@ -6255,6 +6259,7 @@
      "p": 0.542,
      "pid": "00-0039811",
      "pos": "RB",
+     "result": "L",
      "team": "GB"
     },
     {
@@ -6266,10 +6271,18 @@
      "p": 0.509,
      "pid": "00-0038124",
      "pos": "WR",
+     "result": "L",
      "team": "GB"
     }
    ],
-   "result": null,
+   "props_graded": true,
+   "result": {
+    "ats": "W",
+    "away_pts": 13.0,
+    "home_pts": 23.0,
+    "su": "W",
+    "total": "L"
+   },
    "season": 2026,
    "season_type": "regular",
    "start": "2026-10-19T00:20:00Z",
@@ -7199,7 +7212,7 @@
     "agree": 2,
     "components": {
      "agreement": 1.0,
-     "consistency": 0.999,
+     "consistency": 0.997,
      "data": 1.0,
      "edge": 0.813,
      "market": 0.5,
@@ -7221,10 +7234,10 @@
    "cover_prob": 0.553,
    "diffs": {
     "elo": 9.31,
-    "epa": 9.32
+    "epa": 9.35
    },
    "edge": 3.7,
-   "ev": 0.056,
+   "ev": 0.065,
    "hfa_flag": 1,
    "home": "San Francisco 49ers",
    "home_abbr": "SF",
@@ -7232,19 +7245,19 @@
    "id": "2026_06_WAS_SF",
    "line": -7.5,
    "model_spread": -11.2,
-   "model_total": 55.3,
+   "model_total": 55.5,
    "neutral": false,
    "offset": 0.05,
-   "proj_away": 22.1,
-   "proj_home": 33.2,
+   "proj_away": 22.2,
+   "proj_home": 33.3,
    "props": [
     {
      "bet": false,
-     "fair": -194,
-     "lam": 1.0801,
+     "fair": -195,
+     "lam": 1.0828,
      "name": "Christian McCaffrey",
      "note": "no market price yet",
-     "p": 0.66,
+     "p": 0.661,
      "pid": "00-0033280",
      "pos": "RB",
      "team": "SF"
@@ -7252,18 +7265,18 @@
     {
      "bet": false,
      "fair": 144,
-     "lam": 0.5263,
+     "lam": 0.5273,
      "name": "Mike Evans",
      "note": "no market price yet",
-     "p": 0.409,
+     "p": 0.41,
      "pid": "00-0031408",
      "pos": "WR",
      "team": "SF"
     },
     {
      "bet": false,
-     "fair": 192,
-     "lam": 0.4199,
+     "fair": 191,
+     "lam": 0.4208,
      "name": "George Kittle",
      "note": "no market price yet",
      "p": 0.343,
@@ -7279,18 +7292,18 @@
    "su_team": "San Francisco 49ers",
    "su_wp": 0.789,
    "tier": "play",
-   "total_line": 52.5,
+   "total_line": 51.5,
    "total_pick": {
-    "edge": 2.8,
-    "line": 52.5,
-    "model": 55.3,
+    "edge": 4.0,
+    "line": 51.5,
+    "model": 55.5,
     "odds": null,
-    "play": false,
-    "prob": 0.583,
+    "play": true,
+    "prob": 0.616,
     "side": "over",
-    "tier": "lean"
+    "tier": "play"
    },
-   "updated": "2026-10-19T01:48:11Z",
+   "updated": "2026-10-19T11:22:48Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -7312,7 +7325,7 @@
     "agree": 2,
     "components": {
      "agreement": 1.0,
-     "consistency": 0.999,
+     "consistency": 0.995,
      "data": 1.0,
      "edge": 1.0,
      "market": 0.5,
@@ -7328,16 +7341,16 @@
     },
     "sources": {
      "elo": -2.4,
-     "epa": -2.4
+     "epa": -2.5
     }
    },
    "cover_prob": 0.665,
    "diffs": {
     "elo": 1.26,
-    "epa": 1.25
+    "epa": 1.19
    },
    "edge": 5.4,
-   "ev": 0.225,
+   "ev": 0.226,
    "hfa_flag": 1,
    "home": "Baltimore Ravens",
    "home_abbr": "BAL",
@@ -7345,30 +7358,30 @@
    "id": "2026_07_CIN_BAL",
    "line": -3.0,
    "model_spread": 2.4,
-   "model_total": 53.7,
+   "model_total": 53.9,
    "neutral": false,
    "offset": -5.45,
-   "proj_away": 28.1,
-   "proj_home": 25.7,
+   "proj_away": 28.2,
+   "proj_home": 25.8,
    "props": [
     {
      "bet": false,
-     "fair": -156,
-     "lam": 0.9413,
+     "fair": -157,
+     "lam": 0.9457,
      "name": "Derrick Henry",
      "note": "no market price yet",
-     "p": 0.61,
+     "p": 0.612,
      "pid": "00-0032764",
      "pos": "RB",
      "team": "BAL"
     },
     {
      "bet": false,
-     "fair": 109,
-     "lam": 0.651,
+     "fair": 108,
+     "lam": 0.6534,
      "name": "Chase Brown",
      "note": "no market price yet",
-     "p": 0.478,
+     "p": 0.48,
      "pid": "00-0038597",
      "pos": "RB",
      "team": "CIN"
@@ -7376,10 +7389,10 @@
     {
      "bet": false,
      "fair": 140,
-     "lam": 0.5383,
+     "lam": 0.54,
      "name": "Ja'Marr Chase",
      "note": "no market price yet",
-     "p": 0.416,
+     "p": 0.417,
      "pid": "00-0036900",
      "pos": "WR",
      "team": "CIN"
@@ -7394,16 +7407,16 @@
    "tier": "strong",
    "total_line": 50.5,
    "total_pick": {
-    "edge": 3.2,
+    "edge": 3.4,
     "line": 50.5,
-    "model": 53.7,
+    "model": 53.9,
     "odds": null,
     "play": false,
-    "prob": 0.595,
+    "prob": 0.6,
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-19T01:48:11Z",
+   "updated": "2026-10-19T11:22:48Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -7425,7 +7438,7 @@
     "agree": 2,
     "components": {
      "agreement": 1.0,
-     "consistency": 0.845,
+     "consistency": 0.844,
      "data": 1.0,
      "edge": 0.589,
      "market": 0.5,
@@ -7447,7 +7460,7 @@
    "cover_prob": 0.596,
    "diffs": {
     "elo": -5.33,
-    "epa": -7.5
+    "epa": -7.51
    },
    "edge": 2.7,
    "ev": 0.138,
@@ -7467,7 +7480,7 @@
     {
      "bet": false,
      "fair": 222,
-     "lam": 0.3713,
+     "lam": 0.3715,
      "name": "Tony Pollard",
      "note": "no market price yet",
      "p": 0.31,
@@ -7478,7 +7491,7 @@
     {
      "bet": false,
      "fair": 267,
-     "lam": 0.3179,
+     "lam": 0.3178,
      "name": "Wan'Dale Robinson",
      "note": "no market price yet",
      "p": 0.272,
@@ -7516,7 +7529,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-19T01:48:11Z",
+   "updated": "2026-10-19T11:22:48Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -7524,65 +7537,89 @@
    }
   },
   "2026_07_DAL_PHI": {
-   "ats_line": null,
-   "ats_side": null,
-   "ats_team": null,
+   "ats_line": 4.5,
+   "ats_side": "home",
+   "ats_team": "Philadelphia Eagles",
    "away": "Dallas Cowboys",
    "away_abbr": "DAL",
+   "bet_at": "2026-10-19T11:22:48Z",
+   "bet_line": 4.5,
    "book": "nflverse consensus",
-   "conf_label": null,
-   "confidence": null,
-   "confidence_detail": null,
-   "cover_prob": null,
-   "diffs": {
-    "elo": 1.53,
-    "epa": 0.6
+   "conf_label": "High",
+   "confidence": 87,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.939,
+     "data": 1.0,
+     "edge": 1.0,
+     "market": 0.9,
+     "trends": 0.25
+    },
+    "label": "High",
+    "n_sources": 2,
+    "score": 87,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 1.5,
+     "epa": 0.7
+    }
    },
-   "edge": null,
-   "ev": null,
+   "cover_prob": 0.693,
+   "diffs": {
+    "elo": 2.14,
+    "epa": 1.29
+   },
+   "edge": 5.9,
+   "ev": 0.311,
    "hfa_flag": 1,
    "home": "Philadelphia Eagles",
    "home_abbr": "PHI",
    "home_field": 1.795,
    "id": "2026_07_DAL_PHI",
-   "line": null,
-   "model_spread": -0.8,
-   "model_total": 54.2,
+   "line": 4.5,
+   "model_spread": -1.4,
+   "model_total": 52.5,
    "neutral": false,
-   "offset": -2.43,
-   "proj_away": 26.7,
-   "proj_home": 27.5,
+   "offset": -2.42,
+   "proj_away": 25.5,
+   "proj_home": 27.0,
    "props": [
     {
      "bet": false,
-     "fair": -160,
-     "lam": 0.956,
+     "fair": -164,
+     "lam": 0.9702,
      "name": "Javonte Williams",
      "note": "no market price yet",
-     "p": 0.616,
+     "p": 0.621,
      "pid": "00-0036997",
      "pos": "RB",
      "team": "DAL"
     },
     {
      "bet": false,
-     "fair": 153,
-     "lam": 0.5028,
+     "fair": 157,
+     "lam": 0.4937,
      "name": "Dallas Goedert",
      "note": "no market price yet",
-     "p": 0.395,
+     "p": 0.39,
      "pid": "00-0034351",
      "pos": "TE",
      "team": "PHI"
     },
     {
      "bet": false,
-     "fair": 173,
-     "lam": 0.4571,
-     "name": "George Pickens",
+     "fair": 159,
+     "lam": 0.4868,
+     "name": "CeeDee Lamb",
      "note": "no market price yet",
-     "p": 0.367,
-     "pid": "00-0037247",
+     "p": 0.385,
+     "pid": "00-0036358",
      "pos": "WR",
      "team": "DAL"
     }
@@ -7592,11 +7629,20 @@
    "season_type": "regular",
    "start": "2026-10-27T00:15:00Z",
    "su_team": "Philadelphia Eagles",
-   "su_wp": 0.524,
-   "tier": null,
-   "total_line": null,
-   "total_pick": null,
-   "updated": "2026-10-19T01:48:11Z",
+   "su_wp": 0.542,
+   "tier": "strong",
+   "total_line": 44.5,
+   "total_pick": {
+    "edge": 8.0,
+    "line": 44.5,
+    "model": 52.5,
+    "odds": null,
+    "play": true,
+    "prob": 0.723,
+    "side": "over",
+    "tier": "strong"
+   },
+   "updated": "2026-10-19T11:22:48Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -7618,7 +7664,7 @@
     "agree": 1,
     "components": {
      "agreement": 0.925,
-     "consistency": 0.722,
+     "consistency": 0.721,
      "data": 1.0,
      "edge": 0.635,
      "market": 0.5,
@@ -7634,13 +7680,13 @@
     },
     "sources": {
      "elo": -7.6,
-     "epa": -3.8
+     "epa": -3.7
     }
    },
    "cover_prob": 0.555,
    "diffs": {
     "elo": -8.83,
-    "epa": -4.94
+    "epa": -4.92
    },
    "edge": 2.9,
    "ev": 0.083,
@@ -7651,7 +7697,7 @@
    "id": "2026_07_DEN_ARI",
    "line": 4.5,
    "model_spread": 7.4,
-   "model_total": 41.7,
+   "model_total": 41.8,
    "neutral": false,
    "offset": -0.61,
    "proj_away": 24.6,
@@ -7660,7 +7706,7 @@
     {
      "bet": false,
      "fair": 121,
-     "lam": 0.6031,
+     "lam": 0.6036,
      "name": "J.K. Dobbins",
      "note": "no market price yet",
      "p": 0.453,
@@ -7670,8 +7716,8 @@
     },
     {
      "bet": false,
-     "fair": 154,
-     "lam": 0.5016,
+     "fair": 153,
+     "lam": 0.5017,
      "name": "RJ Harvey",
      "note": "no market price yet",
      "p": 0.394,
@@ -7682,7 +7728,7 @@
     {
      "bet": false,
      "fair": 189,
-     "lam": 0.4241,
+     "lam": 0.424,
      "name": "Courtland Sutton",
      "note": "no market price yet",
      "p": 0.346,
@@ -7696,20 +7742,20 @@
    "season_type": "regular",
    "start": "2026-10-25T20:05:00Z",
    "su_team": "Denver Broncos",
-   "su_wp": 0.704,
+   "su_wp": 0.703,
    "tier": "lean",
-   "total_line": 43.5,
+   "total_line": 42.5,
    "total_pick": {
-    "edge": 1.8,
-    "line": 43.5,
-    "model": 41.7,
+    "edge": 0.7,
+    "line": 42.5,
+    "model": 41.8,
     "odds": null,
     "play": false,
-    "prob": 0.552,
+    "prob": 0.52,
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-19T01:48:11Z",
+   "updated": "2026-10-19T11:22:48Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -7717,64 +7763,88 @@
    }
   },
   "2026_07_GB_DET": {
-   "ats_line": null,
-   "ats_side": null,
-   "ats_team": null,
+   "ats_line": 3.0,
+   "ats_side": "away",
+   "ats_team": "Green Bay Packers",
    "away": "Green Bay Packers",
    "away_abbr": "GB",
+   "bet_at": "2026-10-19T11:22:48Z",
+   "bet_line": -3.0,
    "book": "nflverse consensus",
-   "conf_label": null,
-   "confidence": null,
-   "confidence_detail": null,
-   "cover_prob": null,
-   "diffs": {
-    "elo": 1.25,
-    "epa": -0.88
+   "conf_label": "Medium",
+   "confidence": 58,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.844,
+     "data": 1.0,
+     "edge": 0.151,
+     "market": 0.5,
+     "trends": 0.25
+    },
+    "label": "Medium",
+    "n_sources": 2,
+    "score": 58,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "epa": "EPA"
+    },
+    "sources": {
+     "elo": 2.5,
+     "epa": 0.3
+    }
    },
-   "edge": null,
-   "ev": null,
+   "cover_prob": 0.522,
+   "diffs": {
+    "elo": 0.64,
+    "epa": -1.55
+   },
+   "edge": 0.7,
+   "ev": -0.021,
    "hfa_flag": 1,
    "home": "Detroit Lions",
    "home_abbr": "DET",
    "home_field": 1.795,
    "id": "2026_07_GB_DET",
-   "line": null,
-   "model_spread": -2.9,
-   "model_total": 54.8,
+   "line": -3.0,
+   "model_spread": -2.3,
+   "model_total": 53.0,
    "neutral": false,
-   "offset": 0.02,
-   "proj_away": 26.0,
-   "proj_home": 28.9,
+   "offset": 0.05,
+   "proj_away": 25.4,
+   "proj_home": 27.7,
    "props": [
     {
      "bet": false,
-     "fair": -161,
-     "lam": 0.9612,
+     "fair": -151,
+     "lam": 0.9215,
      "name": "Jahmyr Gibbs",
      "note": "no market price yet",
-     "p": 0.618,
+     "p": 0.602,
      "pid": "00-0039139",
      "pos": "RB",
      "team": "DET"
     },
     {
      "bet": false,
-     "fair": 103,
-     "lam": 0.6762,
+     "fair": 110,
+     "lam": 0.6478,
      "name": "Amon-Ra St. Brown",
      "note": "no market price yet",
-     "p": 0.491,
+     "p": 0.477,
      "pid": "00-0036963",
      "pos": "WR",
      "team": "DET"
     },
     {
      "bet": false,
-     "fair": 119,
-     "lam": 0.6103,
+     "fair": 145,
+     "lam": 0.5252,
      "name": "MarShawn Lloyd",
      "note": "no market price yet",
-     "p": 0.457,
+     "p": 0.409,
      "pid": "00-0039811",
      "pos": "RB",
      "team": "GB"
@@ -7785,11 +7855,20 @@
    "season_type": "regular",
    "start": "2026-10-25T20:25:00Z",
    "su_team": "Detroit Lions",
-   "su_wp": 0.584,
-   "tier": null,
-   "total_line": null,
-   "total_pick": null,
-   "updated": "2026-10-19T01:48:11Z",
+   "su_wp": 0.568,
+   "tier": "pass",
+   "total_line": 52.5,
+   "total_pick": {
+    "edge": 0.5,
+    "line": 52.5,
+    "model": 53.0,
+    "odds": null,
+    "play": false,
+    "prob": 0.516,
+    "side": "over",
+    "tier": "pass"
+   },
+   "updated": "2026-10-19T11:22:48Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -7797,7 +7876,7 @@
    }
   },
   "2026_07_IND_MIN": {
-   "ats_line": -6.0,
+   "ats_line": -5.5,
    "ats_side": "home",
    "ats_team": "Minnesota Vikings",
    "away": "Indianapolis Colts",
@@ -7806,20 +7885,20 @@
    "bet_line": -6.0,
    "book": "nflverse consensus",
    "conf_label": "High",
-   "confidence": 81,
+   "confidence": 78,
    "confidence_detail": {
     "agree": 2,
     "components": {
      "agreement": 1.0,
-     "consistency": 0.754,
+     "consistency": 0.758,
      "data": 1.0,
      "edge": 1.0,
-     "market": 0.5,
+     "market": 0.3,
      "trends": 0.375
     },
     "label": "High",
     "n_sources": 2,
-    "score": 81,
+    "score": 78,
     "side": "home",
     "source_names": {
      "elo": "Elo",
@@ -7830,55 +7909,55 @@
      "epa": 8.8
     }
    },
-   "cover_prob": 0.649,
+   "cover_prob": 0.661,
    "diffs": {
     "elo": 8.18,
-    "epa": 4.73
+    "epa": 4.79
    },
-   "edge": 6.0,
-   "ev": 0.22,
+   "edge": 6.5,
+   "ev": 0.251,
    "hfa_flag": 1,
    "home": "Minnesota Vikings",
    "home_abbr": "MIN",
    "home_field": 1.795,
    "id": "2026_07_IND_MIN",
-   "line": -6.0,
+   "line": -5.5,
    "model_spread": -12.0,
-   "model_total": 37.4,
+   "model_total": 37.5,
    "neutral": false,
    "offset": 2.25,
-   "proj_away": 12.7,
-   "proj_home": 24.7,
+   "proj_away": 12.8,
+   "proj_home": 24.8,
    "props": [
     {
      "bet": false,
-     "fair": 158,
-     "lam": 0.4903,
+     "fair": 156,
+     "lam": 0.4945,
      "name": "Jonathan Taylor",
      "note": "no market price yet",
-     "p": 0.388,
+     "p": 0.39,
      "pid": "00-0036223",
      "pos": "RB",
      "team": "IND"
     },
     {
      "bet": false,
-     "fair": 183,
-     "lam": 0.4366,
+     "fair": 182,
+     "lam": 0.4383,
      "name": "Aaron Jones Sr.",
      "note": "no market price yet",
-     "p": 0.354,
+     "p": 0.355,
      "pid": "00-0033293",
      "pos": "RB",
      "team": "MIN"
     },
     {
      "bet": false,
-     "fair": 214,
-     "lam": 0.3831,
+     "fair": 213,
+     "lam": 0.3846,
      "name": "Justin Jefferson",
      "note": "no market price yet",
-     "p": 0.318,
+     "p": 0.319,
      "pid": "00-0036322",
      "pos": "WR",
      "team": "MIN"
@@ -7889,20 +7968,20 @@
    "season_type": "regular",
    "start": "2026-10-25T17:00:00Z",
    "su_team": "Minnesota Vikings",
-   "su_wp": 0.805,
+   "su_wp": 0.806,
    "tier": "strong",
    "total_line": 41.5,
    "total_pick": {
-    "edge": 4.1,
+    "edge": 4.0,
     "line": 41.5,
-    "model": 37.4,
+    "model": 37.5,
     "odds": null,
     "play": true,
-    "prob": 0.619,
+    "prob": 0.615,
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-10-19T01:48:11Z",
+   "updated": "2026-10-19T11:22:48Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -7946,7 +8025,7 @@
    "cover_prob": 0.572,
    "diffs": {
     "elo": 2.74,
-    "epa": 0.44
+    "epa": 0.45
    },
    "edge": 1.6,
    "ev": 0.117,
@@ -7960,24 +8039,24 @@
    "model_total": 40.2,
    "neutral": false,
    "offset": -0.24,
-   "proj_away": 18.0,
+   "proj_away": 18.1,
    "proj_home": 22.2,
    "props": [
     {
      "bet": false,
-     "fair": 143,
-     "lam": 0.529,
+     "fair": 142,
+     "lam": 0.5321,
      "name": "Kenneth Walker III",
      "note": "no market price yet",
-     "p": 0.411,
+     "p": 0.413,
      "pid": "00-0038134",
      "pos": "RB",
      "team": "KC"
     },
     {
      "bet": false,
-     "fair": 174,
-     "lam": 0.4531,
+     "fair": 175,
+     "lam": 0.453,
      "name": "Jaxon Smith-Njigba",
      "note": "no market price yet",
      "p": 0.364,
@@ -7988,7 +8067,7 @@
     {
      "bet": false,
      "fair": 224,
-     "lam": 0.3695,
+     "lam": 0.3696,
      "name": "Emanuel Wilson",
      "note": "no market price yet",
      "p": 0.309,
@@ -8011,11 +8090,11 @@
     "model": 40.2,
     "odds": null,
     "play": false,
-    "prob": 0.568,
+    "prob": 0.566,
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-19T01:48:11Z",
+   "updated": "2026-10-19T11:22:48Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -8037,7 +8116,7 @@
     "agree": 2,
     "components": {
      "agreement": 1.0,
-     "consistency": 0.782,
+     "consistency": 0.783,
      "data": 1.0,
      "edge": 0.826,
      "market": 0.7,
@@ -8059,7 +8138,7 @@
    "cover_prob": 0.626,
    "diffs": {
     "elo": -5.53,
-    "epa": -8.58
+    "epa": -8.57
    },
    "edge": 3.7,
    "ev": 0.196,
@@ -8070,16 +8149,16 @@
    "id": "2026_07_LA_LV",
    "line": 5.5,
    "model_spread": 1.8,
-   "model_total": 49.4,
+   "model_total": 49.5,
    "neutral": false,
    "offset": 2.18,
    "proj_away": 25.6,
-   "proj_home": 23.8,
+   "proj_home": 23.9,
    "props": [
     {
      "bet": false,
      "fair": -127,
-     "lam": 0.8177,
+     "lam": 0.818,
      "name": "Kyren Williams",
      "note": "no market price yet",
      "p": 0.559,
@@ -8090,7 +8169,7 @@
     {
      "bet": false,
      "fair": 104,
-     "lam": 0.6757,
+     "lam": 0.6756,
      "name": "Davante Adams",
      "note": "no market price yet",
      "p": 0.491,
@@ -8100,11 +8179,11 @@
     },
     {
      "bet": false,
-     "fair": 120,
-     "lam": 0.607,
+     "fair": 119,
+     "lam": 0.6097,
      "name": "Ashton Jeanty",
      "note": "no market price yet",
-     "p": 0.455,
+     "p": 0.456,
      "pid": "00-0040122",
      "pos": "RB",
      "team": "LV"
@@ -8117,18 +8196,18 @@
    "su_team": "Los Angeles Rams",
    "su_wp": 0.552,
    "tier": "play",
-   "total_line": 46.5,
+   "total_line": 47.5,
    "total_pick": {
-    "edge": 2.9,
-    "line": 46.5,
-    "model": 49.4,
+    "edge": 2.0,
+    "line": 47.5,
+    "model": 49.5,
     "odds": null,
     "play": false,
-    "prob": 0.586,
+    "prob": 0.559,
     "side": "over",
-    "tier": "lean"
+    "tier": "pass"
    },
-   "updated": "2026-10-19T01:48:11Z",
+   "updated": "2026-10-19T11:22:48Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -8150,9 +8229,9 @@
     "agree": 1,
     "components": {
      "agreement": 0.925,
-     "consistency": 0.769,
+     "consistency": 0.764,
      "data": 1.0,
-     "edge": 0.338,
+     "edge": 0.336,
      "market": 0.5,
      "trends": 0.625
     },
@@ -8169,13 +8248,13 @@
      "epa": 6.0
     }
    },
-   "cover_prob": 0.572,
+   "cover_prob": 0.571,
    "diffs": {
     "elo": 0.32,
-    "epa": 3.55
+    "epa": 3.63
    },
    "edge": 1.5,
-   "ev": 0.069,
+   "ev": 0.131,
    "hfa_flag": 1,
    "home": "New York Jets",
    "home_abbr": "NYJ",
@@ -8183,16 +8262,16 @@
    "id": "2026_07_MIA_NYJ",
    "line": -4.5,
    "model_spread": -3.0,
-   "model_total": 45.3,
+   "model_total": 45.5,
    "neutral": false,
    "offset": 0.62,
    "proj_away": 21.2,
-   "proj_home": 24.1,
+   "proj_home": 24.2,
    "props": [
     {
      "bet": false,
-     "fair": 137,
-     "lam": 0.5495,
+     "fair": 136,
+     "lam": 0.5501,
      "name": "Ollie Gordon II",
      "note": "no market price yet",
      "p": 0.423,
@@ -8202,22 +8281,22 @@
     },
     {
      "bet": false,
-     "fair": 203,
-     "lam": 0.4004,
+     "fair": 202,
+     "lam": 0.4024,
      "name": "Omar Cooper Jr.",
      "note": "no market price yet",
-     "p": 0.33,
+     "p": 0.331,
      "pid": "00-0041511",
      "pos": "WR",
      "team": "NYJ"
     },
     {
      "bet": false,
-     "fair": 211,
-     "lam": 0.3882,
+     "fair": 210,
+     "lam": 0.3898,
      "name": "Garrett Wilson",
      "note": "no market price yet",
-     "p": 0.322,
+     "p": 0.323,
      "pid": "00-0037740",
      "pos": "WR",
      "team": "NYJ"
@@ -8228,20 +8307,20 @@
    "season_type": "regular",
    "start": "2026-10-25T17:00:00Z",
    "su_team": "New York Jets",
-   "su_wp": 0.586,
+   "su_wp": 0.587,
    "tier": "lean",
    "total_line": 38.5,
    "total_pick": {
-    "edge": 6.8,
+    "edge": 7.0,
     "line": 38.5,
-    "model": 45.3,
+    "model": 45.5,
     "odds": null,
     "play": true,
-    "prob": 0.693,
+    "prob": 0.698,
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-19T01:48:11Z",
+   "updated": "2026-10-19T11:22:48Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -8263,9 +8342,9 @@
     "agree": 1,
     "components": {
      "agreement": 0.925,
-     "consistency": 0.799,
+     "consistency": 0.796,
      "data": 1.0,
-     "edge": 0.521,
+     "edge": 0.52,
      "market": 0.5,
      "trends": 0.25
     },
@@ -8282,10 +8361,10 @@
      "epa": 2.8
     }
    },
-   "cover_prob": 0.543,
+   "cover_prob": 0.542,
    "diffs": {
     "elo": -2.34,
-    "epa": 0.47
+    "epa": 0.52
    },
    "edge": 2.3,
    "ev": 0.085,
@@ -8296,19 +8375,19 @@
    "id": "2026_07_NE_CHI",
    "line": -2.5,
    "model_spread": -0.2,
-   "model_total": 47.9,
+   "model_total": 48.0,
    "neutral": false,
    "offset": 0.49,
    "proj_away": 23.9,
-   "proj_home": 24.0,
+   "proj_home": 24.1,
    "props": [
     {
      "bet": false,
-     "fair": -109,
-     "lam": 0.7389,
+     "fair": -110,
+     "lam": 0.7424,
      "name": "D'Andre Swift",
      "note": "no market price yet",
-     "p": 0.522,
+     "p": 0.524,
      "pid": "00-0036275",
      "pos": "RB",
      "team": "CHI"
@@ -8316,7 +8395,7 @@
     {
      "bet": false,
      "fair": 163,
-     "lam": 0.4791,
+     "lam": 0.4793,
      "name": "Rhamondre Stevenson",
      "note": "no market price yet",
      "p": 0.381,
@@ -8345,16 +8424,16 @@
    "tier": "lean",
    "total_line": 49.5,
    "total_pick": {
-    "edge": 1.6,
+    "edge": 1.5,
     "line": 49.5,
-    "model": 47.9,
+    "model": 48.0,
     "odds": null,
     "play": false,
-    "prob": 0.547,
+    "prob": 0.543,
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-19T01:48:11Z",
+   "updated": "2026-10-19T11:22:48Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -8376,9 +8455,9 @@
     "agree": 1,
     "components": {
      "agreement": 0.925,
-     "consistency": 0.814,
+     "consistency": 0.817,
      "data": 1.0,
-     "edge": 0.272,
+     "edge": 0.273,
      "market": 0.5,
      "trends": 0.625
     },
@@ -8392,13 +8471,13 @@
     },
     "sources": {
      "elo": 8.1,
-     "epa": 10.7
+     "epa": 10.6
     }
    },
    "cover_prob": 0.566,
    "diffs": {
     "elo": 4.49,
-    "epa": 7.1
+    "epa": 7.05
    },
    "edge": 1.2,
    "ev": 0.081,
@@ -8409,41 +8488,41 @@
    "id": "2026_07_NYG_HOU",
    "line": -9.5,
    "model_spread": -8.3,
-   "model_total": 43.5,
+   "model_total": 43.8,
    "neutral": false,
    "offset": 1.8,
-   "proj_away": 17.6,
-   "proj_home": 25.9,
+   "proj_away": 17.8,
+   "proj_home": 26.0,
    "props": [
     {
      "bet": false,
      "fair": 175,
-     "lam": 0.4513,
+     "lam": 0.453,
      "name": "Nico Collins",
      "note": "no market price yet",
-     "p": 0.363,
+     "p": 0.364,
      "pid": "00-0036554",
      "pos": "WR",
      "team": "HOU"
     },
     {
      "bet": false,
-     "fair": 189,
-     "lam": 0.4244,
+     "fair": 188,
+     "lam": 0.426,
      "name": "Woody Marks",
      "note": "no market price yet",
-     "p": 0.346,
+     "p": 0.347,
      "pid": "00-0040583",
      "pos": "RB",
      "team": "HOU"
     },
     {
      "bet": false,
-     "fair": 212,
-     "lam": 0.3867,
+     "fair": 209,
+     "lam": 0.3913,
      "name": "Cam Skattebo",
      "note": "no market price yet",
-     "p": 0.321,
+     "p": 0.324,
      "pid": "00-0040715",
      "pos": "RB",
      "team": "NYG"
@@ -8458,16 +8537,16 @@
    "tier": "pass",
    "total_line": 43.5,
    "total_pick": {
-    "edge": 0.0,
+    "edge": 0.3,
     "line": 43.5,
-    "model": 43.5,
+    "model": 43.8,
     "odds": null,
     "play": false,
-    "prob": 0.501,
-    "side": "under",
+    "prob": 0.508,
+    "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-19T01:48:11Z",
+   "updated": "2026-10-19T11:22:48Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -8489,7 +8568,7 @@
     "agree": 2,
     "components": {
      "agreement": 1.0,
-     "consistency": 0.893,
+     "consistency": 0.894,
      "data": 1.0,
      "edge": 0.34,
      "market": 0.5,
@@ -8505,13 +8584,13 @@
     },
     "sources": {
      "elo": -4.1,
-     "epa": -2.6
+     "epa": -2.7
     }
    },
    "cover_prob": 0.569,
    "diffs": {
     "elo": -4.8,
-    "epa": -3.3
+    "epa": -3.31
    },
    "edge": 1.5,
    "ev": 0.087,
@@ -8531,7 +8610,7 @@
     {
      "bet": false,
      "fair": 154,
-     "lam": 0.4995,
+     "lam": 0.4997,
      "name": "Jaylen Warren",
      "note": "no market price yet",
      "p": 0.393,
@@ -8542,7 +8621,7 @@
     {
      "bet": false,
      "fair": 235,
-     "lam": 0.3542,
+     "lam": 0.3541,
      "name": "DK Metcalf",
      "note": "no market price yet",
      "p": 0.298,
@@ -8569,18 +8648,18 @@
    "su_team": "Pittsburgh Steelers",
    "su_wp": 0.616,
    "tier": "lean",
-   "total_line": 44.5,
+   "total_line": 43.5,
    "total_pick": {
-    "edge": 0.6,
-    "line": 44.5,
+    "edge": 0.4,
+    "line": 43.5,
     "model": 43.9,
     "odds": null,
     "play": false,
-    "prob": 0.518,
-    "side": "under",
+    "prob": 0.512,
+    "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-19T01:48:11Z",
+   "updated": "2026-10-19T11:22:48Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -8602,7 +8681,7 @@
     "agree": 2,
     "components": {
      "agreement": 1.0,
-     "consistency": 0.981,
+     "consistency": 0.976,
      "data": 1.0,
      "edge": 0.693,
      "market": 0.5,
@@ -8618,13 +8697,13 @@
     },
     "sources": {
      "elo": -7.6,
-     "epa": -7.4
+     "epa": -7.3
     }
    },
    "cover_prob": 0.562,
    "diffs": {
     "elo": -7.99,
-    "epa": -7.72
+    "epa": -7.66
    },
    "edge": 3.1,
    "ev": 0.073,
@@ -8635,19 +8714,19 @@
    "id": "2026_07_SF_ATL",
    "line": 4.5,
    "model_spread": 7.6,
-   "model_total": 49.4,
+   "model_total": 49.5,
    "neutral": false,
    "offset": -1.45,
-   "proj_away": 28.5,
+   "proj_away": 28.6,
    "proj_home": 20.9,
    "props": [
     {
      "bet": false,
-     "fair": -153,
-     "lam": 0.9269,
+     "fair": -154,
+     "lam": 0.9303,
      "name": "Christian McCaffrey",
      "note": "no market price yet",
-     "p": 0.604,
+     "p": 0.606,
      "pid": "00-0033280",
      "pos": "RB",
      "team": "SF"
@@ -8655,7 +8734,7 @@
     {
      "bet": false,
      "fair": 127,
-     "lam": 0.5799,
+     "lam": 0.58,
      "name": "Bijan Robinson",
      "note": "no market price yet",
      "p": 0.44,
@@ -8665,8 +8744,8 @@
     },
     {
      "bet": false,
-     "fair": 177,
-     "lam": 0.4487,
+     "fair": 176,
+     "lam": 0.4502,
      "name": "Mike Evans",
      "note": "no market price yet",
      "p": 0.362,
@@ -8684,16 +8763,16 @@
    "tier": "play",
    "total_line": 50.5,
    "total_pick": {
-    "edge": 1.1,
+    "edge": 1.0,
     "line": 50.5,
-    "model": 49.4,
+    "model": 49.5,
     "odds": null,
     "play": false,
-    "prob": 0.533,
+    "prob": 0.529,
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-19T01:48:11Z",
+   "updated": "2026-10-19T11:22:48Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -8701,7 +8780,7 @@
    }
   },
   "2026_07_TB_CAR": {
-   "ats_line": -3.0,
+   "ats_line": -3.5,
    "ats_side": "home",
    "ats_team": "Carolina Panthers",
    "away": "Tampa Bay Buccaneers",
@@ -8717,8 +8796,8 @@
      "agreement": 1.0,
      "consistency": 0.921,
      "data": 1.0,
-     "edge": 0.909,
-     "market": 0.5,
+     "edge": 0.799,
+     "market": 0.7,
      "trends": 0.25
     },
     "label": "High",
@@ -8734,55 +8813,55 @@
      "epa": 6.1
     }
    },
-   "cover_prob": 0.624,
+   "cover_prob": 0.575,
    "diffs": {
     "elo": 2.86,
-    "epa": 1.75
+    "epa": 1.76
    },
-   "edge": 4.1,
-   "ev": 0.133,
+   "edge": 3.6,
+   "ev": 0.14,
    "hfa_flag": 1,
    "home": "Carolina Panthers",
    "home_abbr": "CAR",
    "home_field": 1.795,
    "id": "2026_07_TB_CAR",
-   "line": -3.0,
+   "line": -3.5,
    "model_spread": -7.1,
-   "model_total": 44.9,
+   "model_total": 45.3,
    "neutral": false,
    "offset": 2.52,
-   "proj_away": 18.9,
-   "proj_home": 26.0,
+   "proj_away": 19.1,
+   "proj_home": 26.2,
    "props": [
     {
      "bet": false,
-     "fair": 143,
-     "lam": 0.5316,
+     "fair": 141,
+     "lam": 0.5357,
      "name": "Chuba Hubbard",
      "note": "no market price yet",
-     "p": 0.412,
+     "p": 0.415,
      "pid": "00-0036555",
      "pos": "RB",
      "team": "CAR"
     },
     {
      "bet": false,
-     "fair": 194,
-     "lam": 0.4158,
+     "fair": 192,
+     "lam": 0.4201,
      "name": "Bucky Irving",
      "note": "no market price yet",
-     "p": 0.34,
+     "p": 0.343,
      "pid": "00-0039361",
      "pos": "RB",
      "team": "TB"
     },
     {
      "bet": false,
-     "fair": 221,
-     "lam": 0.3726,
+     "fair": 220,
+     "lam": 0.3754,
      "name": "Tetairoa McMillan",
      "note": "no market price yet",
-     "p": 0.311,
+     "p": 0.313,
      "pid": "00-0040124",
      "pos": "WR",
      "team": "CAR"
@@ -8795,18 +8874,18 @@
    "su_team": "Carolina Panthers",
    "su_wp": 0.697,
    "tier": "play",
-   "total_line": 43.5,
+   "total_line": 44.5,
    "total_pick": {
-    "edge": 1.4,
-    "line": 43.5,
-    "model": 44.9,
+    "edge": 0.8,
+    "line": 44.5,
+    "model": 45.3,
     "odds": null,
     "play": false,
-    "prob": 0.543,
+    "prob": 0.523,
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-19T01:48:11Z",
+   "updated": "2026-10-19T11:22:48Z",
    "week": 7,
    "weights": {
     "elo": 0.925,

@@ -4566,6 +4566,8 @@
    "away_abbr": "CAR",
    "bet_at": "2026-10-18T16:06:25Z",
    "bet_line": 180.0,
+   "close_line": 180.0,
+   "clv": -0.0409,
    "conf_label": "High",
    "confidence": 71,
    "confidence_detail": {
@@ -4620,7 +4622,15 @@
    "odds": 180.0,
    "offset": 0.351,
    "prob": 0.396,
-   "result": null,
+   "result": {
+    "ats": "W",
+    "away_pts": 2,
+    "home_pts": 3,
+    "su": "L",
+    "total": "W",
+    "total_units": 0.769,
+    "units": 1.8
+   },
    "season": 20262027,
    "season_type": "regular",
    "start": "2026-10-19T00:00:00Z",
