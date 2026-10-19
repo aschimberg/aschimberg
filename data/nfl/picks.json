@@ -7237,7 +7237,7 @@
     "epa": 9.35
    },
    "edge": 3.7,
-   "ev": 0.065,
+   "ev": 0.095,
    "hfa_flag": 1,
    "home": "San Francisco 49ers",
    "home_abbr": "SF",
@@ -7303,7 +7303,7 @@
     "side": "over",
     "tier": "play"
    },
-   "updated": "2026-10-19T17:03:26Z",
+   "updated": "2026-10-19T23:21:19Z",
    "week": 6,
    "weights": {
     "elo": 0.925,
@@ -7311,7 +7311,7 @@
    }
   },
   "2026_07_CIN_BAL": {
-   "ats_line": 3.0,
+   "ats_line": 2.5,
    "ats_side": "away",
    "ats_team": "Cincinnati Bengals",
    "away": "Cincinnati Bengals",
@@ -7320,7 +7320,7 @@
    "bet_line": -3.0,
    "book": "nflverse consensus",
    "conf_label": "High",
-   "confidence": 89,
+   "confidence": 92,
    "confidence_detail": {
     "agree": 2,
     "components": {
@@ -7328,12 +7328,12 @@
      "consistency": 0.995,
      "data": 1.0,
      "edge": 1.0,
-     "market": 0.5,
+     "market": 0.7,
      "trends": 0.75
     },
     "label": "High",
     "n_sources": 2,
-    "score": 89,
+    "score": 92,
     "side": "away",
     "source_names": {
      "elo": "Elo",
@@ -7344,19 +7344,19 @@
      "epa": -2.5
     }
    },
-   "cover_prob": 0.665,
+   "cover_prob": 0.615,
    "diffs": {
     "elo": 1.26,
     "epa": 1.19
    },
-   "edge": 5.4,
-   "ev": 0.24,
+   "edge": 4.9,
+   "ev": 0.218,
    "hfa_flag": 1,
    "home": "Baltimore Ravens",
    "home_abbr": "BAL",
    "home_field": 1.795,
    "id": "2026_07_CIN_BAL",
-   "line": -3.0,
+   "line": -2.5,
    "model_spread": 2.4,
    "model_total": 53.9,
    "neutral": false,
@@ -7416,7 +7416,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-19T17:03:26Z",
+   "updated": "2026-10-19T23:21:19Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -7529,7 +7529,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-19T17:03:26Z",
+   "updated": "2026-10-19T23:21:19Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -7642,7 +7642,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-19T17:03:26Z",
+   "updated": "2026-10-19T23:21:19Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -7755,7 +7755,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-19T17:03:26Z",
+   "updated": "2026-10-19T23:21:19Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -7868,7 +7868,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-19T17:03:26Z",
+   "updated": "2026-10-19T23:21:19Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -7876,7 +7876,7 @@
    }
   },
   "2026_07_IND_MIN": {
-   "ats_line": -5.5,
+   "ats_line": -6.0,
    "ats_side": "home",
    "ats_team": "Minnesota Vikings",
    "away": "Indianapolis Colts",
@@ -7885,7 +7885,7 @@
    "bet_line": -6.0,
    "book": "nflverse consensus",
    "conf_label": "High",
-   "confidence": 78,
+   "confidence": 81,
    "confidence_detail": {
     "agree": 2,
     "components": {
@@ -7893,12 +7893,12 @@
      "consistency": 0.758,
      "data": 1.0,
      "edge": 1.0,
-     "market": 0.3,
+     "market": 0.5,
      "trends": 0.375
     },
     "label": "High",
     "n_sources": 2,
-    "score": 78,
+    "score": 81,
     "side": "home",
     "source_names": {
      "elo": "Elo",
@@ -7909,19 +7909,19 @@
      "epa": 8.8
     }
    },
-   "cover_prob": 0.661,
+   "cover_prob": 0.649,
    "diffs": {
     "elo": 8.18,
     "epa": 4.79
    },
-   "edge": 6.5,
-   "ev": 0.251,
+   "edge": 6.0,
+   "ev": 0.221,
    "hfa_flag": 1,
    "home": "Minnesota Vikings",
    "home_abbr": "MIN",
    "home_field": 1.795,
    "id": "2026_07_IND_MIN",
-   "line": -5.5,
+   "line": -6.0,
    "model_spread": -12.0,
    "model_total": 37.5,
    "neutral": false,
@@ -7981,7 +7981,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-10-19T17:03:26Z",
+   "updated": "2026-10-19T23:21:19Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -8094,7 +8094,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-19T17:03:26Z",
+   "updated": "2026-10-19T23:21:19Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -8102,7 +8102,7 @@
    }
   },
   "2026_07_LA_LV": {
-   "ats_line": 5.5,
+   "ats_line": 4.5,
    "ats_side": "home",
    "ats_team": "Las Vegas Raiders",
    "away": "Los Angeles Rams",
@@ -8111,20 +8111,20 @@
    "bet_line": 6.0,
    "book": "nflverse consensus",
    "conf_label": "High",
-   "confidence": 81,
+   "confidence": 79,
    "confidence_detail": {
-    "agree": 2,
+    "agree": 1,
     "components": {
-     "agreement": 1.0,
+     "agreement": 0.925,
      "consistency": 0.783,
      "data": 1.0,
-     "edge": 0.826,
-     "market": 0.7,
+     "edge": 0.604,
+     "market": 1.0,
      "trends": 0.5
     },
     "label": "High",
     "n_sources": 2,
-    "score": 81,
+    "score": 79,
     "side": "home",
     "source_names": {
      "elo": "Elo",
@@ -8135,19 +8135,19 @@
      "epa": -4.6
     }
    },
-   "cover_prob": 0.626,
+   "cover_prob": 0.606,
    "diffs": {
     "elo": -5.53,
     "epa": -8.57
    },
-   "edge": 3.7,
-   "ev": 0.196,
+   "edge": 2.7,
+   "ev": 0.156,
    "hfa_flag": 1,
    "home": "Las Vegas Raiders",
    "home_abbr": "LV",
    "home_field": 1.795,
    "id": "2026_07_LA_LV",
-   "line": 5.5,
+   "line": 4.5,
    "model_spread": 1.8,
    "model_total": 49.5,
    "neutral": false,
@@ -8168,17 +8168,6 @@
     },
     {
      "bet": false,
-     "fair": 104,
-     "lam": 0.6756,
-     "name": "Davante Adams",
-     "note": "no market price yet",
-     "p": 0.491,
-     "pid": "00-0031381",
-     "pos": "WR",
-     "team": "LA"
-    },
-    {
-     "bet": false,
      "fair": 119,
      "lam": 0.6097,
      "name": "Ashton Jeanty",
@@ -8187,6 +8176,17 @@
      "pid": "00-0040122",
      "pos": "RB",
      "team": "LV"
+    },
+    {
+     "bet": false,
+     "fair": 131,
+     "lam": 0.5673,
+     "name": "Puka Nacua",
+     "note": "no market price yet",
+     "p": 0.433,
+     "pid": "00-0039075",
+     "pos": "WR",
+     "team": "LA"
     }
    ],
    "result": null,
@@ -8195,7 +8195,7 @@
    "start": "2026-10-25T20:25:00Z",
    "su_team": "Los Angeles Rams",
    "su_wp": 0.552,
-   "tier": "play",
+   "tier": "lean",
    "total_line": 47.5,
    "total_pick": {
     "edge": 2.0,
@@ -8207,7 +8207,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-19T17:03:26Z",
+   "updated": "2026-10-19T23:21:19Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -8320,7 +8320,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-19T17:03:26Z",
+   "updated": "2026-10-19T23:21:19Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -8405,12 +8405,12 @@
     },
     {
      "bet": false,
-     "fair": 208,
-     "lam": 0.3919,
-     "name": "Romeo Doubs",
+     "fair": 230,
+     "lam": 0.3608,
+     "name": "A.J. Brown",
      "note": "no market price yet",
-     "p": 0.324,
-     "pid": "00-0037816",
+     "p": 0.303,
+     "pid": "00-0035676",
      "pos": "WR",
      "team": "NE"
     }
@@ -8422,18 +8422,18 @@
    "su_team": "Chicago Bears",
    "su_wp": 0.505,
    "tier": "lean",
-   "total_line": 49.5,
+   "total_line": 50.5,
    "total_pick": {
-    "edge": 1.5,
-    "line": 49.5,
+    "edge": 2.5,
+    "line": 50.5,
     "model": 48.0,
     "odds": null,
     "play": false,
-    "prob": 0.543,
+    "prob": 0.572,
     "side": "under",
-    "tier": "pass"
+    "tier": "lean"
    },
-   "updated": "2026-10-19T17:03:26Z",
+   "updated": "2026-10-19T23:21:19Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -8480,7 +8480,7 @@
     "epa": 7.05
    },
    "edge": 1.2,
-   "ev": 0.081,
+   "ev": 0.091,
    "hfa_flag": 1,
    "home": "Houston Texans",
    "home_abbr": "HOU",
@@ -8546,7 +8546,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-19T17:03:26Z",
+   "updated": "2026-10-19T23:21:19Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -8554,7 +8554,7 @@
    }
   },
   "2026_07_PIT_NO": {
-   "ats_line": -2.5,
+   "ats_line": -3.0,
    "ats_side": "away",
    "ats_team": "Pittsburgh Steelers",
    "away": "Pittsburgh Steelers",
@@ -8563,20 +8563,20 @@
    "bet_line": 2.5,
    "book": "nflverse consensus",
    "conf_label": "Medium",
-   "confidence": 67,
+   "confidence": 66,
    "confidence_detail": {
-    "agree": 2,
+    "agree": 1,
     "components": {
-     "agreement": 1.0,
+     "agreement": 0.925,
      "consistency": 0.894,
      "data": 1.0,
-     "edge": 0.34,
-     "market": 0.5,
+     "edge": 0.229,
+     "market": 0.7,
      "trends": 0.5
     },
     "label": "Medium",
     "n_sources": 2,
-    "score": 67,
+    "score": 66,
     "side": "away",
     "source_names": {
      "elo": "Elo",
@@ -8587,19 +8587,19 @@
      "epa": -2.7
     }
    },
-   "cover_prob": 0.569,
+   "cover_prob": 0.531,
    "diffs": {
     "elo": -4.8,
     "epa": -3.31
    },
-   "edge": 1.5,
-   "ev": 0.087,
+   "edge": 1.0,
+   "ev": -0.007,
    "hfa_flag": 0,
    "home": "New Orleans Saints",
    "home_abbr": "NO",
    "home_field": 1.795,
    "id": "2026_07_PIT_NO",
-   "line": 2.5,
+   "line": 3.0,
    "model_spread": 4.0,
    "model_total": 43.9,
    "neutral": true,
@@ -8647,7 +8647,7 @@
    "start": "2026-10-25T13:30:00Z",
    "su_team": "Pittsburgh Steelers",
    "su_wp": 0.616,
-   "tier": "lean",
+   "tier": "pass",
    "total_line": 44.5,
    "total_pick": {
     "edge": 0.6,
@@ -8659,7 +8659,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-19T17:03:26Z",
+   "updated": "2026-10-19T23:21:19Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -8706,7 +8706,7 @@
     "epa": -7.66
    },
    "edge": 3.1,
-   "ev": 0.073,
+   "ev": 0.097,
    "hfa_flag": 1,
    "home": "Atlanta Falcons",
    "home_abbr": "ATL",
@@ -8772,7 +8772,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-19T17:03:26Z",
+   "updated": "2026-10-19T23:21:19Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -8819,7 +8819,7 @@
     "epa": 1.76
    },
    "edge": 3.6,
-   "ev": 0.14,
+   "ev": 0.108,
    "hfa_flag": 1,
    "home": "Carolina Panthers",
    "home_abbr": "CAR",
@@ -8885,7 +8885,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-19T17:03:26Z",
+   "updated": "2026-10-19T23:21:19Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
