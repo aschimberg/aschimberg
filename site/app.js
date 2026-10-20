@@ -537,7 +537,8 @@
   }
 
   // --- Backtest --------------------------------------------------------------
-  const wkLabel = (r) => r.label || (r.season_type === "regular" ? `Week ${r.week}` : (state.meta?.sport === "nfl" ? { 19: "Wild Card", 20: "Divisional", 21: "Conference", 22: "Super Bowl" }[r.week] || `Post ${r.week}` : "Bowls"));
+  // picks carry no label; borrow their week's ("Week of Oct 21") when the backtest has one
+  const wkLabel = (r) => r.label || state.backtest?.weeks?.find((w) => w.label && wkKey(w) === wkKey(r))?.label || (r.season_type === "regular" ? `Week ${r.week}` : (state.meta?.sport === "nfl" ? { 19: "Wild Card", 20: "Divisional", 21: "Conference", 22: "Super Bowl" }[r.week] || `Post ${r.week}` : "Bowls"));
   const wkKey = (r) => `${r.season}|${r.season_type}|${r.week}`;
   const wFmt = (w) => Object.entries(w || {}).map(([k, v]) => `${k.toUpperCase()} ${Math.round(v * 100)}%`).join(" · ");
 

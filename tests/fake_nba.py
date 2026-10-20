@@ -75,7 +75,7 @@ class FakeESPN:
                 "season": {"year": g["season"], "type": 2},
                 "competitions": [{"neutralSite": False, "competitors": [comp("home"), comp("away")],
                                   "status": {"type": {"state": state, "completed": g["done"], "shortDetail": "Final" if g["done"] else "7:30 PM"}},
-                                  "odds": odds, "venue": {"fullName": "Arena"}, "broadcasts": []}]}
+                                  "odds": odds, "venue": {"fullName": "Arena"}, "broadcasts": [{"names": ["ESPN"]}]}]}
 
     def _summary(self, g):
         box_teams, box_players = [], []

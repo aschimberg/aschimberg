@@ -204,7 +204,8 @@ def refresh(loader=None, now=None, log=print):
         res = {"completed": g["completed"], "home_pts": g.get("home_score"), "away_pts": g.get("away_score"),
                **((logged or {}).get("result") or {})}
         cards.append({
-            "id": g["id"], "start": g["start"], "start_tbd": False, "venue": g.get("venue"), "tv": g.get("tv"),
+            "id": g["id"], "start": g["start"], "start_tbd": False, "venue": g.get("venue"),
+            "tv": [g["tv"]] if isinstance(g.get("tv"), str) else g.get("tv"),  # the site expects a list
             "neutral": g["neutral"], "conference_game": False, "home": tb("home"), "away": tb("away"),
             "line": line, "model": mp,
             "pick": {k: logged.get(k) for k in ("ats_side", "ats_team", "ats_line", "edge", "tier", "su_team", "su_wp", "line",

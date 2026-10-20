@@ -116,6 +116,7 @@ class NbaPipelineTests(unittest.TestCase):
             self.assertIsNotNone(c["pick"]["ats_side"])
             self.assertIn(c["pick"]["tier"], ("strong", "play", "lean", "pass"))
             self.assertIsNotNone(c["pick"]["total_pick"])
+            self.assertTrue(all(c["tv"] is None or isinstance(c["tv"], list) for c in cards))  # app.js joins it
             # LAL's star listed out moves LAL's line and shows on the card
             lal = [c for c in cards if "LAL" in (c["home"]["abbr"], c["away"]["abbr"])]
             if lal:

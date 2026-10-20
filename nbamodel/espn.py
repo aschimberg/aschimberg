@@ -141,7 +141,7 @@ def parse_event(e):
         "state": state, "completed": bool(st.get("completed")),
         "detail": st.get("shortDetail"),
         "venue": (c.get("venue") or {}).get("fullName"),
-        "tv": ", ".join(b.get("names", [None])[0] for b in c.get("broadcasts", []) if b.get("names")) or None,
+        "tv": [n for b in c.get("broadcasts", []) for n in (b.get("names") or [])[:1] if n] or None,
         "odds": parse_odds((c.get("odds") or [None])[0], h),
     }
     teams = {}
