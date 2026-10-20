@@ -4857,6 +4857,8 @@
    "away_abbr": "SJS",
    "bet_at": "2026-10-19T16:06:47Z",
    "bet_line": -135.0,
+   "close_line": -135.0,
+   "clv": -0.0401,
    "conf_label": "Low",
    "confidence": 44,
    "confidence_detail": {
@@ -4911,7 +4913,15 @@
    "odds": -135.0,
    "offset": 0.065,
    "prob": 0.567,
-   "result": null,
+   "result": {
+    "ats": "W",
+    "away_pts": 1,
+    "home_pts": 3,
+    "su": "W",
+    "total": "W",
+    "total_units": 1.2,
+    "units": 0.741
+   },
    "season": 20262027,
    "season_type": "regular",
    "start": "2026-10-19T23:30:00Z",
@@ -4944,6 +4954,8 @@
    "away_abbr": "PIT",
    "bet_at": "2026-10-19T16:06:47Z",
    "bet_line": 154.0,
+   "close_line": 154.0,
+   "clv": -0.0411,
    "conf_label": "Medium",
    "confidence": 60,
    "confidence_detail": {
@@ -4998,7 +5010,15 @@
    "odds": 154.0,
    "offset": 0.046,
    "prob": 0.406,
-   "result": null,
+   "result": {
+    "ats": "L",
+    "away_pts": 4,
+    "home_pts": 5,
+    "su": "W",
+    "total": "L",
+    "total_units": -1.0,
+    "units": -1.0
+   },
    "season": 20262027,
    "season_type": "regular",
    "start": "2026-10-20T01:00:00Z",
