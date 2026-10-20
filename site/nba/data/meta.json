@@ -1,7 +1,7 @@
 {
  "board_note": "Scores are model projections until final. Lines are DraftKings via ESPN; open is the opening line. Times in your local zone.",
  "data_source": "<a href=\"https://www.espn.com/nba/\">ESPN</a> public API",
- "generated_at": "2026-10-20T13:35:06Z",
+ "generated_at": "2026-10-20T13:39:36Z",
  "hero_title": "Tonight's <span>NBA</span> <br>Projections.",
  "method_html": "\n<h3>Team strength</h3>\n<p>Three margin sources, blended 12% efficiency / 80% points / 8% Elo:</p>\n<ul>\n<li><strong>Efficiency</strong>: opponent-adjusted points per 100 possessions on offense and defense (ridge regression; possessions from ESPN box scores), times the projected pace of the game.</li>\n<li><strong>Points</strong>: the same fit on points per game.</li>\n<li><strong>Elo</strong>: a 538-style Elo with a margin-of-victory multiplier, 28 Elo points per point of spread.</li>\n</ul>\n<p>Recent games count more (0.99\u00d7 per day). Each season starts from 55% of last season's ratings, worth 10 games of evidence, so October numbers don't swing on two results.</p>\n<h3>Injuries</h3>\n<p>Each player's value is his Game Score per minute (this season, plus last season at half weight, shrunk toward replacement level) above replacement, times his usual minutes, converted to points (0.6 points of margin per Game Score point). Team ratings already reflect whoever has been playing, so the line only moves by the difference between tonight and the last 10 games. Out counts fully, Doubtful 80%, Questionable 50%, Day-To-Day 35%. A player out for weeks moves nothing; one hurt yesterday moves it fully. Injury notes on each card show the biggest adjustments.</p>\n<h3>Schedule and home court</h3>\n<p>Home court 1.7 points (none at neutral sites). The second night of a back-to-back costs 1.5 points.</p>\n<h3>Totals</h3>\n<p>Projected possessions \u00d7 each offense vs the other defense (efficiency), blended 60/40 with the points fit; half of each team's injury adjustment also comes off the total.</p>\n<h3>Picks, confidence and tuning</h3>\n<p>Edge = projected margin vs the DraftKings spread (via ESPN). Cover probability uses a normal margin distribution (SD 12). Tiers: lean 1.5+, play 3+, strong 5+. Over/unders: lean 3+, play 5+, strong 8+ points. Confidence weighs whether each source covers on its own, the edge, line movement and data quality. Every Monday the source weights and home court are refit to this season's results and moved part of the way there.</p>\n<p>Data: ESPN's public NBA API (schedule, scores, box scores, DraftKings lines, injury report). For entertainment only.</p>",
  "poll": null,
@@ -68,7 +68,7 @@
    "market": 0.15,
    "trends": 0.15
   },
-  "home_field": 1.695,
+  "home_field": 1.701,
   "lean_edge": 1.5,
   "play_edge": 3.0,
   "strong_edge": 5.0,
@@ -100,9 +100,9 @@
    {
     "at": "2026-02-02T02:30:00Z",
     "games": 488,
-    "home_field": 1.792,
-    "rmse_after": 14.269,
-    "rmse_before": 14.267,
+    "home_field": 1.804,
+    "rmse_after": 14.264,
+    "rmse_before": 14.263,
     "status": "updated",
     "weights": {
      "eff": 0.203,
@@ -113,9 +113,9 @@
    {
     "at": "2026-02-08T20:00:00Z",
     "games": 537,
-    "home_field": 1.6,
-    "rmse_after": 14.277,
-    "rmse_before": 14.286,
+    "home_field": 1.612,
+    "rmse_after": 14.272,
+    "rmse_before": 14.281,
     "status": "updated",
     "weights": {
      "eff": 0.192,
@@ -126,9 +126,9 @@
    {
     "at": "2026-02-13T03:00:00Z",
     "games": 568,
-    "home_field": 1.514,
-    "rmse_after": 14.315,
-    "rmse_before": 14.319,
+    "home_field": 1.526,
+    "rmse_after": 14.311,
+    "rmse_before": 14.314,
     "status": "updated",
     "weights": {
      "eff": 0.186,
@@ -139,9 +139,9 @@
    {
     "at": "2026-02-23T02:00:00Z",
     "games": 604,
-    "home_field": 1.329,
-    "rmse_after": 14.44,
-    "rmse_before": 14.449,
+    "home_field": 1.342,
+    "rmse_after": 14.434,
+    "rmse_before": 14.444,
     "status": "updated",
     "weights": {
      "eff": 0.179,
@@ -152,9 +152,9 @@
    {
     "at": "2026-03-02T02:30:00Z",
     "games": 655,
-    "home_field": 1.325,
-    "rmse_after": 14.425,
-    "rmse_before": 14.425,
+    "home_field": 1.34,
+    "rmse_after": 14.417,
+    "rmse_before": 14.417,
     "status": "updated",
     "weights": {
      "eff": 0.171,
@@ -165,9 +165,9 @@
    {
     "at": "2026-03-09T02:00:00Z",
     "games": 707,
-    "home_field": 1.278,
-    "rmse_after": 14.494,
-    "rmse_before": 14.496,
+    "home_field": 1.29,
+    "rmse_after": 14.487,
+    "rmse_before": 14.489,
     "status": "updated",
     "weights": {
      "eff": 0.163,
@@ -178,9 +178,9 @@
    {
     "at": "2026-03-16T02:00:00Z",
     "games": 760,
-    "home_field": 1.37,
-    "rmse_after": 14.297,
-    "rmse_before": 14.294,
+    "home_field": 1.38,
+    "rmse_after": 14.291,
+    "rmse_before": 14.288,
     "status": "updated",
     "weights": {
      "eff": 0.155,
@@ -191,9 +191,9 @@
    {
     "at": "2026-03-23T01:00:00Z",
     "games": 814,
-    "home_field": 1.522,
-    "rmse_after": 14.238,
-    "rmse_before": 14.235,
+    "home_field": 1.532,
+    "rmse_after": 14.234,
+    "rmse_before": 14.23,
     "status": "updated",
     "weights": {
      "eff": 0.148,
@@ -204,87 +204,87 @@
    {
     "at": "2026-03-30T02:00:00Z",
     "games": 868,
-    "home_field": 1.64,
-    "rmse_after": 14.394,
-    "rmse_before": 14.392,
+    "home_field": 1.646,
+    "rmse_after": 14.393,
+    "rmse_before": 14.391,
     "status": "updated",
     "weights": {
      "eff": 0.142,
-     "elo": 0.095,
-     "pts": 0.763
+     "elo": 0.129,
+     "pts": 0.729
     }
    },
    {
     "at": "2026-04-06T02:00:00Z",
     "games": 921,
-    "home_field": 1.585,
-    "rmse_after": 14.403,
-    "rmse_before": 14.404,
+    "home_field": 1.588,
+    "rmse_after": 14.401,
+    "rmse_before": 14.402,
     "status": "updated",
     "weights": {
      "eff": 0.136,
-     "elo": 0.091,
-     "pts": 0.773
+     "elo": 0.126,
+     "pts": 0.738
     }
    },
    {
     "at": "2026-04-13T00:30:00Z",
     "games": 979,
-    "home_field": 1.677,
-    "rmse_after": 14.538,
-    "rmse_before": 14.537,
+    "home_field": 1.68,
+    "rmse_after": 14.537,
+    "rmse_before": 14.535,
     "status": "updated",
     "weights": {
      "eff": 0.131,
-     "elo": 0.123,
-     "pts": 0.747
+     "elo": 0.158,
+     "pts": 0.711
     }
    },
    {
     "at": "2026-04-20T01:00:00Z",
     "games": 993,
-    "home_field": 1.757,
-    "rmse_after": 14.55,
-    "rmse_before": 14.549,
+    "home_field": 1.756,
+    "rmse_after": 14.548,
+    "rmse_before": 14.547,
     "status": "updated",
     "weights": {
      "eff": 0.129,
-     "elo": 0.086,
-     "pts": 0.785
+     "elo": 0.157,
+     "pts": 0.713
     }
    },
    {
     "at": "2026-04-27T01:30:00Z",
     "games": 1015,
-    "home_field": 1.744,
-    "rmse_after": 14.528,
-    "rmse_before": 14.528,
+    "home_field": 1.748,
+    "rmse_after": 14.526,
+    "rmse_before": 14.527,
     "status": "updated",
     "weights": {
      "eff": 0.127,
-     "elo": 0.085,
-     "pts": 0.788
+     "elo": 0.121,
+     "pts": 0.752
     }
    },
    {
     "at": "2026-05-03T23:30:00Z",
     "games": 1032,
-    "home_field": 1.717,
-    "rmse_after": 14.58,
-    "rmse_before": 14.581,
+    "home_field": 1.72,
+    "rmse_after": 14.578,
+    "rmse_before": 14.579,
     "status": "updated",
     "weights": {
      "eff": 0.126,
-     "elo": 0.12,
-     "pts": 0.754
+     "elo": 0.156,
+     "pts": 0.718
     }
    },
    {
     "at": "2026-05-10T23:30:00Z",
     "games": 1045,
-    "home_field": 1.745,
-    "rmse_after": 14.608,
-    "rmse_before": 14.609,
+    "home_field": 1.751,
+    "rmse_after": 14.605,
+    "rmse_before": 14.606,
     "status": "updated",
     "weights": {
      "eff": 0.125,
@@ -295,9 +295,9 @@
    {
     "at": "2026-05-18T00:00:00Z",
     "games": 1051,
-    "home_field": 1.711,
-    "rmse_after": 14.661,
-    "rmse_before": 14.662,
+    "home_field": 1.718,
+    "rmse_after": 14.658,
+    "rmse_before": 14.659,
     "status": "updated",
     "weights": {
      "eff": 0.124,
@@ -308,9 +308,9 @@
    {
     "at": "2026-05-25T00:00:00Z",
     "games": 1057,
-    "home_field": 1.716,
-    "rmse_after": 14.649,
-    "rmse_before": 14.649,
+    "home_field": 1.722,
+    "rmse_after": 14.647,
+    "rmse_before": 14.647,
     "status": "updated",
     "weights": {
      "eff": 0.124,
@@ -321,9 +321,9 @@
    {
     "at": "2026-05-31T00:00:00Z",
     "games": 1061,
-    "home_field": 1.713,
-    "rmse_after": 14.685,
-    "rmse_before": 14.685,
+    "home_field": 1.72,
+    "rmse_after": 14.683,
+    "rmse_before": 14.683,
     "status": "updated",
     "weights": {
      "eff": 0.123,
@@ -334,9 +334,9 @@
    {
     "at": "2026-06-06T00:30:00Z",
     "games": 1063,
-    "home_field": 1.704,
-    "rmse_after": 14.676,
-    "rmse_before": 14.676,
+    "home_field": 1.71,
+    "rmse_after": 14.674,
+    "rmse_before": 14.674,
     "status": "updated",
     "weights": {
      "eff": 0.123,
@@ -347,9 +347,9 @@
    {
     "at": "2026-06-14T00:30:00Z",
     "games": 1066,
-    "home_field": 1.695,
-    "rmse_after": 14.657,
-    "rmse_before": 14.658,
+    "home_field": 1.701,
+    "rmse_after": 14.655,
+    "rmse_before": 14.655,
     "status": "updated",
     "weights": {
      "eff": 0.123,
@@ -358,10 +358,10 @@
     }
    }
   ],
-  "home_field": 1.695,
+  "home_field": 1.701,
   "last": {
    "after": {
-    "home_field": 1.695,
+    "home_field": 1.701,
     "weights": {
      "eff": 0.123,
      "elo": 0.082,
@@ -380,7 +380,7 @@
    "at": "2026-06-14T00:30:00Z",
    "backtest": true,
    "before": {
-    "home_field": 1.704,
+    "home_field": 1.71,
     "weights": {
      "eff": 0.123,
      "elo": 0.082,
@@ -389,17 +389,17 @@
    },
    "by_source": {
     "eff": {
-     "rmse": 14.656
+     "rmse": 14.655
     },
     "elo": {
      "rmse": 14.724
     },
     "pts": {
-     "rmse": 14.654
+     "rmse": 14.653
     }
    },
    "fit": {
-    "home_field": 1.468,
+    "home_field": 1.477,
     "weights": {
      "eff": 0.0,
      "elo": 0.0,
@@ -407,15 +407,15 @@
     }
    },
    "games": 1066,
-   "rmse_after": 14.657,
-   "rmse_before": 14.658,
+   "rmse_after": 14.655,
+   "rmse_before": 14.655,
    "season": 2026,
    "season_type": "postseason",
    "status": "updated",
    "week": 202624
   },
   "min_games": 60,
-  "updated": "2026-10-20T13:35:06Z",
+  "updated": "2026-10-20T13:39:36Z",
   "weights": {
    "eff": 0.123,
    "elo": 0.082,
