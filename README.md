@@ -1,8 +1,8 @@
 # ASPicks Model
 
-College football, NFL and NHL projections and picks.
+College football, NFL, NHL and NBA projections and picks.
 
-**🔗 Live site: [aschimberg.github.io/aschimberg](https://aschimberg.github.io/aschimberg/)** ([CFB](https://aschimberg.github.io/aschimberg/) · [NFL](https://aschimberg.github.io/aschimberg/nfl/) · [NHL](https://aschimberg.github.io/aschimberg/nhl/))
+**🔗 Live site: [aschimberg.github.io/aschimberg](https://aschimberg.github.io/aschimberg/)** ([CFB](https://aschimberg.github.io/aschimberg/) · [NFL](https://aschimberg.github.io/aschimberg/nfl/) · [NHL](https://aschimberg.github.io/aschimberg/nhl/) · [NBA](https://aschimberg.github.io/aschimberg/nba/))
 
 A static college football model site on GitHub Pages, driven by
 [CollegeFootballData.com](https://collegefootballdata.com) and GitHub Actions.
@@ -17,9 +17,9 @@ The visual design follows [davidsasser.com/cfb](https://davidsasser.com/cfb): wa
 - **Bet splits**: public bet % and money % per side, with sharp/public/reverse-line-move flags. The feed is swappable (see below).
 - **ntfy briefing**: sent at 9 AM CT on game days with picks, biggest edges, line moves, key ATS trends and bet splits. A recap goes out after Sunday grading.
 
-## NFL and NHL models
+## NFL, NHL and NBA models
 
-The same site serves `/nfl/` and `/nhl/` (switch sports in the header). Both run daily inside the **Daily refresh** workflow and work without API keys. An optional [The Odds API](https://the-odds-api.com) key adds multi-book lines (see below).
+The same site serves `/nfl/`, `/nhl/` and `/nba/` (switch sports in the header). All three run daily inside the **Daily refresh** workflow and work without API keys. An optional [The Odds API](https://the-odds-api.com) key adds multi-book lines (see below).
 
 **NFL** (`nflmodel/`, data from [nflverse](https://github.com/nflverse), CC BY 4.0: schedules, consensus lines, projected starting QBs, play-by-play):
 - **Team strength:** opponent-adjusted EPA/play on offense and defense, fit with weighted ridge regression. Recent weeks count more and garbage time is excluded. Ratings are shrunk toward last season.
@@ -37,7 +37,14 @@ The same site serves `/nfl/` and `/nhl/` (switch sports in the header). Both run
 - **Score distribution:** regulation Poisson, plus empty-net goals and an overtime/shootout step. This gives win, puck-line and total probabilities.
 - **Picks:** moneyline value picks by EV%, totals at 3%+ EV, records in units, and a briefing only on days with value.
 
-Tuning: NHL weights and home ice are refit on Mondays and the xG model is retrained; NFL weights and home field are refit on Tuesdays. NHL play-by-play is cached in `data/nhl/cache/` (the first run backfills last season, about 8 minutes).
+**NBA** (`nbamodel/`, data from ESPN's public API, no key needed: schedule, scores, box scores, DraftKings spreads/totals/moneylines with opening and closing prices, and the injury report):
+- **Team strength:** three margin sources, blended and tuned weekly: opponent-adjusted points per 100 possessions (offense and defense, possessions estimated from box scores) times the game's projected pace; the same fit on points per game; and a 538-style Elo. Recent games count more, and each season starts from about half of last season's ratings.
+- **Injuries:** each player's value is his Game Score per minute above replacement level times his usual minutes, in points of margin. Team ratings already reflect whoever has been playing, so the line moves only by the difference between tonight's expected availability (Out, Doubtful 80%, Questionable 50%, Day-To-Day 35%) and how often he played in the team's last 10 games. Cards list the biggest adjustments.
+- **Schedule and home court:** about 2.3 points of home court (tuned weekly) and 1.5 points for the second night of a back-to-back.
+- **Picks:** ATS edges against the DraftKings spread with tiers (lean 1.5+, play 3+, strong 5+), cover probability, confidence, over/unders, CLV against the closing line and an ntfy briefing on game days with value.
+- **Data:** season caches with box scores live in `data/nba/cache/`; finished dates are never re-fetched. The NBA's own stats CDN blocks GitHub's runners, so ESPN is the source. [balldontlie.io](https://www.balldontlie.io) is a keyed free alternative if ESPN ever closes.
+
+Tuning: NHL and NBA weights and home advantage are refit on Mondays (and the NHL xG model is retrained); NFL weights and home field are refit on Tuesdays. NHL play-by-play is cached in `data/nhl/cache/` (the first run backfills last season, about 8 minutes).
 
 ## Anytime TD best bets (NFL)
 
@@ -80,7 +87,7 @@ CLV is the quickest honest read on whether the picks have an edge, because it be
 
 ## Backtests
 
-`python -m nflmodel backtest --seasons 2023-2026` and `python -m cfbmodel backtest --seasons 2024-2026` replay each past week using only data available before kickoff. Each week is priced against the closing line with the live pick and confidence logic, then the weekly tuner runs, just as it does live. Results appear on each sport's **Record → Backtest** section: per-season and per-week records, the weights after every weekly tune, and every pick. You can also run them from Actions → **Backtest** (`apply` folds them into the live model).
+`python -m nflmodel backtest --seasons 2023-2026`, `python -m cfbmodel backtest --seasons 2024-2026` and `python -m nbamodel backtest --seasons 2026` replay each past week using only data available before kickoff. Each week is priced against the closing line with the live pick and confidence logic, then the weekly tuner runs, just as it does live. Results appear on each sport's **Record → Backtest** section: per-season and per-week records, the weights after every weekly tune, and every pick. You can also run them from Actions → **Backtest** (`apply` folds them into the live model).
 
 - **NFL:**
   - EPA ratings are refit from earlier weeks' play-by-play; Elo is computed game by game in order.
@@ -93,6 +100,11 @@ CLV is the quickest honest read on whether the picks have an edge, because it be
     - an SP+ stand-in: opponent-adjusted scoring margin shrunk toward last season's SP+.
   - `--apply` adds this season's backtest picks and adopts the backtest's Elo weight, since that is the same CFBD Elo the live model uses.
   - The SP+/FPI split and home field stay with live tuning, and backtest picks are excluded from it, because their SP+/FPI columns are stand-ins.
+- **NBA:**
+  - Each game day is rebuilt from games finished before it: efficiency, points and pace fits, Elo, player values.
+  - Injuries are the rotation players who actually sat out, which is what the injury report shows at tip-off.
+  - Each game is priced against ESPN's closing DraftKings line; the Monday tuner runs each week.
+  - `--apply` adopts the tuned weights and home court as this season's starting point. Season years are ESPN's (2026 = 2025–26).
 
 ## The Odds API (optional)
 
@@ -100,6 +112,7 @@ Add a repository secret `ODDS_API_KEY` to turn this on. With no key, the free so
 
 - **NFL:** the line becomes the consensus (median) spread and total across US books, priced at DraftKings (then FanDuel, BetMGM, Caesars). Cards show the best available number for the pick side.
 - **NHL:** fills in moneylines and totals for games DraftKings hasn't posted in the NHL feed yet, and shows the best price for the pick.
+- **NBA:** fills in spreads and totals for games ESPN hasn't priced yet (games within 30 hours).
 - **Credits:**
   - Each call costs markets × regions (2 credits here).
   - Responses are cached for 6 hours per sport (`NFL_ODDS_API_MAX_AGE`, `NHL_ODDS_API_MAX_AGE`), which works out to about 200–250 credits a month, under the free plan's 500.
@@ -114,7 +127,7 @@ Add a repository secret `ODDS_API_KEY` to turn this on. With no key, the free so
    - `NTFY_TOPIC` (required for push): your ntfy topic name. Pick a hard-to-guess one, because anyone who knows a public ntfy.sh topic can read it.
    - `NTFY_TOKEN` (optional): an access token if your topic is protected.
    - `SPLITS_API_KEY` (optional): a bearer token for an `http_json` splits feed.
-   - `ODDS_API_KEY` (optional): The Odds API key for multi-book NFL/NHL lines.
+   - `ODDS_API_KEY` (optional): The Odds API key for multi-book NFL lines and NHL/NBA fallback odds.
 2. **Variables** (optional, *Variables* tab): `SITE_URL`, `NTFY_SERVER`, `SPLITS_PROVIDER` (`none` | `file` | `http_json`), `SPLITS_URL`.
 3. **Pages**: Settings → Pages → Source: **GitHub Actions**.
 4. **Default branch**: scheduled workflows only run on the default branch, and the `github-pages` environment only deploys from it by default. Merge this work into `main` and make `main` the default branch.
@@ -124,10 +137,10 @@ Add a repository secret `ODDS_API_KEY` to turn this on. With no key, the free so
 
 | Workflow | When | What |
 |---|---|---|
-| `refresh.yml` | twice daily, 10:23 and 22:23 UTC | ratings, lines, projections, picks (re-priced until kickoff), trends, splits, grading → commit → deploy |
-| `grade.yml` | Sun/Mon/Tue 12:11 UTC | grades SU and ATS for every finished pick, rebuilds the record, sends an ntfy recap |
-| `briefing.yml` | every 30 min, 14:07–18:37 UTC, plus a Claude routine that starts it at 9:05 AM CT | sends each sport's ntfy briefing once per game day, between 9 AM and 2 PM CT (GitHub often runs these crons hours late or skips them). The NHL briefing waits until that day's odds are posted and only goes out when there's value |
-| `pregame.yml` | daily 21:17 UTC; Sun 16:17 + 19:47 UTC; Sun/Mon/Thu 23:47 UTC | re-checks lineups (NFL starting QBs, NHL probable goalies) and re-prices before kickoff / puck drop; picks up the day's DraftKings NHL lines |
+| `refresh.yml` | twice daily, 10:23 and 22:23 UTC, plus a Claude routine that starts it when GitHub skips a run | ratings, lines, projections, picks (re-priced until kickoff), trends, splits, grading → commit → deploy |
+| `grade.yml` | Sun (CFB), Mon (NHL, NBA), Tue (NFL) 12:11 UTC | grades SU and ATS for every finished pick, rebuilds the record, refits weights, sends an ntfy recap |
+| `briefing.yml` | every 30 min, 14:07–18:37 UTC, plus a Claude routine that starts it at 9:05 AM CT | sends each sport's ntfy briefing once per game day, between 9 AM and 2 PM CT (GitHub often runs these crons hours late or skips them). The NHL and NBA briefings wait until that day's odds are posted and only go out when there's value |
+| `pregame.yml` | daily 21:17 and 01:37 UTC; Sun 16:17 + 19:47 UTC; Sun/Mon/Thu 23:47 UTC | re-checks lineups (NFL starting QBs, NHL probable goalies, NBA injury report) and re-prices before kickoff / puck drop / tip-off; picks up the day's DraftKings NHL lines |
 | `deploy.yml` | after each job above, or on push to `main` touching `site/` | publishes `site/` to Pages |
 | `ci.yml` | push / PR | unit tests and JS syntax check |
 

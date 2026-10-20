@@ -1,7 +1,7 @@
-"""Game-day ntfy briefings for NFL and NHL, plus a combined all-sports gate.
+"""Game-day ntfy briefings for NFL, NHL and NBA, plus a combined all-sports gate.
 
-    python -m sportscommon.briefings check [--force]   # writes go/go_cfb/go_nfl/go_nhl to $GITHUB_OUTPUT
-    python -m sportscommon.briefings send nfl|nhl [--force] [--dry-run]
+    python -m sportscommon.briefings check [--force]   # writes go/go_cfb/go_nfl/go_nhl/go_nba to $GITHUB_OUTPUT
+    python -m sportscommon.briefings send nfl|nhl|nba [--force] [--dry-run]
 
 CFB keeps its own briefing (python -m cfbmodel briefing); this module only
 adds the CFB decision to the combined check.
@@ -17,11 +17,12 @@ from cfbmodel import config as cfbc
 from cfbmodel import store
 from nflmodel import config as nflc
 from nhlmodel import config as nhlc
+from nbamodel import config as nbac
 from sportscommon import totals
 from sportscommon import props as sprops
 from sportscommon.odds import fmt_american
 
-SPORTS = {"nfl": nflc, "nhl": nhlc}
+SPORTS = {"nfl": nflc, "nhl": nhlc, "nba": nbac}
 
 
 def _local_now(now=None):
@@ -148,8 +149,42 @@ def build_nhl(now_local):
     return "\n".join(lines)
 
 
-BUILDERS = {"nfl": build_nfl, "nhl": build_nhl}
-TITLES = {"nfl": "🏈 ASPicks · NFL game-day briefing", "nhl": "🏒 ASPicks · NHL briefing"}
+def build_nba(now_local):
+    meta, _, record = _load("nba")
+    games = todays("nba", now_local)
+    if not games:
+        return None
+    tz = now_local.tzinfo
+    sr = record.get("season_record") or {}
+    picks = [c for c in games if c["pick"].get("edge") is not None]
+    plays = sorted((c for c in picks if c["pick"]["edge"] >= nbac.LEAN_EDGE and c["pick"].get("tier") != "pass"),
+                   key=lambda c: -c["pick"]["edge"])
+    tot = [c for c in games if (c["pick"].get("total_pick") or {}).get("play")]
+    if not plays and not tot:
+        return None  # quiet day: no value on the board
+    lines = [f"**{now_local:%a %b %-d} · NBA · {len(games)} game{'s' if len(games) > 1 else ''}**"]
+    if sr.get("ats", {}).get("W", 0) + sr.get("ats", {}).get("L", 0):
+        lines.append(f"Season: ATS {_rec(sr['ats'])} · edge {nbac.PLAY_EDGE:g}+ {_rec(sr['ats_play'])} · SU {_rec(sr['su'])}")
+    lines += ["", "**🎯 Spread picks**"]
+    for c in plays[:8]:
+        p = c["pick"]
+        icon = {"strong": "🔥", "play": "✅", "lean": "·"}.get(p["tier"], "🎯")
+        lt = "PK" if p["ats_line"] == 0 else f"{p['ats_line']:+g}"
+        lines.append(f"{icon} {p['ats_team']} {lt} ({cfbb.matchup(c)}, {cfbb.kickoff(c, tz)}) — edge {p['edge']:g}, "
+                     f"cover {p['cover_prob'] * 100:.0f}%, conf {p.get('confidence')} {p.get('conf_label')}")
+    if not plays:
+        lines.append(f"No spread edges ≥ {nbac.LEAN_EDGE:g} today.")
+    lines += totals.briefing_lines(games, cfbb.matchup, cfbb.kickoff, tz)
+    notes = [e for c in games for e in c.get("extras", []) if "injuries" in e or "back-to-back" in e]
+    if notes:
+        lines += ["", "**🏥 Injuries & schedule**"] + notes[:8]
+    if meta.get("site_url"):
+        lines += ["", f"Full card: {meta['site_url']}nba/"]
+    return "\n".join(lines)
+
+
+BUILDERS = {"nfl": build_nfl, "nhl": build_nhl, "nba": build_nba}
+TITLES = {"nfl": "🏈 ASPicks · NFL game-day briefing", "nhl": "🏒 ASPicks · NHL briefing", "nba": "🏀 ASPicks · NBA briefing"}
 
 
 def send(sport, now=None, force=False, dry_run=False):
@@ -158,9 +193,9 @@ def send(sport, now=None, force=False, dry_run=False):
     if not ok:
         print(f"{sport}: skip ({reason})")
         return None
-    if sport == "nhl" and not any(c.get("line") for c in todays(sport, now_local)):
-        # DraftKings lines for today aren't in the NHL feed yet; a later run retries
-        print("nhl: today's odds not posted yet")
+    if sport in ("nhl", "nba") and not any(c.get("line") for c in todays(sport, now_local)):
+        # today's lines aren't posted yet; a later run retries
+        print(f"{sport}: today's odds not posted yet")
         return None
     body = BUILDERS[sport](now_local)
     if body is None:

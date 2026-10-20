@@ -20,7 +20,7 @@ from sportscommon import http
 BASE = "https://api.the-odds-api.com/v4"
 ROOT = Path(__file__).resolve().parents[1]
 CACHE_DIR = ROOT / "data" / "oddsapi"
-SPORT_KEYS = {"nfl": "americanfootball_nfl", "nhl": "icehockey_nhl", "cfb": "americanfootball_ncaaf"}
+SPORT_KEYS = {"nfl": "americanfootball_nfl", "nhl": "icehockey_nhl", "cfb": "americanfootball_ncaaf", "nba": "basketball_nba"}
 # Books preferred for the "main" price (first one present wins); everything is used for consensus.
 PREFERRED = [b.strip() for b in os.environ.get("ODDS_API_BOOKS", "draftkings,fanduel,betmgm,caesars").split(",") if b.strip()]
 

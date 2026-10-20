@@ -36,6 +36,21 @@ class BriefingTests(unittest.TestCase):
             body = briefings.build_nhl(briefings._local_now(when))
             self.assertIn("Moneyline value", body)
 
+    def test_nba_briefing(self):
+        from nbamodel import pipeline as nbap
+        from tests import test_nba
+        from tests.fake_nba import FakeESPN
+        with test_nba.NbaDirs():
+            fake = FakeESPN(today=test_nba.TODAY)
+            nbap.refresh(loader=test_nba.loader(fake), now=test_nba.NOW, log=lambda *_: None)
+            when = datetime(2026, 10, 30, 14, 7, tzinfo=timezone.utc)  # 9:07 CDT
+            with mock.patch.object(cfbb, "check", return_value=False):
+                flags = briefings.check(now=when)
+            self.assertTrue(flags["nba"])
+            body = briefings.build_nba(briefings._local_now(when))
+            self.assertIn("NBA", body)
+            self.assertIn("Spread picks", body)
+
 
 if __name__ == "__main__":
     unittest.main()

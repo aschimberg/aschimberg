@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ASPicks Model · CFB</title>
-  <meta name="description" content="ASPicks Model: college football, NFL and NHL projections, picks, totals, ATS trends and model record.">
+  <meta name="description" content="ASPicks Model: college football, NFL, NHL and NBA projections, picks, totals, ATS trends and model record.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏈</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,7 @@
     <div class="shell header-inner">
       <a class="wordmark" href="#games" aria-label="ASPicks Model home">ASPicks</a>
       <nav class="sports" aria-label="Sport">
-        <a data-sport="cfb" href="./">CFB</a><a data-sport="nfl" href="nfl/">NFL</a><a data-sport="nhl" href="nhl/">NHL</a>
+        <a data-sport="cfb" href="./">CFB</a><a data-sport="nfl" href="nfl/">NFL</a><a data-sport="nhl" href="nhl/">NHL</a><a data-sport="nba" href="nba/">NBA</a>
       </nav>
       <nav class="nav" role="tablist">
         <a role="tab" href="#games" data-tab="games" aria-selected="true">Games</a>
@@ -78,7 +78,7 @@
         <section id="tab-ratings" class="tab-panel" hidden>
           <div class="board-top">
             <div><p class="section-label">Power ratings</p><h2>Ratings</h2></div>
-            <p>Points better than an average FBS team on a neutral field. SP+, FPI and Elo shown raw; Power is the blend.</p>
+            <p id="ratings-note">Points better than an average FBS team on a neutral field. SP+, FPI and Elo shown raw; Power is the blend.</p>
           </div>
           <div class="toolbar">
             <input type="search" id="rating-search" placeholder="Search team" aria-label="Search team">

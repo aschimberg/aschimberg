@@ -2,8 +2,9 @@ name: Pre-game refresh
 
 on:
   schedule:
-    # Re-check lineups (NFL starting QBs, NHL probable goalies) and re-price
-    # shortly before games; picks lock at kickoff with the last run's numbers.
+    # Re-check lineups (NFL starting QBs, NHL probable goalies, NBA injury
+    # report) and re-price shortly before games; picks lock at kickoff with the
+    # last run's numbers.
     # NHL: before the evening slate (21:17 UTC = 5:17 PM ET in EDT); the day's
     #      DraftKings lines also appear in the NHL feed by then.
     # NFL: Sun before the 1 PM, 4 PM and night windows; Thu and Mon nights.
@@ -11,6 +12,8 @@ on:
     - cron: "17 16 * * 0"
     - cron: "47 19 * * 0"
     - cron: "47 23 * * 0,1,4"
+    # NBA: before the late (West Coast) tip-offs; injury news lands all evening
+    - cron: "37 1 * * *"
   workflow_dispatch:
 
 permissions:
@@ -23,7 +26,7 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  # Optional: The Odds API (multi-book NFL lines, NHL fallback odds). Unset = free sources only.
+  # Optional: The Odds API (multi-book NFL lines, NHL/NBA fallback odds). Unset = free sources only.
   ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
 
 jobs:
@@ -43,6 +46,12 @@ jobs:
         if: always()
         continue-on-error: true
         run: python -m nhlmodel refresh
+        env:
+          SITE_URL: ${{ vars.SITE_URL || format('https://{0}.github.io/{1}/', github.repository_owner, github.event.repository.name) }}
+      - name: NBA refresh (ESPN)
+        if: always()
+        continue-on-error: true
+        run: python -m nbamodel refresh
         env:
           SITE_URL: ${{ vars.SITE_URL || format('https://{0}.github.io/{1}/', github.repository_owner, github.event.repository.name) }}
       - name: Commit data

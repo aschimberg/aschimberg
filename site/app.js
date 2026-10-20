@@ -537,7 +537,7 @@
   }
 
   // --- Backtest --------------------------------------------------------------
-  const wkLabel = (r) => (r.season_type === "regular" ? `Week ${r.week}` : (state.meta?.sport === "nfl" ? { 19: "Wild Card", 20: "Divisional", 21: "Conference", 22: "Super Bowl" }[r.week] || `Post ${r.week}` : "Bowls"));
+  const wkLabel = (r) => r.label || (r.season_type === "regular" ? `Week ${r.week}` : (state.meta?.sport === "nfl" ? { 19: "Wild Card", 20: "Divisional", 21: "Conference", 22: "Super Bowl" }[r.week] || `Post ${r.week}` : "Bowls"));
   const wkKey = (r) => `${r.season}|${r.season_type}|${r.week}`;
   const wFmt = (w) => Object.entries(w || {}).map(([k, v]) => `${k.toUpperCase()} ${Math.round(v * 100)}%`).join(" · ");
 
@@ -761,6 +761,7 @@
     renderHero();
     if (meta.terms?.start) $("#sort-time").textContent = `By ${meta.terms.start}`;
     if (meta.terms?.record_note) $("#record-note").textContent = meta.terms.record_note;
+    if (meta.ratings_note) $("#ratings-note").textContent = meta.ratings_note;
     fillConfSelect($("#game-conf"), new Set(state.slate.flatMap((g) => [g.home.conf, g.away.conf])));
     fillConfSelect($("#rating-conf"), new Set(state.ratings.map((r) => r.conference)));
     if (trends) $("#trend-sort").innerHTML = TREND_COLS.map((k) => `<option value="${k}">Sort: ${esc(trends.labels[k])}</option>`).join("");

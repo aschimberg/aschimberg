@@ -20,7 +20,7 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  # Optional: The Odds API (multi-book NFL lines, NHL fallback odds). Unset = free sources only.
+  # Optional: The Odds API (multi-book NFL lines, NHL/NBA fallback odds). Unset = free sources only.
   ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
 
 jobs:
@@ -49,6 +49,12 @@ jobs:
         if: always()
         continue-on-error: true
         run: python -m nhlmodel refresh
+        env:
+          SITE_URL: ${{ vars.SITE_URL || format('https://{0}.github.io/{1}/', github.repository_owner, github.event.repository.name) }}
+      - name: NBA refresh (ESPN)
+        if: always()
+        continue-on-error: true
+        run: python -m nbamodel refresh
         env:
           SITE_URL: ${{ vars.SITE_URL || format('https://{0}.github.io/{1}/', github.repository_owner, github.event.repository.name) }}
       - name: Commit data

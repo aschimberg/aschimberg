@@ -3,14 +3,14 @@ name: Weekly grading
 on:
   schedule:
     - cron: "11 12 * * 0" # Sun: CFB grading + tuning, after Saturday's late games
-    - cron: "11 12 * * 1" # Mon: NHL weekly tuning + xG retrain
+    - cron: "11 12 * * 1" # Mon: NHL weekly tuning + xG retrain, NBA weekly tuning
     - cron: "11 12 * * 2" # Tue: NFL weekly tuning, after Monday Night Football
   workflow_dispatch:
     inputs:
       sport:
         description: "Which sport to grade/tune"
         type: choice
-        options: [auto, cfb, nfl, nhl, all]
+        options: [auto, cfb, nfl, nhl, nba, all]
         default: auto
 
 permissions:
@@ -35,10 +35,10 @@ jobs:
         run: |
           s="${{ inputs.sport || 'auto' }}"
           if [ "$s" = "auto" ]; then
-            case "$(date -u +%u)" in 7) s=cfb ;; 1) s=nhl ;; 2) s=nfl ;; *) s=all ;; esac
+            case "$(date -u +%u)" in 7) s=cfb ;; 1) s="nhl nba" ;; 2) s=nfl ;; *) s=all ;; esac
           fi
-          for k in cfb nfl nhl; do
-            if [ "$s" = "all" ] || [ "$s" = "$k" ]; then echo "$k=true" >> "$GITHUB_OUTPUT"; else echo "$k=false" >> "$GITHUB_OUTPUT"; fi
+          for k in cfb nfl nhl nba; do
+            case " $s " in *" all "*|*" $k "*) echo "$k=true" >> "$GITHUB_OUTPUT" ;; *) echo "$k=false" >> "$GITHUB_OUTPUT" ;; esac
           done
       - name: CFB - grade picks (SU + ATS), tune, send weekly recap
         if: steps.which.outputs.cfb == 'true'
@@ -57,6 +57,10 @@ jobs:
         if: always() && steps.which.outputs.nhl == 'true'
         continue-on-error: true
         run: python -m nhlmodel tune
+      - name: NBA - weekly tuning
+        if: always() && steps.which.outputs.nba == 'true'
+        continue-on-error: true
+        run: python -m nbamodel tune
       - name: Commit data
         if: always()
         run: .github/scripts/commit-data.sh "Weekly grading"

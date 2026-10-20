@@ -648,6 +648,7 @@ def write_site(now, season, cards, teams, xg_fit, gl_fit, elo, rates, starts, pi
             {"key": "gsax", "label": "GSAx/gm", "digits": 2},
         ],
         "subtitle": "Expected-goals, goalie-adjusted NHL moneylines",
+        "ratings_note": "Net goals per game vs an average team (xG, MoneyPuck, goals and Elo blend). xGF/xGA are opponent-adjusted expected goals; goalie is the usual starter.",
         "today": today.isoformat(),
     }
     store.save(out / "meta.json", meta)

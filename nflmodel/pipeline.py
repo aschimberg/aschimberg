@@ -515,6 +515,7 @@ def write_site(now, season, slate, cards, fit, elo, team_ratings, power_rank, re
             {"key": "qb_value", "label": "QB EPA/db", "digits": 3},
         ],
         "subtitle": "Opponent-adjusted EPA, QB-adjusted, Elo-blended NFL spreads",
+        "ratings_note": "Net pts: opponent-adjusted EPA per play × plays per game, vs an average team on a neutral field. Elo shown raw.",
     }
     store.save(out / "meta.json", meta)
     store.save(out / "slate.json", {"generated_at": iso(now), "games": cards}, compact=True)

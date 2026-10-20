@@ -4,12 +4,12 @@ on:
   workflow_dispatch:
     inputs:
       sport:
-        description: "nfl or cfb"
+        description: "nfl, cfb or nba"
         type: choice
-        options: [nfl, cfb]
+        options: [nfl, cfb, nba]
         default: nfl
       seasons:
-        description: "Seasons, e.g. 2023-2026"
+        description: "Seasons, e.g. 2023-2026 (NBA: ESPN season years, 2026 = 2025-26)"
         default: "2023-2026"
       apply:
         description: "Add this season's backtest picks to the live log and adopt the tuned settings"
