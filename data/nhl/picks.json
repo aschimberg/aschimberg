@@ -4663,6 +4663,8 @@
    "away_abbr": "ANA",
    "bet_at": "2026-10-19T16:06:47Z",
    "bet_line": 120.0,
+   "close_line": 130.0,
+   "clv": -0.0826,
    "conf_label": "Low",
    "confidence": 51,
    "confidence_detail": {
@@ -4717,7 +4719,15 @@
    "odds": 130.0,
    "offset": 0.063,
    "prob": 0.442,
-   "result": null,
+   "result": {
+    "ats": "L",
+    "away_pts": 2,
+    "home_pts": 5,
+    "su": "W",
+    "total": "L",
+    "total_units": -1.0,
+    "units": -1.0
+   },
    "season": 20262027,
    "season_type": "regular",
    "start": "2026-10-19T23:00:00Z",
@@ -4750,6 +4760,8 @@
    "away_abbr": "COL",
    "bet_at": "2026-10-19T16:06:47Z",
    "bet_line": 195.0,
+   "close_line": 195.0,
+   "clv": -0.0413,
    "conf_label": "Low",
    "confidence": 49,
    "confidence_detail": {
@@ -4804,7 +4816,15 @@
    "odds": 195.0,
    "offset": -0.022,
    "prob": 0.348,
-   "result": null,
+   "result": {
+    "ats": "W",
+    "away_pts": 2,
+    "home_pts": 3,
+    "su": "L",
+    "total": "W",
+    "total_units": 0.741,
+    "units": 1.95
+   },
    "season": 20262027,
    "season_type": "regular",
    "start": "2026-10-19T23:00:00Z",
