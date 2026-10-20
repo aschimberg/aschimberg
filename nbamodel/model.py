@@ -16,9 +16,14 @@ SOURCE_NAMES = {"eff": "Efficiency", "pts": "Points", "elo": "Elo"}
 
 
 def priors(prev_games, prev_end):
-    """Last season's full-season fits (the prior for this season's ratings)."""
-    return {"pts": ratings.fit_points(prev_games, prev_end), "eff": ratings.fit_eff(prev_games, prev_end),
-            "pace": ratings.fit_pace(prev_games, prev_end)}
+    """Last season's full-season fits (the prior for this season's ratings).
+
+    Regular season only, every game weighted equally: playoff games run about
+    10 points lower-scoring and would otherwise dominate a recency-weighted fit.
+    """
+    reg = [g for g in prev_games if g.get("season_type") == "regular"] or list(prev_games)
+    return {"pts": ratings.fit_points(reg, prev_end, decay=1.0), "eff": ratings.fit_eff(reg, prev_end, decay=1.0),
+            "pace": ratings.fit_pace(reg, prev_end, decay=1.0)}
 
 
 def build_state(cur_done, prev_games, as_of, prior, elo=None):
@@ -100,6 +105,21 @@ def tier(edge):
     if edge >= config.LEAN_EDGE:
         return "lean"
     return "pass"
+
+
+def early(st, h, a):
+    """Too few games this season for the ratings to know about offseason roster changes."""
+    return min(st["gp"].get(h, 0), st["gp"].get(a, 0)) < config.EARLY_GAMES
+
+
+def cap_early(pick):
+    """Early season: picks top out at 'lean' (ratings are still mostly last season's)."""
+    if pick and pick.get("tier") in ("play", "strong"):
+        pick["tier"] = "lean"
+        if "play" in pick:
+            pick["play"] = False
+        pick["early"] = True
+    return pick
 
 
 def ats_pick(proj, spread, team_name, h, a, home_odds=None, away_odds=None, move=None, dq=1.0):

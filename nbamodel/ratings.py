@@ -11,9 +11,9 @@ def _done(games):
     return [g for g in games if g.get("completed") and g.get("home_score") is not None and g.get("away_score") is not None]
 
 
-def _w(g, as_of):
+def _w(g, as_of, decay=None):
     d = date.fromisoformat(g["date"]) if g.get("date") else as_of
-    return config.DECAY_PER_DAY ** max(0, (as_of - d).days)
+    return (config.DECAY_PER_DAY if decay is None else decay) ** max(0, (as_of - d).days)
 
 
 def game_poss(g):
@@ -37,11 +37,11 @@ def _fit(obs, teams, prior):
     return fit
 
 
-def fit_points(games, as_of, prior=None):
+def fit_points(games, as_of, prior=None, decay=None):
     """Points scored per game: y = mu + off[team] - def[opp] + hfa*home."""
     obs, teams = [], set()
     for g in _done(games):
-        w = _w(g, as_of)
+        w = _w(g, as_of, decay)
         h = 0 if g.get("neutral") else 1
         obs.append((g["home"], g["away"], h, g["home_score"], w))
         obs.append((g["away"], g["home"], 0, g["away_score"], w))
@@ -49,14 +49,14 @@ def fit_points(games, as_of, prior=None):
     return _fit(obs, teams, prior)
 
 
-def fit_eff(games, as_of, prior=None):
+def fit_eff(games, as_of, prior=None, decay=None):
     """Points per 100 possessions, opponent-adjusted (games with box scores only)."""
     obs, teams = [], set()
     for g in _done(games):
         poss = game_poss(g)
         if not poss:
             continue
-        w = _w(g, as_of)
+        w = _w(g, as_of, decay)
         h = 0 if g.get("neutral") else 1
         obs.append((g["home"], g["away"], h, 100 * g["home_score"] / poss, w))
         obs.append((g["away"], g["home"], 0, 100 * g["away_score"] / poss, w))
@@ -64,17 +64,17 @@ def fit_eff(games, as_of, prior=None):
     return _fit(obs, teams, prior)
 
 
-def fit_pace(games, as_of, prior=None):
+def fit_pace(games, as_of, prior=None, decay=None):
     """{'mu': league possessions/game, 'team': {abbr: effect}}; game pace = mu + effect_h + effect_a."""
     rows = [(g, game_poss(g)) for g in _done(games)]
     rows = [(g, p) for g, p in rows if p]
     if not rows:
         return prior or {"mu": 99.0, "team": {}}
-    tw = sum(_w(g, as_of) for g, _ in rows)
-    mu = sum(_w(g, as_of) * p for g, p in rows) / tw
+    tw = sum(_w(g, as_of, decay) for g, _ in rows)
+    mu = sum(_w(g, as_of, decay) * p for g, p in rows) / tw
     acc = {}
     for g, p in rows:
-        w = _w(g, as_of)
+        w = _w(g, as_of, decay)
         for t in (g["home"], g["away"]):
             a = acc.setdefault(t, [0.0, 0.0])
             a[0] += w * (p - mu) / 2  # each team owns half of the deviation

@@ -115,6 +115,8 @@ def run(seasons, docs=None, now=None, log=print, start_weights=None, start_hfa=N
                     fields, detail = model.ats_pick(proj, spread, name, h, a, src.get("home_spread_odds"),
                                                     src.get("away_spread_odds"), None, dq)
                     tp = model.total_pick(proj["total"], total_line, src.get("over_odds"), src.get("under_odds"))
+                    if model.early(st, h, a):
+                        fields, tp = model.cap_early(fields), model.cap_early(tp)
                     hp, ap = g["home_score"], g["away_score"]
                     su_team = name(h if proj["margin"] >= 0 else a)
                     p = {

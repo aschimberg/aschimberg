@@ -60,6 +60,7 @@ TOTAL_LEAN_EDGE = _f("NBA_TOTAL_LEAN", 3.0)
 TOTAL_PLAY_EDGE = _f("NBA_TOTAL_PLAY", 5.0)
 TOTAL_STRONG_EDGE = _f("NBA_TOTAL_STRONG", 8.0)
 CONF_HIGH, CONF_MEDIUM = 70, 55
+EARLY_GAMES = int(_f("NBA_EARLY_GAMES", 8))  # until both teams have played this many, picks cap at 'lean'
 SLATE_DAYS = 2  # today + tomorrow (ET)
 
 TUNING = os.environ.get("NBA_TUNING", "on") != "off"

@@ -88,6 +88,20 @@ class NbaParseTests(unittest.TestCase):
         self.assertAlmostEqual(adj3, -3.0)
 
 
+class NbaEarlySeasonTests(unittest.TestCase):
+    def test_early_season_caps_tiers_and_priors_skip_playoffs(self):
+        st = {"gp": {"BOS": 2, "NY": 12}}
+        self.assertTrue(model.early(st, "BOS", "NY"))
+        self.assertFalse(model.early({"gp": {"BOS": 9, "NY": 12}}, "BOS", "NY"))
+        self.assertEqual(model.cap_early({"tier": "strong", "play": True}), {"tier": "lean", "play": False, "early": True})
+        self.assertEqual(model.cap_early({"tier": "pass"})["tier"], "pass")
+        reg = {"id": "1", "date": "2026-01-10", "season": 2026, "season_type": "regular", "completed": True,
+               "home": "BOS", "away": "NY", "home_score": 120, "away_score": 110, "neutral": False}
+        post = dict(reg, id="2", date="2026-05-20", season_type="postseason", home_score=90, away_score=85)
+        pr = model.priors([reg, post], date(2026, 6, 30))
+        self.assertAlmostEqual(pr["pts"]["mu"], 115.0, delta=1.0)  # the low-scoring playoff game is left out
+
+
 class NbaPipelineTests(unittest.TestCase):
     def test_refresh_grades_tunes_and_writes_site(self):
         injured = {"LAL": [("1170", "LAL Player0", "Out")]}  # LAL's star

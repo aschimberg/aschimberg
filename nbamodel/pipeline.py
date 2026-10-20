@@ -150,15 +150,17 @@ def refresh(loader=None, now=None, log=print):
         mp = {"margin": round(margin, 1), "spread": round(-margin, 1), "total": round(total, 1),
               "home_pts": round((total + margin) / 2, 1), "away_pts": round((total - margin) / 2, 1),
               "home_wp": round(proj["wp"], 3)}
+        is_early = model.early(st, h, a)
+        tp = model.total_pick(total, o.get("total"), o.get("over_odds"), o.get("under_odds"))
         pick = {"su_team": name(h if margin >= 0 else a), "su_wp": round(max(proj["wp"], 1 - proj["wp"]), 3),
                 "ats_side": None, "ats_team": None, "ats_line": None, "edge": None, "tier": None, "cover_prob": None,
                 "ev": None, "confidence": None, "conf_label": None,
-                "total_pick": model.total_pick(total, o.get("total"), o.get("over_odds"), o.get("under_odds"))}
+                "total_pick": model.cap_early(tp) if is_early else tp}
         conf_detail = None
         if line:
             dq = min(1.0, min(st["gp"].get(h, 0), st["gp"].get(a, 0)) / 10)
             fields, conf_detail = model.ats_pick(proj, line["spread"], name, h, a, line["home_odds"], line["away_odds"], move, dq)
-            pick.update(fields)
+            pick.update(model.cap_early(fields) if is_early else fields)
 
         if not started and line:
             prev = picks.get(g["id"])
@@ -179,6 +181,9 @@ def refresh(loader=None, now=None, log=print):
             conf_detail = logged["confidence_detail"]
 
         extras = []
+        if is_early and not started:
+            extras.append(f"Early season: ratings are still mostly last season's (roster changes aren't modeled), "
+                          f"so picks top out at lean until both teams have played {config.EARLY_GAMES} games")
         for side in ("away", "home"):
             adj, notes = proj["inj"][side]
             if notes:
