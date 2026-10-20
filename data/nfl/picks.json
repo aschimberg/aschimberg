@@ -7416,7 +7416,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-20T00:20:22Z",
+   "updated": "2026-10-20T01:06:44Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -7529,7 +7529,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-20T00:20:22Z",
+   "updated": "2026-10-20T01:06:44Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -7642,7 +7642,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-20T00:20:22Z",
+   "updated": "2026-10-20T01:06:44Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -7755,7 +7755,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-20T00:20:22Z",
+   "updated": "2026-10-20T01:06:44Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -7868,7 +7868,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-20T00:20:22Z",
+   "updated": "2026-10-20T01:06:44Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -7981,7 +7981,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-10-20T00:20:22Z",
+   "updated": "2026-10-20T01:06:44Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -8094,7 +8094,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-20T00:20:22Z",
+   "updated": "2026-10-20T01:06:44Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -8207,7 +8207,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-20T00:20:22Z",
+   "updated": "2026-10-20T01:06:44Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -8320,7 +8320,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-20T00:20:22Z",
+   "updated": "2026-10-20T01:06:44Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -8433,7 +8433,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-20T00:20:22Z",
+   "updated": "2026-10-20T01:06:44Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -8546,7 +8546,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-20T00:20:22Z",
+   "updated": "2026-10-20T01:06:44Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -8659,7 +8659,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-20T00:20:22Z",
+   "updated": "2026-10-20T01:06:44Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -8667,52 +8667,28 @@
    }
   },
   "2026_07_SF_ATL": {
-   "ats_line": -4.5,
-   "ats_side": "away",
-   "ats_team": "San Francisco 49ers",
+   "ats_line": null,
+   "ats_side": null,
+   "ats_team": null,
    "away": "San Francisco 49ers",
    "away_abbr": "SF",
-   "bet_at": "2026-10-19T00:13:38Z",
-   "bet_line": 4.5,
    "book": "nflverse consensus",
-   "conf_label": "High",
-   "confidence": 81,
-   "confidence_detail": {
-    "agree": 2,
-    "components": {
-     "agreement": 1.0,
-     "consistency": 0.976,
-     "data": 1.0,
-     "edge": 0.693,
-     "market": 0.5,
-     "trends": 0.75
-    },
-    "label": "High",
-    "n_sources": 2,
-    "score": 81,
-    "side": "away",
-    "source_names": {
-     "elo": "Elo",
-     "epa": "EPA"
-    },
-    "sources": {
-     "elo": -7.6,
-     "epa": -7.3
-    }
-   },
-   "cover_prob": 0.562,
+   "conf_label": null,
+   "confidence": null,
+   "confidence_detail": null,
+   "cover_prob": null,
    "diffs": {
     "elo": -7.99,
     "epa": -7.66
    },
-   "edge": 3.1,
-   "ev": 0.097,
+   "edge": null,
+   "ev": null,
    "hfa_flag": 1,
    "home": "Atlanta Falcons",
    "home_abbr": "ATL",
    "home_field": 1.795,
    "id": "2026_07_SF_ATL",
-   "line": 4.5,
+   "line": null,
    "model_spread": 7.6,
    "model_total": 49.5,
    "neutral": false,
@@ -8760,19 +8736,10 @@
    "start": "2026-10-25T17:00:00Z",
    "su_team": "San Francisco 49ers",
    "su_wp": 0.71,
-   "tier": "play",
-   "total_line": 50.5,
-   "total_pick": {
-    "edge": 1.0,
-    "line": 50.5,
-    "model": 49.5,
-    "odds": null,
-    "play": false,
-    "prob": 0.529,
-    "side": "under",
-    "tier": "pass"
-   },
-   "updated": "2026-10-20T00:20:22Z",
+   "tier": null,
+   "total_line": null,
+   "total_pick": null,
+   "updated": "2026-10-20T01:06:44Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
@@ -8819,7 +8786,7 @@
     "epa": 1.76
    },
    "edge": 3.6,
-   "ev": 0.108,
+   "ev": 0.124,
    "hfa_flag": 1,
    "home": "Carolina Panthers",
    "home_abbr": "CAR",
@@ -8885,7 +8852,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-20T00:20:22Z",
+   "updated": "2026-10-20T01:06:44Z",
    "week": 7,
    "weights": {
     "elo": 0.925,
