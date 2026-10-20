@@ -7,56 +7,8 @@
    "epa": 0.099
   }
  },
- "games": 79,
+ "games": 93,
  "history": [
-  {
-   "after": {
-    "home_field": 2.24,
-    "weights": {
-     "elo": 0.719,
-     "epa": 0.281
-    }
-   },
-   "alpha": 0.532,
-   "anchor": {
-    "home_field": 1.6,
-    "weights": {
-     "elo": 0.4,
-     "epa": 0.6
-    }
-   },
-   "at": "2024-01-28T23:30:00Z",
-   "backtest": true,
-   "before": {
-    "home_field": 2.271,
-    "weights": {
-     "elo": 0.718,
-     "epa": 0.282
-    }
-   },
-   "by_source": {
-    "elo": {
-     "rmse": 13.651
-    },
-    "epa": {
-     "rmse": 13.957
-    }
-   },
-   "fit": {
-    "home_field": 2.804,
-    "weights": {
-     "elo": 1.0,
-     "epa": 0.0
-    }
-   },
-   "games": 284,
-   "rmse_after": 13.706,
-   "rmse_before": 13.705,
-   "season": 2023,
-   "season_type": "postseason",
-   "status": "updated",
-   "week": 21
-  },
   {
    "after": {
     "home_field": 2.241,
@@ -2426,13 +2378,58 @@
    "rmse_before": 12.754,
    "season": 2026,
    "status": "updated"
+  },
+  {
+   "after": {
+    "home_field": 1.644,
+    "weights": {
+     "elo": 0.928,
+     "epa": 0.072
+    }
+   },
+   "alpha": 0.271,
+   "anchor": {
+    "home_field": 2.169,
+    "weights": {
+     "elo": 0.901,
+     "epa": 0.099
+    }
+   },
+   "at": "2026-10-20T13:04:48Z",
+   "before": {
+    "home_field": 1.6,
+    "weights": {
+     "elo": 0.4,
+     "epa": 0.6
+    }
+   },
+   "by_source": {
+    "elo": {
+     "rmse": 11.878
+    },
+    "epa": {
+     "rmse": 12.311
+    }
+   },
+   "fit": {
+    "home_field": 0.231,
+    "weights": {
+     "elo": 1.0,
+     "epa": 0.0
+    }
+   },
+   "games": 93,
+   "rmse_after": 11.971,
+   "rmse_before": 12.149,
+   "season": 2026,
+   "status": "updated"
   }
  ],
- "home_field": 1.795,
+ "home_field": 1.644,
  "source": "backtest 2023\u20132026 walk-forward",
- "updated": "2026-10-13T19:00:11Z",
+ "updated": "2026-10-20T13:04:48Z",
  "weights": {
-  "elo": 0.925,
-  "epa": 0.075
+  "elo": 0.928,
+  "epa": 0.072
  }
 }
