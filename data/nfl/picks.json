@@ -7429,7 +7429,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-21T11:21:27Z",
+   "updated": "2026-10-21T15:21:02Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -7476,7 +7476,7 @@
     "epa": -7.52
    },
    "edge": 2.8,
-   "ev": 0.134,
+   "ev": 0.144,
    "hfa_flag": 1,
    "home": "Tennessee Titans",
    "home_abbr": "TEN",
@@ -7542,7 +7542,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-21T11:21:27Z",
+   "updated": "2026-10-21T15:21:02Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -7655,7 +7655,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-21T11:21:27Z",
+   "updated": "2026-10-21T15:21:02Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -7768,7 +7768,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-21T11:21:27Z",
+   "updated": "2026-10-21T15:21:02Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -7815,7 +7815,7 @@
     "epa": -1.52
    },
    "edge": 0.9,
-   "ev": 0.001,
+   "ev": 0.008,
    "hfa_flag": 1,
    "home": "Detroit Lions",
    "home_abbr": "DET",
@@ -7842,6 +7842,17 @@
     },
     {
      "bet": false,
+     "fair": -128,
+     "lam": 0.8233,
+     "name": "Josh Jacobs",
+     "note": "no market price yet",
+     "p": 0.561,
+     "pid": "00-0035700",
+     "pos": "RB",
+     "team": "GB"
+    },
+    {
+     "bet": false,
      "fair": 111,
      "lam": 0.6433,
      "name": "Amon-Ra St. Brown",
@@ -7850,17 +7861,6 @@
      "pid": "00-0036963",
      "pos": "WR",
      "team": "DET"
-    },
-    {
-     "bet": false,
-     "fair": 145,
-     "lam": 0.5252,
-     "name": "MarShawn Lloyd",
-     "note": "no market price yet",
-     "p": 0.409,
-     "pid": "00-0039811",
-     "pos": "RB",
-     "team": "GB"
     }
    ],
    "result": null,
@@ -7881,7 +7881,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-21T11:21:27Z",
+   "updated": "2026-10-21T15:21:02Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -7994,7 +7994,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-10-21T11:21:27Z",
+   "updated": "2026-10-21T15:21:02Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8107,7 +8107,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-21T11:21:27Z",
+   "updated": "2026-10-21T15:21:02Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8220,7 +8220,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-21T11:21:27Z",
+   "updated": "2026-10-21T15:21:02Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8267,7 +8267,7 @@
     "epa": 3.56
    },
    "edge": 1.7,
-   "ev": 0.141,
+   "ev": 0.125,
    "hfa_flag": 1,
    "home": "New York Jets",
    "home_abbr": "NYJ",
@@ -8322,18 +8322,18 @@
    "su_team": "New York Jets",
    "su_wp": 0.581,
    "tier": "lean",
-   "total_line": 38.5,
+   "total_line": 39.5,
    "total_pick": {
-    "edge": 6.9,
-    "line": 38.5,
+    "edge": 5.9,
+    "line": 39.5,
     "model": 45.4,
     "odds": null,
     "play": true,
-    "prob": 0.696,
+    "prob": 0.67,
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-21T11:21:27Z",
+   "updated": "2026-10-21T15:21:02Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8446,7 +8446,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-21T11:21:27Z",
+   "updated": "2026-10-21T15:21:02Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8559,7 +8559,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-21T11:21:27Z",
+   "updated": "2026-10-21T15:21:02Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8672,7 +8672,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-21T11:21:27Z",
+   "updated": "2026-10-21T15:21:02Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8719,7 +8719,7 @@
     "epa": -9.34
    },
    "edge": 5.1,
-   "ev": 0.205,
+   "ev": 0.192,
    "hfa_flag": 1,
    "home": "Atlanta Falcons",
    "home_abbr": "ATL",
@@ -8785,7 +8785,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-21T11:21:27Z",
+   "updated": "2026-10-21T15:21:02Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8898,7 +8898,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-21T11:21:27Z",
+   "updated": "2026-10-21T15:21:02Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
