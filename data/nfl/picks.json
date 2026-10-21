@@ -7429,7 +7429,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-21T00:39:57Z",
+   "updated": "2026-10-21T06:31:00Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -7542,7 +7542,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-21T00:39:57Z",
+   "updated": "2026-10-21T06:31:00Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -7655,7 +7655,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-21T00:39:57Z",
+   "updated": "2026-10-21T06:31:00Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -7768,7 +7768,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-21T00:39:57Z",
+   "updated": "2026-10-21T06:31:00Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -7881,7 +7881,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-21T00:39:57Z",
+   "updated": "2026-10-21T06:31:00Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -7994,7 +7994,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-10-21T00:39:57Z",
+   "updated": "2026-10-21T06:31:00Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8002,7 +8002,7 @@
    }
   },
   "2026_07_KC_SEA": {
-   "ats_line": -3.0,
+   "ats_line": -2.5,
    "ats_side": "home",
    "ats_team": "Seattle Seahawks",
    "away": "Kansas City Chiefs",
@@ -8011,20 +8011,20 @@
    "bet_line": -1.5,
    "book": "nflverse consensus",
    "conf_label": "Medium",
-   "confidence": 68,
+   "confidence": 69,
    "confidence_detail": {
     "agree": 1,
     "components": {
      "agreement": 0.928,
      "consistency": 0.841,
      "data": 1.0,
-     "edge": 0.212,
-     "market": 1.0,
+     "edge": 0.324,
+     "market": 0.9,
      "trends": 0.375
     },
     "label": "Medium",
     "n_sources": 2,
-    "score": 68,
+    "score": 69,
     "side": "home",
     "source_names": {
      "elo": "Elo",
@@ -8035,19 +8035,19 @@
      "epa": 1.9
     }
    },
-   "cover_prob": 0.529,
+   "cover_prob": 0.567,
    "diffs": {
     "elo": 2.71,
     "epa": 0.49
    },
-   "edge": 1.0,
-   "ev": 0.043,
+   "edge": 1.5,
+   "ev": 0.048,
    "hfa_flag": 1,
    "home": "Seattle Seahawks",
    "home_abbr": "SEA",
    "home_field": 1.644,
    "id": "2026_07_KC_SEA",
-   "line": -3.0,
+   "line": -2.5,
    "model_spread": -4.0,
    "model_total": 40.2,
    "neutral": false,
@@ -8107,7 +8107,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-21T00:39:57Z",
+   "updated": "2026-10-21T06:31:00Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8220,7 +8220,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-21T00:39:57Z",
+   "updated": "2026-10-21T06:31:00Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8333,7 +8333,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-21T00:39:57Z",
+   "updated": "2026-10-21T06:31:00Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8446,7 +8446,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-21T00:39:57Z",
+   "updated": "2026-10-21T06:31:00Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8493,7 +8493,7 @@
     "epa": 7.21
    },
    "edge": 1.9,
-   "ev": 0.127,
+   "ev": 0.137,
    "hfa_flag": 1,
    "home": "Houston Texans",
    "home_abbr": "HOU",
@@ -8559,7 +8559,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-21T00:39:57Z",
+   "updated": "2026-10-21T06:31:00Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8672,7 +8672,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-21T00:39:57Z",
+   "updated": "2026-10-21T06:31:00Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8719,7 +8719,7 @@
     "epa": -9.34
    },
    "edge": 5.1,
-   "ev": 0.192,
+   "ev": 0.205,
    "hfa_flag": 1,
    "home": "Atlanta Falcons",
    "home_abbr": "ATL",
@@ -8774,18 +8774,18 @@
    "su_team": "San Francisco 49ers",
    "su_wp": 0.722,
    "tier": "strong",
-   "total_line": 49.5,
+   "total_line": 50.5,
    "total_pick": {
-    "edge": 0.0,
-    "line": 49.5,
+    "edge": 1.0,
+    "line": 50.5,
     "model": 49.5,
     "odds": null,
     "play": false,
-    "prob": 0.501,
+    "prob": 0.531,
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-21T00:39:57Z",
+   "updated": "2026-10-21T06:31:00Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8898,7 +8898,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-21T00:39:57Z",
+   "updated": "2026-10-21T06:31:00Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
