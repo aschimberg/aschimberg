@@ -5731,7 +5731,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-20T23:53:11Z",
+   "updated": "2026-10-21T00:40:04Z",
    "week": 202643,
    "weights": {
     "elo": 0.223,
@@ -5748,20 +5748,20 @@
    "bet_at": "2026-10-20T23:20:59Z",
    "bet_line": -102.0,
    "conf_label": "Medium",
-   "confidence": 61,
+   "confidence": 65,
    "confidence_detail": {
     "agree": 4,
     "components": {
      "agreement": 1.0,
      "consistency": 0.606,
      "data": 0.72,
-     "edge": 0.436,
-     "market": 0.283,
+     "edge": 0.695,
+     "market": 0.137,
      "trends": 0.5
     },
     "label": "Medium",
     "n_sources": 4,
-    "score": 61,
+    "score": 65,
     "side": "home",
     "source_names": {
      "elo": "Elo",
@@ -5784,8 +5784,8 @@
     "mp": -0.171,
     "xg": -0.293
    },
-   "edge": 3.5,
-   "ev": 0.0349,
+   "edge": 5.6,
+   "ev": 0.0556,
    "hfa_flag": 1,
    "home": "Seattle Kraken",
    "home_abbr": "SEA",
@@ -5793,12 +5793,12 @@
    "home_prob": 0.523,
    "id": 2026020149,
    "line": null,
-   "mkt_prob": 0.483,
-   "ml_away": -118.0,
-   "ml_home": -102.0,
+   "mkt_prob": 0.474,
+   "ml_away": -122.0,
+   "ml_home": 102.0,
    "model_spread": null,
    "neutral": false,
-   "odds": -102.0,
+   "odds": 102.0,
    "offset": 0.064,
    "prob": 0.523,
    "result": null,
@@ -5807,7 +5807,7 @@
    "start": "2026-10-21T01:40:00Z",
    "su_team": "Seattle Kraken",
    "su_wp": 0.523,
-   "tier": "lean",
+   "tier": "play",
    "total_pick": {
     "edge": 12.5,
     "ev": 0.1253,
@@ -5818,7 +5818,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-20T23:53:11Z",
+   "updated": "2026-10-21T00:40:04Z",
    "week": 202643,
    "weights": {
     "elo": 0.223,
@@ -5905,7 +5905,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-20T23:53:11Z",
+   "updated": "2026-10-21T00:40:04Z",
    "week": 202643,
    "weights": {
     "elo": 0.223,
@@ -5992,7 +5992,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-20T23:53:11Z",
+   "updated": "2026-10-21T00:40:04Z",
    "week": 202643,
    "weights": {
     "elo": 0.223,
