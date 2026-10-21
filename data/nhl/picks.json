@@ -6110,6 +6110,180 @@
     "mp": 0.223,
     "xg": 0.42
    }
+  },
+  "2026020152": {
+   "ats_side": "away",
+   "ats_team": "Philadelphia Flyers",
+   "away": "Philadelphia Flyers",
+   "away_abbr": "PHI",
+   "bet_at": "2026-10-21T16:06:34Z",
+   "bet_line": 160.0,
+   "conf_label": "Medium",
+   "confidence": 62,
+   "confidence_detail": {
+    "agree": 4,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.828,
+     "data": 0.81,
+     "edge": 0.231,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "Medium",
+    "n_sources": 4,
+    "score": 62,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "goals": "Goals",
+     "mp": "MoneyPuck",
+     "xg": "xG"
+    },
+    "sources": {
+     "elo": 0.46,
+     "goals": 0.5,
+     "mp": 0.69,
+     "xg": 0.68
+    },
+    "units": "goals"
+   },
+   "date": "2026-10-21",
+   "diffs": {
+    "elo": 0.352,
+    "goals": 0.385,
+    "mp": 0.581,
+    "xg": 0.565
+   },
+   "edge": 1.8,
+   "ev": 0.0185,
+   "hfa_flag": 1,
+   "home": "Buffalo Sabres",
+   "home_abbr": "BUF",
+   "home_field": 0.192,
+   "home_prob": 0.608,
+   "id": 2026020152,
+   "line": null,
+   "mkt_prob": 0.369,
+   "ml_away": 160.0,
+   "ml_home": -192.0,
+   "model_spread": null,
+   "neutral": false,
+   "odds": 160.0,
+   "offset": -0.082,
+   "prob": 0.392,
+   "result": null,
+   "season": 20262027,
+   "season_type": "regular",
+   "start": "2026-10-21T23:30:00Z",
+   "su_team": "Buffalo Sabres",
+   "su_wp": 0.608,
+   "tier": "pass",
+   "total_pick": {
+    "edge": 17.3,
+    "ev": 0.1732,
+    "line": 6.5,
+    "odds": -135.0,
+    "play": true,
+    "prob": 0.674,
+    "side": "under",
+    "tier": "strong"
+   },
+   "updated": "2026-10-21T16:06:34Z",
+   "week": 202643,
+   "weights": {
+    "elo": 0.223,
+    "goals": 0.134,
+    "mp": 0.223,
+    "xg": 0.42
+   }
+  },
+  "2026020153": {
+   "ats_side": "home",
+   "ats_team": "Ottawa Senators",
+   "away": "Florida Panthers",
+   "away_abbr": "FLA",
+   "bet_at": "2026-10-21T16:06:34Z",
+   "bet_line": -108.0,
+   "conf_label": "Low",
+   "confidence": 49,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 0.58,
+     "consistency": 0.653,
+     "data": 0.81,
+     "edge": 0.186,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "Low",
+    "n_sources": 4,
+    "score": 49,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "goals": "Goals",
+     "mp": "MoneyPuck",
+     "xg": "xG"
+    },
+    "sources": {
+     "elo": 0.46,
+     "goals": 0.15,
+     "mp": 0.31,
+     "xg": -0.1
+    },
+    "units": "goals"
+   },
+   "date": "2026-10-21",
+   "diffs": {
+    "elo": 0.21,
+    "goals": -0.098,
+    "mp": 0.054,
+    "xg": -0.354
+   },
+   "edge": 1.5,
+   "ev": 0.0149,
+   "hfa_flag": 1,
+   "home": "Ottawa Senators",
+   "home_abbr": "OTT",
+   "home_field": 0.192,
+   "home_prob": 0.527,
+   "id": 2026020153,
+   "line": null,
+   "mkt_prob": 0.496,
+   "ml_away": -112.0,
+   "ml_home": -108.0,
+   "model_spread": null,
+   "neutral": false,
+   "odds": -108.0,
+   "offset": 0.061,
+   "prob": 0.527,
+   "result": null,
+   "season": 20262027,
+   "season_type": "regular",
+   "start": "2026-10-21T23:30:00Z",
+   "su_team": "Ottawa Senators",
+   "su_wp": 0.527,
+   "tier": "pass",
+   "total_pick": {
+    "edge": 9.5,
+    "ev": 0.0952,
+    "line": 5.5,
+    "odds": 100.0,
+    "play": true,
+    "prob": 0.548,
+    "side": "under",
+    "tier": "strong"
+   },
+   "updated": "2026-10-21T16:06:34Z",
+   "week": 202643,
+   "weights": {
+    "elo": 0.223,
+    "goals": 0.134,
+    "mp": 0.223,
+    "xg": 0.42
+   }
   }
  }
 }
