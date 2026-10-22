@@ -6118,6 +6118,8 @@
    "away_abbr": "PHI",
    "bet_at": "2026-10-21T16:06:34Z",
    "bet_line": 160.0,
+   "close_line": 180.0,
+   "clv": -0.1094,
    "conf_label": "High",
    "confidence": 75,
    "confidence_detail": {
@@ -6172,7 +6174,15 @@
    "odds": 180.0,
    "offset": -0.082,
    "prob": 0.392,
-   "result": null,
+   "result": {
+    "ats": "W",
+    "away_pts": 3,
+    "home_pts": 1,
+    "su": "L",
+    "total": "W",
+    "total_units": 0.741,
+    "units": 1.8
+   },
    "season": 20262027,
    "season_type": "regular",
    "start": "2026-10-21T23:30:00Z",
@@ -6205,6 +6215,8 @@
    "away_abbr": "FLA",
    "bet_at": "2026-10-21T16:06:34Z",
    "bet_line": -108.0,
+   "close_line": -110.0,
+   "clv": -0.037,
    "conf_label": "Low",
    "confidence": 47,
    "confidence_detail": {
@@ -6259,7 +6271,15 @@
    "odds": -110.0,
    "offset": 0.061,
    "prob": 0.527,
-   "result": null,
+   "result": {
+    "ats": "W",
+    "away_pts": 1,
+    "home_pts": 5,
+    "su": "W",
+    "total": "L",
+    "total_units": -1.0,
+    "units": 0.909
+   },
    "season": 20262027,
    "season_type": "regular",
    "start": "2026-10-21T23:30:00Z",

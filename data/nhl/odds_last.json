@@ -23,33 +23,33 @@
      "odds": [
       {
        "description": "PUCK_LINE",
-       "qualifier": "-1.5",
-       "value": -125.0
+       "qualifier": "-2.5",
+       "value": 100.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "",
-       "value": -215.0
+       "value": -110.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 400.0
+       "value": 205.0
       },
       {
        "description": "MONEY_LINE_2_WAY",
        "qualifier": "",
-       "value": -330.0
+       "value": -10000.0
       },
       {
        "description": "OVER_UNDER",
-       "qualifier": "U6.5",
-       "value": -115.0
+       "qualifier": "U4.5",
+       "value": 230.0
       },
       {
        "description": "MONEY_LINE_2_WAY_TNB",
        "qualifier": "",
-       "value": -525.0
+       "value": -285.0
       }
      ]
     },
@@ -65,33 +65,33 @@
      "odds": [
       {
        "description": "PUCK_LINE",
-       "qualifier": "+1.5",
-       "value": -105.0
+       "qualifier": "+2.5",
+       "value": -130.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "",
-       "value": 475.0
+       "value": 360.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 400.0
+       "value": 205.0
       },
       {
        "description": "MONEY_LINE_2_WAY",
        "qualifier": "",
-       "value": 240.0
+       "value": 2200.0
       },
       {
        "description": "OVER_UNDER",
-       "qualifier": "O6.5",
-       "value": -115.0
+       "qualifier": "O4.5",
+       "value": -315.0
       },
       {
        "description": "MONEY_LINE_2_WAY_TNB",
        "qualifier": "",
-       "value": 350.0
+       "value": 210.0
       }
      ]
     },
@@ -108,33 +108,33 @@
      "odds": [
       {
        "description": "PUCK_LINE",
-       "qualifier": "-1.5",
-       "value": 230.0
+       "qualifier": "+2.5",
+       "value": -130.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 235.0
+       "value": 900.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "",
-       "value": 140.0
+       "value": 5500.0
       },
       {
        "description": "OVER_UNDER",
-       "qualifier": "U6.5",
+       "qualifier": "U5.5",
        "value": -135.0
       },
       {
        "description": "MONEY_LINE_2_WAY",
        "qualifier": "",
-       "value": -130.0
+       "value": 1300.0
       },
       {
        "description": "MONEY_LINE_2_WAY_TNB",
        "qualifier": "",
-       "value": -135.0
+       "value": 3500.0
       }
      ]
     },
@@ -151,41 +151,41 @@
      "odds": [
       {
        "description": "PUCK_LINE",
-       "qualifier": "+1.5",
-       "value": -315.0
+       "qualifier": "-2.5",
+       "value": 100.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 235.0
+       "value": 900.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "",
-       "value": 180.0
+       "value": -1100.0
       },
       {
        "description": "OVER_UNDER",
-       "qualifier": "O6.5",
+       "qualifier": "O5.5",
        "value": 105.0
       },
       {
        "description": "MONEY_LINE_2_WAY",
        "qualifier": "",
-       "value": 100.0
+       "value": -3200.0
       },
       {
        "description": "MONEY_LINE_2_WAY_TNB",
        "qualifier": "",
-       "value": 105.0
+       "value": -80000.0
       }
      ]
     },
     "startTimeUTC": "2026-10-21T23:30:00Z"
    }
   ],
-  "lastUpdatedUTC": "2026-10-22T00:30:38Z"
+  "lastUpdatedUTC": "2026-10-22T01:30:38Z"
  },
- "fetched_at": "2026-10-22T00:43:00Z",
+ "fetched_at": "2026-10-22T06:33:10Z",
  "parsed": {}
 }
