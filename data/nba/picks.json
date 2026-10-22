@@ -503,7 +503,7 @@
     "pts": -1.17
    },
    "edge": 1.8,
-   "ev": 0.047,
+   "ev": 0.035,
    "hfa_flag": 1,
    "home": "Philadelphia 76ers",
    "home_abbr": "PHI",
@@ -523,19 +523,19 @@
    "su_team": "Philadelphia 76ers",
    "su_wp": 0.556,
    "tier": "lean",
-   "total_line": 235.5,
+   "total_line": 237.5,
    "total_pick": {
     "early": true,
-    "edge": 7.6,
-    "line": 235.5,
+    "edge": 9.6,
+    "line": 237.5,
     "model": 227.9,
-    "odds": -108.0,
+    "odds": -115.0,
     "play": false,
-    "prob": 0.672,
+    "prob": 0.713,
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-22T14:07:10Z",
+   "updated": "2026-10-22T15:21:54Z",
    "week": 202643,
    "weights": {
     "eff": 0.123,
@@ -587,7 +587,7 @@
     "pts": 3.9
    },
    "edge": 2.8,
-   "ev": 0.129,
+   "ev": 0.106,
    "hfa_flag": 1,
    "home": "Oklahoma City Thunder",
    "home_abbr": "OKC",
@@ -619,7 +619,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-22T14:07:10Z",
+   "updated": "2026-10-22T15:21:54Z",
    "week": 202643,
    "weights": {
     "eff": 0.123,
@@ -702,7 +702,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-22T14:07:10Z",
+   "updated": "2026-10-22T15:21:54Z",
    "week": 202643,
    "weights": {
     "eff": 0.123,
@@ -755,7 +755,7 @@
    },
    "early": true,
    "edge": 5.2,
-   "ev": 0.306,
+   "ev": 0.251,
    "hfa_flag": 1,
    "home": "San Antonio Spurs",
    "home_abbr": "SA",
@@ -786,7 +786,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-22T14:07:10Z",
+   "updated": "2026-10-22T15:21:54Z",
    "week": 202643,
    "weights": {
     "eff": 0.123,
@@ -1636,20 +1636,20 @@
    "bet_line": 2.5,
    "book": "DraftKings",
    "conf_label": "Medium",
-   "confidence": 62,
+   "confidence": 67,
    "confidence_detail": {
     "agree": 3,
     "components": {
      "agreement": 1.0,
      "consistency": 0.878,
      "data": 0.1,
-     "edge": 0.795,
+     "edge": 1.0,
      "market": 0.0,
      "trends": 0.5
     },
     "label": "Medium",
     "n_sources": 3,
-    "score": 62,
+    "score": 67,
     "side": "home",
     "source_names": {
      "eff": "Efficiency",
@@ -1657,12 +1657,12 @@
      "pts": "Points"
     },
     "sources": {
-     "eff": 0.5,
-     "elo": 2.0,
-     "pts": 0.3
+     "eff": 1.6,
+     "elo": 3.0,
+     "pts": 1.4
     }
    },
-   "cover_prob": 0.63,
+   "cover_prob": 0.663,
    "date": "2026-10-23",
    "diffs": {
     "eff": 0.69,
@@ -1670,39 +1670,39 @@
     "pts": 0.53
    },
    "early": true,
-   "edge": 4.0,
-   "ev": 0.177,
+   "edge": 5.1,
+   "ev": 0.24,
    "hfa_flag": 1,
    "home": "Charlotte Hornets",
    "home_abbr": "CHA",
    "home_field": 1.701,
    "id": "401909843",
    "line": 3.5,
-   "model_spread": -0.5,
-   "model_total": 228.4,
+   "model_spread": -1.6,
+   "model_total": 228.9,
    "neutral": false,
-   "offset": -1.91,
-   "proj_away": 113.9,
-   "proj_home": 114.4,
+   "offset": -0.83,
+   "proj_away": 113.7,
+   "proj_home": 115.2,
    "result": null,
    "season": 2027,
    "season_type": "regular",
    "start": "2026-10-23T23:00:00Z",
    "su_team": "Charlotte Hornets",
-   "su_wp": 0.516,
+   "su_wp": 0.552,
    "tier": "lean",
    "total_line": 226.5,
    "total_pick": {
-    "edge": 1.9,
+    "edge": 2.4,
     "line": 226.5,
-    "model": 228.4,
+    "model": 228.9,
     "odds": -108.0,
     "play": false,
-    "prob": 0.544,
+    "prob": 0.556,
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-22T14:07:10Z",
+   "updated": "2026-10-22T15:21:54Z",
    "week": 202643,
    "weights": {
     "eff": 0.123,
@@ -1727,7 +1727,7 @@
      "agreement": 1.0,
      "consistency": 0.96,
      "data": 0.1,
-     "edge": 0.49,
+     "edge": 0.506,
      "market": 0.5,
      "trends": 0.5
     },
@@ -1741,30 +1741,30 @@
      "pts": "Points"
     },
     "sources": {
-     "eff": 3.1,
-     "elo": 2.6,
-     "pts": 3.1
+     "eff": 3.0,
+     "elo": 2.5,
+     "pts": 3.0
     }
    },
-   "cover_prob": 0.581,
+   "cover_prob": 0.583,
    "date": "2026-10-23",
    "diffs": {
     "eff": 0.34,
     "elo": -0.17,
     "pts": 0.33
    },
-   "edge": 2.4,
-   "ev": 0.134,
+   "edge": 2.5,
+   "ev": 0.139,
    "hfa_flag": 1,
    "home": "Indiana Pacers",
    "home_abbr": "IND",
    "home_field": 1.701,
    "id": "401909844",
    "line": -5.5,
-   "model_spread": -3.1,
-   "model_total": 231.8,
+   "model_spread": -3.0,
+   "model_total": 231.9,
    "neutral": false,
-   "offset": 1.06,
+   "offset": 0.98,
    "proj_away": 114.4,
    "proj_home": 117.4,
    "result": null,
@@ -1772,20 +1772,20 @@
    "season_type": "regular",
    "start": "2026-10-23T23:00:00Z",
    "su_team": "Indiana Pacers",
-   "su_wp": 0.6,
+   "su_wp": 0.598,
    "tier": "lean",
    "total_line": 236.5,
    "total_pick": {
-    "edge": 4.7,
+    "edge": 4.6,
     "line": 236.5,
-    "model": 231.8,
+    "model": 231.9,
     "odds": -112.0,
     "play": false,
-    "prob": 0.609,
+    "prob": 0.608,
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-22T14:07:10Z",
+   "updated": "2026-10-22T15:21:54Z",
    "week": 202643,
    "weights": {
     "eff": 0.123,
@@ -1869,7 +1869,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-22T14:07:10Z",
+   "updated": "2026-10-22T15:21:54Z",
    "week": 202643,
    "weights": {
     "eff": 0.123,
@@ -1922,7 +1922,7 @@
    },
    "early": true,
    "edge": 3.4,
-   "ev": 0.166,
+   "ev": 0.142,
    "hfa_flag": 1,
    "home": "Washington Wizards",
    "home_abbr": "WSH",
@@ -1954,7 +1954,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-22T14:07:10Z",
+   "updated": "2026-10-22T15:21:54Z",
    "week": 202643,
    "weights": {
     "eff": 0.123,
@@ -1963,7 +1963,7 @@
    }
   },
   "401909847": {
-   "ats_line": 2.5,
+   "ats_line": 1.5,
    "ats_side": "away",
    "ats_team": "Detroit Pistons",
    "away": "Detroit Pistons",
@@ -1971,8 +1971,8 @@
    "bet_at": "2026-10-22T06:33:11Z",
    "bet_line": -1.5,
    "book": "DraftKings",
-   "conf_label": "Medium",
-   "confidence": 68,
+   "conf_label": "High",
+   "confidence": 75,
    "confidence_detail": {
     "agree": 3,
     "components": {
@@ -1980,12 +1980,12 @@
      "consistency": 0.912,
      "data": 0.1,
      "edge": 1.0,
-     "market": 0.0,
+     "market": 0.5,
      "trends": 0.5
     },
-    "label": "Medium",
+    "label": "High",
     "n_sources": 3,
-    "score": 68,
+    "score": 75,
     "side": "away",
     "source_names": {
      "eff": "Efficiency",
@@ -1998,7 +1998,7 @@
      "pts": -3.6
     }
    },
-   "cover_prob": 0.692,
+   "cover_prob": 0.662,
    "date": "2026-10-23",
    "diffs": {
     "eff": -5.48,
@@ -2006,14 +2006,14 @@
     "pts": -5.26
    },
    "early": true,
-   "edge": 6.0,
-   "ev": 0.293,
+   "edge": 5.0,
+   "ev": 0.292,
    "hfa_flag": 1,
    "home": "Miami Heat",
    "home_abbr": "MIA",
    "home_field": 1.701,
    "id": "401909847",
-   "line": -2.5,
+   "line": -1.5,
    "model_spread": 3.5,
    "model_total": 230.5,
    "neutral": false,
@@ -2039,7 +2039,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-22T14:07:10Z",
+   "updated": "2026-10-22T15:21:54Z",
    "week": 202643,
    "weights": {
     "eff": 0.123,
@@ -2123,7 +2123,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-22T14:07:10Z",
+   "updated": "2026-10-22T15:21:54Z",
    "week": 202643,
    "weights": {
     "eff": 0.123,
@@ -2176,7 +2176,7 @@
    },
    "early": true,
    "edge": 5.7,
-   "ev": 0.304,
+   "ev": 0.277,
    "hfa_flag": 1,
    "home": "Utah Jazz",
    "home_abbr": "UTAH",
@@ -2208,7 +2208,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-22T14:07:10Z",
+   "updated": "2026-10-22T15:21:54Z",
    "week": 202643,
    "weights": {
     "eff": 0.123,
@@ -2293,7 +2293,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-22T14:07:10Z",
+   "updated": "2026-10-22T15:21:54Z",
    "week": 202643,
    "weights": {
     "eff": 0.123,
@@ -2302,7 +2302,7 @@
    }
   },
   "401909851": {
-   "ats_line": 10.5,
+   "ats_line": 9.5,
    "ats_side": "away",
    "ats_team": "LA Clippers",
    "away": "LA Clippers",
@@ -2310,8 +2310,8 @@
    "bet_at": "2026-10-22T06:33:11Z",
    "bet_line": -9.5,
    "book": "DraftKings",
-   "conf_label": "Medium",
-   "confidence": 68,
+   "conf_label": "High",
+   "confidence": 75,
    "confidence_detail": {
     "agree": 3,
     "components": {
@@ -2319,12 +2319,12 @@
      "consistency": 0.92,
      "data": 0.1,
      "edge": 1.0,
-     "market": 0.0,
+     "market": 0.5,
      "trends": 0.5
     },
-    "label": "Medium",
+    "label": "High",
     "n_sources": 3,
-    "score": 68,
+    "score": 75,
     "side": "away",
     "source_names": {
      "eff": "Efficiency",
@@ -2337,7 +2337,7 @@
      "pts": 3.2
     }
    },
-   "cover_prob": 0.726,
+   "cover_prob": 0.697,
    "date": "2026-10-23",
    "diffs": {
     "eff": 0.47,
@@ -2345,14 +2345,14 @@
     "pts": 0.45
    },
    "early": true,
-   "edge": 7.2,
-   "ev": 0.357,
+   "edge": 6.2,
+   "ev": 0.381,
    "hfa_flag": 1,
    "home": "Los Angeles Lakers",
    "home_abbr": "LAL",
    "home_field": 1.701,
    "id": "401909851",
-   "line": -10.5,
+   "line": -9.5,
    "model_spread": -3.3,
    "model_total": 226.9,
    "neutral": false,
@@ -2371,13 +2371,13 @@
     "edge": 1.6,
     "line": 228.5,
     "model": 226.9,
-    "odds": -108.0,
+    "odds": -115.0,
     "play": false,
     "prob": 0.537,
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-22T14:07:10Z",
+   "updated": "2026-10-22T15:21:54Z",
    "week": 202643,
    "weights": {
     "eff": 0.123,
@@ -2461,7 +2461,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-22T14:07:10Z",
+   "updated": "2026-10-22T15:21:54Z",
    "week": 202643,
    "weights": {
     "eff": 0.123,
