@@ -34,7 +34,7 @@
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 320.0
+       "value": 330.0
       },
       {
        "description": "MONEY_LINE_2_WAY",
@@ -71,7 +71,7 @@
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 320.0
+       "value": 330.0
       },
       {
        "description": "MONEY_LINE_2_WAY",
@@ -164,33 +164,8 @@
     "startTimeUTC": "2026-10-21T23:30:00Z"
    }
   ],
-  "lastUpdatedUTC": "2026-10-21T23:00:38Z"
+  "lastUpdatedUTC": "2026-10-21T23:30:43Z"
  },
- "fetched_at": "2026-10-21T23:21:11Z",
- "parsed": {
-  "2026020152": {
-   "book": "DraftKings",
-   "ml_away": 180.0,
-   "ml_home": -218.0,
-   "over_odds": 114.0,
-   "pl_away": 1.5,
-   "pl_away_odds": -148.0,
-   "pl_home": -1.5,
-   "pl_home_odds": 124.0,
-   "total": 6.5,
-   "under_odds": -135.0
-  },
-  "2026020153": {
-   "book": "DraftKings",
-   "ml_away": -110.0,
-   "ml_home": -110.0,
-   "over_odds": -110.0,
-   "pl_away": 1.5,
-   "pl_away_odds": -278.0,
-   "pl_home": -1.5,
-   "pl_home_odds": 225.0,
-   "total": 5.5,
-   "under_odds": -110.0
-  }
- }
+ "fetched_at": "2026-10-22T00:00:34Z",
+ "parsed": {}
 }

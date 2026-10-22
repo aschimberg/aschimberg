@@ -367,7 +367,7 @@
    "away_abbr": "GS",
    "bet_at": "2026-10-20T13:39:36Z",
    "bet_line": -5.5,
-   "book": "DraftKings",
+   "book": "Draft Kings",
    "conf_label": "Low",
    "confidence": 37,
    "confidence_detail": {
@@ -435,7 +435,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-21T23:21:12Z",
+   "updated": "2026-10-22T00:00:35Z",
    "week": 202643,
    "weights": {
     "eff": 0.123,
@@ -451,7 +451,7 @@
    "away_abbr": "CLE",
    "bet_at": "2026-10-21T06:31:16Z",
    "bet_line": -2.5,
-   "book": "DraftKings",
+   "book": "Draft Kings",
    "conf_label": "Medium",
    "confidence": 67,
    "confidence_detail": {
@@ -519,7 +519,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-21T23:21:12Z",
+   "updated": "2026-10-22T00:00:35Z",
    "week": 202643,
    "weights": {
     "eff": 0.123,
@@ -535,7 +535,7 @@
    "away_abbr": "DEN",
    "bet_at": "2026-10-21T06:31:16Z",
    "bet_line": -7.5,
-   "book": "DraftKings",
+   "book": "Draft Kings",
    "conf_label": "Medium",
    "confidence": 58,
    "confidence_detail": {
@@ -603,7 +603,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-21T23:21:12Z",
+   "updated": "2026-10-22T00:00:35Z",
    "week": 202643,
    "weights": {
     "eff": 0.123,
@@ -1125,22 +1125,22 @@
    "away_abbr": "DAL",
    "bet_at": "2026-10-20T13:35:06Z",
    "bet_line": -8.5,
-   "book": "DraftKings",
+   "book": "Draft Kings",
    "conf_label": "Medium",
-   "confidence": 55,
+   "confidence": 57,
    "confidence_detail": {
     "agree": 3,
     "components": {
      "agreement": 1.0,
      "consistency": 0.756,
      "data": 0.0,
-     "edge": 0.609,
+     "edge": 0.697,
      "market": 0.0,
      "trends": 0.5
     },
     "label": "Medium",
     "n_sources": 3,
-    "score": 55,
+    "score": 57,
     "side": "away",
     "source_names": {
      "eff": "Efficiency",
@@ -1148,12 +1148,12 @@
      "pts": "Points"
     },
     "sources": {
-     "eff": 7.4,
-     "elo": 10.4,
-     "pts": 7.2
+     "eff": 6.9,
+     "elo": 9.9,
+     "pts": 6.7
     }
    },
-   "cover_prob": 0.6,
+   "cover_prob": 0.614,
    "date": "2026-10-21",
    "diffs": {
     "eff": 5.21,
@@ -1161,40 +1161,40 @@
     "pts": 5.03
    },
    "early": true,
-   "edge": 3.0,
-   "ev": 0.1,
+   "edge": 3.5,
+   "ev": 0.126,
    "hfa_flag": 1,
    "home": "Houston Rockets",
    "home_abbr": "HOU",
    "home_field": 1.701,
    "id": "401909840",
    "line": -10.5,
-   "model_spread": -7.5,
-   "model_total": 220.7,
+   "model_spread": -7.0,
+   "model_total": 220.4,
    "neutral": false,
-   "offset": 0.44,
-   "proj_away": 106.6,
-   "proj_home": 114.1,
+   "offset": 0.0,
+   "proj_away": 106.7,
+   "proj_home": 113.7,
    "result": null,
    "season": 2027,
    "season_type": "regular",
    "start": "2026-10-22T00:30:00Z",
    "su_team": "Houston Rockets",
-   "su_wp": 0.733,
+   "su_wp": 0.721,
    "tier": "lean",
    "total_line": 230.5,
    "total_pick": {
     "early": true,
-    "edge": 9.8,
+    "edge": 10.1,
     "line": 230.5,
-    "model": 220.7,
+    "model": 220.4,
     "odds": -118.0,
     "play": false,
-    "prob": 0.718,
+    "prob": 0.723,
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-21T23:21:12Z",
+   "updated": "2026-10-22T00:00:35Z",
    "week": 202643,
    "weights": {
     "eff": 0.123,
@@ -1210,7 +1210,7 @@
    "away_abbr": "PHX",
    "bet_at": "2026-10-20T13:35:06Z",
    "bet_line": -3.5,
-   "book": "DraftKings",
+   "book": "Draft Kings",
    "conf_label": "High",
    "confidence": 75,
    "confidence_detail": {
@@ -1279,7 +1279,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-21T23:21:12Z",
+   "updated": "2026-10-22T00:00:35Z",
    "week": 202643,
    "weights": {
     "eff": 0.123,
@@ -1295,7 +1295,7 @@
    "away_abbr": "SAC",
    "bet_at": "2026-10-20T13:35:06Z",
    "bet_line": -4.5,
-   "book": "DraftKings",
+   "book": "Draft Kings",
    "conf_label": "High",
    "confidence": 70,
    "confidence_detail": {
@@ -1363,7 +1363,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-21T23:21:12Z",
+   "updated": "2026-10-22T00:00:35Z",
    "week": 202643,
    "weights": {
     "eff": 0.123,
