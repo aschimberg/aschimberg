@@ -7324,7 +7324,7 @@
    }
   },
   "2026_07_CIN_BAL": {
-   "ats_line": 1.5,
+   "ats_line": -1.5,
    "ats_side": "home",
    "ats_team": "Baltimore Ravens",
    "away": "Cincinnati Bengals",
@@ -7332,21 +7332,21 @@
    "bet_at": "2026-10-21T23:20:55Z",
    "bet_line": 1.5,
    "book": "nflverse consensus",
-   "conf_label": "High",
-   "confidence": 72,
+   "conf_label": "Low",
+   "confidence": 53,
    "confidence_detail": {
     "agree": 2,
     "components": {
      "agreement": 1.0,
      "consistency": 0.996,
      "data": 1.0,
-     "edge": 0.848,
+     "edge": 0.182,
      "market": 0.0,
-     "trends": 0.375
+     "trends": 0.25
     },
-    "label": "High",
+    "label": "Low",
     "n_sources": 2,
-    "score": 72,
+    "score": 53,
     "side": "home",
     "source_names": {
      "elo": "Elo",
@@ -7357,19 +7357,19 @@
      "epa": 2.3
     }
    },
-   "cover_prob": 0.591,
+   "cover_prob": 0.544,
    "diffs": {
     "elo": 1.25,
     "epa": 1.19
    },
-   "edge": 3.8,
-   "ev": 0.083,
+   "edge": 0.8,
+   "ev": 0.061,
    "hfa_flag": 1,
    "home": "Baltimore Ravens",
    "home_abbr": "BAL",
    "home_field": 1.644,
    "id": "2026_07_CIN_BAL",
-   "line": 1.5,
+   "line": -1.5,
    "model_spread": -2.3,
    "model_total": 53.8,
    "neutral": false,
@@ -7417,7 +7417,7 @@
    "start": "2026-10-25T17:00:00Z",
    "su_team": "Baltimore Ravens",
    "su_wp": 0.567,
-   "tier": "play",
+   "tier": "pass",
    "total_line": 48.5,
    "total_pick": {
     "edge": 5.3,
@@ -7429,7 +7429,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-22T15:21:39Z",
+   "updated": "2026-10-22T23:20:51Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -7476,7 +7476,7 @@
     "epa": -7.52
    },
    "edge": 2.8,
-   "ev": 0.144,
+   "ev": 0.154,
    "hfa_flag": 1,
    "home": "Tennessee Titans",
    "home_abbr": "TEN",
@@ -7542,7 +7542,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-22T15:21:39Z",
+   "updated": "2026-10-22T23:20:51Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -7655,7 +7655,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-22T15:21:39Z",
+   "updated": "2026-10-22T23:20:51Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -7768,7 +7768,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-22T15:21:39Z",
+   "updated": "2026-10-22T23:20:51Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -7815,7 +7815,7 @@
     "epa": -1.52
    },
    "edge": 0.9,
-   "ev": 0.008,
+   "ev": 0.029,
    "hfa_flag": 1,
    "home": "Detroit Lions",
    "home_abbr": "DET",
@@ -7881,7 +7881,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-22T15:21:39Z",
+   "updated": "2026-10-22T23:20:51Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -7994,7 +7994,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-10-22T15:21:39Z",
+   "updated": "2026-10-22T23:20:51Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8041,7 +8041,7 @@
     "epa": 0.49
    },
    "edge": 1.0,
-   "ev": 0.043,
+   "ev": 0.053,
    "hfa_flag": 1,
    "home": "Seattle Seahawks",
    "home_abbr": "SEA",
@@ -8068,6 +8068,17 @@
     },
     {
      "bet": false,
+     "fair": 173,
+     "lam": 0.4568,
+     "name": "Zach Charbonnet",
+     "note": "no market price yet",
+     "p": 0.367,
+     "pid": "00-0039165",
+     "pos": "RB",
+     "team": "SEA"
+    },
+    {
+     "bet": false,
      "fair": 175,
      "lam": 0.451,
      "name": "Jaxon Smith-Njigba",
@@ -8075,17 +8086,6 @@
      "p": 0.363,
      "pid": "00-0038543",
      "pos": "WR",
-     "team": "SEA"
-    },
-    {
-     "bet": false,
-     "fair": 225,
-     "lam": 0.3679,
-     "name": "Emanuel Wilson",
-     "note": "no market price yet",
-     "p": 0.308,
-     "pid": "00-0038797",
-     "pos": "RB",
      "team": "SEA"
     }
    ],
@@ -8107,7 +8107,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-22T15:21:39Z",
+   "updated": "2026-10-22T23:20:51Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8154,7 +8154,7 @@
     "epa": -8.65
    },
    "edge": 1.6,
-   "ev": 0.118,
+   "ev": 0.093,
    "hfa_flag": 1,
    "home": "Las Vegas Raiders",
    "home_abbr": "LV",
@@ -8220,7 +8220,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-22T15:21:39Z",
+   "updated": "2026-10-22T23:20:51Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8333,7 +8333,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-22T15:21:39Z",
+   "updated": "2026-10-22T23:20:51Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8380,7 +8380,7 @@
     "epa": 0.51
    },
    "edge": 3.0,
-   "ev": 0.091,
+   "ev": 0.116,
    "hfa_flag": 1,
    "home": "Chicago Bears",
    "home_abbr": "CHI",
@@ -8446,7 +8446,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-22T15:21:39Z",
+   "updated": "2026-10-22T23:20:51Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8509,17 +8509,6 @@
    "props": [
     {
      "bet": false,
-     "fair": 151,
-     "lam": 0.5071,
-     "name": "David Montgomery",
-     "note": "no market price yet",
-     "p": 0.398,
-     "pid": "00-0035685",
-     "pos": "RB",
-     "team": "HOU"
-    },
-    {
-     "bet": false,
      "fair": 169,
      "lam": 0.4652,
      "name": "Nico Collins",
@@ -8539,6 +8528,17 @@
      "pid": "00-0040583",
      "pos": "RB",
      "team": "HOU"
+    },
+    {
+     "bet": false,
+     "fair": 221,
+     "lam": 0.3737,
+     "name": "Cam Skattebo",
+     "note": "no market price yet",
+     "p": 0.312,
+     "pid": "00-0040715",
+     "pos": "RB",
+     "team": "NYG"
     }
    ],
    "result": null,
@@ -8559,7 +8559,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-22T15:21:39Z",
+   "updated": "2026-10-22T23:20:51Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8672,7 +8672,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-22T15:21:39Z",
+   "updated": "2026-10-22T23:20:51Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8785,7 +8785,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-22T15:21:39Z",
+   "updated": "2026-10-22T23:20:51Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8898,7 +8898,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-22T15:21:39Z",
+   "updated": "2026-10-22T23:20:51Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
