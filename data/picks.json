@@ -4491,7 +4491,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -4562,7 +4562,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -4633,7 +4633,7 @@
     "side": "over",
     "tier": "play"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -4642,28 +4642,28 @@
    }
   },
   "401856730": {
-   "ats_line": 5.5,
+   "ats_line": 3.0,
    "ats_side": "home",
    "ats_team": "Mississippi State",
    "away": "Oklahoma",
    "bet_at": "2026-10-18T23:20:49Z",
    "bet_line": 2.5,
    "book": "DraftKings",
-   "conf_label": "High",
-   "confidence": 75,
+   "conf_label": "Medium",
+   "confidence": 65,
    "confidence_detail": {
-    "agree": 3,
+    "agree": 2,
     "components": {
-     "agreement": 1.0,
+     "agreement": 0.964,
      "consistency": 0.779,
      "data": 1.0,
-     "edge": 1.0,
-     "market": 0.0,
+     "edge": 0.55,
+     "market": 0.125,
      "trends": 0.5
     },
-    "label": "High",
+    "label": "Medium",
     "n_sources": 3,
-    "score": 75,
+    "score": 65,
     "sources": {
      "elo": -4.8,
      "fpi": -1.2,
@@ -4675,12 +4675,12 @@
     "fpi": -4.11,
     "sp": -2.5
    },
-   "edge": 4.7,
+   "edge": 2.2,
    "hfa_flag": 1,
    "home": "Mississippi State",
    "home_field": 2.96,
    "id": 401856730,
-   "line": 5.5,
+   "line": 3.0,
    "model_spread": 0.8,
    "model_total": 45.1,
    "neutral": false,
@@ -4692,19 +4692,19 @@
    "start": "2026-10-24T19:30:00.000Z",
    "su_team": "Oklahoma",
    "su_wp": 0.52,
-   "tier": "play",
-   "total_line": 44.5,
+   "tier": "lean",
+   "total_line": 46.5,
    "total_pick": {
-    "edge": 0.6,
-    "line": 44.5,
+    "edge": 1.4,
+    "line": 46.5,
     "model": 45.1,
     "odds": null,
     "play": false,
-    "prob": 0.515,
-    "side": "over",
+    "prob": 0.534,
+    "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -4775,7 +4775,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -4835,18 +4835,18 @@
    "su_team": "Texas",
    "su_wp": 0.679,
    "tier": "lean",
-   "total_line": 54.5,
+   "total_line": 53.5,
    "total_pick": {
-    "edge": 1.7,
-    "line": 54.5,
+    "edge": 2.7,
+    "line": 53.5,
     "model": 56.2,
     "odds": null,
     "play": false,
-    "prob": 0.541,
+    "prob": 0.565,
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -9103,7 +9103,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -9174,7 +9174,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -9245,7 +9245,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -9316,7 +9316,7 @@
     "side": "over",
     "tier": "play"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -9387,7 +9387,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -9458,7 +9458,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -9529,7 +9529,7 @@
     "side": "over",
     "tier": "play"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -9600,7 +9600,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -13884,7 +13884,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -13955,7 +13955,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -14026,7 +14026,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -14097,7 +14097,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -14168,7 +14168,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -14239,7 +14239,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -14310,7 +14310,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -18921,7 +18921,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -18981,18 +18981,18 @@
    "su_team": "Indiana",
    "su_wp": 0.742,
    "tier": "lean",
-   "total_line": 41.5,
+   "total_line": 42.5,
    "total_pick": {
-    "edge": 5.6,
-    "line": 41.5,
+    "edge": 6.6,
+    "line": 42.5,
     "model": 35.9,
     "odds": null,
     "play": true,
-    "prob": 0.633,
+    "prob": 0.655,
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -19063,7 +19063,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -19134,7 +19134,7 @@
     "side": "over",
     "tier": "play"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -19205,7 +19205,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -19276,7 +19276,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -21085,7 +21085,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -21156,7 +21156,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -21227,7 +21227,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -21687,7 +21687,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -25031,7 +25031,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -25102,7 +25102,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -25173,7 +25173,7 @@
     "side": "over",
     "tier": "play"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -25244,7 +25244,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -27481,7 +27481,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -27552,7 +27552,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -27623,7 +27623,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -27694,7 +27694,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -30757,7 +30757,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -30828,7 +30828,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -30899,7 +30899,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -30970,7 +30970,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -31041,7 +31041,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -31112,7 +31112,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -33030,7 +33030,7 @@
     "side": "over",
     "tier": "play"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -34088,7 +34088,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -35906,7 +35906,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
@@ -35977,7 +35977,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-22T23:20:42Z",
+   "updated": "2026-10-23T00:42:43Z",
    "week": 8,
    "weights": {
     "elo": 0.036,
