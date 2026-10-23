@@ -20,7 +20,8 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  # Optional: The Odds API (multi-book NFL lines, NHL/NBA fallback odds). Unset = free sources only.
+  # Optional: The Odds API (multi-book NFL lines and anytime-TD odds). Unset = free sources only.
+  # Only sports in ODDS_API_SPORTS (default "nfl") spend credits; NHL/NBA stay on free sources.
   ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
 
 jobs:

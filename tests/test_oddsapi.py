@@ -50,6 +50,16 @@ class OddsApiTests(unittest.TestCase):
             self.assertIsNone(oddsapi.get_odds("nfl", "spreads,totals", now=NOW, fetcher=self.fetcher(), log=lambda *_: None))
         self.assertEqual(self.calls, [])
 
+    def test_only_allowed_sports_spend_credits(self):
+        with mock.patch.dict(os.environ, {"ODDS_API_KEY": "k"}):
+            os.environ.pop("ODDS_API_SPORTS", None)
+            self.assertIsNone(oddsapi.get_odds("nhl", "h2h,totals", now=NOW, fetcher=self.fetcher(), log=lambda *_: None))
+            self.assertIsNone(oddsapi.get_odds("nba", "spreads,totals", now=NOW, fetcher=self.fetcher(), log=lambda *_: None))
+            self.assertEqual(self.calls, [])
+            with mock.patch.dict(os.environ, {"ODDS_API_SPORTS": "nfl,nba"}):
+                self.assertIsNotNone(oddsapi.get_odds("nba", "spreads,totals", now=NOW, fetcher=self.fetcher(), log=lambda *_: None))
+        self.assertEqual(len(self.calls), 1)
+
     def test_fetch_caches_and_tracks_credits(self):
         with mock.patch.dict(os.environ, {"ODDS_API_KEY": "k"}):
             ev = oddsapi.get_odds("nfl", "spreads,totals", now=NOW, fetcher=self.fetcher(), log=lambda *_: None)

@@ -29,6 +29,11 @@ def api_key():
     return os.environ.get("ODDS_API_KEY", "").strip() or None
 
 
+def allowed(sport):
+    """Sports allowed to spend credits (ODDS_API_SPORTS, default NFL only; the others use free sources)."""
+    return sport in {s.strip() for s in os.environ.get("ODDS_API_SPORTS", "nfl").split(",") if s.strip()}
+
+
 def reserve():
     return int(os.environ.get("ODDS_API_RESERVE", "40"))
 
@@ -49,7 +54,7 @@ def get_odds(sport, markets, max_age_hours=12, now=None, log=print, fetcher=None
     """Events for sport ('nfl'|'nhl'|'cfb'), from cache when fresh. None if unavailable."""
     now = now or _utcnow()
     key = api_key()
-    if not key:
+    if not key or not allowed(sport):
         return None
     cache_p = CACHE_DIR / f"{sport}.json"
     cached = store.load(cache_p, None)
@@ -181,7 +186,7 @@ def props_per_run():
 def events(sport, log=print, fetcher=None):
     """Upcoming events (ids, teams, start). The /events endpoint doesn't use credits."""
     key = api_key()
-    if not key:
+    if not key or not allowed(sport):
         return None
     url = f"{BASE}/sports/{SPORT_KEYS[sport]}/events?" + urllib.parse.urlencode({"apiKey": key, "dateFormat": "iso"})
     try:
@@ -208,7 +213,7 @@ def event_props(sport, event, max_age_hours=6, now=None, log=print, fetcher=None
         if age < max_age_hours:
             return ent["data"]
     key = api_key()
-    if not key:
+    if not key or not allowed(sport):
         return ent["data"] if ent else None
     u = usage()
     if (u.get("remaining") is not None and u["remaining"] <= reserve()) or _props_fetched["n"] >= props_per_run():

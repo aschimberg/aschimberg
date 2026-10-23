@@ -117,6 +117,7 @@ Add a repository secret `ODDS_API_KEY` to turn this on. With no key, the free so
   - Each call costs markets × regions (2 credits here).
   - Responses are cached for 6 hours per sport (`NFL_ODDS_API_MAX_AGE`, `NHL_ODDS_API_MAX_AGE`), which works out to about 200–250 credits a month, under the free plan's 500.
   - Calls stop once the remaining balance reaches `ODDS_API_RESERVE` (default 40).
+  - Only sports listed in `ODDS_API_SPORTS` spend credits (default `nfl`). NHL and NBA stay on free sources unless added, e.g. `nfl,nba`.
   - The balance is logged in `data/oddsapi/usage.json`.
 - **Books:** set `ODDS_API_BOOKS` (comma-separated book keys) to change the preferred book order.
 
@@ -127,7 +128,7 @@ Add a repository secret `ODDS_API_KEY` to turn this on. With no key, the free so
    - `NTFY_TOPIC` (required for push): your ntfy topic name. Pick a hard-to-guess one, because anyone who knows a public ntfy.sh topic can read it.
    - `NTFY_TOKEN` (optional): an access token if your topic is protected.
    - `SPLITS_API_KEY` (optional): a bearer token for an `http_json` splits feed.
-   - `ODDS_API_KEY` (optional): The Odds API key for multi-book NFL lines and NHL/NBA fallback odds.
+   - `ODDS_API_KEY` (optional): The Odds API key for multi-book NFL lines and anytime-TD odds (NHL/NBA only if listed in `ODDS_API_SPORTS`).
 2. **Variables** (optional, *Variables* tab): `SITE_URL`, `NTFY_SERVER`, `SPLITS_PROVIDER` (`none` | `file` | `http_json`), `SPLITS_URL`.
 3. **Pages**: Settings → Pages → Source: **GitHub Actions**.
 4. **Default branch**: scheduled workflows only run on the default branch, and the `github-pages` environment only deploys from it by default. Merge this work into `main` and make `main` the default branch.
