@@ -215,6 +215,9 @@ table.data tbody tr:hover { background: var(--accent-soft); }
 .tile .k { color: var(--muted); font: 650 8px var(--mono); letter-spacing: .08em; text-transform: uppercase; }
 .tile .v { margin-top: 4px; color: var(--accent); font: 600 22px var(--mono); letter-spacing: -.04em; }
 .tile .s { color: var(--muted); font: 11px var(--mono); }
+.tiles > .tile-group { grid-column: 1 / -1; margin: 14px 0 0; color: var(--muted); font: 650 9px var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+.tiles > .tile-group:first-child { margin-top: 0; }
+.tiles > .tile-group + .tile { border-left: 0; }
 
 .prose { max-width: 760px; margin-top: 30px; padding: 6px 24px 18px; border: 1px solid var(--line); background: var(--card); }
 .prose h3 { margin: 22px 0 6px; color: var(--accent); font: 650 10px var(--mono); letter-spacing: .09em; text-transform: uppercase; }
@@ -254,6 +257,10 @@ table.data tbody tr:hover { background: var(--accent-soft); }
   .day-groups { gap: 36px; margin-top: 28px; }
   .showing { margin-left: 0; }
   .tile + .tile { border-left: 0; border-top: 1px solid var(--line); }
+  .tile { padding: 11px 14px; }
+  /* wide tables scroll sideways: keep the first column (week / date) in view */
+  table.data th:first-child, table.data td:first-child { position: sticky; left: 0; z-index: 1; background: var(--card); box-shadow: 1px 0 0 var(--line-soft); }
+  table.data th:first-child { z-index: 2; background: var(--market); }
 }
 @media (max-width: 440px) {
   .teams, .pick-panel { padding-inline: 14px; }

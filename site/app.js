@@ -432,48 +432,50 @@
     if (!rec) return;
     const sr = rec.season_record;
     const s = state.meta?.settings || {};
-    const tile = (k, r, ties = true, sub = "") => `<div class="tile"><div class="k">${k}</div><div class="v">${recStr(r, ties)}</div><div class="s">${pct(r?.pct)}${sub}</div></div>`;
+    // A record with no graded picks shows its note instead of an empty percentage
+    const tile = (k, r, ties = true, sub = "") => {
+      const n = r ? r.W + r.L + (r.P || 0) : 0;
+      return `<div class="tile"><div class="k">${k}</div><div class="v">${recStr(r, ties)}</div><div class="s">${n ? pct(r.pct) + sub : sub.replace(/^ · /, "") || "none graded yet"}</div></div>`;
+    };
     const A = T("ats", "ATS");
-    if (rec.tiles) {
-      $("#record-tiles").innerHTML = rec.tiles.map((t) => tile(esc(t.k), t.rec, true, t.sub ? " · " + esc(t.sub) : "")).join("");
-    } else $("#record-tiles").innerHTML =
-      tile("Straight up", sr.su, false) +
-      tile("ATS · all", sr.ats) +
-      tile(`ATS · edge ${s.lean_edge ?? 2}+`, sr.ats_lean) +
-      tile(`ATS · edge ${s.play_edge ?? 4}+`, sr.ats_play) +
-      tile(`ATS · edge ${s.strong_edge ?? 7}+`, sr.ats_strong) +
-      tile("ATS · all-time", rec.all_time.ats, true, " · all seasons");
-    const bc = sr.ats_by_conf;
-    if (bc && !rec.tiles) {
-      $("#record-tiles").innerHTML +=
-        tile("ATS · High confidence", bc.High) + tile("ATS · Medium confidence", bc.Medium) + tile("ATS · Low confidence", bc.Low);
-    }
-
     const seasonPicks = rec.picks || [];
     const playEdge = s.play_edge ?? 4;
-    if (!rec.tiles) {
+    const groups = [];
+    if (rec.tiles) {
+      groups.push(["Moneyline and totals", rec.tiles.map((t) => tile(esc(t.k), t.rec, true, t.sub ? " · " + esc(t.sub) : "")).join("")]);
+    } else {
+      const bc = sr.ats_by_conf;
+      groups.push([`Sides · straight up and ${A}`,
+        tile("Straight up", sr.su, false) +
+        tile(`${A} · all`, sr.ats) +
+        tile(`Edge ${s.lean_edge ?? 2}+`, sr.ats_lean) +
+        tile(`Edge ${s.play_edge ?? 4}+`, sr.ats_play) +
+        tile(`Edge ${s.strong_edge ?? 7}+`, sr.ats_strong) +
+        tile("All-time", rec.all_time.ats, true, " · all seasons") +
+        (bc ? tile("High confidence", bc.High) + tile("Medium confidence", bc.Medium) + tile("Low confidence", bc.Low) : "")]);
       const ou = sr.ou, e = ou?.edges;
-      $("#record-tiles").innerHTML += ou
-        ? tile("O/U · all", ou.all) +
-          tile(e ? `O/U · edge ${e.lean}+` : "O/U · leans+", ou.lean) +
-          tile(e ? `O/U · edge ${e.play}+` : "O/U · plays", ou.play) +
-          tile(e ? `O/U · edge ${e.strong}+` : "O/U · strong", ou.strong) +
-          (rec.all_time?.ou ? tile("O/U · all-time", rec.all_time.ou.all, true, " · all seasons") : "")
-        : tile("O/U · all", ouRec(seasonPicks)) + tile("O/U · plays", ouRec(seasonPicks, true));
+      groups.push(["Totals · over/under", ou
+        ? tile("All totals", ou.all) +
+          tile(e ? `Edge ${e.lean}+` : "Leans+", ou.lean) +
+          tile(e ? `Edge ${e.play}+` : "Plays", ou.play) +
+          tile(e ? `Edge ${e.strong}+` : "Strong", ou.strong) +
+          (rec.all_time?.ou ? tile("All-time", rec.all_time.ou.all, true, " · all seasons") : "")
+        : tile("All totals", ouRec(seasonPicks)) + tile("Plays", ouRec(seasonPicks, true))]);
     }
     const td = sr.anytime_td;
     if (state.meta?.sport === "nfl" && td) {
       const n = td.picks_per_game ? Math.round(td.picks_per_game) : 3;
-      $("#record-tiles").innerHTML +=
-        `<div class="tile"><div class="k">Anytime TD · scorers per game</div><div class="v">${td.games ? td.hits_per_game.toFixed(2) : "—"}</div>` +
+      groups.push(["Anytime TD scorers",
+        `<div class="tile"><div class="k">Scorers per game</div><div class="v">${td.games ? td.hits_per_game.toFixed(2) : "—"}</div>` +
         `<div class="s">${td.games ? `of ${n} picks · model expected ${td.exp_per_game.toFixed(2)} · ${td.games} games` : "none graded yet"}</div></div>` +
-        tile("Anytime TD · all picks", td.all, false) +
-        tile("Anytime TD · top pick", td.top, false, " · model's likeliest scorer") +
-        tile("Anytime TD · best bets", td, false, td.W + td.L ? ` · ${td.units >= 0 ? "+" : ""}${td.units.toFixed(1)}u` : " · none yet (needs market prices)");
+        tile("All picks", td.all, false) +
+        tile("Top pick", td.top, false, " · model's likeliest scorer") +
+        tile("Best bets", td, false, td.W + td.L ? ` · ${td.units >= 0 ? "+" : ""}${td.units.toFixed(1)}u` : " · none yet (needs market prices)")]);
     }
-    $("#record-tiles").innerHTML +=
-      clvTile(`CLV · all picks`, clvStats(seasonPicks)) +
-      clvTile(`CLV · ${T("edge", "edge")} ${playEdge}+`, clvStats(seasonPicks.filter((p) => (p.edge ?? 0) >= playEdge)));
+    groups.push(["Closing line value",
+      clvTile("All picks", clvStats(seasonPicks)) +
+      clvTile(`${T("edge", "Edge")} ${playEdge}+`, clvStats(seasonPicks.filter((p) => (p.edge ?? 0) >= playEdge)))]);
+    $("#record-tiles").innerHTML = groups.map(([h, html]) => `<h3 class="tile-group">${esc(h)}</h3>${html}`).join("");
     const clvByWeek = new Map();
     for (const p of seasonPicks) {
       const k = `${p.season}|${p.season_type}|${p.week}`;
@@ -489,12 +491,12 @@
         { key: "week", label: "Week", ascFirst: true, render: (r) => r.label ? esc(r.label) : (r.season_type === "regular" ? `Week ${r.week}` : "Postseason") + ` <span class="muted">${r.season}</span>`, sortVal: (r) => r.season * 100 + (r.season_type === "regular" ? 0 : 50) + r.week },
         { key: "su", label: "SU", num: true, render: (r) => recStr(r.su, false), sortVal: (r) => r.su.pct },
         { key: "ats", label: A, num: true, render: (r) => recStr(r.ats), sortVal: (r) => r.ats.pct },
-        { key: "atspct", label: `${A} %`, num: true, render: (r) => pct(r.ats.pct), sortVal: (r) => r.ats.pct },
-        { key: "plays", label: `${A} ${T("edge", "edge")} ${s.lean_edge ?? 4}+`, num: true, render: (r) => recStr(r.ats_plays), sortVal: (r) => r.ats_plays.pct },
         { key: "ou", label: "O/U", num: true, sortVal: (r) => (r.ou || ouRec(clvByWeek.get(`${r.season}|${r.season_type}|${r.week}`) || [])).pct ?? -1,
           render: (r) => { const o = r.ou || ouRec(clvByWeek.get(`${r.season}|${r.season_type}|${r.week}`) || []); return o.W + o.L + o.P ? recStr(o) : '<span class="muted">—</span>'; } },
-        ...(sr.by_week.some((r) => r.td) ? [{ key: "td", label: "TD scorers/gm", num: true, sortVal: (r) => r.td?.hits_per_game ?? -1,
+        ...(sr.by_week.some((r) => r.td) ? [{ key: "td", label: "TD/gm", num: true, sortVal: (r) => r.td?.hits_per_game ?? -1,
           render: (r) => (r.td?.games ? `${r.td.hits_per_game.toFixed(2)} <span class="muted">exp ${r.td.exp_per_game.toFixed(2)}</span>` : '<span class="muted">—</span>') }] : []),
+        { key: "plays", label: `${A} ${T("edge", "edge")} ${s.play_edge ?? 4}+`, num: true, render: (r) => recStr(r.ats_plays), sortVal: (r) => r.ats_plays.pct },
+        { key: "atspct", label: `${A} %`, num: true, render: (r) => pct(r.ats.pct), sortVal: (r) => r.ats.pct },
         { key: "clv", label: "CLV", num: true, sortVal: (r) => clvStats(clvByWeek.get(`${r.season}|${r.season_type}|${r.week}`) || [])?.avg ?? -99,
           render: (r) => { const st = clvStats(clvByWeek.get(`${r.season}|${r.season_type}|${r.week}`) || []); return st ? `<span class="${st.avg > 0 ? "pos" : st.avg < 0 ? "neg" : ""}">${clvFmt(st.avg)}</span> <span class="muted">${st.beat}/${st.n}</span>` : '<span class="muted">—</span>'; } },
       ],

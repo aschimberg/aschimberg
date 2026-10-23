@@ -108,6 +108,7 @@ table.data tbody tr:hover { background: var(--accent-soft); }
 .tile, .tile + .tile { border: 0; border-radius: var(--radius); background: var(--card); box-shadow: var(--shadow); }
 .tile .k { font-family: var(--sans); text-transform: none; letter-spacing: 0; font-size: 11px; }
 .tile .v { color: var(--ink); font-family: var(--sans); font-weight: 800; }
+.tiles > .tile-group { padding: 0 2px; color: var(--ink); font-family: var(--sans); font-size: 13px; font-weight: 700; letter-spacing: 0; text-transform: none; }
 .prose h3 { color: var(--accent); font-family: var(--sans); text-transform: none; letter-spacing: 0; font-size: 14px; }
 .footer { background: transparent; }
 .footer-inner { font-family: var(--sans); }
@@ -124,4 +125,7 @@ table.data tbody tr:hover { background: var(--accent-soft); }
   .record-strip dd small { font-size: 10px; white-space: normal; }
   .tile { container-type: inline-size; min-width: 0; }
   .tile .v { font-size: clamp(16px, 13cqi, 26px); white-space: nowrap; }
+  .tiles { gap: 8px; }
+  table.data th:first-child { background: #f8fafc; }
+  table.data tbody tr:hover td:first-child { background: var(--card); }
 }
