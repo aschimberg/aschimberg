@@ -7468,6 +7468,180 @@
     "mp": 0.223,
     "xg": 0.42
    }
+  },
+  "2026020166": {
+   "ats_side": "home",
+   "ats_team": "Chicago Blackhawks",
+   "away": "Montr\u00e9al Canadiens",
+   "away_abbr": "MTL",
+   "bet_at": "2026-10-23T16:08:35Z",
+   "bet_line": 142.0,
+   "conf_label": "Medium",
+   "confidence": 68,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 0.866,
+     "consistency": 0.843,
+     "data": 0.9,
+     "edge": 0.557,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "Medium",
+    "n_sources": 4,
+    "score": 68,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "goals": "Goals",
+     "mp": "MoneyPuck",
+     "xg": "xG"
+    },
+    "sources": {
+     "elo": -0.41,
+     "goals": -0.58,
+     "mp": -0.36,
+     "xg": -0.34
+    },
+    "units": "goals"
+   },
+   "date": "2026-10-23",
+   "diffs": {
+    "elo": -0.629,
+    "goals": -0.795,
+    "mp": -0.571,
+    "xg": -0.559
+   },
+   "edge": 4.5,
+   "ev": 0.0445,
+   "hfa_flag": 1,
+   "home": "Chicago Blackhawks",
+   "home_abbr": "CHI",
+   "home_field": 0.192,
+   "home_prob": 0.432,
+   "id": 2026020166,
+   "line": null,
+   "mkt_prob": 0.396,
+   "ml_away": -170.0,
+   "ml_home": 142.0,
+   "model_spread": null,
+   "neutral": false,
+   "odds": 142.0,
+   "offset": 0.022,
+   "prob": 0.432,
+   "result": null,
+   "season": 20262027,
+   "season_type": "regular",
+   "start": "2026-10-24T00:00:00Z",
+   "su_team": "Montr\u00e9al Canadiens",
+   "su_wp": 0.568,
+   "tier": "lean",
+   "total_pick": {
+    "edge": 11.7,
+    "ev": 0.117,
+    "line": 6.5,
+    "odds": -122.0,
+    "play": true,
+    "prob": 0.614,
+    "side": "under",
+    "tier": "strong"
+   },
+   "updated": "2026-10-23T16:08:35Z",
+   "week": 202643,
+   "weights": {
+    "elo": 0.223,
+    "goals": 0.134,
+    "mp": 0.223,
+    "xg": 0.42
+   }
+  },
+  "2026020167": {
+   "ats_side": "away",
+   "ats_team": "Tampa Bay Lightning",
+   "away": "Tampa Bay Lightning",
+   "away_abbr": "TBL",
+   "bet_at": "2026-10-23T16:08:35Z",
+   "bet_line": 105.0,
+   "conf_label": "Low",
+   "confidence": 54,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 0.866,
+     "consistency": 0.827,
+     "data": 0.9,
+     "edge": 0.0,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "Low",
+    "n_sources": 4,
+    "score": 54,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "goals": "Goals",
+     "mp": "MoneyPuck",
+     "xg": "xG"
+    },
+    "sources": {
+     "elo": 0.13,
+     "goals": 0.36,
+     "mp": 0.08,
+     "xg": 0.15
+    },
+    "units": "goals"
+   },
+   "date": "2026-10-23",
+   "diffs": {
+    "elo": 0.052,
+    "goals": 0.275,
+    "mp": 0.003,
+    "xg": 0.071
+   },
+   "edge": -3.2,
+   "ev": -0.0316,
+   "hfa_flag": 1,
+   "home": "Colorado Avalanche",
+   "home_abbr": "COL",
+   "home_field": 0.192,
+   "home_prob": 0.528,
+   "id": 2026020167,
+   "line": null,
+   "mkt_prob": 0.468,
+   "ml_away": 105.0,
+   "ml_home": -125.0,
+   "model_spread": null,
+   "neutral": false,
+   "odds": 105.0,
+   "offset": -0.111,
+   "prob": 0.472,
+   "result": null,
+   "season": 20262027,
+   "season_type": "regular",
+   "start": "2026-10-24T01:00:00Z",
+   "su_team": "Colorado Avalanche",
+   "su_wp": 0.528,
+   "tier": "pass",
+   "total_pick": {
+    "edge": 10.4,
+    "ev": 0.1036,
+    "line": 6.5,
+    "odds": -122.0,
+    "play": true,
+    "prob": 0.606,
+    "side": "under",
+    "tier": "strong"
+   },
+   "updated": "2026-10-23T16:08:35Z",
+   "week": 202643,
+   "weights": {
+    "elo": 0.223,
+    "goals": 0.134,
+    "mp": 0.223,
+    "xg": 0.42
+   }
   }
  }
 }

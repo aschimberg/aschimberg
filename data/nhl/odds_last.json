@@ -10,1032 +10,186 @@
    "siteUrl": "https://dksb.sng.link/As9kz/3i4d?_dl=https%3A%2F%2Fsportsbook.draftkings.com%2Fgateway%3Fs%3D333653091&pcid=427326&psn=1320&pcn=NHL&pscn=OddsWidget&pcrn=NoOffer&pscid=SP&wpcid=427326&wpsrc=1320&wpcn=NHL&wpscn=OddsWidget&wpcrn=NoOffer&wpscid=SP&_forward_params=1",
    "textColor": "#FFFFFF"
   },
-  "currentOddsDate": "2026-10-22",
+  "currentOddsDate": "2026-10-23",
   "games": [
    {
     "awayTeam": {
-     "abbrev": "NSH",
-     "id": 18,
-     "logo": "https://assets.nhle.com/logos/nhl/svg/NSH_light.svg",
+     "abbrev": "MTL",
+     "id": 8,
+     "logo": "https://assets.nhle.com/logos/nhl/svg/MTL_light.svg",
      "name": {
-      "default": "Predators"
+      "default": "Canadiens"
      },
      "odds": [
-      {
-       "description": "OVER_UNDER",
-       "qualifier": "U5.5",
-       "value": -166.0
-      },
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "",
-       "value": 35000.0
-      },
       {
        "description": "MONEY_LINE_2_WAY",
        "qualifier": "",
-       "value": 1800.0
+       "value": -170.0
       },
-      {
-       "description": "PUCK_LINE",
-       "qualifier": "+5.5",
-       "value": -475.0
-      },
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "Draw",
-       "value": 8000.0
-      },
-      {
-       "description": "MONEY_LINE_2_WAY_TNB",
-       "qualifier": "",
-       "value": 4000.0
-      }
-     ]
-    },
-    "gameId": 2026020154,
-    "gameType": 2,
-    "homeTeam": {
-     "abbrev": "BOS",
-     "id": 6,
-     "logo": "https://assets.nhle.com/logos/nhl/svg/BOS_light.svg",
-     "name": {
-      "default": "Bruins"
-     },
-     "odds": [
-      {
-       "description": "OVER_UNDER",
-       "qualifier": "O5.5",
-       "value": 130.0
-      },
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "",
-       "value": -2500.0
-      },
-      {
-       "description": "MONEY_LINE_2_WAY",
-       "qualifier": "",
-       "value": -6500.0
-      },
-      {
-       "description": "PUCK_LINE",
-       "qualifier": "-5.5",
-       "value": 325.0
-      },
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "Draw",
-       "value": 8000.0
-      },
-      {
-       "description": "MONEY_LINE_2_WAY_TNB",
-       "qualifier": "",
-       "value": -100000.0
-      }
-     ]
-    },
-    "startTimeUTC": "2026-10-22T23:00:00Z"
-   },
-   {
-    "awayTeam": {
-     "abbrev": "NYR",
-     "id": 3,
-     "logo": "https://assets.nhle.com/logos/nhl/svg/NYR_light.svg",
-     "name": {
-      "default": "Rangers"
-     },
-     "odds": [
-      {
-       "description": "PUCK_LINE",
-       "qualifier": "+1.5",
-       "value": -160.0
-      },
-      {
-       "description": "MONEY_LINE_2_WAY",
-       "qualifier": "",
-       "value": 420.0
-      },
-      {
-       "description": "OVER_UNDER",
-       "qualifier": "U8.5",
-       "value": 100.0
-      },
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "",
-       "value": 1900.0
-      },
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "Draw",
-       "value": 275.0
-      },
-      {
-       "description": "MONEY_LINE_2_WAY_TNB",
-       "qualifier": "",
-       "value": 1300.0
-      }
-     ]
-    },
-    "gameId": 2026020155,
-    "gameType": 2,
-    "homeTeam": {
-     "abbrev": "TOR",
-     "id": 10,
-     "logo": "https://assets.nhle.com/logos/nhl/svg/TOR_light.svg",
-     "name": {
-      "default": "Maple Leafs"
-     },
-     "odds": [
       {
        "description": "PUCK_LINE",
        "qualifier": "-1.5",
-       "value": 124.0
-      },
-      {
-       "description": "MONEY_LINE_2_WAY",
-       "qualifier": "",
-       "value": -660.0
-      },
-      {
-       "description": "OVER_UNDER",
-       "qualifier": "O8.5",
-       "value": -130.0
+       "value": 150.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "",
-       "value": -280.0
-      },
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "Draw",
-       "value": 275.0
-      },
-      {
-       "description": "MONEY_LINE_2_WAY_TNB",
-       "qualifier": "",
-       "value": -3500.0
-      }
-     ]
-    },
-    "startTimeUTC": "2026-10-22T23:00:00Z"
-   },
-   {
-    "awayTeam": {
-     "abbrev": "SJS",
-     "id": 28,
-     "logo": "https://assets.nhle.com/logos/nhl/svg/SJS_light.svg",
-     "name": {
-      "default": "Sharks"
-     },
-     "odds": [
-      {
-       "description": "PUCK_LINE",
-       "qualifier": "-2.5",
-       "value": -120.0
-      },
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "Draw",
-       "value": 1500.0
-      },
-      {
-       "description": "MONEY_LINE_2_WAY",
-       "qualifier": "",
-       "value": -10000.0
+       "value": 105.0
       },
       {
        "description": "OVER_UNDER",
        "qualifier": "U6.5",
-       "value": 260.0
-      },
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "",
-       "value": -1800.0
-      },
-      {
-       "description": "MONEY_LINE_2_WAY_TNB",
-       "qualifier": "",
-       "value": -80000.0
-      }
-     ]
-    },
-    "gameId": 2026020156,
-    "gameType": 2,
-    "homeTeam": {
-     "abbrev": "OTT",
-     "id": 9,
-     "logo": "https://assets.nhle.com/logos/nhl/svg/OTT_light.svg",
-     "name": {
-      "default": "Senators",
-      "fr": "S\u00e9nateurs"
-     },
-     "odds": [
-      {
-       "description": "PUCK_LINE",
-       "qualifier": "+2.5",
-       "value": -110.0
+       "value": -122.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 1500.0
-      },
+       "value": 320.0
+      }
+     ]
+    },
+    "gameId": 2026020166,
+    "gameType": 2,
+    "homeTeam": {
+     "abbrev": "CHI",
+     "id": 16,
+     "logo": "https://assets.nhle.com/logos/nhl/svg/CHI_light.svg",
+     "name": {
+      "default": "Blackhawks"
+     },
+     "odds": [
       {
        "description": "MONEY_LINE_2_WAY",
        "qualifier": "",
-       "value": 2200.0
+       "value": 142.0
+      },
+      {
+       "description": "PUCK_LINE",
+       "qualifier": "+1.5",
+       "value": -180.0
+      },
+      {
+       "description": "MONEY_LINE_3_WAY",
+       "qualifier": "",
+       "value": 185.0
       },
       {
        "description": "OVER_UNDER",
        "qualifier": "O6.5",
-       "value": -360.0
+       "value": 102.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
-       "qualifier": "",
-       "value": 4500.0
-      },
-      {
-       "description": "MONEY_LINE_2_WAY_TNB",
-       "qualifier": "",
-       "value": 3500.0
+       "qualifier": "Draw",
+       "value": 320.0
       }
      ]
     },
-    "startTimeUTC": "2026-10-22T23:00:00Z"
+    "startTimeUTC": "2026-10-24T00:00:00Z"
    },
    {
     "awayTeam": {
-     "abbrev": "ANA",
-     "id": 24,
-     "logo": "https://assets.nhle.com/logos/nhl/svg/ANA_light.svg",
+     "abbrev": "TBL",
+     "id": 14,
+     "logo": "https://assets.nhle.com/logos/nhl/svg/TBL_light.svg",
      "name": {
-      "default": "Ducks"
+      "default": "Lightning"
      },
      "odds": [
       {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "",
-       "value": 3500.0
-      },
-      {
-       "description": "PUCK_LINE",
-       "qualifier": "+2.5",
-       "value": 110.0
+       "description": "OVER_UNDER",
+       "qualifier": "U6.5",
+       "value": -122.0
       },
       {
        "description": "MONEY_LINE_2_WAY",
        "qualifier": "",
-       "value": 1100.0
-      },
-      {
-       "description": "OVER_UNDER",
-       "qualifier": "U4.5",
-       "value": -160.0
-      },
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "Draw",
-       "value": 800.0
-      },
-      {
-       "description": "MONEY_LINE_2_WAY_TNB",
-       "qualifier": "",
-       "value": 2500.0
-      }
-     ]
-    },
-    "gameId": 2026020157,
-    "gameType": 2,
-    "homeTeam": {
-     "abbrev": "NJD",
-     "id": 1,
-     "logo": "https://assets.nhle.com/logos/nhl/svg/NJD_light.svg",
-     "name": {
-      "default": "Devils"
-     },
-     "odds": [
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "",
-       "value": -900.0
-      },
-      {
-       "description": "PUCK_LINE",
-       "qualifier": "-2.5",
-       "value": -140.0
-      },
-      {
-       "description": "MONEY_LINE_2_WAY",
-       "qualifier": "",
-       "value": -2500.0
-      },
-      {
-       "description": "OVER_UNDER",
-       "qualifier": "O4.5",
-       "value": 124.0
-      },
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "Draw",
-       "value": 800.0
-      },
-      {
-       "description": "MONEY_LINE_2_WAY_TNB",
-       "qualifier": "",
-       "value": -20000.0
-      }
-     ]
-    },
-    "startTimeUTC": "2026-10-22T23:00:00Z"
-   },
-   {
-    "awayTeam": {
-     "abbrev": "FLA",
-     "id": 13,
-     "logo": "https://assets.nhle.com/logos/nhl/svg/FLA_light.svg",
-     "name": {
-      "default": "Panthers"
-     },
-     "odds": [
-      {
-       "description": "MONEY_LINE_2_WAY",
-       "qualifier": "",
-       "value": 600.0
-      },
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "",
-       "value": 40000.0
-      },
-      {
-       "description": "OVER_UNDER",
-       "qualifier": "U3.5",
-       "value": 170.0
-      },
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "Draw",
-       "value": 7500.0
-      },
-      {
-       "description": "PUCK_LINE",
-       "qualifier": "+3.5",
-       "value": -230.0
-      },
-      {
-       "description": "MONEY_LINE_2_WAY_TNB",
-       "qualifier": "",
-       "value": 1300.0
-      }
-     ]
-    },
-    "gameId": 2026020158,
-    "gameType": 2,
-    "homeTeam": {
-     "abbrev": "PIT",
-     "id": 5,
-     "logo": "https://assets.nhle.com/logos/nhl/svg/PIT_light.svg",
-     "name": {
-      "default": "Penguins"
-     },
-     "odds": [
-      {
-       "description": "MONEY_LINE_2_WAY",
-       "qualifier": "",
-       "value": -1050.0
-      },
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "",
-       "value": -500.0
-      },
-      {
-       "description": "OVER_UNDER",
-       "qualifier": "O3.5",
-       "value": -220.0
-      },
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "Draw",
-       "value": 7500.0
-      },
-      {
-       "description": "PUCK_LINE",
-       "qualifier": "-3.5",
-       "value": 175.0
-      },
-      {
-       "description": "MONEY_LINE_2_WAY_TNB",
-       "qualifier": "",
-       "value": -3500.0
-      }
-     ]
-    },
-    "startTimeUTC": "2026-10-22T23:00:00Z"
-   },
-   {
-    "awayTeam": {
-     "abbrev": "LAK",
-     "id": 26,
-     "logo": "https://assets.nhle.com/logos/nhl/svg/LAK_light.svg",
-     "name": {
-      "default": "Kings"
-     },
-     "odds": [
-      {
-       "description": "OVER_UNDER",
-       "qualifier": "U5.5",
-       "value": -620.0
-      },
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "Draw",
-       "value": -260.0
-      },
-      {
-       "description": "MONEY_LINE_2_WAY",
-       "qualifier": "",
-       "value": -120.0
-      },
-      {
-       "description": "PUCK_LINE",
-       "qualifier": "-1.5",
-       "value": 1200.0
-      },
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "",
-       "value": 500.0
-      },
-      {
-       "description": "MONEY_LINE_2_WAY_TNB",
-       "qualifier": "",
-       "value": -120.0
-      }
-     ]
-    },
-    "gameId": 2026020159,
-    "gameType": 2,
-    "homeTeam": {
-     "abbrev": "NYI",
-     "id": 2,
-     "logo": "https://assets.nhle.com/logos/nhl/svg/NYI_light.svg",
-     "name": {
-      "default": "Islanders"
-     },
-     "odds": [
-      {
-       "description": "OVER_UNDER",
-       "qualifier": "O5.5",
-       "value": 400.0
-      },
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "Draw",
-       "value": -260.0
-      },
-      {
-       "description": "MONEY_LINE_2_WAY",
-       "qualifier": "",
-       "value": -110.0
-      },
-      {
-       "description": "PUCK_LINE",
-       "qualifier": "+1.5",
-       "value": -2800.0
-      },
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "",
-       "value": 500.0
-      },
-      {
-       "description": "MONEY_LINE_2_WAY_TNB",
-       "qualifier": "",
-       "value": -110.0
-      }
-     ]
-    },
-    "startTimeUTC": "2026-10-22T23:30:00Z"
-   },
-   {
-    "awayTeam": {
-     "abbrev": "VGK",
-     "id": 54,
-     "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
-     "name": {
-      "default": "Golden Knights"
-     },
-     "odds": [
-      {
-       "description": "MONEY_LINE_2_WAY",
-       "qualifier": "",
-       "value": 520.0
-      },
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "",
-       "value": 1500.0
-      },
-      {
-       "description": "OVER_UNDER",
-       "qualifier": "U7.5",
-       "value": -125.0
-      },
-      {
-       "description": "PUCK_LINE",
-       "qualifier": "+3.5",
-       "value": -238.0
-      },
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "Draw",
-       "value": 500.0
-      },
-      {
-       "description": "MONEY_LINE_2_WAY_TNB",
-       "qualifier": "",
-       "value": 1100.0
-      }
-     ]
-    },
-    "gameId": 2026020160,
-    "gameType": 2,
-    "homeTeam": {
-     "abbrev": "STL",
-     "id": 19,
-     "logo": "https://assets.nhle.com/logos/nhl/svg/STL_light.svg",
-     "name": {
-      "default": "Blues"
-     },
-     "odds": [
-      {
-       "description": "MONEY_LINE_2_WAY",
-       "qualifier": "",
-       "value": -850.0
-      },
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "",
-       "value": -450.0
-      },
-      {
-       "description": "OVER_UNDER",
-       "qualifier": "O7.5",
-       "value": -105.0
-      },
-      {
-       "description": "PUCK_LINE",
-       "qualifier": "-3.5",
-       "value": 180.0
-      },
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "Draw",
-       "value": 500.0
-      },
-      {
-       "description": "MONEY_LINE_2_WAY_TNB",
-       "qualifier": "",
-       "value": -2500.0
-      }
-     ]
-    },
-    "startTimeUTC": "2026-10-23T00:00:00Z"
-   },
-   {
-    "awayTeam": {
-     "abbrev": "WPG",
-     "id": 52,
-     "logo": "https://assets.nhle.com/logos/nhl/svg/WPG_light.svg",
-     "name": {
-      "default": "Jets"
-     },
-     "odds": [
-      {
-       "description": "OVER_UNDER",
-       "qualifier": "U3.5",
-       "value": 135.0
-      },
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "",
-       "value": -120.0
-      },
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "Draw",
-       "value": 200.0
-      },
-      {
-       "description": "PUCK_LINE",
-       "qualifier": "-1.5",
-       "value": 160.0
-      },
-      {
-       "description": "MONEY_LINE_2_WAY",
-       "qualifier": "",
-       "value": -720.0
-      },
-      {
-       "description": "MONEY_LINE_2_WAY_TNB",
-       "qualifier": "",
-       "value": -385.0
-      }
-     ]
-    },
-    "gameId": 2026020161,
-    "gameType": 2,
-    "homeTeam": {
-     "abbrev": "DAL",
-     "id": 25,
-     "logo": "https://assets.nhle.com/logos/nhl/svg/DAL_light.svg",
-     "name": {
-      "default": "Stars"
-     },
-     "odds": [
-      {
-       "description": "OVER_UNDER",
-       "qualifier": "O3.5",
-       "value": -175.0
-      },
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "",
-       "value": 450.0
-      },
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "Draw",
-       "value": 200.0
-      },
-      {
-       "description": "PUCK_LINE",
-       "qualifier": "+1.5",
-       "value": -210.0
-      },
-      {
-       "description": "MONEY_LINE_2_WAY",
-       "qualifier": "",
-       "value": 450.0
-      },
-      {
-       "description": "MONEY_LINE_2_WAY_TNB",
-       "qualifier": "",
-       "value": 270.0
-      }
-     ]
-    },
-    "startTimeUTC": "2026-10-23T00:00:00Z"
-   },
-   {
-    "awayTeam": {
-     "abbrev": "MIN",
-     "id": 30,
-     "logo": "https://assets.nhle.com/logos/nhl/svg/MIN_light.svg",
-     "name": {
-      "default": "Wild"
-     },
-     "odds": [
-      {
-       "description": "MONEY_LINE_2_WAY",
-       "qualifier": "",
-       "value": 470.0
-      },
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "",
-       "value": 4500.0
-      },
-      {
-       "description": "OVER_UNDER",
-       "qualifier": "U4.5",
-       "value": -120.0
-      },
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "Draw",
-       "value": 340.0
-      },
-      {
-       "description": "PUCK_LINE",
-       "qualifier": "+1.5",
-       "value": -188.0
-      },
-      {
-       "description": "MONEY_LINE_2_WAY_TNB",
-       "qualifier": "",
-       "value": 800.0
-      }
-     ]
-    },
-    "gameId": 2026020162,
-    "gameType": 2,
-    "homeTeam": {
-     "abbrev": "CGY",
-     "id": 20,
-     "logo": "https://assets.nhle.com/logos/nhl/svg/CGY_light.svg",
-     "name": {
-      "default": "Flames"
-     },
-     "odds": [
-      {
-       "description": "MONEY_LINE_2_WAY",
-       "qualifier": "",
-       "value": -750.0
-      },
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "",
-       "value": -390.0
-      },
-      {
-       "description": "OVER_UNDER",
-       "qualifier": "O4.5",
-       "value": -110.0
-      },
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "Draw",
-       "value": 340.0
-      },
-      {
-       "description": "PUCK_LINE",
-       "qualifier": "-1.5",
-       "value": 145.0
-      },
-      {
-       "description": "MONEY_LINE_2_WAY_TNB",
-       "qualifier": "",
-       "value": -1600.0
-      }
-     ]
-    },
-    "startTimeUTC": "2026-10-23T01:00:00Z"
-   },
-   {
-    "awayTeam": {
-     "abbrev": "CAR",
-     "id": 12,
-     "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg",
-     "name": {
-      "default": "Hurricanes"
-     },
-     "odds": [
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "",
-       "value": -175.0
-      },
-      {
-       "description": "OVER_UNDER",
-       "qualifier": "U9.5",
-       "value": -750.0
-      },
-      {
-       "description": "PUCK_LINE",
-       "qualifier": "-1.5",
-       "value": 1300.0
-      },
-      {
-       "description": "MONEY_LINE_2_WAY",
-       "qualifier": "",
-       "value": -115.0
-      },
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "Draw",
-       "value": 250.0
-      },
-      {
-       "description": "MONEY_LINE_2_WAY_TNB",
-       "qualifier": "",
-       "value": -625.0
-      }
-     ]
-    },
-    "gameId": 2026020163,
-    "gameType": 2,
-    "homeTeam": {
-     "abbrev": "EDM",
-     "id": 22,
-     "logo": "https://assets.nhle.com/logos/nhl/svg/EDM_light.svg",
-     "name": {
-      "default": "Oilers"
-     },
-     "odds": [
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "",
-       "value": 600.0
-      },
-      {
-       "description": "OVER_UNDER",
-       "qualifier": "O9.5",
-       "value": 470.0
-      },
-      {
-       "description": "PUCK_LINE",
-       "qualifier": "+1.5",
-       "value": -3200.0
-      },
-      {
-       "description": "MONEY_LINE_2_WAY",
-       "qualifier": "",
-       "value": -115.0
-      },
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "Draw",
-       "value": 250.0
-      },
-      {
-       "description": "MONEY_LINE_2_WAY_TNB",
-       "qualifier": "",
-       "value": 400.0
-      }
-     ]
-    },
-    "startTimeUTC": "2026-10-23T01:00:00Z"
-   },
-   {
-    "awayTeam": {
-     "abbrev": "UTA",
-     "id": 68,
-     "logo": "https://assets.nhle.com/logos/nhl/svg/UTA_light.svg",
-     "name": {
-      "default": "Mammoth"
-     },
-     "odds": [
-      {
-       "description": "OVER_UNDER",
-       "qualifier": "U7.5",
-       "value": -154.0
-      },
-      {
-       "description": "PUCK_LINE",
-       "qualifier": "-1.5",
-       "value": 390.0
-      },
-      {
-       "description": "MONEY_LINE_2_WAY",
-       "qualifier": "",
-       "value": -145.0
-      },
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "Draw",
-       "value": -110.0
-      },
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "",
-       "value": 220.0
-      },
-      {
-       "description": "MONEY_LINE_2_WAY_TNB",
-       "qualifier": "",
-       "value": -162.0
-      }
-     ]
-    },
-    "gameId": 2026020164,
-    "gameType": 2,
-    "homeTeam": {
-     "abbrev": "SEA",
-     "id": 55,
-     "logo": "https://assets.nhle.com/logos/nhl/svg/SEA_light.svg",
-     "name": {
-      "default": "Kraken"
-     },
-     "odds": [
-      {
-       "description": "OVER_UNDER",
-       "qualifier": "O7.5",
-       "value": 120.0
-      },
-      {
-       "description": "PUCK_LINE",
-       "qualifier": "+1.5",
-       "value": -600.0
-      },
-      {
-       "description": "MONEY_LINE_2_WAY",
-       "qualifier": "",
-       "value": 114.0
-      },
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "Draw",
-       "value": -110.0
-      },
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "",
-       "value": 330.0
-      },
-      {
-       "description": "MONEY_LINE_2_WAY_TNB",
-       "qualifier": "",
-       "value": 126.0
-      }
-     ]
-    },
-    "startTimeUTC": "2026-10-23T02:00:00Z"
-   },
-   {
-    "awayTeam": {
-     "abbrev": "DET",
-     "id": 17,
-     "logo": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg",
-     "name": {
-      "default": "Red Wings"
-     },
-     "odds": [
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "",
-       "value": -2500.0
-      },
-      {
-       "description": "OVER_UNDER",
-       "qualifier": "U7.5",
-       "value": -135.0
-      },
-      {
-       "description": "PUCK_LINE",
-       "qualifier": "-4.5",
-       "value": 175.0
-      },
-      {
-       "description": "MONEY_LINE_2_WAY",
-       "qualifier": "",
-       "value": -6500.0
-      },
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "Draw",
-       "value": 10000.0
-      },
-      {
-       "description": "MONEY_LINE_2_WAY_TNB",
-       "qualifier": "",
-       "value": -200000.0
-      }
-     ]
-    },
-    "gameId": 2026020165,
-    "gameType": 2,
-    "homeTeam": {
-     "abbrev": "VAN",
-     "id": 23,
-     "logo": "https://assets.nhle.com/logos/nhl/svg/VAN_light.svg",
-     "name": {
-      "default": "Canucks"
-     },
-     "odds": [
-      {
-       "description": "MONEY_LINE_3_WAY",
-       "qualifier": "",
-       "value": 40000.0
-      },
-      {
-       "description": "OVER_UNDER",
-       "qualifier": "O7.5",
        "value": 105.0
       },
       {
-       "description": "PUCK_LINE",
-       "qualifier": "+4.5",
-       "value": -230.0
-      },
-      {
-       "description": "MONEY_LINE_2_WAY",
+       "description": "MONEY_LINE_3_WAY",
        "qualifier": "",
-       "value": 1800.0
+       "value": 150.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 10000.0
+       "value": 310.0
       },
       {
-       "description": "MONEY_LINE_2_WAY_TNB",
-       "qualifier": "",
-       "value": 5000.0
+       "description": "PUCK_LINE",
+       "qualifier": "+1.5",
+       "value": -238.0
       }
      ]
     },
-    "startTimeUTC": "2026-10-23T02:00:00Z"
+    "gameId": 2026020167,
+    "gameType": 2,
+    "homeTeam": {
+     "abbrev": "COL",
+     "id": 21,
+     "logo": "https://assets.nhle.com/logos/nhl/svg/COL_light.svg",
+     "name": {
+      "default": "Avalanche"
+     },
+     "odds": [
+      {
+       "description": "OVER_UNDER",
+       "qualifier": "O6.5",
+       "value": 102.0
+      },
+      {
+       "description": "MONEY_LINE_2_WAY",
+       "qualifier": "",
+       "value": -125.0
+      },
+      {
+       "description": "MONEY_LINE_3_WAY",
+       "qualifier": "",
+       "value": 130.0
+      },
+      {
+       "description": "MONEY_LINE_3_WAY",
+       "qualifier": "Draw",
+       "value": 310.0
+      },
+      {
+       "description": "PUCK_LINE",
+       "qualifier": "-1.5",
+       "value": 195.0
+      }
+     ]
+    },
+    "startTimeUTC": "2026-10-24T01:00:00Z"
    }
   ],
-  "lastUpdatedUTC": "2026-10-23T04:30:38Z"
+  "lastUpdatedUTC": "2026-10-23T16:00:38Z"
  },
- "fetched_at": "2026-10-23T15:11:35Z",
- "parsed": {}
+ "fetched_at": "2026-10-23T16:08:50Z",
+ "parsed": {
+  "2026020166": {
+   "book": "DraftKings",
+   "ml_away": -170.0,
+   "ml_home": 142.0,
+   "over_odds": 102.0,
+   "pl_away": -1.5,
+   "pl_away_odds": 150.0,
+   "pl_home": 1.5,
+   "pl_home_odds": -180.0,
+   "total": 6.5,
+   "under_odds": -122.0
+  },
+  "2026020167": {
+   "book": "DraftKings",
+   "ml_away": 105.0,
+   "ml_home": -125.0,
+   "over_odds": 102.0,
+   "pl_away": 1.5,
+   "pl_away_odds": -238.0,
+   "pl_home": -1.5,
+   "pl_home_odds": 195.0,
+   "total": 6.5,
+   "under_odds": -122.0
+  }
+ }
 }
