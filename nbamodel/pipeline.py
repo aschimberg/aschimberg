@@ -263,7 +263,8 @@ def grade_picks(picks, games_by_id, lh):
 
 
 def compute_record(picks, season):
-    r = recmod.compute(picks, season, config.LEAN_EDGE, config.PLAY_EDGE, config.STRONG_EDGE)
+    r = recmod.compute(picks, season, config.LEAN_EDGE, config.PLAY_EDGE, config.STRONG_EDGE,
+                       total_edges=(config.TOTAL_LEAN_EDGE, config.TOTAL_PLAY_EDGE, config.TOTAL_STRONG_EDGE))
     dates = {}
     for p in picks.values():
         if p.get("date"):

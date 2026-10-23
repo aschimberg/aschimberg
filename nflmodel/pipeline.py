@@ -456,7 +456,14 @@ def grade_picks(picks, games_by_id, kw=None):
 
 
 def compute_record(picks, season):
-    return recmod.compute(picks, season, config.LEAN_EDGE, config.PLAY_EDGE, config.STRONG_EDGE)
+    r = recmod.compute(picks, season, config.LEAN_EDGE, config.PLAY_EDGE, config.STRONG_EDGE,
+                       total_edges=(config.TOTAL_LEAN_EDGE, config.TOTAL_PLAY_EDGE, config.TOTAL_STRONG_EDGE))
+    graded = [p for p in picks.values() if p.get("props_graded") and (season is None or p["season"] == season)]
+    r["anytime_td"] = sprops.record(graded)
+    for w in r["by_week"]:
+        td = sprops.record([p for p in graded if (p["season"], p["season_type"], p["week"]) == (w["season"], w["season_type"], w["week"])])
+        w["td"] = {k: td[k] for k in ("games", "hits_per_game", "exp_per_game")}
+    return r
 
 
 def tuning_summary():

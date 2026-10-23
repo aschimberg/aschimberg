@@ -97,14 +97,30 @@ def grade(bets, scorer_ids, scorer_names=()):
 
 
 def record(picks, key="props"):
-    """W-L and units for logged best bets (bet=True) across graded picks."""
+    """Scorer-prop record across graded games.
+
+    Top level: logged best bets (bet=True) W-L and units. Also every listed
+    scorer pick ('all'), the model's top scorer per game ('top'), and per-game
+    averages: scorers hit vs the model's expected (sum of probabilities).
+    """
     w = l_ = 0
     units = 0.0
     n_lean = n_hit = 0
+    games = hits = 0
+    exp = 0.0
+    n_listed = 0
+    top = {"W": 0, "L": 0}
     for p in picks:
-        for b in p.get(key) or []:
-            if b.get("result") is None:
-                continue
+        rows = [b for b in p.get(key) or [] if b.get("result") is not None]
+        if not rows:
+            continue
+        games += 1
+        n_listed += len(rows)
+        hits += sum(b["result"] == "W" for b in rows)
+        exp += sum(b.get("p") or 0.0 for b in rows)
+        best = max(rows, key=lambda b: b.get("p") or 0.0)
+        top[best["result"]] += 1
+        for b in rows:
             if b.get("bet"):
                 w += b["result"] == "W"
                 l_ += b["result"] == "L"
@@ -112,9 +128,15 @@ def record(picks, key="props"):
             else:
                 n_lean += 1
                 n_hit += b["result"] == "W"
-    return {"W": w, "L": l_, "P": 0, "pct": round(w / (w + l_), 3) if w + l_ else None, "units": round(units, 2),
+    pct = lambda a, b: round(a / (a + b), 3) if a + b else None
+    return {"W": w, "L": l_, "P": 0, "pct": pct(w, l_), "units": round(units, 2),
             "roi": round(units / (w + l_), 3) if w + l_ else None,
-            "top_prob_hits": n_hit, "top_prob_n": n_lean}
+            "top_prob_hits": n_hit, "top_prob_n": n_lean,
+            "all": {"W": hits, "L": n_listed - hits, "P": 0, "pct": pct(hits, n_listed - hits)},
+            "top": {"W": top["W"], "L": top["L"], "P": 0, "pct": pct(top["W"], top["L"])},
+            "games": games, "picks_per_game": round(n_listed / games, 2) if games else None,
+            "hits_per_game": round(hits / games, 2) if games else None,
+            "exp_per_game": round(exp / games, 2) if games else None}
 
 
 def briefing_lines(games, label, matchup, limit=6):

@@ -74,6 +74,9 @@ code { font-family: var(--mono); font-size: .88em; }
 .record-strip dl > div + div { border-left: 1px solid var(--line); }
 .record-strip dd { display: grid; gap: 4px; margin: 0; color: var(--accent); font: 600 20px var(--mono); font-variant-numeric: tabular-nums; letter-spacing: -.04em; white-space: nowrap; text-align: right; }
 .record-strip dd small { color: var(--muted); font-size: 11px; font-weight: 500; letter-spacing: 0; line-height: 1.5; }
+.record-strip.cells-4 dl { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.record-strip.cells-4 dl > div { flex-direction: column; justify-content: center; align-items: flex-start; gap: 4px; padding-inline: 18px; }
+.record-strip.cells-4 dd { text-align: left; }
 
 /* Board */
 .board-bg { border-top: 1px solid var(--line); background: var(--board); }
@@ -243,6 +246,9 @@ table.data tbody tr:hover { background: var(--accent-soft); }
   .record-strip dl > div { flex-direction: column; justify-content: center; align-items: flex-start; gap: 4px; padding: 11px 14px; }
   .record-strip dl > div:first-child { padding-left: 0; }
   .record-strip dd { font-size: 17px; text-align: left; }
+  .record-strip.cells-4 dl { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .record-strip.cells-4 dl > div:nth-child(odd) { border-left: 0; padding-left: 0; }
+  .record-strip.cells-4 dl > div:nth-child(n+3) { border-top: 1px solid var(--line); }
   .board { padding-block: 48px 64px; }
   .board-top { grid-template-columns: minmax(0, 1fr); gap: 16px; }
   .day-groups { gap: 36px; margin-top: 28px; }

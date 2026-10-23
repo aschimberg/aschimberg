@@ -3,6 +3,7 @@ from collections import defaultdict
 from datetime import datetime, timedelta, timezone
 
 from sportscommon import clv, totals
+from sportscommon import record as recmod
 
 from . import ats, confidence, config, model, splits, store, tuning
 from .cfbd import g
@@ -170,7 +171,7 @@ def compute_record(picks, season=None):
         weeks[(p["season"], p["season_type"], p["week"])].append(p)
     by_week = [
         {"season": s, "season_type": st, "week": w, "su": _rec(items, "su"), "ats": _rec(items, "ats"),
-         "ats_plays": _rec([p for p in items if (p.get("edge") or 0) >= config.PLAY_EDGE], "ats")}
+         "ats_plays": _rec([p for p in items if (p.get("edge") or 0) >= config.PLAY_EDGE], "ats"), "ou": _rec(items, "total")}
         for (s, st, w), items in sorted(weeks.items(), key=lambda kv: (kv[0][0], kv[0][1] != "regular", kv[0][2]))
     ]
     return {
@@ -182,6 +183,7 @@ def compute_record(picks, season=None):
         "ats_play": tiered(config.PLAY_EDGE),
         "ats_strong": tiered(config.STRONG_EDGE),
         "by_week": by_week,
+        "ou": recmod.totals(graded, (config.TOTAL_LEAN_EDGE, config.TOTAL_PLAY_EDGE, config.TOTAL_STRONG_EDGE)),
     }
 
 

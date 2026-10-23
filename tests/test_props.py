@@ -36,6 +36,19 @@ class PropsTests(unittest.TestCase):
         rec = props.record([{"props": bets}])
         self.assertEqual((rec["W"], rec["L"], rec["units"]), (1, 1, 0.25))
 
+    def test_record_per_game_and_top_pick(self):
+        games = [{"props": [{"name": "A", "p": 0.5, "result": "W", "bet": False}, {"name": "B", "p": 0.3, "result": "W", "bet": False},
+                            {"name": "C", "p": 0.2, "result": "L", "bet": False}]},
+                 {"props": [{"name": "D", "p": 0.4, "result": "L", "bet": False}, {"name": "E", "p": 0.35, "result": "L", "bet": False},
+                            {"name": "F", "p": 0.25, "result": "W", "bet": True, "units": 3.0}]},
+                 {"props": [{"name": "G", "p": 0.5}]}]  # not graded yet
+        rec = props.record(games)
+        self.assertEqual((rec["games"], rec["hits_per_game"], rec["exp_per_game"], rec["picks_per_game"]), (2, 1.5, 1.0, 3.0))
+        self.assertEqual((rec["all"]["W"], rec["all"]["L"]), (3, 3))
+        self.assertEqual((rec["top"]["W"], rec["top"]["L"]), (1, 1))
+        self.assertEqual((rec["W"], rec["L"], rec["units"]), (1, 0, 3.0))
+        self.assertIsNone(props.record([])["hits_per_game"])
+
 
 if __name__ == "__main__":
     unittest.main()

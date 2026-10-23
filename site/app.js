@@ -451,14 +451,25 @@
 
     const seasonPicks = rec.picks || [];
     const playEdge = s.play_edge ?? 4;
-    if (!rec.tiles) $("#record-tiles").innerHTML += tile("O/U · all", ouRec(seasonPicks)) + tile("O/U · plays", ouRec(seasonPicks, true));
-    if (state.meta?.sport === "nfl") {
-      const bets = seasonPicks.flatMap((p) => (p.props || []).filter((b) => b.bet && b.result));
-      const W = bets.filter((b) => b.result === "W").length, L = bets.length - W;
-      const units = bets.reduce((a, b) => a + (b.units || 0), 0);
-      const label = "Anytime TD · best bets";
-      $("#record-tiles").innerHTML += tile(label, { W, L, P: 0, pct: W + L ? W / (W + L) : null }, false,
-        bets.length ? ` · ${units >= 0 ? "+" : ""}${units.toFixed(1)}u` : " · none graded yet");
+    if (!rec.tiles) {
+      const ou = sr.ou, e = ou?.edges;
+      $("#record-tiles").innerHTML += ou
+        ? tile("O/U · all", ou.all) +
+          tile(e ? `O/U · edge ${e.lean}+` : "O/U · leans+", ou.lean) +
+          tile(e ? `O/U · edge ${e.play}+` : "O/U · plays", ou.play) +
+          tile(e ? `O/U · edge ${e.strong}+` : "O/U · strong", ou.strong) +
+          (rec.all_time?.ou ? tile("O/U · all-time", rec.all_time.ou.all, true, " · all seasons") : "")
+        : tile("O/U · all", ouRec(seasonPicks)) + tile("O/U · plays", ouRec(seasonPicks, true));
+    }
+    const td = sr.anytime_td;
+    if (state.meta?.sport === "nfl" && td) {
+      const n = td.picks_per_game ? Math.round(td.picks_per_game) : 3;
+      $("#record-tiles").innerHTML +=
+        `<div class="tile"><div class="k">Anytime TD · scorers per game</div><div class="v">${td.games ? td.hits_per_game.toFixed(2) : "—"}</div>` +
+        `<div class="s">${td.games ? `of ${n} picks · model expected ${td.exp_per_game.toFixed(2)} · ${td.games} games` : "none graded yet"}</div></div>` +
+        tile("Anytime TD · all picks", td.all, false) +
+        tile("Anytime TD · top pick", td.top, false, " · model's likeliest scorer") +
+        tile("Anytime TD · best bets", td, false, td.W + td.L ? ` · ${td.units >= 0 ? "+" : ""}${td.units.toFixed(1)}u` : " · none yet (needs market prices)");
     }
     $("#record-tiles").innerHTML +=
       clvTile(`CLV · all picks`, clvStats(seasonPicks)) +
@@ -480,8 +491,10 @@
         { key: "ats", label: A, num: true, render: (r) => recStr(r.ats), sortVal: (r) => r.ats.pct },
         { key: "atspct", label: `${A} %`, num: true, render: (r) => pct(r.ats.pct), sortVal: (r) => r.ats.pct },
         { key: "plays", label: `${A} ${T("edge", "edge")} ${s.lean_edge ?? 4}+`, num: true, render: (r) => recStr(r.ats_plays), sortVal: (r) => r.ats_plays.pct },
-        { key: "ou", label: "O/U", num: true, sortVal: (r) => ouRec(clvByWeek.get(`${r.season}|${r.season_type}|${r.week}`) || []).pct ?? -1,
-          render: (r) => { const o = ouRec(clvByWeek.get(`${r.season}|${r.season_type}|${r.week}`) || []); return o.W + o.L + o.P ? recStr(o) : '<span class="muted">—</span>'; } },
+        { key: "ou", label: "O/U", num: true, sortVal: (r) => (r.ou || ouRec(clvByWeek.get(`${r.season}|${r.season_type}|${r.week}`) || [])).pct ?? -1,
+          render: (r) => { const o = r.ou || ouRec(clvByWeek.get(`${r.season}|${r.season_type}|${r.week}`) || []); return o.W + o.L + o.P ? recStr(o) : '<span class="muted">—</span>'; } },
+        ...(sr.by_week.some((r) => r.td) ? [{ key: "td", label: "TD scorers/gm", num: true, sortVal: (r) => r.td?.hits_per_game ?? -1,
+          render: (r) => (r.td?.games ? `${r.td.hits_per_game.toFixed(2)} <span class="muted">exp ${r.td.exp_per_game.toFixed(2)}</span>` : '<span class="muted">—</span>') }] : []),
         { key: "clv", label: "CLV", num: true, sortVal: (r) => clvStats(clvByWeek.get(`${r.season}|${r.season_type}|${r.week}`) || [])?.avg ?? -99,
           render: (r) => { const st = clvStats(clvByWeek.get(`${r.season}|${r.season_type}|${r.week}`) || []); return st ? `<span class="${st.avg > 0 ? "pos" : st.avg < 0 ? "neg" : ""}">${clvFmt(st.avg)}</span> <span class="muted">${st.beat}/${st.n}</span>` : '<span class="muted">—</span>'; } },
       ],
@@ -745,8 +758,13 @@
       $("#record-strip").hidden = false;
       $("#record-label").textContent = `${m.season} model record`;
       const cell = (k, r, ties) => `<div><dt>${k}</dt><dd>${recStr(r, ties)}<small>${pct(r.pct)} win rate</small></dd></div>`;
-      $("#record-dl").innerHTML =
-        cell("Straight up", sr.su, false) + cell("Against the spread", sr.ats, true) + cell(`ATS · edge ${m.settings.play_edge}+`, sr.ats_play, true);
+      const td = sr.anytime_td;
+      const cells = [cell("Straight up", sr.su, false), cell("Against the spread", sr.ats, true)];
+      if (!(td?.games)) cells.push(cell(`ATS · edge ${m.settings.play_edge}+`, sr.ats_play, true));
+      if (sr.ou?.all && sr.ou.all.W + sr.ou.all.L > 0) cells.push(cell("Over/under", sr.ou.all, true));
+      if (td?.games) cells.push(`<div><dt>Anytime TD</dt><dd>${td.hits_per_game.toFixed(2)}/gm<small>of ${Math.round(td.picks_per_game)} picks · exp ${td.exp_per_game.toFixed(2)}</small></dd></div>`);
+      $("#record-dl").innerHTML = cells.join("");
+      $("#record-strip").classList.toggle("cells-4", cells.length > 3);
     }
   }
 
