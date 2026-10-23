@@ -1,4 +1,5 @@
 """Small HTTP helpers with retries (stdlib only)."""
+import http.client
 import json
 import time
 import urllib.error
@@ -21,7 +22,7 @@ def fetch(url, retries=4, timeout=90, headers=None, want_headers=False):
                 delay *= 2
                 continue
             raise
-        except urllib.error.URLError:
+        except (urllib.error.URLError, http.client.IncompleteRead, ConnectionError, TimeoutError):
             if attempt < retries:
                 time.sleep(delay)
                 delay *= 2

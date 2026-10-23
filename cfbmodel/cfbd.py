@@ -3,6 +3,7 @@
 The CFBD v2 API returns camelCase keys; v1 used snake_case. `g()` reads either
 so the rest of the code doesn't care which one comes back.
 """
+import http.client
 import json
 import os
 import re
@@ -69,7 +70,8 @@ class CFBDClient:
                     continue
                 body = e.read().decode("utf-8", "replace")[:300]
                 raise CFBDError(f"GET {path} {params} -> HTTP {e.code}: {body}") from e
-            except urllib.error.URLError as e:
+            except (urllib.error.URLError, http.client.IncompleteRead, ConnectionError, TimeoutError) as e:
+                # IncompleteRead: the connection dropped mid-body (seen on large /lines responses)
                 if attempt < self.retries:
                     time.sleep(delay)
                     delay *= 2
