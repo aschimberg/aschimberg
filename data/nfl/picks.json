@@ -7324,7 +7324,7 @@
    }
   },
   "2026_07_CIN_BAL": {
-   "ats_line": -1.5,
+   "ats_line": -1.0,
    "ats_side": "home",
    "ats_team": "Baltimore Ravens",
    "away": "Cincinnati Bengals",
@@ -7332,21 +7332,21 @@
    "bet_at": "2026-10-21T23:20:55Z",
    "bet_line": 1.5,
    "book": "nflverse consensus",
-   "conf_label": "Low",
-   "confidence": 53,
+   "conf_label": "Medium",
+   "confidence": 56,
    "confidence_detail": {
     "agree": 2,
     "components": {
      "agreement": 1.0,
      "consistency": 0.994,
      "data": 1.0,
-     "edge": 0.184,
+     "edge": 0.295,
      "market": 0.0,
      "trends": 0.25
     },
-    "label": "Low",
+    "label": "Medium",
     "n_sources": 2,
-    "score": 53,
+    "score": 56,
     "side": "home",
     "source_names": {
      "elo": "Elo",
@@ -7357,19 +7357,19 @@
      "epa": 2.4
     }
    },
-   "cover_prob": 0.544,
+   "cover_prob": 0.556,
    "diffs": {
     "elo": 1.25,
     "epa": 1.34
    },
-   "edge": 0.8,
-   "ev": 0.062,
+   "edge": 1.3,
+   "ev": 0.07,
    "hfa_flag": 1,
    "home": "Baltimore Ravens",
    "home_abbr": "BAL",
    "home_field": 1.644,
    "id": "2026_07_CIN_BAL",
-   "line": -1.5,
+   "line": -1.0,
    "model_spread": -2.3,
    "model_total": 53.6,
    "neutral": false,
@@ -7429,7 +7429,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-23T15:11:18Z",
+   "updated": "2026-10-23T18:05:26Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -7542,7 +7542,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-23T15:11:18Z",
+   "updated": "2026-10-23T18:05:26Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -7550,7 +7550,7 @@
    }
   },
   "2026_07_DAL_PHI": {
-   "ats_line": 4.5,
+   "ats_line": 4.0,
    "ats_side": "home",
    "ats_team": "Philadelphia Eagles",
    "away": "Dallas Cowboys",
@@ -7559,7 +7559,7 @@
    "bet_line": 4.5,
    "book": "nflverse consensus",
    "conf_label": "High",
-   "confidence": 87,
+   "confidence": 88,
    "confidence_detail": {
     "agree": 2,
     "components": {
@@ -7567,12 +7567,12 @@
      "consistency": 0.946,
      "data": 1.0,
      "edge": 1.0,
-     "market": 0.9,
+     "market": 1.0,
      "trends": 0.25
     },
     "label": "High",
     "n_sources": 2,
-    "score": 87,
+    "score": 88,
     "side": "home",
     "source_names": {
      "elo": "Elo",
@@ -7583,19 +7583,19 @@
      "epa": 0.6
     }
    },
-   "cover_prob": 0.69,
+   "cover_prob": 0.681,
    "diffs": {
     "elo": 2.16,
     "epa": 1.4
    },
-   "edge": 5.8,
-   "ev": 0.329,
+   "edge": 5.3,
+   "ev": 0.304,
    "hfa_flag": 1,
    "home": "Philadelphia Eagles",
    "home_abbr": "PHI",
    "home_field": 1.644,
    "id": "2026_07_DAL_PHI",
-   "line": 4.5,
+   "line": 4.0,
    "model_spread": -1.3,
    "model_total": 52.2,
    "neutral": false,
@@ -7644,18 +7644,18 @@
    "su_team": "Philadelphia Eagles",
    "su_wp": 0.539,
    "tier": "strong",
-   "total_line": 44.5,
+   "total_line": 44.0,
    "total_pick": {
-    "edge": 7.7,
-    "line": 44.5,
+    "edge": 8.2,
+    "line": 44.0,
     "model": 52.2,
     "odds": null,
     "play": true,
-    "prob": 0.715,
+    "prob": 0.728,
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-23T15:11:18Z",
+   "updated": "2026-10-23T18:05:26Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -7768,7 +7768,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-23T15:11:18Z",
+   "updated": "2026-10-23T18:05:26Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -7815,7 +7815,7 @@
     "epa": -1.51
    },
    "edge": 0.9,
-   "ev": 0.029,
+   "ev": 0.043,
    "hfa_flag": 1,
    "home": "Detroit Lions",
    "home_abbr": "DET",
@@ -7881,7 +7881,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-23T15:11:18Z",
+   "updated": "2026-10-23T18:05:26Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -7994,7 +7994,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-10-23T15:11:18Z",
+   "updated": "2026-10-23T18:05:26Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8002,7 +8002,7 @@
    }
   },
   "2026_07_KC_SEA": {
-   "ats_line": -3.0,
+   "ats_line": -2.5,
    "ats_side": "home",
    "ats_team": "Seattle Seahawks",
    "away": "Kansas City Chiefs",
@@ -8011,20 +8011,20 @@
    "bet_line": -1.5,
    "book": "nflverse consensus",
    "conf_label": "Medium",
-   "confidence": 68,
+   "confidence": 69,
    "confidence_detail": {
     "agree": 1,
     "components": {
      "agreement": 0.928,
      "consistency": 0.85,
      "data": 1.0,
-     "edge": 0.214,
-     "market": 1.0,
+     "edge": 0.326,
+     "market": 0.9,
      "trends": 0.375
     },
     "label": "Medium",
     "n_sources": 2,
-    "score": 68,
+    "score": 69,
     "side": "home",
     "source_names": {
      "elo": "Elo",
@@ -8035,19 +8035,19 @@
      "epa": 2.0
     }
    },
-   "cover_prob": 0.529,
+   "cover_prob": 0.567,
    "diffs": {
     "elo": 2.71,
     "epa": 0.61
    },
-   "edge": 1.0,
-   "ev": 0.053,
+   "edge": 1.5,
+   "ev": 0.124,
    "hfa_flag": 1,
    "home": "Seattle Seahawks",
    "home_abbr": "SEA",
    "home_field": 1.644,
    "id": "2026_07_KC_SEA",
-   "line": -3.0,
+   "line": -2.5,
    "model_spread": -4.0,
    "model_total": 40.1,
    "neutral": false,
@@ -8107,7 +8107,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-23T15:11:18Z",
+   "updated": "2026-10-23T18:05:26Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8220,7 +8220,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-23T15:11:18Z",
+   "updated": "2026-10-23T18:05:26Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8333,7 +8333,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-23T15:11:18Z",
+   "updated": "2026-10-23T18:05:26Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8572,7 +8572,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-23T15:11:18Z",
+   "updated": "2026-10-23T18:05:26Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8685,7 +8685,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-23T15:11:18Z",
+   "updated": "2026-10-23T18:05:26Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8787,18 +8787,18 @@
    "su_team": "San Francisco 49ers",
    "su_wp": 0.721,
    "tier": "strong",
-   "total_line": 49.5,
+   "total_line": 50.0,
    "total_pick": {
-    "edge": 0.3,
-    "line": 49.5,
+    "edge": 0.8,
+    "line": 50.0,
     "model": 49.2,
     "odds": null,
     "play": false,
-    "prob": 0.508,
+    "prob": 0.523,
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-23T15:11:18Z",
+   "updated": "2026-10-23T18:05:26Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8845,7 +8845,7 @@
     "epa": 1.71
    },
    "edge": 0.8,
-   "ev": -0.017,
+   "ev": 0.023,
    "hfa_flag": 1,
    "home": "Carolina Panthers",
    "home_abbr": "CAR",
@@ -8883,14 +8883,14 @@
     },
     {
      "bet": false,
-     "fair": 210,
-     "lam": 0.3896,
-     "name": "Emeka Egbuka",
+     "fair": 239,
+     "lam": 0.3501,
+     "name": "Tetairoa McMillan",
      "note": "no market price yet",
-     "p": 0.323,
-     "pid": "00-0040129",
+     "p": 0.295,
+     "pid": "00-0040124",
      "pos": "WR",
-     "team": "TB"
+     "team": "CAR"
     }
    ],
    "result": null,
@@ -8911,7 +8911,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-23T15:11:18Z",
+   "updated": "2026-10-23T18:05:26Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
