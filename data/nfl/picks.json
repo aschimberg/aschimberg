@@ -7378,37 +7378,52 @@
    "proj_home": 28.0,
    "props": [
     {
-     "bet": false,
-     "fair": -179,
-     "lam": 1.0273,
-     "name": "Derrick Henry",
-     "note": "no market price yet",
-     "p": 0.642,
-     "pid": "00-0032764",
-     "pos": "RB",
-     "team": "BAL"
-    },
-    {
-     "bet": false,
-     "fair": 123,
-     "lam": 0.5961,
-     "name": "Chase Brown",
-     "note": "no market price yet",
-     "p": 0.449,
-     "pid": "00-0038597",
-     "pos": "RB",
-     "team": "CIN"
-    },
-    {
-     "bet": false,
-     "fair": 157,
-     "lam": 0.4929,
-     "name": "Ja'Marr Chase",
-     "note": "no market price yet",
-     "p": 0.389,
-     "pid": "00-0036900",
+     "bet": true,
+     "book": "BetRivers",
+     "ev": 2.4389,
+     "fair": 336,
+     "kelly": 0.1742,
+     "lam": 0.2604,
+     "mkt_prob": 0.077,
+     "n_books": 6,
+     "name": "Colbie Young",
+     "odds": 1400.0,
+     "p": 0.229,
+     "pid": "00-0041069",
      "pos": "WR",
      "team": "CIN"
+    },
+    {
+     "bet": true,
+     "book": "DraftKings",
+     "ev": 1.9271,
+     "fair": 344,
+     "kelly": 0.1606,
+     "lam": 0.2551,
+     "mkt_prob": 0.083,
+     "n_books": 5,
+     "name": "Mitchell Tinsley",
+     "odds": 1200.0,
+     "p": 0.225,
+     "pid": "00-0038839",
+     "pos": "WR",
+     "team": "CIN"
+    },
+    {
+     "bet": true,
+     "book": "DraftKings",
+     "ev": 0.5287,
+     "fair": 227,
+     "kelly": 0.1322,
+     "lam": 0.3649,
+     "mkt_prob": 0.204,
+     "n_books": 6,
+     "name": "Ja'Kobi Lane",
+     "odds": 400.0,
+     "p": 0.306,
+     "pid": "00-0040870",
+     "pos": "WR",
+     "team": "BAL"
     }
    ],
    "result": null,
@@ -7429,7 +7444,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-24T00:46:42Z",
+   "updated": "2026-10-24T06:24:55Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -7542,7 +7557,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-24T00:46:42Z",
+   "updated": "2026-10-24T06:24:55Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -7655,7 +7670,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-24T00:46:42Z",
+   "updated": "2026-10-24T06:24:55Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -7768,7 +7783,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-24T00:46:42Z",
+   "updated": "2026-10-24T06:24:55Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -7881,7 +7896,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-24T00:46:42Z",
+   "updated": "2026-10-24T06:24:55Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -7994,7 +8009,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-10-24T00:46:42Z",
+   "updated": "2026-10-24T06:24:55Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8107,7 +8122,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-24T00:46:42Z",
+   "updated": "2026-10-24T06:24:55Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8220,7 +8235,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-24T00:46:42Z",
+   "updated": "2026-10-24T06:24:55Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8333,7 +8348,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-24T00:46:42Z",
+   "updated": "2026-10-24T06:24:55Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8572,7 +8587,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-24T00:46:42Z",
+   "updated": "2026-10-24T06:24:55Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8634,36 +8649,51 @@
    "proj_home": 19.8,
    "props": [
     {
-     "bet": false,
-     "fair": 156,
-     "lam": 0.4959,
-     "name": "Jaylen Warren",
-     "note": "no market price yet",
-     "p": 0.391,
-     "pid": "00-0037228",
+     "bet": true,
+     "book": "DraftKings",
+     "ev": 2.7498,
+     "fair": 353,
+     "kelly": 0.1719,
+     "lam": 0.2492,
+     "mkt_prob": 0.077,
+     "n_books": 6,
+     "name": "Kaden Wetjen",
+     "odds": 1600.0,
+     "p": 0.221,
+     "pid": null,
+     "pos": "WR",
+     "team": "PIT"
+    },
+    {
+     "bet": true,
+     "book": "DraftKings",
+     "ev": 0.1566,
+     "fair": 289,
+     "kelly": 0.0448,
+     "lam": 0.2971,
+     "mkt_prob": 0.25,
+     "n_books": 6,
+     "name": "Alvin Kamara",
+     "odds": 350.0,
+     "p": 0.257,
+     "pid": "00-0033906",
      "pos": "RB",
-     "team": "PIT"
+     "team": "NO"
     },
     {
-     "bet": false,
-     "fair": 237,
-     "lam": 0.3516,
-     "name": "DK Metcalf",
-     "note": "no market price yet",
-     "p": 0.296,
-     "pid": "00-0035640",
-     "pos": "WR",
-     "team": "PIT"
-    },
-    {
-     "bet": false,
-     "fair": 240,
-     "lam": 0.3484,
-     "name": "Germie Bernard",
-     "note": "no market price yet",
-     "p": 0.294,
-     "pid": "00-0041489",
-     "pos": "WR",
+     "bet": true,
+     "book": "DraftKings",
+     "ev": 0.0405,
+     "fair": 260,
+     "kelly": 0.0147,
+     "lam": 0.325,
+     "mkt_prob": 0.278,
+     "n_books": 6,
+     "name": "Rico Dowdle",
+     "odds": 275.0,
+     "p": 0.277,
+     "pid": "00-0036139",
+     "pos": "RB",
      "team": "PIT"
     }
    ],
@@ -8685,7 +8715,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-24T00:46:42Z",
+   "updated": "2026-10-24T06:24:55Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8748,10 +8778,16 @@
    "props": [
     {
      "bet": false,
+     "book": "BetMGM",
+     "ev": -0.0797,
      "fair": -182,
+     "kelly": -0.1874,
      "lam": 1.0372,
+     "mkt_prob": 0.71,
+     "n_books": 6,
      "name": "Christian McCaffrey",
-     "note": "no market price yet",
+     "note": "no value at market price",
+     "odds": -235.0,
      "p": 0.646,
      "pid": "00-0033280",
      "pos": "RB",
@@ -8759,10 +8795,16 @@
     },
     {
      "bet": false,
+     "book": "BetMGM",
+     "ev": -0.4058,
      "fair": 130,
+     "kelly": -1.1161,
      "lam": 0.5722,
+     "mkt_prob": 0.756,
+     "n_books": 6,
      "name": "Bijan Robinson",
-     "note": "no market price yet",
+     "note": "no value at market price",
+     "odds": -275.0,
      "p": 0.436,
      "pid": "00-0038542",
      "pos": "RB",
@@ -8770,10 +8812,16 @@
     },
     {
      "bet": false,
+     "book": "DraftKings",
+     "ev": -0.214,
      "fair": 180,
+     "kelly": -0.1784,
      "lam": 0.442,
+     "mkt_prob": 0.455,
+     "n_books": 6,
      "name": "George Kittle",
-     "note": "no market price yet",
+     "note": "no value at market price",
+     "odds": 120.0,
      "p": 0.357,
      "pid": "00-0033288",
      "pos": "TE",
@@ -8798,7 +8846,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-24T00:46:42Z",
+   "updated": "2026-10-24T06:24:55Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8860,37 +8908,52 @@
    "proj_home": 24.4,
    "props": [
     {
-     "bet": false,
-     "fair": 154,
-     "lam": 0.4993,
-     "name": "Chuba Hubbard",
-     "note": "no market price yet",
-     "p": 0.393,
-     "pid": "00-0036555",
-     "pos": "RB",
-     "team": "CAR"
-    },
-    {
-     "bet": false,
-     "fair": 174,
-     "lam": 0.4534,
-     "name": "Bucky Irving",
-     "note": "no market price yet",
-     "p": 0.365,
-     "pid": "00-0039361",
+     "bet": true,
+     "book": "FanDuel",
+     "ev": 1.1558,
+     "fair": 248,
+     "kelly": 0.1778,
+     "lam": 0.3389,
+     "mkt_prob": 0.143,
+     "n_books": 6,
+     "name": "Sean Tucker",
+     "odds": 650.0,
+     "p": 0.287,
+     "pid": "00-0038951",
      "pos": "RB",
      "team": "TB"
     },
     {
-     "bet": false,
-     "fair": 239,
-     "lam": 0.3501,
-     "name": "Tetairoa McMillan",
-     "note": "no market price yet",
-     "p": 0.295,
-     "pid": "00-0040124",
+     "bet": true,
+     "book": "BetRivers",
+     "ev": 2.3686,
+     "fair": 375,
+     "kelly": 0.1579,
+     "lam": 0.2364,
+     "mkt_prob": 0.077,
+     "n_books": 6,
+     "name": "David Sills V",
+     "odds": 1500.0,
+     "p": 0.211,
+     "pid": null,
      "pos": "WR",
-     "team": "CAR"
+     "team": "TB"
+    },
+    {
+     "bet": true,
+     "book": "DraftKings",
+     "ev": 0.3631,
+     "fair": 267,
+     "kelly": 0.0908,
+     "lam": 0.3183,
+     "mkt_prob": 0.222,
+     "n_books": 6,
+     "name": "Kenny Gainwell",
+     "odds": 400.0,
+     "p": 0.273,
+     "pid": "00-0036919",
+     "pos": "RB",
+     "team": "TB"
     }
    ],
    "result": null,
@@ -8911,7 +8974,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-24T00:46:42Z",
+   "updated": "2026-10-24T06:24:55Z",
    "week": 7,
    "weights": {
     "elo": 0.928,

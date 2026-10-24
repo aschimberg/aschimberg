@@ -7476,6 +7476,8 @@
    "away_abbr": "MTL",
    "bet_at": "2026-10-23T16:08:35Z",
    "bet_line": 142.0,
+   "close_line": 142.0,
+   "clv": -0.0411,
    "conf_label": "Medium",
    "confidence": 68,
    "confidence_detail": {
@@ -7530,7 +7532,15 @@
    "odds": 142.0,
    "offset": 0.022,
    "prob": 0.432,
-   "result": null,
+   "result": {
+    "ats": "L",
+    "away_pts": 4,
+    "home_pts": 1,
+    "su": "W",
+    "total": "W",
+    "total_units": 0.87,
+    "units": -1.0
+   },
    "season": 20262027,
    "season_type": "regular",
    "start": "2026-10-24T00:00:00Z",
@@ -7563,6 +7573,8 @@
    "away_abbr": "TBL",
    "bet_at": "2026-10-23T23:51:38Z",
    "bet_line": -122.0,
+   "close_line": -122.0,
+   "clv": -0.0427,
    "conf_label": "Low",
    "confidence": 45,
    "confidence_detail": {
@@ -7617,7 +7629,15 @@
    "odds": -122.0,
    "offset": -0.111,
    "prob": 0.528,
-   "result": null,
+   "result": {
+    "ats": "W",
+    "away_pts": 3,
+    "home_pts": 6,
+    "su": "W",
+    "total": "L",
+    "total_units": -1.0,
+    "units": 0.82
+   },
    "season": 20262027,
    "season_type": "regular",
    "start": "2026-10-24T01:00:00Z",
