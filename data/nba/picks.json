@@ -2739,7 +2739,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-24T23:14:54Z",
+   "updated": "2026-10-24T23:23:28Z",
    "week": 202643,
    "weights": {
     "eff": 0.123,
@@ -2824,7 +2824,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-24T23:14:54Z",
+   "updated": "2026-10-24T23:23:28Z",
    "week": 202643,
    "weights": {
     "eff": 0.123,
@@ -2842,20 +2842,20 @@
    "bet_line": -1.5,
    "book": "Draft Kings",
    "conf_label": "Medium",
-   "confidence": 68,
+   "confidence": 67,
    "confidence_detail": {
     "agree": 3,
     "components": {
      "agreement": 1.0,
      "consistency": 0.896,
      "data": 0.2,
-     "edge": 1.0,
+     "edge": 0.934,
      "market": 0.0,
      "trends": 0.5
     },
     "label": "Medium",
     "n_sources": 3,
-    "score": 68,
+    "score": 67,
     "side": "home",
     "source_names": {
      "eff": "Efficiency",
@@ -2863,12 +2863,12 @@
      "pts": "Points"
     },
     "sources": {
-     "eff": 3.5,
-     "elo": 2.2,
-     "pts": 3.6
+     "eff": 3.2,
+     "elo": 1.9,
+     "pts": 3.3
     }
    },
-   "cover_prob": 0.661,
+   "cover_prob": 0.651,
    "date": "2026-10-24",
    "diffs": {
     "eff": 1.27,
@@ -2876,39 +2876,39 @@
     "pts": 1.42
    },
    "early": true,
-   "edge": 5.0,
-   "ev": 0.222,
+   "edge": 4.7,
+   "ev": 0.203,
    "hfa_flag": 1,
    "home": "Atlanta Hawks",
    "home_abbr": "ATL",
    "home_field": 1.701,
    "id": "401909856",
    "line": 1.5,
-   "model_spread": -3.5,
-   "model_total": 226.7,
+   "model_spread": -3.2,
+   "model_total": 226.8,
    "neutral": false,
-   "offset": 0.51,
-   "proj_away": 111.6,
-   "proj_home": 115.1,
+   "offset": 0.18,
+   "proj_away": 111.8,
+   "proj_home": 115.0,
    "result": null,
    "season": 2027,
    "season_type": "regular",
    "start": "2026-10-25T00:30:00Z",
    "su_team": "Atlanta Hawks",
-   "su_wp": 0.615,
+   "su_wp": 0.604,
    "tier": "lean",
    "total_line": 227.5,
    "total_pick": {
-    "edge": 0.8,
+    "edge": 0.7,
     "line": 227.5,
-    "model": 226.7,
+    "model": 226.8,
     "odds": -112.0,
     "play": false,
-    "prob": 0.519,
+    "prob": 0.516,
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-24T23:14:54Z",
+   "updated": "2026-10-24T23:23:28Z",
    "week": 202643,
    "weights": {
     "eff": 0.123,
@@ -2992,7 +2992,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-24T23:14:54Z",
+   "updated": "2026-10-24T23:23:28Z",
    "week": 202643,
    "weights": {
     "eff": 0.123,
@@ -3031,12 +3031,12 @@
      "pts": "Points"
     },
     "sources": {
-     "eff": -7.2,
-     "elo": -11.3,
-     "pts": -7.0
+     "eff": -7.1,
+     "elo": -11.2,
+     "pts": -6.9
     }
    },
-   "cover_prob": 0.724,
+   "cover_prob": 0.726,
    "date": "2026-10-24",
    "diffs": {
     "eff": -5.42,
@@ -3044,18 +3044,18 @@
     "pts": -5.22
    },
    "early": true,
-   "edge": 7.1,
-   "ev": 0.414,
+   "edge": 7.2,
+   "ev": 0.418,
    "hfa_flag": 1,
    "home": "Dallas Mavericks",
    "home_abbr": "DAL",
    "home_field": 1.701,
    "id": "401909858",
    "line": 14.5,
-   "model_spread": 7.4,
+   "model_spread": 7.3,
    "model_total": 225.3,
    "neutral": false,
-   "offset": -3.45,
+   "offset": -3.38,
    "proj_away": 116.3,
    "proj_home": 109.0,
    "result": null,
@@ -3063,7 +3063,7 @@
    "season_type": "regular",
    "start": "2026-10-25T00:00:00Z",
    "su_team": "San Antonio Spurs",
-   "su_wp": 0.73,
+   "su_wp": 0.728,
    "tier": "lean",
    "total_line": 229.5,
    "total_pick": {
@@ -3076,7 +3076,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-24T23:14:54Z",
+   "updated": "2026-10-24T23:23:28Z",
    "week": 202643,
    "weights": {
     "eff": 0.123,
@@ -3161,7 +3161,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-24T23:14:54Z",
+   "updated": "2026-10-24T23:23:28Z",
    "week": 202643,
    "weights": {
     "eff": 0.123,
@@ -3244,7 +3244,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-24T23:14:54Z",
+   "updated": "2026-10-24T23:23:28Z",
    "week": 202643,
    "weights": {
     "eff": 0.123,
