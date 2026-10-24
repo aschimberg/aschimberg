@@ -129,14 +129,15 @@
     const body = rows.map((b) => `<div class="prop-row">
         <div class="prop-who"><strong>${esc(b.name)}</strong> <span class="muted">${esc([b.pos, b.team].filter(Boolean).join(" · "))}</span></div>
         <div class="prop-nums">
-          <span title="Model probability to score">${Math.round(b.p * 100)}%</span>
+          <span title="${b.mkt_prob != null ? `Chance to score: model ${Math.round((b.p_model ?? b.p) * 100)}% blended with the books' ${Math.round(b.mkt_prob * 100)}%` : "Model probability to score"}">${Math.round(b.p * 100)}%</span>
+          ${b.mkt_prob != null ? `<span class="muted" title="Books' consensus chance (median across books)">mkt ${Math.round(b.mkt_prob * 100)}%</span>` : ""}
           <span class="muted" title="Model fair odds">fair ${odds(b.fair)}</span>
           ${b.odds != null ? `<span title="Best price${b.n_books ? " of " + b.n_books + " books" : ""}">${odds(b.odds)}${b.book ? ` <span class="muted">${esc(b.book)}</span>` : ""}</span>` : ""}
           ${b.ev != null ? `<span class="${b.ev > 0 ? "pos" : "neg"}">EV ${b.ev > 0 ? "+" : ""}${(b.ev * 100).toFixed(1)}%</span>` : ""}
           ${b.bet ? '<span class="tier play">bet</span>' : ""}${resTag(b)}
         </div>
       </div>`).join("");
-    const note = anyBet ? "Best bets ranked by Kelly (EV vs the best price, weighted by scoring chance)."
+    const note = anyBet ? "Chance to score blends the model with the books' consensus. Best bets ranked by Kelly (EV vs the best price, weighted by scoring chance)."
       : rows[0]?.note === "no value at market price" ? "No player priced with enough value; top scoring chances shown."
       : "Top scoring chances (no market prices yet).";
     return `<details class="section props" ${anyBet ? "open" : ""}><summary>${title}${anyBet ? ` <span class="tier play">${rows.filter((b) => b.bet).length} bet${rows.filter((b) => b.bet).length > 1 ? "s" : ""}</span>` : ""}</summary>

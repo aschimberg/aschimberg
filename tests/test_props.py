@@ -36,6 +36,18 @@ class PropsTests(unittest.TestCase):
         rec = props.record([{"props": bets}])
         self.assertEqual((rec["W"], rec["L"], rec["units"]), (1, 1, 0.25))
 
+    def test_market_blend_and_bet_gates(self):
+        players = [{"name": "Starter Back", "lam": 0.45, "games": 10},   # model 36%, market 25% at +350
+                   {"name": "Deep Backup", "lam": 0.29, "games": 0},     # model 25%, market 4% at +2500
+                   {"name": "Third Receiver", "lam": 0.29, "games": 8}]  # model 25%, market 9% at +1000
+        market = {"starterback": {"price": 350, "mkt_prob": 0.25}, "deepbackup": {"price": 2500, "mkt_prob": 0.04},
+                  "thirdreceiver": {"price": 1000, "mkt_prob": 0.09}}
+        priced = props.price(players, market, model_weight=0.4)
+        sb = priced[0]
+        self.assertTrue(0.25 < sb["p"] < sb["p_model"])  # pulled toward the market
+        bets = props.best_bets(priced, n=3, min_ev=0.03, min_prob=0.2, min_games=2, max_ratio=2.5)
+        self.assertEqual([b["name"] for b in bets if b["bet"]], ["Starter Back"])  # no history / model-market gap -> no bet
+
     def test_record_per_game_and_top_pick(self):
         games = [{"props": [{"name": "A", "p": 0.5, "result": "W", "bet": False}, {"name": "B", "p": 0.3, "result": "W", "bet": False},
                             {"name": "C", "p": 0.2, "result": "L", "bet": False}]},

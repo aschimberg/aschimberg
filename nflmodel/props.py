@@ -102,5 +102,5 @@ def team_players(team, team_points, espn, acc, team_avg, week):
         a = acc.get(pid) if pid else None
         rate = ((a["v"] if a else 0.0) + PRIOR_GAMES * prior) / ((a["w"] if a else 0.0) + PRIOR_GAMES)
         out.append({"pid": pid, "name": name, "team": team, "pos": pos.upper() if pos != "flex" else None,
-                    "lam": round(rate * scale, 4)})
+                    "lam": round(rate * scale, 4), "games": a["games"] if a else 0})
     return out

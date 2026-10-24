@@ -329,8 +329,9 @@ def refresh(games=None, pbp_loader=None, now=None, log=print, espn_loader=None):
                 ev = oddsapi.find_event(prop_events, teams.name(h), teams.name(a), g["start"])
                 if ev:
                     market = sprops.parse_market(oddsapi.event_props("nfl", ev, now=now, log=log), oddsapi.PROP_MARKETS["nfl"])
-            pick["props"] = sprops.best_bets(sprops.price(players, market), n=config.PROPS_PER_GAME,
-                                             min_ev=config.PROPS_MIN_EV, min_prob=config.PROPS_MIN_PROB)
+            pick["props"] = sprops.best_bets(sprops.price(players, market, config.PROPS_MODEL_WEIGHT), n=config.PROPS_PER_GAME,
+                                             min_ev=config.PROPS_MIN_EV, min_prob=config.PROPS_MIN_PROB,
+                                             min_games=config.PROPS_MIN_GAMES, max_ratio=config.PROPS_MAX_RATIO)
         trend_block = {}
         for side in ("home", "away"):
             t = g[side]

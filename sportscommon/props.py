@@ -4,7 +4,9 @@ Each player gets an expected number of scores in the game, lam. P(anytime) =
 1 - exp(-lam) (Poisson). With a market price, EV = p * decimal - 1, and best
 bets are ranked by the Kelly fraction EV / (decimal - 1): it mixes edge and
 probability, so a +12% edge on a 40% scorer outranks a +15% edge on a 6%
-long shot. Only bets with EV >= min_ev and p >= min_prob qualify.
+long shot. With a market price the model is blended with the books'
+consensus first (see price), and only bets with EV >= min_ev, p >= min_prob,
+a usage history and a model number near the market's qualify.
 """
 import math
 import re
@@ -32,29 +34,61 @@ def anytime_prob(lam):
     return 1 - math.exp(-max(0.0, lam))
 
 
-def price(players, market=None):
+def _logit(p):
+    p = min(max(p, 1e-4), 1 - 1e-4)
+    return math.log(p / (1 - p))
+
+
+def blend(p_model, p_market, model_weight):
+    """Model and market probability averaged in log-odds space."""
+    z = model_weight * _logit(p_model) + (1 - model_weight) * _logit(p_market)
+    return 1 / (1 + math.exp(-z))
+
+
+def price(players, market=None, model_weight=0.4):
     """players: [{'name','team','lam',...}] -> adds p, fair odds and (if priced) odds/book/ev/kelly.
 
     market: {norm_name: {'price': american, 'book': str, 'n_books': int, 'mkt_prob': float}}
+
+    With a market price, p is the model blended with the books' consensus
+    (model_weight of the log-odds from the model): anytime-TD markets are
+    sharp enough that the model's raw number, especially for a backup with
+    little usage history, shouldn't be bet against six books on its own.
+    p_model keeps the raw model number.
     """
     out = []
     for pl in players:
-        p = anytime_prob(pl["lam"])
-        row = dict(pl, p=round(p, 3), fair=round(prob_to_american(p)) if 0 < p < 1 else None)
+        pm = anytime_prob(pl["lam"])
+        row = dict(pl, p=round(pm, 3), p_model=round(pm, 3))
         m = (market or {}).get(norm_name(pl["name"]))
         if m:
+            p = blend(pm, m["mkt_prob"], model_weight) if m.get("mkt_prob") else pm
             dec = american_to_decimal(m["price"])
             ev = p * dec - 1
-            row.update(odds=m["price"], book=m.get("book"), n_books=m.get("n_books"), mkt_prob=m.get("mkt_prob"),
+            row.update(p=round(p, 3), odds=m["price"], book=m.get("book"), n_books=m.get("n_books"), mkt_prob=m.get("mkt_prob"),
                        ev=round(ev, 4), kelly=round(ev / (dec - 1), 4) if dec > 1 else None)
+        row["fair"] = round(prob_to_american(row["p"])) if 0 < row["p"] < 1 else None
         out.append(row)
     return out
 
 
-def best_bets(priced, n=3, min_ev=0.03, min_prob=0.15):
-    """Top n per game: qualifying bets by Kelly; if none are priced, the top n by probability."""
-    bets = [r for r in priced if r.get("ev") is not None and r["ev"] >= min_ev and r["p"] >= min_prob]
-    bets.sort(key=lambda r: -(r["kelly"] or 0))
+def best_bets(priced, n=3, min_ev=0.03, min_prob=0.15, min_games=2, max_ratio=2.5):
+    """Top n per game: qualifying bets by Kelly; if none qualify, the top n by probability.
+
+    A bet needs EV >= min_ev and p >= min_prob (both on the market-blended
+    probability), at least min_games of usage history, and a model number
+    within max_ratio of the market's (a bigger gap almost always means the
+    model is missing something, like a stale depth chart).
+    """
+    def ok(r):
+        if r.get("ev") is None or r["ev"] < min_ev or r["p"] < min_prob:
+            return False
+        if r.get("games") is not None and r["games"] < min_games:
+            return False
+        m = r.get("mkt_prob")
+        return not m or (r["p_model"] / m <= max_ratio and m / r["p_model"] <= max_ratio)
+
+    bets = sorted((r for r in priced if ok(r)), key=lambda r: -(r["kelly"] or 0))
     if bets:
         return [dict(r, bet=True) for r in bets[:n]]
     have_prices = any(r.get("odds") is not None for r in priced)

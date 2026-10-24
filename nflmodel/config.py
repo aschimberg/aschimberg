@@ -67,4 +67,7 @@ TOTAL_STRONG_EDGE = _f("NFL_TOTAL_STRONG", 5.0)
 PROPS_PER_GAME = int(_f("NFL_PROPS_PER_GAME", 3))
 PROPS_MIN_EV = _f("NFL_PROPS_MIN_EV", 0.03)
 PROPS_MIN_PROB = _f("NFL_PROPS_MIN_PROB", 0.20)
+PROPS_MODEL_WEIGHT = _f("NFL_PROPS_MODEL_WEIGHT", 0.4)  # model share of the log-odds when blended with the market
+PROPS_MAX_RATIO = _f("NFL_PROPS_MAX_RATIO", 2.5)  # no bet when model and market probabilities differ by more than this
+PROPS_MIN_GAMES = int(_f("NFL_PROPS_MIN_GAMES", 2))  # usage history needed before a player can be a best bet
 PROPS_HOURS = _f("NFL_PROPS_HOURS", 36)  # fetch prop odds only for games starting within this window
