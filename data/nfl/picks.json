@@ -7386,7 +7386,7 @@
      "kelly": 0.0518,
      "lam": 0.3649,
      "mkt_prob": 0.204,
-     "n_books": 6,
+     "n_books": 5,
      "name": "Ja'Kobi Lane",
      "odds": 400.0,
      "p": 0.241,
@@ -7404,7 +7404,7 @@
      "kelly": 0.043,
      "lam": 0.3283,
      "mkt_prob": 0.233,
-     "n_books": 6,
+     "n_books": 5,
      "name": "Mike Gesicki",
      "odds": 360.0,
      "p": 0.251,
@@ -7416,16 +7416,16 @@
     {
      "bet": true,
      "book": "BetRivers",
-     "ev": 0.0561,
-     "fair": 227,
+     "ev": 0.0458,
+     "fair": 230,
      "games": 23,
-     "kelly": 0.0229,
+     "kelly": 0.0187,
      "lam": 0.3614,
-     "mkt_prob": 0.308,
-     "n_books": 6,
+     "mkt_prob": 0.303,
+     "n_books": 5,
      "name": "Mark Andrews",
      "odds": 245.0,
-     "p": 0.306,
+     "p": 0.303,
      "p_model": 0.303,
      "pid": "00-0034753",
      "pos": "TE",
@@ -7450,7 +7450,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-24T11:25:30Z",
+   "updated": "2026-10-24T14:03:36Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -7566,7 +7566,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-24T11:25:30Z",
+   "updated": "2026-10-24T14:03:36Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -7685,7 +7685,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-24T11:25:30Z",
+   "updated": "2026-10-24T14:03:36Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -7819,7 +7819,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-24T11:25:30Z",
+   "updated": "2026-10-24T14:03:36Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -7953,7 +7953,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-24T11:25:30Z",
+   "updated": "2026-10-24T14:03:36Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8051,7 +8051,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-10-24T11:25:30Z",
+   "updated": "2026-10-24T14:03:36Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8170,7 +8170,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-24T11:25:30Z",
+   "updated": "2026-10-24T14:03:36Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8268,7 +8268,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-24T11:25:30Z",
+   "updated": "2026-10-24T14:03:36Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8402,7 +8402,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-24T11:25:30Z",
+   "updated": "2026-10-24T14:03:36Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8662,7 +8662,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-24T11:25:30Z",
+   "updated": "2026-10-24T14:03:36Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8732,7 +8732,7 @@
      "kelly": 0.0393,
      "lam": 0.2971,
      "mkt_prob": 0.25,
-     "n_books": 6,
+     "n_books": 5,
      "name": "Alvin Kamara",
      "odds": 350.0,
      "p": 0.253,
@@ -8743,24 +8743,6 @@
     },
     {
      "bet": true,
-     "book": "BetMGM",
-     "ev": 0.0584,
-     "fair": 222,
-     "games": 5,
-     "kelly": 0.0243,
-     "lam": 0.3484,
-     "mkt_prob": 0.323,
-     "n_books": 6,
-     "name": "Germie Bernard",
-     "odds": 240.0,
-     "p": 0.311,
-     "p_model": 0.294,
-     "pid": "00-0041489",
-     "pos": "WR",
-     "team": "PIT"
-    },
-    {
-     "bet": true,
      "book": "DraftKings",
      "ev": 0.0417,
      "fair": 260,
@@ -8768,7 +8750,7 @@
      "kelly": 0.0152,
      "lam": 0.325,
      "mkt_prob": 0.278,
-     "n_books": 6,
+     "n_books": 5,
      "name": "Rico Dowdle",
      "odds": 275.0,
      "p": 0.278,
@@ -8776,6 +8758,24 @@
      "pid": "00-0036139",
      "pos": "RB",
      "team": "PIT"
+    },
+    {
+     "bet": true,
+     "book": "FanDuel",
+     "ev": 0.0386,
+     "fair": 400,
+     "games": 15,
+     "kelly": 0.0092,
+     "lam": 0.215,
+     "mkt_prob": 0.204,
+     "n_books": 5,
+     "name": "Tyler Shough",
+     "odds": 420.0,
+     "p": 0.2,
+     "p_model": 0.193,
+     "pid": "00-0040743",
+     "pos": "QB",
+     "team": "NO"
     }
    ],
    "result": null,
@@ -8796,7 +8796,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-24T11:25:30Z",
+   "updated": "2026-10-24T14:03:36Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8860,16 +8860,16 @@
     {
      "bet": true,
      "book": "BetMGM",
-     "ev": 0.0932,
-     "fair": 275,
+     "ev": 0.0837,
+     "fair": 279,
      "games": 23,
-     "kelly": 0.0301,
+     "kelly": 0.027,
      "lam": 0.2805,
-     "mkt_prob": 0.282,
-     "n_books": 6,
+     "mkt_prob": 0.278,
+     "n_books": 5,
      "name": "Kyle Pitts Sr.",
      "odds": 310.0,
-     "p": 0.267,
+     "p": 0.264,
      "p_model": 0.245,
      "pid": "00-0036970",
      "pos": "TE",
@@ -8884,7 +8884,7 @@
      "kelly": 0.01,
      "lam": 0.2057,
      "mkt_prob": 0.217,
-     "n_books": 6,
+     "n_books": 5,
      "name": "Jahan Dotson",
      "odds": 410.0,
      "p": 0.204,
@@ -8912,7 +8912,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-24T11:25:30Z",
+   "updated": "2026-10-24T14:03:36Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8982,7 +8982,7 @@
      "kelly": 0.0518,
      "lam": 0.3183,
      "mkt_prob": 0.222,
-     "n_books": 6,
+     "n_books": 5,
      "name": "Kenny Gainwell",
      "odds": 400.0,
      "p": 0.241,
@@ -9010,7 +9010,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-24T11:25:30Z",
+   "updated": "2026-10-24T14:03:36Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
