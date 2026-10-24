@@ -736,20 +736,20 @@
    "bet_line": -6.5,
    "book": "DraftKings",
    "conf_label": "Medium",
-   "confidence": 67,
+   "confidence": 62,
    "confidence_detail": {
     "agree": 2,
     "components": {
      "agreement": 0.918,
      "consistency": 0.665,
      "data": 0.1,
-     "edge": 0.544,
+     "edge": 0.374,
      "market": 1.0,
      "trends": 0.5
     },
     "label": "Medium",
     "n_sources": 3,
-    "score": 67,
+    "score": 62,
     "side": "away",
     "source_names": {
      "eff": "Efficiency",
@@ -757,51 +757,51 @@
      "pts": "Points"
     },
     "sources": {
-     "eff": 1.4,
-     "elo": 5.7,
-     "pts": 1.4
+     "eff": 2.2,
+     "elo": 6.5,
+     "pts": 2.3
     }
    },
-   "cover_prob": 0.59,
+   "cover_prob": 0.562,
    "date": "2026-10-23",
    "diffs": {
     "eff": -0.34,
     "elo": 3.95,
     "pts": -0.28
    },
-   "edge": 2.7,
-   "ev": 0.151,
+   "edge": 1.9,
+   "ev": 0.097,
    "hfa_flag": 1,
    "home": "San Antonio Spurs",
    "home_abbr": "SA",
    "home_field": 1.701,
    "id": "401909096",
    "line": -4.5,
-   "model_spread": -1.8,
-   "model_total": 225.5,
+   "model_spread": -2.6,
+   "model_total": 225.1,
    "neutral": false,
-   "offset": 0.02,
-   "proj_away": 111.9,
-   "proj_home": 113.6,
+   "offset": 0.87,
+   "proj_away": 111.2,
+   "proj_home": 113.9,
    "result": null,
    "season": 2027,
    "season_type": "regular",
    "start": "2026-10-24T01:30:00Z",
    "su_team": "San Antonio Spurs",
-   "su_wp": 0.559,
+   "su_wp": 0.587,
    "tier": "lean",
    "total_line": 224.5,
    "total_pick": {
-    "edge": 1.0,
+    "edge": 0.6,
     "line": 224.5,
-    "model": 225.5,
+    "model": 225.1,
     "odds": -108.0,
     "play": false,
-    "prob": 0.524,
+    "prob": 0.514,
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-23T23:51:50Z",
+   "updated": "2026-10-24T00:47:01Z",
    "week": 202643,
    "weights": {
     "eff": 0.123,
@@ -2229,7 +2229,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-23T23:51:50Z",
+   "updated": "2026-10-24T00:47:01Z",
    "week": 202643,
    "weights": {
     "eff": 0.123,
@@ -2247,20 +2247,20 @@
    "bet_line": -3.5,
    "book": "DraftKings",
    "conf_label": "Medium",
-   "confidence": 65,
+   "confidence": 62,
    "confidence_detail": {
     "agree": 3,
     "components": {
      "agreement": 1.0,
      "consistency": 0.715,
      "data": 0.1,
-     "edge": 0.964,
+     "edge": 0.87,
      "market": 0.0,
      "trends": 0.5
     },
     "label": "Medium",
     "n_sources": 3,
-    "score": 65,
+    "score": 62,
     "side": "away",
     "source_names": {
      "eff": "Efficiency",
@@ -2268,12 +2268,12 @@
      "pts": "Points"
     },
     "sources": {
-     "eff": -0.6,
-     "elo": 3.0,
-     "pts": -0.6
+     "eff": -0.2,
+     "elo": 3.5,
+     "pts": -0.1
     }
    },
-   "cover_prob": 0.656,
+   "cover_prob": 0.641,
    "date": "2026-10-23",
    "diffs": {
     "eff": -0.47,
@@ -2281,40 +2281,40 @@
     "pts": -0.43
    },
    "early": true,
-   "edge": 4.8,
-   "ev": 0.226,
+   "edge": 4.3,
+   "ev": 0.199,
    "hfa_flag": 1,
    "home": "Golden State Warriors",
    "home_abbr": "GS",
    "home_field": 1.701,
    "id": "401909850",
    "line": -4.5,
-   "model_spread": 0.3,
-   "model_total": 226.2,
+   "model_spread": -0.2,
+   "model_total": 226.4,
    "neutral": false,
-   "offset": -1.88,
-   "proj_away": 113.2,
-   "proj_home": 112.9,
+   "offset": -1.41,
+   "proj_away": 113.1,
+   "proj_home": 113.3,
    "result": null,
    "season": 2027,
    "season_type": "regular",
    "start": "2026-10-24T02:00:00Z",
-   "su_team": "Memphis Grizzlies",
-   "su_wp": 0.511,
+   "su_team": "Golden State Warriors",
+   "su_wp": 0.505,
    "tier": "lean",
    "total_line": 236.5,
    "total_pick": {
     "early": true,
-    "edge": 10.3,
+    "edge": 10.1,
     "line": 236.5,
-    "model": 226.2,
+    "model": 226.4,
     "odds": -108.0,
     "play": false,
-    "prob": 0.728,
+    "prob": 0.724,
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-23T23:51:50Z",
+   "updated": "2026-10-24T00:47:01Z",
    "week": 202643,
    "weights": {
     "eff": 0.123,
@@ -2398,7 +2398,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-23T23:51:50Z",
+   "updated": "2026-10-24T00:47:01Z",
    "week": 202643,
    "weights": {
     "eff": 0.123,
@@ -2482,7 +2482,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-23T23:51:50Z",
+   "updated": "2026-10-24T00:47:01Z",
    "week": 202643,
    "weights": {
     "eff": 0.123,
