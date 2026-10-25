@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-25T15:33:14Z",
+ "generated_at": "2026-10-25T23:21:23Z",
  "poll": "AP Top 25",
  "season": 2026,
  "season_type": "regular",
@@ -15,7 +15,7 @@
    "market": 0.15,
    "trends": 0.15
   },
-  "home_field": 2.96,
+  "home_field": 3.3,
   "lean_edge": 2.0,
   "margin_sd": 15.5,
   "play_edge": 4.0,
@@ -25,9 +25,9 @@
   "strong_edge": 7.0,
   "trend_min_games": 8,
   "weights": {
-   "elo": 0.036,
-   "fpi": 0.652,
-   "sp": 0.312
+   "elo": 0.031,
+   "fpi": 0.625,
+   "sp": 0.343
   }
  },
  "site_url": "https://aschimberg.github.io/aschimberg/",
