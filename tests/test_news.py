@@ -38,6 +38,12 @@ GOOGLE = """<?xml version="1.0"?><rss><channel>
 <description>&lt;a href="x"&gt;When will...&lt;/a&gt;</description><source url="https://usatoday.com">USA Today</source></item>
 <item><title>Ravens rule out Lamar Jackson (ankle) vs. Bengals; Tyler 'Snoop' Huntley to start - ESPN</title>
 <link>https://news.google.com/rss/articles/dup</link><pubDate>Sat, 24 Oct 2026 19:48:00 GMT</pubDate><source url="https://espn.com">ESPN</source></item>
+<item><title>[!LIVESTREAMs!]Tv] Baltimore Ravens vs Cincinnati Bengals 𝐋𝐈𝐕𝐄 Free Stream - FC東京オフィシャルホームページ</title><link>s</link>
+<pubDate>Sun, 25 Oct 2026 14:00:00 GMT</pubDate><source url="s">FC東京オフィシャルホームページ</source></item>
+<item><title>Cincinnati Bengals vs Baltimore Ravens Prediction, Pick, Odds -- NFL Week 7 - Action Network</title><link>p</link>
+<pubDate>Sun, 25 Oct 2026 14:00:00 GMT</pubDate><source url="p">Action Network</source></item>
+<item><title>Will Kenny Gainwell play in Week 7? Injury update for Bucs RB - Heavy</title><link>h</link>
+<pubDate>Sun, 25 Oct 2026 14:30:00 GMT</pubDate><source url="h">Heavy</source></item>
 <item><title>Old Ravens story - WBAL</title><link>y</link><pubDate>Mon, 19 Oct 2026 10:00:00 GMT</pubDate><source url="w">WBAL</source></item>
 </channel></rss>"""
 
@@ -88,6 +94,7 @@ class NewsTests(unittest.TestCase):
         self.assertFalse(any("promo code" in t for t in titles))          # betting promo dropped
         self.assertFalse(any("highlights" in t for t in titles))          # league round-up dropped
         self.assertFalse(any("Old Ravens" in t for t in titles))          # older than 72h
+        self.assertFalse(any("Stream" in t or "Prediction" in t for t in titles))  # stream spam and previews dropped
         self.assertEqual(sum("rule out Lamar Jackson" in t for t in titles), 1)  # ESPN + Google copy -> one
         usa = next(it for it in items if it["src"] == "USA Today")
         self.assertEqual(usa["t"], "When will Lamar Jackson return? Latest injury update for Ravens QB")  # " - USA Today" stripped
@@ -102,7 +109,8 @@ class NewsTests(unittest.TestCase):
 
     def test_player_flags(self):
         items = news.collect("nfl", INFO, NOW, self.path, log=lambda *_: None, fetcher=FakeFeeds())
-        self.assertEqual(news.player_note(items, "Kenny Gainwell")["flag"], "warn")
+        self.assertEqual(news.player_note(items, "Kenny Gainwell")["flag"], "warn")  # RotoWire 'questionable', not Heavy's 'injury update'
+        self.assertIn("Questionable", news.player_note(items, "Kenny Gainwell")["t"])
         self.assertEqual(news.player_note(items, "Rico Dowdle")["flag"], "ok")
         self.assertEqual(news.player_note(items, "Lamar Jackson", "BAL")["flag"], "warn")
         self.assertIsNone(news.player_note(items, "Josh Allen"))

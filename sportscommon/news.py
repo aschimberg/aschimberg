@@ -56,8 +56,22 @@ PER_TEAM = 4
 NOISE = re.compile(
     r"promo code|bonus (bets|funds)|sportsbook|kalshi|underdog|prizepicks|odds,? (picks|predictions)|best bets|player props"
     r"|parlay|how to watch|where to (watch|stream)|start time|tv channel|live updates|live score|highlights|fantasy|rankings"
-    r"|mock draft|\bdfs\b|power rankings|winners? (&|and) (losers|sinners)|what (we|to) know|everything (you need )?to know",
+    r"|mock draft|\bdfs\b|power rankings|winners? (&|and) (losers|sinners)|what (we|to) know|everything (you need )?to know"
+    r"|live ?streams?|free stream|streaming|watch (today|live|free|online)|\bprediction|\bpicks\b|to watch\b|storylines|\breasons\b|pre-snap reads"
+    r"|rooting guide|\bkeys? to\b|game updates|play-by-play|start or sit|\bwho wins\b|\bpreview\b|\bby the numbers\b",
     re.I)
+# zero-width / full-width / "math" letters: the hallmarks of stream-spam titles
+_SPAM_CHARS = re.compile("[\u200b-\u200f\u2060\uff01-\uff5e\U0001d400-\U0001d7ff]")
+
+
+def spam(title, source=""):
+    """Stream-spam and junk: odd unicode, non-Latin source names, mostly non-ASCII text."""
+    if _SPAM_CHARS.search(title) or re.search(r"[\[\]!+@#$*]{3,}", title):
+        return True
+    if source and sum(ord(c) > 0x2FF for c in source) > len(source) / 3:
+        return True
+    letters = [c for c in title if c.isalpha()]
+    return bool(letters) and sum(ord(c) > 0x2FF for c in letters) > len(letters) / 4
 
 NEG = re.compile(
     r"\b(rule[sd]? out|out for|out indefinitely|injur(y|ies|ed)|questionable|doubtful|injured reserve|on ir|placed on ir|surgery|"
@@ -68,9 +82,11 @@ POS = re.compile(
     r"\b(return(s|ed|ing)? (to|from|for)|cleared|activated|healthy|full practice|full participant|upgraded|expected to play|"
     r"will play|available|extension|win(ning)? streak|dominant|breakout|career[- ]high|back (at|in) practice|off (the )?injury report)\b",
     re.I)
+# an availability flag needs a status word, not just "injury update" (fantasy click-bait asks that every week)
 INJ = re.compile(
-    r"\b(rule[sd]? out|out for|questionable|doubtful|injur(y|ies|ed)|injured reserve|surgery|sprain(ed)?|strain(ed)?|torn|"
-    r"concussion|illness|limited|did not practice|dnp|sidelined|inactive|game-time decision|not expected to play|day-to-day)\b", re.I)
+    r"\b(rule[sd]? out|out for|questionable|doubtful|injured reserve|placed on ir|surgery|sprain(ed)?|torn|"
+    r"concussion|illness|limited (in|at) practice|did not practice|dnp|sidelined|inactive|game-time decision|"
+    r"not expected to play|day-to-day|downgraded)\b", re.I)
 OK = re.compile(r"\b(cleared|activated|active for|available to play|expected to play|will play|full practice|"
                 r"full participant|off (the )?injury report|no injury designation)\b", re.I)
 
@@ -251,7 +267,8 @@ def collect(sport, team_info, now, cache_path, log=print, fetcher=None):
     seen, keep = set(), []
     for it in sorted(items, key=lambda x: x.get("at") or "", reverse=True):
         k = _key(it["t"])
-        if not it.get("at") or it["at"] < cutoff or it["at"] > _iso(now + timedelta(hours=1)) or k in seen or NOISE.search(it["t"]):
+        if (not it.get("at") or it["at"] < cutoff or it["at"] > _iso(now + timedelta(hours=1)) or k in seen
+                or NOISE.search(it["t"]) or spam(it["t"], it.get("src", ""))):
             continue
         seen.add(k)
         keep.append(it)
@@ -272,8 +289,8 @@ def collect(sport, team_info, now, cache_path, log=print, fetcher=None):
 
 def for_team(items, abbr, n=PER_TEAM):
     rows = [it for it in items if abbr in it["teams"]]
-    # one or two teams named reads as about this team; league round-ups don't
-    rows.sort(key=lambda it: (len(it["teams"]) > 2, -(datetime.fromisoformat(it["at"].replace("Z", "+00:00")).timestamp())))
+    # stories about this team alone first, then matchup stories, then round-ups
+    rows.sort(key=lambda it: (min(len(it["teams"]), 3), -(datetime.fromisoformat(it["at"].replace("Z", "+00:00")).timestamp())))
     return [{"t": it["t"], "u": it["u"], "src": it["src"], "at": it["at"], "tone": it["tone"]} for it in rows[:n]]
 
 
