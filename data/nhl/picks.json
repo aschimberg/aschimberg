@@ -8474,7 +8474,7 @@
    "bet_at": "2026-10-24T16:06:24Z",
    "bet_line": 120.0,
    "conf_label": "Low",
-   "confidence": 46,
+   "confidence": 44,
    "confidence_detail": {
     "agree": 3,
     "components": {
@@ -8482,12 +8482,12 @@
      "consistency": 0.729,
      "data": 0.9,
      "edge": 0.0,
-     "market": 0.5,
+     "market": 0.357,
      "trends": 0.5
     },
     "label": "Low",
     "n_sources": 4,
-    "score": 46,
+    "score": 44,
     "side": "away",
     "source_names": {
      "elo": "Elo",
@@ -8510,8 +8510,8 @@
     "mp": -0.145,
     "xg": 0.207
    },
-   "edge": -3.7,
-   "ev": -0.037,
+   "edge": -1.9,
+   "ev": -0.0195,
    "hfa_flag": 1,
    "home": "Utah Mammoth",
    "home_abbr": "UTA",
@@ -8519,12 +8519,12 @@
    "home_prob": 0.562,
    "id": 2026020177,
    "line": null,
-   "mkt_prob": 0.437,
-   "ml_away": 120.0,
-   "ml_home": -142.0,
+   "mkt_prob": 0.428,
+   "ml_away": 124.0,
+   "ml_home": -148.0,
    "model_spread": null,
    "neutral": false,
-   "odds": 120.0,
+   "odds": 124.0,
    "offset": 0.168,
    "prob": 0.438,
    "result": null,
@@ -8544,7 +8544,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-24T23:23:18Z",
+   "updated": "2026-10-25T00:22:44Z",
    "week": 202643,
    "weights": {
     "elo": 0.223,
@@ -8631,7 +8631,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-24T23:23:18Z",
+   "updated": "2026-10-25T00:22:44Z",
    "week": 202643,
    "weights": {
     "elo": 0.223,
@@ -8718,7 +8718,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-24T23:23:18Z",
+   "updated": "2026-10-25T00:22:44Z",
    "week": 202643,
    "weights": {
     "elo": 0.223,
