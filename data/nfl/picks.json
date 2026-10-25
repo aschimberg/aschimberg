@@ -7332,6 +7332,9 @@
    "bet_at": "2026-10-21T23:20:55Z",
    "bet_line": 1.5,
    "book": "nflverse consensus",
+   "close_line": 3.0,
+   "clv": -1.5,
+   "clv_prob": -0.0643,
    "conf_label": "Low",
    "confidence": 53,
    "confidence_detail": {
@@ -7393,7 +7396,9 @@
      "p_model": 0.284,
      "pid": "00-0040870",
      "pos": "WR",
-     "team": "BAL"
+     "result": "L",
+     "team": "BAL",
+     "units": -1.0
     },
     {
      "bet": true,
@@ -7411,7 +7416,9 @@
      "p_model": 0.302,
      "pid": "00-0034829",
      "pos": "TE",
-     "team": "CIN"
+     "result": "W",
+     "team": "CIN",
+     "units": 3.5
     },
     {
      "bet": true,
@@ -7429,10 +7436,19 @@
      "p_model": 0.281,
      "pid": "00-0034753",
      "pos": "TE",
-     "team": "BAL"
+     "result": "L",
+     "team": "BAL",
+     "units": -1.0
     }
    ],
-   "result": null,
+   "props_graded": true,
+   "result": {
+    "ats": "L",
+    "away_pts": 35.0,
+    "home_pts": 13.0,
+    "su": "W",
+    "total": "W"
+   },
    "season": 2026,
    "season_type": "regular",
    "start": "2026-10-25T17:00:00Z",
@@ -7466,6 +7482,9 @@
    "bet_at": "2026-10-19T00:13:38Z",
    "bet_line": 1.5,
    "book": "nflverse consensus",
+   "close_line": 1.5,
+   "clv": -0.0,
+   "clv_prob": 0.0,
    "conf_label": "Medium",
    "confidence": 68,
    "confidence_detail": {
@@ -7527,7 +7546,9 @@
      "p_model": 0.412,
      "pid": "00-0040784",
      "pos": "RB",
-     "team": "CLE"
+     "result": "W",
+     "team": "CLE",
+     "units": 1.85
     },
     {
      "bet": true,
@@ -7545,10 +7566,19 @@
      "p_model": 0.273,
      "pid": "00-0038117",
      "pos": "WR",
-     "team": "TEN"
+     "result": "L",
+     "team": "TEN",
+     "units": -1.0
     }
    ],
-   "result": null,
+   "props_graded": true,
+   "result": {
+    "ats": "W",
+    "away_pts": 27.0,
+    "home_pts": 24.0,
+    "su": "W",
+    "total": "L"
+   },
    "season": 2026,
    "season_type": "regular",
    "start": "2026-10-25T17:00:00Z",
@@ -7588,7 +7618,7 @@
     "agree": 2,
     "components": {
      "agreement": 1.0,
-     "consistency": 0.946,
+     "consistency": 0.936,
      "data": 1.0,
      "edge": 1.0,
      "market": 0.9,
@@ -7604,43 +7634,43 @@
     },
     "sources": {
      "elo": 1.4,
-     "epa": 0.6
+     "epa": 0.5
     }
    },
    "cover_prob": 0.69,
    "diffs": {
     "elo": 2.16,
-    "epa": 1.4
+    "epa": 1.26
    },
-   "edge": 5.8,
-   "ev": 0.306,
+   "edge": 5.9,
+   "ev": 0.307,
    "hfa_flag": 1,
    "home": "Philadelphia Eagles",
    "home_abbr": "PHI",
    "home_field": 1.644,
    "id": "2026_07_DAL_PHI",
    "line": 4.5,
-   "model_spread": -1.3,
-   "model_total": 52.0,
+   "model_spread": -1.4,
+   "model_total": 51.0,
    "neutral": false,
-   "offset": -2.41,
-   "proj_away": 25.3,
-   "proj_home": 26.7,
+   "offset": -2.38,
+   "proj_away": 24.8,
+   "proj_home": 26.2,
    "props": [
     {
      "bet": true,
      "book": "DraftKings",
-     "ev": 0.5569,
-     "fair": 381,
+     "ev": 0.545,
+     "fair": 385,
      "games": 5,
-     "kelly": 0.0857,
-     "lam": 0.4156,
+     "kelly": 0.0839,
+     "lam": 0.4075,
      "mkt_prob": 0.143,
      "n_books": 6,
      "name": "Dameon Pierce",
      "odds": 650.0,
-     "p": 0.208,
-     "p_model": 0.34,
+     "p": 0.206,
+     "p_model": 0.335,
      "pid": "00-0037258",
      "pos": "RB",
      "team": "PHI"
@@ -7648,38 +7678,38 @@
     {
      "bet": true,
      "book": "BetMGM",
-     "ev": 0.1918,
-     "fair": 227,
+     "ev": 0.1846,
+     "fair": 229,
      "games": 10,
-     "kelly": 0.0661,
-     "lam": 0.3907,
+     "kelly": 0.0636,
+     "lam": 0.3837,
      "mkt_prob": 0.294,
      "n_books": 6,
      "name": "Darius Cooper",
      "odds": 290.0,
-     "p": 0.306,
-     "p_model": 0.323,
+     "p": 0.304,
+     "p_model": 0.319,
      "pid": "00-0040024",
      "pos": "WR",
      "team": "PHI"
     },
     {
      "bet": true,
-     "book": "BetRivers",
-     "ev": 0.0552,
-     "fair": 103,
-     "games": 21,
-     "kelly": 0.0484,
-     "lam": 0.6945,
-     "mkt_prob": 0.488,
+     "book": "DraftKings",
+     "ev": 0.1432,
+     "fair": 320,
+     "games": 19,
+     "kelly": 0.0377,
+     "lam": 0.3181,
+     "mkt_prob": 0.217,
      "n_books": 6,
-     "name": "Saquon Barkley",
-     "odds": 114.0,
-     "p": 0.493,
-     "p_model": 0.501,
-     "pid": "00-0034844",
-     "pos": "RB",
-     "team": "PHI"
+     "name": "Ryan Flournoy",
+     "odds": 380.0,
+     "p": 0.238,
+     "p_model": 0.272,
+     "pid": "00-0039410",
+     "pos": "WR",
+     "team": "DAL"
     }
    ],
    "result": null,
@@ -7687,20 +7717,20 @@
    "season_type": "regular",
    "start": "2026-10-27T00:15:00Z",
    "su_team": "Philadelphia Eagles",
-   "su_wp": 0.539,
+   "su_wp": 0.54,
    "tier": "strong",
    "total_line": 44.0,
    "total_pick": {
-    "edge": 8.0,
+    "edge": 7.0,
     "line": 44.0,
-    "model": 52.0,
+    "model": 51.0,
     "odds": null,
     "play": true,
-    "prob": 0.722,
+    "prob": 0.699,
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-25T19:05:57Z",
+   "updated": "2026-10-25T22:03:53Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -7984,6 +8014,9 @@
    "bet_at": "2026-10-19T00:13:38Z",
    "bet_line": -6.0,
    "book": "nflverse consensus",
+   "close_line": -6.5,
+   "clv": 0.5,
+   "clv_prob": 0.019,
    "conf_label": "High",
    "confidence": 87,
    "confidence_detail": {
@@ -8045,10 +8078,19 @@
      "p_model": 0.269,
      "pid": "00-0038994",
      "pos": "WR",
-     "team": "MIN"
+     "result": "L",
+     "team": "MIN",
+     "units": -1.0
     }
    ],
-   "result": null,
+   "props_graded": true,
+   "result": {
+    "ats": "L",
+    "away_pts": 10.0,
+    "home_pts": 16.0,
+    "su": "W",
+    "total": "W"
+   },
    "season": 2026,
    "season_type": "regular",
    "start": "2026-10-25T17:00:00Z",
@@ -8083,20 +8125,20 @@
    "bet_line": -1.5,
    "book": "nflverse consensus",
    "conf_label": "Medium",
-   "confidence": 68,
+   "confidence": 67,
    "confidence_detail": {
     "agree": 1,
     "components": {
      "agreement": 0.928,
-     "consistency": 0.85,
+     "consistency": 0.832,
      "data": 1.0,
-     "edge": 0.214,
+     "edge": 0.211,
      "market": 1.0,
      "trends": 0.375
     },
     "label": "Medium",
     "n_sources": 2,
-    "score": 68,
+    "score": 67,
     "side": "home",
     "source_names": {
      "elo": "Elo",
@@ -8104,44 +8146,44 @@
     },
     "sources": {
      "elo": 4.1,
-     "epa": 2.0
+     "epa": 1.8
     }
    },
    "cover_prob": 0.529,
    "diffs": {
     "elo": 2.71,
-    "epa": 0.61
+    "epa": 0.36
    },
-   "edge": 1.0,
-   "ev": 0.053,
+   "edge": 0.9,
+   "ev": 0.043,
    "hfa_flag": 1,
    "home": "Seattle Seahawks",
    "home_abbr": "SEA",
    "home_field": 1.644,
    "id": "2026_07_KC_SEA",
    "line": -3.0,
-   "model_spread": -4.0,
-   "model_total": 39.9,
+   "model_spread": -3.9,
+   "model_total": 39.2,
    "neutral": false,
    "offset": -0.24,
-   "proj_away": 18.0,
-   "proj_home": 21.9,
+   "proj_away": 17.6,
+   "proj_home": 21.6,
    "props": [
     {
      "bet": false,
-     "book": "FanDuel",
-     "ev": -0.0693,
-     "fair": 101,
+     "book": "DraftKings",
+     "ev": -0.099,
+     "fair": -100,
      "games": 25,
-     "kelly": -0.0797,
-     "lam": 0.5296,
-     "mkt_prob": 0.556,
+     "kelly": -0.1238,
+     "lam": 0.5183,
+     "mkt_prob": 0.565,
      "n_books": 6,
      "name": "Kenneth Walker III",
      "note": "no value at market price",
-     "odds": -115.0,
-     "p": 0.498,
-     "p_model": 0.411,
+     "odds": -125.0,
+     "p": 0.501,
+     "p_model": 0.404,
      "pid": "00-0038134",
      "pos": "RB",
      "team": "KC"
@@ -8149,18 +8191,18 @@
     {
      "bet": false,
      "book": "DraftKings",
-     "ev": -0.0681,
-     "fair": 136,
+     "ev": -0.072,
+     "fair": 137,
      "games": 26,
-     "kelly": -0.0568,
-     "lam": 0.4475,
+     "kelly": -0.06,
+     "lam": 0.441,
      "mkt_prob": 0.467,
      "n_books": 6,
      "name": "Jaxon Smith-Njigba",
      "note": "no value at market price",
      "odds": 120.0,
-     "p": 0.424,
-     "p_model": 0.361,
+     "p": 0.422,
+     "p_model": 0.357,
      "pid": "00-0038543",
      "pos": "WR",
      "team": "SEA"
@@ -8168,18 +8210,18 @@
     {
      "bet": false,
      "book": "DraftKings",
-     "ev": -0.1166,
-     "fair": 154,
+     "ev": -0.1267,
+     "fair": 152,
      "games": 23,
-     "kelly": -0.0933,
-     "lam": 0.3649,
-     "mkt_prob": 0.455,
+     "kelly": -0.1056,
+     "lam": 0.3603,
+     "mkt_prob": 0.465,
      "n_books": 6,
      "name": "Emanuel Wilson",
      "note": "no value at market price",
-     "odds": 125.0,
-     "p": 0.393,
-     "p_model": 0.306,
+     "odds": 120.0,
+     "p": 0.397,
+     "p_model": 0.303,
      "pid": "00-0038797",
      "pos": "RB",
      "team": "SEA"
@@ -8192,18 +8234,18 @@
    "su_team": "Seattle Seahawks",
    "su_wp": 0.614,
    "tier": "pass",
-   "total_line": 42.5,
+   "total_line": 43.0,
    "total_pick": {
-    "edge": 2.6,
-    "line": 42.5,
-    "model": 39.9,
+    "edge": 3.8,
+    "line": 43.0,
+    "model": 39.2,
     "odds": null,
-    "play": false,
-    "prob": 0.576,
+    "play": true,
+    "prob": 0.611,
     "side": "under",
-    "tier": "lean"
+    "tier": "play"
    },
-   "updated": "2026-10-25T19:05:57Z",
+   "updated": "2026-10-25T22:03:53Z",
    "week": 7,
    "weights": {
     "elo": 0.928,
@@ -8353,6 +8395,9 @@
    "bet_at": "2026-10-19T00:13:38Z",
    "bet_line": -4.5,
    "book": "nflverse consensus",
+   "close_line": -3.5,
+   "clv": 1.0,
+   "clv_prob": 0.0289,
    "conf_label": "Medium",
    "confidence": 68,
    "confidence_detail": {
@@ -8414,7 +8459,9 @@
      "p_model": 0.329,
      "pid": "00-0041511",
      "pos": "WR",
-     "team": "NYJ"
+     "result": "W",
+     "team": "NYJ",
+     "units": 4.5
     },
     {
      "bet": true,
@@ -8432,7 +8479,9 @@
      "p_model": 0.424,
      "pid": "00-0040198",
      "pos": "RB",
-     "team": "MIA"
+     "result": "W",
+     "team": "MIA",
+     "units": 2.0
     },
     {
      "bet": true,
@@ -8450,10 +8499,19 @@
      "p_model": 0.296,
      "pid": "00-0041523",
      "pos": "WR",
-     "team": "MIA"
+     "result": "W",
+     "team": "MIA",
+     "units": 4.3
     }
    ],
-   "result": null,
+   "props_graded": true,
+   "result": {
+    "ats": "W",
+    "away_pts": 28.0,
+    "home_pts": 25.0,
+    "su": "L",
+    "total": "W"
+   },
    "season": 2026,
    "season_type": "regular",
    "start": "2026-10-25T17:00:00Z",
@@ -8613,6 +8671,9 @@
    "bet_at": "2026-10-19T00:13:38Z",
    "bet_line": -9.5,
    "book": "nflverse consensus",
+   "close_line": -10.0,
+   "clv": -0.5,
+   "clv_prob": -0.0184,
    "conf_label": "Medium",
    "confidence": 57,
    "confidence_detail": {
@@ -8674,7 +8735,9 @@
      "p_model": 0.312,
      "pid": "00-0040715",
      "pos": "RB",
-     "team": "NYG"
+     "result": "W",
+     "team": "NYG",
+     "units": 3.9
     },
     {
      "bet": true,
@@ -8692,7 +8755,9 @@
      "p_model": 0.288,
      "pid": "00-0039849",
      "pos": "WR",
-     "team": "HOU"
+     "result": "W",
+     "team": "HOU",
+     "units": 3.0
     },
     {
      "bet": true,
@@ -8710,10 +8775,19 @@
      "p_model": 0.223,
      "pid": "00-0040138",
      "pos": "WR",
-     "team": "HOU"
+     "result": "L",
+     "team": "HOU",
+     "units": -1.0
     }
    ],
-   "result": null,
+   "props_graded": true,
+   "result": {
+    "ats": "W",
+    "away_pts": 27.0,
+    "home_pts": 21.0,
+    "su": "L",
+    "total": "W"
+   },
    "season": 2026,
    "season_type": "regular",
    "start": "2026-10-25T17:00:00Z",
@@ -8811,7 +8885,9 @@
      "p_model": 0.277,
      "pid": "00-0036139",
      "pos": "RB",
-     "team": "PIT"
+     "result": "L",
+     "team": "PIT",
+     "units": -1.0
     },
     {
      "bet": true,
@@ -8829,7 +8905,9 @@
      "p_model": 0.257,
      "pid": "00-0033906",
      "pos": "RB",
-     "team": "NO"
+     "result": "L",
+     "team": "NO",
+     "units": -1.0
     },
     {
      "bet": true,
@@ -8847,9 +8925,12 @@
      "p_model": 0.248,
      "pid": "00-0038558",
      "pos": "TE",
-     "team": "PIT"
+     "result": "W",
+     "team": "PIT",
+     "units": 3.1
     }
    ],
+   "props_graded": true,
    "result": {
     "ats": "W",
     "away_pts": 16.0,
@@ -8890,6 +8971,9 @@
    "bet_at": "2026-10-20T11:22:08Z",
    "bet_line": 3.5,
    "book": "nflverse consensus",
+   "close_line": 2.5,
+   "clv": -1.0,
+   "clv_prob": -0.0818,
    "conf_label": "High",
    "confidence": 81,
    "confidence_detail": {
@@ -8952,6 +9036,7 @@
      "p_model": 0.646,
      "pid": "00-0033280",
      "pos": "RB",
+     "result": "W",
      "team": "SF"
     },
     {
@@ -8971,6 +9056,7 @@
      "p_model": 0.436,
      "pid": "00-0038542",
      "pos": "RB",
+     "result": "L",
      "team": "ATL"
     },
     {
@@ -8990,10 +9076,18 @@
      "p_model": 0.357,
      "pid": "00-0033288",
      "pos": "TE",
+     "result": "L",
      "team": "SF"
     }
    ],
-   "result": null,
+   "props_graded": true,
+   "result": {
+    "ats": "L",
+    "away_pts": 20.0,
+    "home_pts": 29.0,
+    "su": "L",
+    "total": "W"
+   },
    "season": 2026,
    "season_type": "regular",
    "start": "2026-10-25T17:00:00Z",
@@ -9027,6 +9121,9 @@
    "bet_at": "2026-10-19T00:13:38Z",
    "bet_line": -3.0,
    "book": "nflverse consensus",
+   "close_line": -3.0,
+   "clv": 0.0,
+   "clv_prob": 0.0,
    "conf_label": "Medium",
    "confidence": 58,
    "confidence_detail": {
@@ -9088,7 +9185,9 @@
      "p_model": 0.287,
      "pid": "00-0038951",
      "pos": "RB",
-     "team": "TB"
+     "result": "W",
+     "team": "TB",
+     "units": 5.5
     },
     {
      "bet": true,
@@ -9106,7 +9205,9 @@
      "p_model": 0.273,
      "pid": "00-0036919",
      "pos": "RB",
-     "team": "TB"
+     "result": "L",
+     "team": "TB",
+     "units": -1.0
     },
     {
      "bet": true,
@@ -9124,10 +9225,19 @@
      "p_model": 0.224,
      "pid": "00-0041048",
      "pos": "WR",
-     "team": "TB"
+     "result": "L",
+     "team": "TB",
+     "units": -1.0
     }
    ],
-   "result": null,
+   "props_graded": true,
+   "result": {
+    "ats": "L",
+    "away_pts": 43.0,
+    "home_pts": 13.0,
+    "su": "L",
+    "total": "W"
+   },
    "season": 2026,
    "season_type": "regular",
    "start": "2026-10-25T17:00:00Z",

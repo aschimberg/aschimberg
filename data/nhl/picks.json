@@ -8834,6 +8834,8 @@
    "away_abbr": "FLA",
    "bet_at": "2026-10-25T16:06:12Z",
    "bet_line": 154.0,
+   "close_line": 154.0,
+   "clv": -0.0411,
    "conf_label": "High",
    "confidence": 81,
    "confidence_detail": {
@@ -8888,7 +8890,15 @@
    "odds": 154.0,
    "offset": 0.131,
    "prob": 0.434,
-   "result": null,
+   "result": {
+    "ats": "L",
+    "away_pts": 3,
+    "home_pts": 2,
+    "su": "W",
+    "total": "W",
+    "total_units": 0.8,
+    "units": -1.0
+   },
    "season": 20262027,
    "season_type": "regular",
    "start": "2026-10-25T19:00:00Z",
@@ -9070,8 +9080,8 @@
    "su_wp": 0.536,
    "tier": "pass",
    "total_pick": {
-    "edge": 7.3,
-    "ev": 0.073,
+    "edge": 7.4,
+    "ev": 0.0739,
     "line": 5.5,
     "odds": 110.0,
     "play": true,
@@ -9079,7 +9089,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-25T19:06:14Z",
+   "updated": "2026-10-25T22:04:02Z",
    "week": 202643,
    "weights": {
     "elo": 0.223,
@@ -9118,7 +9128,7 @@
      "xg": "xG"
     },
     "sources": {
-     "elo": -0.73,
+     "elo": -0.74,
      "goals": -1.08,
      "mp": -0.95,
      "xg": -0.58
@@ -9133,7 +9143,7 @@
     "xg": -0.45
    },
    "edge": 9.1,
-   "ev": 0.0912,
+   "ev": 0.091,
    "hfa_flag": 1,
    "home": "Nashville Predators",
    "home_abbr": "NSH",
@@ -9158,7 +9168,7 @@
    "tier": "strong",
    "total_pick": {
     "edge": 20.2,
-    "ev": 0.202,
+    "ev": 0.2018,
     "line": 6.5,
     "odds": -102.0,
     "play": true,
@@ -9166,7 +9176,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-25T19:06:14Z",
+   "updated": "2026-10-25T22:04:02Z",
    "week": 202643,
    "weights": {
     "elo": 0.223,
@@ -9190,7 +9200,7 @@
      "agreement": 0.777,
      "consistency": 0.463,
      "data": 0.9,
-     "edge": 0.694,
+     "edge": 0.693,
      "market": 0.5,
      "trends": 0.5
     },
@@ -9217,9 +9227,9 @@
     "elo": -0.985,
     "goals": -1.38,
     "mp": -1.796,
-    "xg": -1.048
+    "xg": -1.049
    },
-   "edge": 5.6,
+   "edge": 5.5,
    "ev": 0.0555,
    "hfa_flag": 1,
    "home": "Vancouver Canucks",
@@ -9244,8 +9254,8 @@
    "su_wp": 0.594,
    "tier": "play",
    "total_pick": {
-    "edge": 14.8,
-    "ev": 0.1482,
+    "edge": 14.9,
+    "ev": 0.1489,
     "line": 6.5,
     "odds": -105.0,
     "play": true,
@@ -9253,7 +9263,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-25T19:06:14Z",
+   "updated": "2026-10-25T22:04:02Z",
    "week": 202643,
    "weights": {
     "elo": 0.223,
