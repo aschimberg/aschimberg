@@ -135,6 +135,8 @@
           ${b.odds != null ? `<span title="Best price${b.n_books ? " of " + b.n_books + " books" : ""}">${odds(b.odds)}${b.book ? ` <span class="muted">${esc(b.book)}</span>` : ""}</span>` : ""}
           ${b.ev != null ? `<span class="${b.ev > 0 ? "pos" : "neg"}">EV ${b.ev > 0 ? "+" : ""}${(b.ev * 100).toFixed(1)}%</span>` : ""}
           ${b.bet ? '<span class="tier play">bet</span>' : ""}${resTag(b)}
+          ${b.news && !b.result ? (() => { const u = safeUrl(b.news.u); const lbl = b.news.flag === "warn" ? "⚠ injury news" : "✓ cleared"; const tip = `${b.news.t} (${b.news.src}, ${ago(b.news.at)})`;
+            return u ? `<a class="news-flag ${b.news.flag}" href="${esc(u)}" target="_blank" rel="noopener noreferrer" title="${esc(tip)}">${lbl}</a>` : `<span class="news-flag ${b.news.flag}" title="${esc(tip)}">${lbl}</span>`; })() : ""}
         </div>
       </div>`).join("");
     const note = anyBet ? "Chance to score blends the model with the books' consensus. Best bets ranked by Kelly (EV vs the best price, weighted by scoring chance)."
@@ -142,6 +144,38 @@
       : "Top scoring chances (no market prices yet).";
     return `<details class="section props" ${anyBet ? "open" : ""}><summary>${title}${anyBet ? ` <span class="tier play">${rows.filter((b) => b.bet).length} bet${rows.filter((b) => b.bet).length > 1 ? "s" : ""}</span>` : ""}</summary>
       <div class="section-body">${body}<p class="small-note">${esc(note)}</p></div></details>`;
+  }
+
+  // News & sentiment: market line move plus recent headlines per team (context only; never moves a pick)
+  const safeUrl = (u) => (/^https?:\/\//i.test(u || "") ? u : null);
+  const ago = (iso) => {
+    const h = (Date.now() - new Date(iso)) / 36e5;
+    return h < 1 ? `${Math.max(1, Math.round(h * 60))}m ago` : h < 48 ? `${Math.round(h)}h ago` : `${Math.round(h / 24)}d ago`;
+  };
+  const toneWord = (v) => (v == null ? "" : v <= -0.25 ? "mostly negative" : v >= 0.25 ? "mostly positive" : "mixed");
+  function newsSection(g) {
+    const n = g.news;
+    if (!n) return "";
+    const warns = (g.pick?.props || []).filter((b) => b.news?.flag === "warn").length;
+    const side = (s) => {
+      const rows = n[s] || [];
+      const team = g[s].name;
+      const head = `<h4>${esc(team)}${n.tone?.[s] != null ? ` <span class="muted">· ${toneWord(n.tone[s])}</span>` : ""}</h4>`;
+      if (!rows.length) return `<div>${head}<p class="small-note">No recent headlines.</p></div>`;
+      return `<div>${head}${rows.map((it) => {
+        const u = safeUrl(it.u);
+        const t = u ? `<a href="${esc(u)}" target="_blank" rel="noopener noreferrer">${esc(it.t)}</a>` : esc(it.t);
+        return `<p class="news-item"><i class="tone t${it.tone}" title="${it.tone < 0 ? "Negative" : it.tone > 0 ? "Positive" : "Neutral"} tone"></i><span>${t}<span class="news-src muted">${esc(it.src)} · ${ago(it.at)}</span></span></p>`;
+      }).join("")}</div>`;
+    };
+    const any = (n.home || []).length + (n.away || []).length;
+    if (!any && !n.market) return "";
+    const hint = warns ? `<span class="hint">⚠ ${warns} TD pick${warns > 1 ? "s" : ""} in the news</span>` : "";
+    return `<details class="section news"><summary>News &amp; sentiment ${hint}</summary><div class="section-body">
+      ${n.market ? `<p class="news-market"><strong>Market:</strong> ${esc(n.market)}</p>` : ""}
+      <div class="trend-cols">${side("away")}${side("home")}</div>
+      <p class="small-note">Headlines from ESPN, Google News, CBS, Yahoo, ProFootballTalk and RotoWire. Tone is a rough word-list read; news is context only and doesn't change the model's numbers.</p>
+    </div></details>`;
   }
 
   function splitsSection(g) {
@@ -248,6 +282,7 @@
       ${market}
       <div class="pick-panel"><span class="pick-label">Model picks</span><div class="pick-sel">${sel}</div></div>
       ${propsSection(g)}
+      ${newsSection(g)}
       ${confHtml}
       ${trends}
       ${state.meta?.sport && state.meta.sport !== "cfb" && !g.splits ? "" : splitsSection(g)}

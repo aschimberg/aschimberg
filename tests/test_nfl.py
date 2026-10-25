@@ -1,7 +1,9 @@
+import json
 import os
 import unittest
 
 os.environ.setdefault("NFL_ESPN", "off")  # tests never call ESPN
+os.environ.setdefault("NEWS", "off")  # tests never fetch news
 from datetime import datetime, timezone
 from unittest import mock
 
@@ -107,6 +109,23 @@ class NflTests(unittest.TestCase):
             self.assertEqual(card["line"]["spread"], -13.5)
             self.assertEqual(card["line"]["book"], "consensus of 2 books")
             self.assertTrue(any(e.startswith("Best line:") for e in card["extras"]), card["extras"])
+
+    def test_news_block_on_cards_stays_out_of_pick_log(self):
+        from nflmodel import teams as nflteams
+        with NflDirs() as d, mock.patch.dict(os.environ, {"NEWS": "on"}):
+            games, loader = build()
+            g = next(x for x in games if x["season"] == 2026 and x["week"] == 6)
+            item = {"t": f"{nflteams.name(g['home'])} star ruled out with ankle injury", "u": "https://example.test/a",
+                    "src": "ESPN", "at": "2026-10-07T10:00:00Z", "teams": [g["home"]], "tone": -1}
+            with mock.patch("sportscommon.news.collect", return_value=[item]) as col:
+                res = pipeline.refresh(games=games, pbp_loader=loader, now=NOW, log=lambda *_: None)
+            self.assertTrue(col.called)
+            card = next(c for c in res["cards"] if c["id"] == g["id"])
+            self.assertEqual(card["news"]["home"][0]["t"], item["t"])
+            self.assertEqual(card["news"]["away"], [])
+            self.assertEqual(card["news"]["tone"]["home"], -1)
+            picks = store.load(d.root / "nfl" / "picks.json", {})["picks"]
+            self.assertNotIn("news", json.dumps(picks))
 
     def test_grade_and_tune(self):
         with NflDirs() as d, mock.patch.object(config, "MIN_TUNE_GAMES", 5):

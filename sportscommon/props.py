@@ -182,6 +182,7 @@ def briefing_lines(games, label, matchup, limit=6):
     out = ["", f"**🎯 {label} best bets**"]
     for b, c in rows[:limit]:
         odds = f"{'+' if b['odds'] > 0 else ''}{round(b['odds'])}"
+        warn = " ⚠ injury news" if (b.get("news") or {}).get("flag") == "warn" else ""
         out.append(f"{b['name']} ({b['team']}) {odds} {b.get('book') or ''} — {round(b['p'] * 100)}% to score, "
-                   f"EV {b['ev'] * 100:+.1f}% ({matchup(c)})")
+                   f"EV {b['ev'] * 100:+.1f}% ({matchup(c)}){warn}")
     return out

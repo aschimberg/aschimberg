@@ -65,6 +65,15 @@ Each NFL game card has a section with the top 2–3 anytime TD bets.
   - Prop odds cost 1 credit per game. Lookups are limited to games starting within 36 hours, at most `ODDS_API_PROPS_PER_RUN` (default 4) per run, and are cached 6 hours.
   - Covering every game needs a paid Odds API plan (20K credits for $30/month); the free 500 covers a handful of games a day.
 
+## News & sentiment (NFL)
+
+Each upcoming NFL game card has a **News & sentiment** section. It's context only and never changes a line or a pick.
+- **Market:** how far the line has moved since open, and toward which team.
+- **Headlines:** the latest 4 per team from the last 72 hours, each with a link, the source, and a rough tone dot (red negative, green positive, from a word list: injuries, suspensions and benchings read negative; returns, clearances and win streaks read positive).
+- **Sources (free, public feeds):** ESPN news, Google News search (one query per team, covering AP, USA Today, local papers and team sites), CBS Sports, Yahoo Sports, ProFootballTalk and RotoWire player news. Betting promos, previews and highlight round-ups are filtered out, and duplicate stories are merged.
+- **Anytime TD flags:** a pick whose player appears in a recent headline with injury words (questionable, limited, ruled out...) gets a **⚠ injury news** link; one marked active or cleared gets **✓ cleared**. Briefings mark flagged best bets too.
+- Feeds are cached for 90 minutes (`NEWS_TTL_MIN`) in `data/nfl/news.json`, and any feed that fails is skipped. Set `NEWS=off` to turn it off.
+
 ## Over/under picks
 
 Every game also gets a side against the market total.

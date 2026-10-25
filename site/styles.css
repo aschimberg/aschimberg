@@ -343,3 +343,16 @@ details.section > summary .conf { margin-left: auto; margin-right: 8px; }
 .prop-who { min-width: 0; }
 .prop-nums { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; font-variant-numeric: tabular-nums; font-size: 12px; }
 .props summary .tier { margin-left: 6px; }
+
+/* News & sentiment */
+.news-market { margin: 0 0 10px; font-size: 13px; }
+.news-item { display: flex; gap: 8px; align-items: baseline; margin: 0 0 8px; font-size: 13px; line-height: 1.4; }
+.news-item a { color: var(--ink); text-decoration: none; }
+.news-item a:hover { text-decoration: underline; }
+.news-src { display: block; margin-top: 2px; font-size: 11px; }
+.tone { flex: none; width: 7px; height: 7px; border-radius: 50%; background: var(--faint, #cbd5e1); transform: translateY(-1px); }
+.tone.t-1 { background: var(--loss, #dc2626); }
+.tone.t1 { background: var(--win, #16a34a); }
+.news-flag { font-size: 11px; font-weight: 600; text-decoration: none; white-space: nowrap; }
+.news-flag.warn { color: var(--loss, #dc2626); }
+.news-flag.ok { color: var(--win, #16a34a); }

@@ -3,7 +3,7 @@ from datetime import datetime, timedelta, timezone
 
 from cfbmodel import ats, store
 from cfbmodel.model import grade as ats_grade
-from sportscommon import clv, oddsapi, totals
+from sportscommon import clv, news, oddsapi, totals
 from sportscommon import props as sprops
 from sportscommon import confidence as conf
 from sportscommon import record as recmod
@@ -272,6 +272,15 @@ def refresh(games=None, pbp_loader=None, now=None, log=print, espn_loader=None):
             if tot:
                 g["total"] = tot["consensus"]
 
+    headlines = []
+    if upcoming and news.enabled():
+        try:
+            info = {t: {"name": teams.name(t), "terms": [teams.name(t).split()[-1]]}
+                    for g in upcoming for t in (g["home"], g["away"])}
+            headlines = news.collect("nfl", info, now, config.DATA_DIR / "news.json", log=log)
+        except Exception as e:  # news is context only; never fail the refresh over it
+            log(f"News nfl: skipped ({e})")
+
     actual = {}
     for q in pbp[season]["qb_games"]:
         k = (q["game_id"], q["team"])
@@ -392,14 +401,24 @@ def refresh(games=None, pbp_loader=None, now=None, log=print, espn_loader=None):
 
         res = {"completed": g["completed"], "home_pts": g["home_pts"], "away_pts": g["away_pts"],
                **((logged or {}).get("result") or {})}
+        card_pick = {k: logged.get(k) for k in ("ats_side", "ats_team", "ats_line", "edge", "tier", "su_team", "su_wp",
+                                                 "line", "confidence", "conf_label", "cover_prob", "ev", "total_pick", "props")} if logged else dict(pick)
+        news_block = None
+        if not g["completed"]:
+            news_block = {"home": news.for_team(headlines, h), "away": news.for_team(headlines, a),
+                          "tone": {"home": news.team_tone(headlines, h), "away": news.team_tone(headlines, a)},
+                          "market": news.line_move_note(line, teams.name(h), teams.name(a))}
+            if headlines and card_pick.get("props"):
+                # copies: the flags are for display and stay out of the pick log
+                card_pick["props"] = [dict(b, news=news.player_note(headlines, b["name"], b.get("team")))
+                                      for b in card_pick["props"]]
         cards.append({
             "id": g["id"], "start": g["start"], "start_tbd": False, "venue": g["stadium"], "tv": None,
             "neutral": g["neutral"], "conference_game": g["div_game"], "home": tb("home"), "away": tb("away"),
             "line": line, "model": proj,
-            "pick": {k: logged.get(k) for k in ("ats_side", "ats_team", "ats_line", "edge", "tier", "su_team", "su_wp",
-                                                 "line", "confidence", "conf_label", "cover_prob", "ev", "total_pick", "props")} if logged else pick,
+            "pick": card_pick,
             "confidence": conf_detail, "locked": started or g["completed"], "trends": trend_block, "splits": None,
-            "result": res, "extras": extras,
+            "result": res, "extras": extras, "news": news_block,
         })
 
     store.save(LINE_HISTORY_PATH, lh, compact=True)
