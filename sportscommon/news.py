@@ -87,8 +87,9 @@ INJ = re.compile(
     r"\b(rule[sd]? out|out for|questionable|doubtful|injured reserve|placed on ir|surgery|sprain(ed)?|torn|"
     r"concussion|illness|limited (in|at) practice|did not practice|dnp|sidelined|inactive|game-time decision|"
     r"not expected to play|day-to-day|downgraded)\b", re.I)
-OK = re.compile(r"\b(cleared|activated|active for|available to play|expected to play|will play|full practice|"
-                r"full participant|off (the )?injury report|no injury designation)\b", re.I)
+OK = re.compile(r"\b(cleared|activated|active for|available to play|expected to play|will play|"
+                r"off (the )?injury report|no injury designation)\b", re.I)
+OK_WEAK = re.compile(r"\b(full practice|full participant|practiced fully)\b", re.I)  # loses to an official status
 
 
 def enabled():
@@ -200,7 +201,8 @@ def tag_teams(items, team_info):
         for n in it.get("team_names") or []:
             if n.lower() in by_name:
                 tags.add(by_name[n.lower()])
-        text = it["t"] + " " + it.get("sum", "")
+        # RotoWire summaries name the opponent ("...against the Lions"), so only its headline can tag a team
+        text = it["t"] if it.get("src") == "RotoWire" else it["t"] + " " + it.get("sum", "")
         tags.update(ab for ab, r in rx.items() if r.search(text))
         it["teams"] = sorted(tags)
         it.pop("team_names", None)
@@ -323,6 +325,8 @@ def player_note(items, name, team=None):
             flag = "ok"
         elif INJ.search(text):
             flag = "warn"
+        elif OK_WEAK.search(text):
+            flag = "ok"
         else:
             continue
         return {"flag": flag, "t": it["t"], "u": it["u"], "src": it["src"], "at": it["at"]}

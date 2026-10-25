@@ -114,6 +114,11 @@ class NewsTests(unittest.TestCase):
         self.assertEqual(news.player_note(items, "Rico Dowdle")["flag"], "ok")
         self.assertEqual(news.player_note(items, "Lamar Jackson", "BAL")["flag"], "warn")
         self.assertIsNone(news.player_note(items, "Josh Allen"))
+        mixed = [{"t": "Eagles RB Saquon Barkley (hamstring) logs full practice, questionable to play", "u": "u", "src": "ESPN",
+                  "at": "2026-10-25T12:00:00Z", "teams": ["PHI"], "tone": 0}]
+        self.assertEqual(news.player_note(mixed, "Saquon Barkley")["flag"], "warn")  # official status beats "full practice"
+        gainwell = next(it for it in items if it["t"].startswith("Kenny Gainwell"))
+        self.assertEqual(gainwell["teams"], [])  # RotoWire summary's opponent doesn't tag a team
 
     def test_off_switch_and_line_note(self):
         with mock.patch.dict(os.environ, {"NEWS": "off"}):
