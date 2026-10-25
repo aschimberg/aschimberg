@@ -9176,7 +9176,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-25T22:04:02Z",
+   "updated": "2026-10-25T23:16:33Z",
    "week": 202643,
    "weights": {
     "elo": 0.223,
@@ -9192,21 +9192,21 @@
    "away_abbr": "MIN",
    "bet_at": "2026-10-25T16:06:12Z",
    "bet_line": 160.0,
-   "conf_label": "Medium",
-   "confidence": 65,
+   "conf_label": "High",
+   "confidence": 70,
    "confidence_detail": {
     "agree": 3,
     "components": {
      "agreement": 0.777,
      "consistency": 0.463,
      "data": 0.9,
-     "edge": 0.693,
-     "market": 0.5,
+     "edge": 1.0,
+     "market": 0.27,
      "trends": 0.5
     },
-    "label": "Medium",
+    "label": "High",
     "n_sources": 4,
-    "score": 65,
+    "score": 70,
     "side": "home",
     "source_names": {
      "elo": "Elo",
@@ -9229,8 +9229,8 @@
     "mp": -1.796,
     "xg": -1.049
    },
-   "edge": 5.5,
-   "ev": 0.0555,
+   "edge": 9.6,
+   "ev": 0.0961,
    "hfa_flag": 1,
    "home": "Vancouver Canucks",
    "home_abbr": "VAN",
@@ -9238,12 +9238,12 @@
    "home_prob": 0.406,
    "id": 2026020184,
    "line": null,
-   "mkt_prob": 0.369,
-   "ml_away": -192.0,
-   "ml_home": 160.0,
+   "mkt_prob": 0.355,
+   "ml_away": -205.0,
+   "ml_home": 170.0,
    "model_spread": null,
    "neutral": false,
-   "odds": 160.0,
+   "odds": 170.0,
    "offset": 0.5,
    "prob": 0.406,
    "result": null,
@@ -9252,7 +9252,7 @@
    "start": "2026-10-26T02:00:00Z",
    "su_team": "Minnesota Wild",
    "su_wp": 0.594,
-   "tier": "play",
+   "tier": "strong",
    "total_pick": {
     "edge": 14.9,
     "ev": 0.1489,
@@ -9263,7 +9263,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-25T22:04:02Z",
+   "updated": "2026-10-25T23:16:33Z",
    "week": 202643,
    "weights": {
     "elo": 0.223,
