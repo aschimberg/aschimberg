@@ -9311,6 +9311,267 @@
     "mp": 0.223,
     "xg": 0.42
    }
+  },
+  "2026020185": {
+   "ats_side": "home",
+   "ats_team": "New York Rangers",
+   "away": "Los Angeles Kings",
+   "away_abbr": "LAK",
+   "bet_at": "2026-10-26T16:07:07Z",
+   "bet_line": -130.0,
+   "conf_label": "Low",
+   "confidence": 48,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 0.58,
+     "consistency": 0.743,
+     "data": 0.81,
+     "edge": 0.107,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "Low",
+    "n_sources": 4,
+    "score": 48,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "goals": "Goals",
+     "mp": "MoneyPuck",
+     "xg": "xG"
+    },
+    "sources": {
+     "elo": 0.49,
+     "goals": 0.66,
+     "mp": 0.4,
+     "xg": 0.23
+    },
+    "units": "goals"
+   },
+   "date": "2026-10-26",
+   "diffs": {
+    "elo": 0.272,
+    "goals": 0.436,
+    "mp": 0.177,
+    "xg": 0.011
+   },
+   "edge": 0.9,
+   "ev": 0.0086,
+   "hfa_flag": 1,
+   "home": "New York Rangers",
+   "home_abbr": "NYR",
+   "home_field": 0.192,
+   "home_prob": 0.57,
+   "id": 2026020185,
+   "line": null,
+   "mkt_prob": 0.543,
+   "ml_away": 110.0,
+   "ml_home": -130.0,
+   "model_spread": null,
+   "neutral": false,
+   "odds": -130.0,
+   "offset": 0.03,
+   "prob": 0.57,
+   "result": null,
+   "season": 20262027,
+   "season_type": "regular",
+   "start": "2026-10-26T23:00:00Z",
+   "su_team": "New York Rangers",
+   "su_wp": 0.57,
+   "tier": "pass",
+   "total_pick": {
+    "edge": 20.8,
+    "ev": 0.2077,
+    "line": 5.5,
+    "odds": 110.0,
+    "play": true,
+    "prob": 0.575,
+    "side": "under",
+    "tier": "strong"
+   },
+   "updated": "2026-10-26T16:07:07Z",
+   "week": 202644,
+   "weights": {
+    "elo": 0.223,
+    "goals": 0.134,
+    "mp": 0.223,
+    "xg": 0.42
+   }
+  },
+  "2026020186": {
+   "ats_side": "home",
+   "ats_team": "Calgary Flames",
+   "away": "Toronto Maple Leafs",
+   "away_abbr": "TOR",
+   "bet_at": "2026-10-26T16:07:07Z",
+   "bet_line": 130.0,
+   "conf_label": "High",
+   "confidence": 75,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 0.866,
+     "consistency": 0.415,
+     "data": 0.9,
+     "edge": 1.0,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "High",
+    "n_sources": 4,
+    "score": 75,
+    "side": "home",
+    "source_names": {
+     "elo": "Elo",
+     "goals": "Goals",
+     "mp": "MoneyPuck",
+     "xg": "xG"
+    },
+    "sources": {
+     "elo": 0.32,
+     "goals": -0.52,
+     "mp": 0.26,
+     "xg": 0.29
+    },
+    "units": "goals"
+   },
+   "date": "2026-10-26",
+   "diffs": {
+    "elo": -0.144,
+    "goals": -0.98,
+    "mp": -0.203,
+    "xg": -0.167
+   },
+   "edge": 22.2,
+   "ev": 0.2215,
+   "hfa_flag": 1,
+   "home": "Calgary Flames",
+   "home_abbr": "CGY",
+   "home_field": 0.192,
+   "home_prob": 0.531,
+   "id": 2026020186,
+   "line": null,
+   "mkt_prob": 0.417,
+   "ml_away": -155.0,
+   "ml_home": 130.0,
+   "model_spread": null,
+   "neutral": false,
+   "odds": 130.0,
+   "offset": 0.269,
+   "prob": 0.531,
+   "result": null,
+   "season": 20262027,
+   "season_type": "regular",
+   "start": "2026-10-27T00:30:00Z",
+   "su_team": "Calgary Flames",
+   "su_wp": 0.531,
+   "tier": "strong",
+   "total_pick": {
+    "edge": 15.9,
+    "ev": 0.1591,
+    "line": 6.5,
+    "odds": 100.0,
+    "play": true,
+    "prob": 0.58,
+    "side": "under",
+    "tier": "strong"
+   },
+   "updated": "2026-10-26T16:07:07Z",
+   "week": 202644,
+   "weights": {
+    "elo": 0.223,
+    "goals": 0.134,
+    "mp": 0.223,
+    "xg": 0.42
+   }
+  },
+  "2026020187": {
+   "ats_side": "away",
+   "ats_team": "Detroit Red Wings",
+   "away": "Detroit Red Wings",
+   "away_abbr": "DET",
+   "bet_at": "2026-10-26T16:07:07Z",
+   "bet_line": 150.0,
+   "conf_label": "High",
+   "confidence": 80,
+   "confidence_detail": {
+    "agree": 4,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.644,
+     "data": 0.9,
+     "edge": 1.0,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "High",
+    "n_sources": 4,
+    "score": 80,
+    "side": "away",
+    "source_names": {
+     "elo": "Elo",
+     "goals": "Goals",
+     "mp": "MoneyPuck",
+     "xg": "xG"
+    },
+    "sources": {
+     "elo": 0.33,
+     "goals": 0.65,
+     "mp": 0.23,
+     "xg": 0.06
+    },
+    "units": "goals"
+   },
+   "date": "2026-10-26",
+   "diffs": {
+    "elo": 0.287,
+    "goals": 0.611,
+    "mp": 0.194,
+    "xg": 0.025
+   },
+   "edge": 14.6,
+   "ev": 0.1457,
+   "hfa_flag": 1,
+   "home": "Edmonton Oilers",
+   "home_abbr": "EDM",
+   "home_field": 0.192,
+   "home_prob": 0.542,
+   "id": 2026020187,
+   "line": null,
+   "mkt_prob": 0.384,
+   "ml_away": 150.0,
+   "ml_home": -180.0,
+   "model_spread": null,
+   "neutral": false,
+   "odds": 150.0,
+   "offset": -0.153,
+   "prob": 0.458,
+   "result": null,
+   "season": 20262027,
+   "season_type": "regular",
+   "start": "2026-10-27T01:30:00Z",
+   "su_team": "Edmonton Oilers",
+   "su_wp": 0.542,
+   "tier": "strong",
+   "total_pick": {
+    "edge": 24.2,
+    "ev": 0.2421,
+    "line": 6.5,
+    "odds": -102.0,
+    "play": true,
+    "prob": 0.627,
+    "side": "under",
+    "tier": "strong"
+   },
+   "updated": "2026-10-26T16:07:07Z",
+   "week": 202644,
+   "weights": {
+    "elo": 0.223,
+    "goals": 0.134,
+    "mp": 0.223,
+    "xg": 0.42
+   }
   }
  }
 }
