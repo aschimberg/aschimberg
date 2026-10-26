@@ -8,7 +8,7 @@
    "pts": 0.795
   }
  },
- "games": 0,
+ "games": 43,
  "history": [
   {
    "after": {
@@ -1574,14 +1574,36 @@
    "season_type": "postseason",
    "status": "updated",
    "week": 202624
+  },
+  {
+   "after": {
+    "home_field": 2.3,
+    "weights": {
+     "eff": 0.45,
+     "elo": 0.3,
+     "pts": 0.25
+    }
+   },
+   "at": "2026-10-26T18:39:42Z",
+   "before": {
+    "home_field": 2.3,
+    "weights": {
+     "eff": 0.45,
+     "elo": 0.3,
+     "pts": 0.25
+    }
+   },
+   "games": 43,
+   "season": 2027,
+   "status": "insufficient"
   }
  ],
- "home_field": 1.701,
+ "home_field": 2.3,
  "source": "backtest 2026\u20132026 walk-forward",
- "updated": "2026-10-20T13:39:36Z",
+ "updated": "2026-10-26T18:39:42Z",
  "weights": {
-  "eff": 0.123,
-  "elo": 0.082,
-  "pts": 0.795
+  "eff": 0.45,
+  "elo": 0.3,
+  "pts": 0.25
  }
 }

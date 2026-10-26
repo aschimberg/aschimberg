@@ -95,21 +95,8 @@
  "trend_seasons": null,
  "tuning": {
   "enabled": true,
-  "games": 0,
+  "games": 43,
   "history": [
-   {
-    "at": "2026-02-02T02:30:00Z",
-    "games": 488,
-    "home_field": 1.804,
-    "rmse_after": 14.264,
-    "rmse_before": 14.263,
-    "status": "updated",
-    "weights": {
-     "eff": 0.203,
-     "elo": 0.135,
-     "pts": 0.662
-    }
-   },
    {
     "at": "2026-02-08T20:00:00Z",
     "games": 537,
@@ -356,20 +343,24 @@
      "elo": 0.082,
      "pts": 0.795
     }
+   },
+   {
+    "at": "2026-10-26T18:39:42Z",
+    "games": 43,
+    "home_field": 2.3,
+    "rmse_after": null,
+    "rmse_before": null,
+    "status": "insufficient",
+    "weights": {
+     "eff": 0.45,
+     "elo": 0.3,
+     "pts": 0.25
+    }
    }
   ],
-  "home_field": 1.701,
+  "home_field": 2.3,
   "last": {
    "after": {
-    "home_field": 1.701,
-    "weights": {
-     "eff": 0.123,
-     "elo": 0.082,
-     "pts": 0.795
-    }
-   },
-   "alpha": 0.727,
-   "anchor": {
     "home_field": 2.3,
     "weights": {
      "eff": 0.45,
@@ -377,49 +368,25 @@
      "pts": 0.25
     }
    },
-   "at": "2026-06-14T00:30:00Z",
-   "backtest": true,
+   "at": "2026-10-26T18:39:42Z",
    "before": {
-    "home_field": 1.71,
+    "home_field": 2.3,
     "weights": {
-     "eff": 0.123,
-     "elo": 0.082,
-     "pts": 0.795
+     "eff": 0.45,
+     "elo": 0.3,
+     "pts": 0.25
     }
    },
-   "by_source": {
-    "eff": {
-     "rmse": 14.655
-    },
-    "elo": {
-     "rmse": 14.724
-    },
-    "pts": {
-     "rmse": 14.653
-    }
-   },
-   "fit": {
-    "home_field": 1.477,
-    "weights": {
-     "eff": 0.0,
-     "elo": 0.0,
-     "pts": 1.0
-    }
-   },
-   "games": 1066,
-   "rmse_after": 14.655,
-   "rmse_before": 14.655,
-   "season": 2026,
-   "season_type": "postseason",
-   "status": "updated",
-   "week": 202624
+   "games": 43,
+   "season": 2027,
+   "status": "insufficient"
   },
   "min_games": 60,
-  "updated": "2026-10-20T13:39:36Z",
+  "updated": "2026-10-26T18:39:42Z",
   "weights": {
-   "eff": 0.123,
-   "elo": 0.082,
-   "pts": 0.795
+   "eff": 0.45,
+   "elo": 0.3,
+   "pts": 0.25
   }
  },
  "week": null

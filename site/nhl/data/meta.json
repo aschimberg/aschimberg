@@ -110,7 +110,7 @@
  "trend_seasons": null,
  "tuning": {
   "enabled": true,
-  "games": 48,
+  "games": 96,
   "history": [
    {
     "at": "2026-10-12T20:37:50Z",
@@ -139,20 +139,34 @@
      "mp": 0.223,
      "xg": 0.42
     }
+   },
+   {
+    "at": "2026-10-26T18:39:38Z",
+    "games": 96,
+    "home_field": 0.224,
+    "rmse_after": 2.528,
+    "rmse_before": 2.534,
+    "status": "updated",
+    "weights": {
+     "elo": 0.202,
+     "goals": 0.121,
+     "mp": 0.202,
+     "xg": 0.476
+    }
    }
   ],
-  "home_field": 0.192,
+  "home_field": 0.224,
   "last": {
    "after": {
-    "home_field": 0.192,
+    "home_field": 0.224,
     "weights": {
-     "elo": 0.223,
-     "goals": 0.134,
-     "mp": 0.223,
-     "xg": 0.42
+     "elo": 0.202,
+     "goals": 0.121,
+     "mp": 0.202,
+     "xg": 0.476
     }
    },
-   "alpha": 0.107,
+   "alpha": 0.194,
    "anchor": {
     "home_field": 0.2,
     "weights": {
@@ -162,7 +176,7 @@
      "xg": 0.35
     }
    },
-   "at": "2026-10-19T18:42:23Z",
+   "at": "2026-10-26T18:39:38Z",
    "before": {
     "home_field": 0.2,
     "weights": {
@@ -174,20 +188,20 @@
    },
    "by_source": {
     "elo": {
-     "rmse": 2.442
+     "rmse": 2.542
     },
     "goals": {
-     "rmse": 2.508
+     "rmse": 2.605
     },
     "mp": {
-     "rmse": 2.452
+     "rmse": 2.543
     },
     "xg": {
-     "rmse": 2.409
+     "rmse": 2.512
     }
    },
    "fit": {
-    "home_field": 0.127,
+    "home_field": 0.322,
     "weights": {
      "elo": 0.0,
      "goals": 0.0,
@@ -195,19 +209,19 @@
      "xg": 1.0
     }
    },
-   "games": 48,
-   "rmse_after": 2.428,
-   "rmse_before": 2.432,
+   "games": 96,
+   "rmse_after": 2.528,
+   "rmse_before": 2.534,
    "season": 20262027,
    "status": "updated"
   },
   "min_games": 40,
-  "updated": "2026-10-19T18:42:23Z",
+  "updated": "2026-10-26T18:39:38Z",
   "weights": {
-   "elo": 0.223,
-   "goals": 0.134,
-   "mp": 0.223,
-   "xg": 0.42
+   "elo": 0.202,
+   "goals": 0.121,
+   "mp": 0.202,
+   "xg": 0.476
   }
  },
  "week": null
