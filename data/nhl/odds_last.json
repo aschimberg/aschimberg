@@ -39,7 +39,7 @@
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 310.0
+       "value": 300.0
       },
       {
        "description": "OVER_UNDER",
@@ -76,7 +76,7 @@
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 310.0
+       "value": 300.0
       },
       {
        "description": "OVER_UNDER",
@@ -104,7 +104,7 @@
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 320.0
+       "value": 310.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
@@ -141,7 +141,7 @@
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 320.0
+       "value": 310.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
@@ -174,12 +174,12 @@
       {
        "description": "OVER_UNDER",
        "qualifier": "U6.5",
-       "value": -102.0
+       "value": 105.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "",
-       "value": 215.0
+       "value": 210.0
       },
       {
        "description": "PUCK_LINE",
@@ -211,7 +211,7 @@
       {
        "description": "OVER_UNDER",
        "qualifier": "O6.5",
-       "value": -118.0
+       "value": -125.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
@@ -238,9 +238,9 @@
     "startTimeUTC": "2026-10-27T01:30:00Z"
    }
   ],
-  "lastUpdatedUTC": "2026-10-26T16:00:38Z"
+  "lastUpdatedUTC": "2026-10-26T16:30:38Z"
  },
- "fetched_at": "2026-10-26T16:07:14Z",
+ "fetched_at": "2026-10-26T16:50:29Z",
  "parsed": {
   "2026020185": {
    "book": "DraftKings",
@@ -270,13 +270,13 @@
    "book": "DraftKings",
    "ml_away": 150.0,
    "ml_home": -180.0,
-   "over_odds": -118.0,
+   "over_odds": -125.0,
    "pl_away": 1.5,
    "pl_away_odds": -142.0,
    "pl_home": -1.5,
    "pl_home_odds": 120.0,
    "total": 6.5,
-   "under_odds": -102.0
+   "under_odds": 105.0
   }
  }
 }
