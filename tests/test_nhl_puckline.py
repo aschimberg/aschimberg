@@ -9,12 +9,19 @@ class PuckLineTests(unittest.TestCase):
     def test_alt_only_for_dogs_with_a_plus_one_and_a_half_price(self):
         o = {"pl_away": 1.5, "pl_away_odds": -180.0, "pl_home": -1.5, "pl_home_odds": 150.0}
         alt = P.puck_line_alt("away", 0.40, 0.03, o, self.MK)
-        self.assertEqual((alt["line"], alt["odds"], alt["prob"]), (1.5, -180.0, 0.68))
-        self.assertAlmostEqual(alt["ev"], 0.68 * (100 / 180) - 0.32, places=4)
+        from sportscommon.odds import american_to_prob, no_vig
+        from sportscommon.props import blend
+        p_mkt = no_vig(american_to_prob(-180.0), american_to_prob(150.0))[0]
+        p = blend(0.68, p_mkt, P.config.ML_MODEL_WEIGHT)  # model 68% pulled toward the book's ~62%
+        self.assertEqual((alt["line"], alt["odds"], alt["model_prob"], alt["prob"]), (1.5, -180.0, 0.68, round(p, 3)))
+        self.assertLess(alt["prob"], 0.68)
+        self.assertAlmostEqual(alt["ev"], p * (100 / 180) - (1 - p), places=4)
         self.assertEqual(alt["better"], alt["ev"] > 0.03)
         self.assertIsNone(P.puck_line_alt("home", 0.60, 0.03, o, self.MK))  # favorite: no alt
         self.assertIsNone(P.puck_line_alt("away", 0.40, 0.03, {"pl_away": -1.5, "pl_away_odds": 150.0}, self.MK))
         self.assertIsNone(P.puck_line_alt("away", 0.40, 0.03, {}, self.MK))  # no puck line posted
+        one_sided = P.puck_line_alt("away", 0.40, 0.03, {"pl_away": 1.5, "pl_away_odds": -180.0}, self.MK)
+        self.assertEqual(one_sided["prob"], 0.68)  # no other side to de-vig: model number as is
 
     def test_dog_record_counts_one_goal_losses_and_units(self):
         def pick(side, hs, as_, odds=150.0, pl_odds=-180.0, better=False, mkt=0.4):

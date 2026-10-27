@@ -6,6 +6,7 @@ from cfbmodel import store
 from sportscommon import confidence as conf
 from sportscommon import clv, oddsapi
 from sportscommon import ridge
+from sportscommon.props import blend
 from sportscommon import tuning as tunemod
 from sportscommon.odds import american_to_decimal, american_to_prob, fmt_american, no_vig, normal_cdf, prob_to_american
 
@@ -348,7 +349,7 @@ def refresh(loader=None, now=None, log=print):
         pick = {"su_team": names.get(h if p_home >= 0.5 else a, h if p_home >= 0.5 else a),
                 "su_wp": round(max(p_home, 1 - p_home), 3), "ats_side": None, "ats_team": None, "edge": None,
                 "tier": None, "ev": None, "odds": None, "prob": None, "confidence": None, "conf_label": None,
-                "pl_alt": None}
+                "pl_alt": None, "model_prob": None}
         conf_detail = None
         total_pick = None
         if "ml_home" in o and "ml_away" in o and not started:
@@ -359,17 +360,20 @@ def refresh(loader=None, now=None, log=print):
         snaps = lh["games"].get(str(g["id"]), [])
         if "ml_home" in o and "ml_away" in o:
             ph_mkt, pa_mkt = no_vig(american_to_prob(o["ml_home"]), american_to_prob(o["ml_away"]))
-            ev_h = p_home * (american_to_decimal(o["ml_home"]) - 1) - (1 - p_home)
-            ev_a = (1 - p_home) * (american_to_decimal(o["ml_away"]) - 1) - p_home
+            # EV from the model blended with the market (see config.ML_MODEL_WEIGHT)
+            pb = blend(p_home, ph_mkt, config.ML_MODEL_WEIGHT)
+            ev_h = pb * (american_to_decimal(o["ml_home"]) - 1) - (1 - pb)
+            ev_a = (1 - pb) * (american_to_decimal(o["ml_away"]) - 1) - pb
             side = "home" if ev_h >= ev_a else "away"
             sign = 1 if side == "home" else -1
             ev = ev_h if side == "home" else ev_a
-            p_side = p_home if side == "home" else 1 - p_home
+            p_side = pb if side == "home" else 1 - pb
+            p_model_side = p_home if side == "home" else 1 - p_home
             mkt_side = ph_mkt if side == "home" else pa_mkt
             odds_side = o["ml_home"] if side == "home" else o["ml_away"]
             pick.update({"ats_side": side, "ats_team": names.get(g[side], g[side]), "edge": round(ev * 100, 1),
                          "tier": tier(ev), "ev": round(ev, 4), "odds": odds_side, "prob": round(p_side, 3),
-                         "mkt_prob": round(mkt_side, 3),
+                         "mkt_prob": round(mkt_side, 3), "model_prob": round(p_model_side, 3),
                          "pl_alt": puck_line_alt(side, mkt_side, ev, o, mk)})
             m_mkt = 2.2 * inv_normal(ph_mkt)
             covers = {k: sign * (diffs[k] + config.HOME_ICE * hflag + offset - m_mkt) for k in SOURCES}
@@ -504,10 +508,16 @@ def puck_line_alt(side, mkt_side, ml_ev, o, mk):
     """
     if mkt_side >= 0.5 or o.get(f"pl_{side}") != 1.5 or o.get(f"pl_{side}_odds") is None:
         return None
-    p = mk["home_p15"] if side == "home" else mk["away_p15"]
+    p = p_model = mk["home_p15"] if side == "home" else mk["away_p15"]
     odds = o[f"pl_{side}_odds"]
+    other = "away" if side == "home" else "home"
+    if o.get(f"pl_{other}") == -1.5 and o.get(f"pl_{other}_odds") is not None:
+        # same treatment as the moneyline, so "better than ML" compares like with like
+        p_mkt = no_vig(american_to_prob(odds), american_to_prob(o[f"pl_{other}_odds"]))[0]
+        p = blend(p_model, p_mkt, config.ML_MODEL_WEIGHT)
     ev = p * (american_to_decimal(odds) - 1) - (1 - p)
-    return {"line": 1.5, "odds": odds, "prob": round(p, 3), "ev": round(ev, 4), "better": ev > ml_ev}
+    return {"line": 1.5, "odds": odds, "prob": round(p, 3), "model_prob": round(p_model, 3), "ev": round(ev, 4),
+            "better": ev > ml_ev}
 
 
 def side_margin(p):
@@ -570,7 +580,9 @@ def pick_rows(p, names):
     if p.get("ats_team"):
         out.append({"text": f"{p['ats_team']} ML {fmt_american(p['odds'])}", "strong": True, "result_key": "ats"})
         out.append({"tier": p["tier"], "text": f"EV {p['edge']:+.1f}%"})
-        out.append({"text": f"Model {round(p['prob'] * 100)}% vs mkt {round(p.get('mkt_prob', 0) * 100)}%", "dim": True})
+        raw = p.get("model_prob")
+        out.append({"text": f"Win {round(p['prob'] * 100)}%" + (f" (model {round(raw * 100)}%, mkt {round(p.get('mkt_prob', 0) * 100)}%)"
+                    if raw is not None else f" vs mkt {round(p.get('mkt_prob', 0) * 100)}%"), "dim": True})
         alt = p.get("pl_alt")
         if alt:
             out.append({"text": f"{p['ats_team']} +1.5 {fmt_american(alt['odds'])}", "strong": True, "result_key": "pl"})

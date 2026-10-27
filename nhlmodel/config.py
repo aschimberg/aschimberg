@@ -46,6 +46,11 @@ MAX_GOALS = 12
 LEAN_EV = _f("NHL_LEAN_EV", 0.025)
 PLAY_EV = _f("NHL_PLAY_EV", 0.05)
 STRONG_EV = _f("NHL_STRONG_EV", 0.08)
+# Moneyline and puck-line chances are the model blended with the market's no-vig
+# price (this share of the log-odds from the model) before EV is computed. Picking
+# the side where the model most exceeds the market otherwise inflates its chance:
+# underdog picks averaged 44% from the model, 41% from the market, 38% actual.
+ML_MODEL_WEIGHT = _f("NHL_ML_MODEL_WEIGHT", 0.5)
 TOTAL_MIN_EV = _f("NHL_TOTAL_EV", 0.03)
 CONF_HIGH, CONF_MEDIUM = 70, 55
 SLATE_DAYS = 2  # today + tomorrow
