@@ -3966,6 +3966,8 @@
    "bet_at": "2026-10-26T00:27:05Z",
    "bet_line": -2.5,
    "book": "DraftKings",
+   "close_line": -2.5,
+   "clv": 0.0,
    "conf_label": "Medium",
    "confidence": 55,
    "confidence_detail": {
@@ -4014,7 +4016,13 @@
    "offset": -1.83,
    "proj_away": 111.6,
    "proj_home": 115.3,
-   "result": null,
+   "result": {
+    "ats": "W",
+    "away_pts": 103,
+    "home_pts": 110,
+    "su": "W",
+    "total": "W"
+   },
    "season": 2027,
    "season_type": "regular",
    "start": "2026-10-26T23:00:00Z",
@@ -4635,7 +4643,7 @@
    "away_abbr": "GS",
    "bet_at": "2026-10-26T23:22:34Z",
    "bet_line": -7.5,
-   "book": "DraftKings",
+   "book": "Draft Kings",
    "conf_label": "Low",
    "confidence": 35,
    "confidence_detail": {
@@ -4644,7 +4652,7 @@
      "agreement": 0.3,
      "consistency": 0.897,
      "data": 0.2,
-     "edge": 0.073,
+     "edge": 0.07,
      "market": 0.5,
      "trends": 0.5
     },
@@ -4658,7 +4666,7 @@
      "pts": "Points"
     },
     "sources": {
-     "eff": 7.5,
+     "eff": 7.4,
      "elo": 8.8,
      "pts": 7.5
     }
@@ -4666,12 +4674,12 @@
    "cover_prob": 0.512,
    "date": "2026-10-26",
    "diffs": {
-    "eff": 4.53,
+    "eff": 4.52,
     "elo": 5.84,
     "pts": 4.54
    },
    "edge": 0.4,
-   "ev": -0.014,
+   "ev": -0.015,
    "hfa_flag": 1,
    "home": "Denver Nuggets",
    "home_abbr": "DEN",
@@ -4679,11 +4687,11 @@
    "id": "401909876",
    "line": -7.5,
    "model_spread": -7.9,
-   "model_total": 232.9,
+   "model_total": 232.1,
    "neutral": false,
-   "offset": 0.64,
-   "proj_away": 112.5,
-   "proj_home": 120.4,
+   "offset": 0.63,
+   "proj_away": 112.1,
+   "proj_home": 120.0,
    "result": null,
    "season": 2027,
    "season_type": "regular",
@@ -4693,16 +4701,16 @@
    "tier": "pass",
    "total_line": 236.5,
    "total_pick": {
-    "edge": 3.6,
+    "edge": 4.4,
     "line": 236.5,
-    "model": 232.9,
-    "odds": -110.0,
+    "model": 232.1,
+    "odds": -115.0,
     "play": false,
-    "prob": 0.585,
+    "prob": 0.602,
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-27T00:26:15Z",
+   "updated": "2026-10-27T01:31:32Z",
    "week": 202644,
    "weights": {
     "eff": 0.45,
