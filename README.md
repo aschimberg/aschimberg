@@ -15,7 +15,7 @@ The visual design follows [davidsasser.com/cfb](https://davidsasser.com/cfb): wa
 - **Weekly tuning**: every pick stores each source's projected margin. After Sunday grading, the model fits the SP+/FPI/Elo weights and home field that best predict this season's actual margins, then moves part of the way there: alpha = n/(n+250), so it moves more as games accumulate. Tuning starts after 25 graded games. Each week the live weights are set to `(1 - alpha) * season-start weights + alpha * fit` on all of this season's games, so weekly steps don't compound. The current weights and their history are saved in `data/model_weights.json`, shown on the Method tab and included in the Sunday recap. Set `CFB_TUNING=off` to freeze the weights.
 - **ATS trends**: closing lines and results for the last 6 seasons plus the current one. Each team's ATS record is split overall, as favorite or underdog, home/away/neutral (and combined, e.g. road dog), in conference play, off a bye (13+ days) and over the last 10 games. Each game card shows the splits that apply to that game.
 - **Bet splits**: public bet % and money % per side, with sharp/public/reverse-line-move flags. The feed is swappable (see below).
-- **ntfy briefing**: sent at 9 AM CT on game days with picks, biggest edges, line moves, key ATS trends and bet splits. A recap goes out after Sunday grading.
+- **ntfy briefing**: sent at 7 AM PT on game days with picks, biggest edges, line moves, key ATS trends and bet splits. A recap goes out after Sunday grading.
 
 ## NFL, NHL and NBA models
 
@@ -163,7 +163,7 @@ Add a repository secret `ODDS_API_KEY` to turn this on. With no key, the free so
 |---|---|---|
 | `refresh.yml` | twice daily, 10:23 and 22:23 UTC, plus a Claude routine that starts it when GitHub skips a run | ratings, lines, projections, picks (re-priced until kickoff), trends, splits, grading → commit → deploy |
 | `grade.yml` | Sun (CFB), Mon (NHL, NBA), Tue (NFL) 12:11 UTC | grades SU and ATS for every finished pick, rebuilds the record, refits weights, sends an ntfy recap |
-| `briefing.yml` | every 30 min, 14:07–18:37 UTC, plus a Claude routine that starts it at 9:05 AM CT | sends each sport's ntfy briefing once per game day, between 9 AM and 2 PM CT (GitHub often runs these crons hours late or skips them). The NHL and NBA briefings wait until that day's odds are posted and only go out when there's value |
+| `briefing.yml` | every 30 min, 14:07–19:37 UTC, plus a Claude routine that starts it at 7:05, 9:05 and 11:05 AM PT | sends each sport's ntfy briefing once per game day, between 7 AM and 12 PM PT (GitHub often runs these crons hours late or skips them). The NHL and NBA briefings wait until that day's odds are posted and only go out when there's value |
 | `pregame.yml` | daily 21:17 and 01:37 UTC; Sun 16:17 + 19:47 UTC; Sun/Mon/Thu 23:47 UTC | re-checks lineups (NFL starting QBs, NHL probable goalies, NBA injury report) and re-prices before kickoff / puck drop / tip-off; picks up the day's DraftKings NHL lines |
 | `deploy.yml` | after each job above, or on push to `main` touching `site/` | publishes `site/` to Pages |
 | `ci.yml` | push / PR | unit tests and JS syntax check |

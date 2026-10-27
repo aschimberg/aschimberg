@@ -27,8 +27,10 @@
   }
 
   const T = (k, d) => state.meta?.terms?.[k] ?? d;
-  const fmtTime = (d) => d.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit", timeZoneName: "short" });
-  const fmtDay = (d) => d.toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric" });
+  // All times on the site are Pacific (PT), matching the briefings.
+  const TZ = "America/Los_Angeles";
+  const fmtTime = (d) => d.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", timeZoneName: "short", timeZone: TZ });
+  const fmtDay = (d) => d.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", timeZone: TZ });
 
   // --- Tabs ------------------------------------------------------------------
   function showTab(name) {
@@ -193,7 +195,7 @@
       ${splitBlock("moneyline", "Moneyline", ["away", "home"], g)}
       ${splitBlock("total", "Total", ["over", "under"], g)}
       ${flags.length ? `<div class="flags">${flags.map((f) => `<span class="flag ${f.type}">${esc(flagText(f, g))}</span>`).join("")}</div>` : `<p class="small-note">No sharp/public divergence.</p>`}
-      ${g.splits.updated ? `<p class="small-note" style="margin-top:6px">Updated ${esc(new Date(g.splits.updated).toLocaleString())}</p>` : ""}
+      ${g.splits.updated ? `<p class="small-note" style="margin-top:6px">Updated ${esc(new Date(g.splits.updated).toLocaleString("en-US", { timeZone: TZ, timeZoneName: "short" }))}</p>` : ""}
     </div></details>`;
   }
 
@@ -567,7 +569,7 @@
     renderTable(
       el,
       [
-        { key: "start", label: "Date", render: (p) => new Date(p.start).toLocaleDateString(undefined, { month: "short", day: "numeric" }) + (p.backtest ? ' <span class="bt-tag" title="Backtest pick (simulated before live tracking began)">BT</span>' : "") },
+        { key: "start", label: "Date", render: (p) => new Date(p.start).toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: TZ }) + (p.backtest ? ' <span class="bt-tag" title="Backtest pick (simulated before live tracking began)">BT</span>' : "") },
         { key: "game", label: "Game", sortVal: (p) => p.away, render: (p) => `${esc(p.away)} ${p.neutral ? "vs" : "at"} ${esc(p.home)}` },
         { key: "line", label: "Line", num: true, render: (p) => esc(p.line_label ?? favLine({ home: { name: p.home }, away: { name: p.away } }, p.line)) },
         { key: "model_spread", label: "Model", num: true, render: (p) => esc(p.model_label ?? favLine({ home: { name: p.home }, away: { name: p.away } }, p.model_spread)) },
@@ -766,7 +768,7 @@
     if (last.by_source) {
       html += `<p>Last fit on ${last.games} games: ${Object.entries(last.by_source).map(([k, v]) => `${SN[k] || k} alone ${v.rmse} RMSE${v.ats != null ? ", " + Math.round(v.ats * 100) + "% ATS" : ""}`).join(" · ")}.</p>`;
     }
-    const rows = [...t.history].reverse().map((h) => `<tr><td>${esc(new Date(h.at).toLocaleDateString(undefined, { month: "short", day: "numeric" }))}</td><td class="n">${h.games}</td><td>${h.status === "updated" ? "Updated" : "Waiting for games"}</td><td class="n">${pct(h.weights)}</td><td class="n">${h.home_field}</td><td class="n">${h.rmse_before ?? "—"} → ${h.rmse_after ?? "—"}</td></tr>`).join("");
+    const rows = [...t.history].reverse().map((h) => `<tr><td>${esc(new Date(h.at).toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: TZ }))}</td><td class="n">${h.games}</td><td>${h.status === "updated" ? "Updated" : "Waiting for games"}</td><td class="n">${pct(h.weights)}</td><td class="n">${h.home_field}</td><td class="n">${h.rmse_before ?? "—"} → ${h.rmse_after ?? "—"}</td></tr>`).join("");
     return html + `<div class="table-wrap weights-table"><table class="data"><thead><tr><th>Date</th><th class="n">Games</th><th>Status</th><th class="n">Weights %</th><th class="n">Home adv.</th><th class="n">RMSE</th></tr></thead><tbody>${rows}</tbody></table></div>`;
   }
 
@@ -786,11 +788,11 @@
     document.querySelectorAll(".sports a").forEach((a) => a.setAttribute("aria-current", a.dataset.sport === (m.sport || "cfb") ? "page" : "false"));
     $("#games-title").textContent = `${m.slate_label} games`;
     const starts = state.slate.map((g) => new Date(g.start)).sort((a, b) => a - b);
-    const md = (d) => d.toLocaleDateString(undefined, { month: "long", day: "numeric" });
+    const md = (d) => d.toLocaleDateString("en-US", { month: "long", day: "numeric", timeZone: TZ });
     const range = starts.length ? (md(starts[0]) === md(starts.at(-1)) ? md(starts[0]) : `${md(starts[0])} – ${md(starts.at(-1))}`) : "";
-    const updated = new Date(m.generated_at).toLocaleString(undefined, { weekday: "long", month: "long", day: "numeric", hour: "numeric", minute: "2-digit", timeZoneName: "short" });
+    const updated = new Date(m.generated_at).toLocaleString("en-US", { weekday: "long", month: "long", day: "numeric", hour: "numeric", minute: "2-digit", timeZoneName: "short", timeZone: TZ });
     $("#hero-meta").innerHTML = `${range ? `<span>${esc(range)}</span>` : ""}<span>Updated ${esc(updated)}</span>${m.poll ? `<span>Ranks: ${esc(m.poll === "Playoff Committee Rankings" ? "CFP Rankings" : m.poll)}</span>` : ""}`;
-    $("#updated").textContent = `Updated ${new Date(m.generated_at).toLocaleString()}`;
+    $("#updated").textContent = `Updated ${new Date(m.generated_at).toLocaleString("en-US", { timeZone: TZ, timeZoneName: "short" })}`;
 
     const sr = state.record?.season_record;
     if (state.record?.strip && sr && (sr.su.W + sr.su.L > 0)) {

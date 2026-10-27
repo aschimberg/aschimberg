@@ -2,15 +2,15 @@ name: Game-day briefing
 
 on:
   schedule:
-    # 9 AM Central = 14:00 UTC (CDT) or 15:00 UTC (CST). GitHub delays and
+    # 7 AM Pacific = 14:00 UTC (PDT) or 15:00 UTC (PST). GitHub delays and
     # drops scheduled runs (often only one of these fires, hours late), so a
-    # Claude routine also dispatches this at 9:05 AM CT. The script sends once
-    # per game day, only inside the 9 AM-2 PM CT window; other runs exit fast.
-    - cron: "7,37 14,15,16,17,18 * * *"
+    # Claude routine also dispatches this at 7:05, 9:05 and 11:05 AM PT. The script sends once
+    # per game day, only inside the 7 AM-12 PM PT window; other runs exit fast.
+    - cron: "7,37 14,15,16,17,18,19 * * *"  # 7 AM-12 PM PT in both PDT and PST
   workflow_dispatch:
     inputs:
       force:
-        description: "Send now even outside the 9 AM CT window / if already sent"
+        description: "Send now even outside the 7 AM PT window / if already sent"
         type: boolean
         default: false
 

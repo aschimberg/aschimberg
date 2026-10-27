@@ -325,7 +325,7 @@ def write_site(now, season, cards, st, elo, net, rank, recs, teams, picks):
         "terms": {"start": "tip-off", "record_week": "Week",
                   "record_note": "Picks lock at the last DraftKings spread before tip-off and are graded against it."},
         "tuning": tuning_summary(), "site_url": config.SITE_URL,
-        "board_note": "Scores are model projections until final. Lines are DraftKings via ESPN; open is the opening line. Times in your local zone.",
+        "board_note": "Scores are model projections until final. Lines are DraftKings via ESPN; open is the opening line. Times are Pacific (PT).",
         "data_source": '<a href="https://www.espn.com/nba/">ESPN</a> public API',
         "method_html": method_html(),
         "rating_columns": [

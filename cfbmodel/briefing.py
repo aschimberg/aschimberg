@@ -171,10 +171,10 @@ def send_ntfy(title, body, tags="football", priority="default", click=None):
 
 
 STATE_PATH = config.DATA_DIR / "briefing_state.json"
-# GitHub cron often runs hours late or drops runs, and 9 AM CT is 14:00 UTC in
-# CDT but 15:00 UTC in CST. A Claude routine also dispatches the workflow at
-# 9:05 AM CT; any run inside this window (9 AM-2 PM CT) that hasn't already
-# sent today's briefing sends it.
+# GitHub cron often runs hours late or drops runs, and 7 AM PT is 14:00 UTC in
+# PDT but 15:00 UTC in PST. A Claude routine also dispatches the workflow at
+# 7:05, 9:05 and 11:05 AM PT; any run inside this window (7 AM-12 PM PT) that
+# hasn't already sent today's briefing sends it.
 WINDOW_HOURS = 5
 
 

@@ -100,8 +100,8 @@ PUBLIC_BETS = _f("CFB_PUBLIC_BETS", 65.0)
 NTFY_SERVER = os.environ.get("NTFY_SERVER", "https://ntfy.sh").rstrip("/")
 NTFY_TOPIC = os.environ.get("NTFY_TOPIC", "")
 NTFY_TOKEN = os.environ.get("NTFY_TOKEN", "")
-BRIEFING_TZ = os.environ.get("BRIEFING_TZ", "America/Chicago")
-BRIEFING_HOUR = _i("BRIEFING_HOUR", 9)
+BRIEFING_TZ = os.environ.get("BRIEFING_TZ", "America/Los_Angeles")  # briefings and "today" are Pacific
+BRIEFING_HOUR = _i("BRIEFING_HOUR", 7)  # 7 AM PT: ahead of 10 AM PT NFL / 9 AM PT college kickoffs
 SITE_URL = os.environ.get("SITE_URL", "")
 
 # Over/under picks: SP+-based projected total vs the market total (points)

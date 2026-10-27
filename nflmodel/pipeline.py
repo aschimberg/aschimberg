@@ -527,7 +527,7 @@ def write_site(now, season, slate, cards, fit, elo, team_ratings, power_rank, re
                      "play_edge": config.PLAY_EDGE, "strong_edge": config.STRONG_EDGE, "conf_high": config.CONF_HIGH, "conf_weights": conf.DEFAULT_WEIGHTS,
                      "conf_medium": config.CONF_MEDIUM, "trend_min_games": 8, "bye_days": 13},
         "tuning": tuning_summary(), "site_url": config.SITE_URL,
-        "board_note": "Scores are model projections until final. Lines are the nflverse consensus; open is the first line the model saw. Times in your local zone.", "data_source": '<a href="https://github.com/nflverse">nflverse</a> (CC BY 4.0)',
+        "board_note": "Scores are model projections until final. Lines are the nflverse consensus; open is the first line the model saw. Times are Pacific (PT).", "data_source": '<a href="https://github.com/nflverse">nflverse</a> (CC BY 4.0)',
         "method_html": method_html(),
         "rating_columns": [
             {"key": "rank", "label": "#", "digits": 0, "asc": True},
