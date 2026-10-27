@@ -240,9 +240,10 @@
       const lines = [[]];
       for (const row of g.pick_rows) {
         if (row.result_key === "total") lines.push([`<span class="ou-label">Total</span>`]);
+        if (row.result_key === "pl") lines.push([`<span class="ou-label" title="Underdog pick at +1.5 goals instead of the moneyline">Puck line</span>`]);
         let html;
         if (row.tier) html = `<span><span class="tier ${row.tier}">${row.tier === "pass" ? "No value" : row.tier}</span> ${esc(row.text)}</span>`;
-        else if (row.strong) html = `<strong>${esc(row.text)}${row.result_key ? res(r[row.result_key], { W: "Win", L: "Loss", P: "Push" }) : ""}</strong>`;
+        else if (row.strong) html = `<strong>${esc(row.text)}${row.result_key ? res(r[row.result_key], row.result_key === "pl" ? { W: "Cover", L: "Miss", P: "Push" } : { W: "Win", L: "Loss", P: "Push" }) : ""}</strong>`;
         else html = `<span class="${row.dim ? "dim" : ""}">${esc(row.text)}</span>`;
         lines[lines.length - 1].push(html);
       }
@@ -478,7 +479,11 @@
     const playEdge = s.play_edge ?? 4;
     const groups = [];
     if (rec.tiles) {
-      groups.push(["Moneyline and totals", rec.tiles.map((t) => tile(esc(t.k), t.rec, true, t.sub ? " · " + esc(t.sub) : "")).join("")]);
+      for (const t of rec.tiles) {
+        const name = t.group || "Moneyline and totals";
+        if (!groups.length || groups[groups.length - 1][0] !== name) groups.push([name, ""]);
+        groups[groups.length - 1][1] += tile(esc(t.k), t.rec, true, t.sub ? " · " + esc(t.sub) : "");
+      }
     } else {
       const bc = sr.ats_by_conf;
       groups.push([`Sides · straight up and ${A}`,

@@ -128,12 +128,19 @@ def build_nhl(now_local):
     lines = [f"**{now_local:%a %b %-d} · NHL · {len(games)} games**"]
     if sr.get("ats", {}).get("W", 0) + sr.get("ats", {}).get("L", 0):
         lines.append(f"Season ML {_rec(sr['ats'], True)} · EV {nhlc.PLAY_EV * 100:g}%+ {_rec(sr['ats_play'], True)}")
+        d = sr.get("dogs")
+        if d and d["losses"]:
+            lines.append(f"Dog picks {d['ml']['W']}-{d['ml']['L']} ML · {d['pl']['W']}-{d['pl']['L']} at +1.5 "
+                         f"({d['lost_by_one']} of {d['losses']} losses by one goal)")
     lines += ["", "**🎯 Moneyline value**"]
     for c in plays[:8]:
         p = c["pick"]
         icon = {"strong": "🔥", "play": "✅", "lean": "·"}.get(p["tier"], "🎯")
+        alt = p.get("pl_alt")
+        pl = (f" · ➕ better at +1.5 {fmt_american(alt['odds'])} ({alt['prob'] * 100:.0f}%, EV {alt['ev'] * 100:+.1f}%)"
+              if alt and alt.get("better") and alt["ev"] > 0 else "")
         lines.append(f"{icon} {p['ats_team']} {fmt_american(p['odds'])} ({cfbb.matchup(c)}, {cfbb.kickoff(c, tz)}) — "
-                     f"model {p['prob'] * 100:.0f}% vs mkt {p.get('mkt_prob', 0) * 100:.0f}%, EV {p['edge']:+.1f}%, conf {p.get('confidence')}")
+                     f"model {p['prob'] * 100:.0f}% vs mkt {p.get('mkt_prob', 0) * 100:.0f}%, EV {p['edge']:+.1f}%, conf {p.get('confidence')}{pl}")
     if not plays:
         lines.append("No moneyline value today.")
     if totals:

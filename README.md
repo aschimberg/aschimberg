@@ -65,6 +65,18 @@ Each NFL game card has a section with the top 2–3 anytime TD bets.
   - Prop odds cost 1 credit per game. Lookups are limited to games starting within 36 hours, at most `ODDS_API_PROPS_PER_RUN` (default 4) per run, and are cached 6 hours.
   - Covering every game needs a paid Odds API plan (20K credits for $30/month); the free 500 covers a handful of games a day.
 
+## Underdogs and the puck line (NHL)
+
+When the model's moneyline pick is an underdog and DraftKings posts that team at +1.5, the card also prices the +1.5.
+- The score simulation already knows how often the dog loses by exactly one goal, including late empty-netters and OT/shootout losses, so its +1.5 cover chance is priced against the puck-line price.
+- The card shows the +1.5 price, cover chance and EV, and marks it **better than ML** when its EV per unit staked is higher. Briefings mention it in that case.
+- The Record tab has an **Underdogs & puck line** group:
+  - the dog ML picks
+  - the same dogs at +1.5 (with units)
+  - how many dog losses were by one goal
+  - the record of whichever bet the card recommended
+- Puck-line prices for earlier picks were recovered from the published slate history.
+
 ## News & sentiment (NFL)
 
 Each upcoming NFL game card has a **News & sentiment** section. It's context only and never changes a line or a pick.

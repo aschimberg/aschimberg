@@ -347,7 +347,8 @@ def refresh(loader=None, now=None, log=print):
         line = None
         pick = {"su_team": names.get(h if p_home >= 0.5 else a, h if p_home >= 0.5 else a),
                 "su_wp": round(max(p_home, 1 - p_home), 3), "ats_side": None, "ats_team": None, "edge": None,
-                "tier": None, "ev": None, "odds": None, "prob": None, "confidence": None, "conf_label": None}
+                "tier": None, "ev": None, "odds": None, "prob": None, "confidence": None, "conf_label": None,
+                "pl_alt": None}
         conf_detail = None
         total_pick = None
         if "ml_home" in o and "ml_away" in o and not started:
@@ -368,7 +369,8 @@ def refresh(loader=None, now=None, log=print):
             odds_side = o["ml_home"] if side == "home" else o["ml_away"]
             pick.update({"ats_side": side, "ats_team": names.get(g[side], g[side]), "edge": round(ev * 100, 1),
                          "tier": tier(ev), "ev": round(ev, 4), "odds": odds_side, "prob": round(p_side, 3),
-                         "mkt_prob": round(mkt_side, 3)})
+                         "mkt_prob": round(mkt_side, 3),
+                         "pl_alt": puck_line_alt(side, mkt_side, ev, o, mk)})
             m_mkt = 2.2 * inv_normal(ph_mkt)
             covers = {k: sign * (diffs[k] + config.HOME_ICE * hflag + offset - m_mkt) for k in SOURCES}
             move = None
@@ -492,12 +494,88 @@ def market_rows(line, proj, mk, h, a):
     return rows
 
 
+def puck_line_alt(side, mkt_side, ml_ev, o, mk):
+    """For an underdog ML pick: the same side at +1.5 instead.
+
+    The score simulation already knows how often the dog loses by exactly one
+    (late empty-netters, OT and shootout losses all count), so its +1.5 cover
+    chance is priced against the book's puck-line price. 'better' means the
+    +1.5 has the higher EV per unit staked.
+    """
+    if mkt_side >= 0.5 or o.get(f"pl_{side}") != 1.5 or o.get(f"pl_{side}_odds") is None:
+        return None
+    p = mk["home_p15"] if side == "home" else mk["away_p15"]
+    odds = o[f"pl_{side}_odds"]
+    ev = p * (american_to_decimal(odds) - 1) - (1 - p)
+    return {"line": 1.5, "odds": odds, "prob": round(p, 3), "ev": round(ev, 4), "better": ev > ml_ev}
+
+
+def side_margin(p):
+    """Goals the picked side won by (negative = lost by), from a graded pick."""
+    r = p.get("result") or {}
+    if r.get("home_pts") is None or not p.get("ats_side"):
+        return None
+    m = r["home_pts"] - r["away_pts"]
+    return m if p["ats_side"] == "home" else -m
+
+
+def is_dog(p):
+    mp = p.get("mkt_prob")
+    if mp is not None:
+        return mp < 0.5
+    return (p.get("odds") or 0) > 0
+
+
+def dog_record(graded):
+    """Underdog ML picks, the same picks at +1.5, and how many losses were by one goal."""
+    dogs = [p for p in graded if p["result"].get("ats") and is_dog(p)]
+    ml = _rec(dogs)
+    pl = {"W": 0, "L": 0, "P": 0, "units": 0.0, "priced": 0}
+    lost_by_one = losses = 0
+    better = {"W": 0, "L": 0, "P": 0, "units": 0.0, "risked": 0}
+    for p in dogs:
+        m = side_margin(p)
+        if m is None:
+            continue
+        cover = m >= -1
+        pl["W" if cover else "L"] += 1
+        if m < 0:
+            losses += 1
+            lost_by_one += m == -1
+        alt = p.get("pl_alt")
+        if alt and alt.get("odds") is not None:
+            u = round(american_to_decimal(alt["odds"]) - 1, 3) if cover else -1.0
+            pl["units"] += u
+            pl["priced"] += 1
+            # the bet the card recommended: +1.5 when it had the better EV, else the ML
+            pick_u = u if alt.get("better") else p["result"].get("units", 0.0)
+            better["W" if (cover if alt.get("better") else m > 0) else "L"] += 1
+            better["units"] += pick_u
+            better["risked"] += 1
+    n = pl["W"] + pl["L"]
+    pl["pct"] = round(pl["W"] / n, 3) if n else None
+    pl["units"] = round(pl["units"], 2)
+    pl["roi"] = round(pl["units"] / pl["priced"], 3) if pl["priced"] else None
+    bn = better["W"] + better["L"]
+    better["pct"] = round(better["W"] / bn, 3) if bn else None
+    better["units"] = round(better["units"], 2)
+    better["roi"] = round(better["units"] / better["risked"], 3) if better["risked"] else None
+    return {"ml": ml, "pl": pl, "best_of": better, "losses": losses, "lost_by_one": lost_by_one,
+            "lost_by_one_rec": {"W": lost_by_one, "L": losses - lost_by_one, "P": 0,
+                                "pct": round(lost_by_one / losses, 3) if losses else None}}
+
+
 def pick_rows(p, names):
     out = []
     if p.get("ats_team"):
         out.append({"text": f"{p['ats_team']} ML {fmt_american(p['odds'])}", "strong": True, "result_key": "ats"})
         out.append({"tier": p["tier"], "text": f"EV {p['edge']:+.1f}%"})
         out.append({"text": f"Model {round(p['prob'] * 100)}% vs mkt {round(p.get('mkt_prob', 0) * 100)}%", "dim": True})
+        alt = p.get("pl_alt")
+        if alt:
+            out.append({"text": f"{p['ats_team']} +1.5 {fmt_american(alt['odds'])}", "strong": True, "result_key": "pl"})
+            out.append({"tier": "play" if alt["better"] and alt["ev"] > 0 else "pass",
+                        "text": f"{round(alt['prob'] * 100)}% · EV {alt['ev'] * 100:+.1f}%" + (" · better than ML" if alt["better"] else "")})
     t = p.get("total_pick")
     if t:
         out.append({"text": f"{t['side'].title()} {t['line']:g} {fmt_american(t['odds'])}", "strong": True, "result_key": "total"})
@@ -526,6 +604,10 @@ def grade_picks(picks, sched, cur_games):
             won = (p["ats_side"] == "home") == home_won
             res["ats"] = "W" if won else "L"
             res["units"] = round(american_to_decimal(p["odds"]) - 1, 3) if won else -1.0
+            if p.get("pl_alt"):
+                m = (hs - as_) if p["ats_side"] == "home" else (as_ - hs)
+                res["pl"] = "W" if m >= -1 else "L"
+                res["pl_units"] = round(american_to_decimal(p["pl_alt"]["odds"]) - 1, 3) if m >= -1 else -1.0
         t = p.get("total_pick")
         if t:
             tot = hs + as_
@@ -568,6 +650,7 @@ def compute_record(picks, season):
             "ats_by_conf": {lbl: _rec([p for p in ml if p.get("conf_label") == lbl]) for lbl in ("High", "Medium", "Low")},
             "totals": _rec([p for p in graded if p["result"].get("total")], "total", "total_units"),
             "totals_play": _rec([p for p in graded if p["result"].get("total") and (p.get("total_pick") or {}).get("play")], "total", "total_units"),
+            "dogs": dog_record(graded),
             "by_week": by_week}
 
 
@@ -581,7 +664,26 @@ def record_tiles(sr):
         {"k": "ML · High confidence", "rec": sr["ats_by_conf"]["High"], "sub": u(sr["ats_by_conf"]["High"])},
         {"k": "Totals · all", "rec": sr["totals"], "sub": u(sr["totals"])},
         {"k": f"Totals · EV {config.TOTAL_MIN_EV * 100:g}%+", "rec": sr.get("totals_play") or sr["totals"], "sub": u(sr.get("totals_play") or sr["totals"])},
+    ] + dog_tiles(sr.get("dogs"))
+
+
+def dog_tiles(d):
+    if not d or not (d["ml"]["W"] + d["ml"]["L"]):
+        return []
+    pl = d["pl"]
+    pl_sub = (f"{pl['units']:+.1f}u on {pl['priced']} priced" + (f" · ROI {pl['roi'] * 100:+.1f}%" if pl.get("roi") is not None else "")
+              if pl["priced"] else "units start once puck-line prices are logged")
+    tiles = [
+        {"group": "Underdogs & puck line", "k": "Underdog ML picks", "rec": d["ml"], "sub": f"{d['ml']['units']:+.1f}u"},
+        {"group": "Underdogs & puck line", "k": "Same dogs at +1.5", "rec": pl, "sub": pl_sub},
+        {"group": "Underdogs & puck line", "k": "Dog losses that covered +1.5", "rec": d["lost_by_one_rec"],
+         "sub": f"{d['lost_by_one']} of {d['losses']} losses were by one goal (incl. OT/SO)"},
     ]
+    if d["best_of"]["risked"]:
+        b = d["best_of"]
+        tiles.append({"group": "Underdogs & puck line", "k": "Dogs · better of ML or +1.5", "rec": b,
+                      "sub": f"{b['units']:+.1f}u · the bet the card recommended"})
+    return tiles
 
 
 def tuning_summary():
