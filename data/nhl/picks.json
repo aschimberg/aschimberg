@@ -9416,6 +9416,8 @@
    "away_abbr": "TOR",
    "bet_at": "2026-10-26T16:07:07Z",
    "bet_line": 130.0,
+   "close_line": 114.0,
+   "clv": 0.0317,
    "conf_label": "High",
    "confidence": 83,
    "confidence_detail": {
@@ -9470,7 +9472,15 @@
    "odds": 114.0,
    "offset": 0.271,
    "prob": 0.539,
-   "result": null,
+   "result": {
+    "ats": "W",
+    "away_pts": 2,
+    "home_pts": 5,
+    "su": "W",
+    "total": "L",
+    "total_units": -1.0,
+    "units": 1.14
+   },
    "season": 20262027,
    "season_type": "regular",
    "start": "2026-10-27T00:30:00Z",
@@ -9503,6 +9513,8 @@
    "away_abbr": "DET",
    "bet_at": "2026-10-26T16:07:07Z",
    "bet_line": 150.0,
+   "close_line": 150.0,
+   "clv": -0.0411,
    "conf_label": "High",
    "confidence": 77,
    "confidence_detail": {
@@ -9557,7 +9569,15 @@
    "odds": 150.0,
    "offset": -0.129,
    "prob": 0.452,
-   "result": null,
+   "result": {
+    "ats": "W",
+    "away_pts": 4,
+    "home_pts": 3,
+    "su": "L",
+    "total": "L",
+    "total_units": -1.0,
+    "units": 1.5
+   },
    "season": 20262027,
    "season_type": "regular",
    "start": "2026-10-27T01:30:00Z",
