@@ -7,31 +7,8 @@
    "epa": 0.099
   }
  },
- "games": 93,
+ "games": 107,
  "history": [
-  {
-   "after": {
-    "home_field": 2.241,
-    "weights": {
-     "elo": 0.72,
-     "epa": 0.28
-    }
-   },
-   "at": "2024-09-10T00:15:00Z",
-   "backtest": true,
-   "before": {
-    "home_field": 2.241,
-    "weights": {
-     "elo": 0.72,
-     "epa": 0.28
-    }
-   },
-   "games": 16,
-   "season": 2024,
-   "season_type": "regular",
-   "status": "insufficient",
-   "week": 1
-  },
   {
    "after": {
     "home_field": 1.996,
@@ -2420,13 +2397,58 @@
    "rmse_before": 12.149,
    "season": 2026,
    "status": "updated"
+  },
+  {
+   "after": {
+    "home_field": 1.519,
+    "weights": {
+     "elo": 0.931,
+     "epa": 0.069
+    }
+   },
+   "alpha": 0.3,
+   "anchor": {
+    "home_field": 2.169,
+    "weights": {
+     "elo": 0.901,
+     "epa": 0.099
+    }
+   },
+   "at": "2026-10-27T17:57:09Z",
+   "before": {
+    "home_field": 1.6,
+    "weights": {
+     "elo": 0.4,
+     "epa": 0.6
+    }
+   },
+   "by_source": {
+    "elo": {
+     "rmse": 12.138
+    },
+    "epa": {
+     "rmse": 12.545
+    }
+   },
+   "fit": {
+    "home_field": 0.0,
+    "weights": {
+     "elo": 1.0,
+     "epa": 0.0
+    }
+   },
+   "games": 107,
+   "rmse_after": 12.283,
+   "rmse_before": 12.462,
+   "season": 2026,
+   "status": "updated"
   }
  ],
- "home_field": 1.644,
+ "home_field": 1.519,
  "source": "backtest 2023\u20132026 walk-forward",
- "updated": "2026-10-20T16:58:26Z",
+ "updated": "2026-10-27T17:57:09Z",
  "weights": {
-  "elo": 0.928,
-  "epa": 0.072
+  "elo": 0.931,
+  "epa": 0.069
  }
 }

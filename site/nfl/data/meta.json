@@ -98,20 +98,8 @@
  ],
  "tuning": {
   "enabled": true,
-  "games": 93,
+  "games": 107,
   "history": [
-   {
-    "at": "2025-11-18T01:15:00Z",
-    "games": 164,
-    "home_field": 2.483,
-    "rmse_after": 12.75,
-    "rmse_before": 12.755,
-    "status": "updated",
-    "weights": {
-     "elo": 0.873,
-     "epa": 0.127
-    }
-   },
    {
     "at": "2025-11-25T01:15:00Z",
     "games": 178,
@@ -339,18 +327,30 @@
      "elo": 0.928,
      "epa": 0.072
     }
+   },
+   {
+    "at": "2026-10-27T17:57:09Z",
+    "games": 107,
+    "home_field": 1.519,
+    "rmse_after": 12.283,
+    "rmse_before": 12.462,
+    "status": "updated",
+    "weights": {
+     "elo": 0.931,
+     "epa": 0.069
+    }
    }
   ],
-  "home_field": 1.644,
+  "home_field": 1.519,
   "last": {
    "after": {
-    "home_field": 1.644,
+    "home_field": 1.519,
     "weights": {
-     "elo": 0.928,
-     "epa": 0.072
+     "elo": 0.931,
+     "epa": 0.069
     }
    },
-   "alpha": 0.271,
+   "alpha": 0.3,
    "anchor": {
     "home_field": 2.169,
     "weights": {
@@ -358,7 +358,7 @@
      "epa": 0.099
     }
    },
-   "at": "2026-10-20T16:58:26Z",
+   "at": "2026-10-27T17:57:09Z",
    "before": {
     "home_field": 1.6,
     "weights": {
@@ -368,30 +368,30 @@
    },
    "by_source": {
     "elo": {
-     "rmse": 11.878
+     "rmse": 12.138
     },
     "epa": {
-     "rmse": 12.311
+     "rmse": 12.545
     }
    },
    "fit": {
-    "home_field": 0.231,
+    "home_field": 0.0,
     "weights": {
      "elo": 1.0,
      "epa": 0.0
     }
    },
-   "games": 93,
-   "rmse_after": 11.971,
-   "rmse_before": 12.149,
+   "games": 107,
+   "rmse_after": 12.283,
+   "rmse_before": 12.462,
    "season": 2026,
    "status": "updated"
   },
   "min_games": 25,
-  "updated": "2026-10-20T16:58:26Z",
+  "updated": "2026-10-27T17:57:09Z",
   "weights": {
-   "elo": 0.928,
-   "epa": 0.072
+   "elo": 0.931,
+   "epa": 0.069
   }
  },
  "week": 8
