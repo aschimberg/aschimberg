@@ -9435,7 +9435,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-27T01:30:54Z",
+   "updated": "2026-10-27T02:27:18Z",
    "week": 8,
    "weights": {
     "elo": 0.928,
@@ -9554,7 +9554,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-27T01:30:54Z",
+   "updated": "2026-10-27T02:27:18Z",
    "week": 8,
    "weights": {
     "elo": 0.928,
@@ -9673,7 +9673,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-27T01:30:54Z",
+   "updated": "2026-10-27T02:27:18Z",
    "week": 8,
    "weights": {
     "elo": 0.928,
@@ -9792,7 +9792,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-27T01:30:54Z",
+   "updated": "2026-10-27T02:27:18Z",
    "week": 8,
    "weights": {
     "elo": 0.928,
@@ -9911,7 +9911,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-27T01:30:54Z",
+   "updated": "2026-10-27T02:27:18Z",
    "week": 8,
    "weights": {
     "elo": 0.928,
@@ -10030,7 +10030,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-27T01:30:54Z",
+   "updated": "2026-10-27T02:27:18Z",
    "week": 8,
    "weights": {
     "elo": 0.928,
@@ -10149,7 +10149,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-27T01:30:54Z",
+   "updated": "2026-10-27T02:27:18Z",
    "week": 8,
    "weights": {
     "elo": 0.928,
@@ -10268,7 +10268,7 @@
     "side": "over",
     "tier": "play"
    },
-   "updated": "2026-10-27T01:30:54Z",
+   "updated": "2026-10-27T02:27:18Z",
    "week": 8,
    "weights": {
     "elo": 0.928,
@@ -10344,6 +10344,19 @@
     },
     {
      "bet": false,
+     "fair": 136,
+     "games": 23,
+     "lam": 0.55,
+     "name": "Davante Adams",
+     "note": "no market price yet",
+     "p": 0.423,
+     "p_model": 0.423,
+     "pid": "00-0031381",
+     "pos": "WR",
+     "team": "LA"
+    },
+    {
+     "bet": false,
      "fair": 146,
      "games": 24,
      "lam": 0.5226,
@@ -10354,19 +10367,6 @@
      "pid": "00-0039075",
      "pos": "WR",
      "team": "LA"
-    },
-    {
-     "bet": false,
-     "fair": 193,
-     "games": 16,
-     "lam": 0.4167,
-     "name": "Omarion Hampton",
-     "note": "no market price yet",
-     "p": 0.341,
-     "p_model": 0.341,
-     "pid": "00-0040666",
-     "pos": "RB",
-     "team": "LAC"
     }
    ],
    "result": null,
@@ -10387,7 +10387,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-27T01:30:54Z",
+   "updated": "2026-10-27T02:27:18Z",
    "week": 8,
    "weights": {
     "elo": 0.928,
@@ -10506,7 +10506,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-27T01:30:54Z",
+   "updated": "2026-10-27T02:27:18Z",
    "week": 8,
    "weights": {
     "elo": 0.928,
@@ -10625,7 +10625,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-27T01:30:54Z",
+   "updated": "2026-10-27T02:27:18Z",
    "week": 8,
    "weights": {
     "elo": 0.928,
@@ -10744,7 +10744,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-27T01:30:54Z",
+   "updated": "2026-10-27T02:27:18Z",
    "week": 8,
    "weights": {
     "elo": 0.928,
@@ -10863,7 +10863,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-27T01:30:54Z",
+   "updated": "2026-10-27T02:27:18Z",
    "week": 8,
    "weights": {
     "elo": 0.928,
@@ -10982,7 +10982,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-27T01:30:54Z",
+   "updated": "2026-10-27T02:27:18Z",
    "week": 8,
    "weights": {
     "elo": 0.928,

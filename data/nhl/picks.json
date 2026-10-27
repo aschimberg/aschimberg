@@ -9319,6 +9319,8 @@
    "away_abbr": "LAK",
    "bet_at": "2026-10-26T16:07:07Z",
    "bet_line": -130.0,
+   "close_line": -130.0,
+   "clv": -0.0398,
    "conf_label": "Low",
    "confidence": 48,
    "confidence_detail": {
@@ -9373,7 +9375,15 @@
    "odds": -130.0,
    "offset": 0.03,
    "prob": 0.57,
-   "result": null,
+   "result": {
+    "ats": "L",
+    "away_pts": 6,
+    "home_pts": 3,
+    "su": "L",
+    "total": "L",
+    "total_units": -1.0,
+    "units": -1.0
+   },
    "season": 20262027,
    "season_type": "regular",
    "start": "2026-10-26T23:00:00Z",

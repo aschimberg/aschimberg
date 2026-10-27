@@ -4057,6 +4057,8 @@
    "bet_at": "2026-10-26T06:55:07Z",
    "bet_line": -3.5,
    "book": "DraftKings",
+   "close_line": -3.5,
+   "clv": -0.0,
    "conf_label": "High",
    "confidence": 74,
    "confidence_detail": {
@@ -4106,7 +4108,13 @@
    "offset": 1.5,
    "proj_away": 115.8,
    "proj_home": 113.6,
-   "result": null,
+   "result": {
+    "ats": "W",
+    "away_pts": 125,
+    "home_pts": 127,
+    "su": "L",
+    "total": "L"
+   },
    "season": 2027,
    "season_type": "regular",
    "start": "2026-10-26T23:00:00Z",
@@ -4141,6 +4149,8 @@
    "bet_at": "2026-10-26T00:27:05Z",
    "bet_line": -13.5,
    "book": "Draft Kings",
+   "close_line": -14.5,
+   "clv": -1.0,
    "conf_label": "Medium",
    "confidence": 62,
    "confidence_detail": {
@@ -4190,7 +4200,13 @@
    "offset": 0.0,
    "proj_away": 110.0,
    "proj_home": 120.9,
-   "result": null,
+   "result": {
+    "ats": "L",
+    "away_pts": 99,
+    "home_pts": 134,
+    "su": "W",
+    "total": "W"
+   },
    "season": 2027,
    "season_type": "regular",
    "start": "2026-10-26T23:30:00Z",
@@ -4225,6 +4241,8 @@
    "bet_at": "2026-10-26T00:27:05Z",
    "bet_line": -7.5,
    "book": "Draft Kings",
+   "close_line": -7.5,
+   "clv": -0.0,
    "conf_label": "Medium",
    "confidence": 63,
    "confidence_detail": {
@@ -4273,7 +4291,13 @@
    "offset": 1.16,
    "proj_away": 113.8,
    "proj_home": 119.1,
-   "result": null,
+   "result": {
+    "ats": "W",
+    "away_pts": 113,
+    "home_pts": 109,
+    "su": "L",
+    "total": "W"
+   },
    "season": 2027,
    "season_type": "regular",
    "start": "2026-10-26T23:30:00Z",
@@ -4711,6 +4735,340 @@
     "tier": "lean"
    },
    "updated": "2026-10-27T01:31:32Z",
+   "week": 202644,
+   "weights": {
+    "eff": 0.45,
+    "elo": 0.3,
+    "pts": 0.25
+   }
+  },
+  "401909877": {
+   "ats_line": -11.5,
+   "ats_side": "home",
+   "ats_team": "Boston Celtics",
+   "away": "Brooklyn Nets",
+   "away_abbr": "BKN",
+   "bet_at": "2026-10-27T02:27:39Z",
+   "bet_line": -11.5,
+   "book": "DraftKings",
+   "conf_label": "Medium",
+   "confidence": 58,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.928,
+     "data": 0.3,
+     "edge": 0.219,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "Medium",
+    "n_sources": 3,
+    "score": 58,
+    "side": "home",
+    "source_names": {
+     "eff": "Efficiency",
+     "elo": "Elo",
+     "pts": "Points"
+    },
+    "sources": {
+     "eff": 12.9,
+     "elo": 11.9,
+     "pts": 12.8
+    }
+   },
+   "cover_prob": 0.536,
+   "date": "2026-10-27",
+   "diffs": {
+    "eff": 12.12,
+    "elo": 11.14,
+    "pts": 11.99
+   },
+   "edge": 1.1,
+   "ev": 0.003,
+   "hfa_flag": 1,
+   "home": "Boston Celtics",
+   "home_abbr": "BOS",
+   "home_field": 2.3,
+   "id": "401909877",
+   "line": -11.5,
+   "model_spread": -12.6,
+   "model_total": 224.8,
+   "neutral": false,
+   "offset": -1.5,
+   "proj_away": 106.1,
+   "proj_home": 118.7,
+   "result": null,
+   "season": 2027,
+   "season_type": "regular",
+   "start": "2026-10-27T23:30:00Z",
+   "su_team": "Boston Celtics",
+   "su_wp": 0.853,
+   "tier": "pass",
+   "total_line": 222.5,
+   "total_pick": {
+    "edge": 2.3,
+    "line": 222.5,
+    "model": 224.8,
+    "odds": -110.0,
+    "play": false,
+    "prob": 0.554,
+    "side": "over",
+    "tier": "pass"
+   },
+   "updated": "2026-10-27T02:27:39Z",
+   "week": 202644,
+   "weights": {
+    "eff": 0.45,
+    "elo": 0.3,
+    "pts": 0.25
+   }
+  },
+  "401909878": {
+   "ats_line": -3.5,
+   "ats_side": "home",
+   "ats_team": "New York Knicks",
+   "away": "Detroit Pistons",
+   "away_abbr": "DET",
+   "bet_at": "2026-10-27T02:27:39Z",
+   "bet_line": -3.5,
+   "book": "DraftKings",
+   "conf_label": "Low",
+   "confidence": 31,
+   "confidence_detail": {
+    "agree": 1,
+    "components": {
+     "agreement": 0.3,
+     "consistency": 0.526,
+     "data": 0.3,
+     "edge": 0.016,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "Low",
+    "n_sources": 3,
+    "score": 31,
+    "side": "home",
+    "source_names": {
+     "eff": "Efficiency",
+     "elo": "Elo",
+     "pts": "Points"
+    },
+    "sources": {
+     "eff": 1.8,
+     "elo": 7.8,
+     "pts": 1.8
+    }
+   },
+   "cover_prob": 0.503,
+   "date": "2026-10-27",
+   "diffs": {
+    "eff": -4.7,
+    "elo": 1.33,
+    "pts": -4.7
+   },
+   "edge": 0.1,
+   "ev": -0.06,
+   "hfa_flag": 1,
+   "home": "New York Knicks",
+   "home_abbr": "NY",
+   "home_field": 2.3,
+   "id": "401909878",
+   "line": -3.5,
+   "model_spread": -3.6,
+   "model_total": 220.4,
+   "neutral": false,
+   "offset": 4.17,
+   "proj_away": 108.4,
+   "proj_home": 112.0,
+   "result": null,
+   "season": 2027,
+   "season_type": "regular",
+   "start": "2026-10-28T00:00:00Z",
+   "su_team": "New York Knicks",
+   "su_wp": 0.617,
+   "tier": "pass",
+   "total_line": 218.5,
+   "total_pick": {
+    "edge": 1.9,
+    "line": 218.5,
+    "model": 220.4,
+    "odds": -115.0,
+    "play": false,
+    "prob": 0.544,
+    "side": "over",
+    "tier": "pass"
+   },
+   "updated": "2026-10-27T02:27:39Z",
+   "week": 202644,
+   "weights": {
+    "eff": 0.45,
+    "elo": 0.3,
+    "pts": 0.25
+   }
+  },
+  "401909879": {
+   "ats_line": 18.5,
+   "ats_side": "away",
+   "ats_team": "Sacramento Kings",
+   "away": "Sacramento Kings",
+   "away_abbr": "SAC",
+   "bet_at": "2026-10-27T02:27:39Z",
+   "bet_line": -18.5,
+   "book": "DraftKings",
+   "conf_label": "High",
+   "confidence": 70,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.893,
+     "data": 0.3,
+     "edge": 0.703,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "High",
+    "n_sources": 3,
+    "score": 70,
+    "side": "away",
+    "source_names": {
+     "eff": "Efficiency",
+     "elo": "Elo",
+     "pts": "Points"
+    },
+    "sources": {
+     "eff": 14.7,
+     "elo": 15.9,
+     "pts": 14.4
+    }
+   },
+   "cover_prob": 0.615,
+   "date": "2026-10-27",
+   "diffs": {
+    "eff": 10.69,
+    "elo": 11.91,
+    "pts": 10.45
+   },
+   "early": true,
+   "edge": 3.5,
+   "ev": 0.15,
+   "hfa_flag": 1,
+   "home": "San Antonio Spurs",
+   "home_abbr": "SA",
+   "home_field": 2.3,
+   "id": "401909879",
+   "line": -18.5,
+   "model_spread": -15.0,
+   "model_total": 229.4,
+   "neutral": false,
+   "offset": 1.69,
+   "proj_away": 107.2,
+   "proj_home": 122.2,
+   "result": null,
+   "season": 2027,
+   "season_type": "regular",
+   "start": "2026-10-28T00:00:00Z",
+   "su_team": "San Antonio Spurs",
+   "su_wp": 0.894,
+   "tier": "lean",
+   "total_line": 230.5,
+   "total_pick": {
+    "edge": 1.1,
+    "line": 230.5,
+    "model": 229.4,
+    "odds": -110.0,
+    "play": false,
+    "prob": 0.526,
+    "side": "under",
+    "tier": "pass"
+   },
+   "updated": "2026-10-27T02:27:39Z",
+   "week": 202644,
+   "weights": {
+    "eff": 0.45,
+    "elo": 0.3,
+    "pts": 0.25
+   }
+  },
+  "401909880": {
+   "ats_line": -2.5,
+   "ats_side": "home",
+   "ats_team": "Los Angeles Lakers",
+   "away": "Portland Trail Blazers",
+   "away_abbr": "POR",
+   "bet_at": "2026-10-27T02:27:39Z",
+   "bet_line": -2.5,
+   "book": "DraftKings",
+   "conf_label": "Medium",
+   "confidence": 57,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.892,
+     "data": 0.2,
+     "edge": 0.238,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "Medium",
+    "n_sources": 3,
+    "score": 57,
+    "side": "home",
+    "source_names": {
+     "eff": "Efficiency",
+     "elo": "Elo",
+     "pts": "Points"
+    },
+    "sources": {
+     "eff": 3.2,
+     "elo": 4.7,
+     "pts": 3.4
+    }
+   },
+   "cover_prob": 0.54,
+   "date": "2026-10-27",
+   "diffs": {
+    "eff": -0.2,
+    "elo": 1.23,
+    "pts": -0.07
+   },
+   "edge": 1.2,
+   "ev": 0.009,
+   "hfa_flag": 1,
+   "home": "Los Angeles Lakers",
+   "home_abbr": "LAL",
+   "home_field": 2.3,
+   "id": "401909880",
+   "line": -2.5,
+   "model_spread": -3.7,
+   "model_total": 231.1,
+   "neutral": false,
+   "offset": 1.13,
+   "proj_away": 113.7,
+   "proj_home": 117.4,
+   "result": null,
+   "season": 2027,
+   "season_type": "regular",
+   "start": "2026-10-28T03:00:00Z",
+   "su_team": "Los Angeles Lakers",
+   "su_wp": 0.621,
+   "tier": "pass",
+   "total_line": 236.5,
+   "total_pick": {
+    "early": true,
+    "edge": 5.4,
+    "line": 236.5,
+    "model": 231.1,
+    "odds": -110.0,
+    "play": false,
+    "prob": 0.625,
+    "side": "under",
+    "tier": "lean"
+   },
+   "updated": "2026-10-27T02:27:39Z",
    "week": 202644,
    "weights": {
     "eff": 0.45,
