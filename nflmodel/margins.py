@@ -53,5 +53,26 @@ def cover_probs(dist, home_spread):
     return hc, push, 1 - hc - push
 
 
+def market_mean(home_spread, weights, sd=None):
+    """Mean margin at which the line is a coin flip (home and away equally likely
+    to cover). With key numbers that isn't exactly -spread (at -8.5 the mean that
+    splits it 50/50 sits nearer 9.3 than 8.5), so anchoring starts here."""
+    key = (home_spread, sd, tuple(sorted((weights or {}).items())))
+    if key not in _MARKET_MEAN:
+        lo, hi = -home_spread - 8, -home_spread + 8
+        for _ in range(24):
+            mid = (lo + hi) / 2
+            hc, _, ac = cover_probs(pmf(mid, weights, sd), home_spread)
+            if hc < ac:
+                lo = mid
+            else:
+                hi = mid
+        _MARKET_MEAN[key] = (lo + hi) / 2
+    return _MARKET_MEAN[key]
+
+
+_MARKET_MEAN = {}
+
+
 def win_prob(dist):
     return sum(v for m, v in dist.items() if m > 0) + 0.5 * dist.get(0, 0)

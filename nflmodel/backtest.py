@@ -129,7 +129,7 @@ def run(seasons, games=None, pbp_loader=None, now=None, log=print, start_weights
                             trends, g[side], pipeline._history_record(g), ts, rest_map.get((g[side], g["id"]))))
                     qb_known = bool(g["home_qb_id"] and g["away_qb_id"])
                     dq = min(1.0, min(played.get(h, 0), played.get(a, 0)) / 4) * (1.0 if qb_known else 0.7)
-                    fields, conf_detail = pipeline.ats_pick(g, margin, dist, diffs, offset, hflag, s, None, trend_block, dq)
+                    fields, conf_detail = pipeline.ats_pick(g, margin, kw, diffs, offset, hflag, s, None, trend_block, dq)
                     hp, ap = g["home_pts"], g["away_pts"]
                     model_total = pipeline.project_total(fit, h, a, league_ppg, margin)
                     tp = pipeline.total_pick(model_total, g["total"])

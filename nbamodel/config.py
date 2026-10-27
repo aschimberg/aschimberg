@@ -85,3 +85,10 @@ def season_for(d):
 
 def season_label(season):
     return f"{season - 1}–{str(season)[2:]}"
+
+# Market anchoring (sportscommon/anchor.py): spreads and totals are priced at
+# line + ANCHOR_WEIGHT x (model - line), moved at most ANCHOR_MAX_SHIFT points.
+# Tiers come from EV at that price; the model's own projection is still shown.
+ANCHOR_WEIGHT = _f("NBA_ANCHOR_WEIGHT", 0.15)
+ANCHOR_MAX_SHIFT = _f("NBA_ANCHOR_MAX_SHIFT", 1.5)
+ANCHOR = (ANCHOR_WEIGHT, ANCHOR_MAX_SHIFT)

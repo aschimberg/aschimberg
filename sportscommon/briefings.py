@@ -72,13 +72,13 @@ def build_nfl(now_local):
     sr = record.get("season_record") or {}
     lines = [f"**{now_local:%a %b %-d} · NFL {meta.get('slate_label', '')} · {len(games)} game{'s' if len(games) > 1 else ''}**"]
     if sr.get("ats", {}).get("W", 0) + sr.get("ats", {}).get("L", 0):
-        lines.append(f"Season: ATS {_rec(sr['ats'])} · edge {nflc.PLAY_EDGE:g}+ {_rec(sr['ats_play'])} · SU {_rec(sr['su'])}")
-    picks = [c for c in games if c["pick"].get("edge") is not None]
-    plays = sorted((c for c in picks if c["pick"]["edge"] >= nflc.LEAN_EDGE or c["pick"].get("conf_label") == "High"),
-                   key=lambda c: -c["pick"]["edge"])
+        lines.append(f"Season: ATS {_rec(sr['ats'])} · plays+ {_rec(sr['ats_play'])} · SU {_rec(sr['su'])}")
+    # value sides only: lean or better at the market-anchored price, best EV first
+    plays = sorted((c for c in games if c["pick"].get("tier") in ("lean", "play", "strong")),
+                   key=lambda c: -(c["pick"].get("ev") or 0))
     lines += ["", "**🎯 Picks**"]
     if not plays:
-        lines.append(f"No edges ≥ {nflc.LEAN_EDGE:g} or High-confidence sides.")
+        lines.append("No sides with value at the market-anchored line.")
     for c in plays[:8]:
         p = c["pick"]
         icon = {"strong": "🔥", "play": "✅", "lean": "·"}.get(p["tier"], "🎯")
@@ -163,15 +163,14 @@ def build_nba(now_local):
         return None
     tz = now_local.tzinfo
     sr = record.get("season_record") or {}
-    picks = [c for c in games if c["pick"].get("edge") is not None]
-    plays = sorted((c for c in picks if c["pick"]["edge"] >= nbac.LEAN_EDGE and c["pick"].get("tier") != "pass"),
-                   key=lambda c: -c["pick"]["edge"])
+    plays = sorted((c for c in games if c["pick"].get("tier") in ("lean", "play", "strong")),
+                   key=lambda c: -(c["pick"].get("ev") or 0))
     tot = [c for c in games if (c["pick"].get("total_pick") or {}).get("play")]
     if not plays and not tot:
         return None  # quiet day: no value on the board
     lines = [f"**{now_local:%a %b %-d} · NBA · {len(games)} game{'s' if len(games) > 1 else ''}**"]
     if sr.get("ats", {}).get("W", 0) + sr.get("ats", {}).get("L", 0):
-        lines.append(f"Season: ATS {_rec(sr['ats'])} · edge {nbac.PLAY_EDGE:g}+ {_rec(sr['ats_play'])} · SU {_rec(sr['su'])}")
+        lines.append(f"Season: ATS {_rec(sr['ats'])} · plays+ {_rec(sr['ats_play'])} · SU {_rec(sr['su'])}")
     lines += ["", "**🎯 Spread picks**"]
     for c in plays[:8]:
         p = c["pick"]
@@ -180,7 +179,7 @@ def build_nba(now_local):
         lines.append(f"{icon} {p['ats_team']} {lt} ({cfbb.matchup(c)}, {cfbb.kickoff(c, tz)}) — edge {p['edge']:g}, "
                      f"cover {p['cover_prob'] * 100:.0f}%, conf {p.get('confidence')} {p.get('conf_label')}")
     if not plays:
-        lines.append(f"No spread edges ≥ {nbac.LEAN_EDGE:g} today.")
+        lines.append("No spreads with value at the market-anchored line today.")
     lines += totals.briefing_lines(games, cfbb.matchup, cfbb.kickoff, tz)
     notes = [e for c in games for e in c.get("extras", []) if "injuries" in e or "back-to-back" in e]
     if notes:

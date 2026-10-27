@@ -209,7 +209,7 @@ def refresh(loader=None, now=None, log=print):
             "neutral": g["neutral"], "conference_game": False, "home": tb("home"), "away": tb("away"),
             "line": line, "model": mp,
             "pick": {k: logged.get(k) for k in ("ats_side", "ats_team", "ats_line", "edge", "tier", "su_team", "su_wp", "line",
-                                                 "confidence", "conf_label", "cover_prob", "ev", "total_pick")} if logged else pick,
+                                                 "confidence", "conf_label", "cover_prob", "ev", "fair_line", "total_pick")} if logged else pick,
             "confidence": conf_detail, "locked": started, "trends": None, "splits": None, "result": res, "extras": extras,
             "status_detail": g.get("detail") if g["state"] == "in" else None,
         })
@@ -308,7 +308,7 @@ def method_html():
 <h3>Totals</h3>
 <p>Projected possessions × each offense vs the other defense (efficiency), blended 60/40 with the points fit; half of each team's injury adjustment also comes off the total.</p>
 <h3>Picks, confidence and tuning</h3>
-<p>Edge = projected margin vs the DraftKings spread (via ESPN). Cover probability uses a normal margin distribution (SD {config.MARGIN_SD:g}). Tiers: lean {config.LEAN_EDGE:g}+, play {config.PLAY_EDGE:g}+, strong {config.STRONG_EDGE:g}+. Over/unders: lean {config.TOTAL_LEAN_EDGE:g}+, play {config.TOTAL_PLAY_EDGE:g}+, strong {config.TOTAL_STRONG_EDGE:g}+ points. Confidence weighs whether each source covers on its own, the edge, line movement and data quality. Every Monday the source weights and home court are refit to this season's results and moved part of the way there.</p>
+<p>Edge = projected margin vs the DraftKings spread (via ESPN). Backtests show the model's gap to the line hasn't predicted results, so bets are priced at a market-anchored line that moves {config.ANCHOR_WEIGHT:.0%} of the way from the line toward the model, at most {config.ANCHOR_MAX_SHIFT:g} points. Tiers come from expected value at that price: lean above 0%, play 1.5%+, strong 3%+. Cover chances use a normal margin distribution (SD {config.MARGIN_SD:g}); over/unders are priced the same way (SD {config.TOTAL_SD:g}). Confidence weighs whether each source covers on its own, the edge, line movement and data quality. Every Monday the source weights and home court are refit to this season's results and moved part of the way there.</p>
 <p>Data: ESPN's public NBA API (schedule, scores, box scores, DraftKings lines, injury report). For entertainment only.</p>"""
 
 
@@ -320,6 +320,7 @@ def write_site(now, season, cards, st, elo, net, rank, recs, teams, picks):
         "hero_title": "Tonight's <span>NBA</span> <br>Projections.",
         "splits": {"provider": "none", "source": None}, "poll": None, "trend_seasons": None,
         "settings": {"weights": config.WEIGHTS, "home_field": config.HOME_COURT, "lean_edge": config.LEAN_EDGE,
+                     "anchor_weight": config.ANCHOR_WEIGHT, "anchor_max_shift": config.ANCHOR_MAX_SHIFT,
                      "play_edge": config.PLAY_EDGE, "strong_edge": config.STRONG_EDGE, "conf_high": config.CONF_HIGH,
                      "conf_weights": conf.DEFAULT_WEIGHTS, "conf_medium": config.CONF_MEDIUM},
         "terms": {"start": "tip-off", "record_week": "Week",

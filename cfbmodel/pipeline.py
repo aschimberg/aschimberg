@@ -163,15 +163,15 @@ def compute_record(picks, season=None):
     graded = [p for p in picks.values() if p.get("result") and (season is None or p["season"] == season)]
     ats_graded = [p for p in graded if p["result"].get("ats")]
 
-    def tiered(min_edge):
-        return _rec([p for p in ats_graded if (p.get("edge") or 0) >= min_edge], "ats")
+    def tiered(min_edge, name):
+        return _rec([p for p in ats_graded if recmod.qualifies(p, min_edge, name)], "ats")
 
     weeks = defaultdict(list)
     for p in graded:
         weeks[(p["season"], p["season_type"], p["week"])].append(p)
     by_week = [
         {"season": s, "season_type": st, "week": w, "su": _rec(items, "su"), "ats": _rec(items, "ats"),
-         "ats_plays": _rec([p for p in items if (p.get("edge") or 0) >= config.PLAY_EDGE], "ats"), "ou": _rec(items, "total")}
+         "ats_plays": _rec([p for p in items if recmod.qualifies(p, config.PLAY_EDGE, "play")], "ats"), "ou": _rec(items, "total")}
         for (s, st, w), items in sorted(weeks.items(), key=lambda kv: (kv[0][0], kv[0][1] != "regular", kv[0][2]))
     ]
     return {
@@ -179,9 +179,9 @@ def compute_record(picks, season=None):
         "ats": _rec(ats_graded, "ats"),
         "ats_by_conf": {lbl: _rec([p for p in ats_graded if p.get("conf_label") == lbl], "ats")
                         for lbl in ("High", "Medium", "Low")},
-        "ats_lean": tiered(config.LEAN_EDGE),
-        "ats_play": tiered(config.PLAY_EDGE),
-        "ats_strong": tiered(config.STRONG_EDGE),
+        "ats_lean": tiered(config.LEAN_EDGE, "lean"),
+        "ats_play": tiered(config.PLAY_EDGE, "play"),
+        "ats_strong": tiered(config.STRONG_EDGE, "strong"),
         "by_week": by_week,
         "ou": recmod.totals(graded, (config.TOTAL_LEAN_EDGE, config.TOTAL_PLAY_EDGE, config.TOTAL_STRONG_EDGE)),
     }
@@ -297,7 +297,7 @@ def refresh(client, now=None, splits_provider=None, log=print):
         pick = model.make_pick(gm, proj, line)
         pick["total_pick"] = totals.make_pick(
             proj["total"] if proj.get("total_src") else None, (line or {}).get("total"), config.TOTAL_SD,
-            config.TOTAL_LEAN_EDGE, config.TOTAL_PLAY_EDGE, config.TOTAL_STRONG_EDGE)
+            config.TOTAL_LEAN_EDGE, config.TOTAL_PLAY_EDGE, config.TOTAL_STRONG_EDGE, anchor=config.ANCHOR)
         start = ats.parse_dt(gm["start"])
         started = start is not None and start <= now
 
@@ -371,7 +371,7 @@ def refresh(client, now=None, splits_provider=None, log=print):
             "home": team_block("home"), "away": team_block("away"),
             "line": line, "model": proj,
             "pick": {k: logged.get(k) for k in ("ats_side", "ats_team", "ats_line", "edge", "tier", "su_team", "su_wp", "line",
-                                                 "confidence", "conf_label", "total_pick")} if logged else pick,
+                                                 "confidence", "conf_label", "total_pick", "cover_prob", "ev", "fair_line")} if logged else pick,
             "confidence": conf,
             "locked": started or gm["completed"],
             "trends": trend_block, "splits": split_info,
@@ -427,6 +427,7 @@ def write_site(now, season, slate, cards, ratings, team_recs, trends, fbs, picks
             "weights": config.WEIGHTS, "home_field": config.HOME_FIELD,
             "prior_regression": config.PRIOR_SEASON_REGRESSION, "margin_sd": config.MARGIN_SD,
             "lean_edge": config.LEAN_EDGE, "play_edge": config.PLAY_EDGE, "strong_edge": config.STRONG_EDGE,
+            "anchor_weight": config.ANCHOR_WEIGHT, "anchor_max_shift": config.ANCHOR_MAX_SHIFT,
             "sharp_gap": config.SHARP_GAP, "public_bets": config.PUBLIC_BETS,
             "trend_min_games": config.TREND_MIN_GAMES, "bye_days": config.BYE_DAYS,
             "conf_high": config.CONF_HIGH, "conf_medium": config.CONF_MEDIUM, "conf_weights": config.CONF_WEIGHTS,

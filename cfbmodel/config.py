@@ -109,3 +109,10 @@ TOTAL_SD = _f("CFB_TOTAL_SD", 16.5)
 TOTAL_LEAN_EDGE = _f("CFB_TOTAL_LEAN", 3.0)
 TOTAL_PLAY_EDGE = _f("CFB_TOTAL_PLAY", 5.0)
 TOTAL_STRONG_EDGE = _f("CFB_TOTAL_STRONG", 8.0)
+
+# Market anchoring (sportscommon/anchor.py): spreads and totals are priced at
+# line + ANCHOR_WEIGHT x (model - line), moved at most ANCHOR_MAX_SHIFT points.
+# Tiers come from EV at that price; the model's own projection is still shown.
+ANCHOR_WEIGHT = _f("CFB_ANCHOR_WEIGHT", 0.15)
+ANCHOR_MAX_SHIFT = _f("CFB_ANCHOR_MAX_SHIFT", 1.5)
+ANCHOR = (ANCHOR_WEIGHT, ANCHOR_MAX_SHIFT)

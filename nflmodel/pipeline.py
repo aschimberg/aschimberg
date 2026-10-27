@@ -3,7 +3,7 @@ from datetime import datetime, timedelta, timezone
 
 from cfbmodel import ats, store
 from cfbmodel.model import grade as ats_grade
-from sportscommon import clv, news, oddsapi, totals
+from sportscommon import anchor as anc, clv, news, oddsapi, totals
 from sportscommon import props as sprops
 from sportscommon import confidence as conf
 from sportscommon import record as recmod
@@ -142,12 +142,14 @@ def project_total(fit, h, a, league_ppg, margin):
 
 def total_pick(model_total, line_total):
     return totals.make_pick(model_total, line_total, config.TOTAL_SD, config.TOTAL_LEAN_EDGE,
-                            config.TOTAL_PLAY_EDGE, config.TOTAL_STRONG_EDGE)
+                            config.TOTAL_PLAY_EDGE, config.TOTAL_STRONG_EDGE, anchor=config.ANCHOR)
 
 
-def ats_pick(g, margin, dist, diffs, offset, hflag, s, move, trend_block, dq):
+def ats_pick(g, margin, kw, diffs, offset, hflag, s, move, trend_block, dq):
     """ATS side, edge, tier, cover probability, EV and confidence vs home spread s."""
-    hc, push, ac = margins.cover_probs(dist, s)
+    # priced at the market-anchored fair margin (sportscommon/anchor.py), with key numbers
+    fair_m = anc.fair(margin, margins.market_mean(s, kw), *config.ANCHOR)
+    hc, push, ac = margins.cover_probs(margins.pmf(fair_m, kw), s)
     # side follows the projected margin vs the line (the edge); cover_prob prices it
     side = "home" if margin + s >= 0 else "away"
     sign = 1 if side == "home" else -1
@@ -157,11 +159,12 @@ def ats_pick(g, margin, dist, diffs, offset, hflag, s, move, trend_block, dq):
     p_lose = 1 - p_cover - push
     pick = {
         "ats_side": side, "ats_team": teams.name(g[side]), "ats_line": s if side == "home" else -s,
-        "edge": round(edge, 1), "tier": tier(edge),
+        "edge": round(edge, 1), "fair_line": round(-fair_m, 1),
         "cover_prob": round(p_cover / (p_cover + p_lose), 3) if p_cover + p_lose else None,
         # profit per unit staked; a push returns the stake
         "ev": round(p_cover * (american_to_decimal(odds) - 1) - p_lose, 3),
     }
+    pick["tier"] = anc.tier(pick["ev"])
     covers = {k: sign * (diffs[k] + config.HOME_FIELD * hflag + offset + s) for k in SOURCES}
     conf_detail = conf.score(
         side, covers, config.WEIGHTS, edge / config.STRONG_EDGE, 7.0,
@@ -171,8 +174,6 @@ def ats_pick(g, margin, dist, diffs, offset, hflag, s, move, trend_block, dq):
         extra={"sources": {k: round(diffs[k] + config.HOME_FIELD * hflag + offset, 1) for k in SOURCES},
                "source_names": {"epa": "EPA", "elo": "Elo"}},
     )
-    if pick["cover_prob"] is not None and pick["cover_prob"] < 0.5:
-        pick["tier"] = "pass"  # the point edge doesn't survive key numbers (e.g. -8.5 vs a 10-pt projection)
     pick["confidence"] = conf_detail["score"]
     pick["conf_label"] = conf_detail["label"]
     return pick, conf_detail
@@ -352,7 +353,7 @@ def refresh(games=None, pbp_loader=None, now=None, log=print, espn_loader=None):
         if line:
             qb_known = bool(g["home_qb_id"] and g["away_qb_id"])
             dq = min(1.0, min(played.get(h, 0), played.get(a, 0)) / 4) * (1.0 if qb_known else 0.7)
-            fields, conf_detail = ats_pick(g, margin, dist, diffs, offset, hflag, line["spread"], move, trend_block, dq)
+            fields, conf_detail = ats_pick(g, margin, kw, diffs, offset, hflag, line["spread"], move, trend_block, dq)
             pick.update(fields)
 
         start = datetime.fromisoformat(g["start"].replace("Z", "+00:00")) if g["start"] else None
@@ -404,7 +405,7 @@ def refresh(games=None, pbp_loader=None, now=None, log=print, espn_loader=None):
         res = {"completed": g["completed"], "home_pts": g["home_pts"], "away_pts": g["away_pts"],
                **((logged or {}).get("result") or {})}
         card_pick = {k: logged.get(k) for k in ("ats_side", "ats_team", "ats_line", "edge", "tier", "su_team", "su_wp",
-                                                 "line", "confidence", "conf_label", "cover_prob", "ev", "total_pick", "props")} if logged else dict(pick)
+                                                 "line", "confidence", "conf_label", "cover_prob", "ev", "fair_line", "total_pick", "props")} if logged else dict(pick)
         news_block = None
         if not g["completed"]:
             news_block = {"home": news.for_team(headlines, h), "away": news.for_team(headlines, a),
@@ -513,7 +514,7 @@ def method_html():
 <h3>Projection</h3>
 <p>Margin = {w['epa']:.0%} EPA + {w['elo']:.0%} Elo + QB adjustment + {config.HOME_FIELD:.2g} points home field (none at neutral sites) + a small rest term ({config.REST_PER_DAY:g} pts/day, capped; post-2011 rest effects are near zero). Cover probability uses a margin distribution reweighted to real NFL final margins since 2005, so key numbers like 3 and 7 carry their true weight and pushes are priced.</p>
 <h3>Picks, confidence and tuning</h3>
-<p>Edge = projected margin vs the line. Cover probability prices that edge on a margin distribution with real key-number frequencies (3, 7, 10...); a pick under 50% to cover is a pass whatever its edge. Tiers: lean {config.LEAN_EDGE:g}+, play {config.PLAY_EDGE:g}+, strong {config.STRONG_EDGE:g}+. Confidence (0–100) weighs whether EPA and Elo each cover on their own, edge, line movement, ATS trends, and data quality (games played, known starting QBs). After each week the EPA/Elo weights and home field are refit to this season's results and moved part of the way there.</p>
+<p>Edge = projected margin vs the line. Backtests show the model's gap to the line hasn't predicted results, so bets are priced at a market-anchored line that moves {config.ANCHOR_WEIGHT:.0%} of the way from the line toward the model, at most {config.ANCHOR_MAX_SHIFT:g} points. Tiers come from expected value at that price: lean above 0%, play 1.5%+, strong 3%+. Cover chances use a margin distribution with real key-number frequencies (3, 7, 10...), starting from the margin that makes the line a coin flip. Over/unders are priced the same way. Confidence (0–100) weighs whether EPA and Elo each cover on their own, edge, line movement, ATS trends, and data quality (games played, known starting QBs). After each week the EPA/Elo weights and home field are refit to this season's results and moved part of the way there.</p>
 <p>Data: <a href="https://github.com/nflverse">nflverse</a> (CC BY 4.0) schedules, lines and play-by-play. For entertainment only.</p>"""
 
 
@@ -526,6 +527,7 @@ def write_site(now, season, slate, cards, fit, elo, team_ratings, power_rank, re
         "splits": {"provider": "none", "source": None}, "poll": None,
         "trend_seasons": [season - config.TREND_SEASONS, season],
         "settings": {"weights": config.WEIGHTS, "home_field": config.HOME_FIELD, "lean_edge": config.LEAN_EDGE,
+                     "anchor_weight": config.ANCHOR_WEIGHT, "anchor_max_shift": config.ANCHOR_MAX_SHIFT,
                      "play_edge": config.PLAY_EDGE, "strong_edge": config.STRONG_EDGE, "conf_high": config.CONF_HIGH, "conf_weights": conf.DEFAULT_WEIGHTS,
                      "conf_medium": config.CONF_MEDIUM, "trend_min_games": 8, "bye_days": 13},
         "tuning": tuning_summary(), "site_url": config.SITE_URL,

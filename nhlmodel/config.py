@@ -59,6 +59,9 @@ STRONG_EV = _f("NHL_STRONG_EV", 0.08)
 # the side where the model most exceeds the market otherwise inflates its chance:
 # underdog picks averaged 44% from the model, 41% from the market, 38% actual.
 ML_MODEL_WEIGHT = _f("NHL_ML_MODEL_WEIGHT", 0.5)
+# Totals: the sim's over/under chance blended with the market's no-vig price
+# the same way (logged totals ran 60% predicted vs 47% actual).
+TOTAL_MODEL_WEIGHT = _f("NHL_TOTAL_MODEL_WEIGHT", 0.5)
 TOTAL_MIN_EV = _f("NHL_TOTAL_EV", 0.03)
 CONF_HIGH, CONF_MEDIUM = 70, 55
 SLATE_DAYS = 2  # today + tomorrow

@@ -1,6 +1,8 @@
 """Score/spread projections and ATS/SU picks."""
 import math
 
+from sportscommon import anchor as anc
+
 from . import config
 
 
@@ -80,13 +82,21 @@ def make_pick(game, proj, line):
     s = line["spread"]
     cover = proj["margin"] + s  # >0 -> home covers in expectation
     side = "home" if cover > 0 else "away"
+    # cover chance and tier at the market-anchored margin (sportscommon/anchor.py), -110 price
+    fair_m = anc.fair(proj["margin"], -s, *config.ANCHOR)
+    p_home = win_prob(fair_m + s)
+    p_cover = p_home if side == "home" else 1 - p_home
+    ev = anc.ev(p_cover)
     pick.update(
         {
             "ats_side": side,
             "ats_team": game[side],
             "ats_line": s if side == "home" else -s,
             "edge": round(abs(cover), 1),
-            "tier": tier(abs(cover)),
+            "fair_line": round(-fair_m, 1),
+            "cover_prob": round(p_cover, 3),
+            "ev": round(ev, 3),
+            "tier": anc.tier(ev),
         }
     )
     return pick

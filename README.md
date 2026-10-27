@@ -10,8 +10,8 @@ The visual design follows [davidsasser.com/cfb](https://davidsasser.com/cfb): wa
 
 - **Power ratings**: SP+, ESPN FPI and CFBD Elo are rescaled onto the SP+ points scale and blended (40/35/25 by default).
 - **Projections**: margin = rating diff + home field (2.5, 0 at neutral sites). Totals come from SP+ offense/defense. Output is a projected score, model spread and win probability.
-- **Picks**: an ATS side against the current line for every game, plus the edge (expected cover margin) and a tier: lean ≥ 2, play ≥ 4, strong ≥ 7. Every game also gets an SU pick. Picks lock at kickoff and are graded SU and ATS.
-- **Confidence**: a 0–100 score per pick, separate from edge. It combines how many of SP+/FPI/Elo cover on their own and how tightly they agree, the edge, line movement and sharp flags, situational ATS trends, and data quality. High is 70+ and Medium is 55+. A small-edge pick can still be High, and game-day briefings include High-confidence sides even when the edge is small. The Record tab tracks ATS results by confidence level.
+- **Picks**: an ATS side against the current line for every game, plus the edge (projected margin vs the line), a market-anchored cover chance and a tier (see Market anchoring). Every game also gets an SU pick. Picks lock at kickoff and are graded SU and ATS.
+- **Confidence**: a 0–100 score per pick, separate from edge. It combines how many of SP+/FPI/Elo cover on their own and how tightly they agree, the edge, line movement and sharp flags, situational ATS trends, and data quality. High is 70+ and Medium is 55+. A small-edge pick can still be High. Briefings list only sides with value at the market-anchored line, whatever their confidence. The Record tab tracks ATS results by confidence level.
 - **Weekly tuning**: every pick stores each source's projected margin. After Sunday grading, the model fits the SP+/FPI/Elo weights and home field that best predict this season's actual margins, then moves part of the way there: alpha = n/(n+250), so it moves more as games accumulate. Tuning starts after 25 graded games. Each week the live weights are set to `(1 - alpha) * season-start weights + alpha * fit` on all of this season's games, so weekly steps don't compound. The current weights and their history are saved in `data/model_weights.json`, shown on the Method tab and included in the Sunday recap. Set `CFB_TUNING=off` to freeze the weights.
 - **ATS trends**: closing lines and results for the last 6 seasons plus the current one. Each team's ATS record is split overall, as favorite or underdog, home/away/neutral (and combined, e.g. road dog), in conference play, off a bye (13+ days) and over the last 10 games. Each game card shows the splits that apply to that game.
 - **Bet splits**: public bet % and money % per side, with sharp/public/reverse-line-move flags. The feed is swappable (see below).
@@ -41,7 +41,7 @@ The same site serves `/nfl/`, `/nhl/` and `/nba/` (switch sports in the header).
 - **Team strength:** three margin sources, blended and tuned weekly: opponent-adjusted points per 100 possessions (offense and defense, possessions estimated from box scores) times the game's projected pace; the same fit on points per game; and a 538-style Elo. Recent games count more, and each season starts from about half of last season's ratings.
 - **Injuries:** each player's value is his Game Score per minute above replacement level times his usual minutes, in points of margin. Team ratings already reflect whoever has been playing, so the line moves only by the difference between tonight's expected availability (Out, Doubtful 80%, Questionable 50%, Day-To-Day 35%) and how often he played in the team's last 10 games. Cards list the biggest adjustments.
 - **Schedule and home court:** about 2.3 points of home court (tuned weekly) and 1.5 points for the second night of a back-to-back.
-- **Picks:** ATS edges against the DraftKings spread with tiers (lean 1.5+, play 3+, strong 5+), cover probability, confidence, over/unders, CLV against the closing line and an ntfy briefing on game days with value.
+- **Picks:** ATS edges against the DraftKings spread with market-anchored cover probability and tiers, confidence, over/unders, CLV against the closing line and an ntfy briefing on game days with value.
 - **Data:** season caches with box scores live in `data/nba/cache/`; finished dates are never re-fetched. The NBA's own stats CDN blocks GitHub's runners, so ESPN is the source. [balldontlie.io](https://www.balldontlie.io) is a keyed free alternative if ESPN ever closes.
 
 Tuning: NHL and NBA weights and home advantage are refit on Mondays (and the NHL xG model is retrained); NFL weights and home field are refit on Tuesdays. NHL play-by-play is cached in `data/nhl/cache/` (the first run backfills last season, about 8 minutes).
@@ -87,12 +87,21 @@ Each upcoming NFL game card has a **News & sentiment** section. It's context onl
 - **Anytime TD flags:** a pick whose player appears in a recent headline with injury words (questionable, limited, ruled out...) gets a **⚠ injury news** link; one marked active or cleared gets **✓ cleared**. Briefings mark flagged best bets too.
 - Feeds are cached for 90 minutes (`NEWS_TTL_MIN`) in `data/nfl/news.json`, and any feed that fails is skipped. Set `NEWS=off` to turn it off.
 
+## Market anchoring (CFB, NFL, NBA spreads and totals)
+
+Across 2,800+ CFB, 1,000+ NFL and 1,100+ NBA games, how far the model sits from the betting line has not predicted results. Fitting (result − line) against (model − line) gives slopes of −0.05 ± 0.08 (CFB), −0.13 ± 0.15 (NFL) and +0.02 ± 0.13 (NBA); 1 would mean the model's edges are fully real. Big disagreements did no better than small ones. Priced straight off the model, picks looked like 56–58% covers and hit 47–51%.
+
+So the side still follows the model, but the cover chance, EV and tier come from a fair line that moves only 15% of the way from the line toward the model, and at most 1.5 points (`<SPORT>_ANCHOR_WEIGHT`, `<SPORT>_ANCHOR_MAX_SHIFT`). Tiers are by EV at the posted price (−110 if none): lean above 0%, play 1.5%+, strong 3%+. NFL cover chances keep key numbers, starting from the margin that makes the line a coin flip. Expect few plays: most games are a pass. Cards still show the model's own projection and edge. On the 2025 NFL backtest, anchored cover chances averaged 50.8% against 48.9% actual (unanchored: 56% vs 47%).
+
+Records count each pick by the tier it had when logged, so picks made before anchoring keep their old tiers.
+
 ## Over/under picks
 
 Every game also gets a side against the market total.
-- **CFB:** the projected total comes from SP+ offense and defense. Games where those are missing get no total pick, rather than echoing the market. Tiers are lean 3+, play 5+, strong 8+ points.
-- **NFL:** the projected total is league scoring plus each EPA offense against the other defense. Tiers are lean 2+, play 3.5+, strong 5+.
-- **NHL:** totals are priced from the score simulation, with EV tiers.
+- **CFB:** the projected total comes from SP+ offense and defense. Games where those are missing get no total pick, rather than echoing the market.
+- **NFL:** the projected total is league scoring plus each EPA offense against the other defense.
+- CFB, NFL and NBA totals are priced like spreads (see Market anchoring).
+- **NHL:** the score simulation's over chance is blended 50/50 (log-odds) with the market's no-vig price, then EV tiers apply.
 
 Totals are graded W/L/P on the final combined score. They appear on game cards, in the briefings (plays only) and on the Record tab (O/U records, by week and per pick).
 

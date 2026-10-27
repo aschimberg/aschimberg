@@ -72,3 +72,10 @@ PROPS_MAX_RATIO = _f("NFL_PROPS_MAX_RATIO", 2.5)  # no bet when model and market
 PROPS_MIN_GAMES = int(_f("NFL_PROPS_MIN_GAMES", 2))  # usage history needed before a player can be a best bet
 PROPS_TD_PER_POINT = _f("NFL_PROPS_TD_PER_POINT", 0.112)  # offensive TDs per point scored (2018-25: ~2.5 TDs per 22 pts)
 PROPS_HOURS = _f("NFL_PROPS_HOURS", 36)  # fetch prop odds only for games starting within this window
+
+# Market anchoring (sportscommon/anchor.py): spreads and totals are priced at
+# line + ANCHOR_WEIGHT x (model - line), moved at most ANCHOR_MAX_SHIFT points.
+# Tiers come from EV at that price; the model's own projection is still shown.
+ANCHOR_WEIGHT = _f("NFL_ANCHOR_WEIGHT", 0.15)
+ANCHOR_MAX_SHIFT = _f("NFL_ANCHOR_MAX_SHIFT", 1.5)
+ANCHOR = (ANCHOR_WEIGHT, ANCHOR_MAX_SHIFT)

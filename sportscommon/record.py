@@ -17,6 +17,15 @@ TIERS = {"lean": ("lean", "play", "strong"), "play": ("play", "strong"), "strong
 TOTAL_TIERS = TIERS
 
 
+def qualifies(p, min_edge, name):
+    """Counts toward the lean+/play+/strong record: the pick's own tier when it has
+    one (tiers come from EV since market anchoring), else its point edge (old logs)."""
+    t = p.get("tier")
+    if t in ("pass", "lean", "play", "strong"):
+        return t in TIERS[name]
+    return (p.get("edge") or 0) >= min_edge
+
+
 def totals(items, edges=None):
     """Over/under record: every graded total pick, then by the pick's own tier (lean+ / play+ / strong)."""
     xs = [p for p in items if (p.get("result") or {}).get("total") and p.get("total_pick")]
@@ -31,13 +40,6 @@ def totals(items, edges=None):
 def compute(picks, season, lean, play, strong, period_key=("season", "season_type", "week"), total_edges=None):
     graded = [p for p in picks.values() if p.get("result") and (season is None or p["season"] == season)]
     ats = [p for p in graded if p["result"].get("ats")]
-
-    def qualifies(p, min_edge, name):
-        # the pick's own tier when it has one (NFL demotes sub-50% covers to "pass"), else its edge
-        t = p.get("tier")
-        if t in ("pass", "lean", "play", "strong"):
-            return t in TIERS[name]
-        return (p.get("edge") or 0) >= min_edge
 
     def tier(min_edge, name):
         return rec([p for p in ats if qualifies(p, min_edge, name)], "ats")

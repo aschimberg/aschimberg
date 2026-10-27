@@ -6,7 +6,7 @@ from datetime import date, timedelta
 
 from cfbmodel.model import grade as ats_grade  # noqa: F401  (re-exported for pipeline/backtest)
 from sportscommon import confidence as conf
-from sportscommon import totals
+from sportscommon import anchor as anc, totals
 from sportscommon.odds import american_to_decimal
 
 from . import config, players, ratings
@@ -128,13 +128,15 @@ def ats_pick(proj, spread, team_name, h, a, home_odds=None, away_odds=None, move
     side = "home" if margin + spread >= 0 else "away"
     sign = 1 if side == "home" else -1
     edge = abs(margin + spread)
-    p_home = 1 - ratings.normal_cdf(-(margin + spread) / config.MARGIN_SD)
+    fair_m = anc.fair(margin, -spread, *config.ANCHOR)  # priced at the market-anchored margin
+    p_home = 1 - ratings.normal_cdf(-(fair_m + spread) / config.MARGIN_SD)
     p_cover = p_home if side == "home" else 1 - p_home
     odds = (home_odds if side == "home" else away_odds) or -110
+    ev = p_cover * (american_to_decimal(odds) - 1) - (1 - p_cover)
     pick = {
         "ats_side": side, "ats_team": team_name(h if side == "home" else a), "ats_line": spread if side == "home" else -spread,
-        "edge": round(edge, 1), "tier": tier(edge), "cover_prob": round(p_cover, 3),
-        "ev": round(p_cover * (american_to_decimal(odds) - 1) - (1 - p_cover), 3),
+        "edge": round(edge, 1), "fair_line": round(-fair_m, 1), "tier": anc.tier(ev), "cover_prob": round(p_cover, 3),
+        "ev": round(ev, 3),
     }
     covers = {k: sign * (proj["diffs"][k] + config.HOME_COURT * proj["hflag"] + proj["offset"] + spread) for k in SOURCES}
     detail = conf.score(
@@ -150,4 +152,4 @@ def ats_pick(proj, spread, team_name, h, a, home_odds=None, away_odds=None, move
 
 def total_pick(model_total, line, over_odds=None, under_odds=None):
     return totals.make_pick(model_total, line, config.TOTAL_SD, config.TOTAL_LEAN_EDGE, config.TOTAL_PLAY_EDGE,
-                            config.TOTAL_STRONG_EDGE, over_odds, under_odds)
+                            config.TOTAL_STRONG_EDGE, over_odds, under_odds, anchor=config.ANCHOR)

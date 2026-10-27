@@ -8,6 +8,9 @@
   const num = (v, d = 1) => (v == null ? "—" : minus(Number(v).toFixed(d)));
   const signed = (s) => (s == null ? "—" : s === 0 ? "PK" : minus((s > 0 ? "+" : "") + Number(s).toFixed(1)));
   const pct = (v) => (v == null ? "—" : (v * 100).toFixed(1) + "%");
+  // Tiers come from EV at the market-anchored price; old logged picks without a tier fall back to their point edge
+  const TIER_RANK = { pass: 0, lean: 1, play: 2, strong: 3 };
+  const atLeast = (p, t, edge) => (p?.tier in TIER_RANK ? TIER_RANK[p.tier] >= TIER_RANK[t] : (p?.edge ?? -1) >= edge);
   const recStr = (r, ties = true) => (r ? `${r.W}–${r.L}${ties && r.P ? "–" + r.P : ""}` : "—");
   // Home-perspective spread -> "Favorite −X".
   const favLine = (g, s) => (s == null ? "—" : s === 0 ? "Pick'em" : s < 0 ? `${g.home.name} ${num(s)}` : `${g.away.name} ${num(-s)}`);
@@ -254,12 +257,12 @@
       if (!g.pick_rows.length && p.su_team) sel = `<span class="dim">No line yet</span><strong>${esc(p.su_team)} ${Math.round(wp * 100)}%</strong>`;
     } else if (p.ats_team) {
       sel = `<div class="pick-line"><strong>${esc(teamLine(p.ats_team, p.ats_line))}${res(r.ats, { W: "Cover", L: "Miss", P: "Push" })}</strong>
-        <span><span class="tier ${p.tier}">${p.tier === "pass" ? "No edge" : p.tier}</span> ${num(p.edge)}</span>
+        <span title="${p.fair_line != null ? `Model gap ${num(p.edge)} pts; priced at the market-anchored line ${num(p.fair_line)}` : ""}"><span class="tier ${p.tier}">${p.tier === "pass" ? "No value" : p.tier}</span> ${num(p.edge)}${p.cover_prob != null ? ` · cover ${Math.round(p.cover_prob * 100)}%` : ""}</span>
         ${confBadge}
         <span class="dim">SU ${esc(p.su_team)} ${Math.round(wp * 100)}%${res(r.su, { W: "W", L: "L" })}</span></div>`;
       const t = p.total_pick;
       if (t) sel += `<div class="pick-line"><span class="ou-label">Total</span><strong>${esc(ouText(t))}${res(r.total, { W: "Win", L: "Loss", P: "Push" })}</strong>
-        <span><span class="tier ${t.tier}">${t.tier === "pass" ? "No edge" : t.tier}</span> ${num(t.edge)}</span>
+        <span><span class="tier ${t.tier}">${t.tier === "pass" ? "No value" : t.tier}</span> ${num(t.edge)}${t.prob != null ? ` · ${Math.round(t.prob * 100)}%` : ""}</span>
         <span class="dim">proj ${num(t.model)}</span></div>`;
     } else if (p.su_team) {
       sel = `<span class="dim">No line</span><strong>SU ${esc(p.su_team)} ${Math.round(wp * 100)}%${res(r.su, { W: "W", L: "L" })}</strong>`;
@@ -328,7 +331,7 @@
   const FILTERS = [
     { key: "all", label: "All games", test: () => true },
     { key: "top25", label: "Top 25", test: (g) => g.home.poll_rank || g.away.poll_rank },
-    { key: "edges", label: "Edges", test: (g) => g.pick?.edge >= (state.meta?.settings?.lean_edge ?? 2) },
+    { key: "edges", label: "Leans+", test: (g) => atLeast(g.pick, "lean", state.meta?.settings?.lean_edge ?? 2) },
     { key: "highconf", label: "High confidence", test: (g) => g.pick?.conf_label === "High" },
     { key: "flags", label: "Split flags", test: (g) => g.splits?.flags?.length },
   ];
@@ -491,17 +494,17 @@
       groups.push([`Sides · straight up and ${A}`,
         tile("Straight up", sr.su, false) +
         tile(`${A} · all`, sr.ats) +
-        tile(`Edge ${s.lean_edge ?? 2}+`, sr.ats_lean) +
-        tile(`Edge ${s.play_edge ?? 4}+`, sr.ats_play) +
-        tile(`Edge ${s.strong_edge ?? 7}+`, sr.ats_strong) +
+        tile("Leans+", sr.ats_lean) +
+        tile("Plays+", sr.ats_play) +
+        tile("Strong", sr.ats_strong) +
         tile("All-time", rec.all_time.ats, true, " · all seasons") +
         (bc ? tile("High confidence", bc.High) + tile("Medium confidence", bc.Medium) + tile("Low confidence", bc.Low) : "")]);
-      const ou = sr.ou, e = ou?.edges;
+      const ou = sr.ou;
       groups.push(["Totals · over/under", ou
         ? tile("All totals", ou.all) +
-          tile(e ? `Edge ${e.lean}+` : "Leans+", ou.lean) +
-          tile(e ? `Edge ${e.play}+` : "Plays", ou.play) +
-          tile(e ? `Edge ${e.strong}+` : "Strong", ou.strong) +
+          tile("Leans+", ou.lean) +
+          tile("Plays+", ou.play) +
+          tile("Strong", ou.strong) +
           (rec.all_time?.ou ? tile("All-time", rec.all_time.ou.all, true, " · all seasons") : "")
         : tile("All totals", ouRec(seasonPicks)) + tile("Plays", ouRec(seasonPicks, true))]);
     }
@@ -517,7 +520,7 @@
     }
     groups.push(["Closing line value",
       clvTile("All picks", clvStats(seasonPicks)) +
-      clvTile(`${T("edge", "Edge")} ${playEdge}+`, clvStats(seasonPicks.filter((p) => (p.edge ?? 0) >= playEdge)))]);
+      clvTile("Plays+", clvStats(seasonPicks.filter((p) => atLeast(p, "play", playEdge))))]);
     $("#record-tiles").innerHTML = groups.map(([h, html]) => `<h3 class="tile-group">${esc(h)}</h3>${html}`).join("");
     const clvByWeek = new Map();
     for (const p of seasonPicks) {
@@ -538,7 +541,7 @@
           render: (r) => { const o = r.ou || ouRec(clvByWeek.get(`${r.season}|${r.season_type}|${r.week}`) || []); return o.W + o.L + o.P ? recStr(o) : '<span class="muted">—</span>'; } },
         ...(sr.by_week.some((r) => r.td) ? [{ key: "td", label: "TD/gm", num: true, sortVal: (r) => r.td?.hits_per_game ?? -1,
           render: (r) => (r.td?.games ? `${r.td.hits_per_game.toFixed(2)} <span class="muted">exp ${r.td.exp_per_game.toFixed(2)}</span>` : '<span class="muted">—</span>') }] : []),
-        { key: "plays", label: `${A} ${T("edge", "edge")} ${s.play_edge ?? 4}+`, num: true, render: (r) => recStr(r.ats_plays), sortVal: (r) => r.ats_plays.pct },
+        { key: "plays", label: `${A} plays+`, num: true, render: (r) => recStr(r.ats_plays), sortVal: (r) => r.ats_plays.pct },
         { key: "atspct", label: `${A} %`, num: true, render: (r) => pct(r.ats.pct), sortVal: (r) => r.ats.pct },
         { key: "clv", label: "CLV", num: true, sortVal: (r) => clvStats(clvByWeek.get(`${r.season}|${r.season_type}|${r.week}`) || [])?.avg ?? -99,
           render: (r) => { const st = clvStats(clvByWeek.get(`${r.season}|${r.season_type}|${r.week}`) || []); return st ? `<span class="${st.avg > 0 ? "pos" : st.avg < 0 ? "neg" : ""}">${clvFmt(st.avg)}</span> <span class="muted">${st.beat}/${st.n}</span>` : '<span class="muted">—</span>'; } },
@@ -556,7 +559,7 @@
     const play = state.meta?.settings?.play_edge ?? 4;
     const rows = rec.picks.filter((p) => {
       if (q && !(p.home + " " + p.away).toLowerCase().includes(q)) return false;
-      if (f === "plays" && !(p.edge >= play)) return false;
+      if (f === "plays" && !atLeast(p, "play", play)) return false;
       if (f === "high" && p.conf_label !== "High") return false;
       if (f === "totals" && !p.total_pick?.play) return false;
       if (f === "graded" && !p.result) return false;
@@ -742,9 +745,9 @@
       <h3>Projections</h3>
       <p>Projected margin = home rating − away rating + ${s.home_field} points of home field (none at neutral sites). The total comes from SP+ offense and defense; the projected score splits it by the margin. Win probability assumes a normal margin distribution (σ = ${s.margin_sd}).</p>
       <h3>Picks</h3>
-      <p>Every game with a line gets an against-the-spread side. The edge is the model's expected cover margin against the current line. Tiers: lean ${s.lean_edge}+, play ${s.play_edge}+, strong ${s.strong_edge}+. Picks re-price with each refresh until kickoff, lock at the last pre-kickoff line, and are graded straight up and ATS.</p>
+      <p>Every game with a line gets an against-the-spread side: the side the model's projected margin favors. The edge is that projection against the current line. Backtests show the model's gap to the line hasn't predicted results, so the cover chance is priced at a market-anchored line that moves only ${Math.round((s.anchor_weight ?? 0.15) * 100)}% of the way toward the model (at most ${s.anchor_max_shift ?? 1.5} points). Tiers come from expected value at −110 on that price: lean above 0%, play 1.5%+, strong 3%+. Picks re-price with each refresh until kickoff, lock at the last pre-kickoff line, and are graded straight up and ATS.</p>
       <h3>Confidence</h3>
-      <p>A 0–100 score, separate from the edge, for how much to trust the side. It weighs ${confMix(s)}. A small edge can still be <strong>High</strong> (${s.conf_high}+) when SP+, FPI and Elo each cover on their own, the line is moving the pick's way and trends agree; <strong>Medium</strong> is ${s.conf_medium}–${s.conf_high - 1}. Game-day briefings include High-confidence sides even below the edge threshold. The Record tab tracks ATS results by confidence level so the score can be checked.</p>
+      <p>A 0–100 score, separate from the edge, for how much to trust the side. It weighs ${confMix(s)}. A small edge can still be <strong>High</strong> (${s.conf_high}+) when SP+, FPI and Elo each cover on their own, the line is moving the pick's way and trends agree; <strong>Medium</strong> is ${s.conf_medium}–${s.conf_high - 1}. Briefings list only sides with value at the market-anchored line. The Record tab tracks ATS results by confidence level so the score can be checked.</p>
       <h3>Weekly tuning</h3>
       ${tuningHtml(m.tuning)}
       <h3>ATS trends</h3>
@@ -805,7 +808,7 @@
       const cell = (k, r, ties) => `<div><dt>${k}</dt><dd>${recStr(r, ties)}<small>${pct(r.pct)} win rate</small></dd></div>`;
       const td = sr.anytime_td;
       const cells = [cell("Straight up", sr.su, false), cell("Against the spread", sr.ats, true)];
-      if (!(td?.games)) cells.push(cell(`ATS · edge ${m.settings.play_edge}+`, sr.ats_play, true));
+      if (!(td?.games)) cells.push(cell("ATS · plays+", sr.ats_play, true));
       if (sr.ou?.all && sr.ou.all.W + sr.ou.all.L > 0) cells.push(cell("Over/under", sr.ou.all, true));
       if (td?.games) cells.push(`<div><dt>Anytime TD</dt><dd>${td.hits_per_game.toFixed(2)}/gm<small>of ${Math.round(td.picks_per_game)} picks · exp ${td.exp_per_game.toFixed(2)}</small></dd></div>`);
       $("#record-dl").innerHTML = cells.join("");

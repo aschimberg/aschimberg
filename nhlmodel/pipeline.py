@@ -400,11 +400,19 @@ def refresh(loader=None, now=None, log=print):
                     "pl_away": o.get("pl_away"), "pl_away_odds": o.get("pl_away_odds"),
                     "over_odds": o.get("over_odds"), "under_odds": o.get("under_odds")}
             if o.get("total") and o.get("over_odds") and o.get("under_odds"):
-                ev_o = mk["over"] * (american_to_decimal(o["over_odds"]) - 1) - mk["under"]
-                ev_u = mk["under"] * (american_to_decimal(o["under_odds"]) - 1) - mk["over"]
+                # sim's over chance (excluding pushes) blended with the market's no-vig price
+                decided = max(1e-9, mk["over"] + mk["under"])
+                po_model = mk["over"] / decided
+                po_mkt = no_vig(american_to_prob(o["over_odds"]), american_to_prob(o["under_odds"]))[0]
+                po = blend(po_model, po_mkt, config.TOTAL_MODEL_WEIGHT)
+                p_t = {"over": po * decided, "under": (1 - po) * decided}
+                ev_o = p_t["over"] * (american_to_decimal(o["over_odds"]) - 1) - p_t["under"]
+                ev_u = p_t["under"] * (american_to_decimal(o["under_odds"]) - 1) - p_t["over"]
                 tside, tev = ("over", ev_o) if ev_o >= ev_u else ("under", ev_u)
                 total_pick = {"side": tside, "line": o["total"], "ev": round(tev, 4),
-                              "prob": round(mk[tside] / max(1e-9, mk["over"] + mk["under"]), 3),
+                              "prob": round(po if tside == "over" else 1 - po, 3),
+                              "model_prob": round(po_model if tside == "over" else 1 - po_model, 3),
+                              "mkt_prob": round(po_mkt if tside == "over" else 1 - po_mkt, 3),
                               "odds": o["over_odds"] if tside == "over" else o["under_odds"],
                               "play": tev >= config.TOTAL_MIN_EV, "edge": round(tev * 100, 1),
                               "tier": "strong" if tev >= 2 * config.TOTAL_MIN_EV else "play" if tev >= config.TOTAL_MIN_EV
@@ -732,7 +740,7 @@ def method_html(model):
 <h3>Game simulation</h3>
 <p>Regulation goals are Poisson, reweighted so ties and one-goal games happen as often as they did in 2025-26 (about 26% of games reach overtime). Empty-net goals follow last season's rates: a team up one adds at least one {1 - config.EN_GOALS[1][0]:.0%} of the time, up two {1 - config.EN_GOALS[2][0]:.0%}. Ties go to 3-on-3 overtime ({config.OT_DECIDED:.0%} decided, in proportion to scoring rates) and then a shootout. That gives win, puck-line (±1.5) and total probabilities and fair odds.</p>
 <h3>Picks</h3>
-<p>Moneyline value: model win probability vs DraftKings odds published through the NHL's own API. EV tiers: lean {config.LEAN_EV:.1%}+, play {config.PLAY_EV:.1%}+, strong {config.STRONG_EV:.1%}+. Totals are flagged at {config.TOTAL_MIN_EV:.0%}+ EV. Records are kept in units (1 unit per pick). Confidence weighs whether our xG, MoneyPuck, goals and Elo each see value on the side, EV, line movement and data quality. Weights and home ice are refit weekly to graded games.</p>
+<p>Moneyline value: model win probability vs DraftKings odds published through the NHL's own API. EV tiers: lean {config.LEAN_EV:.1%}+, play {config.PLAY_EV:.1%}+, strong {config.STRONG_EV:.1%}+. Moneyline and over/under chances blend the model with the market's no-vig price ({config.ML_MODEL_WEIGHT:.0%} / {config.TOTAL_MODEL_WEIGHT:.0%} model, in log-odds) before EV is computed. Totals are flagged at {config.TOTAL_MIN_EV:.0%}+ EV. Records are kept in units (1 unit per pick). Confidence weighs whether our xG, MoneyPuck, goals and Elo each see value on the side, EV, line movement and data quality. Weights and home ice are refit weekly to graded games.</p>
 <p>Data: NHL public API (schedule, play-by-play, odds), MoneyPuck.com (team xG, goalie GSAx), ESPN (probable goalies). For entertainment only.</p>"""
 
 
