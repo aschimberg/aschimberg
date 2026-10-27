@@ -1,9 +1,11 @@
 {
- "generated_at": "2026-10-27T16:06:50Z",
+ "generated_at": "2026-10-27T22:59:32Z",
  "poll": "AP Top 25",
  "season": 2026,
  "season_type": "regular",
  "settings": {
+  "anchor_max_shift": 1.5,
+  "anchor_weight": 0.15,
   "bye_days": 13,
   "conf_high": 70.0,
   "conf_medium": 55.0,
