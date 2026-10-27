@@ -70,4 +70,5 @@ PROPS_MIN_PROB = _f("NFL_PROPS_MIN_PROB", 0.20)
 PROPS_MODEL_WEIGHT = _f("NFL_PROPS_MODEL_WEIGHT", 0.4)  # model share of the log-odds when blended with the market
 PROPS_MAX_RATIO = _f("NFL_PROPS_MAX_RATIO", 2.5)  # no bet when model and market probabilities differ by more than this
 PROPS_MIN_GAMES = int(_f("NFL_PROPS_MIN_GAMES", 2))  # usage history needed before a player can be a best bet
+PROPS_TD_PER_POINT = _f("NFL_PROPS_TD_PER_POINT", 0.112)  # offensive TDs per point scored (2018-25: ~2.5 TDs per 22 pts)
 PROPS_HOURS = _f("NFL_PROPS_HOURS", 36)  # fetch prop odds only for games starting within this window

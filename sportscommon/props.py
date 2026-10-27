@@ -62,10 +62,11 @@ def price(players, market=None, model_weight=0.4):
         row = dict(pl, p=round(pm, 3), p_model=round(pm, 3))
         m = (market or {}).get(norm_name(pl["name"]))
         if m:
-            p = blend(pm, m["mkt_prob"], model_weight) if m.get("mkt_prob") else pm
+            fair = m.get("fair_prob", m.get("mkt_prob"))  # margin-free when devig() has run
+            p = blend(pm, fair, model_weight) if fair else pm
             dec = american_to_decimal(m["price"])
             ev = p * dec - 1
-            row.update(p=round(p, 3), odds=m["price"], book=m.get("book"), n_books=m.get("n_books"), mkt_prob=m.get("mkt_prob"),
+            row.update(p=round(p, 3), odds=m["price"], book=m.get("book"), n_books=m.get("n_books"), mkt_prob=fair,
                        ev=round(ev, 4), kelly=round(ev / (dec - 1), 4) if dec > 1 else None)
         row["fair"] = round(prob_to_american(row["p"])) if 0 < row["p"] < 1 else None
         out.append(row)
@@ -114,8 +115,30 @@ def parse_market(event, market_key):
     for k, rows in by.items():
         best = max(rows, key=lambda r: american_to_decimal(r[0]))
         probs = sorted(1 / american_to_decimal(r[0]) for r in rows)
-        out[k] = {"price": best[0], "book": best[1], "n_books": len(rows), "mkt_prob": round(probs[len(probs) // 2], 3)}
+        mid = len(probs) // 2
+        med = probs[mid] if len(probs) % 2 else (probs[mid - 1] + probs[mid]) / 2
+        out[k] = {"price": best[0], "book": best[1], "n_books": len(rows), "mkt_prob": round(med, 3)}
     return out
+
+
+def devig(market, expected_tds, default_scale=0.85):
+    """Strip the bookmaker's margin from 'Yes'-only anytime prices.
+
+    Books post only the Yes side, so their implied chances add up to more
+    touchdowns than the game will produce. Each player's implied scoring rate
+    (-ln(1-p)) is scaled so the game's total matches expected_tds (from the
+    betting total); without a total, a typical margin is assumed. Never scales
+    up. Adds 'fair_prob' to each entry and returns the scale used.
+    """
+    if not market:
+        return None
+    lam = {k: -math.log(max(1e-6, 1 - v["mkt_prob"])) for k, v in market.items()}
+    total = sum(lam.values())
+    scale = min(1.0, expected_tds / total) if expected_tds and total else default_scale
+    scale = max(scale, 0.6)
+    for k, v in market.items():
+        v["fair_prob"] = round(1 - math.exp(-lam[k] * scale), 3)
+    return round(scale, 3)
 
 
 def grade(bets, scorer_ids, scorer_names=()):

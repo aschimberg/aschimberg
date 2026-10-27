@@ -56,7 +56,8 @@ Each NFL game card has a section with the top 2–3 anytime TD bets.
 - **Pricing and ranking:**
   - P(scores) = 1 − e^(−expected scores).
   - With `ODDS_API_KEY` set, market prices come from The Odds API (`player_anytime_td`), using the best price across books.
-  - With a price, the chance to score blends the model (40%) with the books' consensus (60%) in log-odds. Anytime-TD markets are sharp, and the raw model is least reliable for backups with little usage.
+  - Books only post "Yes" prices, so those prices include the book's cut. Before blending, each player's market chance is scaled down so the game's total adds up to the expected TDs (game total × 0.112, `NFL_PROPS_TD_PER_POINT`). The scale stays between 0.6 and 1.0, and defaults to 0.85 when there's no game total.
+  - With a price, the chance to score blends the model (40%) with the books' cut-free consensus (60%) in log-odds. Anytime-TD markets are sharp, and the raw model is least reliable for backups with little usage.
   - Best bets need 3%+ EV and a 20% chance to score (both on the blended number), at least 2 games of usage history, and a model number within 2.5× of the market's. A bigger gap usually means the model is missing something, like a stale depth chart.
   - Bets are ranked by Kelly fraction (EV weighted by probability). Settings: `NFL_PROPS_MODEL_WEIGHT`, `NFL_PROPS_MIN_GAMES`, `NFL_PROPS_MAX_RATIO`.
   - Without prices, the section shows the top scoring chances with fair odds.

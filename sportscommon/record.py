@@ -13,7 +13,8 @@ def rec(items, key):
     return r
 
 
-TOTAL_TIERS = {"lean": ("lean", "play", "strong"), "play": ("play", "strong"), "strong": ("strong",)}
+TIERS = {"lean": ("lean", "play", "strong"), "play": ("play", "strong"), "strong": ("strong",)}
+TOTAL_TIERS = TIERS
 
 
 def totals(items, edges=None):
@@ -31,20 +32,27 @@ def compute(picks, season, lean, play, strong, period_key=("season", "season_typ
     graded = [p for p in picks.values() if p.get("result") and (season is None or p["season"] == season)]
     ats = [p for p in graded if p["result"].get("ats")]
 
-    def tier(min_edge):
-        return rec([p for p in ats if (p.get("edge") or 0) >= min_edge], "ats")
+    def qualifies(p, min_edge, name):
+        # the pick's own tier when it has one (NFL demotes sub-50% covers to "pass"), else its edge
+        t = p.get("tier")
+        if t in ("pass", "lean", "play", "strong"):
+            return t in TIERS[name]
+        return (p.get("edge") or 0) >= min_edge
+
+    def tier(min_edge, name):
+        return rec([p for p in ats if qualifies(p, min_edge, name)], "ats")
 
     weeks = defaultdict(list)
     for p in graded:
         weeks[tuple(p.get(k) for k in period_key)].append(p)
     by_week = [
         {"season": k[0], "season_type": k[1], "week": k[2], "su": rec(items, "su"), "ats": rec(items, "ats"),
-         "ats_plays": rec([p for p in items if (p.get("edge") or 0) >= play], "ats"), "ou": rec(items, "total")}
+         "ats_plays": rec([p for p in items if qualifies(p, play, "play")], "ats"), "ou": rec(items, "total")}
         for k, items in sorted(weeks.items(), key=lambda kv: (kv[0][0], kv[0][1] != "regular", kv[0][2]))
     ]
     return {
         "su": rec(graded, "su"), "ats": rec(ats, "ats"),
         "ats_by_conf": {lbl: rec([p for p in ats if p.get("conf_label") == lbl], "ats") for lbl in ("High", "Medium", "Low")},
-        "ats_lean": tier(lean), "ats_play": tier(play), "ats_strong": tier(strong), "by_week": by_week,
+        "ats_lean": tier(lean, "lean"), "ats_play": tier(play, "play"), "ats_strong": tier(strong, "strong"), "by_week": by_week,
         "ou": totals(graded, total_edges),
     }

@@ -1,3 +1,4 @@
+import math
 import unittest
 
 from sportscommon import props
@@ -47,6 +48,20 @@ class PropsTests(unittest.TestCase):
         self.assertTrue(0.25 < sb["p"] < sb["p_model"])  # pulled toward the market
         bets = props.best_bets(priced, n=3, min_ev=0.03, min_prob=0.2, min_games=2, max_ratio=2.5)
         self.assertEqual([b["name"] for b in bets if b["bet"]], ["Starter Back"])  # no history / model-market gap -> no bet
+
+    def test_devig_scales_yes_only_prices_to_expected_tds(self):
+        market = {"a": {"mkt_prob": 0.56}, "b": {"mkt_prob": 0.40}, "c": {"mkt_prob": 0.30}, "d": {"mkt_prob": 0.25},
+                  "e": {"mkt_prob": 0.20}, "f": {"mkt_prob": 0.15}, "g": {"mkt_prob": 0.12}, "h": {"mkt_prob": 0.10},
+                  "i": {"mkt_prob": 0.08}, "j": {"mkt_prob": 0.06}, "k": {"mkt_prob": 0.05}, "l": {"mkt_prob": 0.04}}
+        lam = sum(-math.log(1 - v["mkt_prob"]) for v in market.values())
+        scale = props.devig(market, 0.9 * lam)
+        self.assertAlmostEqual(scale, 0.9, places=3)
+        self.assertTrue(all(v["fair_prob"] < v["mkt_prob"] for v in market.values()))
+        self.assertAlmostEqual(sum(-math.log(1 - v["fair_prob"]) for v in market.values()), 0.9 * lam, delta=0.02)
+        self.assertEqual(props.devig(market, 10 * lam), 1.0)   # never scales prices up
+        self.assertEqual(props.devig(market, 0.1 * lam), 0.6)  # clamped
+        self.assertEqual(props.devig(market, None), 0.85)      # no game total: default
+        self.assertIsNone(props.devig({}, 5.0))
 
     def test_record_per_game_and_top_pick(self):
         games = [{"props": [{"name": "A", "p": 0.5, "result": "W", "bet": False}, {"name": "B", "p": 0.3, "result": "W", "bet": False},
