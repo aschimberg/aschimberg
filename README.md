@@ -34,7 +34,7 @@ The same site serves `/nfl/`, `/nhl/` and `/nba/` (switch sports in the header).
 - **Team strength:** opponent-adjusted xG and goals per game, blended with Elo and with MoneyPuck's xG. MoneyPuck's model adds shooter talent and adjusts for flurries, score state and venue.
 - **Goalies:** GSAx (goals saved above expected) for the starter. The starter is ESPN's listed probable goalie once it's posted (usually the morning of the game). Until then it's projected from recent starts, with the backup assumed on the second night of a back-to-back. Cards mark each goalie as probable or projected.
 - **Back-to-backs:** a penalty for the second night.
-- **Score distribution:** regulation Poisson, plus empty-net goals and an overtime/shootout step. This gives win, puck-line and total probabilities.
+- **Score distribution:** regulation Poisson, reweighted so ties and one-goal games happen as often as in real games (about 26% reach overtime), plus empty-net goals at last season's measured rates and an overtime/shootout step. This gives win, puck-line and total probabilities. Checked against 1,312 games from 2025-26, it reproduces the average total (6.25), the home −1.5 cover rate (30%) and the over 5.5/6.5 rates within a point.
 - **Picks:** moneyline value picks by EV%, totals at 3%+ EV, records in units, and a briefing only on days with value.
 
 **NBA** (`nbamodel/`, data from ESPN's public API, no key needed: schedule, scores, box scores, DraftKings spreads/totals/moneylines with opening and closing prices, and the injury report):

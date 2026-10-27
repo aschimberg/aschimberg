@@ -37,8 +37,16 @@ ELO_REVERT = 0.3
 ELO_PER_GOAL = _f("NHL_ELO_PER_GOAL", 150)
 
 # Score distribution
-EN_GOAL_LEAD1 = _f("NHL_EN1", 0.22)  # P(empty-net goal | leading by 1 late)
-EN_GOAL_LEAD2 = _f("NHL_EN2", 0.10)
+# Measured on 1,312 regular-season 2025-26 games. Lambdas are regulation goals
+# without empty-netters, so both tables are conditioned on that margin.
+# Independent Poisson gives too few ties (0.17 vs 0.26: goals scored 6-on-5
+# with the goalie pulled turn one-goal deficits into ties), so each regulation
+# score is reweighted by its margin |m| = 0, 1, 2, 3, 4+.
+MARGIN_WEIGHTS = (1.50, 1.07, 0.76, 0.80, 0.83)
+# Chance the leader adds 0, 1, 2 empty-net goals, by regulation (non-EN) lead.
+EN_GOALS = {1: (0.52, 0.39, 0.09), 2: (0.25, 0.72, 0.03), 3: (0.62, 0.38), 4: (0.97, 0.03)}
+# win probability ≈ Φ(margin / WP_SCALE) under the sim; used to turn the market price into a margin
+WP_SCALE = 2.58
 OT_DECIDED = 0.6  # share of OTs decided in 3-on-3 (rest go to a shootout)
 MAX_GOALS = 12
 

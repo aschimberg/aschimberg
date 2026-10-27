@@ -207,6 +207,10 @@ def team_lambda(fit, att, dfn):
     return fit["mu"] + fit["off"].get(att, 0.0) - fit["def"].get(dfn, 0.0)
 
 
+def fit_hfa(fit):
+    return fit.get("hfa", 0.0) if fit else 0.0
+
+
 def inv_normal(p):
     lo, hi = -6.0, 6.0
     for _ in range(60):
@@ -303,7 +307,8 @@ def refresh(loader=None, now=None, log=print):
                  "elo": round((elo.get(h, 1500) - elo.get(a, 1500)) / config.ELO_PER_GOAL, 3)}
         # MoneyPuck (flurry/score/venue-adjusted xG); our xG stands in if it's unavailable
         diffs["mp"] = round(sum(mp_str[h]) - sum(mp_str[a]), 3) if h in mp_str and a in mp_str else diffs["xg"]
-        total = 0.75 * sum(lam["xg"]) + 0.25 * sum(lam["goals"])
+        # team_lambda is the away/neutral rate; the fitted home edge adds to the home side
+        total = 0.75 * (sum(lam["xg"]) + fit_hfa(xg_fit) * hflag) + 0.25 * (sum(lam["goals"]) + fit_hfa(gl_fit) * hflag)
 
         b2b = {}
         gls = {}
@@ -375,7 +380,7 @@ def refresh(loader=None, now=None, log=print):
                          "tier": tier(ev), "ev": round(ev, 4), "odds": odds_side, "prob": round(p_side, 3),
                          "mkt_prob": round(mkt_side, 3), "model_prob": round(p_model_side, 3),
                          "pl_alt": puck_line_alt(side, mkt_side, ev, o, mk)})
-            m_mkt = 2.2 * inv_normal(ph_mkt)
+            m_mkt = config.WP_SCALE * inv_normal(ph_mkt)
             covers = {k: sign * (diffs[k] + config.HOME_ICE * hflag + offset - m_mkt) for k in SOURCES}
             move = None
             if snaps:
@@ -725,7 +730,7 @@ def method_html(model):
 <h3>Schedule and home ice</h3>
 <p>Home ice {config.HOME_ICE:.2g} goals of margin (~54% home win rate). Second night of a back-to-back costs {config.B2B_PENALTY:g} goals (~5% win probability).</p>
 <h3>Game simulation</h3>
-<p>Regulation goals are Poisson; a team leading by one late scores into the empty net {config.EN_GOAL_LEAD1:.0%} of the time (by two: {config.EN_GOAL_LEAD2:.0%}); ties go to 3-on-3 overtime ({config.OT_DECIDED:.0%} decided, in proportion to scoring rates) and then a shootout. That gives win, puck-line (±1.5) and total probabilities and fair odds.</p>
+<p>Regulation goals are Poisson, reweighted so ties and one-goal games happen as often as they did in 2025-26 (about 26% of games reach overtime). Empty-net goals follow last season's rates: a team up one adds at least one {1 - config.EN_GOALS[1][0]:.0%} of the time, up two {1 - config.EN_GOALS[2][0]:.0%}. Ties go to 3-on-3 overtime ({config.OT_DECIDED:.0%} decided, in proportion to scoring rates) and then a shootout. That gives win, puck-line (±1.5) and total probabilities and fair odds.</p>
 <h3>Picks</h3>
 <p>Moneyline value: model win probability vs DraftKings odds published through the NHL's own API. EV tiers: lean {config.LEAN_EV:.1%}+, play {config.PLAY_EV:.1%}+, strong {config.STRONG_EV:.1%}+. Totals are flagged at {config.TOTAL_MIN_EV:.0%}+ EV. Records are kept in units (1 unit per pick). Confidence weighs whether our xG, MoneyPuck, goals and Elo each see value on the side, EV, line movement and data quality. Weights and home ice are refit weekly to graded games.</p>
 <p>Data: NHL public API (schedule, play-by-play, odds), MoneyPuck.com (team xG, goalie GSAx), ESPN (probable goalies). For entertainment only.</p>"""

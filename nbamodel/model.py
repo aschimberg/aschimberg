@@ -65,7 +65,7 @@ def project(g, st, expected_h, expected_a, dates_by_team, elo_pair=None):
         oh = eff["off"].get(h, 0.0) - eff["def"].get(a, 0.0)
         oa = eff["off"].get(a, 0.0) - eff["def"].get(h, 0.0)
         eff_m = (oh - oa) * poss / 100
-        eff_total = poss * (2 * eff["mu"] + oh + oa) / 100
+        eff_total = poss * (2 * eff["mu"] + oh + oa + eff.get("hfa", 0.0) * hflag) / 100
     else:
         eff_m, eff_total = 0.0, None
     if pts:
