@@ -9379,7 +9379,7 @@
     "epa": 0.5
    },
    "edge": 1.1,
-   "ev": 0.059,
+   "ev": 0.093,
    "hfa_flag": 1,
    "home": "Dallas Cowboys",
    "home_abbr": "DAL",
@@ -9451,7 +9451,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-27T11:26:08Z",
+   "updated": "2026-10-27T15:54:50Z",
    "week": 8,
    "weights": {
     "elo": 0.928,
@@ -9540,15 +9540,15 @@
     },
     {
      "bet": false,
-     "fair": 288,
-     "games": 17,
-     "lam": 0.2986,
-     "name": "Sean Tucker",
+     "fair": 268,
+     "games": 23,
+     "lam": 0.3172,
+     "name": "Emeka Egbuka",
      "note": "no market price yet",
-     "p": 0.258,
-     "p_model": 0.258,
-     "pid": "00-0038951",
-     "pos": "RB",
+     "p": 0.272,
+     "p_model": 0.272,
+     "pid": "00-0040129",
+     "pos": "WR",
      "team": "TB"
     }
    ],
@@ -9570,7 +9570,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-27T11:26:08Z",
+   "updated": "2026-10-27T15:54:50Z",
    "week": 8,
    "weights": {
     "elo": 0.928,
@@ -9586,86 +9586,86 @@
    "bet_at": "2026-10-26T00:26:28Z",
    "bet_line": -3.0,
    "book": "nflverse consensus",
-   "conf_label": "High",
-   "confidence": 82,
+   "conf_label": "Medium",
+   "confidence": 67,
    "confidence_detail": {
-    "agree": 2,
+    "agree": 1,
     "components": {
-     "agreement": 1.0,
+     "agreement": 0.928,
      "consistency": 0.795,
      "data": 1.0,
-     "edge": 1.0,
+     "edge": 0.454,
      "market": 0.7,
      "trends": 0.25
     },
-    "label": "High",
+    "label": "Medium",
     "n_sources": 2,
-    "score": 82,
+    "score": 67,
     "side": "home",
     "source_names": {
      "elo": "Elo",
      "epa": "EPA"
     },
     "sources": {
-     "elo": 9.9,
-     "epa": 7.0
+     "elo": 5.8,
+     "epa": 2.9
     }
    },
-   "cover_prob": 0.646,
+   "cover_prob": 0.531,
    "diffs": {
     "elo": 5.4,
     "epa": 2.53
    },
-   "edge": 6.2,
-   "ev": 0.279,
+   "edge": 2.0,
+   "ev": 0.063,
    "hfa_flag": 1,
    "home": "Buffalo Bills",
    "home_abbr": "BUF",
    "home_field": 1.644,
    "id": "2026_08_BAL_BUF",
    "line": -3.5,
-   "model_spread": -9.7,
+   "model_spread": -5.5,
    "model_total": 59.3,
    "neutral": false,
-   "offset": 2.82,
-   "proj_away": 24.8,
-   "proj_home": 34.5,
+   "offset": -1.29,
+   "proj_away": 26.9,
+   "proj_home": 32.4,
    "props": [
     {
      "bet": false,
-     "fair": -142,
+     "fair": -161,
      "games": 24,
-     "lam": 0.8851,
+     "lam": 0.96,
      "name": "Derrick Henry",
      "note": "no market price yet",
-     "p": 0.587,
-     "p_model": 0.587,
+     "p": 0.617,
+     "p_model": 0.617,
      "pid": "00-0032764",
      "pos": "RB",
      "team": "BAL"
     },
     {
      "bet": false,
-     "fair": -130,
+     "fair": -119,
      "games": 25,
-     "lam": 0.8336,
+     "lam": 0.7829,
      "name": "James Cook III",
      "note": "no market price yet",
-     "p": 0.566,
-     "p_model": 0.566,
+     "p": 0.543,
+     "p_model": 0.543,
      "pid": "00-0037248",
      "pos": "RB",
      "team": "BUF"
     },
     {
      "bet": false,
-     "fair": 124,
+     "fair": 134,
      "games": 24,
-     "lam": 0.5924,
+     "lam": 0.5563,
      "name": "Josh Allen",
      "note": "no market price yet",
-     "p": 0.447,
-     "p_model": 0.447,
+     "p": 0.427,
+     "p_model": 0.427,
      "pid": "00-0034857",
      "pos": "QB",
      "team": "BUF"
@@ -9676,20 +9676,20 @@
    "season_type": "regular",
    "start": "2026-11-01T18:00:00Z",
    "su_team": "Buffalo Bills",
-   "su_wp": 0.758,
-   "tier": "strong",
-   "total_line": 53.25,
+   "su_wp": 0.657,
+   "tier": "lean",
+   "total_line": 53.5,
    "total_pick": {
-    "edge": 6.1,
-    "line": 53.25,
+    "edge": 5.8,
+    "line": 53.5,
     "model": 59.3,
     "odds": null,
     "play": true,
-    "prob": 0.674,
+    "prob": 0.668,
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-27T11:26:08Z",
+   "updated": "2026-10-27T15:54:50Z",
    "week": 8,
    "weights": {
     "elo": 0.928,
@@ -9808,7 +9808,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-27T11:26:08Z",
+   "updated": "2026-10-27T15:54:50Z",
    "week": 8,
    "weights": {
     "elo": 0.928,
@@ -9855,7 +9855,7 @@
     "epa": 1.24
    },
    "edge": 1.7,
-   "ev": 0.016,
+   "ev": 0.027,
    "hfa_flag": 1,
    "home": "Seattle Seahawks",
    "home_abbr": "SEA",
@@ -9884,6 +9884,19 @@
     },
     {
      "bet": false,
+     "fair": 172,
+     "games": 17,
+     "lam": 0.459,
+     "name": "Zach Charbonnet",
+     "note": "no market price yet",
+     "p": 0.368,
+     "p_model": 0.368,
+     "pid": "00-0039165",
+     "pos": "RB",
+     "team": "SEA"
+    },
+    {
+     "bet": false,
      "fair": 176,
      "games": 27,
      "lam": 0.4491,
@@ -9893,19 +9906,6 @@
      "p_model": 0.362,
      "pid": "00-0038543",
      "pos": "WR",
-     "team": "SEA"
-    },
-    {
-     "bet": false,
-     "fair": 227,
-     "games": 24,
-     "lam": 0.366,
-     "name": "Emanuel Wilson",
-     "note": "no market price yet",
-     "p": 0.306,
-     "p_model": 0.306,
-     "pid": "00-0038797",
-     "pos": "RB",
      "team": "SEA"
     }
    ],
@@ -9927,7 +9927,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-27T11:26:08Z",
+   "updated": "2026-10-27T15:54:50Z",
    "week": 8,
    "weights": {
     "elo": 0.928,
@@ -10046,7 +10046,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-27T11:26:08Z",
+   "updated": "2026-10-27T15:54:50Z",
    "week": 8,
    "weights": {
     "elo": 0.928,
@@ -10165,7 +10165,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-27T11:26:08Z",
+   "updated": "2026-10-27T15:54:50Z",
    "week": 8,
    "weights": {
     "elo": 0.928,
@@ -10173,7 +10173,7 @@
    }
   },
   "2026_08_KC_DEN": {
-   "ats_line": 1.5,
+   "ats_line": 1.0,
    "ats_side": "home",
    "ats_team": "Denver Broncos",
    "away": "Kansas City Chiefs",
@@ -10182,7 +10182,7 @@
    "bet_line": 1.5,
    "book": "nflverse consensus",
    "conf_label": "High",
-   "confidence": 87,
+   "confidence": 90,
    "confidence_detail": {
     "agree": 2,
     "components": {
@@ -10190,12 +10190,12 @@
      "consistency": 0.814,
      "data": 1.0,
      "edge": 1.0,
-     "market": 0.5,
+     "market": 0.7,
      "trends": 0.75
     },
     "label": "High",
     "n_sources": 2,
-    "score": 87,
+    "score": 90,
     "side": "home",
     "source_names": {
      "elo": "Elo",
@@ -10206,19 +10206,19 @@
      "epa": 1.1
     }
    },
-   "cover_prob": 0.624,
+   "cover_prob": 0.616,
    "diffs": {
     "elo": 2.47,
     "epa": -0.14
    },
-   "edge": 5.0,
-   "ev": 0.191,
+   "edge": 4.5,
+   "ev": 0.171,
    "hfa_flag": 1,
    "home": "Denver Broncos",
    "home_abbr": "DEN",
    "home_field": 1.644,
    "id": "2026_08_KC_DEN",
-   "line": 1.5,
+   "line": 1.0,
    "model_spread": -3.5,
    "model_total": 45.0,
    "neutral": false,
@@ -10241,6 +10241,19 @@
     },
     {
      "bet": false,
+     "fair": 167,
+     "games": 11,
+     "lam": 0.4701,
+     "name": "Rashee Rice",
+     "note": "no market price yet",
+     "p": 0.375,
+     "p_model": 0.375,
+     "pid": "00-0039067",
+     "pos": "WR",
+     "team": "KC"
+    },
+    {
+     "bet": false,
      "fair": 170,
      "games": 25,
      "lam": 0.4643,
@@ -10249,19 +10262,6 @@
      "p": 0.371,
      "p_model": 0.371,
      "pid": "00-0040730",
-     "pos": "RB",
-     "team": "DEN"
-    },
-    {
-     "bet": false,
-     "fair": 172,
-     "games": 17,
-     "lam": 0.4586,
-     "name": "J.K. Dobbins",
-     "note": "no market price yet",
-     "p": 0.368,
-     "p_model": 0.368,
-     "pid": "00-0036158",
      "pos": "RB",
      "team": "DEN"
     }
@@ -10284,7 +10284,7 @@
     "side": "over",
     "tier": "play"
    },
-   "updated": "2026-10-27T11:26:08Z",
+   "updated": "2026-10-27T15:54:50Z",
    "week": 8,
    "weights": {
     "elo": 0.928,
@@ -10331,7 +10331,7 @@
     "epa": 13.78
    },
    "edge": 1.9,
-   "ev": -0.001,
+   "ev": -0.025,
    "hfa_flag": 1,
    "home": "Los Angeles Rams",
    "home_abbr": "LA",
@@ -10403,7 +10403,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-27T11:26:08Z",
+   "updated": "2026-10-27T15:54:50Z",
    "week": 8,
    "weights": {
     "elo": 0.928,
@@ -10411,7 +10411,7 @@
    }
   },
   "2026_08_LV_NYJ": {
-   "ats_line": 0.5,
+   "ats_line": -0.0,
    "ats_side": "away",
    "ats_team": "Las Vegas Raiders",
    "away": "Las Vegas Raiders",
@@ -10419,21 +10419,21 @@
    "bet_at": "2026-10-26T23:21:52Z",
    "bet_line": -0.5,
    "book": "nflverse consensus",
-   "conf_label": "High",
-   "confidence": 74,
+   "conf_label": "Medium",
+   "confidence": 69,
    "confidence_detail": {
     "agree": 1,
     "components": {
      "agreement": 0.928,
      "consistency": 0.789,
      "data": 1.0,
-     "edge": 0.316,
-     "market": 0.9,
-     "trends": 0.75
+     "edge": 0.205,
+     "market": 1.0,
+     "trends": 0.5
     },
-    "label": "High",
+    "label": "Medium",
     "n_sources": 2,
-    "score": 74,
+    "score": 69,
     "side": "away",
     "source_names": {
      "elo": "Elo",
@@ -10444,19 +10444,19 @@
      "epa": 1.8
     }
    },
-   "cover_prob": 0.528,
+   "cover_prob": 0.527,
    "diffs": {
     "elo": -1.49,
     "epa": 1.46
    },
-   "edge": 1.4,
-   "ev": -0.038,
+   "edge": 0.9,
+   "ev": 0.08,
    "hfa_flag": 1,
    "home": "New York Jets",
    "home_abbr": "NYJ",
    "home_field": 1.644,
    "id": "2026_08_LV_NYJ",
-   "line": -0.5,
+   "line": 0.0,
    "model_spread": 0.9,
    "model_total": 44.7,
    "neutral": false,
@@ -10479,6 +10479,19 @@
     },
     {
      "bet": false,
+     "fair": 165,
+     "games": 19,
+     "lam": 0.4739,
+     "name": "Breece Hall",
+     "note": "no market price yet",
+     "p": 0.377,
+     "p_model": 0.377,
+     "pid": "00-0038120",
+     "pos": "RB",
+     "team": "NYJ"
+    },
+    {
+     "bet": false,
      "fair": 188,
      "games": 3,
      "lam": 0.4267,
@@ -10489,19 +10502,6 @@
      "pid": "00-0041511",
      "pos": "WR",
      "team": "NYJ"
-    },
-    {
-     "bet": false,
-     "fair": 247,
-     "games": 17,
-     "lam": 0.3391,
-     "name": "Brock Bowers",
-     "note": "no market price yet",
-     "p": 0.288,
-     "p_model": 0.288,
-     "pid": "00-0039338",
-     "pos": "TE",
-     "team": "LV"
     }
    ],
    "result": null,
@@ -10522,7 +10522,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-27T11:26:08Z",
+   "updated": "2026-10-27T15:54:50Z",
    "week": 8,
    "weights": {
     "elo": 0.928,
@@ -10641,7 +10641,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-27T11:26:08Z",
+   "updated": "2026-10-27T15:54:50Z",
    "week": 8,
    "weights": {
     "elo": 0.928,
@@ -10760,7 +10760,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-27T11:26:08Z",
+   "updated": "2026-10-27T15:54:50Z",
    "week": 8,
    "weights": {
     "elo": 0.928,
@@ -10768,7 +10768,7 @@
    }
   },
   "2026_08_PHI_WAS": {
-   "ats_line": 4.5,
+   "ats_line": 4.0,
    "ats_side": "away",
    "ats_team": "Philadelphia Eagles",
    "away": "Philadelphia Eagles",
@@ -10777,20 +10777,20 @@
    "bet_line": -3.5,
    "book": "nflverse consensus",
    "conf_label": "Medium",
-   "confidence": 56,
+   "confidence": 57,
    "confidence_detail": {
     "agree": 1,
     "components": {
      "agreement": 0.928,
      "consistency": 0.882,
      "data": 1.0,
-     "edge": 0.144,
-     "market": 0.1,
+     "edge": 0.033,
+     "market": 0.3,
      "trends": 0.625
     },
     "label": "Medium",
     "n_sources": 2,
-    "score": 56,
+    "score": 57,
     "side": "away",
     "source_names": {
      "elo": "Elo",
@@ -10801,19 +10801,19 @@
      "epa": 5.4
     }
    },
-   "cover_prob": 0.546,
+   "cover_prob": 0.533,
    "diffs": {
     "elo": -1.34,
     "epa": 0.31
    },
-   "edge": 0.6,
-   "ev": 0.034,
+   "edge": 0.1,
+   "ev": 0.008,
    "hfa_flag": 1,
    "home": "Washington Commanders",
    "home_abbr": "WAS",
    "home_field": 1.644,
    "id": "2026_08_PHI_WAS",
-   "line": -4.5,
+   "line": -4.0,
    "model_spread": -3.9,
    "model_total": 43.9,
    "neutral": false,
@@ -10879,7 +10879,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-27T11:26:08Z",
+   "updated": "2026-10-27T15:54:50Z",
    "week": 8,
    "weights": {
     "elo": 0.928,
@@ -10998,7 +10998,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-27T11:26:08Z",
+   "updated": "2026-10-27T15:54:50Z",
    "week": 8,
    "weights": {
     "elo": 0.928,
