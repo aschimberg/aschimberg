@@ -491,6 +491,10 @@
       }
     } else {
       const bc = sr.ats_by_conf;
+      if (sr.plays) {
+        const pl = sr.plays, n = pl.W + pl.L + pl.P;
+        groups.push(["Plays · play or strong, sides + totals", tile("Plays", pl, true, n ? ` · ${pl.units >= 0 ? "+" : ""}${pl.units.toFixed(1)}u · ${pl.sides} sides, ${pl.totals} totals` : " · none graded yet")]);
+      }
       groups.push([`Sides · straight up and ${A}`,
         tile("Straight up", sr.su, false) +
         tile(`${A} · all`, sr.ats) +
@@ -802,17 +806,22 @@
       $("#record-strip").hidden = false;
       $("#record-label").textContent = `${m.sport_label || m.season} model record`;
       $("#record-dl").innerHTML = state.record.strip.map((c) => `<div><dt>${esc(c.k)}</dt><dd>${recStr(c.rec)}<small>${pct(c.rec.pct)} · ${esc(c.sub || "")}</small></dd></div>`).join("");
+      $("#record-strip").classList.toggle("cells-4", state.record.strip.length > 3);
+      $("#record-strip").classList.toggle("cells-5", state.record.strip.length > 4);
     } else if (sr && (sr.su.W + sr.su.L > 0)) {
       $("#record-strip").hidden = false;
       $("#record-label").textContent = `${m.season} model record`;
       const cell = (k, r, ties) => `<div><dt>${k}</dt><dd>${recStr(r, ties)}<small>${pct(r.pct)} win rate</small></dd></div>`;
       const td = sr.anytime_td;
       const cells = [cell("Straight up", sr.su, false), cell("Against the spread", sr.ats, true)];
-      if (!(td?.games)) cells.push(cell("ATS · plays+", sr.ats_play, true));
+      const pl = sr.plays;
+      if (pl) cells.push(`<div><dt>Plays</dt><dd>${recStr(pl)}<small>${pl.W + pl.L + pl.P ? `${pct(pl.pct)} · ${pl.units >= 0 ? "+" : ""}${pl.units.toFixed(1)}u` : "none graded yet"}</small></dd></div>`);
+      else cells.push(cell("ATS · plays+", sr.ats_play, true));
       if (sr.ou?.all && sr.ou.all.W + sr.ou.all.L > 0) cells.push(cell("Over/under", sr.ou.all, true));
       if (td?.games) cells.push(`<div><dt>Anytime TD</dt><dd>${td.hits_per_game.toFixed(2)}/gm<small>of ${Math.round(td.picks_per_game)} picks · exp ${td.exp_per_game.toFixed(2)}</small></dd></div>`);
       $("#record-dl").innerHTML = cells.join("");
       $("#record-strip").classList.toggle("cells-4", cells.length > 3);
+      $("#record-strip").classList.toggle("cells-5", cells.length > 4);
     }
   }
 

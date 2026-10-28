@@ -5,7 +5,7 @@ from zoneinfo import ZoneInfo
 from cfbmodel import store
 from sportscommon import confidence as conf
 from sportscommon import clv, oddsapi
-from sportscommon import ridge
+from sportscommon import record as recmod, ridge
 from sportscommon.props import blend
 from sportscommon import tuning as tunemod
 from sportscommon.odds import american_to_decimal, american_to_prob, fmt_american, no_vig, normal_cdf, prob_to_american
@@ -676,14 +676,15 @@ def compute_record(picks, season):
             "ats_by_conf": {lbl: _rec([p for p in ml if p.get("conf_label") == lbl]) for lbl in ("High", "Medium", "Low")},
             "totals": _rec([p for p in graded if p["result"].get("total")], "total", "total_units"),
             "totals_play": _rec([p for p in graded if p["result"].get("total") and (p.get("total_pick") or {}).get("play")], "total", "total_units"),
-            "dogs": dog_record(graded),
+            "dogs": dog_record(graded), "plays": recmod.plays(graded),
             "by_week": by_week}
 
 
 def record_tiles(sr):
     u = lambda r: f"{r['units']:+.1f}u" + (f" · ROI {r['roi'] * 100:+.1f}%" if r.get("roi") is not None else "")
     return [
-        {"k": "Moneyline · all sides", "rec": sr["ats"], "sub": u(sr["ats"])},
+        {"group": "Plays", "k": "Plays · ML + totals", "rec": sr["plays"], "sub": recmod.plays_sub(sr["plays"])},
+        {"group": "Moneyline and totals", "k": "Moneyline · all sides", "rec": sr["ats"], "sub": u(sr["ats"])},
         {"k": f"ML · EV {config.LEAN_EV * 100:g}%+", "rec": sr["ats_lean"], "sub": u(sr["ats_lean"])},
         {"k": f"ML · EV {config.PLAY_EV * 100:g}%+", "rec": sr["ats_play"], "sub": u(sr["ats_play"])},
         {"k": f"ML · EV {config.STRONG_EV * 100:g}%+", "rec": sr["ats_strong"], "sub": u(sr["ats_strong"])},
@@ -828,6 +829,7 @@ def write_record(now, season, picks):
                {"generated_at": iso(now), "season": season, "season_record": sr, "all_time": compute_record(picks, None),
                 "picks": rows, "tiles": record_tiles(sr),
                 "strip": [{"k": "Moneyline", "rec": sr["ats"], "sub": f"{sr['ats']['units']:+.1f} units"},
+                          {"k": "Plays", "rec": sr["plays"], "sub": recmod.plays_sub(sr["plays"])},
                           {"k": f"ML · EV {config.PLAY_EV * 100:g}%+", "rec": sr["ats_play"], "sub": f"{sr['ats_play']['units']:+.1f} units"},
                           {"k": "Totals", "rec": sr["totals"], "sub": f"{sr['totals']['units']:+.1f} units"}]},
                compact=True)

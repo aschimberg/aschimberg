@@ -25,3 +25,20 @@ class TotalsRecordTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class PlaysRecordTests(unittest.TestCase):
+    def test_sides_and_totals_at_play_or_strong(self):
+        from sportscommon import record as recmod
+        items = [
+            {"tier": "play", "result": {"ats": "W"}, "total_pick": {"tier": "lean"}},                     # side counts at -110
+            {"tier": "lean", "result": {"ats": "W", "total": "L"}, "total_pick": {"tier": "strong", "odds": -120}},
+            {"tier": "strong", "odds": 150, "result": {"ats": "L", "units": -1.0}},                       # logged payout wins
+            {"tier": "play", "odds": 150, "result": {"ats": "W", "units": 1.5, "total": "P", "total_units": 0.0},
+             "total_pick": {"tier": "play"}},
+            {"tier": "pass", "result": {"ats": "W"}},
+        ]
+        r = recmod.plays(items)
+        self.assertEqual((r["W"], r["L"], r["P"], r["sides"], r["totals"]), (2, 2, 1, 3, 2))
+        self.assertAlmostEqual(r["units"], 0.909 - 1.0 - 1.0 + 1.5 + 0.0, places=2)
+        self.assertEqual(recmod.plays_sub(recmod.plays([])), "play or strong picks · none graded yet")
