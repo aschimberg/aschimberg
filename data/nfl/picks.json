@@ -9454,7 +9454,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-28T16:42:37Z",
+   "updated": "2026-10-28T23:21:05Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -9462,7 +9462,7 @@
    }
   },
   "2026_08_ATL_TB": {
-   "ats_line": 2.0,
+   "ats_line": 2.5,
    "ats_side": "away",
    "ats_team": "Atlanta Falcons",
    "away": "Atlanta Falcons",
@@ -9478,8 +9478,8 @@
      "agreement": 0.931,
      "consistency": 0.901,
      "data": 1.0,
-     "edge": 0.091,
-     "market": 0.3,
+     "edge": 0.202,
+     "market": 0.1,
      "trends": 0.75
     },
     "label": "Medium",
@@ -9495,20 +9495,20 @@
      "epa": 2.9
     }
    },
-   "cover_prob": 0.498,
+   "cover_prob": 0.5,
    "diffs": {
     "elo": -0.62,
     "epa": 0.76
    },
-   "edge": 0.4,
-   "ev": -0.055,
-   "fair_line": -1.3,
+   "edge": 0.9,
+   "ev": -0.053,
+   "fair_line": -1.6,
    "hfa_flag": 1,
    "home": "Tampa Bay Buccaneers",
    "home_abbr": "TB",
    "home_field": 1.519,
    "id": "2026_08_ATL_TB",
-   "line": -2.0,
+   "line": -2.5,
    "model_spread": -1.6,
    "model_total": 36.0,
    "neutral": false,
@@ -9576,7 +9576,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-28T16:42:37Z",
+   "updated": "2026-10-28T23:21:05Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -9623,7 +9623,7 @@
     "epa": 2.53
    },
    "edge": 2.4,
-   "ev": -0.058,
+   "ev": -0.051,
    "fair_line": -3.4,
    "hfa_flag": 1,
    "home": "Buffalo Bills",
@@ -9698,7 +9698,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-28T16:42:37Z",
+   "updated": "2026-10-28T23:21:05Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -9761,60 +9761,21 @@
    "proj_home": 26.5,
    "props": [
     {
-     "bet": false,
-     "book": "BetRivers",
-     "ev": -0.0643,
-     "fair": -108,
-     "games": 17,
-     "kelly": -0.0804,
-     "lam": 0.9254,
-     "mkt_prob": 0.463,
-     "n_books": 6,
-     "name": "Josh Jacobs",
-     "note": "no value at market price",
-     "odds": -125.0,
-     "p": 0.52,
-     "p_model": 0.604,
-     "pid": "00-0035700",
-     "pos": "RB",
-     "team": "GB"
-    },
-    {
-     "bet": false,
+     "bet": true,
      "book": "FanDuel",
-     "ev": -0.2534,
-     "fair": 151,
-     "games": 22,
-     "kelly": -0.2914,
-     "lam": 0.4362,
-     "mkt_prob": 0.431,
+     "ev": 0.0742,
+     "fair": 337,
+     "games": 7,
+     "kelly": 0.02,
+     "lam": 0.3815,
+     "mkt_prob": 0.18,
      "n_books": 6,
-     "name": "Chuba Hubbard",
-     "note": "no value at market price",
-     "odds": -115.0,
-     "p": 0.399,
-     "p_model": 0.354,
-     "pid": "00-0036555",
+     "name": "MarShawn Lloyd",
+     "odds": 370.0,
+     "p": 0.229,
+     "p_model": 0.317,
+     "pid": "00-0039811",
      "pos": "RB",
-     "team": "CAR"
-    },
-    {
-     "bet": false,
-     "book": "DraftKings",
-     "ev": -0.1788,
-     "fair": 187,
-     "games": 18,
-     "kelly": -0.1325,
-     "lam": 0.4799,
-     "mkt_prob": 0.329,
-     "n_books": 6,
-     "name": "Christian Watson",
-     "note": "no value at market price",
-     "odds": 135.0,
-     "p": 0.349,
-     "p_model": 0.381,
-     "pid": "00-0038124",
-     "pos": "WR",
      "team": "GB"
     }
    ],
@@ -9825,20 +9786,20 @@
    "su_team": "Green Bay Packers",
    "su_wp": 0.635,
    "tier": "pass",
-   "total_line": 47.5,
+   "total_line": 47.0,
    "total_pick": {
-    "edge": 0.9,
-    "ev": -0.0381,
-    "fair": 47.6,
-    "line": 47.5,
+    "edge": 1.4,
+    "ev": -0.0339,
+    "fair": 47.2,
+    "line": 47.0,
     "model": 48.4,
     "odds": null,
     "play": false,
-    "prob": 0.504,
+    "prob": 0.506,
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-28T16:42:37Z",
+   "updated": "2026-10-28T23:21:05Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -9960,7 +9921,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-10-28T16:42:37Z",
+   "updated": "2026-10-28T23:21:05Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10082,7 +10043,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-28T16:42:37Z",
+   "updated": "2026-10-28T23:21:05Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10204,7 +10165,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-28T16:42:37Z",
+   "updated": "2026-10-28T23:21:05Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10212,7 +10173,7 @@
    }
   },
   "2026_08_KC_DEN": {
-   "ats_line": 1.0,
+   "ats_line": 1.5,
    "ats_side": "home",
    "ats_team": "Denver Broncos",
    "away": "Kansas City Chiefs",
@@ -10221,20 +10182,20 @@
    "bet_line": 1.5,
    "book": "nflverse consensus",
    "conf_label": "High",
-   "confidence": 89,
+   "confidence": 87,
    "confidence_detail": {
     "agree": 2,
     "components": {
      "agreement": 1.0,
      "consistency": 0.814,
      "data": 1.0,
-     "edge": 0.975,
-     "market": 0.7,
+     "edge": 1.0,
+     "market": 0.5,
      "trends": 0.75
     },
     "label": "High",
     "n_sources": 2,
-    "score": 89,
+    "score": 87,
     "side": "home",
     "source_names": {
      "elo": "Elo",
@@ -10245,20 +10206,20 @@
      "epa": 1.0
     }
    },
-   "cover_prob": 0.517,
+   "cover_prob": 0.518,
    "diffs": {
     "elo": 2.47,
     "epa": -0.14
    },
-   "edge": 4.4,
-   "ev": -0.033,
-   "fair_line": -0.1,
+   "edge": 4.9,
+   "ev": -0.031,
+   "fair_line": 0.2,
    "hfa_flag": 1,
    "home": "Denver Broncos",
    "home_abbr": "DEN",
    "home_field": 1.519,
    "id": "2026_08_KC_DEN",
-   "line": 1.0,
+   "line": 1.5,
    "model_spread": -3.4,
    "model_total": 45.0,
    "neutral": false,
@@ -10326,7 +10287,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-28T16:42:37Z",
+   "updated": "2026-10-28T23:21:05Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10403,19 +10364,6 @@
     },
     {
      "bet": false,
-     "fair": 137,
-     "games": 23,
-     "lam": 0.5477,
-     "name": "Davante Adams",
-     "note": "no market price yet",
-     "p": 0.422,
-     "p_model": 0.422,
-     "pid": "00-0031381",
-     "pos": "WR",
-     "team": "LA"
-    },
-    {
-     "bet": false,
      "fair": 146,
      "games": 24,
      "lam": 0.5203,
@@ -10426,6 +10374,19 @@
      "pid": "00-0039075",
      "pos": "WR",
      "team": "LA"
+    },
+    {
+     "bet": false,
+     "fair": 193,
+     "games": 16,
+     "lam": 0.4163,
+     "name": "Omarion Hampton",
+     "note": "no market price yet",
+     "p": 0.341,
+     "p_model": 0.341,
+     "pid": "00-0040666",
+     "pos": "RB",
+     "team": "LAC"
     }
    ],
    "result": null,
@@ -10448,7 +10409,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-28T16:42:37Z",
+   "updated": "2026-10-28T23:21:05Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10570,7 +10531,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-28T16:42:37Z",
+   "updated": "2026-10-28T23:21:05Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10692,7 +10653,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-28T16:42:37Z",
+   "updated": "2026-10-28T23:21:05Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10814,7 +10775,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-28T16:42:37Z",
+   "updated": "2026-10-28T23:21:05Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10861,7 +10822,7 @@
     "epa": 0.31
    },
    "edge": 1.8,
-   "ev": -0.016,
+   "ev": -0.033,
    "fair_line": -5.8,
    "hfa_flag": 1,
    "home": "Washington Commanders",
@@ -10891,19 +10852,6 @@
     },
     {
      "bet": false,
-     "fair": 194,
-     "games": 6,
-     "lam": 0.4152,
-     "name": "Dameon Pierce",
-     "note": "no market price yet",
-     "p": 0.34,
-     "p_model": 0.34,
-     "pid": "00-0037258",
-     "pos": "RB",
-     "team": "PHI"
-    },
-    {
-     "bet": false,
      "fair": 204,
      "games": 22,
      "lam": 0.3985,
@@ -10914,6 +10862,19 @@
      "pid": "00-0037256",
      "pos": "RB",
      "team": "WAS"
+    },
+    {
+     "bet": false,
+     "fair": 232,
+     "games": 21,
+     "lam": 0.3583,
+     "name": "Dallas Goedert",
+     "note": "no market price yet",
+     "p": 0.301,
+     "p_model": 0.301,
+     "pid": "00-0034351",
+     "pos": "TE",
+     "team": "PHI"
     }
    ],
    "result": null,
@@ -10936,7 +10897,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-28T16:42:37Z",
+   "updated": "2026-10-28T23:21:05Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -11058,7 +11019,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-28T16:42:37Z",
+   "updated": "2026-10-28T23:21:05Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
