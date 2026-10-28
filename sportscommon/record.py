@@ -37,23 +37,11 @@ def _units(res, odds):
     return round(american_to_decimal(odds or -110) - 1, 3) if res == "W" else -1.0
 
 
-def plays(items):
-    """Every pick rated play or strong, sides and totals together, by the tier it
-    was logged with. Units use the logged payout, else the pick's price, else -110."""
-    r = {"W": 0, "L": 0, "P": 0, "units": 0.0, "sides": 0, "totals": 0}
-    for p in items:
-        res = p.get("result") or {}
-        side = res.get("ats")
-        if p.get("tier") in PLAY_TIERS and side in ("W", "L", "P"):
-            r[side] += 1
-            r["sides"] += 1
-            r["units"] += res["units"] if res.get("units") is not None else _units(side, p.get("odds"))
-        t = p.get("total_pick") or {}
-        tot = res.get("total")
-        if t.get("tier") in PLAY_TIERS and tot in ("W", "L", "P"):
-            r[tot] += 1
-            r["totals"] += 1
-            r["units"] += res["total_units"] if res.get("total_units") is not None else _units(tot, t.get("odds"))
+def _part():
+    return {"W": 0, "L": 0, "P": 0, "units": 0.0}
+
+
+def _finish(r):
     n = r["W"] + r["L"]
     r["pct"] = round(r["W"] / n, 3) if n else None
     r["units"] = round(r["units"], 2)
@@ -62,11 +50,40 @@ def plays(items):
     return r
 
 
-def plays_sub(r):
-    """'+2.1u · 12 sides, 4 totals' for a plays record box."""
+def plays(items):
+    """Every pick rated play or strong, by the tier it was logged with: sides
+    (spread or moneyline) and totals separately, plus both together. Units use
+    the logged payout, else the pick's price, else -110."""
+    side_r, total_r = _part(), _part()
+    for p in items:
+        res = p.get("result") or {}
+        side = res.get("ats")
+        if p.get("tier") in PLAY_TIERS and side in ("W", "L", "P"):
+            side_r[side] += 1
+            side_r["units"] += res["units"] if res.get("units") is not None else _units(side, p.get("odds"))
+        t = p.get("total_pick") or {}
+        tot = res.get("total")
+        if t.get("tier") in PLAY_TIERS and tot in ("W", "L", "P"):
+            total_r[tot] += 1
+            total_r["units"] += res["total_units"] if res.get("total_units") is not None else _units(tot, t.get("odds"))
+    r = {k: side_r[k] + total_r[k] for k in ("W", "L", "P", "units")}
+    _finish(side_r)
+    _finish(total_r)
+    r["sides"] = side_r["W"] + side_r["L"] + side_r["P"]
+    r["totals"] = total_r["W"] + total_r["L"] + total_r["P"]
+    r["side"], r["total"] = side_r, total_r
+    return _finish(r)
+
+
+def _wl(r):
+    return f"{r['W']}–{r['L']}" + (f"–{r['P']}" if r["P"] else "")
+
+
+def plays_sub(r, side_label="ATS"):
+    """'ATS 20–17 · O/U 6–7 · -0.4u' for a plays record box."""
     if not r or not (r["W"] + r["L"] + r["P"]):
         return "play or strong picks · none graded yet"
-    return f"{r['units']:+.1f}u · {r['sides']} sides, {r['totals']} totals"
+    return f"{side_label} {_wl(r['side'])} · O/U {_wl(r['total'])} · {r['units']:+.1f}u"
 
 
 def totals(items, edges=None):

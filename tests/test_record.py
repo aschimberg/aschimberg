@@ -42,3 +42,5 @@ class PlaysRecordTests(unittest.TestCase):
         self.assertEqual((r["W"], r["L"], r["P"], r["sides"], r["totals"]), (2, 2, 1, 3, 2))
         self.assertAlmostEqual(r["units"], 0.909 - 1.0 - 1.0 + 1.5 + 0.0, places=2)
         self.assertEqual(recmod.plays_sub(recmod.plays([])), "play or strong picks · none graded yet")
+        self.assertEqual((r["side"]["W"], r["side"]["L"], r["total"]["L"], r["total"]["P"]), (2, 1, 1, 1))
+        self.assertEqual(recmod.plays_sub(r), f"ATS 2–1 · O/U 0–1–1 · {r['units']:+.1f}u")
