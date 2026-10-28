@@ -48,6 +48,24 @@ def projected_starter(team, game_date, starts, played_yesterday):
     return starter, False
 
 
+def start_counts(starts):
+    """{goalie: starts across all teams} over the cached seasons."""
+    out = {}
+    for hist in starts.values():
+        for _, gid in hist:
+            out[gid] = out.get(gid, 0) + 1
+    return out
+
+
+def is_backup(gid, usual, counts, share=0.6):
+    """A confirmed starter who isn't the team's usual one counts as a backup only
+    if he hasn't been a regular starter anywhere (a starter acquired by trade, or
+    back from injury, isn't a backup)."""
+    if gid is None or usual is None or gid == usual:
+        return False
+    return counts.get(gid, 0) < share * counts.get(usual, 0)
+
+
 def baseline(team, starts, rates):
     """Start-weighted GSAx rate of the goalies a team has used recently."""
     hist = starts.get(team, [])[-20:]

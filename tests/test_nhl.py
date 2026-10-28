@@ -129,6 +129,19 @@ class PartnerOddsTests(unittest.TestCase):
         self.assertEqual((r["over_odds"], r["under_odds"]), (-110, -110))
 
 
+class BackupLabelTests(unittest.TestCase):
+    def test_traded_starter_is_not_a_backup(self):
+        from nhlmodel import goalies
+        starts = {"WPG": [("d", 1)] * 57 + [("d", 2)] * 20, "NJD": [("d", 3)] * 43 + [("d", 4)] * 15,
+                  "DAL": [("d", 5)] * 69 + [("d", 6)] * 30}
+        c = goalies.start_counts(starts)
+        self.assertEqual(c[1], 57)
+        self.assertFalse(goalies.is_backup(1, 3, c))   # starter traded to a new team
+        self.assertTrue(goalies.is_backup(6, 5, c))    # the team's own backup
+        self.assertFalse(goalies.is_backup(5, 5, c))   # the usual starter
+        self.assertFalse(goalies.is_backup(None, 5, c))
+
+
 class ProbableGoalieTests(unittest.TestCase):
     def test_parse_and_match(self):
         from datetime import date

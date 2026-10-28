@@ -259,6 +259,7 @@ def refresh(loader=None, now=None, log=print):
             elif theirs:
                 rates[gid] = theirs
     starts = goalies.team_starts(prev + cur)
+    start_counts = goalies.start_counts(starts)
     elo, _ = elomod.run(prev + cur)
 
     fa = {}
@@ -321,7 +322,7 @@ def refresh(loader=None, now=None, log=print):
             if prob_name:
                 pid = probables.match(prob_name, t, starts, gnames)
                 usual, _ = goalies.projected_starter(t, g["date"], starts, False)
-                gid, backup, confirmed = pid, pid is not None and pid != usual, True
+                gid, backup, confirmed = pid, goalies.is_backup(pid, usual, start_counts), True
                 if pid is None:
                     gnames[f"new:{prob_name}"] = prob_name
                     gid = f"new:{prob_name}"  # no NHL shots faced yet: league-average

@@ -14,7 +14,14 @@ on:
     - cron: "47 23 * * 0,1,4"
     # NBA: before the late (West Coast) tip-offs; injury news lands all evening
     - cron: "37 1 * * *"
+  # GitHub often runs these crons hours late, so a Claude scheduled task also
+  # dispatches this with sports=nhl about 90 minutes before each NHL puck-drop
+  # wave, after goalies are confirmed.
   workflow_dispatch:
+    inputs:
+      sports:
+        description: "Sports to refresh (space-separated: nfl nhl nba)"
+        default: "nfl nhl nba"
 
 permissions:
   contents: write
@@ -38,18 +45,19 @@ jobs:
         with:
           python-version: "3.12"
       - name: NFL refresh (nflverse)
+        if: contains(inputs.sports || 'nfl nhl nba', 'nfl')
         continue-on-error: true
         run: python -m nflmodel refresh
         env:
           SITE_URL: ${{ vars.SITE_URL || format('https://{0}.github.io/{1}/', github.repository_owner, github.event.repository.name) }}
       - name: NHL refresh (NHL API)
-        if: always()
+        if: always() && contains(inputs.sports || 'nfl nhl nba', 'nhl')
         continue-on-error: true
         run: python -m nhlmodel refresh
         env:
           SITE_URL: ${{ vars.SITE_URL || format('https://{0}.github.io/{1}/', github.repository_owner, github.event.repository.name) }}
       - name: NBA refresh (ESPN)
-        if: always()
+        if: always() && contains(inputs.sports || 'nfl nhl nba', 'nba')
         continue-on-error: true
         run: python -m nbamodel refresh
         env:
