@@ -5202,7 +5202,7 @@
     "pts": 6.25
    },
    "edge": 4.6,
-   "ev": -0.023,
+   "ev": 0.007,
    "fair_line": -4.2,
    "hfa_flag": 1,
    "home": "Atlanta Hawks",
@@ -5222,21 +5222,22 @@
    "start": "2026-10-28T23:00:00Z",
    "su_team": "Atlanta Hawks",
    "su_wp": 0.749,
-   "tier": "pass",
-   "total_line": 240.5,
+   "tier": "lean",
+   "total_line": 241.5,
    "total_pick": {
-    "edge": 6.5,
-    "ev": -0.0016,
-    "fair": 239.5,
-    "line": 240.5,
+    "early": true,
+    "edge": 7.5,
+    "ev": 0.0279,
+    "fair": 240.4,
+    "line": 241.5,
     "model": 234.0,
-    "odds": -110.0,
+    "odds": -105.0,
     "play": false,
-    "prob": 0.523,
+    "prob": 0.526,
     "side": "under",
-    "tier": "pass"
+    "tier": "lean"
    },
-   "updated": "2026-10-28T07:21:07Z",
+   "updated": "2026-10-28T11:24:43Z",
    "week": 202644,
    "weights": {
     "eff": 0.45,
@@ -5322,7 +5323,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-28T07:21:07Z",
+   "updated": "2026-10-28T11:24:43Z",
    "week": 202644,
    "weights": {
     "eff": 0.45,
@@ -5331,7 +5332,7 @@
    }
   },
   "401909883": {
-   "ats_line": 7.5,
+   "ats_line": 6.5,
    "ats_side": "away",
    "ats_team": "Charlotte Hornets",
    "away": "Charlotte Hornets",
@@ -5340,20 +5341,20 @@
    "bet_line": -7.5,
    "book": "DraftKings",
    "conf_label": "Medium",
-   "confidence": 66,
+   "confidence": 69,
    "confidence_detail": {
     "agree": 3,
     "components": {
      "agreement": 1.0,
      "consistency": 0.755,
      "data": 0.4,
-     "edge": 0.598,
-     "market": 0.5,
+     "edge": 0.398,
+     "market": 1.0,
      "trends": 0.5
     },
     "label": "Medium",
     "n_sources": 3,
-    "score": 66,
+    "score": 69,
     "side": "away",
     "source_names": {
      "eff": "Efficiency",
@@ -5366,22 +5367,22 @@
      "pts": 5.5
     }
    },
-   "cover_prob": 0.515,
+   "cover_prob": 0.51,
    "date": "2026-10-28",
    "diffs": {
     "eff": 5.63,
     "elo": 2.57,
     "pts": 5.74
    },
-   "edge": 3.0,
-   "ev": -0.037,
-   "fair_line": -7.1,
+   "edge": 2.0,
+   "ev": -0.047,
+   "fair_line": -6.2,
    "hfa_flag": 1,
    "home": "Detroit Pistons",
    "home_abbr": "DET",
    "home_field": 2.3,
    "id": "401909883",
-   "line": -7.5,
+   "line": -6.5,
    "model_spread": -4.5,
    "model_total": 219.2,
    "neutral": false,
@@ -5408,7 +5409,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-28T07:21:07Z",
+   "updated": "2026-10-28T11:24:43Z",
    "week": 202644,
    "weights": {
     "eff": 0.45,
@@ -5483,19 +5484,18 @@
    "tier": "pass",
    "total_line": 237.5,
    "total_pick": {
-    "early": true,
     "edge": 10.7,
-    "ev": 0.0217,
+    "ev": 0.0005,
     "fair": 236.0,
     "line": 237.5,
     "model": 226.8,
-    "odds": -110.0,
+    "odds": -115.0,
     "play": false,
     "prob": 0.535,
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-28T07:21:07Z",
+   "updated": "2026-10-28T11:24:43Z",
    "week": 202644,
    "weights": {
     "eff": 0.45,
@@ -5547,7 +5547,7 @@
     "pts": 3.03
    },
    "edge": 3.8,
-   "ev": -0.009,
+   "ev": -0.03,
    "fair_line": -5.1,
    "hfa_flag": 1,
    "home": "Toronto Raptors",
@@ -5581,7 +5581,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-28T07:21:07Z",
+   "updated": "2026-10-28T11:24:43Z",
    "week": 202644,
    "weights": {
     "eff": 0.45,
@@ -5667,7 +5667,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-28T07:21:07Z",
+   "updated": "2026-10-28T11:24:43Z",
    "week": 202644,
    "weights": {
     "eff": 0.45,
@@ -5743,17 +5743,17 @@
    "total_line": 227.5,
    "total_pick": {
     "edge": 0.6,
-    "ev": -0.0615,
+    "ev": -0.0498,
     "fair": 227.6,
     "line": 227.5,
     "model": 228.1,
-    "odds": -115.0,
+    "odds": -112.0,
     "play": false,
     "prob": 0.502,
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-28T07:21:07Z",
+   "updated": "2026-10-28T11:24:43Z",
    "week": 202644,
    "weights": {
     "eff": 0.45,
@@ -5805,7 +5805,7 @@
     "pts": 6.9
    },
    "edge": 0.6,
-   "ev": -0.06,
+   "ev": -0.04,
    "fair_line": -3.6,
    "hfa_flag": 1,
    "home": "Minnesota Timberwolves",
@@ -5826,20 +5826,20 @@
    "su_team": "Minnesota Timberwolves",
    "su_wp": 0.633,
    "tier": "pass",
-   "total_line": 228.5,
+   "total_line": 229.5,
    "total_pick": {
-    "edge": 0.2,
-    "ev": -0.0441,
-    "fair": 228.5,
-    "line": 228.5,
+    "edge": 1.2,
+    "ev": -0.0455,
+    "fair": 229.3,
+    "line": 229.5,
     "model": 228.3,
-    "odds": -110.0,
+    "odds": -112.0,
     "play": false,
-    "prob": 0.501,
+    "prob": 0.504,
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-28T07:21:07Z",
+   "updated": "2026-10-28T11:24:43Z",
    "week": 202644,
    "weights": {
     "eff": 0.45,
@@ -5925,7 +5925,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-28T07:21:07Z",
+   "updated": "2026-10-28T11:24:43Z",
    "week": 202644,
    "weights": {
     "eff": 0.45,
@@ -5977,7 +5977,7 @@
     "pts": -10.21
    },
    "edge": 5.8,
-   "ev": 0.01,
+   "ev": -0.011,
    "fair_line": 11.6,
    "hfa_flag": 1,
    "home": "Utah Jazz",
@@ -5997,21 +5997,21 @@
    "start": "2026-10-29T01:00:00Z",
    "su_team": "San Antonio Spurs",
    "su_wp": 0.711,
-   "tier": "lean",
-   "total_line": 234.5,
+   "tier": "pass",
+   "total_line": 233.5,
    "total_pick": {
-    "edge": 0.4,
-    "ev": -0.0628,
-    "fair": 234.4,
-    "line": 234.5,
+    "edge": 0.6,
+    "ev": -0.0328,
+    "fair": 233.6,
+    "line": 233.5,
     "model": 234.1,
-    "odds": -115.0,
+    "odds": -108.0,
     "play": false,
-    "prob": 0.501,
-    "side": "under",
+    "prob": 0.502,
+    "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-28T07:21:07Z",
+   "updated": "2026-10-28T11:24:43Z",
    "week": 202644,
    "weights": {
     "eff": 0.45,
@@ -6020,7 +6020,7 @@
    }
   },
   "401909891": {
-   "ats_line": 5.5,
+   "ats_line": 6.5,
    "ats_side": "home",
    "ats_team": "Dallas Mavericks",
    "away": "Oklahoma City Thunder",
@@ -6028,21 +6028,21 @@
    "bet_at": "2026-10-28T01:26:49Z",
    "bet_line": 5.5,
    "book": "DraftKings",
-   "conf_label": "High",
-   "confidence": 72,
+   "conf_label": "Medium",
+   "confidence": 69,
    "confidence_detail": {
     "agree": 3,
     "components": {
      "agreement": 1.0,
      "consistency": 0.929,
      "data": 0.4,
-     "edge": 0.744,
-     "market": 0.5,
+     "edge": 0.944,
+     "market": 0.0,
      "trends": 0.5
     },
-    "label": "High",
+    "label": "Medium",
     "n_sources": 3,
-    "score": 72,
+    "score": 69,
     "side": "home",
     "source_names": {
      "eff": "Efficiency",
@@ -6055,22 +6055,22 @@
      "pts": -1.4
     }
    },
-   "cover_prob": 0.519,
+   "cover_prob": 0.524,
    "date": "2026-10-28",
    "diffs": {
     "eff": -9.76,
     "elo": -10.55,
     "pts": -9.57
    },
-   "edge": 3.7,
-   "ev": 0.012,
-   "fair_line": 4.9,
+   "edge": 4.7,
+   "ev": -0.033,
+   "fair_line": 5.8,
    "hfa_flag": 1,
    "home": "Dallas Mavericks",
    "home_abbr": "DAL",
    "home_field": 2.3,
    "id": "401909891",
-   "line": 5.5,
+   "line": 6.5,
    "model_spread": 1.8,
    "model_total": 220.8,
    "neutral": false,
@@ -6083,21 +6083,21 @@
    "start": "2026-10-29T01:30:00Z",
    "su_team": "Oklahoma City Thunder",
    "su_wp": 0.559,
-   "tier": "lean",
-   "total_line": 229.5,
+   "tier": "pass",
+   "total_line": 228.5,
    "total_pick": {
-    "edge": 8.7,
-    "ev": 0.0126,
-    "fair": 228.2,
-    "line": 229.5,
+    "edge": 7.7,
+    "ev": 0.0148,
+    "fair": 227.4,
+    "line": 228.5,
     "model": 220.8,
-    "odds": -110.0,
+    "odds": -108.0,
     "play": false,
-    "prob": 0.53,
+    "prob": 0.527,
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-28T07:21:07Z",
+   "updated": "2026-10-28T11:24:43Z",
    "week": 202644,
    "weights": {
     "eff": 0.45,
@@ -6183,7 +6183,7 @@
     "side": "over",
     "tier": "lean"
    },
-   "updated": "2026-10-28T07:21:07Z",
+   "updated": "2026-10-28T11:24:43Z",
    "week": 202644,
    "weights": {
     "eff": 0.45,
