@@ -348,7 +348,8 @@ def refresh(loader=None, now=None, log=print):
         proj = {"margin": round(margin, 2), "spread": None, "total": round(mk["exp_home"] + mk["exp_away"], 2),
                 "home_pts": round(mk["exp_home"], 2), "away_pts": round(mk["exp_away"], 2), "home_wp": round(p_home, 3),
                 "fair_home": prob_to_american(p_home), "fair_away": prob_to_american(1 - p_home),
-                "home_m15": round(mk["home_m15"], 3), "away_m15": round(mk["away_m15"], 3)}
+                "home_m15": round(mk["home_m15"], 3), "away_m15": round(mk["away_m15"], 3),
+                "sim": {"n": None, "ot": round(sim.ot_prob(lh_, la_), 3)}}
 
         started = g["state"] not in ("FUT", "PRE")
         line = None

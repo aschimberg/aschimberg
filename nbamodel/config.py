@@ -54,8 +54,8 @@ STATUS_MISS = {"out": 1.0, "suspension": 1.0, "doubtful": 0.8, "questionable": 0
 MARGIN_SD = _f("NBA_MARGIN_SD", 14.3)
 TOTAL_SD = _f("NBA_TOTAL_SD", 18.3)
 # Game simulation (sim.py): runs per matchup, and fewer for the backtest
-SIMS = int(_f("NBA_SIMS", 2500))
-SIMS_BACKTEST = int(_f("NBA_SIMS_BACKTEST", 1000))
+SIMS = int(_f("NBA_SIMS", 20000))
+SIMS_BACKTEST = int(_f("NBA_SIMS_BACKTEST", 5000))
 OT_TOTAL_MEAN = 1.2  # average points overtime adds per game (ratings are fit on final scores)
 OT_TOTAL_VAR = 33.0  # total-score variance that overtime adds (taken out of regulation)
 TIE_PULL = _f("NBA_TIE_PULL", 0.2)  # share of 1-2 point regulation finishes pulled to OT (calibrated: 4.5% OT, as in 2025-26)

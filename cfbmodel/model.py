@@ -1,7 +1,7 @@
 """Score/spread projections and ATS/SU picks."""
 import math
 
-from sportscommon import anchor as anc
+from sportscommon import anchor as anc, drivesim
 
 from . import config
 
@@ -64,7 +64,7 @@ def fmt_spread(s):
     return f"{s:+g}"
 
 
-def make_pick(game, proj, line):
+def make_pick(game, proj, line, sims=None):
     """ATS pick vs `line` (home spread) plus straight-up pick."""
     su_team = game["home"] if proj["margin"] >= 0 else game["away"]
     su_wp = proj["home_wp"] if proj["margin"] >= 0 else 1 - proj["home_wp"]
@@ -82,21 +82,22 @@ def make_pick(game, proj, line):
     s = line["spread"]
     cover = proj["margin"] + s  # >0 -> home covers in expectation
     side = "home" if cover > 0 else "away"
-    # cover chance and tier at the market-anchored margin (sportscommon/anchor.py), -110 price
-    fair_m = anc.fair(proj["margin"], -s, *config.ANCHOR)
-    p_home = win_prob(fair_m + s)
-    p_cover = p_home if side == "home" else 1 - p_home
-    ev = anc.ev(p_cover)
+    # cover chance, push chance and tier from games simulated drive by drive at the
+    # market-anchored margin (sportscommon/drivesim.py), -110 price
+    pr = drivesim.price_spread("cfb", proj["margin"], proj.get("total"), s, line.get("total"), config.ANCHOR,
+                               n=sims or config.SIMS, seed=game.get("id") or f"{game['home']}-{game['away']}")
+    side = pr["side"]
     pick.update(
         {
             "ats_side": side,
             "ats_team": game[side],
             "ats_line": s if side == "home" else -s,
             "edge": round(abs(cover), 1),
-            "fair_line": round(-fair_m, 1),
-            "cover_prob": round(p_cover, 3),
-            "ev": round(ev, 3),
-            "tier": anc.tier(ev),
+            "fair_line": pr["fair_line"],
+            "cover_prob": pr["cover_prob"],
+            "push_prob": pr["push_prob"],
+            "ev": pr["ev"],
+            "tier": pr["tier"],
         }
     )
     return pick

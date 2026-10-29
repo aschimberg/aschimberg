@@ -21,14 +21,26 @@ def _regulation(lh, la):
     return [(h, a, p / norm) for h, a, p in cells]
 
 
-def distribution(lh, la):
-    lh, la = max(lh, 0.3), max(la, 0.3)
+def _scaled_cells(lh, la):
     # the margin reweighting favors low-scoring ties; rescale the rates so expected
     # regulation goals still equal lh + la
     scale = 1.0
     for _ in range(3):
         cells = _regulation(lh * scale, la * scale)
         scale *= (lh + la) / sum((h + a) * p for h, a, p in cells)
+    return cells
+
+
+def ot_prob(lh, la):
+    """Chance the game is tied after regulation (goes to OT/shootout)."""
+    return sum(p for h, a, p in _scaled_cells(max(lh, 0.3), max(la, 0.3)) if h == a)
+
+
+def distribution(lh, la):
+    """Every final score with its probability: the exact result of simulating
+    the game infinitely many times under the steps above."""
+    lh, la = max(lh, 0.3), max(la, 0.3)
+    cells = _scaled_cells(lh, la)
     p_ot_home = config.OT_DECIDED * lh / (lh + la) + (1 - config.OT_DECIDED) * 0.5
     final = {}
 

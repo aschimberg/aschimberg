@@ -212,7 +212,7 @@ def run(seasons, client=None, now=None, log=print, start_weights=None, start_hfa
                         margin = sum(config.WEIGHTS[k] * diffs[k] for k in model.SOURCES) + config.HOME_FIELD * hflag
                         proj = {"margin": round(margin, 1), "spread": round(-margin, 1), "home_wp": round(model.win_prob(margin), 3)}
                         line = {"spread": gm["spread"]}
-                        pick = model.make_pick(gm, proj, line)
+                        pick = model.make_pick(gm, proj, line, sims=config.SIMS_BACKTEST)
                         trend_block = {}
                         for side in ("home", "away"):
                             ts = gm["spread"] if side == "home" else -gm["spread"]

@@ -47,13 +47,15 @@ class ModelTests(unittest.TestCase):
         self.assertEqual(pick["ats_team"], "A")
         self.assertEqual(pick["ats_line"], -7.0)
         self.assertAlmostEqual(pick["edge"], 5.5)
-        # anchored: 15% of the 5.5-pt gap moves the fair line only 0.8 -> 52.1% cover, below -110 breakeven
-        self.assertEqual(pick["tier"], "pass")
-        self.assertAlmostEqual(pick["fair_line"], -7.8, places=1)
-        self.assertLess(pick["ev"], 0)
+        # anchored: 15% of the 5.5-pt gap moves the fair line under a point past the line; simulated
+        # games put ~5% on exactly 7 (a push), so the bet is near breakeven either way
+        self.assertTrue(-8.5 < pick["fair_line"] < -7.0)
+        self.assertAlmostEqual(pick["ev"], 0.0, delta=0.03)
+        self.assertGreater(pick["push_prob"], 0.03)
+        self.assertEqual(model.make_pick(game, proj, {"spread": -7.0}), pick)  # same simulated games each run
         big = model.make_pick(game, proj, {"spread": -1.0})  # 11.5-pt gap: the 1.5-pt cap binds
-        self.assertEqual((big["fair_line"], big["tier"]), (-2.5, "play"))
-        self.assertAlmostEqual(big["cover_prob"], 0.539, places=3)
+        self.assertTrue(0.51 < big["cover_prob"] < 0.56)
+        self.assertGreater(big["ev"], pick["ev"] - 0.02)
         self.assertEqual(model.grade("home", -7.0, 30, 20), "W")
         self.assertEqual(model.grade("home", -7.0, 27, 20), "P")
         self.assertEqual(model.grade("home", -7.0, 24, 20), "L")

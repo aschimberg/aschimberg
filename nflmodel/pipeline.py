@@ -3,7 +3,7 @@ from datetime import datetime, timedelta, timezone
 
 from cfbmodel import ats, store
 from cfbmodel.model import grade as ats_grade
-from sportscommon import anchor as anc, clv, news, oddsapi, totals
+from sportscommon import anchor as anc, clv, drivesim, news, oddsapi, totals
 from sportscommon import props as sprops
 from sportscommon import confidence as conf
 from sportscommon import record as recmod
@@ -140,31 +140,27 @@ def project_total(fit, h, a, league_ppg, margin):
     return max(total, abs(margin) + 10)
 
 
-def total_pick(model_total, line_total):
-    return totals.make_pick(model_total, line_total, config.TOTAL_SD, config.TOTAL_LEAN_EDGE,
-                            config.TOTAL_PLAY_EDGE, config.TOTAL_STRONG_EDGE, anchor=config.ANCHOR)
+def total_pick(model_total, line_total, margin=0.0, seed=0, sims=None):
+    """Over/under priced on simulated games at the market-anchored total."""
+    return drivesim.price_total("nfl", margin, model_total, line_total, config.ANCHOR,
+                                n=sims or config.SIMS, seed=seed)
 
 
-def ats_pick(g, margin, kw, diffs, offset, hflag, s, move, trend_block, dq):
-    """ATS side, edge, tier, cover probability, EV and confidence vs home spread s."""
-    # priced at the market-anchored fair margin (sportscommon/anchor.py), with key numbers
-    fair_m = anc.fair(margin, margins.market_mean(s, kw), *config.ANCHOR)
-    hc, push, ac = margins.cover_probs(margins.pmf(fair_m, kw), s)
-    # side follows the projected margin vs the line (the edge); cover_prob prices it
-    side = "home" if margin + s >= 0 else "away"
+def ats_pick(g, margin, total, diffs, offset, hflag, s, move, trend_block, dq, sims=None):
+    """ATS side, edge, tier, cover probability, EV and confidence vs home spread s.
+
+    Priced on games simulated drive by drive (sportscommon/drivesim.py) at the
+    market-anchored margin; pushes on key numbers return the stake."""
+    pr = drivesim.price_spread("nfl", margin, total, s, g.get("total"), config.ANCHOR,
+                               g.get("home_spread_odds"), g.get("away_spread_odds"), n=sims or config.SIMS, seed=g["id"])
+    side = pr["side"]
     sign = 1 if side == "home" else -1
     edge = abs(margin + s)
-    p_cover = hc if side == "home" else ac
-    odds = (g["home_spread_odds"] if side == "home" else g["away_spread_odds"]) or -110
-    p_lose = 1 - p_cover - push
     pick = {
         "ats_side": side, "ats_team": teams.name(g[side]), "ats_line": s if side == "home" else -s,
-        "edge": round(edge, 1), "fair_line": round(-fair_m, 1),
-        "cover_prob": round(p_cover / (p_cover + p_lose), 3) if p_cover + p_lose else None,
-        # profit per unit staked; a push returns the stake
-        "ev": round(p_cover * (american_to_decimal(odds) - 1) - p_lose, 3),
+        "edge": round(edge, 1), "fair_line": pr["fair_line"], "cover_prob": pr["cover_prob"],
+        "push_prob": pr["push_prob"], "ev": pr["ev"], "tier": pr["tier"],
     }
-    pick["tier"] = anc.tier(pick["ev"])
     covers = {k: sign * (diffs[k] + config.HOME_FIELD * hflag + offset + s) for k in SOURCES}
     conf_detail = conf.score(
         side, covers, config.WEIGHTS, edge / config.STRONG_EDGE, 7.0,
@@ -298,13 +294,12 @@ def refresh(games=None, pbp_loader=None, now=None, log=print, espn_loader=None):
         h, a = g["home"], g["away"]
         diffs, offset, hflag, qb_h, qb_a = margin_parts(g, fit, pregame, qb_values, baselines, replacement)
         margin = sum(config.WEIGHTS[k] * diffs[k] for k in SOURCES) + config.HOME_FIELD * hflag + offset
-        dist = margins.pmf(margin, kw)
-        wp = margins.win_prob(dist)
-
         total = project_total(fit, h, a, league_ppg, margin)
+        sim = drivesim.summary(drivesim.run_at("nfl", margin, total, n=config.SIMS, seed=g["id"]))
+        wp = sim["home_wp"]
         proj = {"margin": round(margin, 1), "spread": round(-margin, 1), "total": round(total, 1),
                 "home_pts": round((total + margin) / 2, 1), "away_pts": round((total - margin) / 2, 1),
-                "home_wp": round(wp, 3)}
+                "home_wp": round(wp, 3), "sim": {"n": sim["n"], "ot": round(sim["ot"], 3)}}
 
         line = None
         move = None
@@ -322,7 +317,7 @@ def refresh(games=None, pbp_loader=None, now=None, log=print, espn_loader=None):
         su_team = teams.name(h if margin >= 0 else a)
         pick = {"su_team": su_team, "su_wp": round(wp if margin >= 0 else 1 - wp, 3), "ats_side": None,
                 "ats_team": None, "ats_line": None, "edge": None, "tier": None, "cover_prob": None, "ev": None,
-                "confidence": None, "conf_label": None, "total_pick": total_pick(total, g["total"])}
+                "confidence": None, "conf_label": None, "total_pick": total_pick(total, g["total"], margin, g["id"])}
         if not g["completed"] and (g["start"] is None or g["start"] > iso(now)):
             wk = g["week"]
             if wk not in prop_acc:
@@ -353,7 +348,7 @@ def refresh(games=None, pbp_loader=None, now=None, log=print, espn_loader=None):
         if line:
             qb_known = bool(g["home_qb_id"] and g["away_qb_id"])
             dq = min(1.0, min(played.get(h, 0), played.get(a, 0)) / 4) * (1.0 if qb_known else 0.7)
-            fields, conf_detail = ats_pick(g, margin, kw, diffs, offset, hflag, line["spread"], move, trend_block, dq)
+            fields, conf_detail = ats_pick(g, margin, total, diffs, offset, hflag, line["spread"], move, trend_block, dq)
             pick.update(fields)
 
         start = datetime.fromisoformat(g["start"].replace("Z", "+00:00")) if g["start"] else None
@@ -514,7 +509,7 @@ def method_html():
 <h3>Projection</h3>
 <p>Margin = {w['epa']:.0%} EPA + {w['elo']:.0%} Elo + QB adjustment + {config.HOME_FIELD:.2g} points home field (none at neutral sites) + a small rest term ({config.REST_PER_DAY:g} pts/day, capped; post-2011 rest effects are near zero). Cover probability uses a margin distribution reweighted to real NFL final margins since 2005, so key numbers like 3 and 7 carry their true weight and pushes are priced.</p>
 <h3>Picks, confidence and tuning</h3>
-<p>Edge = projected margin vs the line. Backtests show the model's gap to the line hasn't predicted results, so bets are priced at a market-anchored line that moves {config.ANCHOR_WEIGHT:.0%} of the way from the line toward the model, at most {config.ANCHOR_MAX_SHIFT:g} points. Tiers come from expected value at that price: lean above 0%, play 1.5%+, strong 3%+. Cover chances use a margin distribution with real key-number frequencies (3, 7, 10...), starting from the margin that makes the line a coin flip. Over/unders are priced the same way. Confidence (0–100) weighs whether EPA and Elo each cover on their own, edge, line movement, ATS trends, and data quality (games played, known starting QBs). After each week the EPA/Elo weights and home field are refit to this season's results and moved part of the way there.</p>
+<p>Edge = projected margin vs the line. Backtests show the model's gap to the line hasn't predicted results, so bets are priced at a market-anchored line that moves {config.ANCHOR_WEIGHT:.0%} of the way from the line toward the model, at most {config.ANCHOR_MAX_SHIFT:g} points. Tiers come from expected value at that price: lean above 0%, play 1.5%+, strong 3%+. Every game is simulated {config.SIMS:,} times drive by drive: both teams get the same number of possessions, each drive ends in a touchdown (extra point or two-point try), a field goal or nothing, with chances set so each team's expected points match the projection, and ties go to overtime. Points coming in 3s and 7s produces key numbers on its own; a few near-key finishes are nudged onto 3, 7 and 14 to match real games. Cover and over/under chances (pushes included) come from games simulated at the anchored line, starting from the margin that makes the line a coin flip. Confidence (0–100) weighs whether EPA and Elo each cover on their own, edge, line movement, ATS trends, and data quality (games played, known starting QBs). After each week the EPA/Elo weights and home field are refit to this season's results and moved part of the way there.</p>
 <p>Data: <a href="https://github.com/nflverse">nflverse</a> (CC BY 4.0) schedules, lines and play-by-play. For entertainment only.</p>"""
 
 

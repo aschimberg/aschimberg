@@ -26,7 +26,7 @@ The same site serves `/nfl/`, `/nhl/` and `/nba/` (switch sports in the header).
 - **QB adjustment:** the starter's shrunk EPA per dropback, compared with the QB play the team's rating was built on. Starters come from ESPN's current depth chart (QB1), skipping anyone ESPN's injury report lists as Out, Doubtful or on IR. If ESPN is unavailable, nflverse's projection is used and flagged when it differs from the team's last starter. The check reruns before each kickoff window.
 - **Elo:** a 538-style rating from game results, as a second source.
 - **Home field and rest:** about 1.6 points of home field (tuned weekly) and a tiny rest term.
-- **Cover probability:** uses a margin distribution reweighted to real NFL final margins, so key numbers like 3 and 7 and pushes are priced correctly.
+- **Game simulation:** see Game simulations below.
 - **Picks:** ATS edges with tiers, confidence, a weekly record, ATS trends (with division games) and an ntfy briefing on game days.
 
 **NHL** (`nhlmodel/`, data from the NHL public API (schedule, play-by-play, DraftKings odds), [MoneyPuck.com](https://moneypuck.com) (team xG, goalie GSAx; non-commercial use with credit) and ESPN (probable goalies)):
@@ -41,7 +41,7 @@ The same site serves `/nfl/`, `/nhl/` and `/nba/` (switch sports in the header).
 - **Team strength:** three margin sources, blended and tuned weekly: opponent-adjusted points per 100 possessions (offense and defense, possessions estimated from box scores) times the game's projected pace; the same fit on points per game; and a 538-style Elo. Recent games count more, and each season starts from about half of last season's ratings.
 - **Injuries:** each player's value is his Game Score per minute above replacement level times his usual minutes, in points of margin. Team ratings already reflect whoever has been playing, so the line moves only by the difference between tonight's expected availability (Out, Doubtful 80%, Questionable 50%, Day-To-Day 35%) and how often he played in the team's last 10 games. Cards list the biggest adjustments.
 - **Schedule and home court:** about 2.3 points of home court (tuned weekly) and 1.5 points for the second night of a back-to-back.
-- **Game simulation:** every matchup is played out 2,500 times (`NBA_SIMS`). Each run draws every player on the injury report in or out from his status, then plays the game: shared pace, each team's points per possession, late ties and overtime. The spread of results matches how NBA games land around the closing line (margin SD 14.3, total SD 18.3 from 1,066 games in 2025-26; the old normal model used 12 and 17, which made cover chances too extreme), with a 4.5% overtime rate. Win chance, projected score, cover and over/under chances (with pushes on whole numbers) all come from the simulated games; picks are priced on the same games re-centered at the market-anchored line. Cards show the simulated win chance and score, OT chance, and how the line moves with and without each questionable player.
+- **Game simulation:** every matchup is played out 20,000 times (`NBA_SIMS`). Each run draws every player on the injury report in or out from his status, then plays the game: shared pace, each team's points per possession, late ties and overtime. The spread of results matches how NBA games land around the closing line (margin SD 14.3, total SD 18.3 from 1,066 games in 2025-26; the old normal model used 12 and 17, which made cover chances too extreme), with a 4.5% overtime rate. Win chance, projected score, cover and over/under chances (with pushes on whole numbers) all come from the simulated games; picks are priced on the same games re-centered at the market-anchored line. Cards show the simulated win chance and score, OT chance, and how the line moves with and without each questionable player.
 - **Lineups:** a pre-tip refresh runs about 45 minutes before each wave of tip-offs (a Claude scheduled task dispatches `pregame.yml` with `sports=nba`), so the final injury report is in the simulations when picks lock.
 - **Picks:** ATS edges against the DraftKings spread with market-anchored cover probability and tiers, confidence, over/unders, CLV against the closing line and an ntfy briefing on game days with value.
 - **Data:** season caches with box scores live in `data/nba/cache/`; finished dates are never re-fetched. The NBA's own stats CDN blocks GitHub's runners, so ESPN is the source. [balldontlie.io](https://www.balldontlie.io) is a keyed free alternative if ESPN ever closes.
@@ -88,6 +88,17 @@ Each upcoming NFL game card has a **News & sentiment** section. It's context onl
 - **Sources (free, public feeds):** ESPN news, Google News search (one query per team, covering AP, USA Today, local papers and team sites), CBS Sports, Yahoo Sports, ProFootballTalk and RotoWire player news. Betting promos, previews and highlight round-ups are filtered out, and duplicate stories are merged.
 - **Anytime TD flags:** a pick whose player appears in a recent headline with injury words (questionable, limited, ruled out...) gets a **⚠ injury news** link; one marked active or cleared gets **✓ cleared**. Briefings mark flagged best bets too.
 - Feeds are cached for 90 minutes (`NEWS_TTL_MIN`) in `data/nfl/news.json`, and any feed that fails is skipped. Set `NEWS=off` to turn it off.
+
+## Game simulations (all sports)
+
+Every matchup's win chance, cover chances and over/under chances come from simulated games.
+- **NFL and college football** (`sportscommon/drivesim.py`): 20,000 games per matchup, drive by drive. Both teams get the same number of possessions (about 11 per team in the NFL, 13 in college). Each drive ends in a touchdown (with an extra point or two-point try), a field goal or nothing. Each team's chances are set so its expected points equal the model's projection, and ties go to overtime. Points in 3s and 7s produce the key numbers without any fitting. Real games still end on 3 more often than independent drives do, so a few near-key finishes are nudged onto the key number on the same side (`NFL_SNAP`, `CFB_SNAP`, measured from 3,106 NFL and 2,856 FBS games).
+  - **Fair at every spread size:** at the betting line, NFL favorites cover 47–52% in the simulation, against 44–49% in real games (favorites covering under half is a market pattern). Pushes on 3 and 7 run about 6% and 5%, vs 10% and 8% in real games.
+  - **The coin-flip margin** for each line is computed exactly from every possible drive outcome, so anchoring starts from a true 50/50.
+- **NBA** (`nbamodel/sim.py`): 20,000 games with lineup draws; see the NBA section.
+- **NHL** (`nhlmodel/sim.py`): every possible final score weighted by its chance, which is the same as unlimited simulations.
+
+Picks are priced on the same simulated games re-centered at the market-anchored line. Backtests use fewer simulations per game (`<SPORT>_SIMS_BACKTEST`).
 
 ## Market anchoring (CFB, NFL, NBA spreads and totals)
 

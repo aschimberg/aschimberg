@@ -116,3 +116,8 @@ TOTAL_STRONG_EDGE = _f("CFB_TOTAL_STRONG", 8.0)
 ANCHOR_WEIGHT = _f("CFB_ANCHOR_WEIGHT", 0.15)
 ANCHOR_MAX_SHIFT = _f("CFB_ANCHOR_MAX_SHIFT", 1.5)
 ANCHOR = (ANCHOR_WEIGHT, ANCHOR_MAX_SHIFT)
+
+# Game simulation (sportscommon/drivesim.py): games simulated per matchup for
+# win chance, cover and over/under prices, and fewer per game in backtests
+SIMS = int(_f("CFB_SIMS", 20000))
+SIMS_BACKTEST = int(_f("CFB_SIMS_BACKTEST", 4000))

@@ -2,7 +2,7 @@
 from collections import defaultdict
 from datetime import datetime, timedelta, timezone
 
-from sportscommon import clv, totals
+from sportscommon import clv, drivesim, totals
 from sportscommon import record as recmod
 
 from . import ats, confidence, config, model, splits, store, tuning
@@ -295,10 +295,13 @@ def refresh(client, now=None, splits_provider=None, log=print):
     cards = []
     for gm, line in with_lines:
         proj = model.project(gm, ratings, lg_off, market_total=(line or {}).get("total"))
+        sim = drivesim.summary(drivesim.run_at("cfb", proj["margin"], proj["total"], n=config.SIMS, seed=gm["id"]))
+        proj["home_wp"] = round(sim["home_wp"], 3)
+        proj["sim"] = {"n": sim["n"], "ot": round(sim["ot"], 3)}
         pick = model.make_pick(gm, proj, line)
-        pick["total_pick"] = totals.make_pick(
-            proj["total"] if proj.get("total_src") else None, (line or {}).get("total"), config.TOTAL_SD,
-            config.TOTAL_LEAN_EDGE, config.TOTAL_PLAY_EDGE, config.TOTAL_STRONG_EDGE, anchor=config.ANCHOR)
+        pick["total_pick"] = drivesim.price_total(
+            "cfb", proj["margin"], proj["total"] if proj.get("total_src") else None, (line or {}).get("total"),
+            config.ANCHOR, n=config.SIMS, seed=gm["id"])
         start = ats.parse_dt(gm["start"])
         started = start is not None and start <= now
 

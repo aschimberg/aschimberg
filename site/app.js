@@ -206,6 +206,45 @@
     </div></details>`;
   }
 
+  // --- Simulation summary, Simulation / Notes drop-downs -----------------------
+  const pc0 = (v) => (v == null ? "—" : Math.round(v * 100) + "%");
+  const short = (t) => t.abbr || t.name;
+
+  function simLine(g) {
+    const sm = g.model?.sim, wp = g.model?.home_wp;
+    if (!sm || wp == null) return "";
+    const fav = wp >= 0.5 ? g.home : g.away;
+    const runs = sm.n ? `${Number(sm.n).toLocaleString()} sims` : "Every scoreline simulated";
+    return `<div class="sim-line"><span class="sim-tag">SIM</span><span>${esc(runs)}</span><strong>${esc(short(fav))} wins ${pc0(Math.max(wp, 1 - wp))}</strong><span>OT ${pc0(sm.ot)}</span></div>`;
+  }
+
+  function simSection(g) {
+    const sm = g.model?.sim, m = g.model || {};
+    if (!sm) return "";
+    const p = g.pick || {}, t = p.total_pick;
+    const rows = [];
+    if (m.home_wp != null) rows.push(["Win chance", `${esc(short(g.away))} ${pc0(1 - m.home_wp)} · ${esc(short(g.home))} ${pc0(m.home_wp)}`]);
+    if (m.away_pts != null) rows.push(["Average score", `${esc(short(g.away))} ${Number(m.away_pts).toFixed(g.score_decimals ?? 1)} – ${esc(short(g.home))} ${Number(m.home_pts).toFixed(g.score_decimals ?? 1)}`]);
+    rows.push([g.score_decimals === 2 ? "Overtime / shootout" : "Overtime", pc0(sm.ot)]);
+    if (p.ats_team && p.cover_prob != null) {
+      rows.push(["Spread pick", `${esc(teamLine(p.ats_team, p.ats_line))}: covers ${pc0(p.cover_prob)}${p.push_prob ? ` · push ${pc0(p.push_prob)}` : ""}${p.ev != null ? ` · EV ${p.ev >= 0 ? "+" : ""}${(p.ev * 100).toFixed(1)}%` : ""}`]);
+      if (p.fair_line != null) rows.push(["Priced at", `${esc(favLine(g, p.fair_line))} (market-anchored)`]);
+    }
+    if (t && t.prob != null) rows.push(["Total pick", `${esc(t.side === "over" ? "Over" : "Under")} ${t.line}: ${pc0(t.prob)}${t.push_prob ? ` · push ${pc0(t.push_prob)}` : ""}${t.fair != null ? ` · priced at ${t.fair}` : ""}`]);
+    const sc = (sm.scenarios || []).map((x) => `<tr><td>${esc(x.name)} <span class="muted">${esc(x.team)}</span></td><td>${pc0(x.p_play)}</td><td>${x.with >= 0 ? "+" : ""}${x.with}</td><td>${x.without >= 0 ? "+" : ""}${x.without}</td></tr>`).join("");
+    return `<details class="section sim"><summary>Simulation</summary><div class="section-body">
+      <dl class="kv">${rows.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join("")}</dl>
+      ${sc ? `<table class="data mini"><thead><tr><th>Questionable</th><th>Plays</th><th>Team margin with him</th><th>without</th></tr></thead><tbody>${sc}</tbody></table>` : ""}
+      <p class="small-note">${sm.n ? `${Number(sm.n).toLocaleString()} games simulated` : "Every possible score weighted by its chance (the same as unlimited simulations)"} from the model's projection. Pick prices use the same games re-centered on the market-anchored line.</p>
+    </div></details>`;
+  }
+
+  function notesSection(g) {
+    const xs = g.extras || [];
+    if (!xs.length) return "";
+    return `<details class="section notes"><summary>Notes <span class="muted">${xs.length}</span></summary><div class="section-body"><ul class="notes-list">${xs.map((e) => `<li>${esc(e)}</li>`).join("")}</ul></div></details>`;
+  }
+
   function gameCard(g) {
     const p = g.pick || {};
     const r = g.result || {};
@@ -288,12 +327,14 @@
         <p class="venue">${esc(g.venue || "")}</p>
       </div>
       <div class="teams">${teamRow("away")}${teamRow("home")}</div>
-      ${(g.extras || []).length ? `<div class="extras">${g.extras.map((e) => `<span>${esc(e)}</span>`).join("")}</div>` : ""}
+      ${simLine(g)}
       ${market}
-      <div class="pick-panel"><span class="pick-label">Model picks</span><div class="pick-sel">${sel}</div></div>
+      <div class="pick-panel"><span class="pick-label">Picks</span><div class="pick-sel">${sel}</div></div>
+      ${simSection(g)}
+      ${confHtml}
+      ${notesSection(g)}
       ${propsSection(g)}
       ${newsSection(g)}
-      ${confHtml}
       ${trends}
       ${state.meta?.sport && state.meta.sport !== "cfb" && !g.splits ? "" : splitsSection(g)}
     </article>`;
@@ -324,7 +365,7 @@
       return `<div class="conf-row" title="${esc(tip)}"><span>${label}<em>${Math.round((w[k] ?? 0) * 100)}%</em></span>
         <div class="bar money"><span style="width:${Math.round(v * 100)}%"></span><em>${Math.round(v * 100)}</em></div></div>`;
     }).join("");
-    return `<details class="section"><summary>Confidence <span class="conf ${esc(c.label.toLowerCase())}">${esc(c.label)} ${c.score}</span></summary>
+    return `<details class="section"><summary>Model analysis <span class="muted">validation</span> <span class="conf ${esc(c.label.toLowerCase())}">${esc(c.label)} ${c.score}</span></summary>
       <div class="section-body">
         <p class="small-note">${c.agree}/${c.n_sources} ${c.units === "goals" ? "sources see value on this side · projected home margin (goals)" : "sources cover on their own · source lines"}: </p>
         <div class="src-lines">${srcs}</div>
@@ -766,7 +807,7 @@
       <h3>Power ratings</h3>
       <p>SP+, ESPN FPI and Elo come from <a href="https://collegefootballdata.com">CollegeFootballData</a>. FPI and Elo are rescaled onto the SP+ points scale (matching the FBS mean and spread), then blended ${pc(w.sp)}/${pc(w.fpi)}/${pc(w.elo)}. Teams without a current rating use last season's blend, regressed ${pc(1 - s.prior_regression)}% toward average.</p>
       <h3>Projections</h3>
-      <p>Projected margin = home rating − away rating + ${s.home_field} points of home field (none at neutral sites). The total comes from SP+ offense and defense; the projected score splits it by the margin. Win probability assumes a normal margin distribution (σ = ${s.margin_sd}).</p>
+      <p>Projected margin = home rating − away rating + ${s.home_field} points of home field (none at neutral sites). The total comes from SP+ offense and defense; the projected score splits it by the margin. Every game is then simulated 20,000 times drive by drive (touchdowns, field goals, tries and overtime), and the win chance, cover and over/under chances come from those games. Points in 3s and 7s produce key numbers on their own.</p>
       <h3>Picks</h3>
       <p>Every game with a line gets an against-the-spread side: the side the model's projected margin favors. The edge is that projection against the current line. Backtests show the model's gap to the line hasn't predicted results, so the cover chance is priced at a market-anchored line that moves only ${Math.round((s.anchor_weight ?? 0.15) * 100)}% of the way toward the model (at most ${s.anchor_max_shift ?? 1.5} points). Tiers come from expected value at −110 on that price: lean above 0%, play 1.5%+, strong 3%+. Picks re-price with each refresh until kickoff, lock at the last pre-kickoff line, and are graded straight up and ATS.</p>
       <h3>Confidence</h3>

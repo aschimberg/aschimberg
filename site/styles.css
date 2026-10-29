@@ -298,6 +298,15 @@ details.section > summary .conf { margin-left: auto; margin-right: 8px; }
 .sports a[aria-current="page"] { background: var(--accent); color: #fff; }
 .sports a:hover { color: var(--ink); }
 .sports a[aria-current="page"]:hover { color: #fff; }
+.sim-line { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; padding: 0 16px 10px; color: var(--muted); font-size: 12px; }
+.sim-line strong { color: var(--ink); font-weight: 650; }
+.sim-tag { padding: 1px 6px; border-radius: 4px; background: var(--accent); color: #fff; font: 700 9px var(--mono); letter-spacing: .08em; }
+.kv { display: grid; gap: 6px; margin: 0 0 8px; }
+.kv > div { display: grid; grid-template-columns: 120px 1fr; gap: 10px; font-size: 13px; }
+.kv dt { color: var(--muted); }
+.kv dd { margin: 0; }
+.notes-list { margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.5; }
+table.data.mini { font-size: 12px; margin: 4px 0 8px; }
 .extras { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 16px 10px; }
 .extras span { padding: 3px 8px; border-radius: 999px; background: var(--market); color: var(--muted); font-size: 11px; }
 .market.custom { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }

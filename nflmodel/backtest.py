@@ -22,7 +22,7 @@ from datetime import datetime, timezone
 from cfbmodel import ats, store
 from cfbmodel.model import grade as ats_grade
 from sportscommon import record as recmod
-from sportscommon import totals
+from sportscommon import drivesim, totals
 from sportscommon import tuning as tunemod
 
 from . import config, data, elo as elomod, margins, pipeline, qb as qbmod, ratings, teams
@@ -119,8 +119,9 @@ def run(seasons, games=None, pbp_loader=None, now=None, log=print, start_weights
                     h, a = g["home"], g["away"]
                     diffs, offset, hflag, _, _ = pipeline.margin_parts(g, fit, pregame, qb_values, baselines, replacement)
                     margin = sum(config.WEIGHTS[k] * diffs[k] for k in pipeline.SOURCES) + config.HOME_FIELD * hflag + offset
-                    dist = margins.pmf(margin, kw)
-                    wp = margins.win_prob(dist)
+                    model_total = pipeline.project_total(fit, h, a, league_ppg, margin)
+                    wp = drivesim.summary(drivesim.run_at("nfl", margin, model_total, n=config.SIMS_BACKTEST,
+                                                          seed=g["id"]))["home_wp"]
                     s = g["spread"]
                     trend_block = {}
                     for side in ("home", "away"):
@@ -129,10 +130,10 @@ def run(seasons, games=None, pbp_loader=None, now=None, log=print, start_weights
                             trends, g[side], pipeline._history_record(g), ts, rest_map.get((g[side], g["id"]))))
                     qb_known = bool(g["home_qb_id"] and g["away_qb_id"])
                     dq = min(1.0, min(played.get(h, 0), played.get(a, 0)) / 4) * (1.0 if qb_known else 0.7)
-                    fields, conf_detail = pipeline.ats_pick(g, margin, kw, diffs, offset, hflag, s, None, trend_block, dq)
+                    fields, conf_detail = pipeline.ats_pick(g, margin, model_total, diffs, offset, hflag, s, None, trend_block, dq,
+                                                           sims=config.SIMS_BACKTEST)
                     hp, ap = g["home_pts"], g["away_pts"]
-                    model_total = pipeline.project_total(fit, h, a, league_ppg, margin)
-                    tp = pipeline.total_pick(model_total, g["total"])
+                    tp = pipeline.total_pick(model_total, g["total"], margin, g["id"], sims=config.SIMS_BACKTEST)
                     su_team = teams.name(h if margin >= 0 else a)
                     winner = teams.name(h) if hp > ap else teams.name(a) if ap > hp else None
                     p = {

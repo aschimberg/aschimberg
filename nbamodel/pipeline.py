@@ -195,11 +195,9 @@ def refresh(loader=None, now=None, log=print):
             extras.append(f"Moneyline {g['away']} {fmt_american(o['ml_away'])} / {g['home']} {fmt_american(o['ml_home'])}"
                           f" · model {g['home']} {round(proj['wp'] * 100)}%")
         sm = proj["sim"]
-        extras.append(f"Simulated {sm['n']:,} games: {g['home']} wins {round(sm['home_wp'] * 100)}% · "
-                      f"avg {g['away']} {mp['away_pts']:.0f} – {g['home']} {mp['home_pts']:.0f} · OT {sm['ot'] * 100:.0f}%")
-        for sc in sm["scenarios"][:2]:
-            extras.append(f"Lineup: {sc['name']} ({g[sc['side']]}, {round(sc['p_play'] * 100)}% to play) — "
-                          f"{g[sc['side']]} by {sc['with']:+.1f} with him, {sc['without']:+.1f} without")
+        mp["sim"] = {"n": sm["n"], "ot": round(sm["ot"], 3),
+                     "scenarios": [{"name": sc["name"], "team": g[sc["side"]], "p_play": sc["p_play"],
+                                    "with": sc["with"], "without": sc["without"]} for sc in sm["scenarios"][:3]]}
 
         def tb(side):
             t = g[side]
