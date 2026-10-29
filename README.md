@@ -95,6 +95,16 @@ So the side still follows the model, but the cover chance, EV and tier come from
 
 Records count each pick by the tier it had when logged, so picks made before anchoring keep their old tiers.
 
+### Plays and the model check
+
+**Plays** are picks rated play or strong. The Record tab shows them all together, sides only and totals only, plus plays from the current model version (since Oct 28, 2026). The **model check** compares the current model's plays with the win rate the model claimed for them (each pick's logged cover or win chance):
+- **Retune flagged:** plays won significantly less than claimed (z ≤ −2, about a 1-in-40 chance if the claims were right).
+- **Watch:** below the 52.4% needed at −110, but not yet significant.
+- **On track:** at or above breakeven.
+- **Too early:** fewer than 25 plays graded.
+
+A flag shows on the Plays box and in that sport's briefing. Picks from older model versions are reported separately: college football (46.5% vs 57.4% claimed) and hockey (48.0% vs 57.3%) would both have been flagged before the Oct 28 retune.
+
 ## Over/under picks
 
 Every game also gets a side against the market total.

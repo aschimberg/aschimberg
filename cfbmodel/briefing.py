@@ -4,7 +4,7 @@ import urllib.request
 from datetime import datetime, timezone
 from zoneinfo import ZoneInfo
 
-from sportscommon import totals
+from sportscommon import record as recmod, totals
 
 from . import ats, config, splits, store
 from .model import fmt_spread
@@ -49,6 +49,8 @@ def build_briefing(meta, cards, record, today, tz, top_n=8):
         lines.append(
             f"Season: ATS {fmt_rec(sr['ats'])} · plays+ {fmt_rec(sr['ats_play'])} · SU {fmt_rec(sr['su'], ties=False)}"
         )
+    if recmod.check_line(sr):
+        lines.append(recmod.check_line(sr))
 
     def conf_of(c):
         return c["pick"].get("confidence") or 0

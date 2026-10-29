@@ -10,6 +10,10 @@
   const pct = (v) => (v == null ? "—" : (v * 100).toFixed(1) + "%");
   // Tiers come from EV at the market-anchored price; old logged picks without a tier fall back to their point edge
   const TIER_RANK = { pass: 0, lean: 1, play: 2, strong: 3 };
+  // Model check on the current model's plays (sportscommon/record.py health())
+  const CHECK_WORD = { retune: "Retune flagged", watch: "Watch", ok: "On track", early: "Too early" };
+  const checkFlag = (mc) => (mc && (mc.health.status === "retune" || mc.health.status === "watch")
+    ? `<br><span class="neg">⚠ ${esc(CHECK_WORD[mc.health.status])}</span>` : "");
   const atLeast = (p, t, edge) => (p?.tier in TIER_RANK ? TIER_RANK[p.tier] >= TIER_RANK[t] : (p?.edge ?? -1) >= edge);
   const recStr = (r, ties = true) => (r ? `${r.W}–${r.L}${ties && r.P ? "–" + r.P : ""}` : "—");
   // Home-perspective spread -> "Favorite −X".
@@ -526,6 +530,17 @@
         tile("Top pick", td.top, false, " · model's likeliest scorer") +
         tile("Best bets", td, false, td.W + td.L ? ` · ${td.units >= 0 ? "+" : ""}${td.units.toFixed(1)}u` : " · none yet (needs market prices)")]);
     }
+    const mc = sr.model_check;
+    if (mc) {
+      const cp = mc.plays, h = mc.health, ph = mc.previous_health;
+      const since = new Date(mc.since + "T12:00:00Z").toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: TZ });
+      const html =
+        tile(`Plays since ${since}`, cp, true, cp.W + cp.L + cp.P ? ` · model said ${pct(cp.exp)} · ${cp.units >= 0 ? "+" : ""}${cp.units.toFixed(1)}u` : " · none graded yet") +
+        `<div class="tile"><div class="k">Model check · current model</div><div class="v ${h.status === "retune" || h.status === "watch" ? "neg" : ""}">${esc(CHECK_WORD[h.status])}</div>` +
+        `<div class="s">${esc(h.note)}${ph && ph.status !== "early" ? `<br>Before ${since}: ${esc(ph.note)}` : ""}</div></div>`;
+      const g = groups.find(([name]) => name.startsWith("Plays"));
+      if (g) g[1] += html; else groups.unshift(["Plays", html]);
+    }
     groups.push(["Closing line value",
       clvTile("All picks", clvStats(seasonPicks)) +
       clvTile("Plays+", clvStats(seasonPicks.filter((p) => atLeast(p, "play", playEdge))))]);
@@ -809,7 +824,8 @@
     if (state.record?.strip && sr && (sr.su.W + sr.su.L > 0)) {
       $("#record-strip").hidden = false;
       $("#record-label").textContent = `${m.sport_label || m.season} model record`;
-      $("#record-dl").innerHTML = state.record.strip.map((c) => `<div><dt>${esc(c.k)}</dt><dd>${recStr(c.rec)}<small>${pct(c.rec.pct)} · ${esc(c.sub || "")}</small></dd></div>`).join("");
+      const mcS = state.record.season_record?.model_check;
+      $("#record-dl").innerHTML = state.record.strip.map((c) => `<div><dt>${esc(c.k)}</dt><dd>${recStr(c.rec)}<small>${pct(c.rec.pct)} · ${esc(c.sub || "")}${c.k === "Plays" ? checkFlag(mcS) : ""}</small></dd></div>`).join("");
       $("#record-strip").classList.toggle("cells-4", state.record.strip.length > 3);
       $("#record-strip").classList.toggle("cells-5", state.record.strip.length > 4);
     } else if (sr && (sr.su.W + sr.su.L > 0)) {
@@ -822,7 +838,7 @@
       const wl = (r) => (r ? `${r.W}–${r.L}${r.P ? "–" + r.P : ""}` : "0–0");
       if (pl) cells.push(`<div><dt>Plays</dt><dd>${recStr(pl)}<small>${pl.W + pl.L + pl.P
         ? `${pct(pl.pct)} · ${pl.units >= 0 ? "+" : ""}${pl.units.toFixed(1)}u<br>${T("ats", "ATS")} ${wl(pl.side)} · O/U ${wl(pl.total)}`
-        : "none graded yet"}</small></dd></div>`);
+        : "none graded yet"}${checkFlag(sr.model_check)}</small></dd></div>`);
       else cells.push(cell("ATS · plays+", sr.ats_play, true));
       if (sr.ou?.all && sr.ou.all.W + sr.ou.all.L > 0) cells.push(cell("Over/under", sr.ou.all, true));
       if (td?.games) cells.push(`<div><dt>Anytime TD</dt><dd>${td.hits_per_game.toFixed(2)}/gm<small>of ${Math.round(td.picks_per_game)} picks · exp ${td.exp_per_game.toFixed(2)}</small></dd></div>`);

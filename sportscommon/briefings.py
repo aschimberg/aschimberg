@@ -18,6 +18,7 @@ from cfbmodel import store
 from nflmodel import config as nflc
 from nhlmodel import config as nhlc
 from nbamodel import config as nbac
+from sportscommon import record as recmod
 from sportscommon import totals
 from sportscommon import props as sprops
 from sportscommon.odds import fmt_american
@@ -73,6 +74,8 @@ def build_nfl(now_local):
     lines = [f"**{now_local:%a %b %-d} · NFL {meta.get('slate_label', '')} · {len(games)} game{'s' if len(games) > 1 else ''}**"]
     if sr.get("ats", {}).get("W", 0) + sr.get("ats", {}).get("L", 0):
         lines.append(f"Season: ATS {_rec(sr['ats'])} · plays+ {_rec(sr['ats_play'])} · SU {_rec(sr['su'])}")
+    if recmod.check_line(sr):
+        lines.append(recmod.check_line(sr))
     # value sides only: lean or better at the market-anchored price, best EV first
     plays = sorted((c for c in games if c["pick"].get("tier") in ("lean", "play", "strong")),
                    key=lambda c: -(c["pick"].get("ev") or 0))
@@ -132,6 +135,8 @@ def build_nhl(now_local):
         if d and d["losses"]:
             lines.append(f"Dog picks {d['ml']['W']}-{d['ml']['L']} ML · {d['pl']['W']}-{d['pl']['L']} at +1.5 "
                          f"({d['lost_by_one']} of {d['losses']} losses by one goal)")
+    if recmod.check_line(sr):
+        lines.append(recmod.check_line(sr))
     lines += ["", "**🎯 Moneyline value**"]
     for c in plays[:8]:
         p = c["pick"]
@@ -171,6 +176,8 @@ def build_nba(now_local):
     lines = [f"**{now_local:%a %b %-d} · NBA · {len(games)} game{'s' if len(games) > 1 else ''}**"]
     if sr.get("ats", {}).get("W", 0) + sr.get("ats", {}).get("L", 0):
         lines.append(f"Season: ATS {_rec(sr['ats'])} · plays+ {_rec(sr['ats_play'])} · SU {_rec(sr['su'])}")
+    if recmod.check_line(sr):
+        lines.append(recmod.check_line(sr))
     lines += ["", "**🎯 Spread picks**"]
     for c in plays[:8]:
         p = c["pick"]

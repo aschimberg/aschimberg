@@ -676,7 +676,7 @@ def compute_record(picks, season):
             "ats_by_conf": {lbl: _rec([p for p in ml if p.get("conf_label") == lbl]) for lbl in ("High", "Medium", "Low")},
             "totals": _rec([p for p in graded if p["result"].get("total")], "total", "total_units"),
             "totals_play": _rec([p for p in graded if p["result"].get("total") and (p.get("total_pick") or {}).get("play")], "total", "total_units"),
-            "dogs": dog_record(graded), "plays": recmod.plays(graded),
+            "dogs": dog_record(graded), **recmod.plays_keys(graded),
             "by_week": by_week}
 
 

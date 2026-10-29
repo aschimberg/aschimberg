@@ -184,7 +184,7 @@ def compute_record(picks, season=None):
         "ats_strong": tiered(config.STRONG_EDGE, "strong"),
         "by_week": by_week,
         "ou": recmod.totals(graded, (config.TOTAL_LEAN_EDGE, config.TOTAL_PLAY_EDGE, config.TOTAL_STRONG_EDGE)),
-        "plays": recmod.plays(graded),
+        **recmod.plays_keys(graded),
     }
 
 

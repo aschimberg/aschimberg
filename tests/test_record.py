@@ -44,3 +44,30 @@ class PlaysRecordTests(unittest.TestCase):
         self.assertEqual(recmod.plays_sub(recmod.plays([])), "play or strong picks · none graded yet")
         self.assertEqual((r["side"]["W"], r["side"]["L"], r["total"]["L"], r["total"]["P"]), (2, 1, 1, 1))
         self.assertEqual(recmod.plays_sub(r), f"ATS 2–1 · O/U 0–1–1 · {r['units']:+.1f}u")
+
+
+class ModelCheckTests(unittest.TestCase):
+    def _picks(self, wins, losses, prob, start="2026-11-01T00:00:00Z"):
+        mk = lambda r: {"tier": "play", "cover_prob": prob, "start": start, "result": {"ats": r}}
+        return [mk("W") for _ in range(wins)] + [mk("L") for _ in range(losses)]
+
+    def test_health_statuses(self):
+        from sportscommon import record as recmod
+        self.assertEqual(recmod.health(recmod.plays(self._picks(5, 5, 0.55)))["status"], "early")
+        bad = recmod.plays(self._picks(45, 55, 0.57))      # 45% when the model said 57%
+        self.assertLess(bad["z"], -2)
+        self.assertEqual(recmod.health(bad)["status"], "retune")
+        meh = recmod.plays(self._picks(25, 25, 0.53))      # 50%: under breakeven, not significant
+        self.assertEqual(recmod.health(meh)["status"], "watch")
+        good = recmod.plays(self._picks(30, 24, 0.54))
+        self.assertEqual(recmod.health(good)["status"], "ok")
+        self.assertIsNone(recmod.check_line({"model_check": {"health": recmod.health(good)}}))
+        self.assertTrue(recmod.check_line({"model_check": {"health": recmod.health(bad)}}).startswith("⚠ Model check: Retune"))
+
+    def test_current_model_split(self):
+        from sportscommon import record as recmod
+        old = self._picks(40, 60, 0.57, start="2026-10-20T00:00:00Z")
+        new = self._picks(3, 1, 0.53)
+        season, mc = recmod.plays_block(old + new)
+        self.assertEqual((season["W"], mc["plays"]["W"], mc["previous"]["W"]), (43, 3, 40))
+        self.assertEqual((mc["health"]["status"], mc["previous_health"]["status"]), ("early", "retune"))
