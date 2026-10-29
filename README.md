@@ -101,8 +101,8 @@ Records count each pick by the tier it had when logged, so picks made before anc
 
 **Plays** are picks rated play or strong. The Record tab shows them all together, sides only and totals only, plus plays from the current model version (since Oct 28, 2026). The **model check** compares the current model's plays with the win rate the model claimed for them (each pick's logged cover or win chance):
 - **Retune flagged:** plays won significantly less than claimed (z ≤ −2, about a 1-in-40 chance if the claims were right).
-- **Watch:** below the 52.4% needed at −110, but not yet significant.
-- **On track:** at or above breakeven.
+- **Below target:** under 54%, the standard plays are held to (52.4% breaks even at −110), but not significantly short of the model's claims.
+- **On target:** 54% or better.
 - **Too early:** fewer than 25 plays graded.
 
 A flag shows on the Plays box and in that sport's briefing. Picks from older model versions are reported separately: college football (46.5% vs 57.4% claimed) and hockey (48.0% vs 57.3%) would both have been flagged before the Oct 28 retune.

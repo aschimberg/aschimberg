@@ -11,7 +11,7 @@
   // Tiers come from EV at the market-anchored price; old logged picks without a tier fall back to their point edge
   const TIER_RANK = { pass: 0, lean: 1, play: 2, strong: 3 };
   // Model check on the current model's plays (sportscommon/record.py health())
-  const CHECK_WORD = { retune: "Retune flagged", watch: "Watch", ok: "On track", early: "Too early" };
+  const CHECK_WORD = { retune: "Retune flagged", watch: "Below 54% target", ok: "On target", early: "Too early" };
   const checkFlag = (mc) => (mc && (mc.health.status === "retune" || mc.health.status === "watch")
     ? `<br><span class="neg">⚠ ${esc(CHECK_WORD[mc.health.status])}</span>` : "");
   const atLeast = (p, t, edge) => (p?.tier in TIER_RANK ? TIER_RANK[p.tier] >= TIER_RANK[t] : (p?.edge ?? -1) >= edge);

@@ -51,6 +51,7 @@ def _finish(r):
 
 
 BREAKEVEN = 0.5238  # win rate needed at -110
+PLAYS_TARGET = 0.54  # the bar plays are held to (user's standard)
 
 # Picks made by the current model version (market anchoring + NHL sim fix);
 # the retune check judges these, not picks from older versions.
@@ -106,8 +107,9 @@ def health(r, min_plays=HEALTH_MIN_PLAYS):
 
     retune: plays won significantly less than the model claimed (z <= -2,
             about a 1-in-40 chance if the claimed rates were right)
-    watch:  below the -110 breakeven, but not yet significant
-    ok:     at or above breakeven
+    watch:  below the PLAYS_TARGET win rate (54%), but not significantly
+            short of what the model claimed
+    ok:     at or above the target
     early:  fewer than min_plays graded
     """
     n = (r or {}).get("W", 0) + (r or {}).get("L", 0)
@@ -118,9 +120,9 @@ def health(r, min_plays=HEALTH_MIN_PLAYS):
     detail = f"{pct * 100:.1f}% vs {exp * 100:.1f}% predicted" if exp else f"{pct * 100:.1f}%"
     if z is not None and z <= -2:
         return {"status": "retune", "n": n, "note": f"Retune flagged: {detail} (z {z:+.1f})"}
-    if pct < BREAKEVEN:
-        return {"status": "watch", "n": n, "note": f"Watch: {detail}, below the 52.4% breakeven"}
-    return {"status": "ok", "n": n, "note": f"On track: {detail}"}
+    if pct < PLAYS_TARGET:
+        return {"status": "watch", "n": n, "note": f"Watch: {detail}, below the {PLAYS_TARGET * 100:.0f}% target"}
+    return {"status": "ok", "n": n, "note": f"On target: {detail} (target {PLAYS_TARGET * 100:.0f}%)"}
 
 
 def current_model(items):

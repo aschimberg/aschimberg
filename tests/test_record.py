@@ -57,9 +57,9 @@ class ModelCheckTests(unittest.TestCase):
         bad = recmod.plays(self._picks(45, 55, 0.57))      # 45% when the model said 57%
         self.assertLess(bad["z"], -2)
         self.assertEqual(recmod.health(bad)["status"], "retune")
-        meh = recmod.plays(self._picks(25, 25, 0.53))      # 50%: under breakeven, not significant
+        meh = recmod.plays(self._picks(27, 25, 0.53))      # 52%: under the 54% target, not significant
         self.assertEqual(recmod.health(meh)["status"], "watch")
-        good = recmod.plays(self._picks(30, 24, 0.54))
+        good = recmod.plays(self._picks(30, 24, 0.54))     # 55.6%
         self.assertEqual(recmod.health(good)["status"], "ok")
         self.assertIsNone(recmod.check_line({"model_check": {"health": recmod.health(good)}}))
         self.assertTrue(recmod.check_line({"model_check": {"health": recmod.health(bad)}}).startswith("⚠ Model check: Retune"))
