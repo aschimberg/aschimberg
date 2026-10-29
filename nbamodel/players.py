@@ -111,6 +111,22 @@ def adjustment(team, vals, hist, expected):
     return round(adj, 2), notes
 
 
+def availability(team, vals, hist, expected):
+    """Players whose status is known tonight, for the game simulation:
+    [{'pid', 'name', 'value', 'p_play', 'recent'}], same filter as adjustment()."""
+    out = []
+    th = hist.get(team) or []
+    for pid, p_play in expected.items():
+        v = vals.get(pid)
+        if not v or v["team"] != team or v["exp_min"] < config.ROTATION_MIN or v["value"] <= 0:
+            continue
+        recent = recent_availability(th, pid)
+        if abs(v["value"] * (p_play - recent)) < 0.05 and p_play in (0.0, 1.0):
+            continue
+        out.append({"pid": pid, "name": v["name"], "value": v["value"], "p_play": p_play, "recent": recent})
+    return out
+
+
 def expected_from_report(team, report, vals):
     """Injury report rows for a team -> {pid: P(plays)}; names resolve to ids when ESPN omits them."""
     by_name = {norm_name(v["name"]): pid for pid, v in vals.items() if v["team"] == team}

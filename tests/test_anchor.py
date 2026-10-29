@@ -36,11 +36,18 @@ class AnchorTests(unittest.TestCase):
             self.assertAlmostEqual(hc, ac, places=3)
 
     def test_nba_spread_priced_at_anchored_margin(self):
-        proj = {"margin": 8.0, "diffs": {"eff": 8.0, "pts": 8.0, "elo": 8.0}, "hflag": 1, "offset": 0.0}
+        from nbamodel import sim
+        si = {"base_margin": 8.0, "base_total": 228.0, "poss": 100.0, "roster": [], "seed": "t", "n": 4000}
+        summ = sim.summary(sim.run(**si), [])
+        proj = {"margin": summ["margin"], "total": summ["total"], "diffs": {"eff": 8.0, "pts": 8.0, "elo": 8.0},
+                "hflag": 1, "offset": 0.0, "sim_in": si}
         pick, _ = nbamodel.ats_pick(proj, -2.0, lambda t: t, "H", "A")
-        self.assertEqual((pick["ats_side"], pick["edge"], pick["fair_line"]), ("home", 6.0, -2.9))
-        self.assertAlmostEqual(pick["cover_prob"], 0.53, places=2)       # not the unanchored 69%
-        self.assertEqual(pick["tier"], "lean")
+        self.assertEqual((pick["ats_side"], pick["fair_line"]), ("home", -2.9))
+        self.assertAlmostEqual(pick["cover_prob"], 0.525, delta=0.02)   # simulated at the anchored line, not the unanchored 66%
+        tp = nbamodel.total_pick(proj, 222.5)
+        self.assertEqual(tp["side"], "over")
+        self.assertAlmostEqual(tp["fair"], 222.5 + 0.15 * (proj["total"] - 222.5), delta=0.06)
+        self.assertAlmostEqual(tp["prob"], 0.515, delta=0.02)
 
 
 if __name__ == "__main__":

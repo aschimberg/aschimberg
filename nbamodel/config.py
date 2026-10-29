@@ -48,9 +48,17 @@ TOTAL_INJURY_SHARE = 0.5  # share of a team's injury adjustment that also comes 
 STATUS_MISS = {"out": 1.0, "suspension": 1.0, "doubtful": 0.8, "questionable": 0.5, "day-to-day": 0.35,
                "game time decision": 0.5, "probable": 0.1}
 
-# Score distribution
-MARGIN_SD = _f("NBA_MARGIN_SD", 12.0)
-TOTAL_SD = _f("NBA_TOTAL_SD", 17.0)
+# Score distribution: how far NBA results land from the closing line
+# (2025-26, 1,066 games: margin 14.3, total 18.3). Was 12 / 17, which made
+# cover chances too extreme.
+MARGIN_SD = _f("NBA_MARGIN_SD", 14.3)
+TOTAL_SD = _f("NBA_TOTAL_SD", 18.3)
+# Game simulation (sim.py): runs per matchup, and fewer for the backtest
+SIMS = int(_f("NBA_SIMS", 2500))
+SIMS_BACKTEST = int(_f("NBA_SIMS_BACKTEST", 1000))
+OT_TOTAL_MEAN = 1.2  # average points overtime adds per game (ratings are fit on final scores)
+OT_TOTAL_VAR = 33.0  # total-score variance that overtime adds (taken out of regulation)
+TIE_PULL = _f("NBA_TIE_PULL", 0.2)  # share of 1-2 point regulation finishes pulled to OT (calibrated: 4.5% OT, as in 2025-26)
 
 # Picks (points of edge vs the line)
 LEAN_EDGE = _f("NBA_LEAN_EDGE", 1.5)

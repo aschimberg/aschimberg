@@ -110,11 +110,12 @@ def run(seasons, docs=None, now=None, log=print, start_weights=None, start_hfa=N
                         continue
                     h, a = g["home"], g["away"]
                     proj = model.project(g, st, players.expected_from_box(g, h, st["vals"]),
-                                         players.expected_from_box(g, a, st["vals"]), dates, pregame.get(g["id"]))
+                                         players.expected_from_box(g, a, st["vals"]), dates, pregame.get(g["id"]),
+                                         sims=config.SIMS_BACKTEST)
                     dq = min(1.0, min(st["gp"].get(h, 0), st["gp"].get(a, 0)) / 10)
                     fields, detail = model.ats_pick(proj, spread, name, h, a, src.get("home_spread_odds"),
                                                     src.get("away_spread_odds"), None, dq)
-                    tp = model.total_pick(proj["total"], total_line, src.get("over_odds"), src.get("under_odds"))
+                    tp = model.total_pick(proj, total_line, src.get("over_odds"), src.get("under_odds"))
                     if model.early(st, h, a):
                         fields, tp = model.cap_early(fields), model.cap_early(tp)
                     hp, ap = g["home_score"], g["away_score"]

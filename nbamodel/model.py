@@ -6,10 +6,10 @@ from datetime import date, timedelta
 
 from cfbmodel.model import grade as ats_grade  # noqa: F401  (re-exported for pipeline/backtest)
 from sportscommon import confidence as conf
-from sportscommon import anchor as anc, totals
+from sportscommon import anchor as anc
 from sportscommon.odds import american_to_decimal
 
-from . import config, players, ratings
+from . import config, players, ratings, sim
 
 SOURCES = ("eff", "pts", "elo")
 SOURCE_NAMES = {"eff": "Efficiency", "pts": "Points", "elo": "Elo"}
@@ -54,8 +54,13 @@ def team_dates(games):
     return out
 
 
-def project(g, st, expected_h, expected_a, dates_by_team, elo_pair=None):
-    """Margin/total/win probability and the parts behind them for one game."""
+def project(g, st, expected_h, expected_a, dates_by_team, elo_pair=None, sims=None):
+    """Margin/total/win probability and the parts behind them for one game.
+
+    The ratings give a base margin and total; the game is then simulated
+    `sims` times (sim.py) with each listed player drawn in or out, so the
+    projection, win chance and later the pick prices come from simulated games.
+    """
     h, a = g["home"], g["away"]
     hflag = 0 if g.get("neutral") else 1
     pace = st["pace"]
@@ -90,11 +95,25 @@ def project(g, st, expected_h, expected_a, dates_by_team, elo_pair=None):
         total = 0.6 * eff_total + 0.4 * pts_total
     else:
         total = eff_total or pts_total or 2 * 112.0
+    base_margin = margin - (inj_h - inj_a)
+    base_total = total
     total += config.TOTAL_INJURY_SHARE * (inj_h + inj_a)
-    wp = ratings.normal_cdf(margin / config.MARGIN_SD)
-    return {"diffs": diffs, "offset": round(offset, 2), "hflag": hflag, "margin": margin, "total": total, "wp": wp,
-            "poss": poss, "inj": {"home": (inj_h, notes_h), "away": (inj_a, notes_a)},
-            "b2b": {"home": b2b_h, "away": b2b_a}}
+    roster = ([dict(r, side="home") for r in players.availability(h, st["vals"], st["hist"], expected_h)]
+              + [dict(r, side="away") for r in players.availability(a, st["vals"], st["hist"], expected_a)])
+    sim_in = {"base_margin": base_margin, "base_total": base_total, "poss": poss, "roster": roster,
+              "seed": g.get("id") or f"{h}-{a}-{g.get('date')}", "n": sims or config.SIMS}
+    summ = sim.summary(sim.run(**sim_in), roster)
+    return {"diffs": diffs, "offset": round(offset, 2), "hflag": hflag, "margin": summ["margin"], "total": summ["total"],
+            "wp": summ["home_wp"], "poss": poss, "inj": {"home": (inj_h, notes_h), "away": (inj_a, notes_a)},
+            "b2b": {"home": b2b_h, "away": b2b_a}, "sim": summ, "sim_in": sim_in}
+
+
+def priced(proj, margin_to=None, total_to=None):
+    """Re-run the same simulated games with the mean margin/total moved to the
+    market-anchored numbers (same random draws, so only the center moves)."""
+    si = proj["sim_in"]
+    return sim.run(**si, margin_shift=(margin_to - proj["margin"]) if margin_to is not None else 0.0,
+                   total_shift=(total_to - proj["total"]) if total_to is not None else 0.0)
 
 
 def tier(edge):
@@ -129,13 +148,15 @@ def ats_pick(proj, spread, team_name, h, a, home_odds=None, away_odds=None, move
     sign = 1 if side == "home" else -1
     edge = abs(margin + spread)
     fair_m = anc.fair(margin, -spread, *config.ANCHOR)  # priced at the market-anchored margin
-    p_home = 1 - ratings.normal_cdf(-(fair_m + spread) / config.MARGIN_SD)
-    p_cover = p_home if side == "home" else 1 - p_home
+    hc, push, ac = sim.cover(priced(proj, margin_to=fair_m), spread)
+    p_cover = hc if side == "home" else ac
+    p_lose = 1 - p_cover - push
     odds = (home_odds if side == "home" else away_odds) or -110
-    ev = p_cover * (american_to_decimal(odds) - 1) - (1 - p_cover)
+    ev = p_cover * (american_to_decimal(odds) - 1) - p_lose  # a push returns the stake
     pick = {
         "ats_side": side, "ats_team": team_name(h if side == "home" else a), "ats_line": spread if side == "home" else -spread,
-        "edge": round(edge, 1), "fair_line": round(-fair_m, 1), "tier": anc.tier(ev), "cover_prob": round(p_cover, 3),
+        "edge": round(edge, 1), "fair_line": round(-fair_m, 1), "tier": anc.tier(ev),
+        "cover_prob": round(p_cover / (p_cover + p_lose), 3) if p_cover + p_lose else None, "push_prob": round(push, 3),
         "ev": round(ev, 3),
     }
     covers = {k: sign * (proj["diffs"][k] + config.HOME_COURT * proj["hflag"] + proj["offset"] + spread) for k in SOURCES}
@@ -150,6 +171,18 @@ def ats_pick(proj, spread, team_name, h, a, home_odds=None, away_odds=None, move
     return pick, detail
 
 
-def total_pick(model_total, line, over_odds=None, under_odds=None):
-    return totals.make_pick(model_total, line, config.TOTAL_SD, config.TOTAL_LEAN_EDGE, config.TOTAL_PLAY_EDGE,
-                            config.TOTAL_STRONG_EDGE, over_odds, under_odds, anchor=config.ANCHOR)
+def total_pick(proj, line, over_odds=None, under_odds=None):
+    """Over/under priced on the simulated games at the market-anchored total."""
+    if line is None:
+        return None
+    model_total = proj["total"]
+    side = "over" if model_total >= line else "under"
+    fair_t = anc.fair(model_total, line, *config.ANCHOR)
+    over, push, under = sim.over_under(priced(proj, total_to=fair_t), line)
+    p, q = (over, under) if side == "over" else (under, over)
+    odds = over_odds if side == "over" else under_odds
+    ev = p * (american_to_decimal(odds or -110) - 1) - q
+    t = anc.tier(ev)
+    return {"side": side, "line": line, "model": round(model_total, 1), "edge": round(abs(model_total - line), 1),
+            "prob": round(p / (p + q), 3) if p + q else None, "push_prob": round(push, 3), "odds": odds,
+            "fair": round(fair_t, 1), "ev": round(ev, 4), "tier": t, "play": t in ("play", "strong")}

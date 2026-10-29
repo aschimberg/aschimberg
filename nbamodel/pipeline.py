@@ -151,7 +151,7 @@ def refresh(loader=None, now=None, log=print):
               "home_pts": round((total + margin) / 2, 1), "away_pts": round((total - margin) / 2, 1),
               "home_wp": round(proj["wp"], 3)}
         is_early = model.early(st, h, a)
-        tp = model.total_pick(total, o.get("total"), o.get("over_odds"), o.get("under_odds"))
+        tp = model.total_pick(proj, o.get("total"), o.get("over_odds"), o.get("under_odds"))
         pick = {"su_team": name(h if margin >= 0 else a), "su_wp": round(max(proj["wp"], 1 - proj["wp"]), 3),
                 "ats_side": None, "ats_team": None, "ats_line": None, "edge": None, "tier": None, "cover_prob": None,
                 "ev": None, "confidence": None, "conf_label": None,
@@ -194,6 +194,12 @@ def refresh(loader=None, now=None, log=print):
         if o.get("ml_home") is not None and o.get("ml_away") is not None:
             extras.append(f"Moneyline {g['away']} {fmt_american(o['ml_away'])} / {g['home']} {fmt_american(o['ml_home'])}"
                           f" · model {g['home']} {round(proj['wp'] * 100)}%")
+        sm = proj["sim"]
+        extras.append(f"Simulated {sm['n']:,} games: {g['home']} wins {round(sm['home_wp'] * 100)}% · "
+                      f"avg {g['away']} {mp['away_pts']:.0f} – {g['home']} {mp['home_pts']:.0f} · OT {sm['ot'] * 100:.0f}%")
+        for sc in sm["scenarios"][:2]:
+            extras.append(f"Lineup: {sc['name']} ({g[sc['side']]}, {round(sc['p_play'] * 100)}% to play) — "
+                          f"{g[sc['side']]} by {sc['with']:+.1f} with him, {sc['without']:+.1f} without")
 
         def tb(side):
             t = g[side]
@@ -308,7 +314,8 @@ def method_html():
 <h3>Totals</h3>
 <p>Projected possessions × each offense vs the other defense (efficiency), blended 60/40 with the points fit; half of each team's injury adjustment also comes off the total.</p>
 <h3>Picks, confidence and tuning</h3>
-<p>Edge = projected margin vs the DraftKings spread (via ESPN). Backtests show the model's gap to the line hasn't predicted results, so bets are priced at a market-anchored line that moves {config.ANCHOR_WEIGHT:.0%} of the way from the line toward the model, at most {config.ANCHOR_MAX_SHIFT:g} points. Tiers come from expected value at that price: lean above 0%, play 1.5%+, strong 3%+. Cover chances use a normal margin distribution (SD {config.MARGIN_SD:g}); over/unders are priced the same way (SD {config.TOTAL_SD:g}). Confidence weighs whether each source covers on its own, the edge, line movement and data quality. Every Monday the source weights and home court are refit to this season's results and moved part of the way there.</p>
+<p>Every matchup is simulated {config.SIMS:,} times. Each run draws every player on the injury report in or out from his status (Out 0%, Doubtful 20%, Questionable 50%, Day-to-day 65% to play), moves the margin by his value against how often he's played lately, then plays the game out: shared pace, each team's points per possession, late-game ties and overtime. The spread of results matches how NBA games land around the closing line (margin SD {config.MARGIN_SD:g}, total SD {config.TOTAL_SD:g}, {config.TIE_PULL * 100:.0f}% of one- and two-point finishes pulled to overtime for a 4.5% OT rate). Win chance, projected score and every cover and over/under chance come from the simulated games, so a 50/50 star shows up as two different games, and pushes on whole-number lines are counted.</p>
+<p>Edge = projected margin vs the DraftKings spread (via ESPN). Backtests show the model's gap to the line hasn't predicted results, so bets are priced at a market-anchored line that moves {config.ANCHOR_WEIGHT:.0%} of the way from the line toward the model, at most {config.ANCHOR_MAX_SHIFT:g} points. Tiers come from expected value at that price: lean above 0%, play 1.5%+, strong 3%+. Cover and over/under chances are read off the simulated games, re-centered on the anchored line and total. Confidence weighs whether each source covers on its own, the edge, line movement and data quality. Every Monday the source weights and home court are refit to this season's results and moved part of the way there.</p>
 <p>Data: ESPN's public NBA API (schedule, scores, box scores, DraftKings lines, injury report). For entertainment only.</p>"""
 
 
