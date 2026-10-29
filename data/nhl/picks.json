@@ -11892,7 +11892,7 @@
    "bet_at": "2026-10-29T16:20:08Z",
    "bet_line": -162.0,
    "conf_label": "Low",
-   "confidence": 53,
+   "confidence": 50,
    "confidence_detail": {
     "agree": 3,
     "components": {
@@ -11900,12 +11900,12 @@
      "consistency": 0.804,
      "data": 1.0,
      "edge": 0.0,
-     "market": 0.5,
+     "market": 0.327,
      "trends": 0.5
     },
     "label": "Low",
     "n_sources": 4,
-    "score": 53,
+    "score": 50,
     "side": "home",
     "source_names": {
      "elo": "Elo",
@@ -11928,8 +11928,8 @@
     "mp": 0.657,
     "xg": 0.47
    },
-   "edge": -3.4,
-   "ev": -0.0342,
+   "edge": -2.6,
+   "ev": -0.026,
    "hfa_flag": 1,
    "home": "Detroit Red Wings",
    "home_abbr": "DET",
@@ -11937,16 +11937,16 @@
    "home_prob": 0.601,
    "id": 2026020203,
    "line": null,
-   "mkt_prob": 0.593,
-   "ml_away": 136.0,
-   "ml_home": -162.0,
+   "mkt_prob": 0.583,
+   "ml_away": 130.0,
+   "ml_home": -155.0,
    "model_prob": 0.601,
    "model_spread": null,
    "neutral": false,
-   "odds": -162.0,
+   "odds": -155.0,
    "offset": -0.064,
    "pl_alt": null,
-   "prob": 0.597,
+   "prob": 0.592,
    "result": null,
    "season": 20262027,
    "season_type": "regular",
@@ -11966,7 +11966,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-29T16:20:08Z",
+   "updated": "2026-10-29T16:59:51Z",
    "week": 202644,
    "weights": {
     "elo": 0.202,
@@ -12064,7 +12064,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-29T16:20:08Z",
+   "updated": "2026-10-29T16:59:51Z",
    "week": 202644,
    "weights": {
     "elo": 0.202,
@@ -12162,7 +12162,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-29T16:20:08Z",
+   "updated": "2026-10-29T16:59:51Z",
    "week": 202644,
    "weights": {
     "elo": 0.202,
@@ -12253,7 +12253,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-29T16:20:08Z",
+   "updated": "2026-10-29T16:59:51Z",
    "week": 202644,
    "weights": {
     "elo": 0.202,
@@ -12344,7 +12344,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-29T16:20:08Z",
+   "updated": "2026-10-29T16:59:51Z",
    "week": 202644,
    "weights": {
     "elo": 0.202,
@@ -12435,7 +12435,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-29T16:20:08Z",
+   "updated": "2026-10-29T16:59:51Z",
    "week": 202644,
    "weights": {
     "elo": 0.202,
@@ -12522,18 +12522,18 @@
    "su_wp": 0.56,
    "tier": "pass",
    "total_pick": {
-    "edge": -0.2,
-    "ev": -0.0018,
-    "line": 5.5,
-    "mkt_prob": 0.449,
-    "model_prob": 0.484,
-    "odds": 114.0,
+    "edge": -0.7,
+    "ev": -0.0066,
+    "line": 6.5,
+    "mkt_prob": 0.551,
+    "model_prob": 0.59,
+    "odds": -135.0,
     "play": false,
-    "prob": 0.466,
+    "prob": 0.571,
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-29T16:20:08Z",
+   "updated": "2026-10-29T16:59:51Z",
    "week": 202644,
    "weights": {
     "elo": 0.202,
@@ -12631,7 +12631,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-29T16:20:08Z",
+   "updated": "2026-10-29T16:59:51Z",
    "week": 202644,
    "weights": {
     "elo": 0.202,
@@ -12729,7 +12729,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-29T16:20:08Z",
+   "updated": "2026-10-29T16:59:51Z",
    "week": 202644,
    "weights": {
     "elo": 0.202,
@@ -12827,7 +12827,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-29T16:20:08Z",
+   "updated": "2026-10-29T16:59:51Z",
    "week": 202644,
    "weights": {
     "elo": 0.202,
@@ -12925,7 +12925,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-29T16:20:08Z",
+   "updated": "2026-10-29T16:59:51Z",
    "week": 202644,
    "weights": {
     "elo": 0.202,
