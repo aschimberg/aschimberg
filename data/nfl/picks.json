@@ -9379,7 +9379,7 @@
     "epa": 0.5
    },
    "edge": 1.7,
-   "ev": -0.031,
+   "ev": -0.058,
    "fair_line": -6.9,
    "hfa_flag": 1,
    "home": "Dallas Cowboys",
@@ -9456,7 +9456,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-29T16:59:16Z",
+   "updated": "2026-10-29T23:21:05Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -9497,13 +9497,13 @@
      "epa": 2.9
     }
    },
-   "cover_prob": 0.494,
+   "cover_prob": 0.499,
    "diffs": {
     "elo": -0.62,
     "epa": 0.76
    },
    "edge": 0.9,
-   "ev": -0.065,
+   "ev": -0.048,
    "fair_line": -1.6,
    "hfa_flag": 1,
    "home": "Tampa Bay Buccaneers",
@@ -9566,21 +9566,21 @@
    "su_team": "Tampa Bay Buccaneers",
    "su_wp": 0.548,
    "tier": "pass",
-   "total_line": 44.5,
+   "total_line": 44.0,
    "total_pick": {
-    "edge": 8.5,
-    "ev": 0.048,
-    "fair": 43.2,
-    "line": 44.5,
+    "edge": 8.0,
+    "ev": 0.0381,
+    "fair": 42.8,
+    "line": 44.0,
     "model": 36.0,
     "odds": null,
     "play": true,
-    "prob": 0.549,
-    "push_prob": 0.0,
+    "prob": 0.544,
+    "push_prob": 0.035,
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-29T16:59:16Z",
+   "updated": "2026-10-29T23:21:05Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -9704,7 +9704,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-29T16:59:16Z",
+   "updated": "2026-10-29T23:21:05Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -9751,7 +9751,7 @@
     "epa": 3.83
    },
    "edge": 1.2,
-   "ev": -0.05,
+   "ev": -0.033,
    "fair_line": -3.7,
    "hfa_flag": 1,
    "home": "Green Bay Packers",
@@ -9768,17 +9768,17 @@
    "props": [
     {
      "bet": true,
-     "book": "DraftKings",
-     "ev": 0.048,
-     "fair": 367,
+     "book": "FanDuel",
+     "ev": 0.1277,
+     "fair": 361,
      "games": 7,
-     "kelly": 0.0123,
+     "kelly": 0.0304,
      "lam": 0.3815,
-     "mkt_prob": 0.16,
+     "mkt_prob": 0.164,
      "n_books": 6,
      "name": "MarShawn Lloyd",
-     "odds": 390.0,
-     "p": 0.214,
+     "odds": 420.0,
+     "p": 0.217,
      "p_model": 0.317,
      "pid": "00-0039811",
      "pos": "RB",
@@ -9807,7 +9807,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-29T16:59:16Z",
+   "updated": "2026-10-29T23:21:05Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -9871,6 +9871,19 @@
    "props": [
     {
      "bet": false,
+     "fair": 139,
+     "games": 17,
+     "lam": 0.5407,
+     "name": "Zach Charbonnet",
+     "note": "no market price yet",
+     "p": 0.418,
+     "p_model": 0.418,
+     "pid": "00-0039165",
+     "pos": "RB",
+     "team": "SEA"
+    },
+    {
+     "bet": false,
      "fair": 153,
      "games": 25,
      "lam": 0.5041,
@@ -9881,19 +9894,6 @@
      "pid": "00-0036275",
      "pos": "RB",
      "team": "CHI"
-    },
-    {
-     "bet": false,
-     "fair": 172,
-     "games": 17,
-     "lam": 0.459,
-     "name": "Zach Charbonnet",
-     "note": "no market price yet",
-     "p": 0.368,
-     "p_model": 0.368,
-     "pid": "00-0039165",
-     "pos": "RB",
-     "team": "SEA"
     },
     {
      "bet": false,
@@ -9931,7 +9931,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-10-29T16:59:16Z",
+   "updated": "2026-10-29T23:21:05Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10055,7 +10055,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-29T16:59:16Z",
+   "updated": "2026-10-29T23:21:05Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10179,7 +10179,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-29T16:59:16Z",
+   "updated": "2026-10-29T23:21:05Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10303,7 +10303,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-29T16:59:16Z",
+   "updated": "2026-10-29T23:21:05Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10427,7 +10427,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-29T16:59:16Z",
+   "updated": "2026-10-29T23:21:05Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10551,7 +10551,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-29T16:59:16Z",
+   "updated": "2026-10-29T23:21:05Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10675,7 +10675,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-29T16:59:16Z",
+   "updated": "2026-10-29T23:21:05Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10716,13 +10716,13 @@
      "epa": -8.2
     }
    },
-   "cover_prob": 0.5,
+   "cover_prob": 0.497,
    "diffs": {
     "elo": -8.35,
     "epa": -9.73
    },
    "edge": 0.1,
-   "ev": -0.061,
+   "ev": -0.067,
    "fair_line": 7.2,
    "hfa_flag": 1,
    "home": "Miami Dolphins",
@@ -10777,7 +10777,7 @@
      "team": "MIA"
     }
    ],
-   "push_prob": 0.052,
+   "push_prob": 0.051,
    "result": null,
    "season": 2026,
    "season_type": "regular",
@@ -10785,21 +10785,21 @@
    "su_team": "New England Patriots",
    "su_wp": 0.687,
    "tier": "pass",
-   "total_line": 43.5,
+   "total_line": 43.0,
    "total_pick": {
-    "edge": 9.6,
-    "ev": 0.0274,
-    "fair": 44.9,
-    "line": 43.5,
+    "edge": 10.1,
+    "ev": 0.0325,
+    "fair": 44.5,
+    "line": 43.0,
     "model": 53.1,
     "odds": null,
     "play": true,
-    "prob": 0.538,
-    "push_prob": 0.0,
+    "prob": 0.541,
+    "push_prob": 0.032,
     "side": "over",
-    "tier": "play"
+    "tier": "strong"
    },
-   "updated": "2026-10-29T16:59:16Z",
+   "updated": "2026-10-29T23:21:05Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10807,7 +10807,7 @@
    }
   },
   "2026_08_PHI_WAS": {
-   "ats_line": 5.5,
+   "ats_line": 6.0,
    "ats_side": "away",
    "ats_team": "Philadelphia Eagles",
    "away": "Philadelphia Eagles",
@@ -10816,20 +10816,20 @@
    "bet_line": -3.5,
    "book": "nflverse consensus",
    "conf_label": "Medium",
-   "confidence": 63,
+   "confidence": 66,
    "confidence_detail": {
     "agree": 2,
     "components": {
      "agreement": 1.0,
      "consistency": 0.88,
      "data": 1.0,
-     "edge": 0.401,
+     "edge": 0.512,
      "market": 0.0,
      "trends": 0.625
     },
     "label": "Medium",
     "n_sources": 2,
-    "score": 63,
+    "score": 66,
     "side": "away",
     "source_names": {
      "elo": "Elo",
@@ -10840,20 +10840,20 @@
      "epa": 5.3
     }
    },
-   "cover_prob": 0.506,
+   "cover_prob": 0.509,
    "diffs": {
     "elo": -1.37,
     "epa": 0.31
    },
-   "edge": 1.8,
-   "ev": -0.041,
-   "fair_line": -4.8,
+   "edge": 2.3,
+   "ev": -0.02,
+   "fair_line": -5.4,
    "hfa_flag": 1,
    "home": "Washington Commanders",
    "home_abbr": "WAS",
    "home_field": 1.519,
    "id": "2026_08_PHI_WAS",
-   "line": -5.5,
+   "line": -6.0,
    "model_spread": -3.7,
    "model_total": 43.9,
    "neutral": false,
@@ -10901,7 +10901,7 @@
      "team": "PHI"
     }
    ],
-   "push_prob": 0.0,
+   "push_prob": 0.043,
    "result": null,
    "season": 2026,
    "season_type": "regular",
@@ -10923,7 +10923,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-29T16:59:16Z",
+   "updated": "2026-10-29T23:21:05Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10931,7 +10931,7 @@
    }
   },
   "2026_08_TEN_CIN": {
-   "ats_line": -10.5,
+   "ats_line": -11.5,
    "ats_side": "home",
    "ats_team": "Cincinnati Bengals",
    "away": "Tennessee Titans",
@@ -10940,20 +10940,20 @@
    "bet_line": -10.5,
    "book": "nflverse consensus",
    "conf_label": "High",
-   "confidence": 75,
+   "confidence": 76,
    "confidence_detail": {
     "agree": 2,
     "components": {
      "agreement": 1.0,
      "consistency": 0.744,
      "data": 1.0,
-     "edge": 0.71,
-     "market": 0.5,
+     "edge": 0.488,
+     "market": 0.9,
      "trends": 0.5
     },
     "label": "High",
     "n_sources": 2,
-    "score": 75,
+    "score": 76,
     "side": "home",
     "source_names": {
      "elo": "Elo",
@@ -10964,20 +10964,20 @@
      "epa": 17.0
     }
    },
-   "cover_prob": 0.517,
+   "cover_prob": 0.513,
    "diffs": {
     "elo": 9.89,
     "epa": 13.47
    },
-   "edge": 3.2,
-   "ev": -0.045,
-   "fair_line": -11.0,
+   "edge": 2.2,
+   "ev": -0.012,
+   "fair_line": -11.8,
    "hfa_flag": 1,
    "home": "Cincinnati Bengals",
    "home_abbr": "CIN",
    "home_field": 1.519,
    "id": "2026_08_TEN_CIN",
-   "line": -10.5,
+   "line": -11.5,
    "model_spread": -13.7,
    "model_total": 49.1,
    "neutral": false,
@@ -11047,7 +11047,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-29T16:59:16Z",
+   "updated": "2026-10-29T23:21:05Z",
    "week": 8,
    "weights": {
     "elo": 0.931,

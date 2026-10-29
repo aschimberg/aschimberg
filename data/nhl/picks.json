@@ -11955,18 +11955,18 @@
    "su_wp": 0.601,
    "tier": "pass",
    "total_pick": {
-    "edge": -1.6,
-    "ev": -0.0163,
+    "edge": -1.3,
+    "ev": -0.0129,
     "line": 5.5,
-    "mkt_prob": 0.526,
+    "mkt_prob": 0.522,
     "model_prob": 0.555,
-    "odds": -122.0,
+    "odds": -120.0,
     "play": false,
-    "prob": 0.541,
+    "prob": 0.538,
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-29T21:30:36Z",
+   "updated": "2026-10-29T23:21:37Z",
    "week": 202644,
    "weights": {
     "elo": 0.202,
@@ -12333,18 +12333,18 @@
    "su_wp": 0.517,
    "tier": "pass",
    "total_pick": {
-    "edge": -2.4,
-    "ev": -0.0241,
+    "edge": -1.6,
+    "ev": -0.0164,
     "line": 5.5,
-    "mkt_prob": 0.543,
+    "mkt_prob": 0.532,
     "model_prob": 0.56,
-    "odds": -130.0,
+    "odds": -125.0,
     "play": false,
-    "prob": 0.552,
+    "prob": 0.546,
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-29T21:30:36Z",
+   "updated": "2026-10-29T23:21:37Z",
    "week": 202644,
    "weights": {
     "elo": 0.202,
@@ -12368,8 +12368,8 @@
      "agreement": 1.0,
      "consistency": 0.914,
      "data": 0.9,
-     "edge": 0.127,
-     "market": 0.5,
+     "edge": 0.012,
+     "market": 0.644,
      "trends": 0.5
     },
     "label": "Medium",
@@ -12397,8 +12397,8 @@
     "mp": -0.295,
     "xg": -0.166
    },
-   "edge": 1.0,
-   "ev": 0.0101,
+   "edge": 0.1,
+   "ev": 0.001,
    "hfa_flag": 1,
    "home": "Nashville Predators",
    "home_abbr": "NSH",
@@ -12406,16 +12406,16 @@
    "home_prob": 0.553,
    "id": 2026020208,
    "line": null,
-   "mkt_prob": 0.496,
-   "ml_away": -112.0,
-   "ml_home": -108.0,
+   "mkt_prob": 0.504,
+   "ml_away": -108.0,
+   "ml_home": -112.0,
    "model_prob": 0.553,
    "model_spread": null,
    "neutral": false,
-   "odds": -108.0,
+   "odds": -112.0,
    "offset": 0.355,
    "pl_alt": null,
-   "prob": 0.524,
+   "prob": 0.529,
    "result": null,
    "season": 20262027,
    "season_type": "regular",
@@ -12435,7 +12435,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-29T21:30:36Z",
+   "updated": "2026-10-29T23:21:37Z",
    "week": 202644,
    "weights": {
     "elo": 0.202,
@@ -12507,11 +12507,11 @@
    "offset": -0.126,
    "pl_alt": {
     "better": false,
-    "ev": 0.0008,
+    "ev": 0.0056,
     "line": 1.5,
     "model_prob": 0.669,
-    "odds": -180.0,
-    "prob": 0.643
+    "odds": -175.0,
+    "prob": 0.64
    },
    "prob": 0.415,
    "result": null,
@@ -12533,7 +12533,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-29T21:30:36Z",
+   "updated": "2026-10-29T23:21:37Z",
    "week": 202644,
    "weights": {
     "elo": 0.202,
@@ -12631,7 +12631,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-29T21:30:36Z",
+   "updated": "2026-10-29T23:21:37Z",
    "week": 202644,
    "weights": {
     "elo": 0.202,
@@ -12703,11 +12703,11 @@
    "offset": -0.071,
    "pl_alt": {
     "better": false,
-    "ev": -0.0071,
+    "ev": -0.0013,
     "line": 1.5,
     "model_prob": 0.689,
-    "odds": -205.0,
-    "prob": 0.667
+    "odds": -198.0,
+    "prob": 0.664
    },
    "prob": 0.456,
    "result": null,
@@ -12729,7 +12729,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-29T21:30:36Z",
+   "updated": "2026-10-29T23:21:37Z",
    "week": 202644,
    "weights": {
     "elo": 0.202,
@@ -12746,20 +12746,20 @@
    "bet_at": "2026-10-29T16:20:08Z",
    "bet_line": -102.0,
    "conf_label": "Low",
-   "confidence": 53,
+   "confidence": 50,
    "confidence_detail": {
-    "agree": 4,
+    "agree": 3,
     "components": {
-     "agreement": 1.0,
+     "agreement": 0.798,
      "consistency": 0.778,
      "data": 0.9,
      "edge": 0.0,
-     "market": 0.248,
+     "market": 0.355,
      "trends": 0.5
     },
     "label": "Low",
     "n_sources": 4,
-    "score": 53,
+    "score": 50,
     "side": "home",
     "source_names": {
      "elo": "Elo",
@@ -12782,8 +12782,8 @@
     "mp": -0.404,
     "xg": -0.092
    },
-   "edge": -1.0,
-   "ev": -0.0102,
+   "edge": -1.8,
+   "ev": -0.0182,
    "hfa_flag": 1,
    "home": "Los Angeles Kings",
    "home_abbr": "LAK",
@@ -12791,13 +12791,13 @@
    "home_prob": 0.498,
    "id": 2026020212,
    "line": null,
-   "mkt_prob": 0.468,
-   "ml_away": -125.0,
-   "ml_home": 105.0,
+   "mkt_prob": 0.474,
+   "ml_away": -122.0,
+   "ml_home": 102.0,
    "model_prob": 0.498,
    "model_spread": null,
    "neutral": false,
-   "odds": 105.0,
+   "odds": 102.0,
    "offset": 0.015,
    "pl_alt": {
     "better": false,
@@ -12807,7 +12807,7 @@
     "odds": -258.0,
     "prob": 0.705
    },
-   "prob": 0.483,
+   "prob": 0.486,
    "result": null,
    "season": 20262027,
    "season_type": "regular",
@@ -12827,7 +12827,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-29T21:30:36Z",
+   "updated": "2026-10-29T23:21:37Z",
    "week": 202644,
    "weights": {
     "elo": 0.202,
@@ -12925,7 +12925,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-29T21:30:36Z",
+   "updated": "2026-10-29T23:21:37Z",
    "week": 202644,
    "weights": {
     "elo": 0.202,
