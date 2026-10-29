@@ -9379,7 +9379,7 @@
     "epa": 0.5
    },
    "edge": 1.7,
-   "ev": -0.025,
+   "ev": -0.009,
    "fair_line": -8.0,
    "hfa_flag": 1,
    "home": "Dallas Cowboys",
@@ -9454,7 +9454,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-29T01:50:53Z",
+   "updated": "2026-10-29T07:39:01Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -9563,20 +9563,20 @@
    "su_team": "Tampa Bay Buccaneers",
    "su_wp": 0.546,
    "tier": "pass",
-   "total_line": 45.0,
+   "total_line": 44.5,
    "total_pick": {
-    "edge": 9.0,
-    "ev": 0.0308,
-    "fair": 43.6,
-    "line": 45.0,
+    "edge": 8.5,
+    "ev": 0.0266,
+    "fair": 43.2,
+    "line": 44.5,
     "model": 36.0,
     "odds": null,
     "play": true,
-    "prob": 0.54,
+    "prob": 0.538,
     "side": "under",
-    "tier": "strong"
+    "tier": "play"
    },
-   "updated": "2026-10-29T01:50:53Z",
+   "updated": "2026-10-29T07:39:01Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -9698,7 +9698,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-29T01:50:53Z",
+   "updated": "2026-10-29T07:39:01Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -9763,16 +9763,16 @@
     {
      "bet": true,
      "book": "FanDuel",
-     "ev": 0.0742,
-     "fair": 337,
+     "ev": 0.0332,
+     "fair": 355,
      "games": 7,
-     "kelly": 0.02,
+     "kelly": 0.009,
      "lam": 0.3815,
-     "mkt_prob": 0.18,
+     "mkt_prob": 0.168,
      "n_books": 6,
      "name": "MarShawn Lloyd",
      "odds": 370.0,
-     "p": 0.229,
+     "p": 0.22,
      "p_model": 0.317,
      "pid": "00-0039811",
      "pos": "RB",
@@ -9799,7 +9799,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-29T01:50:53Z",
+   "updated": "2026-10-29T07:39:01Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -9921,7 +9921,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-10-29T01:50:53Z",
+   "updated": "2026-10-29T07:39:01Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10043,7 +10043,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-29T01:50:53Z",
+   "updated": "2026-10-29T07:39:01Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10051,30 +10051,30 @@
    }
   },
   "2026_08_IND_JAX": {
-   "ats_line": -9.5,
-   "ats_side": "home",
-   "ats_team": "Jacksonville Jaguars",
+   "ats_line": 10.0,
+   "ats_side": "away",
+   "ats_team": "Indianapolis Colts",
    "away": "Indianapolis Colts",
    "away_abbr": "IND",
-   "bet_at": "2026-10-26T00:26:28Z",
-   "bet_line": -7.5,
+   "bet_at": "2026-10-29T07:39:01Z",
+   "bet_line": -10.0,
    "book": "nflverse consensus",
    "conf_label": "Low",
-   "confidence": 43,
+   "confidence": 52,
    "confidence_detail": {
     "agree": 1,
     "components": {
-     "agreement": 0.069,
+     "agreement": 0.931,
      "consistency": 0.849,
      "data": 1.0,
-     "edge": 0.012,
-     "market": 1.0,
+     "edge": 0.1,
+     "market": 0.0,
      "trends": 0.5
     },
     "label": "Low",
     "n_sources": 2,
-    "score": 43,
-    "side": "home",
+    "score": 52,
+    "side": "away",
     "source_names": {
      "elo": "Elo",
      "epa": "EPA"
@@ -10084,20 +10084,20 @@
      "epa": 11.5
     }
    },
-   "cover_prob": 0.496,
+   "cover_prob": 0.507,
    "diffs": {
     "elo": 7.59,
     "epa": 9.7
    },
-   "edge": 0.1,
-   "ev": -0.045,
-   "fair_line": -10.4,
+   "edge": 0.4,
+   "ev": -0.038,
+   "fair_line": -10.9,
    "hfa_flag": 1,
    "home": "Jacksonville Jaguars",
    "home_abbr": "JAX",
    "home_field": 1.519,
    "id": "2026_08_IND_JAX",
-   "line": -9.5,
+   "line": -10.0,
    "model_spread": -9.6,
    "model_total": 49.5,
    "neutral": false,
@@ -10165,7 +10165,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-29T01:50:53Z",
+   "updated": "2026-10-29T07:39:01Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10173,7 +10173,7 @@
    }
   },
   "2026_08_KC_DEN": {
-   "ats_line": 1.5,
+   "ats_line": 1.0,
    "ats_side": "home",
    "ats_team": "Denver Broncos",
    "away": "Kansas City Chiefs",
@@ -10182,20 +10182,20 @@
    "bet_line": 1.5,
    "book": "nflverse consensus",
    "conf_label": "High",
-   "confidence": 87,
+   "confidence": 89,
    "confidence_detail": {
     "agree": 2,
     "components": {
      "agreement": 1.0,
      "consistency": 0.814,
      "data": 1.0,
-     "edge": 1.0,
-     "market": 0.5,
+     "edge": 0.975,
+     "market": 0.7,
      "trends": 0.75
     },
     "label": "High",
     "n_sources": 2,
-    "score": 87,
+    "score": 89,
     "side": "home",
     "source_names": {
      "elo": "Elo",
@@ -10206,20 +10206,20 @@
      "epa": 1.0
     }
    },
-   "cover_prob": 0.518,
+   "cover_prob": 0.517,
    "diffs": {
     "elo": 2.47,
     "epa": -0.14
    },
-   "edge": 4.9,
-   "ev": -0.031,
-   "fair_line": 0.2,
+   "edge": 4.4,
+   "ev": -0.033,
+   "fair_line": -0.1,
    "hfa_flag": 1,
    "home": "Denver Broncos",
    "home_abbr": "DEN",
    "home_field": 1.519,
    "id": "2026_08_KC_DEN",
-   "line": 1.5,
+   "line": 1.0,
    "model_spread": -3.4,
    "model_total": 45.0,
    "neutral": false,
@@ -10287,7 +10287,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-29T01:50:53Z",
+   "updated": "2026-10-29T07:39:01Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10409,7 +10409,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-29T01:50:53Z",
+   "updated": "2026-10-29T07:39:01Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10531,7 +10531,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-29T01:50:53Z",
+   "updated": "2026-10-29T07:39:01Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10653,7 +10653,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-29T01:50:53Z",
+   "updated": "2026-10-29T07:39:01Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10775,7 +10775,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-29T01:50:53Z",
+   "updated": "2026-10-29T07:39:01Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10897,7 +10897,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-29T01:50:53Z",
+   "updated": "2026-10-29T07:39:01Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -11019,7 +11019,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-29T01:50:53Z",
+   "updated": "2026-10-29T07:39:01Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
