@@ -4972,7 +4972,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -4981,48 +4981,48 @@
    }
   },
   "401856734": {
-   "ats_line": -12.5,
+   "ats_line": -11.5,
    "ats_side": "home",
    "ats_team": "Georgia",
    "away": "Florida",
    "bet_at": "2026-10-25T11:21:31Z",
    "bet_line": -10.5,
    "book": "DraftKings",
-   "conf_label": "Low",
-   "confidence": 44,
+   "conf_label": "Medium",
+   "confidence": 62,
    "confidence_detail": {
-    "agree": 2,
+    "agree": 3,
     "components": {
-     "agreement": 0.374,
+     "agreement": 1.0,
      "consistency": 0.708,
      "data": 1.0,
-     "edge": 0.25,
-     "market": 0.5,
+     "edge": 0.5,
+     "market": 0.25,
      "trends": 0.25
     },
-    "label": "Low",
+    "label": "Medium",
     "n_sources": 3,
-    "score": 44,
+    "score": 62,
     "sources": {
      "elo": 18.6,
      "fpi": 11.7,
      "sp": 16.5
     }
    },
-   "cover_prob": 0.51,
+   "cover_prob": 0.514,
    "diffs": {
     "elo": 18.65,
     "fpi": 11.66,
     "sp": 16.5
    },
-   "edge": 1.0,
-   "ev": -0.027,
-   "fair_line": -12.5,
+   "edge": 2.0,
+   "ev": -0.018,
+   "fair_line": -11.9,
    "hfa_flag": 0,
    "home": "Georgia",
    "home_field": 3.3,
    "id": 401856734,
-   "line": -12.5,
+   "line": -11.5,
    "model_spread": -13.5,
    "model_total": 56.5,
    "neutral": true,
@@ -5050,7 +5050,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -5128,7 +5128,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -5206,7 +5206,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -5284,7 +5284,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -10180,7 +10180,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -10258,7 +10258,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -10336,7 +10336,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -10414,7 +10414,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -10492,7 +10492,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -10570,7 +10570,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -10648,7 +10648,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -15492,7 +15492,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -15570,7 +15570,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -15648,7 +15648,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -15726,7 +15726,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -15735,7 +15735,7 @@
    }
   },
   "401858281": {
-   "ats_line": -7.5,
+   "ats_line": -8.5,
    "ats_side": "home",
    "ats_team": "Pittsburgh",
    "away": "Georgia Tech",
@@ -15743,7 +15743,7 @@
    "bet_line": -7.5,
    "book": "DraftKings",
    "conf_label": "High",
-   "confidence": 88,
+   "confidence": 92,
    "confidence_detail": {
     "agree": 3,
     "components": {
@@ -15751,32 +15751,32 @@
      "consistency": 0.907,
      "data": 1.0,
      "edge": 1.0,
-     "market": 0.625,
+     "market": 0.875,
      "trends": 0.625
     },
     "label": "High",
     "n_sources": 3,
-    "score": 88,
+    "score": 92,
     "sources": {
      "elo": 11.9,
      "fpi": 14.1,
      "sp": 12.3
     }
    },
-   "cover_prob": 0.53,
+   "cover_prob": 0.525,
    "diffs": {
     "elo": 8.64,
     "fpi": 10.77,
     "sp": 9.0
    },
-   "edge": 5.9,
-   "ev": 0.013,
-   "fair_line": -8.7,
+   "edge": 4.9,
+   "ev": 0.003,
+   "fair_line": -9.4,
    "hfa_flag": 1,
    "home": "Pittsburgh",
    "home_field": 3.3,
    "id": 401858281,
-   "line": -7.5,
+   "line": -8.5,
    "model_spread": -13.4,
    "model_total": 57.1,
    "neutral": false,
@@ -15804,7 +15804,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -15841,14 +15841,14 @@
      "sp": -17.7
     }
    },
-   "cover_prob": 0.506,
+   "cover_prob": 0.511,
    "diffs": {
     "elo": -27.34,
     "fpi": -19.54,
     "sp": -21.0
    },
    "edge": 3.0,
-   "ev": -0.033,
+   "ev": -0.024,
    "fair_line": 14.5,
    "hfa_flag": 1,
    "home": "North Carolina",
@@ -15868,21 +15868,21 @@
    "su_team": "Miami",
    "su_wp": 0.872,
    "tier": "pass",
-   "total_line": 53.5,
+   "total_line": 52.5,
    "total_pick": {
-    "edge": 0.2,
-    "ev": -0.0305,
-    "fair": 53.5,
-    "line": 53.5,
+    "edge": 0.8,
+    "ev": -0.0704,
+    "fair": 52.6,
+    "line": 52.5,
     "model": 53.3,
     "odds": null,
     "play": false,
-    "prob": 0.508,
+    "prob": 0.487,
     "push_prob": 0.0,
-    "side": "under",
+    "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -15960,7 +15960,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -16038,7 +16038,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -21130,7 +21130,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -21208,7 +21208,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -21286,7 +21286,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -21364,7 +21364,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -21442,7 +21442,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -21451,7 +21451,7 @@
    }
   },
   "401858506": {
-   "ats_line": -10.0,
+   "ats_line": -10.5,
    "ats_side": "home",
    "ats_team": "Penn State",
    "away": "Purdue",
@@ -21459,46 +21459,46 @@
    "bet_line": -7.5,
    "book": "DraftKings",
    "conf_label": "High",
-   "confidence": 85,
+   "confidence": 84,
    "confidence_detail": {
     "agree": 3,
     "components": {
      "agreement": 1.0,
      "consistency": 0.564,
      "data": 1.0,
-     "edge": 0.725,
-     "market": 0.875,
+     "edge": 0.6,
+     "market": 1.0,
      "trends": 0.875
     },
     "label": "High",
     "n_sources": 3,
-    "score": 85,
+    "score": 84,
     "sources": {
      "elo": 21.8,
      "fpi": 12.7,
      "sp": 12.4
     }
    },
-   "cover_prob": 0.52,
+   "cover_prob": 0.509,
    "diffs": {
     "elo": 18.5,
     "fpi": 9.39,
     "sp": 9.1
    },
-   "edge": 2.9,
-   "ev": -0.007,
-   "fair_line": -10.4,
+   "edge": 2.4,
+   "ev": -0.028,
+   "fair_line": -11.0,
    "hfa_flag": 1,
    "home": "Penn State",
    "home_field": 3.3,
    "id": 401858506,
-   "line": -10.0,
+   "line": -10.5,
    "model_spread": -12.9,
    "model_total": 56.1,
    "neutral": false,
    "proj_away": 21.6,
    "proj_home": 34.5,
-   "push_prob": 0.041,
+   "push_prob": 0.0,
    "result": null,
    "season": 2026,
    "season_type": "regular",
@@ -21520,7 +21520,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -21529,48 +21529,48 @@
    }
   },
   "401858507": {
-   "ats_line": 15.5,
+   "ats_line": 16.5,
    "ats_side": "home",
    "ats_team": "Rutgers",
    "away": "Michigan",
    "bet_at": "2026-10-25T11:21:31Z",
    "bet_line": 14.0,
    "book": "DraftKings",
-   "conf_label": "Medium",
-   "confidence": 69,
+   "conf_label": "High",
+   "confidence": 72,
    "confidence_detail": {
     "agree": 3,
     "components": {
      "agreement": 1.0,
      "consistency": 0.852,
      "data": 1.0,
-     "edge": 0.8,
-     "market": 0.125,
+     "edge": 1.0,
+     "market": 0.0,
      "trends": 0.25
     },
-    "label": "Medium",
+    "label": "High",
     "n_sources": 3,
-    "score": 69,
+    "score": 72,
     "sources": {
      "elo": -15.3,
      "fpi": -11.8,
      "sp": -13.1
     }
    },
-   "cover_prob": 0.512,
+   "cover_prob": 0.521,
    "diffs": {
     "elo": -18.65,
     "fpi": -15.07,
     "sp": -16.4
    },
-   "edge": 3.2,
-   "ev": -0.023,
-   "fair_line": 15.0,
+   "edge": 4.2,
+   "ev": -0.006,
+   "fair_line": 15.7,
    "hfa_flag": 1,
    "home": "Rutgers",
    "home_field": 3.3,
    "id": 401858507,
-   "line": 15.5,
+   "line": 16.5,
    "model_spread": 12.3,
    "model_total": 46.8,
    "neutral": false,
@@ -21598,7 +21598,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -21676,7 +21676,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -21754,7 +21754,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -21892,7 +21892,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -23816,7 +23816,7 @@
    }
   },
   "401860908": {
-   "ats_line": -11.5,
+   "ats_line": -10.5,
    "ats_side": "home",
    "ats_team": "Boise State",
    "away": "Texas State",
@@ -23824,40 +23824,40 @@
    "bet_line": -11.5,
    "book": "DraftKings",
    "conf_label": "High",
-   "confidence": 72,
+   "confidence": 75,
    "confidence_detail": {
-    "agree": 2,
+    "agree": 3,
     "components": {
-     "agreement": 0.969,
+     "agreement": 1.0,
      "consistency": 0.848,
      "data": 1.0,
-     "edge": 0.575,
-     "market": 0.25,
+     "edge": 0.825,
+     "market": 0.0,
      "trends": 0.75
     },
     "label": "High",
     "n_sources": 3,
-    "score": 72,
+    "score": 75,
     "sources": {
      "elo": 10.8,
      "fpi": 14.5,
      "sp": 12.7
     }
    },
-   "cover_prob": 0.507,
+   "cover_prob": 0.516,
    "diffs": {
     "elo": 7.51,
     "fpi": 11.24,
     "sp": 9.4
    },
-   "edge": 2.3,
-   "ev": -0.032,
-   "fair_line": -11.9,
+   "edge": 3.3,
+   "ev": -0.015,
+   "fair_line": -11.1,
    "hfa_flag": 1,
    "home": "Boise State",
    "home_field": 3.3,
    "id": 401860908,
-   "line": -11.5,
+   "line": -10.5,
    "model_spread": -13.8,
    "model_total": 69.9,
    "neutral": false,
@@ -23885,7 +23885,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -23963,7 +23963,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -24041,7 +24041,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -24319,7 +24319,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -24665,7 +24665,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -28426,7 +28426,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -28504,7 +28504,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -28582,7 +28582,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -28660,7 +28660,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -31220,7 +31220,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -31298,7 +31298,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -31376,7 +31376,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -34772,7 +34772,7 @@
    }
   },
   "401866451": {
-   "ats_line": 7.0,
+   "ats_line": 7.5,
    "ats_side": "home",
    "ats_team": "Sacramento State",
    "away": "Kent State",
@@ -34780,46 +34780,46 @@
    "bet_line": 10.0,
    "book": "DraftKings",
    "conf_label": "Low",
-   "confidence": 47,
+   "confidence": 50,
    "confidence_detail": {
     "agree": 2,
     "components": {
      "agreement": 0.374,
      "consistency": 0.595,
      "data": 1.0,
-     "edge": 0.05,
+     "edge": 0.175,
      "market": 1.0,
      "trends": 0.375
     },
     "label": "Low",
     "n_sources": 3,
-    "score": 47,
+    "score": 50,
     "sources": {
      "elo": 1.3,
      "fpi": -8.5,
      "sp": -4.5
     }
    },
-   "cover_prob": 0.501,
+   "cover_prob": 0.511,
    "diffs": {
     "elo": -1.96,
     "fpi": -11.82,
     "sp": -7.8
    },
-   "edge": 0.2,
-   "ev": -0.041,
-   "fair_line": 6.8,
+   "edge": 0.7,
+   "ev": -0.025,
+   "fair_line": 7.8,
    "hfa_flag": 1,
    "home": "Sacramento State",
    "home_field": 3.3,
    "id": 401866451,
-   "line": 7.0,
+   "line": 7.5,
    "model_spread": 6.8,
    "model_total": 43.4,
    "neutral": false,
    "proj_away": 25.1,
    "proj_home": 18.3,
-   "push_prob": 0.065,
+   "push_prob": 0.0,
    "result": null,
    "season": 2026,
    "season_type": "regular",
@@ -34841,7 +34841,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -34919,7 +34919,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -36671,7 +36671,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -37337,7 +37337,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -39584,7 +39584,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -40645,7 +40645,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -40723,7 +40723,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
@@ -40801,7 +40801,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:20Z",
+   "updated": "2026-10-30T14:09:09Z",
    "week": 9,
    "weights": {
     "elo": 0.031,
