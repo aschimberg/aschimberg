@@ -13157,7 +13157,7 @@
    "bet_at": "2026-10-30T16:06:23Z",
    "bet_line": 185.0,
    "conf_label": "Medium",
-   "confidence": 57,
+   "confidence": 59,
    "confidence_detail": {
     "agree": 4,
     "components": {
@@ -13165,12 +13165,12 @@
      "consistency": 0.824,
      "data": 0.9,
      "edge": 0.0,
-     "market": 0.5,
+     "market": 0.603,
      "trends": 0.5
     },
     "label": "Medium",
     "n_sources": 4,
-    "score": 57,
+    "score": 59,
     "side": "away",
     "source_names": {
      "elo": "Elo",
@@ -13193,8 +13193,8 @@
     "mp": 0.479,
     "xg": 0.469
    },
-   "edge": -0.1,
-   "ev": -0.0013,
+   "edge": -1.0,
+   "ev": -0.01,
    "hfa_flag": 1,
    "home": "Florida Panthers",
    "home_abbr": "FLA",
@@ -13202,23 +13202,23 @@
    "home_prob": 0.635,
    "id": 2026020215,
    "line": null,
-   "mkt_prob": 0.336,
-   "ml_away": 185.0,
-   "ml_home": -225.0,
+   "mkt_prob": 0.343,
+   "ml_away": 180.0,
+   "ml_home": -218.0,
    "model_prob": 0.365,
    "model_spread": null,
    "neutral": false,
-   "odds": 185.0,
+   "odds": 180.0,
    "offset": 0.261,
    "pl_alt": {
-    "better": false,
+    "better": true,
     "ev": -0.0028,
     "line": 1.5,
     "model_prob": 0.594,
     "odds": -135.0,
     "prob": 0.573
    },
-   "prob": 0.35,
+   "prob": 0.354,
    "result": null,
    "season": 20262027,
    "season_type": "regular",
@@ -13238,7 +13238,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-30T20:31:19Z",
+   "updated": "2026-10-30T22:31:15Z",
    "week": 202644,
    "weights": {
     "elo": 0.202,
@@ -13329,7 +13329,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-30T20:31:19Z",
+   "updated": "2026-10-30T22:31:15Z",
    "week": 202644,
    "weights": {
     "elo": 0.202,
