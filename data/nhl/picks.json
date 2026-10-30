@@ -12735,6 +12735,8 @@
    "away_abbr": "BUF",
    "bet_at": "2026-10-29T16:20:08Z",
    "bet_line": 120.0,
+   "close_line": 120.0,
+   "clv": -0.0397,
    "conf_label": "Medium",
    "confidence": 59,
    "confidence_detail": {
@@ -12798,7 +12800,17 @@
     "prob": 0.664
    },
    "prob": 0.456,
-   "result": null,
+   "result": {
+    "ats": "L",
+    "away_pts": 7,
+    "home_pts": 6,
+    "pl": "W",
+    "pl_units": 0.505,
+    "su": "W",
+    "total": "W",
+    "total_units": 0.8,
+    "units": -1.0
+   },
    "season": 20262027,
    "season_type": "regular",
    "start": "2026-10-30T02:00:00Z",
@@ -12833,6 +12845,8 @@
    "away_abbr": "OTT",
    "bet_at": "2026-10-29T16:20:08Z",
    "bet_line": -102.0,
+   "close_line": 102.0,
+   "clv": -0.0615,
    "conf_label": "Low",
    "confidence": 50,
    "confidence_detail": {
@@ -12896,7 +12910,17 @@
     "prob": 0.705
    },
    "prob": 0.486,
-   "result": null,
+   "result": {
+    "ats": "W",
+    "away_pts": 5,
+    "home_pts": 6,
+    "pl": "W",
+    "pl_units": 0.388,
+    "su": "L",
+    "total": "L",
+    "total_units": -1.0,
+    "units": 1.02
+   },
    "season": 20262027,
    "season_type": "regular",
    "start": "2026-10-30T02:00:00Z",
@@ -12931,6 +12955,8 @@
    "away_abbr": "VAN",
    "bet_at": "2026-10-29T16:20:08Z",
    "bet_line": 154.0,
+   "close_line": 145.0,
+   "clv": -0.0075,
    "conf_label": "Medium",
    "confidence": 66,
    "confidence_detail": {
@@ -12994,7 +13020,17 @@
     "prob": 0.627
    },
    "prob": 0.417,
-   "result": null,
+   "result": {
+    "ats": "L",
+    "away_pts": 2,
+    "home_pts": 3,
+    "pl": "W",
+    "pl_units": 0.617,
+    "su": "W",
+    "total": "W",
+    "total_units": 1.14,
+    "units": -1.0
+   },
    "season": 20262027,
    "season_type": "regular",
    "start": "2026-10-30T02:00:00Z",
