@@ -9456,7 +9456,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:47Z",
+   "updated": "2026-10-30T16:43:58Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -9503,8 +9503,8 @@
     "epa": 0.75
    },
    "edge": 0.9,
-   "ev": -0.048,
-   "fair_line": -1.6,
+   "ev": -0.047,
+   "fair_line": -1.5,
    "hfa_flag": 1,
    "home": "Tampa Bay Buccaneers",
    "home_abbr": "TB",
@@ -9546,15 +9546,15 @@
     },
     {
      "bet": false,
-     "fair": 265,
-     "games": 23,
-     "lam": 0.3207,
-     "name": "Emeka Egbuka",
+     "fair": 283,
+     "games": 17,
+     "lam": 0.3019,
+     "name": "Sean Tucker",
      "note": "no market price yet",
-     "p": 0.274,
-     "p_model": 0.274,
-     "pid": "00-0040129",
-     "pos": "WR",
+     "p": 0.261,
+     "p_model": 0.261,
+     "pid": "00-0038951",
+     "pos": "RB",
      "team": "TB"
     }
    ],
@@ -9566,21 +9566,21 @@
    "su_team": "Tampa Bay Buccaneers",
    "su_wp": 0.547,
    "tier": "pass",
-   "total_line": 44.0,
+   "total_line": 43.5,
    "total_pick": {
-    "edge": 7.3,
-    "ev": 0.0327,
-    "fair": 42.9,
-    "line": 44.0,
+    "edge": 6.8,
+    "ev": 0.016,
+    "fair": 42.5,
+    "line": 43.5,
     "model": 36.7,
     "odds": null,
     "play": true,
-    "prob": 0.542,
-    "push_prob": 0.037,
+    "prob": 0.532,
+    "push_prob": 0.0,
     "side": "under",
-    "tier": "strong"
+    "tier": "play"
    },
-   "updated": "2026-10-30T11:25:47Z",
+   "updated": "2026-10-30T16:43:58Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -9704,7 +9704,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:47Z",
+   "updated": "2026-10-30T16:43:58Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -9943,7 +9943,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-10-30T11:25:47Z",
+   "updated": "2026-10-30T16:43:58Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10067,7 +10067,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:47Z",
+   "updated": "2026-10-30T16:43:58Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10191,7 +10191,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:47Z",
+   "updated": "2026-10-30T16:43:58Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10315,7 +10315,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:47Z",
+   "updated": "2026-10-30T16:43:58Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10439,7 +10439,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-10-30T11:25:47Z",
+   "updated": "2026-10-30T16:43:58Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10447,7 +10447,7 @@
    }
   },
   "2026_08_LV_NYJ": {
-   "ats_line": 1.0,
+   "ats_line": 1.5,
    "ats_side": "away",
    "ats_team": "Las Vegas Raiders",
    "away": "Las Vegas Raiders",
@@ -10463,8 +10463,8 @@
      "agreement": 0.931,
      "consistency": 0.79,
      "data": 1.0,
-     "edge": 0.459,
-     "market": 0.7,
+     "edge": 0.571,
+     "market": 0.5,
      "trends": 0.75
     },
     "label": "High",
@@ -10480,20 +10480,20 @@
      "epa": 1.7
     }
    },
-   "cover_prob": 0.501,
+   "cover_prob": 0.504,
    "diffs": {
     "elo": -1.5,
     "epa": 1.44
    },
-   "edge": 2.1,
-   "ev": -0.042,
-   "fair_line": -0.2,
+   "edge": 2.6,
+   "ev": -0.037,
+   "fair_line": -0.6,
    "hfa_flag": 1,
    "home": "New York Jets",
    "home_abbr": "NYJ",
    "home_field": 1.519,
    "id": "2026_08_LV_NYJ",
-   "line": -1.0,
+   "line": -1.5,
    "model_spread": 1.1,
    "model_total": 44.8,
    "neutral": false,
@@ -10541,7 +10541,7 @@
      "team": "NYJ"
     }
    ],
-   "push_prob": 0.025,
+   "push_prob": 0.0,
    "result": null,
    "season": 2026,
    "season_type": "regular",
@@ -10563,7 +10563,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:47Z",
+   "updated": "2026-10-30T16:43:58Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10687,7 +10687,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-10-30T11:25:47Z",
+   "updated": "2026-10-30T16:43:58Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10811,7 +10811,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-10-30T11:25:47Z",
+   "updated": "2026-10-30T16:43:58Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10852,13 +10852,13 @@
      "epa": 5.3
     }
    },
-   "cover_prob": 0.509,
+   "cover_prob": 0.506,
    "diffs": {
     "elo": -1.37,
     "epa": 0.34
    },
    "edge": 2.3,
-   "ev": -0.02,
+   "ev": -0.032,
    "fair_line": -5.4,
    "hfa_flag": 1,
    "home": "Washington Commanders",
@@ -10913,7 +10913,7 @@
      "team": "PHI"
     }
    ],
-   "push_prob": 0.043,
+   "push_prob": 0.044,
    "result": null,
    "season": 2026,
    "season_type": "regular",
@@ -10921,21 +10921,21 @@
    "su_team": "Washington Commanders",
    "su_wp": 0.611,
    "tier": "pass",
-   "total_line": 40.0,
+   "total_line": 40.5,
    "total_pick": {
-    "edge": 4.2,
-    "ev": -0.0225,
-    "fair": 40.6,
-    "line": 40.0,
+    "edge": 3.7,
+    "ev": -0.0357,
+    "fair": 41.1,
+    "line": 40.5,
     "model": 44.2,
     "odds": null,
     "play": false,
-    "prob": 0.512,
-    "push_prob": 0.035,
+    "prob": 0.505,
+    "push_prob": 0.0,
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:47Z",
+   "updated": "2026-10-30T16:43:58Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10943,7 +10943,7 @@
    }
   },
   "2026_08_TEN_CIN": {
-   "ats_line": -12.0,
+   "ats_line": -12.5,
    "ats_side": "home",
    "ats_team": "Cincinnati Bengals",
    "away": "Tennessee Titans",
@@ -10952,20 +10952,20 @@
    "bet_line": -10.5,
    "book": "nflverse consensus",
    "conf_label": "High",
-   "confidence": 74,
+   "confidence": 72,
    "confidence_detail": {
     "agree": 2,
     "components": {
      "agreement": 1.0,
      "consistency": 0.773,
      "data": 1.0,
-     "edge": 0.37,
+     "edge": 0.259,
      "market": 1.0,
      "trends": 0.5
     },
     "label": "High",
     "n_sources": 2,
-    "score": 74,
+    "score": 72,
     "side": "home",
     "source_names": {
      "elo": "Elo",
@@ -10976,20 +10976,20 @@
      "epa": 16.6
     }
    },
-   "cover_prob": 0.509,
+   "cover_prob": 0.504,
    "diffs": {
     "elo": 9.89,
     "epa": 13.07
    },
-   "edge": 1.7,
-   "ev": -0.006,
-   "fair_line": -12.1,
+   "edge": 1.2,
+   "ev": -0.029,
+   "fair_line": -12.4,
    "hfa_flag": 1,
    "home": "Cincinnati Bengals",
    "home_abbr": "CIN",
    "home_field": 1.519,
    "id": "2026_08_TEN_CIN",
-   "line": -12.0,
+   "line": -12.5,
    "model_spread": -13.7,
    "model_total": 49.2,
    "neutral": false,
@@ -11037,7 +11037,7 @@
      "team": "TEN"
     }
    ],
-   "push_prob": 0.02,
+   "push_prob": 0.0,
    "result": null,
    "season": 2026,
    "season_type": "regular",
@@ -11059,7 +11059,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-10-30T11:25:47Z",
+   "updated": "2026-10-30T16:43:58Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
