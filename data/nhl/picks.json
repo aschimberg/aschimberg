@@ -13799,6 +13799,8 @@
    "away_abbr": "BUF",
    "bet_at": "2026-10-31T16:06:05Z",
    "bet_line": 110.0,
+   "close_line": 114.0,
+   "clv": -0.058,
    "conf_label": "Low",
    "confidence": 54,
    "confidence_detail": {
@@ -13862,7 +13864,17 @@
     "prob": 0.689
    },
    "prob": 0.476,
-   "result": null,
+   "result": {
+    "ats": "L",
+    "away_pts": 3,
+    "home_pts": 2,
+    "pl": "W",
+    "pl_units": 0.444,
+    "su": "L",
+    "total": "L",
+    "total_units": -1.0,
+    "units": -1.0
+   },
    "season": 20262027,
    "season_type": "regular",
    "start": "2026-10-31T20:00:00Z",
@@ -13897,6 +13909,8 @@
    "away_abbr": "OTT",
    "bet_at": "2026-10-31T16:06:05Z",
    "bet_line": 130.0,
+   "close_line": 130.0,
+   "clv": -0.0409,
    "conf_label": "High",
    "confidence": 70,
    "confidence_detail": {
@@ -13960,7 +13974,17 @@
     "prob": 0.669
    },
    "prob": 0.454,
-   "result": null,
+   "result": {
+    "ats": "L",
+    "away_pts": 5,
+    "home_pts": 1,
+    "pl": "L",
+    "pl_units": -1.0,
+    "su": "W",
+    "total": "W",
+    "total_units": 0.926,
+    "units": -1.0
+   },
    "season": 20262027,
    "season_type": "regular",
    "start": "2026-10-31T20:00:00Z",
@@ -14190,7 +14214,7 @@
     "agree": 3,
     "components": {
      "agreement": 0.879,
-     "consistency": 0.75,
+     "consistency": 0.752,
      "data": 1.0,
      "edge": 0.0,
      "market": 0.641,
@@ -14208,7 +14232,7 @@
     },
     "sources": {
      "elo": 0.47,
-     "goals": 0.89,
+     "goals": 0.88,
      "mp": 0.68,
      "xg": 0.64
     },
@@ -14217,12 +14241,12 @@
    "date": "2026-10-31",
    "diffs": {
     "elo": 0.257,
-    "goals": 0.678,
+    "goals": 0.675,
     "mp": 0.473,
-    "xg": 0.432
+    "xg": 0.429
    },
    "edge": -1.8,
-   "ev": -0.0181,
+   "ev": -0.0177,
    "hfa_flag": 1,
    "home": "Dallas Stars",
    "home_abbr": "DAL",
@@ -14240,7 +14264,7 @@
    "offset": -0.015,
    "pl_alt": {
     "better": false,
-    "ev": -0.0226,
+    "ev": -0.0223,
     "line": 1.5,
     "model_prob": 0.635,
     "odds": -175.0,
@@ -14266,7 +14290,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-31T21:30:58Z",
+   "updated": "2026-10-31T23:21:40Z",
    "week": 202644,
    "weights": {
     "elo": 0.202,
@@ -14288,7 +14312,7 @@
     "agree": 4,
     "components": {
      "agreement": 1.0,
-     "consistency": 0.637,
+     "consistency": 0.638,
      "data": 0.9,
      "edge": 1.0,
      "market": 0.781,
@@ -14315,9 +14339,9 @@
    "date": "2026-10-31",
    "diffs": {
     "elo": 0.704,
-    "goals": 1.109,
+    "goals": 1.107,
     "mp": 0.942,
-    "xg": 0.54
+    "xg": 0.541
    },
    "edge": 12.0,
    "ev": 0.12,
@@ -14338,7 +14362,7 @@
    "offset": 0.244,
    "pl_alt": {
     "better": true,
-    "ev": 0.1369,
+    "ev": 0.1368,
     "line": 1.5,
     "model_prob": 0.548,
     "odds": 140.0,
@@ -14354,17 +14378,17 @@
    "tier": "strong",
    "total_pick": {
     "edge": -3.3,
-    "ev": -0.0331,
+    "ev": -0.033,
     "line": 6.5,
     "mkt_prob": 0.5,
     "model_prob": 0.513,
     "odds": -110.0,
     "play": false,
-    "prob": 0.506,
+    "prob": 0.507,
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-10-31T21:30:58Z",
+   "updated": "2026-10-31T23:21:40Z",
    "week": 202644,
    "weights": {
     "elo": 0.202,
