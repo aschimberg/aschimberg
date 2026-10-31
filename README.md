@@ -180,7 +180,7 @@ Add a repository secret `ODDS_API_KEY` to turn this on. With no key, the free so
 ## Setup
 
 1. **Secrets** (Settings → Secrets and variables → Actions → *Secrets*):
-   - `CFBD_API_KEY` (required): your CollegeFootballData key.
+   - `CFBD_API_KEY` (required): your CollegeFootballData key. The free tier allows 1,000 calls a month. To stay under it, calendar, teams, rankings, ratings and TV listings are cached for a day or more in `data/cache/cfbd/`, so a refresh spends about 3 calls (games and lines). A refresh within 2.5 hours of the last one is skipped (`CFB_MIN_REFRESH_MIN`; `refresh --force` overrides). If the quota runs out anyway, cached data is used where possible and the run ends with a warning instead of failing; the college football board keeps its last refresh until the quota resets.
    - `NTFY_TOPIC` (required for push): your ntfy topic name. Pick a hard-to-guess one, because anyone who knows a public ntfy.sh topic can read it.
    - `NTFY_TOKEN` (optional): an access token if your topic is protected.
    - `SPLITS_API_KEY` (optional): a bearer token for an `http_json` splits feed.

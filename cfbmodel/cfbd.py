@@ -3,6 +3,7 @@
 The CFBD v2 API returns camelCase keys; v1 used snake_case. `g()` reads either
 so the rest of the code doesn't care which one comes back.
 """
+import hashlib
 import http.client
 import json
 import os
@@ -35,6 +36,24 @@ class CFBDError(RuntimeError):
     pass
 
 
+class QuotaExceeded(CFBDError):
+    """The account's monthly call quota is used up (HTTP 429 'Monthly call quota exceeded')."""
+
+
+# Endpoints that change at most daily are cached on disk (data/cache/cfbd,
+# committed with the data) so a refresh spends ~3 calls instead of ~11: the
+# free CFBD tier allows 1,000 calls a month. Seconds to keep each response.
+CACHE_TTL = {
+    "/calendar": 7 * 86400,
+    "/teams/fbs": 7 * 86400,
+    "/rankings": 86400,
+    "/ratings/sp": 86400,
+    "/ratings/fpi": 86400,
+    "/ratings/elo": 86400,
+    "/games/media": 86400,
+}
+
+
 class CFBDClient:
     def __init__(self, api_key=None, base_url=None, retries=4):
         self.api_key = api_key or os.environ.get("CFBD_API_KEY", "")
@@ -44,8 +63,36 @@ class CFBDClient:
         self.retries = retries
         self.calls = 0
 
+    def _cache_path(self, path, params):
+        key = hashlib.sha1(json.dumps([path, sorted(params.items())], default=str).encode()).hexdigest()[:16]
+        return config.DATA_DIR / "cache" / "cfbd" / f"{path.strip('/').replace('/', '_')}_{key}.json"
+
     def get(self, path, **params):
         params = {k: v for k, v in params.items() if v is not None}
+        ttl = CACHE_TTL.get(path) if os.environ.get("CFBD_CACHE", "on") != "off" else None
+        cache = self._cache_path(path, params) if ttl else None
+        cached = None
+        if cache and cache.exists():
+            try:
+                cached = json.loads(cache.read_text())
+            except ValueError:
+                cached = None
+            if cached and time.time() - cached.get("fetched", 0) < ttl:
+                return cached["data"]
+        try:
+            data = self._fetch(path, params)
+        except QuotaExceeded:
+            if cached:  # out of calls: an old copy beats nothing for slow-changing data
+                print(f"CFBD quota used up: using cached {path} from "
+                      f"{time.strftime('%Y-%m-%d %H:%M', time.gmtime(cached.get('fetched', 0)))} UTC")
+                return cached["data"]
+            raise
+        if cache:
+            cache.parent.mkdir(parents=True, exist_ok=True)
+            cache.write_text(json.dumps({"fetched": int(time.time()), "data": data}, separators=(",", ":")))
+        return data
+
+    def _fetch(self, path, params):
         url = f"{self.base_url}/{path.lstrip('/')}"
         if params:
             url += "?" + urllib.parse.urlencode(params)
@@ -64,11 +111,14 @@ class CFBDClient:
                 with urllib.request.urlopen(req, timeout=60) as resp:
                     return json.loads(resp.read().decode("utf-8"))
             except urllib.error.HTTPError as e:
+                body = e.read().decode("utf-8", "replace")[:300]
+                if e.code == 429 and "quota" in body.lower():
+                    # retrying can't help (and each retry counts against the quota)
+                    raise QuotaExceeded(f"GET {path} {params} -> HTTP 429: {body}") from e
                 if e.code in (429, 500, 502, 503, 504) and attempt < self.retries:
                     time.sleep(delay)
                     delay *= 2
                     continue
-                body = e.read().decode("utf-8", "replace")[:300]
                 raise CFBDError(f"GET {path} {params} -> HTTP {e.code}: {body}") from e
             except (urllib.error.URLError, http.client.IncompleteRead, ConnectionError, TimeoutError) as e:
                 # IncompleteRead: the connection dropped mid-body (seen on large /lines responses)

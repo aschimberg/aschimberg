@@ -1,16 +1,42 @@
 """CLI: python -m cfbmodel {refresh,grade,briefing,history}"""
 import argparse
+import json
 import os
 import sys
+import time
 
 from . import briefing, config, pipeline, store
-from .cfbd import CFBDClient
+from .cfbd import CFBDClient, QuotaExceeded
+
+QUOTA_NOTE = ("::warning::CFBD monthly call quota is used up; the college football board keeps its last "
+              "refresh until the quota resets on the 1st")
+
+
+def _last_refresh_path():
+    return config.DATA_DIR / "cache" / "cfbd" / "last_refresh.json"
+
+
+def recently_refreshed():
+    """A refresh within CFB_MIN_REFRESH_MIN minutes (default 150): back-to-back runs (a late
+    scheduled run right after a manual one) would only spend API calls on the same data."""
+    try:
+        at = json.loads(_last_refresh_path().read_text())["at"]
+    except (OSError, ValueError, KeyError):
+        return False
+    return time.time() - at < float(os.environ.get("CFB_MIN_REFRESH_MIN", 150)) * 60
+
+
+def mark_refreshed():
+    p = _last_refresh_path()
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(json.dumps({"at": int(time.time())}))
 
 
 def main(argv=None):
     ap = argparse.ArgumentParser(prog="cfbmodel")
     sub = ap.add_subparsers(dest="cmd", required=True)
-    sub.add_parser("refresh", help="pull CFBD data, update ratings/picks/trends, write site data")
+    rp = sub.add_parser("refresh", help="pull CFBD data, update ratings/picks/trends, write site data")
+    rp.add_argument("--force", action="store_true", help="refresh even if the last one was minutes ago")
     gp = sub.add_parser("grade", help="grade logged picks and send the weekly recap")
     gp.add_argument("--no-recap", action="store_true")
     bp = sub.add_parser("briefing", help="send the game-day ntfy briefing")
@@ -41,9 +67,22 @@ def main(argv=None):
     offline = args.cmd == "backtest" and os.environ.get("CFB_BACKTEST_OFFLINE") == "1"
     client = None if offline else CFBDClient()
     if args.cmd == "refresh":
-        pipeline.refresh(client)
+        if not args.force and recently_refreshed():
+            print("CFB refreshed under 2.5 hours ago: skipping to save CFBD calls (use --force to override)")
+            return 0
+        try:
+            pipeline.refresh(client)
+        except QuotaExceeded:
+            print(QUOTA_NOTE)
+            return 0
+        mark_refreshed()
+        print(f"CFBD calls this refresh: {client.calls}")
     elif args.cmd == "grade":
-        _, _, tuned = pipeline.grade_only(client)
+        try:
+            _, _, tuned = pipeline.grade_only(client)
+        except QuotaExceeded:
+            print(QUOTA_NOTE)
+            return 0
         if not args.no_recap:
             picks = store.load(pipeline.PICKS_PATH, {"picks": {}})["picks"]
             last_week, rec = pipeline.last_week_summary(picks, pipeline.season_for(pipeline.utcnow()))
