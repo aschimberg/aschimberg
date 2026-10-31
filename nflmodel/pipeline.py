@@ -411,7 +411,7 @@ def refresh(games=None, pbp_loader=None, now=None, log=print, espn_loader=None):
                 card_pick["props"] = [dict(b, news=news.player_note(headlines, b["name"], b.get("team")))
                                       for b in card_pick["props"]]
         cards.append({
-            "id": g["id"], "start": g["start"], "start_tbd": False, "venue": g["stadium"], "tv": None,
+            "id": g["id"], "start": g["start"], "start_tbd": False, "venue": g["stadium"],
             "neutral": g["neutral"], "conference_game": g["div_game"], "home": tb("home"), "away": tb("away"),
             "line": line, "model": proj,
             "pick": card_pick,

@@ -461,7 +461,7 @@ def refresh(loader=None, now=None, log=print):
                **((logged or {}).get("result") or {})}
         tinfo = lambda t: teams.get(t, {})
         cards.append({
-            "id": g["id"], "start": g["start"], "start_tbd": False, "venue": g.get("venue"), "tv": None,
+            "id": g["id"], "start": g["start"], "start_tbd": False, "venue": g.get("venue"),
             "neutral": bool(g.get("neutral")), "conference_game": False,
             "home": {"name": names.get(h, h), "abbr": h, "conf": tinfo(h).get("division"), "rank": None,
                      "rating": None, "record": tinfo(h).get("record", ""), "poll_rank": None, "logo": tinfo(h).get("logo")},

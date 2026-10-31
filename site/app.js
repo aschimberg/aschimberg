@@ -323,7 +323,7 @@
 
     return `<article class="game-card">
       <div class="game-meta">
-        <div><span class="kickoff">${g.start_tbd ? "TBD" : esc(fmtTime(d))}</span>${(g.tv || []).length ? `<span class="network">${esc(g.tv.join(" / "))}</span>` : ""}${tags.join("")}</div>
+        <div><span class="kickoff">${g.start_tbd ? "TBD" : esc(fmtTime(d))}</span>${tags.join("")}</div>
         <p class="venue">${esc(g.venue || "")}</p>
       </div>
       <div class="teams">${teamRow("away")}${teamRow("home")}</div>

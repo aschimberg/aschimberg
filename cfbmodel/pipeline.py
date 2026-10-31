@@ -258,13 +258,6 @@ def refresh(client, now=None, splits_provider=None, log=print):
     cur_hist = [ats.history_record(gm, closing_spread(lmap.get(gm["id"]))) for gm in cur_games if gm["completed"]]
     trends = ats.compute_trends(history + cur_hist)
 
-    media = {}
-    try:
-        for m in client.media(season, slate["week"], slate["season_type"]) or []:
-            media.setdefault(g(m, "id"), []).append(g(m, "outlet"))
-    except Exception as e:  # media is cosmetic; never fail the refresh on it
-        log(f"media lookup skipped: {e}")
-
     provider = splits_provider or splits.get_provider()
     try:
         split_records = provider.fetch()
@@ -371,7 +364,7 @@ def refresh(client, now=None, splits_provider=None, log=print):
 
         cards.append({
             "id": gm["id"], "start": gm["start"], "start_tbd": gm["start_tbd"], "venue": gm["venue"],
-            "tv": media.get(gm["id"]), "neutral": gm["neutral"], "conference_game": gm["conference_game"],
+            "neutral": gm["neutral"], "conference_game": gm["conference_game"],
             "home": team_block("home"), "away": team_block("away"),
             "line": line, "model": proj,
             "pick": {k: logged.get(k) for k in ("ats_side", "ats_team", "ats_line", "edge", "tier", "su_team", "su_wp", "line",
