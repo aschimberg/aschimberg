@@ -193,33 +193,33 @@
      "odds": [
       {
        "description": "PUCK_LINE",
-       "qualifier": "+2.5",
-       "value": -125.0
+       "qualifier": "+3.5",
+       "value": -175.0
       },
       {
        "description": "OVER_UNDER",
-       "qualifier": "U7.5",
-       "value": -154.0
+       "qualifier": "U8.5",
+       "value": -238.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "",
-       "value": 1100.0
+       "value": 25000.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 450.0
+       "value": 5500.0
       },
       {
        "description": "MONEY_LINE_2_WAY",
        "qualifier": "",
-       "value": 450.0
+       "value": 600.0
       },
       {
        "description": "MONEY_LINE_2_WAY_TNB",
        "qualifier": "",
-       "value": 800.0
+       "value": 1300.0
       }
      ]
     },
@@ -235,41 +235,41 @@
      "odds": [
       {
        "description": "PUCK_LINE",
-       "qualifier": "-2.5",
-       "value": -105.0
+       "qualifier": "-3.5",
+       "value": 135.0
       },
       {
        "description": "OVER_UNDER",
-       "qualifier": "O7.5",
-       "value": 120.0
+       "qualifier": "O8.5",
+       "value": 180.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "",
-       "value": -380.0
+       "value": -20000.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 450.0
+       "value": 5500.0
       },
       {
        "description": "MONEY_LINE_2_WAY",
        "qualifier": "",
-       "value": -720.0
+       "value": -1050.0
       },
       {
        "description": "MONEY_LINE_2_WAY_TNB",
        "qualifier": "",
-       "value": -1600.0
+       "value": -3500.0
       }
      ]
     },
     "startTimeUTC": "2026-10-31T00:00:00Z"
    }
   ],
-  "lastUpdatedUTC": "2026-10-31T01:30:38Z"
+  "lastUpdatedUTC": "2026-10-31T02:00:38Z"
  },
- "fetched_at": "2026-10-31T01:39:09Z",
+ "fetched_at": "2026-10-31T07:28:50Z",
  "parsed": {}
 }
