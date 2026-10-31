@@ -13065,6 +13065,8 @@
    "away_abbr": "NJD",
    "bet_at": "2026-10-30T16:06:23Z",
    "bet_line": -115.0,
+   "close_line": -115.0,
+   "clv": -0.045,
    "conf_label": "Medium",
    "confidence": 58,
    "confidence_detail": {
@@ -13121,7 +13123,15 @@
    "offset": -0.059,
    "pl_alt": null,
    "prob": 0.526,
-   "result": null,
+   "result": {
+    "ats": "L",
+    "away_pts": 5,
+    "home_pts": 2,
+    "su": "L",
+    "total": "W",
+    "total_units": 1.14,
+    "units": -1.0
+   },
    "season": 20262027,
    "season_type": "regular",
    "start": "2026-10-30T22:00:00Z",
