@@ -14640,20 +14640,20 @@
    "bet_at": "2026-11-01T17:05:56Z",
    "bet_line": 154.0,
    "conf_label": "Medium",
-   "confidence": 59,
+   "confidence": 56,
    "confidence_detail": {
     "agree": 3,
     "components": {
      "agreement": 0.798,
      "consistency": 0.467,
      "data": 1.0,
-     "edge": 0.382,
-     "market": 0.5,
+     "edge": 0.132,
+     "market": 0.721,
      "trends": 0.5
     },
     "label": "Medium",
     "n_sources": 4,
-    "score": 59,
+    "score": 56,
     "side": "home",
     "source_names": {
      "elo": "Elo",
@@ -14676,8 +14676,8 @@
     "mp": -1.148,
     "xg": -0.824
    },
-   "edge": 3.1,
-   "ev": 0.0305,
+   "edge": 1.1,
+   "ev": 0.0106,
    "hfa_flag": 1,
    "home": "Philadelphia Flyers",
    "home_abbr": "PHI",
@@ -14685,13 +14685,13 @@
    "home_prob": 0.435,
    "id": 2026020229,
    "line": null,
-   "mkt_prob": 0.378,
-   "ml_away": -185.0,
-   "ml_home": 154.0,
+   "mkt_prob": 0.391,
+   "ml_away": -175.0,
+   "ml_home": 145.0,
    "model_prob": 0.435,
    "model_spread": null,
    "neutral": false,
-   "odds": 154.0,
+   "odds": 145.0,
    "offset": 0.103,
    "pl_alt": {
     "better": false,
@@ -14701,14 +14701,14 @@
     "odds": -180.0,
     "prob": 0.639
    },
-   "prob": 0.406,
+   "prob": 0.412,
    "result": null,
    "season": 20262027,
    "season_type": "regular",
    "start": "2026-11-01T21:00:00Z",
    "su_team": "Utah Mammoth",
    "su_wp": 0.565,
-   "tier": "lean",
+   "tier": "pass",
    "total_pick": {
     "edge": -3.8,
     "ev": -0.0384,
@@ -14721,7 +14721,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-01T19:00:46Z",
+   "updated": "2026-11-01T20:33:48Z",
    "week": 202644,
    "weights": {
     "elo": 0.202,
@@ -14819,7 +14819,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-11-01T19:00:46Z",
+   "updated": "2026-11-01T20:33:48Z",
    "week": 202644,
    "weights": {
     "elo": 0.202,
@@ -14917,7 +14917,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-11-01T19:00:46Z",
+   "updated": "2026-11-01T20:33:48Z",
    "week": 202644,
    "weights": {
     "elo": 0.202,
