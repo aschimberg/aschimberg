@@ -14450,6 +14450,8 @@
    "away_abbr": "WPG",
    "bet_at": "2026-11-01T17:05:56Z",
    "bet_line": 225.0,
+   "close_line": 225.0,
+   "clv": -0.0414,
    "conf_label": "Low",
    "confidence": 52,
    "confidence_detail": {
@@ -14513,7 +14515,17 @@
     "prob": 0.516
    },
    "prob": 0.297,
-   "result": null,
+   "result": {
+    "ats": "L",
+    "away_pts": 0,
+    "home_pts": 7,
+    "pl": "L",
+    "pl_units": -1.0,
+    "su": "W",
+    "total": "W",
+    "total_units": 1.1,
+    "units": -1.0
+   },
    "season": 20262027,
    "season_type": "regular",
    "start": "2026-11-01T18:00:00Z",
@@ -14743,7 +14755,7 @@
     "agree": 3,
     "components": {
      "agreement": 0.524,
-     "consistency": 0.771,
+     "consistency": 0.766,
      "data": 0.9,
      "edge": 0.0,
      "market": 0.5,
@@ -14761,7 +14773,7 @@
     },
     "sources": {
      "elo": 0.22,
-     "goals": 0.01,
+     "goals": 0.0,
      "mp": 0.19,
      "xg": 0.4
     },
@@ -14770,12 +14782,12 @@
    "date": "2026-11-01",
    "diffs": {
     "elo": -0.253,
-    "goals": -0.464,
+    "goals": -0.472,
     "mp": -0.283,
     "xg": -0.076
    },
    "edge": -3.9,
-   "ev": -0.0393,
+   "ev": -0.0392,
    "hfa_flag": 1,
    "home": "New York Rangers",
    "home_abbr": "NYR",
@@ -14793,13 +14805,13 @@
    "offset": 0.25,
    "pl_alt": {
     "better": true,
-    "ev": -0.0318,
+    "ev": -0.0317,
     "line": 1.5,
     "model_prob": 0.681,
     "odds": -230.0,
     "prob": 0.675
    },
-   "prob": 0.457,
+   "prob": 0.458,
    "result": null,
    "season": 20262027,
    "season_type": "regular",
@@ -14808,18 +14820,18 @@
    "su_wp": 0.542,
    "tier": "pass",
    "total_pick": {
-    "edge": 0.6,
-    "ev": 0.0057,
+    "edge": 2.1,
+    "ev": 0.0211,
     "line": 6.5,
-    "mkt_prob": 0.496,
-    "model_prob": 0.549,
-    "odds": -108.0,
+    "mkt_prob": 0.483,
+    "model_prob": 0.548,
+    "odds": -102.0,
     "play": false,
-    "prob": 0.522,
+    "prob": 0.516,
     "side": "under",
-    "tier": "pass"
+    "tier": "lean"
    },
-   "updated": "2026-11-01T20:33:48Z",
+   "updated": "2026-11-01T21:31:17Z",
    "week": 202644,
    "weights": {
     "elo": 0.202,
@@ -14841,9 +14853,9 @@
     "agree": 4,
     "components": {
      "agreement": 1.0,
-     "consistency": 0.758,
+     "consistency": 0.755,
      "data": 0.9,
-     "edge": 0.006,
+     "edge": 0.004,
      "market": 0.5,
      "trends": 0.5
     },
@@ -14859,7 +14871,7 @@
     },
     "sources": {
      "elo": 0.22,
-     "goals": -0.05,
+     "goals": -0.06,
      "mp": 0.01,
      "xg": 0.3
     },
@@ -14868,12 +14880,12 @@
    "date": "2026-11-01",
    "diffs": {
     "elo": -0.349,
-    "goals": -0.62,
+    "goals": -0.627,
     "mp": -0.556,
     "xg": -0.266
    },
    "edge": 0.0,
-   "ev": 0.0005,
+   "ev": 0.0004,
    "hfa_flag": 1,
    "home": "Anaheim Ducks",
    "home_abbr": "ANA",
@@ -14891,7 +14903,7 @@
    "offset": 0.347,
    "pl_alt": {
     "better": false,
-    "ev": -0.0046,
+    "ev": -0.0047,
     "line": 1.5,
     "model_prob": 0.732,
     "odds": -245.0,
@@ -14907,7 +14919,7 @@
    "tier": "pass",
    "total_pick": {
     "edge": -1.2,
-    "ev": -0.0115,
+    "ev": -0.0118,
     "line": 6.5,
     "mkt_prob": 0.449,
     "model_prob": 0.475,
@@ -14917,7 +14929,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-11-01T20:33:48Z",
+   "updated": "2026-11-01T21:31:17Z",
    "week": 202644,
    "weights": {
     "elo": 0.202,
