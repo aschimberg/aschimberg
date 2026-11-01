@@ -14315,7 +14315,7 @@
      "consistency": 0.638,
      "data": 0.9,
      "edge": 1.0,
-     "market": 0.781,
+     "market": 0.827,
      "trends": 0.5
     },
     "label": "High",
@@ -14343,8 +14343,8 @@
     "mp": 0.942,
     "xg": 0.541
    },
-   "edge": 12.0,
-   "ev": 0.12,
+   "edge": 11.2,
+   "ev": 0.1121,
    "hfa_flag": 1,
    "home": "Colorado Avalanche",
    "home_abbr": "COL",
@@ -14352,13 +14352,13 @@
    "home_prob": 0.676,
    "id": 2026020226,
    "line": null,
-   "mkt_prob": 0.24,
-   "ml_away": 300.0,
-   "ml_home": -380.0,
+   "mkt_prob": 0.243,
+   "ml_away": 295.0,
+   "ml_home": -375.0,
    "model_prob": 0.324,
    "model_spread": null,
    "neutral": false,
-   "odds": 300.0,
+   "odds": 295.0,
    "offset": 0.244,
    "pl_alt": {
     "better": true,
@@ -14368,7 +14368,7 @@
     "odds": 140.0,
     "prob": 0.474
    },
-   "prob": 0.28,
+   "prob": 0.282,
    "result": null,
    "season": 20262027,
    "season_type": "regular",
@@ -14388,7 +14388,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-11-01T00:30:40Z",
+   "updated": "2026-11-01T01:17:08Z",
    "week": 202644,
    "weights": {
     "elo": 0.202,

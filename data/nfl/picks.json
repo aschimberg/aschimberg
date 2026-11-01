@@ -9435,7 +9435,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-01T00:07:59Z",
+   "updated": "2026-11-01T01:16:36Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -9577,7 +9577,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-11-01T00:07:59Z",
+   "updated": "2026-11-01T01:16:36Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -9719,7 +9719,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-01T00:07:59Z",
+   "updated": "2026-11-01T01:16:36Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -9958,7 +9958,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-11-01T00:07:59Z",
+   "updated": "2026-11-01T01:16:36Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10100,7 +10100,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-11-01T00:07:59Z",
+   "updated": "2026-11-01T01:16:36Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10242,7 +10242,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-01T00:07:59Z",
+   "updated": "2026-11-01T01:16:36Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10305,43 +10305,22 @@
    "proj_home": 24.2,
    "props": [
     {
-     "bet": false,
-     "fair": 120,
-     "games": 26,
-     "lam": 0.6053,
-     "name": "Kenneth Walker III",
-     "note": "no market price yet",
-     "p": 0.454,
-     "p_model": 0.454,
-     "pid": "00-0038134",
-     "pos": "RB",
-     "team": "KC"
-    },
-    {
-     "bet": false,
-     "fair": 130,
+     "bet": true,
+     "book": "BetMGM",
+     "ev": 0.0757,
+     "fair": 207,
      "games": 17,
+     "kelly": 0.0329,
      "lam": 0.5703,
+     "mkt_prob": 0.262,
+     "n_books": 6,
      "name": "J.K. Dobbins",
-     "note": "no market price yet",
-     "p": 0.435,
+     "odds": 230.0,
+     "p": 0.326,
      "p_model": 0.435,
      "pid": "00-0036158",
      "pos": "RB",
      "team": "DEN"
-    },
-    {
-     "bet": false,
-     "fair": 167,
-     "games": 11,
-     "lam": 0.4701,
-     "name": "Rashee Rice",
-     "note": "no market price yet",
-     "p": 0.375,
-     "p_model": 0.375,
-     "pid": "00-0039067",
-     "pos": "WR",
-     "team": "KC"
     }
    ],
    "push_prob": 0.024,
@@ -10366,7 +10345,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-01T00:07:59Z",
+   "updated": "2026-11-01T01:16:36Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10430,12 +10409,18 @@
    "props": [
     {
      "bet": false,
-     "fair": -106,
+     "book": "DraftKings",
+     "ev": -0.1524,
+     "fair": 105,
      "games": 27,
+     "kelly": -0.2058,
      "lam": 0.7211,
+     "mkt_prob": 0.469,
+     "n_books": 6,
      "name": "Kyren Williams",
-     "note": "no market price yet",
-     "p": 0.514,
+     "note": "no value at market price",
+     "odds": -135.0,
+     "p": 0.487,
      "p_model": 0.514,
      "pid": "00-0037840",
      "pos": "RB",
@@ -10443,12 +10428,18 @@
     },
     {
      "bet": false,
-     "fair": 145,
+     "book": "BetRivers",
+     "ev": -0.1912,
+     "fair": 132,
      "games": 24,
+     "kelly": -0.218,
      "lam": 0.5249,
+     "mkt_prob": 0.446,
+     "n_books": 6,
      "name": "Puka Nacua",
-     "note": "no market price yet",
-     "p": 0.408,
+     "note": "no value at market price",
+     "odds": -114.0,
+     "p": 0.431,
      "p_model": 0.408,
      "pid": "00-0039075",
      "pos": "WR",
@@ -10456,12 +10447,18 @@
     },
     {
      "bet": false,
-     "fair": 191,
+     "book": "FanDuel",
+     "ev": -0.124,
+     "fair": 242,
      "games": 16,
+     "kelly": -0.062,
      "lam": 0.4217,
+     "mkt_prob": 0.26,
+     "n_books": 6,
      "name": "Omarion Hampton",
-     "note": "no market price yet",
-     "p": 0.344,
+     "note": "no value at market price",
+     "odds": 200.0,
+     "p": 0.292,
      "p_model": 0.344,
      "pid": "00-0040666",
      "pos": "RB",
@@ -10490,7 +10487,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-11-01T00:07:59Z",
+   "updated": "2026-11-01T01:16:36Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10632,7 +10629,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-11-01T00:07:59Z",
+   "updated": "2026-11-01T01:16:36Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10774,7 +10771,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-11-01T00:07:59Z",
+   "updated": "2026-11-01T01:16:36Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10837,39 +10834,18 @@
    "proj_home": 23.0,
    "props": [
     {
-     "bet": false,
-     "fair": -102,
-     "games": 21,
-     "lam": 0.7021,
-     "name": "Ollie Gordon II",
-     "note": "no market price yet",
-     "p": 0.504,
-     "p_model": 0.504,
-     "pid": "00-0040198",
-     "pos": "RB",
-     "team": "MIA"
-    },
-    {
-     "bet": false,
-     "fair": 122,
-     "games": 25,
-     "lam": 0.5978,
-     "name": "Rhamondre Stevenson",
-     "note": "no market price yet",
-     "p": 0.45,
-     "p_model": 0.45,
-     "pid": "00-0036875",
-     "pos": "RB",
-     "team": "NE"
-    },
-    {
-     "bet": false,
-     "fair": 171,
+     "bet": true,
+     "book": "DraftKings",
+     "ev": 0.1896,
+     "fair": 341,
      "games": 3,
+     "kelly": 0.0446,
      "lam": 0.4604,
+     "mkt_prob": 0.156,
+     "n_books": 6,
      "name": "Caleb Douglas",
-     "note": "no market price yet",
-     "p": 0.369,
+     "odds": 425.0,
+     "p": 0.227,
      "p_model": 0.369,
      "pid": "00-0041523",
      "pos": "WR",
@@ -10898,7 +10874,7 @@
     "side": "over",
     "tier": "strong"
    },
-   "updated": "2026-11-01T00:07:59Z",
+   "updated": "2026-11-01T01:16:36Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -10962,12 +10938,18 @@
    "props": [
     {
      "bet": false,
-     "fair": 145,
+     "book": "DraftKings",
+     "ev": -0.0587,
+     "fair": 171,
      "games": 22,
+     "kelly": -0.0378,
      "lam": 0.5246,
+     "mkt_prob": 0.344,
+     "n_books": 6,
      "name": "Saquon Barkley",
-     "note": "no market price yet",
-     "p": 0.408,
+     "note": "no value at market price",
+     "odds": 155.0,
+     "p": 0.369,
      "p_model": 0.408,
      "pid": "00-0034844",
      "pos": "RB",
@@ -10975,12 +10957,18 @@
     },
     {
      "bet": false,
-     "fair": 203,
+     "book": "DraftKings",
+     "ev": -0.2029,
+     "fair": 182,
      "games": 22,
+     "kelly": -0.1623,
      "lam": 0.4002,
+     "mkt_prob": 0.371,
+     "n_books": 6,
      "name": "Rachaad White",
-     "note": "no market price yet",
-     "p": 0.33,
+     "note": "no value at market price",
+     "odds": 125.0,
+     "p": 0.354,
      "p_model": 0.33,
      "pid": "00-0037256",
      "pos": "RB",
@@ -10988,16 +10976,22 @@
     },
     {
      "bet": false,
-     "fair": 231,
-     "games": 21,
-     "lam": 0.3602,
-     "name": "Dallas Goedert",
-     "note": "no market price yet",
-     "p": 0.302,
-     "p_model": 0.302,
-     "pid": "00-0034351",
-     "pos": "TE",
-     "team": "PHI"
+     "book": "BetMGM",
+     "ev": -0.0494,
+     "fair": 257,
+     "games": 26,
+     "kelly": -0.0206,
+     "lam": 0.3577,
+     "mkt_prob": 0.266,
+     "n_books": 6,
+     "name": "Stefon Diggs",
+     "note": "no value at market price",
+     "odds": 240.0,
+     "p": 0.28,
+     "p_model": 0.301,
+     "pid": "00-0031588",
+     "pos": "WR",
+     "team": "WAS"
     }
    ],
    "push_prob": 0.043,
@@ -11022,7 +11016,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-01T00:07:59Z",
+   "updated": "2026-11-01T01:16:36Z",
    "week": 8,
    "weights": {
     "elo": 0.931,
@@ -11164,7 +11158,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-01T00:07:59Z",
+   "updated": "2026-11-01T01:16:36Z",
    "week": 8,
    "weights": {
     "elo": 0.931,

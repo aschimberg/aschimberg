@@ -7649,6 +7649,8 @@
    "bet_at": "2026-10-31T18:16:20Z",
    "bet_line": 1.5,
    "book": "DraftKings",
+   "close_line": 1.5,
+   "clv": 0.0,
    "conf_label": "High",
    "confidence": 79,
    "confidence_detail": {
@@ -7699,7 +7701,13 @@
    "proj_away": 103.6,
    "proj_home": 107.1,
    "push_prob": 0.0,
-   "result": null,
+   "result": {
+    "ats": "L",
+    "away_pts": 109,
+    "home_pts": 104,
+    "su": "L",
+    "total": "W"
+   },
    "season": 2027,
    "season_type": "regular",
    "start": "2026-10-31T22:00:00Z",
