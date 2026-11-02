@@ -278,33 +278,33 @@
      "odds": [
       {
        "description": "PUCK_LINE",
-       "qualifier": "-1.5",
-       "value": -135.0
+       "qualifier": "-2.5",
+       "value": 110.0
       },
       {
        "description": "OVER_UNDER",
        "qualifier": "U7.5",
-       "value": -140.0
+       "value": -195.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "",
-       "value": -210.0
+       "value": -390.0
       },
       {
        "description": "MONEY_LINE_2_WAY",
        "qualifier": "",
-       "value": -345.0
+       "value": -720.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 400.0
+       "value": 475.0
       },
       {
        "description": "MONEY_LINE_2_WAY_TNB",
        "qualifier": "",
-       "value": -500.0
+       "value": -1600.0
       }
      ]
     },
@@ -320,33 +320,33 @@
      "odds": [
       {
        "description": "PUCK_LINE",
-       "qualifier": "+1.5",
-       "value": 105.0
+       "qualifier": "+2.5",
+       "value": -140.0
       },
       {
        "description": "OVER_UNDER",
        "qualifier": "O7.5",
-       "value": 110.0
+       "value": 150.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "",
-       "value": 450.0
+       "value": 1100.0
       },
       {
        "description": "MONEY_LINE_2_WAY",
        "qualifier": "",
-       "value": 250.0
+       "value": 450.0
       },
       {
        "description": "MONEY_LINE_3_WAY",
        "qualifier": "Draw",
-       "value": 400.0
+       "value": 475.0
       },
       {
        "description": "MONEY_LINE_2_WAY_TNB",
        "qualifier": "",
-       "value": 340.0
+       "value": 800.0
       }
      ]
     },
@@ -429,9 +429,9 @@
     "startTimeUTC": "2026-11-02T01:00:00Z"
    }
   ],
-  "lastUpdatedUTC": "2026-11-01T23:30:38Z"
+  "lastUpdatedUTC": "2026-11-02T00:30:38Z"
  },
- "fetched_at": "2026-11-01T23:31:35Z",
+ "fetched_at": "2026-11-02T00:44:58Z",
  "parsed": {
   "2026020231": {
    "book": "DraftKings",

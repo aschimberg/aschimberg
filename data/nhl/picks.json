@@ -14661,6 +14661,8 @@
    "away_abbr": "UTA",
    "bet_at": "2026-11-01T17:05:56Z",
    "bet_line": 154.0,
+   "close_line": 145.0,
+   "clv": -0.0075,
    "conf_label": "Medium",
    "confidence": 56,
    "confidence_detail": {
@@ -14724,7 +14726,17 @@
     "prob": 0.639
    },
    "prob": 0.412,
-   "result": null,
+   "result": {
+    "ats": "W",
+    "away_pts": 3,
+    "home_pts": 6,
+    "pl": "W",
+    "pl_units": 0.556,
+    "su": "L",
+    "total": "W",
+    "total_units": 1.14,
+    "units": 1.45
+   },
    "season": 20262027,
    "season_type": "regular",
    "start": "2026-11-01T21:00:00Z",
@@ -14863,9 +14875,9 @@
     "agree": 4,
     "components": {
      "agreement": 1.0,
-     "consistency": 0.756,
+     "consistency": 0.755,
      "data": 0.9,
-     "edge": 0.004,
+     "edge": 0.003,
      "market": 0.5,
      "trends": 0.5
     },
@@ -14890,7 +14902,7 @@
    "date": "2026-11-01",
    "diffs": {
     "elo": -0.349,
-    "goals": -0.626,
+    "goals": -0.628,
     "mp": -0.556,
     "xg": -0.267
    },
@@ -14929,7 +14941,7 @@
    "tier": "pass",
    "total_pick": {
     "edge": -1.2,
-    "ev": -0.0118,
+    "ev": -0.0117,
     "line": 6.5,
     "mkt_prob": 0.449,
     "model_prob": 0.475,
@@ -14939,7 +14951,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-11-01T23:31:25Z",
+   "updated": "2026-11-02T00:44:48Z",
    "week": 202644,
    "weights": {
     "elo": 0.202,
