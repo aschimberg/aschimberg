@@ -9,7 +9,7 @@
    "xg": 0.35
   }
  },
- "games": 96,
+ "games": 143,
  "history": [
   {
    "after": {
@@ -152,14 +152,73 @@
    "rmse_before": 2.534,
    "season": 20262027,
    "status": "updated"
+  },
+  {
+   "after": {
+    "home_field": 0.212,
+    "weights": {
+     "elo": 0.184,
+     "goals": 0.11,
+     "mp": 0.21,
+     "xg": 0.495
+    }
+   },
+   "alpha": 0.263,
+   "anchor": {
+    "home_field": 0.2,
+    "weights": {
+     "elo": 0.25,
+     "goals": 0.15,
+     "mp": 0.25,
+     "xg": 0.35
+    }
+   },
+   "at": "2026-11-02T21:40:59Z",
+   "before": {
+    "home_field": 0.2,
+    "weights": {
+     "elo": 0.25,
+     "goals": 0.15,
+     "mp": 0.25,
+     "xg": 0.35
+    }
+   },
+   "by_source": {
+    "elo": {
+     "rmse": 2.539
+    },
+    "goals": {
+     "rmse": 2.604
+    },
+    "mp": {
+     "rmse": 2.517
+    },
+    "xg": {
+     "rmse": 2.506
+    }
+   },
+   "fit": {
+    "home_field": 0.244,
+    "weights": {
+     "elo": 0.0,
+     "goals": 0.0,
+     "mp": 0.1,
+     "xg": 0.9
+    }
+   },
+   "games": 143,
+   "rmse_after": 2.517,
+   "rmse_before": 2.523,
+   "season": 20262027,
+   "status": "updated"
   }
  ],
- "home_field": 0.224,
- "updated": "2026-10-26T18:39:38Z",
+ "home_field": 0.212,
+ "updated": "2026-11-02T21:40:59Z",
  "weights": {
-  "elo": 0.202,
-  "goals": 0.121,
-  "mp": 0.202,
-  "xg": 0.476
+  "elo": 0.184,
+  "goals": 0.11,
+  "mp": 0.21,
+  "xg": 0.495
  }
 }

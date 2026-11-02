@@ -8,7 +8,7 @@
    "pts": 0.795
   }
  },
- "games": 43,
+ "games": 92,
  "history": [
   {
    "after": {
@@ -1596,14 +1596,66 @@
    "games": 43,
    "season": 2027,
    "status": "insufficient"
+  },
+  {
+   "after": {
+    "home_field": 1.644,
+    "weights": {
+     "eff": 0.287,
+     "elo": 0.067,
+     "pts": 0.646
+    }
+   },
+   "alpha": 0.187,
+   "anchor": {
+    "home_field": 1.701,
+    "weights": {
+     "eff": 0.123,
+     "elo": 0.082,
+     "pts": 0.795
+    }
+   },
+   "at": "2026-11-02T21:41:03Z",
+   "before": {
+    "home_field": 2.3,
+    "weights": {
+     "eff": 0.45,
+     "elo": 0.3,
+     "pts": 0.25
+    }
+   },
+   "by_source": {
+    "eff": {
+     "rmse": 15.024
+    },
+    "elo": {
+     "rmse": 15.405
+    },
+    "pts": {
+     "rmse": 15.036
+    }
+   },
+   "fit": {
+    "home_field": 1.397,
+    "weights": {
+     "eff": 1.0,
+     "elo": 0.0,
+     "pts": 0.0
+    }
+   },
+   "games": 92,
+   "rmse_after": 15.045,
+   "rmse_before": 15.126,
+   "season": 2027,
+   "status": "updated"
   }
  ],
- "home_field": 2.3,
+ "home_field": 1.644,
  "source": "backtest 2026\u20132026 walk-forward",
- "updated": "2026-10-26T18:39:42Z",
+ "updated": "2026-11-02T21:41:03Z",
  "weights": {
-  "eff": 0.45,
-  "elo": 0.3,
-  "pts": 0.25
+  "eff": 0.287,
+  "elo": 0.067,
+  "pts": 0.646
  }
 }

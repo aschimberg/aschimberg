@@ -110,7 +110,7 @@
  "trend_seasons": null,
  "tuning": {
   "enabled": true,
-  "games": 96,
+  "games": 143,
   "history": [
    {
     "at": "2026-10-12T20:37:50Z",
@@ -153,20 +153,34 @@
      "mp": 0.202,
      "xg": 0.476
     }
+   },
+   {
+    "at": "2026-11-02T21:40:59Z",
+    "games": 143,
+    "home_field": 0.212,
+    "rmse_after": 2.517,
+    "rmse_before": 2.523,
+    "status": "updated",
+    "weights": {
+     "elo": 0.184,
+     "goals": 0.11,
+     "mp": 0.21,
+     "xg": 0.495
+    }
    }
   ],
-  "home_field": 0.224,
+  "home_field": 0.212,
   "last": {
    "after": {
-    "home_field": 0.224,
+    "home_field": 0.212,
     "weights": {
-     "elo": 0.202,
-     "goals": 0.121,
-     "mp": 0.202,
-     "xg": 0.476
+     "elo": 0.184,
+     "goals": 0.11,
+     "mp": 0.21,
+     "xg": 0.495
     }
    },
-   "alpha": 0.194,
+   "alpha": 0.263,
    "anchor": {
     "home_field": 0.2,
     "weights": {
@@ -176,7 +190,7 @@
      "xg": 0.35
     }
    },
-   "at": "2026-10-26T18:39:38Z",
+   "at": "2026-11-02T21:40:59Z",
    "before": {
     "home_field": 0.2,
     "weights": {
@@ -188,40 +202,40 @@
    },
    "by_source": {
     "elo": {
-     "rmse": 2.542
+     "rmse": 2.539
     },
     "goals": {
-     "rmse": 2.605
+     "rmse": 2.604
     },
     "mp": {
-     "rmse": 2.543
+     "rmse": 2.517
     },
     "xg": {
-     "rmse": 2.512
+     "rmse": 2.506
     }
    },
    "fit": {
-    "home_field": 0.322,
+    "home_field": 0.244,
     "weights": {
      "elo": 0.0,
      "goals": 0.0,
-     "mp": 0.0,
-     "xg": 1.0
+     "mp": 0.1,
+     "xg": 0.9
     }
    },
-   "games": 96,
-   "rmse_after": 2.528,
-   "rmse_before": 2.534,
+   "games": 143,
+   "rmse_after": 2.517,
+   "rmse_before": 2.523,
    "season": 20262027,
    "status": "updated"
   },
   "min_games": 40,
-  "updated": "2026-10-26T18:39:38Z",
+  "updated": "2026-11-02T21:40:59Z",
   "weights": {
-   "elo": 0.202,
-   "goals": 0.121,
-   "mp": 0.202,
-   "xg": 0.476
+   "elo": 0.184,
+   "goals": 0.11,
+   "mp": 0.21,
+   "xg": 0.495
   }
  },
  "week": null
