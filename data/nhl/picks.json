@@ -14771,6 +14771,8 @@
    "away_abbr": "EDM",
    "bet_at": "2026-11-01T17:05:56Z",
    "bet_line": 110.0,
+   "close_line": 110.0,
+   "clv": -0.0398,
    "conf_label": "Low",
    "confidence": 45,
    "confidence_detail": {
@@ -14834,7 +14836,17 @@
     "prob": 0.675
    },
    "prob": 0.458,
-   "result": null,
+   "result": {
+    "ats": "W",
+    "away_pts": 4,
+    "home_pts": 1,
+    "pl": "W",
+    "pl_units": 0.435,
+    "su": "L",
+    "total": "W",
+    "total_units": 0.98,
+    "units": 1.1
+   },
    "season": 20262027,
    "season_type": "regular",
    "start": "2026-11-01T23:00:00Z",
