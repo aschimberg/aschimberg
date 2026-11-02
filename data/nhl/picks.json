@@ -14881,6 +14881,8 @@
    "away_abbr": "OTT",
    "bet_at": "2026-11-01T17:05:56Z",
    "bet_line": -102.0,
+   "close_line": -102.0,
+   "clv": -0.0442,
    "conf_label": "Medium",
    "confidence": 57,
    "confidence_detail": {
@@ -14944,7 +14946,17 @@
     "prob": 0.707
    },
    "prob": 0.505,
-   "result": null,
+   "result": {
+    "ats": "W",
+    "away_pts": 3,
+    "home_pts": 6,
+    "pl": "W",
+    "pl_units": 0.408,
+    "su": "W",
+    "total": "L",
+    "total_units": -1.0,
+    "units": 0.98
+   },
    "season": 20262027,
    "season_type": "regular",
    "start": "2026-11-02T01:00:00Z",
