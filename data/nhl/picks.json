@@ -15321,6 +15321,8 @@
    "away_abbr": "CGY",
    "bet_at": "2026-11-02T17:25:25Z",
    "bet_line": 105.0,
+   "close_line": 105.0,
+   "clv": -0.0416,
    "conf_label": "Low",
    "confidence": 49,
    "confidence_detail": {
@@ -15384,7 +15386,17 @@
     "prob": 0.69
    },
    "prob": 0.479,
-   "result": null,
+   "result": {
+    "ats": "W",
+    "away_pts": 2,
+    "home_pts": 1,
+    "pl": "W",
+    "pl_units": 0.42,
+    "su": "L",
+    "total": "W",
+    "total_units": 0.847,
+    "units": 1.05
+   },
    "season": 20262027,
    "season_type": "regular",
    "start": "2026-11-03T02:00:00Z",
