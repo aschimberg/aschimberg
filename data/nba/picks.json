@@ -9406,20 +9406,20 @@
    "bet_line": -5.5,
    "book": "DraftKings",
    "conf_label": "Low",
-   "confidence": 53,
+   "confidence": 54,
    "confidence_detail": {
     "agree": 2,
     "components": {
      "agreement": 0.933,
      "consistency": 0.834,
      "data": 0.6,
-     "edge": 0.33,
+     "edge": 0.371,
      "market": 0.0,
      "trends": 0.5
     },
     "label": "Low",
     "n_sources": 3,
-    "score": 53,
+    "score": 54,
     "side": "home",
     "source_names": {
      "eff": "Efficiency",
@@ -9427,56 +9427,56 @@
      "pts": "Points"
     },
     "sources": {
-     "eff": 6.3,
-     "elo": 4.2,
-     "pts": 6.3
+     "eff": 6.4,
+     "elo": 4.3,
+     "pts": 6.4
     }
    },
-   "cover_prob": 0.525,
+   "cover_prob": 0.517,
    "date": "2026-11-02",
    "diffs": {
     "eff": 1.93,
     "elo": -0.21,
     "pts": 1.88
    },
-   "edge": 1.7,
-   "ev": -0.014,
-   "fair_line": -4.7,
+   "edge": 1.9,
+   "ev": 0.005,
+   "fair_line": -4.8,
    "hfa_flag": 1,
    "home": "Houston Rockets",
    "home_abbr": "HOU",
    "home_field": 1.644,
    "id": "401909916",
    "line": -4.5,
-   "model_spread": -6.2,
-   "model_total": 225.2,
+   "model_spread": -6.4,
+   "model_total": 225.4,
    "neutral": false,
-   "offset": 2.77,
+   "offset": 2.84,
    "proj_away": 109.5,
-   "proj_home": 115.7,
+   "proj_home": 115.9,
    "push_prob": 0.0,
    "result": null,
    "season": 2027,
    "season_type": "regular",
    "start": "2026-11-03T01:30:00Z",
    "su_team": "Houston Rockets",
-   "su_wp": 0.667,
-   "tier": "pass",
-   "total_line": 216.5,
+   "su_wp": 0.673,
+   "tier": "lean",
+   "total_line": 215.5,
    "total_pick": {
-    "edge": 8.7,
-    "ev": 0.0127,
-    "fair": 217.8,
-    "line": 216.5,
-    "model": 225.2,
-    "odds": -105.0,
+    "edge": 9.9,
+    "ev": -0.0206,
+    "fair": 217.0,
+    "line": 215.5,
+    "model": 225.4,
+    "odds": -113.0,
     "play": false,
-    "prob": 0.519,
+    "prob": 0.52,
     "push_prob": 0.0,
     "side": "over",
-    "tier": "lean"
+    "tier": "pass"
    },
-   "updated": "2026-11-02T23:21:53Z",
+   "updated": "2026-11-03T01:16:35Z",
    "week": 202645,
    "weights": {
     "eff": 0.287,
@@ -9564,7 +9564,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-02T23:21:53Z",
+   "updated": "2026-11-03T01:16:35Z",
    "week": 202645,
    "weights": {
     "eff": 0.287,
@@ -9641,18 +9641,18 @@
    "total_line": 231.5,
    "total_pick": {
     "edge": 1.5,
-    "ev": -0.0161,
+    "ev": 0.0053,
     "fair": 231.3,
     "line": 231.5,
     "model": 230.0,
-    "odds": -113.0,
+    "odds": -108.0,
     "play": false,
     "prob": 0.522,
     "push_prob": 0.0,
     "side": "under",
-    "tier": "pass"
+    "tier": "lean"
    },
-   "updated": "2026-11-02T23:21:53Z",
+   "updated": "2026-11-03T01:16:35Z",
    "week": 202645,
    "weights": {
     "eff": 0.287,
@@ -9740,7 +9740,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-02T23:21:53Z",
+   "updated": "2026-11-03T01:16:35Z",
    "week": 202645,
    "weights": {
     "eff": 0.287,
@@ -9792,7 +9792,7 @@
     "pts": -5.13
    },
    "edge": 3.2,
-   "ev": -0.067,
+   "ev": -0.059,
    "fair_line": 4.0,
    "hfa_flag": 1,
    "home": "LA Clippers",
@@ -9828,7 +9828,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-02T23:21:53Z",
+   "updated": "2026-11-03T01:16:35Z",
    "week": 202645,
    "weights": {
     "eff": 0.287,
@@ -9916,7 +9916,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-02T23:21:53Z",
+   "updated": "2026-11-03T01:16:35Z",
    "week": 202645,
    "weights": {
     "eff": 0.287,
