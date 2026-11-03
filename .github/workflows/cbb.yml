@@ -1,0 +1,39 @@
+name: College basketball (background)
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "backfill (last two seasons + backtest) | backtest | shadow"
+        default: shadow
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cbb
+  cancel-in-progress: false
+
+jobs:
+  cbb:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Backfill 2024-25 and 2025-26 (box scores; closing lines through mid-January)
+        if: inputs.mode == 'backfill'
+        run: |
+          python -m cbbmodel backfill 2025
+          python -m cbbmodel backfill 2026 --odds-through 2026-01-15
+      - name: Backtest each team's first games of 2025-26
+        if: inputs.mode == 'backfill' || inputs.mode == 'backtest'
+        run: python -m cbbmodel backtest 2026
+      - name: Background picks for this season
+        if: inputs.mode == 'shadow' || inputs.mode == 'backfill'
+        run: python -m cbbmodel shadow
+      - name: Commit data
+        if: always()
+        run: .github/scripts/commit-data.sh "College basketball ${{ inputs.mode }}"
