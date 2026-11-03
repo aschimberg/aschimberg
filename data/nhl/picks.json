@@ -15211,6 +15211,8 @@
    "away_abbr": "COL",
    "bet_at": "2026-11-02T17:25:25Z",
    "bet_line": 190.0,
+   "close_line": 190.0,
+   "clv": -0.0401,
    "conf_label": "Medium",
    "confidence": 68,
    "confidence_detail": {
@@ -15274,7 +15276,17 @@
     "prob": 0.58
    },
    "prob": 0.362,
-   "result": null,
+   "result": {
+    "ats": "L",
+    "away_pts": 5,
+    "home_pts": 2,
+    "pl": "L",
+    "pl_units": -1.0,
+    "su": "W",
+    "total": "W",
+    "total_units": 1.05,
+    "units": -1.0
+   },
    "season": 20262027,
    "season_type": "regular",
    "start": "2026-11-03T01:00:00Z",
