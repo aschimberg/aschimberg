@@ -45,7 +45,27 @@ def summary(eid):
     print(f"   plays={len(doc.get('plays') or [])}")
 
 
+CORE = "https://sports.core.api.espn.com/v2/sports/basketball/leagues/mens-college-basketball"
+
+
+def past_odds(eid):
+    doc = get(f"{SITE}/summary?event={eid}") or {}
+    print("   summary odds:", str(doc.get("odds"))[:400])
+    print("   againstTheSpread:", str(doc.get("againstTheSpread"))[:300])
+    core = get(f"{CORE}/events/{eid}/competitions/{eid}/odds") or {}
+    for it in (core.get("items") or [])[:3]:
+        print("   core odds:", {k: it.get(k) for k in ("provider", "details", "overUnder", "spread")},
+              "open/close:", str({k: it.get(k) for k in ("open", "close", "current")})[:300])
+
+
 def main():
+    print("== past-game odds ==")
+    for d in ("20251104", "20251201"):
+        evs = scoreboard(d)
+        fin = [e for e in evs if e["status"]["type"].get("completed")]
+        for e in fin[:2]:
+            past_odds(e["id"])
+    return
     print("== ESPN D1 scoreboard: last season early games and today ==")
     old = scoreboard("20251110")
     scoreboard("20261103")
