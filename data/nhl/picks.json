@@ -15432,20 +15432,20 @@
    "bet_at": "2026-11-03T17:06:39Z",
    "bet_line": -130.0,
    "conf_label": "Low",
-   "confidence": 47,
+   "confidence": 46,
    "confidence_detail": {
     "agree": 2,
     "components": {
      "agreement": 0.706,
      "consistency": 0.424,
-     "data": 1.0,
+     "data": 0.9,
      "edge": 0.0,
      "market": 0.5,
      "trends": 0.5
     },
     "label": "Low",
     "n_sources": 4,
-    "score": 47,
+    "score": 46,
     "side": "away",
     "source_names": {
      "elo": "Elo",
@@ -15454,10 +15454,10 @@
      "xg": "xG"
     },
     "sources": {
-     "elo": -0.16,
-     "goals": 0.2,
-     "mp": -0.66,
-     "xg": -0.57
+     "elo": -0.13,
+     "goals": 0.23,
+     "mp": -0.64,
+     "xg": -0.54
     },
     "units": "goals"
    },
@@ -15468,35 +15468,35 @@
     "mp": -0.794,
     "xg": -0.696
    },
-   "edge": -2.2,
-   "ev": -0.0222,
+   "edge": -2.5,
+   "ev": -0.0252,
    "hfa_flag": 1,
    "home": "Toronto Maple Leafs",
    "home_abbr": "TOR",
    "home_field": 0.212,
-   "home_prob": 0.437,
+   "home_prob": 0.441,
    "id": 2026020236,
    "line": null,
    "mkt_prob": 0.543,
    "ml_away": -130.0,
    "ml_home": 110.0,
-   "model_prob": 0.563,
+   "model_prob": 0.559,
    "model_spread": null,
    "neutral": false,
    "odds": -130.0,
-   "offset": -0.082,
+   "offset": -0.059,
    "pl_alt": null,
-   "prob": 0.553,
+   "prob": 0.551,
    "result": null,
    "season": 20262027,
    "season_type": "regular",
    "start": "2026-11-04T00:00:00Z",
    "su_team": "Utah Mammoth",
-   "su_wp": 0.563,
+   "su_wp": 0.559,
    "tier": "pass",
    "total_pick": {
     "edge": -3.1,
-    "ev": -0.031,
+    "ev": -0.0311,
     "line": 6.5,
     "mkt_prob": 0.449,
     "model_prob": 0.457,
@@ -15506,7 +15506,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-11-03T17:06:39Z",
+   "updated": "2026-11-03T17:55:22Z",
    "week": 202645,
    "weights": {
     "elo": 0.184,
@@ -15516,28 +15516,28 @@
    }
   },
   "2026020237": {
-   "ats_side": "home",
-   "ats_team": "Montr\u00e9al Canadiens",
+   "ats_side": "away",
+   "ats_team": "Winnipeg Jets",
    "away": "Winnipeg Jets",
    "away_abbr": "WPG",
-   "bet_at": "2026-11-03T17:06:39Z",
-   "bet_line": -185.0,
+   "bet_at": "2026-11-03T17:55:22Z",
+   "bet_line": 154.0,
    "conf_label": "Low",
-   "confidence": 42,
+   "confidence": 43,
    "confidence_detail": {
-    "agree": 3,
+    "agree": 1,
     "components": {
-     "agreement": 0.505,
+     "agreement": 0.495,
      "consistency": 0.539,
-     "data": 0.9,
+     "data": 1.0,
      "edge": 0.0,
      "market": 0.5,
      "trends": 0.5
     },
     "label": "Low",
     "n_sources": 4,
-    "score": 42,
-    "side": "home",
+    "score": 43,
+    "side": "away",
     "source_names": {
      "elo": "Elo",
      "goals": "Goals",
@@ -15545,10 +15545,10 @@
      "xg": "xG"
     },
     "sources": {
-     "elo": 1.1,
-     "goals": 1.35,
-     "mp": 0.91,
-     "xg": 0.59
+     "elo": 1.02,
+     "goals": 1.26,
+     "mp": 0.82,
+     "xg": 0.51
     },
     "units": "goals"
    },
@@ -15559,35 +15559,42 @@
     "mp": 0.454,
     "xg": 0.137
    },
-   "edge": -3.9,
-   "ev": -0.0389,
+   "edge": -2.9,
+   "ev": -0.0286,
    "hfa_flag": 1,
    "home": "Montr\u00e9al Canadiens",
    "home_abbr": "MTL",
    "home_field": 0.212,
-   "home_prob": 0.625,
+   "home_prob": 0.613,
    "id": 2026020237,
    "line": null,
-   "mkt_prob": 0.622,
+   "mkt_prob": 0.378,
    "ml_away": 154.0,
    "ml_home": -185.0,
-   "model_prob": 0.625,
+   "model_prob": 0.387,
    "model_spread": null,
    "neutral": false,
-   "odds": -185.0,
-   "offset": 0.243,
-   "pl_alt": null,
-   "prob": 0.624,
+   "odds": 154.0,
+   "offset": 0.157,
+   "pl_alt": {
+    "better": false,
+    "ev": -0.034,
+    "line": 1.5,
+    "model_prob": 0.613,
+    "odds": -170.0,
+    "prob": 0.608
+   },
+   "prob": 0.382,
    "result": null,
    "season": 20262027,
    "season_type": "regular",
    "start": "2026-11-04T00:00:00Z",
    "su_team": "Montr\u00e9al Canadiens",
-   "su_wp": 0.625,
+   "su_wp": 0.613,
    "tier": "pass",
    "total_pick": {
     "edge": 0.5,
-    "ev": 0.005,
+    "ev": 0.0052,
     "line": 5.5,
     "mkt_prob": 0.543,
     "model_prob": 0.593,
@@ -15597,7 +15604,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-03T17:06:39Z",
+   "updated": "2026-11-03T17:55:22Z",
    "week": 202645,
    "weights": {
     "elo": 0.184,
@@ -15695,7 +15702,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-03T17:06:39Z",
+   "updated": "2026-11-03T17:55:22Z",
    "week": 202645,
    "weights": {
     "elo": 0.184,
@@ -15793,7 +15800,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-11-03T17:06:39Z",
+   "updated": "2026-11-03T17:55:22Z",
    "week": 202645,
    "weights": {
     "elo": 0.184,
@@ -15891,7 +15898,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-11-03T17:06:39Z",
+   "updated": "2026-11-03T17:55:22Z",
    "week": 202645,
    "weights": {
     "elo": 0.184,
@@ -15989,7 +15996,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-11-03T17:06:39Z",
+   "updated": "2026-11-03T17:55:22Z",
    "week": 202645,
    "weights": {
     "elo": 0.184,
@@ -16080,7 +16087,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-11-03T17:06:39Z",
+   "updated": "2026-11-03T17:55:22Z",
    "week": 202645,
    "weights": {
     "elo": 0.184,
@@ -16171,7 +16178,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-03T17:06:39Z",
+   "updated": "2026-11-03T17:55:22Z",
    "week": 202645,
    "weights": {
     "elo": 0.184,
@@ -16262,7 +16269,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-03T17:06:39Z",
+   "updated": "2026-11-03T17:55:22Z",
    "week": 202645,
    "weights": {
     "elo": 0.184,
@@ -16353,7 +16360,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-03T17:06:39Z",
+   "updated": "2026-11-03T17:55:22Z",
    "week": 202645,
    "weights": {
     "elo": 0.184,
@@ -16451,7 +16458,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-03T17:06:39Z",
+   "updated": "2026-11-03T17:55:22Z",
    "week": 202645,
    "weights": {
     "elo": 0.184,
