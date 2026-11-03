@@ -3,7 +3,7 @@ from datetime import datetime, timedelta, timezone
 
 from cfbmodel import ats, store
 from cfbmodel.model import grade as ats_grade
-from sportscommon import anchor as anc, clv, drivesim, news, oddsapi, totals
+from sportscommon import anchor as anc, clv, drivesim, footsim, news, oddsapi, totals
 from sportscommon import props as sprops
 from sportscommon import confidence as conf
 from sportscommon import record as recmod
@@ -141,17 +141,19 @@ def project_total(fit, h, a, league_ppg, margin):
 
 
 def total_pick(model_total, line_total, margin=0.0, seed=0, sims=None):
-    """Over/under priced on simulated games at the market-anchored total."""
-    return drivesim.price_total("nfl", margin, model_total, line_total, config.ANCHOR,
+    """Over/under priced on simulated games at the market-anchored total (play by play live;
+    the faster drive-level sim in backtests, which pass sims)."""
+    return (drivesim if sims else footsim).price_total("nfl", margin, model_total, line_total, config.ANCHOR,
                                 n=sims or config.SIMS, seed=seed)
 
 
 def ats_pick(g, margin, total, diffs, offset, hflag, s, move, trend_block, dq, sims=None):
     """ATS side, edge, tier, cover probability, EV and confidence vs home spread s.
 
-    Priced on games simulated drive by drive (sportscommon/drivesim.py) at the
-    market-anchored margin; pushes on key numbers return the stake."""
-    pr = drivesim.price_spread("nfl", margin, total, s, g.get("total"), config.ANCHOR,
+    Priced on games simulated snap by snap (sportscommon/footsim.py; the faster
+    drive-level sim in backtests) at the market-anchored margin; pushes on key
+    numbers return the stake."""
+    pr = (drivesim if sims else footsim).price_spread("nfl", margin, total, s, g.get("total"), config.ANCHOR,
                                g.get("home_spread_odds"), g.get("away_spread_odds"), n=sims or config.SIMS, seed=g["id"])
     side = pr["side"]
     sign = 1 if side == "home" else -1
@@ -295,7 +297,7 @@ def refresh(games=None, pbp_loader=None, now=None, log=print, espn_loader=None):
         diffs, offset, hflag, qb_h, qb_a = margin_parts(g, fit, pregame, qb_values, baselines, replacement)
         margin = sum(config.WEIGHTS[k] * diffs[k] for k in SOURCES) + config.HOME_FIELD * hflag + offset
         total = project_total(fit, h, a, league_ppg, margin)
-        sim = drivesim.summary(drivesim.run_at("nfl", margin, total, n=config.SIMS, seed=g["id"]))
+        sim = drivesim.summary(footsim.run_at("nfl", margin, total, n=config.SIMS, seed=g["id"]))
         wp = sim["home_wp"]
         proj = {"margin": round(margin, 1), "spread": round(-margin, 1), "total": round(total, 1),
                 "home_pts": round((total + margin) / 2, 1), "away_pts": round((total - margin) / 2, 1),

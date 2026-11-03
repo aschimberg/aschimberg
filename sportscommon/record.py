@@ -53,7 +53,7 @@ def _finish(r):
 BREAKEVEN = 0.5238  # win rate needed at -110
 PLAYS_TARGET = 0.54  # the bar plays are held to (user's standard)
 
-# Picks made by the current model version (market anchoring + NHL sim fix);
+# Picks made by the current model version (market anchoring);
 # the retune check judges these, not picks from older versions.
 CURRENT_MODEL_SINCE = "2026-10-28"
 CURRENT_MODEL_LABEL = "Oct 28 model"

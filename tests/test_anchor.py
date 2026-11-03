@@ -42,11 +42,13 @@ class AnchorTests(unittest.TestCase):
         proj = {"margin": summ["margin"], "total": summ["total"], "diffs": {"eff": 8.0, "pts": 8.0, "elo": 8.0},
                 "hflag": 1, "offset": 0.0, "sim_in": si}
         pick, _ = nbamodel.ats_pick(proj, -2.0, lambda t: t, "H", "A")
-        self.assertEqual((pick["ats_side"], pick["fair_line"]), ("home", -2.9))
-        self.assertAlmostEqual(pick["cover_prob"], 0.525, delta=0.02)   # simulated at the anchored line, not the unanchored 66%
+        w, cap = nbamodel.config.ANCHOR
+        self.assertEqual(pick["ats_side"], "home")
+        self.assertAlmostEqual(pick["fair_line"], -(2.0 + min(cap, w * (summ["margin"] - 2.0))), delta=0.06)
+        self.assertAlmostEqual(pick["cover_prob"], 0.56, delta=0.035)   # anchored line, pushes excluded; not the unanchored 66%
         tp = nbamodel.total_pick(proj, 222.5)
         self.assertEqual(tp["side"], "over")
-        self.assertAlmostEqual(tp["fair"], 222.5 + 0.15 * (proj["total"] - 222.5), delta=0.06)
+        self.assertAlmostEqual(tp["fair"], 222.5 + min(cap, w * (proj["total"] - 222.5)), delta=0.06)
         self.assertAlmostEqual(tp["prob"], 0.515, delta=0.02)
 
 

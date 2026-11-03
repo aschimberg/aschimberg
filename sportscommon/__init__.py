@@ -1,1 +1,1 @@
-"""Shared helpers for the NFL and NHL models (stdlib only)."""
+"""Shared helpers for the CFB, NFL, NBA and college basketball models (stdlib only)."""

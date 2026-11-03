@@ -1,4 +1,4 @@
-"""Generate site/nfl, site/nhl and site/nba index pages from site/index.html.
+"""Generate site/nfl and site/nba index pages from site/index.html.
 
 Each sport page is the same app pointed at its own data folder. A <base> tag
 makes asset and sport-switcher links resolve from the site root.
@@ -28,7 +28,7 @@ def stamp(html):
 def build():
     src = stamp((SITE / "index.html").read_text())
     (SITE / "index.html").write_text(src)
-    for sport in ("nfl", "nhl", "nba"):
+    for sport in ("nfl", "nba"):
         page = src.replace(
             '<meta name="viewport" content="width=device-width, initial-scale=1">',
             '<meta name="viewport" content="width=device-width, initial-scale=1">\n'

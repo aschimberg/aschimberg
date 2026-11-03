@@ -1,6 +1,6 @@
 """Over/under picks: the model's projected total vs the market total.
 
-Shared by CFB and NFL (NHL prices totals from its score simulation and only
+Shared by CFB and NFL (NHL, now removed, priced totals from its score simulation and only
 uses grade() here). Edge = |model total - market total| in points; the side is
 the direction of the gap. Probability uses a normal approximation of the
 final total. With `anchor=(weight, max_shift)` it is centered on the

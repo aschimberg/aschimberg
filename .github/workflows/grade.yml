@@ -3,14 +3,14 @@ name: Weekly grading
 on:
   schedule:
     - cron: "11 12 * * 0" # Sun: CFB grading + tuning, after Saturday's late games
-    - cron: "11 12 * * 1" # Mon: NHL weekly tuning + xG retrain, NBA weekly tuning
+    - cron: "11 12 * * 1" # Mon: NBA weekly tuning
     - cron: "11 12 * * 2" # Tue: NFL weekly tuning, after Monday Night Football
   workflow_dispatch:
     inputs:
       sport:
         description: "Which sport to grade/tune"
         type: choice
-        options: [auto, cfb, nfl, nhl, nba, all]
+        options: [auto, cfb, nfl, nba, all]
         default: auto
 
 permissions:
@@ -35,9 +35,9 @@ jobs:
         run: |
           s="${{ inputs.sport || 'auto' }}"
           if [ "$s" = "auto" ]; then
-            case "$(date -u +%u)" in 7) s=cfb ;; 1) s="nhl nba" ;; 2) s=nfl ;; *) s=all ;; esac
+            case "$(date -u +%u)" in 7) s=cfb ;; 1) s=nba ;; 2) s=nfl ;; *) s=all ;; esac
           fi
-          for k in cfb nfl nhl nba; do
+          for k in cfb nfl nba; do
             case " $s " in *" all "*|*" $k "*) echo "$k=true" >> "$GITHUB_OUTPUT" ;; *) echo "$k=false" >> "$GITHUB_OUTPUT" ;; esac
           done
       - name: CFB - grade picks (SU + ATS), tune, send weekly recap
@@ -53,10 +53,6 @@ jobs:
         if: always() && steps.which.outputs.nfl == 'true'
         continue-on-error: true
         run: python -m nflmodel tune
-      - name: NHL - weekly tuning + xG retrain
-        if: always() && steps.which.outputs.nhl == 'true'
-        continue-on-error: true
-        run: python -m nhlmodel tune
       - name: NBA - weekly tuning
         if: always() && steps.which.outputs.nba == 'true'
         continue-on-error: true

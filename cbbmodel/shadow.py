@@ -8,6 +8,11 @@ import json
 from collections import defaultdict
 from datetime import datetime, timedelta, timezone
 
+import zlib
+
+from sportscommon import anchor as anc
+from sportscommon import hoopsim
+
 from . import backtest, config, espn, ratings
 
 PT = timedelta(hours=-8)
@@ -60,6 +65,49 @@ def priors_for(season, d1):
     return p
 
 
+def styles(games, d1):
+    """Each team's shooting style from its box scores this season, blended with the D1 average."""
+    base = hoopsim.LEAGUES["cbb"]["style"]
+    acc = defaultdict(lambda: defaultdict(float))
+    for g in games:
+        for side, opp in (("hb", "ab"), ("ab", "hb")):
+            b, o = g.get(side), g.get(opp)
+            if not b or not o:
+                continue
+            a = acc[g["h"] if side == "hb" else g["a"]]
+            for k in ("fga", "tpa", "tpm", "fta", "ftm", "orb", "tov", "poss", "fgm"):
+                a[k] += b[k]
+            a["opp_drb"] += o["drb"]
+            a["n"] += 1
+    out = {}
+    for t, a in acc.items():
+        if t not in d1 or not a["fga"] or not a["poss"]:
+            continue
+        w = a["n"] / (a["n"] + 8)
+        mix = lambda v, k: round(w * v + (1 - w) * base[k], 4)
+        out[t] = {"tov": mix(a["tov"] / a["poss"], "tov"), "foul": mix(a["fta"] / 2 / max(a["fga"] + a["fta"] / 2, 1), "foul"),
+                  "three": mix(a["tpa"] / a["fga"], "three"), "p3": base["p3"], "p2": base["p2"],
+                  "ft": mix(a["ftm"] / max(a["fta"], 1), "ft"), "orb": mix(a["orb"] / max(a["orb"] + a["opp_drb"], 1), "orb")}
+    return out
+
+
+def simulate(hp, ap, poss, hs, as_, gid, n=None):
+    """Play the game out possession by possession at the projected scores."""
+    return hoopsim.run("cbb", hp, ap, poss, n or config.SIMS, seed=zlib.crc32(str(gid).encode()),
+                       home_style=hs, away_style=as_)
+
+
+def sim_price(res, model, line, kind, odds=None):
+    """Side, cover/over chance (pushes excluded), push chance, EV and tier from simulated games."""
+    vals = res["margins"] if kind == "side" else res["totals"]
+    n = len(vals)
+    side = 1 if model >= line else -1
+    win = sum(1 for v in vals if (v - line) * side > 0) / n
+    push = sum(1 for v in vals if v == line) / n
+    ev = anc.ev(win, odds, push)
+    return side, round(win / (1 - push), 3) if push < 1 else None, round(push, 3), ev, anc.tier(ev)
+
+
 def _grade(p, g):
     m, t = g["hs"] - g["as"], g["hs"] + g["as"]
     res = {}
@@ -92,6 +140,7 @@ def run(now=None):
     priors = priors_for(season, d1)
     r = ratings.solve([g for g in games if g["done"]], d1, priors=priors)
     played = r["games"]
+    sty = styles([g for g in games if g["done"]], d1)
 
     spath = config.DATA_DIR / "shadow.json"
     state = load(spath, {"picks": {}})
@@ -111,11 +160,15 @@ def run(now=None):
              "spread": g["spread"], "total": g.get("total"), "book": g.get("book"),
              "model_m": round(hp - ap, 1), "model_t": round(hp + ap, 1), "poss": round(poss, 1),
              "gn": min(played.get(g["h"], 0), played.get(g["a"], 0)) + 1, "logged": now.isoformat(timespec="minutes")}
-        side, prob, ev, tier = backtest.price(hp - ap, -g["spread"], config.MARGIN_SD, odds=None)
-        p.update(side="home" if side > 0 else "away", side_prob=round(prob, 3), side_ev=round(ev, 3), side_tier=tier)
+        # price at the market-anchored margin and total, played out possession by possession
+        fair_m = anc.fair(hp - ap, -g["spread"], *config.ANCHOR)
+        fair_t = anc.fair(hp + ap, g["total"], *config.ANCHOR) if g.get("total") else hp + ap
+        res = simulate((fair_t + fair_m) / 2, (fair_t - fair_m) / 2, poss, sty.get(g["h"]), sty.get(g["a"]), g["id"])
+        side, prob, push, ev, tier = sim_price(res, hp - ap, -g["spread"], "side")
+        p.update(side="home" if side > 0 else "away", side_prob=prob, side_push=push, side_ev=round(ev, 3), side_tier=tier)
         if g.get("total"):
-            side, prob, ev, tier = backtest.price(hp + ap, g["total"], config.TOTAL_SD, odds=None)
-            p.update(ou="over" if side > 0 else "under", ou_prob=round(prob, 3), ou_ev=round(ev, 3), ou_tier=tier)
+            side, prob, push, ev, tier = sim_price(res, hp + ap, g["total"], "total")
+            p.update(ou="over" if side > 0 else "under", ou_prob=prob, ou_push=push, ou_ev=round(ev, 3), ou_tier=tier)
         picks[g["id"]] = p
 
     for pid, p in picks.items():

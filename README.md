@@ -1,8 +1,8 @@
 # ASPicks Model
 
-College football, NFL, NHL and NBA projections and picks.
+College football, NFL and NBA projections and picks, plus a college basketball model running in the background.
 
-**🔗 Live site: [aschimberg.github.io/aschimberg](https://aschimberg.github.io/aschimberg/)** ([CFB](https://aschimberg.github.io/aschimberg/) · [NFL](https://aschimberg.github.io/aschimberg/nfl/) · [NHL](https://aschimberg.github.io/aschimberg/nhl/) · [NBA](https://aschimberg.github.io/aschimberg/nba/))
+**🔗 Live site: [aschimberg.github.io/aschimberg](https://aschimberg.github.io/aschimberg/)** ([CFB](https://aschimberg.github.io/aschimberg/) · [NFL](https://aschimberg.github.io/aschimberg/nfl/) · [NBA](https://aschimberg.github.io/aschimberg/nba/))
 
 A static college football model site on GitHub Pages, driven by
 [CollegeFootballData.com](https://collegefootballdata.com) and GitHub Actions.
@@ -17,9 +17,9 @@ The visual design follows [davidsasser.com/cfb](https://davidsasser.com/cfb): wa
 - **Bet splits**: public bet % and money % per side, with sharp/public/reverse-line-move flags. The feed is swappable (see below).
 - **ntfy briefing**: sent at 7 AM PT on game days with picks, biggest edges, line moves, key ATS trends and bet splits. A recap goes out after Sunday grading.
 
-## NFL, NHL and NBA models
+## NFL and NBA models
 
-The same site serves `/nfl/`, `/nhl/` and `/nba/` (switch sports in the header). All three run daily inside the **Daily refresh** workflow and work without API keys. An optional [The Odds API](https://the-odds-api.com) key adds multi-book lines (see below).
+The same site serves `/nfl/` and `/nba/` (switch sports in the header). Both run daily inside the **Daily refresh** workflow and work without API keys. An optional [The Odds API](https://the-odds-api.com) key adds multi-book lines (see below).
 
 **NFL** (`nflmodel/`, data from [nflverse](https://github.com/nflverse), CC BY 4.0: schedules, consensus lines, projected starting QBs, play-by-play):
 - **Team strength:** opponent-adjusted EPA/play on offense and defense, fit with weighted ridge regression. Recent weeks count more and garbage time is excluded. Ratings are shrunk toward last season.
@@ -29,24 +29,16 @@ The same site serves `/nfl/`, `/nhl/` and `/nba/` (switch sports in the header).
 - **Game simulation:** see Game simulations below.
 - **Picks:** ATS edges with tiers, confidence, a weekly record, ATS trends (with division games) and an ntfy briefing on game days.
 
-**NHL** (`nhlmodel/`, data from the NHL public API (schedule, play-by-play, DraftKings odds), [MoneyPuck.com](https://moneypuck.com) (team xG, goalie GSAx; non-commercial use with credit) and ESPN (probable goalies)):
-- **Expected goals:** our own xG model, a logistic regression on every unblocked shot (distance, angle, shot type, rebound, rush, strength). It is retrained weekly.
-- **Team strength:** opponent-adjusted xG and goals per game, blended with Elo and with MoneyPuck's xG. MoneyPuck's model adds shooter talent and adjusts for flurries, score state and venue.
-- **Goalies:** GSAx (goals saved above expected) for the starter. The starter is ESPN's listed probable goalie once it's posted (usually the morning of the game). Until then it's projected from recent starts, with the backup assumed on the second night of a back-to-back. Cards mark each goalie as probable or projected. A confirmed starter is labeled a backup only if he hasn't been a regular starter anywhere over the last two seasons, so a starter who changed teams isn't called a backup. GitHub often runs scheduled jobs hours late, so a Claude scheduled task also runs a hockey-only refresh about 90 minutes before each wave of puck drops (`pregame.yml` with `sports=nhl`), after goalies are usually confirmed.
-- **Back-to-backs:** a penalty for the second night.
-- **Score distribution:** regulation Poisson, reweighted so ties and one-goal games happen as often as in real games (about 26% reach overtime), plus empty-net goals at last season's measured rates and an overtime/shootout step. This gives win, puck-line and total probabilities. Checked against 1,312 games from 2025-26, it reproduces the average total (6.25), the home −1.5 cover rate (30%) and the over 5.5/6.5 rates within a point.
-- **Picks:** moneyline value picks by EV%, totals at 3%+ EV, records in units, and a briefing only on days with value.
-
 **NBA** (`nbamodel/`, data from ESPN's public API, no key needed: schedule, scores, box scores, DraftKings spreads/totals/moneylines with opening and closing prices, and the injury report):
 - **Team strength:** three margin sources, blended and tuned weekly: opponent-adjusted points per 100 possessions (offense and defense, possessions estimated from box scores) times the game's projected pace; the same fit on points per game; and a 538-style Elo. Recent games count more, and each season starts from about half of last season's ratings.
 - **Injuries:** each player's value is his Game Score per minute above replacement level times his usual minutes, in points of margin. Team ratings already reflect whoever has been playing, so the line moves only by the difference between tonight's expected availability (Out, Doubtful 80%, Questionable 50%, Day-To-Day 35%) and how often he played in the team's last 10 games. Cards list the biggest adjustments.
 - **Schedule and home court:** about 2.3 points of home court (tuned weekly) and 1.5 points for the second night of a back-to-back.
-- **Game simulation:** every matchup is played out 20,000 times (`NBA_SIMS`). Each run draws every player on the injury report in or out from his status, then plays the game: shared pace, each team's points per possession, late ties and overtime. The spread of results matches how NBA games land around the closing line (margin SD 14.3, total SD 18.3 from 1,066 games in 2025-26; the old normal model used 12 and 17, which made cover chances too extreme), with a 4.5% overtime rate. Win chance, projected score, cover and over/under chances (with pushes on whole numbers) all come from the simulated games; picks are priced on the same games re-centered at the market-anchored line. Cards show the simulated win chance and score, OT chance, and how the line moves with and without each questionable player.
+- **Game simulation:** every matchup is played out 50,000 times (`NBA_SIMS`), possession by possession (`sportscommon/hoopsim.py`: turnovers, shooting fouls and free throws, threes and twos, offensive rebounds, a running clock with late-game fouling and shot-clock management, and overtime). Each run draws every player on the injury report in or out from his status, then plays the game: shared pace, each team's points per possession, late ties and overtime. The spread of results matches how NBA games land around the closing line (margin SD 14.3, total SD 18.3 from 1,066 games in 2025-26; the old normal model used 12 and 17, which made cover chances too extreme), with a 4.5% overtime rate. Win chance, projected score, cover and over/under chances (with pushes on whole numbers) all come from the simulated games; picks are priced on the same games re-centered at the market-anchored line. Cards show the simulated win chance and score, OT chance, and how the line moves with and without each questionable player.
 - **Lineups:** a pre-tip refresh runs about 45 minutes before each wave of tip-offs (a Claude scheduled task dispatches `pregame.yml` with `sports=nba`), so the final injury report is in the simulations when picks lock.
 - **Picks:** ATS edges against the DraftKings spread with market-anchored cover probability and tiers, confidence, over/unders, CLV against the closing line and an ntfy briefing on game days with value.
 - **Data:** season caches with box scores live in `data/nba/cache/`; finished dates are never re-fetched. The NBA's own stats CDN blocks GitHub's runners, so ESPN is the source. [balldontlie.io](https://www.balldontlie.io) is a keyed free alternative if ESPN ever closes.
 
-Tuning: NHL and NBA weights and home advantage are refit on Mondays (and the NHL xG model is retrained); NFL weights and home field are refit on Tuesdays. NHL play-by-play is cached in `data/nhl/cache/` (the first run backfills last season, about 8 minutes).
+Tuning: NBA weights and home advantage are refit on Mondays; NFL weights and home field are refit on Tuesdays.
 
 ## Anytime TD best bets (NFL)
 
@@ -68,17 +60,6 @@ Each NFL game card has a section with the top 2–3 anytime TD bets.
   - Prop odds cost 1 credit per game. Lookups are limited to games starting within 36 hours, at most `ODDS_API_PROPS_PER_RUN` (default 4) per run, and are cached 6 hours.
   - Covering every game needs a paid Odds API plan (20K credits for $30/month); the free 500 covers a handful of games a day.
 
-## Underdogs and the puck line (NHL)
-
-When the model's moneyline pick is an underdog and DraftKings posts that team at +1.5, the card also prices the +1.5.
-- The score simulation already knows how often the dog loses by exactly one goal, including late empty-netters and OT/shootout losses, so its +1.5 cover chance is priced against the puck-line price.
-- The card shows the +1.5 price, cover chance and EV, and marks it **better than ML** when its EV per unit staked is higher. Briefings mention it in that case.
-- The Record tab has an **Underdogs & puck line** group:
-  - the dog ML picks
-  - the same dogs at +1.5 (with units)
-  - how many dog losses were by one goal
-  - the record of whichever bet the card recommended
-- Puck-line prices for earlier picks were recovered from the published slate history.
 
 ## News & sentiment (NFL)
 
@@ -89,14 +70,22 @@ Each upcoming NFL game card has a **News & sentiment** section. It's context onl
 - **Anytime TD flags:** a pick whose player appears in a recent headline with injury words (questionable, limited, ruled out...) gets a **⚠ injury news** link; one marked active or cleared gets **✓ cleared**. Briefings mark flagged best bets too.
 - Feeds are cached for 90 minutes (`NEWS_TTL_MIN`) in `data/nfl/news.json`, and any feed that fails is skipped. Set `NEWS=off` to turn it off.
 
+## College basketball (background, not published)
+
+`cbbmodel/` runs every D1 game in the background this season to see whether it earns a page. Nothing goes to the site or the briefings.
+- **Data (ESPN, free, no key):** all 362 D1 teams, schedules, box scores (possessions and four factors) and closing lines (ESPN BET / DraftKings via ESPN's odds API). Bart Torvik blocks GitHub's runners; KenPom is paid with no API; CollegeBasketballData.com shares the 1,000-call monthly quota with the college football data.
+- **Ratings:** opponent-adjusted offense, defense and tempo per 100 possessions, starting from last season's ratings pulled 40% toward average (worth 5 games of evidence), with about 3 points of home court.
+- **Simulation:** each game is played possession by possession with each team's own style (three-point rate, turnovers, offensive rebounds, free throws), priced at the market-anchored line like the other sports.
+- **Backtest (2025–26, no lookahead):** in each team's first 10 games (1,669 games) the model was less accurate than the closing line (margin error 10.3 vs 9.3) and plays went 385–385. For games 11+ through mid-January (1,166 games) it was close to the line (9.0 vs 8.8) and plays went 63–52 (54.8%, too few to call). Run `cbb.yml` with `mode=backtest` to redo it.
+- **This season:** the Daily refresh logs a pick for every D1 game with a line and grades it the next day (`data/cbb/shadow.json`).
+
 ## Game simulations (all sports)
 
 Every matchup's win chance, cover chances and over/under chances come from simulated games.
-- **NFL and college football** (`sportscommon/drivesim.py`): 20,000 games per matchup, drive by drive. Both teams get the same number of possessions (about 11 per team in the NFL, 13 in college). Each drive ends in a touchdown (with an extra point or two-point try), a field goal or nothing. Each team's chances are set so its expected points equal the model's projection, and ties go to overtime. Points in 3s and 7s produce the key numbers without any fitting. Real games still end on 3 more often than independent drives do, so a few near-key finishes are nudged onto the key number on the same side (`NFL_SNAP`, `CFB_SNAP`, measured from 3,106 NFL and 2,856 FBS games).
+- **NFL and college football** (`sportscommon/footsim.py`): 50,000 (NFL) and 25,000 (CFB) games per matchup, played snap by snap: down, distance, field position and clock, run/pass mix by game state, completions, sacks, interceptions and fumbles, punts, field goals by distance, go-for-it tries, extra points and two-point tries, hurry-up and kneel-downs, and real overtime rules. Each offense's efficiency is solved so its average points match the model, and a day-to-day form factor gives the spread of results real games show (NFL margins ±13.3, totals ±13.5; CFB margins ±16). Backtests use the faster drive-by-drive sim (`sportscommon/drivesim.py`): Both teams get the same number of possessions (about 11 per team in the NFL, 13 in college). Each drive ends in a touchdown (with an extra point or two-point try), a field goal or nothing. Each team's chances are set so its expected points equal the model's projection, and ties go to overtime. Points in 3s and 7s produce the key numbers without any fitting. Real games still end on 3 more often than independent drives do, so a few near-key finishes are nudged onto the key number on the same side (`NFL_SNAP`, `CFB_SNAP`, measured from 3,106 NFL and 2,856 FBS games).
   - **Fair at every spread size:** at the betting line, NFL favorites cover 47–52% in the simulation, against 44–49% in real games (favorites covering under half is a market pattern). Pushes on 3 and 7 run about 6% and 5%, vs 10% and 8% in real games.
   - **The coin-flip margin** for each line is computed exactly from every possible drive outcome, so anchoring starts from a true 50/50.
-- **NBA** (`nbamodel/sim.py`): 20,000 games with lineup draws; see the NBA section.
-- **NHL** (`nhlmodel/sim.py`): every possible final score weighted by its chance, which is the same as unlimited simulations.
+- **NBA** (`nbamodel/sim.py`): 50,000 games with lineup draws; see the NBA section.
 
 Picks are priced on the same simulated games re-centered at the market-anchored line. Backtests use fewer simulations per game (`<SPORT>_SIMS_BACKTEST`).
 
@@ -116,7 +105,7 @@ Records count each pick by the tier it had when logged, so picks made before anc
 - **On target:** 54% or better.
 - **Too early:** fewer than 25 plays graded.
 
-A flag shows on the Plays box and in that sport's briefing. Picks from older model versions are reported separately: college football (46.5% vs 57.4% claimed) and hockey (48.0% vs 57.3%) would both have been flagged before the Oct 28 retune.
+A flag shows on the Plays box and in that sport's briefing. Picks from older model versions are reported separately: college football (46.5% vs 57.4% claimed) would have been flagged before the Oct 28 retune. NHL was dropped on Nov 3 (old-model plays 48.0% vs 57.3% claimed).
 
 ## Over/under picks
 
@@ -124,7 +113,6 @@ Every game also gets a side against the market total.
 - **CFB:** the projected total comes from SP+ offense and defense. Games where those are missing get no total pick, rather than echoing the market.
 - **NFL:** the projected total is league scoring plus each EPA offense against the other defense.
 - CFB, NFL and NBA totals are priced like spreads (see Market anchoring).
-- **NHL:** the score simulation's over chance is blended 50/50 (log-odds) with the market's no-vig price, then EV tiers apply.
 
 Totals are graded W/L/P on the final combined score. They appear on game cards, in the briefings (plays only) and on the Record tab (O/U records, by week and per pick).
 
@@ -135,9 +123,8 @@ In the NFL walk-forward backtest (2023–2026) totals went 460-466 (49.7%), and 
 The Record tab tracks CLV for every live pick. It compares the number when the model first took a side (the bet number; it resets if the side flips) with the closing number:
 - **NFL:** nflverse's closing line.
 - **CFB:** the last line logged before kickoff.
-- **NHL:** the last pre-game moneyline.
 
-Spreads are measured in points from the pick side's view. Taking −3 when it closes −5 is +2.0. NFL also shows a key-number-aware version: the gain in cover probability on the closing market's margin distribution. NHL moneylines show the expected return of the price taken at the closing no-vig odds.
+Spreads are measured in points from the pick side's view. Taking −3 when it closes −5 is +2.0. NFL also shows a key-number-aware version: the gain in cover probability on the closing market's margin distribution.
 
 CLV is the quickest honest read on whether the picks have an edge, because it becomes meaningful within a few hundred picks. Picks logged before CLV tracking use the first line we recorded as their bet number. Backtest picks have no CLV.
 
@@ -167,13 +154,12 @@ CLV is the quickest honest read on whether the picks have an edge, because it be
 Add a repository secret `ODDS_API_KEY` to turn this on. With no key, the free sources are used.
 
 - **NFL:** the line becomes the consensus (median) spread and total across US books, priced at DraftKings (then FanDuel, BetMGM, Caesars). Cards show the best available number for the pick side.
-- **NHL:** fills in moneylines and totals for games DraftKings hasn't posted in the NHL feed yet, and shows the best price for the pick.
 - **NBA:** fills in spreads and totals for games ESPN hasn't priced yet (games within 30 hours).
 - **Credits:**
   - Each call costs markets × regions (2 credits here).
-  - Responses are cached for 6 hours per sport (`NFL_ODDS_API_MAX_AGE`, `NHL_ODDS_API_MAX_AGE`), which works out to about 200–250 credits a month, under the free plan's 500.
+  - Responses are cached for 6 hours per sport (`NFL_ODDS_API_MAX_AGE`), which works out to about 200–250 credits a month, under the free plan's 500.
   - Calls stop once the remaining balance reaches `ODDS_API_RESERVE` (default 40).
-  - Only sports listed in `ODDS_API_SPORTS` spend credits (default `nfl`). NHL and NBA stay on free sources unless added, e.g. `nfl,nba`.
+  - Only sports listed in `ODDS_API_SPORTS` spend credits (default `nfl`). NBA stays on free sources unless added, e.g. `nfl,nba`.
   - The balance is logged in `data/oddsapi/usage.json`.
 - **Books:** set `ODDS_API_BOOKS` (comma-separated book keys) to change the preferred book order.
 
@@ -184,7 +170,7 @@ Add a repository secret `ODDS_API_KEY` to turn this on. With no key, the free so
    - `NTFY_TOPIC` (required for push): your ntfy topic name. Pick a hard-to-guess one, because anyone who knows a public ntfy.sh topic can read it.
    - `NTFY_TOKEN` (optional): an access token if your topic is protected.
    - `SPLITS_API_KEY` (optional): a bearer token for an `http_json` splits feed.
-   - `ODDS_API_KEY` (optional): The Odds API key for multi-book NFL lines and anytime-TD odds (NHL/NBA only if listed in `ODDS_API_SPORTS`).
+   - `ODDS_API_KEY` (optional): The Odds API key for multi-book NFL lines and anytime-TD odds (NBA only if listed in `ODDS_API_SPORTS`).
 2. **Variables** (optional, *Variables* tab): `SITE_URL`, `NTFY_SERVER`, `SPLITS_PROVIDER` (`none` | `file` | `http_json`), `SPLITS_URL`.
 3. **Pages**: Settings → Pages → Source: **GitHub Actions**.
 4. **Default branch**: scheduled workflows only run on the default branch, and the `github-pages` environment only deploys from it by default. Merge this work into `main` and make `main` the default branch.
@@ -195,9 +181,9 @@ Add a repository secret `ODDS_API_KEY` to turn this on. With no key, the free so
 | Workflow | When | What |
 |---|---|---|
 | `refresh.yml` | twice daily, 10:23 and 22:23 UTC, plus a Claude routine that starts it when GitHub skips a run | ratings, lines, projections, picks (re-priced until kickoff), trends, splits, grading → commit → deploy |
-| `grade.yml` | Sun (CFB), Mon (NHL, NBA), Tue (NFL) 12:11 UTC | grades SU and ATS for every finished pick, rebuilds the record, refits weights, sends an ntfy recap |
-| `briefing.yml` | every 30 min, 14:07–19:37 UTC, plus a Claude routine that starts it at 7:05, 9:05 and 11:05 AM PT | sends each sport's ntfy briefing once per game day, between 7 AM and 12 PM PT (GitHub often runs these crons hours late or skips them). The NHL and NBA briefings wait until that day's odds are posted and only go out when there's value |
-| `pregame.yml` | daily 21:17 and 01:37 UTC; Sun 16:17 + 19:47 UTC; Sun/Mon/Thu 23:47 UTC | re-checks lineups (NFL starting QBs, NHL probable goalies, NBA injury report) and re-prices before kickoff / puck drop / tip-off; picks up the day's DraftKings NHL lines |
+| `grade.yml` | Sun (CFB), Mon (NBA), Tue (NFL) 12:11 UTC | grades SU and ATS for every finished pick, rebuilds the record, refits weights, sends an ntfy recap |
+| `briefing.yml` | every 30 min, 14:07–19:37 UTC, plus a Claude routine that starts it at 7:05, 9:05 and 11:05 AM PT | sends each sport's ntfy briefing once per game day, between 7 AM and 12 PM PT (GitHub often runs these crons hours late or skips them). The NBA briefing waits until that day's odds are posted and only go out when there's value |
+| `pregame.yml` | daily 21:17 and 01:37 UTC; Sun 16:17 + 19:47 UTC; Sun/Mon/Thu 23:47 UTC | re-checks lineups (NFL starting QBs, NBA injury report) and re-prices before kickoff / tip-off |
 | `deploy.yml` | after each job above, or on push to `main` touching `site/` | publishes `site/` to Pages |
 | `ci.yml` | push / PR | unit tests and JS syntax check |
 

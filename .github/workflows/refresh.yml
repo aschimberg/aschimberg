@@ -21,7 +21,7 @@ concurrency:
 
 env:
   # Optional: The Odds API (multi-book NFL lines and anytime-TD odds). Unset = free sources only.
-  # Only sports in ODDS_API_SPORTS (default "nfl") spend credits; NHL/NBA stay on free sources.
+  # Only sports in ODDS_API_SPORTS (default "nfl") spend credits; NBA stays on free sources.
   ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
 
 jobs:
@@ -44,12 +44,6 @@ jobs:
         if: always()
         continue-on-error: true
         run: python -m nflmodel refresh
-        env:
-          SITE_URL: ${{ vars.SITE_URL || format('https://{0}.github.io/{1}/', github.repository_owner, github.event.repository.name) }}
-      - name: NHL refresh (NHL API)
-        if: always()
-        continue-on-error: true
-        run: python -m nhlmodel refresh
         env:
           SITE_URL: ${{ vars.SITE_URL || format('https://{0}.github.io/{1}/', github.repository_owner, github.event.repository.name) }}
       - name: NBA refresh (ESPN)

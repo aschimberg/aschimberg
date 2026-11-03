@@ -1,7 +1,7 @@
-"""Game-day ntfy briefings for NFL, NHL and NBA, plus a combined all-sports gate.
+"""Game-day ntfy briefings for NFL and NBA, plus a combined all-sports gate.
 
-    python -m sportscommon.briefings check [--force]   # writes go/go_cfb/go_nfl/go_nhl/go_nba to $GITHUB_OUTPUT
-    python -m sportscommon.briefings send nfl|nhl|nba [--force] [--dry-run]
+    python -m sportscommon.briefings check [--force]   # writes go/go_cfb/go_nfl/go_nba to $GITHUB_OUTPUT
+    python -m sportscommon.briefings send nfl|nba [--force] [--dry-run]
 
 CFB keeps its own briefing (python -m cfbmodel briefing); this module only
 adds the CFB decision to the combined check.
@@ -16,14 +16,13 @@ from cfbmodel import briefing as cfbb
 from cfbmodel import config as cfbc
 from cfbmodel import store
 from nflmodel import config as nflc
-from nhlmodel import config as nhlc
 from nbamodel import config as nbac
 from sportscommon import record as recmod
 from sportscommon import totals
 from sportscommon import props as sprops
 from sportscommon.odds import fmt_american
 
-SPORTS = {"nfl": nflc, "nhl": nhlc, "nba": nbac}
+SPORTS = {"nfl": nflc, "nba": nbac}
 
 
 def _local_now(now=None):
@@ -116,51 +115,6 @@ def build_nfl(now_local):
     return "\n".join(lines)
 
 
-def build_nhl(now_local):
-    meta, _, record = _load("nhl")
-    games = todays("nhl", now_local)
-    if not games:
-        return None
-    tz = now_local.tzinfo
-    sr = record.get("season_record") or {}
-    plays = sorted((c for c in games if (c["pick"].get("ev") or 0) >= nhlc.LEAN_EV or c["pick"].get("conf_label") == "High"),
-                   key=lambda c: -(c["pick"].get("ev") or 0))
-    totals = [c for c in games if (c["pick"].get("total_pick") or {}).get("play")]
-    if not plays and not totals:
-        return None  # quiet day: no value on the board
-    lines = [f"**{now_local:%a %b %-d} · NHL · {len(games)} games**"]
-    if sr.get("ats", {}).get("W", 0) + sr.get("ats", {}).get("L", 0):
-        lines.append(f"Season ML {_rec(sr['ats'], True)} · EV {nhlc.PLAY_EV * 100:g}%+ {_rec(sr['ats_play'], True)}")
-        d = sr.get("dogs")
-        if d and d["losses"]:
-            lines.append(f"Dog picks {d['ml']['W']}-{d['ml']['L']} ML · {d['pl']['W']}-{d['pl']['L']} at +1.5 "
-                         f"({d['lost_by_one']} of {d['losses']} losses by one goal)")
-    if recmod.check_line(sr):
-        lines.append(recmod.check_line(sr))
-    lines += ["", "**🎯 Moneyline value**"]
-    for c in plays[:8]:
-        p = c["pick"]
-        icon = {"strong": "🔥", "play": "✅", "lean": "·"}.get(p["tier"], "🎯")
-        alt = p.get("pl_alt")
-        pl = (f" · ➕ better at +1.5 {fmt_american(alt['odds'])} ({alt['prob'] * 100:.0f}%, EV {alt['ev'] * 100:+.1f}%)"
-              if alt and alt.get("better") and alt["ev"] > 0 else "")
-        lines.append(f"{icon} {p['ats_team']} {fmt_american(p['odds'])} ({cfbb.matchup(c)}, {cfbb.kickoff(c, tz)}) — "
-                     f"model {p['prob'] * 100:.0f}% vs mkt {p.get('mkt_prob', 0) * 100:.0f}%, EV {p['edge']:+.1f}%, conf {p.get('confidence')}{pl}")
-    if not plays:
-        lines.append("No moneyline value today.")
-    if totals:
-        lines += ["", "**🥅 Totals**"]
-        for c in totals[:5]:
-            t = c["pick"]["total_pick"]
-            lines.append(f"{cfbb.matchup(c)}: {t['side'].title()} {t['line']:g} {fmt_american(t['odds'])} (EV {t['ev'] * 100:+.1f}%)")
-    notes = [e for c in games for e in c.get("extras", []) if "backup" in e or "back-to-back" in e]
-    if notes:
-        lines += ["", "**🧤 Goalies & schedule**"] + notes[:8]
-    if meta.get("site_url"):
-        lines += ["", f"Full card: {meta['site_url']}nhl/"]
-    return "\n".join(lines)
-
-
 def build_nba(now_local):
     meta, _, record = _load("nba")
     games = todays("nba", now_local)
@@ -196,8 +150,8 @@ def build_nba(now_local):
     return "\n".join(lines)
 
 
-BUILDERS = {"nfl": build_nfl, "nhl": build_nhl, "nba": build_nba}
-TITLES = {"nfl": "🏈 ASPicks · NFL game-day briefing", "nhl": "🏒 ASPicks · NHL briefing", "nba": "🏀 ASPicks · NBA briefing"}
+BUILDERS = {"nfl": build_nfl, "nba": build_nba}
+TITLES = {"nfl": "🏈 ASPicks · NFL game-day briefing", "nba": "🏀 ASPicks · NBA briefing"}
 
 
 def send(sport, now=None, force=False, dry_run=False):
@@ -206,7 +160,7 @@ def send(sport, now=None, force=False, dry_run=False):
     if not ok:
         print(f"{sport}: skip ({reason})")
         return None
-    if sport in ("nhl", "nba") and not any(c.get("line") for c in todays(sport, now_local)):
+    if sport == "nba" and not any(c.get("line") for c in todays(sport, now_local)):
         # today's lines aren't posted yet; a later run retries
         print(f"{sport}: today's odds not posted yet")
         return None

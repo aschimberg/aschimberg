@@ -82,5 +82,5 @@ ANCHOR = (ANCHOR_WEIGHT, ANCHOR_MAX_SHIFT)
 
 # Game simulation (sportscommon/drivesim.py): games simulated per matchup for
 # win chance, cover and over/under prices, and fewer per game in backtests
-SIMS = int(_f("NFL_SIMS", 20000))
+SIMS = int(_f("NFL_SIMS", 50000))
 SIMS_BACKTEST = int(_f("NFL_SIMS_BACKTEST", 4000))

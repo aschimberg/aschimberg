@@ -1,7 +1,7 @@
 """Score/spread projections and ATS/SU picks."""
 import math
 
-from sportscommon import anchor as anc, drivesim
+from sportscommon import anchor as anc, drivesim, footsim
 
 from . import config
 
@@ -82,9 +82,9 @@ def make_pick(game, proj, line, sims=None):
     s = line["spread"]
     cover = proj["margin"] + s  # >0 -> home covers in expectation
     side = "home" if cover > 0 else "away"
-    # cover chance, push chance and tier from games simulated drive by drive at the
-    # market-anchored margin (sportscommon/drivesim.py), -110 price
-    pr = drivesim.price_spread("cfb", proj["margin"], proj.get("total"), s, line.get("total"), config.ANCHOR,
+    # cover chance, push chance and tier from games simulated snap by snap at the
+    # market-anchored margin (sportscommon/footsim.py; drive-level drivesim in backtests), -110 price
+    pr = (drivesim if sims else footsim).price_spread("cfb", proj["margin"], proj.get("total"), s, line.get("total"), config.ANCHOR,
                                n=sims or config.SIMS, seed=game.get("id") or f"{game['home']}-{game['away']}")
     side = pr["side"]
     pick.update(

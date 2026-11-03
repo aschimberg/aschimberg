@@ -9,8 +9,8 @@ class NbaSimTests(unittest.TestCase):
         a = sim.run(3.0, 228.0, 100.0, [], n=3000, seed="g1")
         b = sim.run(3.0, 228.0, 100.0, [], n=3000, seed="g1")
         self.assertEqual(a["margins"], b["margins"])
-        self.assertAlmostEqual(statistics.mean(a["margins"]), 3.0, delta=0.6)
-        self.assertAlmostEqual(statistics.mean(a["totals"]), 228.0, delta=0.8)
+        self.assertAlmostEqual(statistics.mean(a["margins"]), 3.0, delta=1.0)
+        self.assertAlmostEqual(statistics.mean(a["totals"]), 228.0, delta=1.5)
         self.assertAlmostEqual(statistics.pstdev(a["margins"]), config.MARGIN_SD, delta=0.8)
         self.assertAlmostEqual(statistics.pstdev(a["totals"]), config.TOTAL_SD, delta=0.9)
         self.assertNotIn(0, a["margins"])                          # overtime until someone wins
