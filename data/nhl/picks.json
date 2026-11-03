@@ -14991,6 +14991,8 @@
    "away_abbr": "VGK",
    "bet_at": "2026-11-02T17:25:25Z",
    "bet_line": 102.0,
+   "close_line": -102.0,
+   "clv": -0.0251,
    "conf_label": "Low",
    "confidence": 51,
    "confidence_detail": {
@@ -15054,7 +15056,17 @@
     "prob": 0.711
    },
    "prob": 0.498,
-   "result": null,
+   "result": {
+    "ats": "W",
+    "away_pts": 2,
+    "home_pts": 3,
+    "pl": "W",
+    "pl_units": 0.377,
+    "su": "W",
+    "total": "W",
+    "total_units": 0.8,
+    "units": 0.98
+   },
    "season": 20262027,
    "season_type": "regular",
    "start": "2026-11-03T00:00:00Z",
@@ -15089,6 +15101,8 @@
    "away_abbr": "DET",
    "bet_at": "2026-11-02T17:25:25Z",
    "bet_line": 154.0,
+   "close_line": 154.0,
+   "clv": -0.0411,
    "conf_label": "High",
    "confidence": 78,
    "confidence_detail": {
@@ -15152,7 +15166,17 @@
     "prob": 0.645
    },
    "prob": 0.419,
-   "result": null,
+   "result": {
+    "ats": "W",
+    "away_pts": 5,
+    "home_pts": 3,
+    "pl": "W",
+    "pl_units": 0.588,
+    "su": "L",
+    "total": "W",
+    "total_units": 0.8,
+    "units": 1.54
+   },
    "season": 20262027,
    "season_type": "regular",
    "start": "2026-11-03T00:00:00Z",
