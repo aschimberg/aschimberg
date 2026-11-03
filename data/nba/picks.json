@@ -8708,6 +8708,8 @@
    "bet_at": "2026-11-02T00:45:00Z",
    "bet_line": 4.5,
    "book": "DraftKings",
+   "close_line": 5.5,
+   "clv": -1.0,
    "conf_label": "Medium",
    "confidence": 60,
    "confidence_detail": {
@@ -8758,7 +8760,13 @@
    "proj_away": 107.8,
    "proj_home": 104.1,
    "push_prob": 0.0,
-   "result": null,
+   "result": {
+    "ats": "L",
+    "away_pts": 124,
+    "home_pts": 91,
+    "su": "W",
+    "total": "W"
+   },
    "season": 2027,
    "season_type": "regular",
    "start": "2026-11-03T00:30:00Z",
@@ -8796,6 +8804,8 @@
    "bet_at": "2026-11-02T20:26:06Z",
    "bet_line": 9.5,
    "book": "DraftKings",
+   "close_line": 10.5,
+   "clv": -1.0,
    "conf_label": "Medium",
    "confidence": 55,
    "confidence_detail": {
@@ -8846,7 +8856,13 @@
    "proj_away": 116.0,
    "proj_home": 107.7,
    "push_prob": 0.0,
-   "result": null,
+   "result": {
+    "ats": "W",
+    "away_pts": 108,
+    "home_pts": 104,
+    "su": "W",
+    "total": "W"
+   },
    "season": 2027,
    "season_type": "regular",
    "start": "2026-11-03T00:30:00Z",
@@ -8884,6 +8900,8 @@
    "bet_at": "2026-11-02T00:45:00Z",
    "bet_line": -14.5,
    "book": "DraftKings",
+   "close_line": -14.5,
+   "clv": -0.0,
    "conf_label": "Medium",
    "confidence": 66,
    "confidence_detail": {
@@ -8934,7 +8952,13 @@
    "proj_away": 103.9,
    "proj_home": 115.3,
    "push_prob": 0.0,
-   "result": null,
+   "result": {
+    "ats": "W",
+    "away_pts": 90,
+    "home_pts": 103,
+    "su": "W",
+    "total": "L"
+   },
    "season": 2027,
    "season_type": "regular",
    "start": "2026-11-03T00:30:00Z",
@@ -9068,6 +9092,8 @@
    "bet_at": "2026-11-02T00:45:00Z",
    "bet_line": -11.5,
    "book": "DraftKings",
+   "close_line": -10.5,
+   "clv": 1.0,
    "conf_label": "Low",
    "confidence": 48,
    "confidence_detail": {
@@ -9118,7 +9144,13 @@
    "proj_away": 109.6,
    "proj_home": 118.9,
    "push_prob": 0.0,
-   "result": null,
+   "result": {
+    "ats": "L",
+    "away_pts": 107,
+    "home_pts": 126,
+    "su": "W",
+    "total": "W"
+   },
    "season": 2027,
    "season_type": "regular",
    "start": "2026-11-03T00:30:00Z",
@@ -9157,6 +9189,8 @@
    "bet_at": "2026-11-02T02:47:05Z",
    "bet_line": -9.5,
    "book": "DraftKings",
+   "close_line": -7.5,
+   "clv": -2.0,
    "conf_label": "Medium",
    "confidence": 55,
    "confidence_detail": {
@@ -9207,7 +9241,13 @@
    "proj_away": 109.4,
    "proj_home": 120.2,
    "push_prob": 0.0,
-   "result": null,
+   "result": {
+    "ats": "L",
+    "away_pts": 115,
+    "home_pts": 100,
+    "su": "L",
+    "total": "W"
+   },
    "season": 2027,
    "season_type": "regular",
    "start": "2026-11-03T01:00:00Z",
@@ -9333,6 +9373,8 @@
    "bet_at": "2026-11-02T20:26:06Z",
    "bet_line": -10.5,
    "book": "DraftKings",
+   "close_line": -11.5,
+   "clv": -1.0,
    "conf_label": "Low",
    "confidence": 30,
    "confidence_detail": {
@@ -9383,7 +9425,13 @@
    "proj_away": 108.7,
    "proj_home": 119.0,
    "push_prob": 0.0,
-   "result": null,
+   "result": {
+    "ats": "L",
+    "away_pts": 100,
+    "home_pts": 112,
+    "su": "W",
+    "total": "W"
+   },
    "season": 2027,
    "season_type": "regular",
    "start": "2026-11-03T01:00:00Z",
