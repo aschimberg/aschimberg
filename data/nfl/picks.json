@@ -11343,13 +11343,13 @@
      "epa": 9.5
     }
    },
-   "cover_prob": 0.533,
+   "cover_prob": 0.532,
    "diffs": {
     "elo": 9.2,
     "epa": 7.78
    },
    "edge": 1.1,
-   "ev": -0.004,
+   "ev": -0.005,
    "fair_line": -11.7,
    "hfa_flag": 1,
    "home": "Seattle Seahawks",
@@ -11412,21 +11412,21 @@
    "su_team": "Seattle Seahawks",
    "su_wp": 0.815,
    "tier": "pass",
-   "total_line": 42.0,
+   "total_line": 41.5,
    "total_pick": {
-    "edge": 4.0,
-    "ev": 0.0407,
-    "fair": 41.4,
-    "line": 42.0,
+    "edge": 3.5,
+    "ev": 0.0352,
+    "fair": 41.0,
+    "line": 41.5,
     "model": 38.0,
     "odds": null,
     "play": true,
-    "prob": 0.545,
-    "push_prob": 0.016,
+    "prob": 0.542,
+    "push_prob": 0.0,
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-11-04T02:39:29Z",
+   "updated": "2026-11-04T07:58:03Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -11467,13 +11467,13 @@
      "epa": -1.1
     }
    },
-   "cover_prob": 0.516,
+   "cover_prob": 0.515,
    "diffs": {
     "elo": -1.98,
     "epa": -4.2
    },
    "edge": 3.9,
-   "ev": -0.043,
+   "ev": -0.045,
    "fair_line": 2.0,
    "hfa_flag": 1,
    "home": "Minnesota Vikings",
@@ -11536,21 +11536,21 @@
    "su_team": "Minnesota Vikings",
    "su_wp": 0.506,
    "tier": "pass",
-   "total_line": 46.0,
+   "total_line": 45.5,
    "total_pick": {
-    "edge": 4.3,
-    "ev": 0.0288,
-    "fair": 45.4,
-    "line": 46.0,
+    "edge": 3.8,
+    "ev": 0.0309,
+    "fair": 44.9,
+    "line": 45.5,
     "model": 41.7,
     "odds": null,
     "play": true,
-    "prob": 0.539,
-    "push_prob": 0.017,
+    "prob": 0.54,
+    "push_prob": 0.0,
     "side": "under",
-    "tier": "play"
+    "tier": "strong"
    },
-   "updated": "2026-11-04T02:39:29Z",
+   "updated": "2026-11-04T07:58:03Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -11674,7 +11674,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-11-04T02:39:29Z",
+   "updated": "2026-11-04T07:58:03Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -11798,7 +11798,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-11-04T02:39:29Z",
+   "updated": "2026-11-04T07:58:03Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -11922,7 +11922,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-04T02:39:29Z",
+   "updated": "2026-11-04T07:58:03Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -11969,7 +11969,7 @@
     "epa": -6.77
    },
    "edge": 3.2,
-   "ev": -0.041,
+   "ev": -0.031,
    "fair_line": 3.1,
    "hfa_flag": 1,
    "home": "Carolina Panthers",
@@ -12046,7 +12046,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-04T02:39:29Z",
+   "updated": "2026-11-04T07:58:03Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -12170,7 +12170,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-04T02:39:29Z",
+   "updated": "2026-11-04T07:58:03Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -12294,7 +12294,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-11-04T02:39:29Z",
+   "updated": "2026-11-04T07:58:03Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -12418,7 +12418,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-11-04T02:39:29Z",
+   "updated": "2026-11-04T07:58:03Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -12542,7 +12542,7 @@
     "side": "over",
     "tier": "play"
    },
-   "updated": "2026-11-04T02:39:29Z",
+   "updated": "2026-11-04T07:58:03Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -12666,7 +12666,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-04T02:39:29Z",
+   "updated": "2026-11-04T07:58:03Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -12790,7 +12790,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-04T02:39:29Z",
+   "updated": "2026-11-04T07:58:03Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -12914,7 +12914,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-04T02:39:29Z",
+   "updated": "2026-11-04T07:58:03Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -13038,7 +13038,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-04T02:39:29Z",
+   "updated": "2026-11-04T07:58:03Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -13162,7 +13162,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-11-04T02:39:29Z",
+   "updated": "2026-11-04T07:58:03Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
