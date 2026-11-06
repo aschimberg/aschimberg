@@ -1868,7 +1868,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-11-06T01:16:05Z",
+   "updated": "2026-11-06T01:38:25Z",
    "week": 202645,
    "weights": {
     "eff": 0.287,
@@ -1956,7 +1956,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-06T01:16:05Z",
+   "updated": "2026-11-06T01:38:25Z",
    "week": 202645,
    "weights": {
     "eff": 0.287,
@@ -2044,7 +2044,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-11-06T01:16:05Z",
+   "updated": "2026-11-06T01:38:25Z",
    "week": 202645,
    "weights": {
     "eff": 0.287,
@@ -2061,21 +2061,21 @@
    "bet_at": "2026-11-05T23:41:18Z",
    "bet_line": 7.5,
    "book": "DraftKings",
-   "conf_label": "Medium",
-   "confidence": 62,
+   "conf_label": "High",
+   "confidence": 71,
    "confidence_detail": {
     "agree": 3,
     "components": {
      "agreement": 1.0,
      "consistency": 0.876,
      "data": 0.8,
-     "edge": 0.525,
+     "edge": 0.887,
      "market": 0.0,
      "trends": 0.5
     },
-    "label": "Medium",
+    "label": "High",
     "n_sources": 3,
-    "score": 62,
+    "score": 71,
     "side": "home",
     "source_names": {
      "eff": "Efficiency",
@@ -2083,56 +2083,56 @@
      "pts": "Points"
     },
     "sources": {
-     "eff": -5.5,
-     "elo": -4.2,
-     "pts": -5.9
+     "eff": -4.0,
+     "elo": -2.7,
+     "pts": -4.4
     }
    },
-   "cover_prob": 0.518,
+   "cover_prob": 0.517,
    "date": "2026-11-06",
    "diffs": {
     "eff": -8.38,
     "elo": -7.04,
     "pts": -8.78
    },
-   "edge": 2.6,
-   "ev": -0.028,
-   "fair_line": 7.8,
+   "edge": 4.4,
+   "ev": -0.029,
+   "fair_line": 7.4,
    "hfa_flag": 1,
    "home": "Milwaukee Bucks",
    "home_abbr": "MIL",
    "home_field": 1.644,
    "id": "401909292",
    "line": 8.5,
-   "model_spread": 5.9,
-   "model_total": 228.2,
+   "model_spread": 4.1,
+   "model_total": 227.3,
    "neutral": false,
-   "offset": 1.23,
-   "proj_away": 117.0,
-   "proj_home": 111.1,
+   "offset": 2.71,
+   "proj_away": 115.7,
+   "proj_home": 111.6,
    "push_prob": 0.0,
    "result": null,
    "season": 2027,
    "season_type": "regular",
    "start": "2026-11-07T01:00:00Z",
    "su_team": "Toronto Raptors",
-   "su_wp": 0.655,
+   "su_wp": 0.609,
    "tier": "pass",
    "total_line": 231.5,
    "total_pick": {
-    "edge": 3.3,
-    "ev": 0.0211,
-    "fair": 230.7,
+    "edge": 4.2,
+    "ev": 0.0197,
+    "fair": 230.4,
     "line": 231.5,
-    "model": 228.2,
+    "model": 227.3,
     "odds": -110.0,
     "play": true,
-    "prob": 0.535,
+    "prob": 0.534,
     "push_prob": 0.0,
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-11-06T01:16:05Z",
+   "updated": "2026-11-06T01:38:25Z",
    "week": 202645,
    "weights": {
     "eff": 0.287,
@@ -2220,7 +2220,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-11-06T01:16:05Z",
+   "updated": "2026-11-06T01:38:25Z",
    "week": 202645,
    "weights": {
     "eff": 0.287,
@@ -2308,7 +2308,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-11-06T01:16:05Z",
+   "updated": "2026-11-06T01:38:25Z",
    "week": 202645,
    "weights": {
     "eff": 0.287,
@@ -2396,7 +2396,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-11-06T01:16:05Z",
+   "updated": "2026-11-06T01:38:25Z",
    "week": 202645,
    "weights": {
     "eff": 0.287,
@@ -12081,18 +12081,18 @@
    "total_line": 222.5,
    "total_pick": {
     "edge": 2.8,
-    "ev": -0.0471,
+    "ev": -0.0309,
     "fair": 223.2,
     "line": 222.5,
     "model": 225.3,
-    "odds": -114.0,
+    "odds": -110.0,
     "play": false,
     "prob": 0.508,
     "push_prob": 0.0,
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-06T01:16:05Z",
+   "updated": "2026-11-06T01:38:25Z",
    "week": 202645,
    "weights": {
     "eff": 0.287,
@@ -12180,7 +12180,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-06T01:16:05Z",
+   "updated": "2026-11-06T01:38:25Z",
    "week": 202645,
    "weights": {
     "eff": 0.287,
