@@ -11426,7 +11426,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-11-06T17:48:47Z",
+   "updated": "2026-11-06T23:37:56Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -11550,7 +11550,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-11-06T17:48:47Z",
+   "updated": "2026-11-06T23:37:56Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -11674,7 +11674,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-11-06T17:48:47Z",
+   "updated": "2026-11-06T23:37:56Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -11798,7 +11798,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-11-06T17:48:47Z",
+   "updated": "2026-11-06T23:37:56Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -11922,7 +11922,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-06T17:48:47Z",
+   "updated": "2026-11-06T23:37:56Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -12012,16 +12012,16 @@
     },
     {
      "bet": false,
-     "fair": 185,
-     "games": 23,
-     "lam": 0.4326,
-     "name": "Chuba Hubbard",
+     "fair": 174,
+     "games": 25,
+     "lam": 0.4549,
+     "name": "RJ Harvey",
      "note": "no market price yet",
-     "p": 0.351,
-     "p_model": 0.351,
-     "pid": "00-0036555",
+     "p": 0.365,
+     "p_model": 0.365,
+     "pid": "00-0040730",
      "pos": "RB",
-     "team": "CAR"
+     "team": "DEN"
     }
    ],
    "push_prob": 0.0,
@@ -12046,7 +12046,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-06T17:48:47Z",
+   "updated": "2026-11-06T23:37:56Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -12170,7 +12170,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-06T17:48:47Z",
+   "updated": "2026-11-06T23:37:56Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -12294,7 +12294,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-06T17:48:47Z",
+   "updated": "2026-11-06T23:37:56Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -12418,7 +12418,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-11-06T17:48:47Z",
+   "updated": "2026-11-06T23:37:56Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -12697,7 +12697,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-06T17:48:47Z",
+   "updated": "2026-11-06T23:37:56Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -12787,15 +12787,15 @@
     },
     {
      "bet": false,
-     "fair": 158,
-     "games": 14,
-     "lam": 0.4901,
-     "name": "Mike Evans",
+     "fair": 164,
+     "games": 19,
+     "lam": 0.4771,
+     "name": "George Kittle",
      "note": "no market price yet",
-     "p": 0.387,
-     "p_model": 0.387,
-     "pid": "00-0031408",
-     "pos": "WR",
+     "p": 0.379,
+     "p_model": 0.379,
+     "pid": "00-0033288",
+     "pos": "TE",
      "team": "SF"
     }
    ],
@@ -12821,7 +12821,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-06T17:48:47Z",
+   "updated": "2026-11-06T23:37:56Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -12898,19 +12898,6 @@
     },
     {
      "bet": false,
-     "fair": 170,
-     "games": 14,
-     "lam": 0.4642,
-     "name": "Cam Skattebo",
-     "note": "no market price yet",
-     "p": 0.371,
-     "p_model": 0.371,
-     "pid": "00-0040715",
-     "pos": "RB",
-     "team": "NYG"
-    },
-    {
-     "bet": false,
      "fair": 215,
      "games": 22,
      "lam": 0.3807,
@@ -12921,6 +12908,19 @@
      "pid": "00-0034351",
      "pos": "TE",
      "team": "PHI"
+    },
+    {
+     "bet": false,
+     "fair": 222,
+     "games": 11,
+     "lam": 0.3722,
+     "name": "Malik Nabers",
+     "note": "no market price yet",
+     "p": 0.311,
+     "p_model": 0.311,
+     "pid": "00-0039337",
+     "pos": "WR",
+     "team": "NYG"
     }
    ],
    "push_prob": 0.072,
@@ -12945,7 +12945,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-06T17:48:47Z",
+   "updated": "2026-11-06T23:37:56Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -13069,7 +13069,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-06T17:48:47Z",
+   "updated": "2026-11-06T23:37:56Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -13193,7 +13193,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-11-06T17:48:47Z",
+   "updated": "2026-11-06T23:37:56Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
