@@ -1868,7 +1868,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-11-06T01:38:25Z",
+   "updated": "2026-11-06T02:51:30Z",
    "week": 202645,
    "weights": {
     "eff": 0.287,
@@ -1956,7 +1956,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-06T01:38:25Z",
+   "updated": "2026-11-06T02:51:30Z",
    "week": 202645,
    "weights": {
     "eff": 0.287,
@@ -2044,7 +2044,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-11-06T01:38:25Z",
+   "updated": "2026-11-06T02:51:30Z",
    "week": 202645,
    "weights": {
     "eff": 0.287,
@@ -2053,7 +2053,7 @@
    }
   },
   "401909292": {
-   "ats_line": 8.5,
+   "ats_line": 7.5,
    "ats_side": "home",
    "ats_team": "Milwaukee Bucks",
    "away": "Toronto Raptors",
@@ -2062,20 +2062,20 @@
    "bet_line": 7.5,
    "book": "DraftKings",
    "conf_label": "High",
-   "confidence": 71,
+   "confidence": 74,
    "confidence_detail": {
     "agree": 3,
     "components": {
      "agreement": 1.0,
      "consistency": 0.876,
      "data": 0.8,
-     "edge": 0.887,
-     "market": 0.0,
+     "edge": 0.687,
+     "market": 0.5,
      "trends": 0.5
     },
     "label": "High",
     "n_sources": 3,
-    "score": 71,
+    "score": 74,
     "side": "home",
     "source_names": {
      "eff": "Efficiency",
@@ -2088,22 +2088,22 @@
      "pts": -4.4
     }
    },
-   "cover_prob": 0.517,
+   "cover_prob": 0.507,
    "date": "2026-11-06",
    "diffs": {
     "eff": -8.38,
     "elo": -7.04,
     "pts": -8.78
    },
-   "edge": 4.4,
-   "ev": -0.029,
-   "fair_line": 7.4,
+   "edge": 3.4,
+   "ev": -0.048,
+   "fair_line": 6.6,
    "hfa_flag": 1,
    "home": "Milwaukee Bucks",
    "home_abbr": "MIL",
    "home_field": 1.644,
    "id": "401909292",
-   "line": 8.5,
+   "line": 7.5,
    "model_spread": 4.1,
    "model_total": 227.3,
    "neutral": false,
@@ -2118,21 +2118,21 @@
    "su_team": "Toronto Raptors",
    "su_wp": 0.609,
    "tier": "pass",
-   "total_line": 231.5,
+   "total_line": 230.5,
    "total_pick": {
-    "edge": 4.2,
-    "ev": 0.0197,
-    "fair": 230.4,
-    "line": 231.5,
+    "edge": 3.2,
+    "ev": 0.0146,
+    "fair": 229.7,
+    "line": 230.5,
     "model": 227.3,
     "odds": -110.0,
-    "play": true,
-    "prob": 0.534,
+    "play": false,
+    "prob": 0.531,
     "push_prob": 0.0,
     "side": "under",
-    "tier": "play"
+    "tier": "lean"
    },
-   "updated": "2026-11-06T01:38:25Z",
+   "updated": "2026-11-06T02:51:30Z",
    "week": 202645,
    "weights": {
     "eff": 0.287,
@@ -2220,7 +2220,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-11-06T01:38:25Z",
+   "updated": "2026-11-06T02:51:30Z",
    "week": 202645,
    "weights": {
     "eff": 0.287,
@@ -2308,7 +2308,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-11-06T01:38:25Z",
+   "updated": "2026-11-06T02:51:30Z",
    "week": 202645,
    "weights": {
     "eff": 0.287,
@@ -2396,7 +2396,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-11-06T01:38:25Z",
+   "updated": "2026-11-06T02:51:30Z",
    "week": 202645,
    "weights": {
     "eff": 0.287,
@@ -12166,21 +12166,21 @@
    "su_team": "Golden State Warriors",
    "su_wp": 0.625,
    "tier": "pass",
-   "total_line": 235.5,
+   "total_line": 236.5,
    "total_pick": {
-    "edge": 0.3,
-    "ev": -0.0749,
-    "fair": 235.6,
-    "line": 235.5,
+    "edge": 0.7,
+    "ev": -0.0215,
+    "fair": 236.3,
+    "line": 236.5,
     "model": 235.8,
-    "odds": -114.0,
+    "odds": -110.0,
     "play": false,
-    "prob": 0.493,
+    "prob": 0.513,
     "push_prob": 0.0,
-    "side": "over",
+    "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-11-06T01:38:25Z",
+   "updated": "2026-11-06T02:51:30Z",
    "week": 202645,
    "weights": {
     "eff": 0.287,
