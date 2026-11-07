@@ -2412,7 +2412,7 @@
    "away_abbr": "POR",
    "bet_at": "2026-11-06T17:53:34Z",
    "bet_line": -3.5,
-   "book": "DraftKings",
+   "book": "Draft Kings",
    "conf_label": "Medium",
    "confidence": 66,
    "confidence_detail": {
@@ -2484,7 +2484,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-11-06T23:42:46Z",
+   "updated": "2026-11-07T01:00:59Z",
    "week": 202645,
    "weights": {
     "eff": 0.287,
@@ -2500,7 +2500,7 @@
    "away_abbr": "SA",
    "bet_at": "2026-11-05T23:41:18Z",
    "bet_line": 15.5,
-   "book": "DraftKings",
+   "book": "Draft Kings",
    "conf_label": "High",
    "confidence": 75,
    "confidence_detail": {
@@ -2523,20 +2523,20 @@
      "pts": "Points"
     },
     "sources": {
-     "eff": -12.0,
-     "elo": -11.3,
-     "pts": -12.0
+     "eff": -12.2,
+     "elo": -11.5,
+     "pts": -12.3
     }
    },
-   "cover_prob": 0.556,
+   "cover_prob": 0.545,
    "date": "2026-11-06",
    "diffs": {
     "eff": -13.27,
     "elo": -12.58,
     "pts": -13.29
    },
-   "edge": 5.7,
-   "ev": 0.061,
+   "edge": 5.6,
+   "ev": 0.041,
    "fair_line": 16.1,
    "hfa_flag": 1,
    "home": "Sacramento Kings",
@@ -2544,35 +2544,35 @@
    "home_field": 1.644,
    "id": "401909295",
    "line": 17.5,
-   "model_spread": 11.8,
-   "model_total": 227.8,
+   "model_spread": 11.9,
+   "model_total": 227.5,
    "neutral": false,
-   "offset": -0.37,
-   "proj_away": 119.8,
-   "proj_home": 108.0,
+   "offset": -0.61,
+   "proj_away": 119.7,
+   "proj_home": 107.8,
    "push_prob": 0.0,
    "result": null,
    "season": 2027,
    "season_type": "regular",
    "start": "2026-11-07T03:00:00Z",
    "su_team": "San Antonio Spurs",
-   "su_wp": 0.794,
+   "su_wp": 0.796,
    "tier": "strong",
    "total_line": 231.5,
    "total_pick": {
-    "edge": 3.7,
-    "ev": 0.0277,
-    "fair": 230.6,
+    "edge": 4.0,
+    "ev": 0.0115,
+    "fair": 230.5,
     "line": 231.5,
-    "model": 227.8,
+    "model": 227.5,
     "odds": -110.0,
-    "play": true,
-    "prob": 0.538,
+    "play": false,
+    "prob": 0.53,
     "push_prob": 0.0,
     "side": "under",
-    "tier": "play"
+    "tier": "lean"
    },
-   "updated": "2026-11-06T23:42:46Z",
+   "updated": "2026-11-07T01:00:59Z",
    "week": 202645,
    "weights": {
     "eff": 0.287,
