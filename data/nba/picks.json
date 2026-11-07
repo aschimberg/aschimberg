@@ -2412,7 +2412,7 @@
    "away_abbr": "POR",
    "bet_at": "2026-11-06T17:53:34Z",
    "bet_line": -3.5,
-   "book": "Draft Kings",
+   "book": "DraftKings",
    "conf_label": "Medium",
    "confidence": 66,
    "confidence_detail": {
@@ -2484,7 +2484,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-11-07T01:00:59Z",
+   "updated": "2026-11-07T02:01:12Z",
    "week": 202645,
    "weights": {
     "eff": 0.287,
@@ -2500,7 +2500,7 @@
    "away_abbr": "SA",
    "bet_at": "2026-11-05T23:41:18Z",
    "bet_line": 15.5,
-   "book": "Draft Kings",
+   "book": "DraftKings",
    "conf_label": "High",
    "confidence": 75,
    "confidence_detail": {
@@ -2572,7 +2572,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-11-07T01:00:59Z",
+   "updated": "2026-11-07T02:01:12Z",
    "week": 202645,
    "weights": {
     "eff": 0.287,
@@ -12373,6 +12373,182 @@
     "tier": "pass"
    },
    "updated": "2026-11-06T02:51:30Z",
+   "week": 202645,
+   "weights": {
+    "eff": 0.287,
+    "elo": 0.067,
+    "pts": 0.646
+   }
+  },
+  "401909938": {
+   "ats_line": -7.5,
+   "ats_side": "away",
+   "ats_team": "Denver Nuggets",
+   "away": "Denver Nuggets",
+   "away_abbr": "DEN",
+   "bet_at": "2026-11-07T02:01:12Z",
+   "bet_line": 7.5,
+   "book": "DraftKings",
+   "conf_label": "Medium",
+   "confidence": 65,
+   "confidence_detail": {
+    "agree": 3,
+    "components": {
+     "agreement": 1.0,
+     "consistency": 0.909,
+     "data": 0.7,
+     "edge": 0.049,
+     "market": 1.0,
+     "trends": 0.5
+    },
+    "label": "Medium",
+    "n_sources": 3,
+    "score": 65,
+    "side": "away",
+    "source_names": {
+     "eff": "Efficiency",
+     "elo": "Elo",
+     "pts": "Points"
+    },
+    "sources": {
+     "eff": -7.5,
+     "elo": -8.7,
+     "pts": -7.6
+    }
+   },
+   "cover_prob": 0.51,
+   "date": "2026-11-07",
+   "diffs": {
+    "eff": -6.45,
+    "elo": -7.64,
+    "pts": -6.53
+   },
+   "edge": 0.2,
+   "ev": -0.008,
+   "fair_line": 7.6,
+   "hfa_flag": 0,
+   "home": "Indiana Pacers",
+   "home_abbr": "IND",
+   "home_field": 1.644,
+   "id": "401909938",
+   "line": 7.5,
+   "model_spread": 7.7,
+   "model_total": 229.2,
+   "neutral": true,
+   "offset": -1.06,
+   "proj_away": 118.5,
+   "proj_home": 110.7,
+   "push_prob": 0.0,
+   "result": null,
+   "season": 2027,
+   "season_type": "regular",
+   "start": "2026-11-07T22:00:00Z",
+   "su_team": "Denver Nuggets",
+   "su_wp": 0.705,
+   "tier": "pass",
+   "total_line": 228.5,
+   "total_pick": {
+    "edge": 0.7,
+    "ev": -0.0397,
+    "fair": 228.7,
+    "line": 228.5,
+    "model": 229.2,
+    "odds": -106.0,
+    "play": false,
+    "prob": 0.494,
+    "push_prob": 0.0,
+    "side": "over",
+    "tier": "pass"
+   },
+   "updated": "2026-11-07T02:01:12Z",
+   "week": 202645,
+   "weights": {
+    "eff": 0.287,
+    "elo": 0.067,
+    "pts": 0.646
+   }
+  },
+  "401909942": {
+   "ats_line": -6.5,
+   "ats_side": "home",
+   "ats_team": "Golden State Warriors",
+   "away": "Orlando Magic",
+   "away_abbr": "ORL",
+   "bet_at": "2026-11-07T02:01:12Z",
+   "bet_line": -6.5,
+   "book": "DraftKings",
+   "conf_label": "Medium",
+   "confidence": 63,
+   "confidence_detail": {
+    "agree": 2,
+    "components": {
+     "agreement": 0.933,
+     "consistency": 0.59,
+     "data": 0.8,
+     "edge": 0.425,
+     "market": 0.5,
+     "trends": 0.5
+    },
+    "label": "Medium",
+    "n_sources": 3,
+    "score": 63,
+    "side": "home",
+    "source_names": {
+     "eff": "Efficiency",
+     "elo": "Elo",
+     "pts": "Points"
+    },
+    "sources": {
+     "eff": 9.4,
+     "elo": 4.2,
+     "pts": 9.3
+    }
+   },
+   "cover_prob": 0.548,
+   "date": "2026-11-07",
+   "diffs": {
+    "eff": 5.96,
+    "elo": 0.7,
+    "pts": 5.87
+   },
+   "edge": 2.1,
+   "ev": 0.028,
+   "fair_line": -7.0,
+   "hfa_flag": 1,
+   "home": "Golden State Warriors",
+   "home_abbr": "GS",
+   "home_field": 1.644,
+   "id": "401909942",
+   "line": -6.5,
+   "model_spread": -8.6,
+   "model_total": 224.0,
+   "neutral": false,
+   "offset": 1.82,
+   "proj_away": 107.7,
+   "proj_home": 116.3,
+   "push_prob": 0.0,
+   "result": null,
+   "season": 2027,
+   "season_type": "regular",
+   "start": "2026-11-08T01:30:00Z",
+   "su_team": "Golden State Warriors",
+   "su_wp": 0.726,
+   "tier": "play",
+   "total_line": 220.5,
+   "total_pick": {
+    "edge": 3.5,
+    "ev": -0.0526,
+    "fair": 221.4,
+    "line": 220.5,
+    "model": 224.0,
+    "odds": -114.0,
+    "play": false,
+    "prob": 0.505,
+    "push_prob": 0.0,
+    "side": "over",
+    "tier": "pass"
+   },
+   "updated": "2026-11-07T02:01:12Z",
    "week": 202645,
    "weights": {
     "eff": 0.287,
