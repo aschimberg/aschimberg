@@ -10,7 +10,7 @@ from sportscommon import record as recmod
 from sportscommon import tuning as tunemod
 from sportscommon.odds import american_to_decimal
 
-from . import props as nflprops, starters, config, data, elo as elomod, margins, qb as qbmod, ratings, teams
+from . import props as nflprops, starters, angles, config, data, elo as elomod, margins, qb as qbmod, ratings, teams
 
 PICKS_PATH = config.DATA_DIR / "picks.json"
 LINE_HISTORY_PATH = config.DATA_DIR / "line_history.json"
@@ -212,6 +212,8 @@ def refresh(games=None, pbp_loader=None, now=None, log=print, espn_loader=None):
             if season - config.TREND_SEASONS <= g["season"] <= season and g["completed"]]
     trends = ats.compute_trends(hist)
     rest_map = ats.previous_game_dates([_history_record(g) for g in cur])
+    angle_rec = angles.records(games)
+    angle_last = angles._last_games(games)
 
     lh = store.load(LINE_HISTORY_PATH, {})
     if lh.get("season") != season:
@@ -419,6 +421,9 @@ def refresh(games=None, pbp_loader=None, now=None, log=print, espn_loader=None):
             "pick": card_pick,
             "confidence": conf_detail, "locked": started or g["completed"], "trends": trend_block, "splits": None,
             "result": res, "extras": extras, "news": news_block,
+            "angles": [{"key": k, "side": sd, "team": teams.name(g[sd]),
+                        "line": (line["spread"] if sd == "home" else -line["spread"]), "text": angles.text(k, angle_rec)}
+                       for k, sd in angles.hits(g, line["spread"], angle_last)] if line and line.get("spread") is not None else [],
         })
 
     store.save(LINE_HISTORY_PATH, lh, compact=True)

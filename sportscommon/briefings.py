@@ -100,6 +100,13 @@ def build_nfl(now_local):
             ln = c["line"]
             fav = lambda s: "PK" if not s else (f"{c['home']['name']} {s:g}" if s < 0 else f"{c['away']['name']} {-s:g}")
             lines.append(f"{cfbb.matchup(c)}: {fav(ln['open'])} → {fav(ln['spread'])}")
+    ang = [(a, c) for c in games for a in c.get("angles") or []]
+    if ang:
+        lines += ["", "**📐 Situational angles**"]
+        for a, c in ang:
+            other = c["away"]["name"] if a["side"] == "home" else c["home"]["name"]
+            lt = "PK" if not a["line"] else f"{a['line']:+g}"
+            lines.append(f"{a['text']}: {a['team'].upper()} {lt} vs {other}")
     trend_items = []
     for c in games:
         for side in ("home", "away"):

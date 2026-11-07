@@ -116,6 +116,15 @@ Cards, the Saturday briefing and the Record tab flag three matchup types (by AP/
 
 The record shows how the home favorite did against the spread for the first two, and first-half points against half the closing game total for the third (the feeds carry no first-half lines). Flags are context; they don't change the model's picks.
 
+### Situational angles (NFL briefing)
+
+The NFL briefing lists games that fit three angles, with each angle's ATS record over every game with a closing line since 1999 (nflverse), graded from the qualifying team's side:
+- **Underdogs off a shutout loss** (previous game this season, scored 0).
+- **Underdogs off a blowout loss** (lost by 21+).
+- **Home dogs of 7 or more** (not neutral site).
+
+Records recompute every refresh. They're context; they don't change the model's picks.
+
 ## Over/under picks
 
 Every game also gets a side against the market total.
