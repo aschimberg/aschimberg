@@ -107,6 +107,15 @@ Records count each pick by the tier it had when logged, so picks made before anc
 
 A flag shows on the Plays box and in that sport's briefing. Picks from older model versions are reported separately: college football (46.5% vs 57.4% claimed) would have been flagged before the Oct 28 retune. NHL was dropped on Nov 3 (old-model plays 48.0% vs 57.3% claimed).
 
+### Situational flags (college football)
+
+Cards, the Saturday briefing and the Record tab flag three matchup types (by AP/CFP poll rank):
+- **Lower-ranked home favorite of 7 or less:** both teams ranked, the home team ranked lower.
+- **Unranked home favorite vs a ranked team.**
+- **Ranked night game, first-half under:** two ranked teams kicking off at 7 PM ET or later.
+
+The record shows how the home favorite did against the spread for the first two, and first-half points against half the closing game total for the third (the feeds carry no first-half lines). Flags are context; they don't change the model's picks.
+
 ## Over/under picks
 
 Every game also gets a side against the market total.

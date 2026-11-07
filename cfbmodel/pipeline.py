@@ -5,7 +5,7 @@ from datetime import datetime, timedelta, timezone
 from sportscommon import clv, drivesim, footsim, totals
 from sportscommon import record as recmod
 
-from . import ats, confidence, config, model, splits, store, tuning
+from . import ats, confidence, config, flags, model, splits, store, tuning
 from .cfbd import g
 from .normalize import closing_spread, lines_by_game, normalize_game, select_line
 from .ratings import blend
@@ -142,6 +142,8 @@ def grade_picks(picks, games_by_id):
             res["ats"] = model.grade(p["ats_side"], p["line"], hp, ap)
         if p.get("total_pick"):
             res["total"] = totals.grade(p["total_pick"], hp + ap)
+        if p.get("flags"):
+            res.update(flags.grade(p["flags"], p.get("line"), p.get("total_line"), hp, ap, gm.get("h1_pts")))
         p["result"] = res
         clv.finalize_spread(p)
         graded += 1
@@ -184,6 +186,8 @@ def compute_record(picks, season=None):
         "ats_strong": tiered(config.STRONG_EDGE, "strong"),
         "by_week": by_week,
         "ou": recmod.totals(graded, (config.TOTAL_LEAN_EDGE, config.TOTAL_PLAY_EDGE, config.TOTAL_STRONG_EDGE)),
+        "flags": {k: _rec([p for p in graded if k in (p.get("flags") or [])],
+                          "h1_under" if k == "ranked_night_1h_under" else "home_fav_ats") for k in flags.LABELS},
         **recmod.plays_keys(graded),
     }
 
@@ -332,6 +336,8 @@ def refresh(client, now=None, splits_provider=None, log=print):
         pick["conf_label"] = conf["label"] if conf else None
 
         key = str(gm["id"])
+        game_flags = flags.compute(poll["ranks"].get(gm["home"]), poll["ranks"].get(gm["away"]),
+                                   (line or {}).get("spread"), gm["neutral"], gm["start"], gm.get("start_tbd"))
         if not started and not gm["completed"]:
             prev = picks.get(key)
             picks[key] = {
@@ -342,7 +348,7 @@ def refresh(client, now=None, splits_provider=None, log=print):
                 "model_spread": proj["spread"], "model_total": proj["total"],
                 "proj_home": proj["home_pts"], "proj_away": proj["away_pts"],
                 "diffs": diffs, "hfa_flag": hflag, "weights": dict(config.WEIGHTS), "home_field": config.HOME_FIELD,
-                **pick, "confidence_detail": conf, "updated": iso(now), "result": None,
+                **pick, "confidence_detail": conf, "updated": iso(now), "result": None, "flags": game_flags,
             }
             snaps = line_hist["games"].get(key) or []
             clv.carry_bet(picks[key], prev, iso(now), (line or {}).get("spread"),
@@ -370,6 +376,7 @@ def refresh(client, now=None, splits_provider=None, log=print):
             "pick": {k: logged.get(k) for k in ("ats_side", "ats_team", "ats_line", "edge", "tier", "su_team", "su_wp", "line",
                                                  "confidence", "conf_label", "total_pick", "cover_prob", "ev", "fair_line")} if logged else pick,
             "confidence": conf,
+            "flags": [{"key": k, "label": flags.LABELS[k]} for k in ((logged or {}).get("flags") or game_flags)],
             "locked": started or gm["completed"],
             "trends": trend_block, "splits": split_info,
             "result": {"completed": gm["completed"], "home_pts": gm["home_pts"], "away_pts": gm["away_pts"],

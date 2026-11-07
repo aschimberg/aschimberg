@@ -76,6 +76,20 @@ def build_briefing(meta, cards, record, today, tz, top_n=8):
 
     lines += totals.briefing_lines(games, matchup, kickoff, tz)
 
+    flagged = [c for c in games if c.get("flags")]
+    if flagged:
+        lines.append("")
+        lines.append("**🚩 Flags**")
+        for c in flagged:
+            sp = (c.get("line") or {}).get("spread")
+            tot = (c.get("line") or {}).get("total")
+            extra = []
+            if sp is not None:
+                extra.append(f"{c['home']['name']} {sp:+g}")
+            if tot is not None and any(f["key"] == "ranked_night_1h_under" for f in c["flags"]):
+                extra.append(f"O/U {tot:g}")
+            lines.append(f"{kickoff(c, tz)} {matchup(c)} ({', '.join(extra)}): " + " · ".join(f["label"] for f in c["flags"]))
+
     moves = sorted(
         (c for c in games if c.get("line") and c["line"].get("move") and abs(c["line"]["move"]) >= 1.0),
         key=lambda c: -abs(c["line"]["move"]),

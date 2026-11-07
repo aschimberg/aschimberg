@@ -34,7 +34,19 @@ def normalize_game(raw):
         "away_class": g(raw, "awayClassification") or g(raw, "awayDivision"),
         "home_pts": num(g(raw, "homePoints")),
         "away_pts": num(g(raw, "awayPoints")),
+        "h1_pts": _first_half(raw),
     }
+
+
+def _first_half(raw):
+    """Combined first-half points from the quarter line scores, when CFBD has them."""
+    hl, al = g(raw, "homeLineScores") or [], g(raw, "awayLineScores") or []
+    if len(hl) < 2 or len(al) < 2:
+        return None
+    try:
+        return sum(int(x) for x in hl[:2]) + sum(int(x) for x in al[:2])
+    except (TypeError, ValueError):
+        return None
 
 
 def select_line(book_lines, providers=None):

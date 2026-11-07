@@ -255,6 +255,7 @@
     if (final) tags.push(`<span class="tag final">Final</span>`);
     else if (status(g) === "live") tags.push(`<span class="tag">In progress</span>`);
     if (g.neutral) tags.push(`<span class="tag">Neutral</span>`);
+    for (const f of g.flags || []) tags.push(`<span class="tag flagtag" title="Situational flag">🚩 ${esc(f.label)}</span>`);
 
     const teamRow = (side) => {
       const t = g[side];
@@ -560,6 +561,13 @@
           tile("Strong", ou.strong) +
           (rec.all_time?.ou ? tile("All-time", rec.all_time.ou.all, true, " · all seasons") : "")
         : tile("All totals", ouRec(seasonPicks)) + tile("Plays", ouRec(seasonPicks, true))]);
+    }
+    const fl = sr.flags;
+    if (fl) {
+      groups.push(["Situational flags",
+        tile("Lower-ranked home fav ≤7", fl.lower_ranked_home_fav, true, " · home fav ATS") +
+        tile("Unranked home fav vs ranked", fl.unranked_home_fav, true, " · home fav ATS") +
+        tile("Ranked night · 1H under", fl.ranked_night_1h_under, true, " · vs half the game total")]);
     }
     const td = sr.anytime_td;
     if (state.meta?.sport === "nfl" && td) {
