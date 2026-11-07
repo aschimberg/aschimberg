@@ -11426,7 +11426,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-11-07T11:37:00Z",
+   "updated": "2026-11-07T16:38:56Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -11550,7 +11550,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-11-07T11:37:00Z",
+   "updated": "2026-11-07T16:38:56Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -11597,7 +11597,7 @@
     "epa": -3.32
    },
    "edge": 3.7,
-   "ev": -0.034,
+   "ev": 0.038,
    "fair_line": 3.2,
    "hfa_flag": 0,
    "home": "Atlanta Falcons",
@@ -11615,17 +11615,17 @@
     {
      "bet": false,
      "book": "BetRivers",
-     "ev": -0.2394,
-     "fair": -117,
+     "ev": -0.2376,
+     "fair": -118,
      "games": 25,
-     "kelly": -0.5864,
+     "kelly": -0.582,
      "lam": 0.533,
-     "mkt_prob": 0.623,
+     "mkt_prob": 0.625,
      "n_books": 6,
      "name": "Bijan Robinson",
      "note": "no value at market price",
      "odds": -245.0,
-     "p": 0.54,
+     "p": 0.541,
      "p_model": 0.413,
      "pid": "00-0038542",
      "pos": "RB",
@@ -11634,17 +11634,17 @@
     {
      "bet": false,
      "book": "BetMGM",
-     "ev": -0.246,
+     "ev": -0.247,
      "fair": 116,
      "games": 24,
-     "kelly": -0.3937,
+     "kelly": -0.3952,
      "lam": 0.5023,
-     "mkt_prob": 0.511,
+     "mkt_prob": 0.51,
      "n_books": 6,
      "name": "Chase Brown",
      "note": "no value at market price",
      "odds": -160.0,
-     "p": 0.464,
+     "p": 0.463,
      "p_model": 0.395,
      "pid": "00-0038597",
      "pos": "RB",
@@ -11677,7 +11677,7 @@
    "start": "2026-11-08T14:30:00Z",
    "su_team": "Cincinnati Bengals",
    "su_wp": 0.697,
-   "tier": "pass",
+   "tier": "strong",
    "total_line": 52.5,
    "total_pick": {
     "edge": 5.5,
@@ -11692,7 +11692,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-11-07T11:37:00Z",
+   "updated": "2026-11-07T16:38:56Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -11834,7 +11834,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-11-07T11:37:00Z",
+   "updated": "2026-11-07T16:38:56Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -11842,7 +11842,7 @@
    }
   },
   "2026_09_DAL_IND": {
-   "ats_line": 5.0,
+   "ats_line": 4.5,
    "ats_side": "home",
    "ats_team": "Indianapolis Colts",
    "away": "Dallas Cowboys",
@@ -11851,20 +11851,20 @@
    "bet_line": 5.5,
    "book": "nflverse consensus",
    "conf_label": "High",
-   "confidence": 88,
+   "confidence": 89,
    "confidence_detail": {
     "agree": 2,
     "components": {
      "agreement": 1.0,
      "consistency": 0.961,
      "data": 1.0,
-     "edge": 1.0,
-     "market": 0.7,
+     "edge": 0.932,
+     "market": 0.9,
      "trends": 0.5
     },
     "label": "High",
     "n_sources": 2,
-    "score": 88,
+    "score": 89,
     "side": "home",
     "source_names": {
      "elo": "Elo",
@@ -11875,20 +11875,20 @@
      "epa": -0.8
     }
    },
-   "cover_prob": 0.539,
+   "cover_prob": 0.528,
    "diffs": {
     "elo": -1.81,
     "epa": -2.35
    },
-   "edge": 4.7,
-   "ev": 0.051,
-   "fair_line": 4.0,
+   "edge": 4.2,
+   "ev": 0.031,
+   "fair_line": 3.7,
    "hfa_flag": 1,
    "home": "Indianapolis Colts",
    "home_abbr": "IND",
    "home_field": 1.613,
    "id": "2026_09_DAL_IND",
-   "line": 5.0,
+   "line": 4.5,
    "model_spread": 0.3,
    "model_total": 57.5,
    "neutral": false,
@@ -11899,12 +11899,12 @@
     {
      "bet": false,
      "book": "BetMGM",
-     "ev": -0.1012,
+     "ev": -0.1003,
      "fair": -143,
      "games": 24,
-     "kelly": -0.1923,
+     "kelly": -0.1906,
      "lam": 1.0553,
-     "mkt_prob": 0.545,
+     "mkt_prob": 0.546,
      "n_books": 6,
      "name": "Javonte Williams",
      "note": "no value at market price",
@@ -11918,17 +11918,17 @@
     {
      "bet": false,
      "book": "DraftKings",
-     "ev": -0.0434,
+     "ev": -0.0567,
      "fair": -118,
      "games": 25,
-     "kelly": -0.0564,
+     "kelly": -0.0765,
      "lam": 1.1461,
-     "mkt_prob": 0.441,
+     "mkt_prob": 0.443,
      "n_books": 6,
      "name": "Jonathan Taylor",
      "note": "no value at market price",
-     "odds": -130.0,
-     "p": 0.541,
+     "odds": -135.0,
+     "p": 0.542,
      "p_model": 0.682,
      "pid": "00-0036223",
      "pos": "RB",
@@ -11954,7 +11954,7 @@
      "team": "DAL"
     }
    ],
-   "push_prob": 0.031,
+   "push_prob": 0.0,
    "result": null,
    "season": 2026,
    "season_type": "regular",
@@ -11976,7 +11976,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-07T11:37:00Z",
+   "updated": "2026-11-07T16:38:56Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -12023,7 +12023,7 @@
     "epa": -6.79
    },
    "edge": 3.7,
-   "ev": 0.051,
+   "ev": 0.041,
    "fair_line": 2.3,
    "hfa_flag": 1,
    "home": "Carolina Panthers",
@@ -12060,17 +12060,17 @@
     {
      "bet": false,
      "book": "BetMGM",
-     "ev": -0.2062,
-     "fair": 146,
+     "ev": -0.2039,
+     "fair": 145,
      "games": 23,
-     "kelly": -0.2165,
+     "kelly": -0.2141,
      "lam": 0.4326,
-     "mkt_prob": 0.445,
+     "mkt_prob": 0.447,
      "n_books": 6,
      "name": "Chuba Hubbard",
      "note": "no value at market price",
      "odds": -105.0,
-     "p": 0.407,
+     "p": 0.408,
      "p_model": 0.351,
      "pid": "00-0036555",
      "pos": "RB",
@@ -12112,7 +12112,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-07T11:37:00Z",
+   "updated": "2026-11-07T16:38:56Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -12254,7 +12254,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-07T11:37:00Z",
+   "updated": "2026-11-07T16:38:56Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -12378,7 +12378,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-07T11:37:00Z",
+   "updated": "2026-11-07T16:38:56Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -12502,7 +12502,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-11-07T11:37:00Z",
+   "updated": "2026-11-07T16:38:56Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -12704,7 +12704,7 @@
     "epa": -11.85
    },
    "edge": 0.7,
-   "ev": -0.021,
+   "ev": 0.007,
    "fair_line": 4.3,
    "hfa_flag": 1,
    "home": "Washington Commanders",
@@ -12778,7 +12778,7 @@
    "start": "2026-11-08T18:00:00Z",
    "su_team": "Los Angeles Rams",
    "su_wp": 0.609,
-   "tier": "pass",
+   "tier": "lean",
    "total_line": 47.5,
    "total_pick": {
     "edge": 0.6,
@@ -12793,7 +12793,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-07T11:37:00Z",
+   "updated": "2026-11-07T16:38:56Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -12917,7 +12917,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-07T11:37:00Z",
+   "updated": "2026-11-07T16:38:56Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -13059,7 +13059,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-07T11:37:00Z",
+   "updated": "2026-11-07T16:38:56Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -13124,17 +13124,17 @@
     {
      "bet": false,
      "book": "BetMGM",
-     "ev": -0.092,
-     "fair": -153,
+     "ev": -0.0956,
+     "fair": -152,
      "games": 27,
-     "kelly": -0.184,
+     "kelly": -0.1913,
      "lam": 0.9007,
-     "mkt_prob": 0.613,
+     "mkt_prob": 0.609,
      "n_books": 6,
      "name": "Kenneth Walker III",
      "note": "no value at market price",
      "odds": -200.0,
-     "p": 0.605,
+     "p": 0.603,
      "p_model": 0.594,
      "pid": "00-0038134",
      "pos": "RB",
@@ -13143,16 +13143,16 @@
     {
      "bet": false,
      "book": "DraftKings",
-     "ev": -0.0506,
+     "ev": -0.03,
      "fair": 142,
      "games": 12,
-     "kelly": -0.0389,
+     "kelly": -0.0222,
      "lam": 0.6938,
      "mkt_prob": 0.357,
      "n_books": 6,
      "name": "Rashee Rice",
      "note": "no value at market price",
-     "odds": 130.0,
+     "odds": 135.0,
      "p": 0.413,
      "p_model": 0.5,
      "pid": "00-0039067",
@@ -13162,16 +13162,16 @@
     {
      "bet": false,
      "book": "DraftKings",
-     "ev": -0.0905,
+     "ev": -0.0751,
      "fair": 225,
      "games": 19,
-     "kelly": -0.0464,
+     "kelly": -0.0375,
      "lam": 0.4285,
      "mkt_prob": 0.283,
      "n_books": 6,
      "name": "Breece Hall",
      "note": "no value at market price",
-     "odds": 195.0,
+     "odds": 200.0,
      "p": 0.308,
      "p_model": 0.349,
      "pid": "00-0038120",
@@ -13201,7 +13201,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-07T11:37:00Z",
+   "updated": "2026-11-07T16:38:56Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -13248,7 +13248,7 @@
     "epa": 4.13
    },
    "edge": 0.2,
-   "ev": -0.078,
+   "ev": -0.07,
    "fair_line": -5.8,
    "hfa_flag": 1,
    "home": "Chicago Bears",
@@ -13325,7 +13325,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-11-07T11:37:00Z",
+   "updated": "2026-11-07T16:38:56Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
