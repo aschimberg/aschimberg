@@ -12908,22 +12908,22 @@
    "away_abbr": "HOU",
    "bet_at": "2026-11-07T07:47:27Z",
    "bet_line": 7.5,
-   "book": "DraftKings",
+   "book": "Draft Kings",
    "conf_label": "Low",
-   "confidence": 49,
+   "confidence": 32,
    "confidence_detail": {
-    "agree": 2,
+    "agree": 1,
     "components": {
-     "agreement": 0.713,
+     "agreement": 0.067,
      "consistency": 0.717,
      "data": 0.7,
-     "edge": 0.062,
+     "edge": 0.056,
      "market": 0.5,
      "trends": 0.5
     },
     "label": "Low",
     "n_sources": 3,
-    "score": 49,
+    "score": 32,
     "side": "home",
     "source_names": {
      "eff": "Efficiency",
@@ -12931,12 +12931,12 @@
      "pts": "Points"
     },
     "sources": {
-     "eff": -6.5,
-     "elo": -2.8,
-     "pts": -6.3
+     "eff": -7.1,
+     "elo": -3.4,
+     "pts": -6.9
     }
    },
-   "cover_prob": 0.49,
+   "cover_prob": 0.48,
    "date": "2026-11-07",
    "diffs": {
     "eff": -8.35,
@@ -12944,7 +12944,7 @@
     "pts": -8.17
    },
    "edge": 0.3,
-   "ev": -0.072,
+   "ev": -0.092,
    "fair_line": 6.4,
    "hfa_flag": 1,
    "home": "Phoenix Suns",
@@ -12953,34 +12953,34 @@
    "id": "401909943",
    "line": 6.5,
    "model_spread": 6.2,
-   "model_total": 227.7,
+   "model_total": 227.4,
    "neutral": false,
-   "offset": 0.2,
-   "proj_away": 116.9,
-   "proj_home": 110.7,
+   "offset": -0.35,
+   "proj_away": 116.8,
+   "proj_home": 110.6,
    "push_prob": 0.0,
    "result": null,
    "season": 2027,
    "season_type": "regular",
    "start": "2026-11-08T02:00:00Z",
    "su_team": "Houston Rockets",
-   "su_wp": 0.669,
+   "su_wp": 0.67,
    "tier": "pass",
-   "total_line": 224.5,
+   "total_line": 223.5,
    "total_pick": {
-    "edge": 3.2,
-    "ev": -0.0151,
-    "fair": 225.3,
-    "line": 224.5,
-    "model": 227.7,
-    "odds": -105.0,
+    "edge": 3.9,
+    "ev": -0.0461,
+    "fair": 224.5,
+    "line": 223.5,
+    "model": 227.4,
+    "odds": -115.0,
     "play": false,
-    "prob": 0.504,
+    "prob": 0.51,
     "push_prob": 0.0,
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-08T00:38:13Z",
+   "updated": "2026-11-08T01:31:52Z",
    "week": 202645,
    "weights": {
     "eff": 0.287,
@@ -12996,7 +12996,7 @@
    "away_abbr": "SA",
    "bet_at": "2026-11-07T07:47:27Z",
    "bet_line": 5.5,
-   "book": "DraftKings",
+   "book": "Draft Kings",
    "conf_label": "Low",
    "confidence": 52,
    "confidence_detail": {
@@ -13068,7 +13068,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-11-08T00:38:13Z",
+   "updated": "2026-11-08T01:31:52Z",
    "week": 202645,
    "weights": {
     "eff": 0.287,
@@ -13084,7 +13084,7 @@
    "away_abbr": "PHI",
    "bet_at": "2026-11-07T23:32:14Z",
    "bet_line": 9.5,
-   "book": "DraftKings",
+   "book": "Draft Kings",
    "conf_label": "Medium",
    "confidence": 69,
    "confidence_detail": {
@@ -13156,7 +13156,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-11-08T00:38:13Z",
+   "updated": "2026-11-08T01:31:52Z",
    "week": 202645,
    "weights": {
     "eff": 0.287,
@@ -13172,7 +13172,7 @@
    "away_abbr": "LAL",
    "bet_at": "2026-11-07T23:32:14Z",
    "bet_line": -4.5,
-   "book": "DraftKings",
+   "book": "Draft Kings",
    "conf_label": "Low",
    "confidence": 54,
    "confidence_detail": {
@@ -13244,7 +13244,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-08T00:38:13Z",
+   "updated": "2026-11-08T01:31:52Z",
    "week": 202645,
    "weights": {
     "eff": 0.287,
@@ -13260,7 +13260,7 @@
    "away_abbr": "UTAH",
    "bet_at": "2026-11-08T00:38:13Z",
    "bet_line": -11.5,
-   "book": "DraftKings",
+   "book": "Draft Kings",
    "conf_label": "High",
    "confidence": 71,
    "confidence_detail": {
@@ -13332,7 +13332,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-08T00:38:13Z",
+   "updated": "2026-11-08T01:31:52Z",
    "week": 202645,
    "weights": {
     "eff": 0.287,
@@ -13348,7 +13348,7 @@
    "away_abbr": "BOS",
    "bet_at": "2026-11-08T00:38:13Z",
    "bet_line": 12.5,
-   "book": "DraftKings",
+   "book": "Draft Kings",
    "conf_label": "Medium",
    "confidence": 68,
    "confidence_detail": {
@@ -13420,7 +13420,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-08T00:38:13Z",
+   "updated": "2026-11-08T01:31:52Z",
    "week": 202645,
    "weights": {
     "eff": 0.287,
@@ -13436,22 +13436,22 @@
    "away_abbr": "NO",
    "bet_at": "2026-11-08T00:38:13Z",
    "bet_line": 1.5,
-   "book": "DraftKings",
+   "book": "Draft Kings",
    "conf_label": "Medium",
-   "confidence": 69,
+   "confidence": 62,
    "confidence_detail": {
     "agree": 3,
     "components": {
      "agreement": 1.0,
      "consistency": 0.877,
      "data": 0.8,
-     "edge": 0.506,
+     "edge": 0.224,
      "market": 0.5,
      "trends": 0.5
     },
     "label": "Medium",
     "n_sources": 3,
-    "score": 69,
+    "score": 62,
     "side": "home",
     "source_names": {
      "eff": "Efficiency",
@@ -13459,56 +13459,56 @@
      "pts": "Points"
     },
     "sources": {
-     "eff": 1.0,
-     "elo": 2.5,
-     "pts": 1.0
+     "eff": 0.1,
+     "elo": 1.7,
+     "pts": 0.1
     }
    },
-   "cover_prob": 0.483,
+   "cover_prob": 0.498,
    "date": "2026-11-08",
    "diffs": {
     "eff": -0.6,
     "elo": 0.95,
     "pts": -0.63
    },
-   "edge": 2.5,
-   "ev": -0.078,
-   "fair_line": 0.9,
+   "edge": 1.1,
+   "ev": -0.049,
+   "fair_line": 1.2,
    "hfa_flag": 1,
    "home": "LA Clippers",
    "home_abbr": "LAC",
    "home_field": 1.644,
    "id": "401909950",
    "line": 1.5,
-   "model_spread": -1.0,
-   "model_total": 228.8,
+   "model_spread": 0.4,
+   "model_total": 227.9,
    "neutral": false,
-   "offset": -0.05,
-   "proj_away": 113.9,
-   "proj_home": 114.9,
+   "offset": -0.92,
+   "proj_away": 114.1,
+   "proj_home": 113.8,
    "push_prob": 0.0,
    "result": null,
    "season": 2027,
    "season_type": "regular",
    "start": "2026-11-09T02:00:00Z",
-   "su_team": "LA Clippers",
-   "su_wp": 0.529,
+   "su_team": "New Orleans Pelicans",
+   "su_wp": 0.513,
    "tier": "pass",
-   "total_line": 225.5,
+   "total_line": 230.5,
    "total_pick": {
-    "edge": 3.3,
-    "ev": -0.0196,
-    "fair": 226.3,
-    "line": 225.5,
-    "model": 228.8,
+    "edge": 2.6,
+    "ev": -0.0071,
+    "fair": 229.8,
+    "line": 230.5,
+    "model": 227.9,
     "odds": -110.0,
     "play": false,
-    "prob": 0.514,
+    "prob": 0.52,
     "push_prob": 0.0,
-    "side": "over",
+    "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-11-08T00:38:13Z",
+   "updated": "2026-11-08T01:31:52Z",
    "week": 202645,
    "weights": {
     "eff": 0.287,
@@ -13524,7 +13524,7 @@
    "away_abbr": "MIA",
    "bet_at": "2026-11-08T00:38:13Z",
    "bet_line": 8.5,
-   "book": "DraftKings",
+   "book": "Draft Kings",
    "conf_label": "High",
    "confidence": 78,
    "confidence_detail": {
@@ -13596,7 +13596,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-11-08T00:38:13Z",
+   "updated": "2026-11-08T01:31:52Z",
    "week": 202645,
    "weights": {
     "eff": 0.287,
