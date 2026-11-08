@@ -11444,7 +11444,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-11-08T18:49:05Z",
+   "updated": "2026-11-08T20:31:36Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -11508,12 +11508,18 @@
    "props": [
     {
      "bet": false,
-     "fair": 146,
+     "book": "DraftKings",
+     "ev": -0.19,
+     "fair": 136,
      "games": 26,
+     "kelly": -0.209,
      "lam": 0.5223,
+     "mkt_prob": 0.436,
+     "n_books": 6,
      "name": "James Cook III",
-     "note": "no market price yet",
-     "p": 0.407,
+     "note": "no value at market price",
+     "odds": -110.0,
+     "p": 0.424,
      "p_model": 0.407,
      "pid": "00-0037248",
      "pos": "RB",
@@ -11521,12 +11527,18 @@
     },
     {
      "bet": false,
-     "fair": 208,
+     "book": "BetRivers",
+     "ev": -0.2293,
+     "fair": 151,
      "games": 25,
+     "kelly": -0.2453,
      "lam": 0.3935,
+     "mkt_prob": 0.45,
+     "n_books": 6,
      "name": "Josh Allen",
-     "note": "no market price yet",
-     "p": 0.325,
+     "note": "no value at market price",
+     "odds": -107.0,
+     "p": 0.398,
      "p_model": 0.325,
      "pid": "00-0034857",
      "pos": "QB",
@@ -11534,12 +11546,18 @@
     },
     {
      "bet": false,
-     "fair": 222,
+     "book": "FanDuel",
+     "ev": -0.1803,
+     "fair": 217,
      "games": 23,
+     "kelly": -0.1127,
      "lam": 0.3728,
+     "mkt_prob": 0.318,
+     "n_books": 6,
      "name": "Justin Jefferson",
-     "note": "no market price yet",
-     "p": 0.311,
+     "note": "no value at market price",
+     "odds": 160.0,
+     "p": 0.315,
      "p_model": 0.311,
      "pid": "00-0036322",
      "pos": "WR",
@@ -11568,7 +11586,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-11-08T18:49:05Z",
+   "updated": "2026-11-08T20:31:36Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -12423,7 +12441,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-08T18:49:05Z",
+   "updated": "2026-11-08T20:31:36Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -12565,7 +12583,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-11-08T18:49:05Z",
+   "updated": "2026-11-08T20:31:36Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -12998,7 +13016,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-08T18:49:05Z",
+   "updated": "2026-11-08T20:31:36Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
@@ -13418,7 +13436,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-11-08T18:49:05Z",
+   "updated": "2026-11-08T20:31:36Z",
    "week": 9,
    "weights": {
     "elo": 0.933,
