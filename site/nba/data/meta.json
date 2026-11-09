@@ -97,21 +97,8 @@
  "trend_seasons": null,
  "tuning": {
   "enabled": true,
-  "games": 92,
+  "games": 146,
   "history": [
-   {
-    "at": "2026-02-13T03:00:00Z",
-    "games": 568,
-    "home_field": 1.526,
-    "rmse_after": 14.311,
-    "rmse_before": 14.314,
-    "status": "updated",
-    "weights": {
-     "eff": 0.186,
-     "elo": 0.124,
-     "pts": 0.69
-    }
-   },
    {
     "at": "2026-02-23T02:00:00Z",
     "games": 604,
@@ -358,19 +345,32 @@
      "elo": 0.067,
      "pts": 0.646
     }
+   },
+   {
+    "at": "2026-11-09T22:16:46Z",
+    "games": 146,
+    "home_field": 1.528,
+    "rmse_after": 14.551,
+    "rmse_before": 14.613,
+    "status": "updated",
+    "weights": {
+     "eff": 0.09,
+     "elo": 0.073,
+     "pts": 0.836
+    }
    }
   ],
-  "home_field": 1.644,
+  "home_field": 1.528,
   "last": {
    "after": {
-    "home_field": 1.644,
+    "home_field": 1.528,
     "weights": {
-     "eff": 0.287,
-     "elo": 0.067,
-     "pts": 0.646
+     "eff": 0.09,
+     "elo": 0.073,
+     "pts": 0.836
     }
    },
-   "alpha": 0.187,
+   "alpha": 0.267,
    "anchor": {
     "home_field": 1.701,
     "weights": {
@@ -379,7 +379,7 @@
      "pts": 0.795
     }
    },
-   "at": "2026-11-02T21:41:03Z",
+   "at": "2026-11-09T22:16:46Z",
    "before": {
     "home_field": 2.3,
     "weights": {
@@ -390,35 +390,35 @@
    },
    "by_source": {
     "eff": {
-     "rmse": 15.024
+     "rmse": 14.546
     },
     "elo": {
-     "rmse": 15.405
+     "rmse": 14.753
     },
     "pts": {
-     "rmse": 15.036
+     "rmse": 14.544
     }
    },
    "fit": {
-    "home_field": 1.397,
+    "home_field": 1.054,
     "weights": {
-     "eff": 1.0,
-     "elo": 0.0,
-     "pts": 0.0
+     "eff": 0.0,
+     "elo": 0.05,
+     "pts": 0.95
     }
    },
-   "games": 92,
-   "rmse_after": 15.045,
-   "rmse_before": 15.126,
+   "games": 146,
+   "rmse_after": 14.551,
+   "rmse_before": 14.613,
    "season": 2027,
    "status": "updated"
   },
   "min_games": 60,
-  "updated": "2026-11-02T21:41:03Z",
+  "updated": "2026-11-09T22:16:46Z",
   "weights": {
-   "eff": 0.287,
-   "elo": 0.067,
-   "pts": 0.646
+   "eff": 0.09,
+   "elo": 0.073,
+   "pts": 0.836
   }
  },
  "week": null
