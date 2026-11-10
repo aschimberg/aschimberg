@@ -13610,53 +13610,28 @@
    }
   },
   "2026_10_BUF_NYJ": {
-   "ats_line": -7.0,
-   "ats_side": "away",
-   "ats_team": "Buffalo Bills",
+   "ats_line": null,
+   "ats_side": null,
+   "ats_team": null,
    "away": "Buffalo Bills",
    "away_abbr": "BUF",
-   "bet_at": "2026-11-09T00:55:03Z",
-   "bet_line": 8.5,
    "book": "nflverse consensus",
-   "conf_label": "High",
-   "confidence": 75,
-   "confidence_detail": {
-    "agree": 2,
-    "components": {
-     "agreement": 1.0,
-     "consistency": 0.781,
-     "data": 1.0,
-     "edge": 0.897,
-     "market": 0.0,
-     "trends": 0.625
-    },
-    "label": "High",
-    "n_sources": 2,
-    "score": 75,
-    "side": "away",
-    "source_names": {
-     "elo": "Elo",
-     "epa": "EPA"
-    },
-    "sources": {
-     "elo": -11.2,
-     "epa": -8.2
-    }
-   },
-   "cover_prob": 0.491,
+   "conf_label": null,
+   "confidence": null,
+   "confidence_detail": null,
+   "cover_prob": null,
    "diffs": {
     "elo": -13.31,
     "epa": -10.25
    },
-   "edge": 4.0,
-   "ev": -0.065,
-   "fair_line": 7.8,
+   "edge": null,
+   "ev": null,
    "hfa_flag": 1,
    "home": "New York Jets",
    "home_abbr": "NYJ",
    "home_field": 1.613,
    "id": "2026_10_BUF_NYJ",
-   "line": 7.0,
+   "line": null,
    "model_spread": 11.0,
    "model_total": 53.8,
    "neutral": false,
@@ -13704,29 +13679,16 @@
      "team": "NYJ"
     }
    ],
-   "push_prob": 0.078,
    "result": null,
    "season": 2026,
    "season_type": "regular",
    "start": "2026-11-15T18:00:00Z",
    "su_team": "Buffalo Bills",
    "su_wp": 0.798,
-   "tier": "pass",
-   "total_line": 51.0,
-   "total_pick": {
-    "edge": 2.8,
-    "ev": -0.0457,
-    "fair": 51.4,
-    "line": 51.0,
-    "model": 53.8,
-    "odds": null,
-    "play": false,
-    "prob": 0.499,
-    "push_prob": 0.044,
-    "side": "over",
-    "tier": "pass"
-   },
-   "updated": "2026-11-09T21:06:32Z",
+   "tier": null,
+   "total_line": null,
+   "total_pick": null,
+   "updated": "2026-11-10T03:34:38Z",
    "week": 10,
    "weights": {
     "elo": 0.933,
@@ -13850,7 +13812,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-09T21:06:32Z",
+   "updated": "2026-11-10T03:34:38Z",
    "week": 10,
    "weights": {
     "elo": 0.933,
@@ -13974,7 +13936,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-11-09T21:06:32Z",
+   "updated": "2026-11-10T03:34:38Z",
    "week": 10,
    "weights": {
     "elo": 0.933,
@@ -14021,7 +13983,7 @@
     "epa": -20.35
    },
    "edge": 2.1,
-   "ev": -0.05,
+   "ev": -0.07,
    "fair_line": 10.2,
    "hfa_flag": 1,
    "home": "Tennessee Titans",
@@ -14098,7 +14060,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-09T21:06:32Z",
+   "updated": "2026-11-10T03:34:38Z",
    "week": 10,
    "weights": {
     "elo": 0.933,
@@ -14222,7 +14184,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-09T21:06:32Z",
+   "updated": "2026-11-10T03:34:38Z",
    "week": 10,
    "weights": {
     "elo": 0.933,
@@ -14230,7 +14192,7 @@
    }
   },
   "2026_10_LAC_BAL": {
-   "ats_line": 5.5,
+   "ats_line": 5.0,
    "ats_side": "away",
    "ats_team": "Los Angeles Chargers",
    "away": "Los Angeles Chargers",
@@ -14238,21 +14200,21 @@
    "bet_at": "2026-11-09T00:55:03Z",
    "bet_line": -2.5,
    "book": "nflverse consensus",
-   "conf_label": "High",
-   "confidence": 72,
+   "conf_label": "Medium",
+   "confidence": 68,
    "confidence_detail": {
-    "agree": 2,
+    "agree": 1,
     "components": {
-     "agreement": 1.0,
+     "agreement": 0.933,
      "consistency": 0.731,
      "data": 1.0,
-     "edge": 0.889,
+     "edge": 0.778,
      "market": 0.0,
      "trends": 0.5
     },
-    "label": "High",
+    "label": "Medium",
     "n_sources": 2,
-    "score": 72,
+    "score": 68,
     "side": "away",
     "source_names": {
      "elo": "Elo",
@@ -14263,20 +14225,20 @@
      "epa": 5.0
     }
    },
-   "cover_prob": 0.54,
+   "cover_prob": 0.522,
    "diffs": {
     "elo": 4.11,
     "epa": 7.87
    },
-   "edge": 4.0,
-   "ev": 0.01,
-   "fair_line": -4.4,
+   "edge": 3.5,
+   "ev": -0.011,
+   "fair_line": -4.2,
    "hfa_flag": 1,
    "home": "Baltimore Ravens",
    "home_abbr": "BAL",
    "home_field": 1.613,
    "id": "2026_10_LAC_BAL",
-   "line": -5.5,
+   "line": -5.0,
    "model_spread": -1.5,
    "model_total": 37.1,
    "neutral": false,
@@ -14324,14 +14286,14 @@
      "team": "LAC"
     }
    ],
-   "push_prob": 0.0,
+   "push_prob": 0.031,
    "result": null,
    "season": 2026,
    "season_type": "regular",
    "start": "2026-11-17T01:15:00Z",
    "su_team": "Baltimore Ravens",
    "su_wp": 0.551,
-   "tier": "lean",
+   "tier": "pass",
    "total_line": 38.5,
    "total_pick": {
     "edge": 1.4,
@@ -14346,7 +14308,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-11-09T21:06:32Z",
+   "updated": "2026-11-10T03:34:38Z",
    "week": 10,
    "weights": {
     "elo": 0.933,
@@ -14354,98 +14316,98 @@
    }
   },
   "2026_10_LA_ARI": {
-   "ats_line": -7.5,
-   "ats_side": "away",
-   "ats_team": "Los Angeles Rams",
+   "ats_line": 9.5,
+   "ats_side": "home",
+   "ats_team": "Arizona Cardinals",
    "away": "Los Angeles Rams",
    "away_abbr": "LA",
-   "bet_at": "2026-11-09T08:38:28Z",
-   "bet_line": 7.5,
+   "bet_at": "2026-11-10T03:34:38Z",
+   "bet_line": 9.5,
    "book": "nflverse consensus",
-   "conf_label": "Low",
-   "confidence": 33,
+   "conf_label": "Medium",
+   "confidence": 63,
    "confidence_detail": {
     "agree": 1,
     "components": {
-     "agreement": 0.067,
+     "agreement": 0.933,
      "consistency": 0.771,
      "data": 1.0,
-     "edge": 0.021,
+     "edge": 0.65,
      "market": 0.1,
-     "trends": 0.75
+     "trends": 0.25
     },
-    "label": "Low",
+    "label": "Medium",
     "n_sources": 2,
-    "score": 33,
-    "side": "away",
+    "score": 63,
+    "side": "home",
     "source_names": {
      "elo": "Elo",
      "epa": "EPA"
     },
     "sources": {
-     "elo": -7.4,
-     "epa": -10.6
+     "elo": -6.4,
+     "epa": -9.6
     }
    },
-   "cover_prob": 0.47,
+   "cover_prob": 0.534,
    "diffs": {
     "elo": -8.5,
     "epa": -11.71
    },
-   "edge": 0.1,
-   "ev": -0.122,
-   "fair_line": 8.0,
+   "edge": 2.9,
+   "ev": 0.029,
+   "fair_line": 8.8,
    "hfa_flag": 1,
    "home": "Arizona Cardinals",
    "home_abbr": "ARI",
    "home_field": 1.613,
    "id": "2026_10_LA_ARI",
-   "line": 7.5,
-   "model_spread": 7.6,
+   "line": 9.5,
+   "model_spread": 6.6,
    "model_total": 46.6,
    "neutral": false,
-   "offset": -0.49,
-   "proj_away": 27.1,
-   "proj_home": 19.5,
+   "offset": 0.53,
+   "proj_away": 26.6,
+   "proj_home": 20.0,
    "props": [
     {
      "bet": false,
-     "fair": -125,
+     "fair": -122,
      "games": 29,
-     "lam": 0.8122,
+     "lam": 0.7972,
      "name": "Kyren Williams",
      "note": "no market price yet",
-     "p": 0.556,
-     "p_model": 0.556,
+     "p": 0.549,
+     "p_model": 0.549,
      "pid": "00-0037840",
      "pos": "RB",
      "team": "LA"
     },
     {
      "bet": false,
-     "fair": 105,
+     "fair": 107,
      "games": 23,
-     "lam": 0.6701,
+     "lam": 0.6577,
      "name": "Davante Adams",
      "note": "no market price yet",
-     "p": 0.488,
-     "p_model": 0.488,
+     "p": 0.482,
+     "p_model": 0.482,
      "pid": "00-0031381",
      "pos": "WR",
      "team": "LA"
     },
     {
      "bet": false,
-     "fair": 114,
+     "fair": 150,
      "games": 26,
-     "lam": 0.6296,
-     "name": "Puka Nacua",
+     "lam": 0.5116,
+     "name": "Trey McBride",
      "note": "no market price yet",
-     "p": 0.467,
-     "p_model": 0.467,
-     "pid": "00-0039075",
-     "pos": "WR",
-     "team": "LA"
+     "p": 0.4,
+     "p_model": 0.4,
+     "pid": "00-0037744",
+     "pos": "TE",
+     "team": "ARI"
     }
    ],
    "push_prob": 0.0,
@@ -14454,23 +14416,23 @@
    "season_type": "regular",
    "start": "2026-11-15T21:05:00Z",
    "su_team": "Los Angeles Rams",
-   "su_wp": 0.717,
-   "tier": "pass",
-   "total_line": 44.0,
+   "su_wp": 0.691,
+   "tier": "play",
+   "total_line": 40.0,
    "total_pick": {
-    "edge": 2.6,
-    "ev": -0.0687,
-    "fair": 44.4,
-    "line": 44.0,
+    "edge": 6.6,
+    "ev": -0.0197,
+    "fair": 41.0,
+    "line": 40.0,
     "model": 46.6,
     "odds": null,
     "play": false,
-    "prob": 0.486,
-    "push_prob": 0.039,
+    "prob": 0.513,
+    "push_prob": 0.032,
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-09T21:06:32Z",
+   "updated": "2026-11-10T03:34:38Z",
    "week": 10,
    "weights": {
     "elo": 0.933,
@@ -14594,7 +14556,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-09T21:06:32Z",
+   "updated": "2026-11-10T03:34:38Z",
    "week": 10,
    "weights": {
     "elo": 0.933,
@@ -14602,53 +14564,28 @@
    }
   },
   "2026_10_MIN_GB": {
-   "ats_line": 3.5,
-   "ats_side": "away",
-   "ats_team": "Minnesota Vikings",
+   "ats_line": null,
+   "ats_side": null,
+   "ats_team": null,
    "away": "Minnesota Vikings",
    "away_abbr": "MIN",
-   "bet_at": "2026-11-09T00:55:03Z",
-   "bet_line": -3.0,
    "book": "nflverse consensus",
-   "conf_label": "Medium",
-   "confidence": 62,
-   "confidence_detail": {
-    "agree": 1,
-    "components": {
-     "agreement": 0.933,
-     "consistency": 0.447,
-     "data": 1.0,
-     "edge": 0.507,
-     "market": 0.3,
-     "trends": 0.5
-    },
-    "label": "Medium",
-    "n_sources": 2,
-    "score": 62,
-    "side": "away",
-    "source_names": {
-     "elo": "Elo",
-     "epa": "EPA"
-    },
-    "sources": {
-     "elo": 0.7,
-     "epa": 8.4
-    }
-   },
-   "cover_prob": 0.532,
+   "conf_label": null,
+   "confidence": null,
+   "confidence_detail": null,
+   "cover_prob": null,
    "diffs": {
     "elo": -1.53,
     "epa": 6.21
    },
-   "edge": 2.3,
-   "ev": -0.006,
-   "fair_line": -3.2,
+   "edge": null,
+   "ev": null,
    "hfa_flag": 1,
    "home": "Green Bay Packers",
    "home_abbr": "GB",
    "home_field": 1.613,
    "id": "2026_10_MIN_GB",
-   "line": -3.5,
+   "line": null,
    "model_spread": -1.2,
    "model_total": 36.0,
    "neutral": false,
@@ -14696,29 +14633,16 @@
      "team": "GB"
     }
    ],
-   "push_prob": 0.0,
    "result": null,
    "season": 2026,
    "season_type": "regular",
    "start": "2026-11-15T18:00:00Z",
    "su_team": "Green Bay Packers",
    "su_wp": 0.524,
-   "tier": "pass",
-   "total_line": 42.0,
-   "total_pick": {
-    "edge": 6.0,
-    "ev": 0.0302,
-    "fair": 41.1,
-    "line": 42.0,
-    "model": 36.0,
-    "odds": null,
-    "play": true,
-    "prob": 0.54,
-    "push_prob": 0.015,
-    "side": "under",
-    "tier": "strong"
-   },
-   "updated": "2026-11-09T21:06:32Z",
+   "tier": null,
+   "total_line": null,
+   "total_pick": null,
+   "updated": "2026-11-10T03:34:38Z",
    "week": 10,
    "weights": {
     "elo": 0.933,
@@ -14765,7 +14689,7 @@
     "epa": -1.55
    },
    "edge": 1.6,
-   "ev": -0.093,
+   "ev": -0.03,
    "fair_line": -1.5,
    "hfa_flag": 0,
    "home": "Detroit Lions",
@@ -14842,7 +14766,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-09T21:06:32Z",
+   "updated": "2026-11-10T03:34:38Z",
    "week": 10,
    "weights": {
     "elo": 0.933,
@@ -14966,7 +14890,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-09T21:06:32Z",
+   "updated": "2026-11-10T03:34:38Z",
    "week": 10,
    "weights": {
     "elo": 0.933,
@@ -14974,7 +14898,7 @@
    }
   },
   "2026_10_SEA_LV": {
-   "ats_line": -3.0,
+   "ats_line": -3.5,
    "ats_side": "away",
    "ats_team": "Seattle Seahawks",
    "away": "Seattle Seahawks",
@@ -14990,8 +14914,8 @@
      "agreement": 1.0,
      "consistency": 0.743,
      "data": 1.0,
-     "edge": 0.383,
-     "market": 0.3,
+     "edge": 0.272,
+     "market": 0.5,
      "trends": 0.5
     },
     "label": "Medium",
@@ -15007,20 +14931,20 @@
      "epa": -8.1
     }
    },
-   "cover_prob": 0.505,
+   "cover_prob": 0.498,
    "diffs": {
     "elo": -9.15,
     "epa": -12.75
    },
-   "edge": 1.7,
-   "ev": -0.053,
-   "fair_line": 2.8,
+   "edge": 1.2,
+   "ev": -0.014,
+   "fair_line": 3.7,
    "hfa_flag": 1,
    "home": "Las Vegas Raiders",
    "home_abbr": "LV",
    "home_field": 1.613,
    "id": "2026_10_SEA_LV",
-   "line": 3.0,
+   "line": 3.5,
    "model_spread": 4.7,
    "model_total": 41.3,
    "neutral": false,
@@ -15068,7 +14992,7 @@
      "team": "LV"
     }
    ],
-   "push_prob": 0.072,
+   "push_prob": 0.0,
    "result": null,
    "season": 2026,
    "season_type": "regular",
@@ -15090,7 +15014,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-11-09T21:06:32Z",
+   "updated": "2026-11-10T03:34:38Z",
    "week": 10,
    "weights": {
     "elo": 0.933,
@@ -15131,13 +15055,13 @@
      "epa": -8.6
     }
    },
-   "cover_prob": 0.5,
+   "cover_prob": 0.504,
    "diffs": {
     "elo": -6.74,
     "epa": -9.13
    },
    "edge": 2.4,
-   "ev": -0.024,
+   "ev": -0.045,
    "fair_line": 4.3,
    "hfa_flag": 1,
    "home": "Dallas Cowboys",
@@ -15192,7 +15116,7 @@
      "team": "DAL"
     }
    ],
-   "push_prob": 0.033,
+   "push_prob": 0.031,
    "result": null,
    "season": 2026,
    "season_type": "regular",
@@ -15200,21 +15124,21 @@
    "su_team": "San Francisco 49ers",
    "su_wp": 0.694,
    "tier": "pass",
-   "total_line": 56.0,
+   "total_line": 55.5,
    "total_pick": {
-    "edge": 5.8,
-    "ev": -0.0537,
-    "fair": 56.9,
-    "line": 56.0,
+    "edge": 6.3,
+    "ev": -0.047,
+    "fair": 56.4,
+    "line": 55.5,
     "model": 61.8,
     "odds": null,
     "play": false,
-    "prob": 0.495,
-    "push_prob": 0.013,
+    "prob": 0.499,
+    "push_prob": 0.0,
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-09T21:06:32Z",
+   "updated": "2026-11-10T03:34:38Z",
    "week": 10,
    "weights": {
     "elo": 0.933,
@@ -15222,7 +15146,7 @@
    }
   },
   "2026_10_WAS_NYG": {
-   "ats_line": 1.5,
+   "ats_line": 2.0,
    "ats_side": "away",
    "ats_team": "Washington Commanders",
    "away": "Washington Commanders",
@@ -15238,8 +15162,8 @@
      "agreement": 0.933,
      "consistency": 0.909,
      "data": 1.0,
-     "edge": 0.053,
-     "market": 0.5,
+     "edge": 0.164,
+     "market": 0.3,
      "trends": 0.5
     },
     "label": "Medium",
@@ -15255,20 +15179,20 @@
      "epa": 2.5
     }
    },
-   "cover_prob": 0.484,
+   "cover_prob": 0.495,
    "diffs": {
     "elo": 2.3,
     "epa": 3.58
    },
-   "edge": 0.2,
-   "ev": -0.075,
-   "fair_line": -0.9,
+   "edge": 0.7,
+   "ev": -0.055,
+   "fair_line": -1.2,
    "hfa_flag": 1,
    "home": "New York Giants",
    "home_abbr": "NYG",
    "home_field": 1.613,
    "id": "2026_10_WAS_NYG",
-   "line": -1.5,
+   "line": -2.0,
    "model_spread": -1.3,
    "model_total": 45.2,
    "neutral": false,
@@ -15316,7 +15240,7 @@
      "team": "NYG"
     }
    ],
-   "push_prob": 0.0,
+   "push_prob": 0.02,
    "result": null,
    "season": 2026,
    "season_type": "regular",
@@ -15338,7 +15262,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-09T21:06:32Z",
+   "updated": "2026-11-10T03:34:38Z",
    "week": 10,
    "weights": {
     "elo": 0.933,
