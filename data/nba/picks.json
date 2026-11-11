@@ -14924,22 +14924,22 @@
    "away_abbr": "ORL",
    "bet_at": "2026-11-10T03:42:44Z",
    "bet_line": 5.5,
-   "book": "DraftKings",
+   "book": "Draft Kings",
    "conf_label": "High",
-   "confidence": 78,
+   "confidence": 79,
    "confidence_detail": {
     "agree": 3,
     "components": {
      "agreement": 1.0,
      "consistency": 0.936,
      "data": 0.9,
-     "edge": 0.804,
+     "edge": 0.813,
      "market": 0.5,
      "trends": 0.5
     },
     "label": "High",
     "n_sources": 3,
-    "score": 78,
+    "score": 79,
     "side": "home",
     "source_names": {
      "eff": "Efficiency",
@@ -14947,20 +14947,20 @@
      "pts": "Points"
     },
     "sources": {
-     "eff": -1.1,
-     "elo": -2.0,
-     "pts": -1.3
+     "eff": -0.9,
+     "elo": -1.8,
+     "pts": -1.0
     }
    },
-   "cover_prob": 0.506,
+   "cover_prob": 0.513,
    "date": "2026-11-10",
    "diffs": {
     "eff": -4.62,
     "elo": -5.49,
     "pts": -4.73
    },
-   "edge": 4.0,
-   "ev": -0.025,
+   "edge": 4.1,
+   "ev": -0.012,
    "fair_line": 4.5,
    "hfa_flag": 1,
    "home": "Sacramento Kings",
@@ -14968,35 +14968,35 @@
    "home_field": 1.528,
    "id": "401909964",
    "line": 5.5,
-   "model_spread": 1.5,
-   "model_total": 226.2,
+   "model_spread": 1.4,
+   "model_total": 226.1,
    "neutral": false,
-   "offset": 1.95,
-   "proj_away": 113.9,
-   "proj_home": 112.4,
+   "offset": 2.2,
+   "proj_away": 113.8,
+   "proj_home": 112.3,
    "push_prob": 0.0,
    "result": null,
    "season": 2027,
    "season_type": "regular",
    "start": "2026-11-11T03:00:00Z",
    "su_team": "Orlando Magic",
-   "su_wp": 0.542,
+   "su_wp": 0.537,
    "tier": "pass",
    "total_line": 222.5,
    "total_pick": {
-    "edge": 3.7,
-    "ev": -0.0033,
+    "edge": 3.6,
+    "ev": 0.004,
     "fair": 223.4,
     "line": 222.5,
-    "model": 226.2,
+    "model": 226.1,
     "odds": -105.0,
     "play": false,
-    "prob": 0.51,
+    "prob": 0.514,
     "push_prob": 0.0,
     "side": "over",
-    "tier": "pass"
+    "tier": "lean"
    },
-   "updated": "2026-11-11T01:17:57Z",
+   "updated": "2026-11-11T02:18:54Z",
    "week": 202646,
    "weights": {
     "eff": 0.09,
@@ -15012,7 +15012,7 @@
    "away_abbr": "OKC",
    "bet_at": "2026-11-10T03:42:44Z",
    "bet_line": 1.5,
-   "book": "DraftKings",
+   "book": "Draft Kings",
    "conf_label": "Medium",
    "confidence": 64,
    "confidence_detail": {
@@ -15073,18 +15073,18 @@
    "total_line": 226.5,
    "total_pick": {
     "edge": 6.1,
-    "ev": 0.0366,
+    "ev": 0.0151,
     "fair": 225.0,
     "line": 226.5,
     "model": 220.4,
-    "odds": -110.0,
+    "odds": -115.0,
     "play": true,
     "prob": 0.543,
     "push_prob": 0.0,
     "side": "under",
-    "tier": "strong"
+    "tier": "play"
    },
-   "updated": "2026-11-11T01:17:57Z",
+   "updated": "2026-11-11T02:18:54Z",
    "week": 202646,
    "weights": {
     "eff": 0.09,
@@ -15100,7 +15100,7 @@
    "away_abbr": "WSH",
    "bet_at": "2026-11-11T01:17:57Z",
    "bet_line": -4.5,
-   "book": "DraftKings",
+   "book": "Draft Kings",
    "conf_label": "Medium",
    "confidence": 66,
    "confidence_detail": {
@@ -15172,7 +15172,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-11-11T01:17:57Z",
+   "updated": "2026-11-11T02:18:54Z",
    "week": 202646,
    "weights": {
     "eff": 0.09,
@@ -15188,7 +15188,7 @@
    "away_abbr": "SA",
    "bet_at": "2026-11-11T01:17:57Z",
    "bet_line": 15.5,
-   "book": "DraftKings",
+   "book": "Draft Kings",
    "conf_label": "Low",
    "confidence": 54,
    "confidence_detail": {
@@ -15260,7 +15260,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-11-11T01:17:57Z",
+   "updated": "2026-11-11T02:18:54Z",
    "week": 202646,
    "weights": {
     "eff": 0.09,
@@ -15276,7 +15276,7 @@
    "away_abbr": "DEN",
    "bet_at": "2026-11-11T01:17:57Z",
    "bet_line": 4.5,
-   "book": "DraftKings",
+   "book": "Draft Kings",
    "conf_label": "High",
    "confidence": 75,
    "confidence_detail": {
@@ -15348,7 +15348,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-11T01:17:57Z",
+   "updated": "2026-11-11T02:18:54Z",
    "week": 202646,
    "weights": {
     "eff": 0.09,
@@ -15364,7 +15364,7 @@
    "away_abbr": "BKN",
    "bet_at": "2026-11-11T01:17:57Z",
    "bet_line": -5.5,
-   "book": "DraftKings",
+   "book": "Draft Kings",
    "conf_label": "Medium",
    "confidence": 62,
    "confidence_detail": {
@@ -15436,7 +15436,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-11-11T01:17:57Z",
+   "updated": "2026-11-11T02:18:54Z",
    "week": 202646,
    "weights": {
     "eff": 0.09,
@@ -15445,30 +15445,30 @@
    }
   },
   "401909974": {
-   "ats_line": -4.5,
-   "ats_side": "home",
-   "ats_team": "Houston Rockets",
+   "ats_line": 5.5,
+   "ats_side": "away",
+   "ats_team": "Golden State Warriors",
    "away": "Golden State Warriors",
    "away_abbr": "GS",
-   "bet_at": "2026-11-11T01:17:57Z",
-   "bet_line": -4.5,
-   "book": "DraftKings",
+   "bet_at": "2026-11-11T02:18:54Z",
+   "bet_line": -5.5,
+   "book": "Draft Kings",
    "conf_label": "Medium",
-   "confidence": 56,
+   "confidence": 58,
    "confidence_detail": {
-    "agree": 3,
+    "agree": 2,
     "components": {
-     "agreement": 1.0,
+     "agreement": 0.927,
      "consistency": 0.912,
      "data": 1.0,
-     "edge": 0.163,
-     "market": 0.0,
+     "edge": 0.037,
+     "market": 0.5,
      "trends": 0.5
     },
     "label": "Medium",
     "n_sources": 3,
-    "score": 56,
-    "side": "home",
+    "score": 58,
+    "side": "away",
     "source_names": {
      "eff": "Efficiency",
      "elo": "Elo",
@@ -15480,22 +15480,22 @@
      "pts": 5.1
     }
    },
-   "cover_prob": 0.529,
+   "cover_prob": 0.478,
    "date": "2026-11-11",
    "diffs": {
     "eff": 1.76,
     "elo": 2.86,
     "pts": 1.72
    },
-   "edge": 0.8,
-   "ev": 0.011,
-   "fair_line": -4.7,
+   "edge": 0.2,
+   "ev": -0.107,
+   "fair_line": -5.5,
    "hfa_flag": 1,
    "home": "Houston Rockets",
    "home_abbr": "HOU",
    "home_field": 1.528,
    "id": "401909974",
-   "line": -4.5,
+   "line": -5.5,
    "model_spread": -5.3,
    "model_total": 223.4,
    "neutral": false,
@@ -15509,7 +15509,7 @@
    "start": "2026-11-12T02:30:00Z",
    "su_team": "Houston Rockets",
    "su_wp": 0.644,
-   "tier": "lean",
+   "tier": "pass",
    "total_line": 223.5,
    "total_pick": {
     "edge": 0.1,
@@ -15524,7 +15524,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-11-11T01:17:57Z",
+   "updated": "2026-11-11T02:18:54Z",
    "week": 202646,
    "weights": {
     "eff": 0.09,
