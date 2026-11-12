@@ -3,7 +3,7 @@ from datetime import datetime, timedelta, timezone
 
 from cfbmodel import ats, store
 from cfbmodel.model import grade as ats_grade
-from sportscommon import anchor as anc, clv, drivesim, footsim, news, oddsapi, totals
+from sportscommon import anchor as anc, clv, drivesim, footsim, news, oddsapi, polymarket, totals
 from sportscommon import props as sprops
 from sportscommon import confidence as conf
 from sportscommon import record as recmod
@@ -162,6 +162,7 @@ def ats_pick(g, margin, total, diffs, offset, hflag, s, move, trend_block, dq, s
         "ats_side": side, "ats_team": teams.name(g[side]), "ats_line": s if side == "home" else -s,
         "edge": round(edge, 1), "fair_line": pr["fair_line"], "cover_prob": pr["cover_prob"],
         "push_prob": pr["push_prob"], "ev": pr["ev"], "tier": pr["tier"],
+        "fair_home_wp": pr.get("home_wp"),  # market-anchored win chance, priced against Polymarket
     }
     covers = {k: sign * (diffs[k] + config.HOME_FIELD * hflag + offset + s) for k in SOURCES}
     conf_detail = conf.score(
@@ -273,6 +274,9 @@ def refresh(games=None, pbp_loader=None, now=None, log=print, espn_loader=None):
             if tot:
                 g["total"] = tot["consensus"]
 
+    pm = polymarket.fetch_quotes("nfl", [(g["id"], teams.name(g["home"]), teams.name(g["away"]), g["start"])
+                                         for g in upcoming], now, 24 * 9, log=log)
+
     headlines = []
     if upcoming and news.enabled():
         try:
@@ -357,6 +361,9 @@ def refresh(games=None, pbp_loader=None, now=None, log=print, espn_loader=None):
 
         start = datetime.fromisoformat(g["start"].replace("Z", "+00:00")) if g["start"] else None
         started = start is not None and start <= now
+        pq = pm.get(g["id"]) if not started and not g["completed"] else None
+        poly = polymarket.price(pq[1], pick.get("fair_home_wp"), {"home": teams.name(h), "away": teams.name(a)},
+                                pq[0], now) if pq else None
         if not started and not g["completed"]:
             prev = picks.get(g["id"])
             picks[g["id"]] = {
@@ -372,6 +379,7 @@ def refresh(games=None, pbp_loader=None, now=None, log=print, espn_loader=None):
             snaps = lh["games"].get(g["id"]) or []
             clv.carry_bet(picks[g["id"]], prev, iso(now), (line or {}).get("spread"),
                           first_seen=(snaps[0][0], snaps[0][1]) if snaps else None)
+            polymarket.carry(picks[g["id"]], prev, poly, iso(now))
         logged = picks.get(g["id"])
         if logged and logged.get("confidence_detail"):
             conf_detail = logged["confidence_detail"]
@@ -421,6 +429,7 @@ def refresh(games=None, pbp_loader=None, now=None, log=print, espn_loader=None):
             "pick": card_pick,
             "confidence": conf_detail, "locked": started or g["completed"], "trends": trend_block, "splits": None,
             "result": res, "extras": extras, "news": news_block,
+            "polymarket": poly or (logged or {}).get("poly"), "poly_bet": (logged or {}).get("poly_bet"),
             "angles": [{"key": k, "side": sd, "team": teams.name(g[sd]),
                         "line": (line["spread"] if sd == "home" else -line["spread"]), "text": angles.text(k, angle_rec)}
                        for k, sd in angles.hits(g, line["spread"], angle_last)] if line and line.get("spread") is not None else [],
@@ -476,6 +485,7 @@ def grade_picks(picks, games_by_id, kw=None):
             res["total"] = totals.grade(p["total_pick"], hp + ap)
         p["result"] = res
         clv.finalize_spread(p, g.get("spread"), cover_prob if kw else None)
+        polymarket.grade(p, hp, ap)
         n += 1
     return n
 
@@ -517,6 +527,8 @@ def method_html():
 <p>Margin = {w['epa']:.0%} EPA + {w['elo']:.0%} Elo + QB adjustment + {config.HOME_FIELD:.2g} points home field (none at neutral sites) + a small rest term ({config.REST_PER_DAY:g} pts/day, capped; post-2011 rest effects are near zero). Cover probability uses a margin distribution reweighted to real NFL final margins since 2005, so key numbers like 3 and 7 carry their true weight and pushes are priced.</p>
 <h3>Picks, confidence and tuning</h3>
 <p>Edge = projected margin vs the line. Backtests show the model's gap to the line hasn't predicted results, so bets are priced at a market-anchored line that moves {config.ANCHOR_WEIGHT:.0%} of the way from the line toward the model, at most {config.ANCHOR_MAX_SHIFT:g} points. Tiers come from expected value at that price: lean above 0%, play 1.5%+, strong 3%+. Every game is simulated {config.SIMS:,} times drive by drive: both teams get the same number of possessions, each drive ends in a touchdown (extra point or two-point try), a field goal or nothing, with chances set so each team's expected points match the projection, and ties go to overtime. Points coming in 3s and 7s produces key numbers on its own; a few near-key finishes are nudged onto 3, 7 and 14 to match real games. Cover and over/under chances (pushes included) come from games simulated at the anchored line, starting from the margin that makes the line a coin flip. Confidence (0–100) weighs whether EPA and Elo each cover on their own, edge, line movement, ATS trends, and data quality (games played, known starting QBs). After each week the EPA/Elo weights and home field are refit to this season's results and moved part of the way there.</p>
+<h3>Polymarket</h3>
+<p>Each game also shows the Polymarket US game-winner prices (contracts pay $1; the price is the ask). The model's chance is the market-anchored one: the same simulated games used to price the spread pick, re-centered on the anchored line, so it never strays far from the betting market. EV is per $1 staked at the ask after the taker fee ({polymarket.THETA:g} × price × (1 − price) per contract). A side with {polymarket.MIN_EV:.0%}+ EV in a market whose bid/ask gap is {polymarket.MAX_SPREAD * 100:.0f}¢ or less is logged as a paper bet at the first price it showed value and graded in units on the Record tab, with closing line value (closing ask minus entry price). Nothing is traded.</p>
 <p>Data: <a href="https://github.com/nflverse">nflverse</a> (CC BY 4.0) schedules, lines and play-by-play. For entertainment only.</p>"""
 
 
@@ -582,7 +594,8 @@ def write_record(now, season, picks):
                   key=lambda p: p.get("start") or "", reverse=True)
     store.save(config.SITE_DATA_DIR / "record.json",
                {"generated_at": iso(now), "season": season, "season_record": compute_record(picks, season),
-                "all_time": compute_record(picks, None), "picks": rows}, compact=True)
+                "all_time": compute_record(picks, None), "picks": rows,
+                "polymarket": polymarket.summarize(picks, season)}, compact=True)
 
 
 def tune(now=None, log=print):

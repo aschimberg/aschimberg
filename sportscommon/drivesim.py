@@ -246,14 +246,21 @@ def price_spread(league, model_margin, model_total, home_spread, market_total, a
     t = market_total or model_total or LEAGUES[league].get("default_total", 45.0)
     mkt_m = market_mean(league, home_spread, t)
     fair_m = anc.fair(model_margin, mkt_m, *anchor)
-    hc, push, ac = cover(run_at(league, fair_m, t, n=n, seed=seed), home_spread)
+    res = run_at(league, fair_m, t, n=n, seed=seed)
+    hc, push, ac = cover(res, home_spread)
     side = "home" if model_margin + home_spread >= 0 else "away"
     p_cover = hc if side == "home" else ac
     p_lose = 1 - p_cover - push
     ev = _ev(p_cover, p_lose, home_odds if side == "home" else away_odds)
     return {"side": side, "fair_line": round(-fair_m, 1),
             "cover_prob": round(p_cover / (p_cover + p_lose), 3) if p_cover + p_lose else None,
-            "push_prob": round(push, 3), "ev": round(ev, 3), "tier": anc.tier(ev)}
+            "push_prob": round(push, 3), "ev": round(ev, 3), "tier": anc.tier(ev), "home_wp": round(win_prob(res), 4)}
+
+
+def win_prob(res):
+    """Home win chance from simulated games, ties counted half (a tied winner contract settles at $0.50)."""
+    ms = res["margins"]
+    return (sum(1 for m in ms if m > 0) + 0.5 * sum(1 for m in ms if m == 0)) / len(ms)
 
 
 def price_total(league, model_margin, model_total, line, anchor, over_odds=None, under_odds=None, n=2500, seed=0):

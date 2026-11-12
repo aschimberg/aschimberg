@@ -148,7 +148,8 @@ def ats_pick(proj, spread, team_name, h, a, home_odds=None, away_odds=None, move
     sign = 1 if side == "home" else -1
     edge = abs(margin + spread)
     fair_m = anc.fair(margin, -spread, *config.ANCHOR)  # priced at the market-anchored margin
-    hc, push, ac = sim.cover(priced(proj, margin_to=fair_m), spread)
+    res = priced(proj, margin_to=fair_m)
+    hc, push, ac = sim.cover(res, spread)
     p_cover = hc if side == "home" else ac
     p_lose = 1 - p_cover - push
     odds = (home_odds if side == "home" else away_odds) or -110
@@ -158,6 +159,8 @@ def ats_pick(proj, spread, team_name, h, a, home_odds=None, away_odds=None, move
         "edge": round(edge, 1), "fair_line": round(-fair_m, 1), "tier": anc.tier(ev),
         "cover_prob": round(p_cover / (p_cover + p_lose), 3) if p_cover + p_lose else None, "push_prob": round(push, 3),
         "ev": round(ev, 3),
+        # market-anchored home win chance (same re-centered games), priced against Polymarket
+        "fair_home_wp": round(sum(1 for m in res["margins"] if m > 0) / len(res["margins"]), 4),
     }
     covers = {k: sign * (proj["diffs"][k] + config.HOME_COURT * proj["hflag"] + proj["offset"] + spread) for k in SOURCES}
     detail = conf.score(

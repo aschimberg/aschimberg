@@ -239,6 +239,34 @@
     </div></details>`;
   }
 
+  // Polymarket US winner prices vs the market-anchored model chance; value sides are logged as paper bets
+  const cents = (v) => (v == null ? "—" : `${Math.round(v * 100)}¢`);
+  const evSpan = (v) => (v == null ? "" : ` <span class="${v > 0 ? "pos" : "neg"}">EV ${v > 0 ? "+" : "−"}${Math.abs(v * 100).toFixed(1)}%</span>`);
+  function polyLine(g) {
+    const m = g.polymarket, b = g.poly_bet;
+    if (!m && !b) return "";
+    const who = (s) => esc(g[s]?.abbr || g[s]?.name || s);
+    const parts = [`<span class="ou-label" title="Polymarket US game-winner contracts pay $1. Price is the ask; EV is per $1 staked after the taker fee, at the market-anchored model chance.">Polymarket</span>`];
+    if (m) {
+      for (const s of ["away", "home"]) {
+        const x = m[s];
+        if (!x) continue;
+        const tip = `${x.team}: ask ${cents(x.ask)}, bid ${cents(x.bid)}${x.p != null ? `; model ${Math.round(x.p * 100)}% (market-anchored)` : ""}`;
+        parts.push(`<span title="${esc(tip)}">${who(s)} ${cents(x.ask)}${x.p != null ? ` <span class="dim">${Math.round(x.p * 100)}%</span>` : ""}${evSpan(x.ev)}</span>`);
+      }
+    }
+    if (b) {
+      const lbl = { W: "Win", L: "Loss", P: "Tie" }[b.result];
+      const tip = `Paper bet at ${cents(b.price)} (${new Date(b.at).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit", timeZone: TZ })}): model ${Math.round(b.p * 100)}%, EV ${(b.ev * 100).toFixed(1)}% after fees`
+        + (b.close != null ? `; closed ${cents(b.close)}` : "");
+      parts.push(`<strong title="${esc(tip)}"><span class="tier ${esc(b.tier)}">bet</span> ${who(b.side)} ${cents(b.price)}`
+        + (lbl ? `<span class="res ${b.result}">${lbl} ${b.profit >= 0 ? "+" : "−"}${Math.abs(b.profit).toFixed(2)}u</span>` : "") + `</strong>`);
+    } else if (m && m.home?.p != null && !g.locked) {
+      parts.push(`<span><span class="tier pass">No value</span></span>`);
+    }
+    return `<div class="pick-line">${parts.join("")}</div>`;
+  }
+
   function notesSection(g) {
     const xs = g.extras || [];
     if (!xs.length) return "";
@@ -311,6 +339,8 @@
     } else if (p.su_team) {
       sel = `<span class="dim">No line</span><strong>SU ${esc(p.su_team)} ${Math.round(wp * 100)}%${res(r.su, { W: "W", L: "L" })}</strong>`;
     }
+
+    sel += polyLine(g);
 
     const ts = state.meta?.trend_seasons || [];
     const notable = g.trends && [...(g.trends.home || []), ...(g.trends.away || [])].some((t) => t.notable);
@@ -589,6 +619,18 @@
         `<div class="s">${esc(h.note)}${ph && ph.status !== "early" ? `<br>Before ${since}: ${esc(ph.note)}` : ""}</div></div>`;
       const g = groups.find(([name]) => name.startsWith("Plays"));
       if (g) g[1] += html; else groups.unshift(["Plays", html]);
+    }
+    const pmr = rec.polymarket;
+    if (pmr) {
+      const n = pmr.W + pmr.L + pmr.P;
+      const r = { W: pmr.W, L: pmr.L, P: pmr.P, pct: pmr.W + pmr.L ? pmr.W / (pmr.W + pmr.L) : null };
+      const c = pmr.clv;
+      groups.push(["Polymarket moneyline · paper bets",
+        tile("Bets", r, true, n ? ` · ${pmr.units >= 0 ? "+" : "−"}${Math.abs(pmr.units).toFixed(2)}u · ROI ${pct(pmr.roi)}` : " · none graded yet") +
+        `<div class="tile clv"><div class="k">Price CLV</div><div class="v ${c > 0 ? "pos" : c < 0 ? "neg" : ""}">${c == null ? "—" : `${c > 0 ? "+" : c < 0 ? "−" : ""}${Math.abs(c * 100).toFixed(1)}¢`}</div>` +
+        `<div class="s">${pmr.n_clv ? `closing ask vs entry · beat the close ${pmr.beat_close}/${pmr.n_clv}` : "none graded yet"}</div></div>` +
+        `<div class="tile"><div class="k">Open bets</div><div class="v">${pmr.open}</div>` +
+        `<div class="s">1 unit each at the ask · EV ≥ ${(pmr.min_ev * 100).toFixed(0)}% after the ${pmr.theta} taker fee${pmr.avg_ev != null ? ` · avg EV ${pct(pmr.avg_ev)}` : ""}</div></div>`]);
     }
     groups.push(["Closing line value",
       clvTile("All picks", clvStats(seasonPicks)) +

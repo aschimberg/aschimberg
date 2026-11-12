@@ -2,7 +2,7 @@
 from datetime import date, datetime, timedelta, timezone
 
 from cfbmodel import store
-from sportscommon import clv, oddsapi
+from sportscommon import clv, oddsapi, polymarket
 from sportscommon import confidence as conf
 from sportscommon import record as recmod
 from sportscommon import tuning as tunemod
@@ -107,6 +107,10 @@ def refresh(loader=None, now=None, log=print):
     slate_days = {(today + timedelta(days=i)).isoformat() for i in range(config.SLATE_DAYS)}
     slate = sorted((g for g in cur_games if g.get("date") in slate_days), key=lambda g: (g["start"] or "", g["home"]))
     fill_odds_from_api(slate, teams, now, log)
+    tname = lambda t: teams.get(t, {}).get("name") or t
+    pm = polymarket.fetch_quotes("nba", [(g["id"], tname(g["home"]), tname(g["away"]), g["start"]) for g in slate
+                                         if g["state"] == "pre" and g["start"] and g["start"] > iso(now)],
+                                 now, 24 * config.SLATE_DAYS + 12, log=log)
 
     lh = store.load(LINE_HISTORY_PATH, {})
     if lh.get("season") != season:
@@ -161,6 +165,9 @@ def refresh(loader=None, now=None, log=print):
             dq = min(1.0, min(st["gp"].get(h, 0), st["gp"].get(a, 0)) / 10)
             fields, conf_detail = model.ats_pick(proj, line["spread"], name, h, a, line["home_odds"], line["away_odds"], move, dq)
             pick.update(model.cap_early(fields) if is_early else fields)
+        pq = pm.get(g["id"]) if not started else None
+        poly = polymarket.price(pq[1], pick.get("fair_home_wp"), {"home": name(h), "away": name(a)}, pq[0], now,
+                                bet_ok=not is_early) if pq else None
 
         if not started and line:
             prev = picks.get(g["id"])
@@ -176,6 +183,7 @@ def refresh(loader=None, now=None, log=print):
             snaps = lh["games"].get(g["id"]) or []
             clv.carry_bet(picks[g["id"]], prev, iso(now), line["spread"],
                           first_seen=(snaps[0][0], snaps[0][1]) if snaps else None)
+            polymarket.carry(picks[g["id"]], prev, poly, iso(now))
         logged = picks.get(g["id"])
         if logged and logged.get("confidence_detail"):
             conf_detail = logged["confidence_detail"]
@@ -215,6 +223,7 @@ def refresh(loader=None, now=None, log=print):
                                                  "confidence", "conf_label", "cover_prob", "ev", "fair_line", "total_pick")} if logged else pick,
             "confidence": conf_detail, "locked": started, "trends": None, "splits": None, "result": res, "extras": extras,
             "status_detail": g.get("detail") if g["state"] == "in" else None,
+            "polymarket": poly or (logged or {}).get("poly"), "poly_bet": (logged or {}).get("poly_bet"),
         })
 
     store.save(LINE_HISTORY_PATH, lh, compact=True)
@@ -261,6 +270,7 @@ def grade_picks(picks, games_by_id, lh):
             res["total"] = totals.grade(p["total_pick"], hp + ap)
         p["result"] = res
         clv.finalize_spread(p, close_spread(g, lh))
+        polymarket.grade(p, hp, ap)
         n += 1
     return n
 
@@ -313,6 +323,8 @@ def method_html():
 <h3>Picks, confidence and tuning</h3>
 <p>Every matchup is simulated {config.SIMS:,} times. Each run draws every player on the injury report in or out from his status (Out 0%, Doubtful 20%, Questionable 50%, Day-to-day 65% to play), moves the margin by his value against how often he's played lately, then plays the game out: shared pace, each team's points per possession, late-game ties and overtime. The spread of results matches how NBA games land around the closing line (margin SD {config.MARGIN_SD:g}, total SD {config.TOTAL_SD:g}, {config.TIE_PULL * 100:.0f}% of one- and two-point finishes pulled to overtime for a 4.5% OT rate). Win chance, projected score and every cover and over/under chance come from the simulated games, so a 50/50 star shows up as two different games, and pushes on whole-number lines are counted.</p>
 <p>Edge = projected margin vs the DraftKings spread (via ESPN). Backtests show the model's gap to the line hasn't predicted results, so bets are priced at a market-anchored line that moves {config.ANCHOR_WEIGHT:.0%} of the way from the line toward the model, at most {config.ANCHOR_MAX_SHIFT:g} points. Tiers come from expected value at that price: lean above 0%, play 1.5%+, strong 3%+. Cover and over/under chances are read off the simulated games, re-centered on the anchored line and total. Confidence weighs whether each source covers on its own, the edge, line movement and data quality. Every Monday the source weights and home court are refit to this season's results and moved part of the way there.</p>
+<h3>Polymarket</h3>
+<p>Each game also shows the Polymarket US game-winner prices (contracts pay $1; the price is the ask). The model's chance is the market-anchored one: the same simulated games used to price the spread pick, re-centered on the anchored line, so it never strays far from the betting market. EV is per $1 staked at the ask after the taker fee ({polymarket.THETA:g} × price × (1 − price) per contract). A side with {polymarket.MIN_EV:.0%}+ EV in a market whose bid/ask gap is {polymarket.MAX_SPREAD * 100:.0f}¢ or less is logged as a paper bet at the first price it showed value and graded in units on the Record tab, with closing line value (closing ask minus entry price). Nothing is traded.</p>
 <p>Data: ESPN's public NBA API (schedule, scores, box scores, DraftKings lines, injury report). For entertainment only.</p>"""
 
 
@@ -370,7 +382,8 @@ def write_record(now, season, picks):
                   key=lambda p: p.get("start") or "", reverse=True)
     store.save(config.SITE_DATA_DIR / "record.json",
                {"generated_at": iso(now), "season": season, "season_record": compute_record(picks, season),
-                "all_time": compute_record(picks, None), "picks": rows}, compact=True)
+                "all_time": compute_record(picks, None), "picks": rows,
+                "polymarket": polymarket.summarize(picks, season)}, compact=True)
 
 
 def tune(now=None, log=print):

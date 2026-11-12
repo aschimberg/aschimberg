@@ -136,6 +136,15 @@ Totals are graded W/L/P on the final combined score. They appear on game cards, 
 
 In the NFL walk-forward backtest (2023–2026) totals went 460-466 (49.7%), and play-level totals went 193-189. The market total predicted scoring better than the model, so treat totals as informational.
 
+## Polymarket prices (NFL, NBA)
+
+Each NFL and NBA game card shows the [Polymarket US](https://polymarket.us) game-winner prices next to the model (`sportscommon/polymarket.py`). It uses public market data, so no key is needed.
+- **Prices:** one events call per sport finds each game's winner contract, then one best bid/offer call per matched game. The long side is the away team, so the home price is 1 − the best bid. Games are matched on team names and start time.
+- **Model chance:** the market-anchored win chance, from the same simulated games that price the spread pick, re-centered on the anchored line. A price shows value only where the market-anchored view disagrees with it, not wherever the raw model does.
+- **EV:** per $1 staked at the ask, after the taker fee of θ × price × (1 − price) per contract (θ = 0.095 below $10K of 30-day volume, `POLY_TAKER_THETA`).
+- **Paper bets:** a side with 2%+ EV (`POLY_MIN_EV`) in a market whose bid/ask gap is 5¢ or less (`POLY_MAX_SPREAD`) is logged at the first price it shows value and kept like a filled order. No bets are logged while NBA picks are capped early in the season. Bets are graded in units, 1 unit staked per bet; an NFL tie settles at $0.50. The Record tab shows W–L, units, ROI and price CLV (closing ask − entry price).
+- Nothing is traded. Set `POLYMARKET=off` to turn it off. If the API is unavailable the refresh carries on without prices.
+
 ## Closing line value (CLV)
 
 The Record tab tracks CLV for every live pick. It compares the number when the model first took a side (the bet number; it resets if the side flips) with the closing number:
