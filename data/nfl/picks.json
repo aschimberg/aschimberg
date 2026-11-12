@@ -13739,7 +13739,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-12T03:22:09Z",
+   "updated": "2026-11-12T08:47:38Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -13863,7 +13863,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-12T03:22:09Z",
+   "updated": "2026-11-12T08:47:38Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -13987,7 +13987,7 @@
     "side": "under",
     "tier": "play"
    },
-   "updated": "2026-11-12T03:22:09Z",
+   "updated": "2026-11-12T08:47:38Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -14111,7 +14111,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-12T03:22:09Z",
+   "updated": "2026-11-12T08:47:38Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -14235,7 +14235,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-12T03:22:09Z",
+   "updated": "2026-11-12T08:47:38Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -14359,7 +14359,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-11-12T03:22:09Z",
+   "updated": "2026-11-12T08:47:38Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -14483,7 +14483,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-12T03:22:09Z",
+   "updated": "2026-11-12T08:47:38Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -14607,7 +14607,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-12T03:22:09Z",
+   "updated": "2026-11-12T08:47:38Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -14731,7 +14731,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-11-12T03:22:09Z",
+   "updated": "2026-11-12T08:47:38Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -14855,7 +14855,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-12T03:22:09Z",
+   "updated": "2026-11-12T08:47:38Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -14979,7 +14979,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-12T03:22:09Z",
+   "updated": "2026-11-12T08:47:38Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -15103,7 +15103,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-12T03:22:09Z",
+   "updated": "2026-11-12T08:47:38Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -15227,7 +15227,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-12T03:22:09Z",
+   "updated": "2026-11-12T08:47:38Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -15291,17 +15291,17 @@
    "props": [
     {
      "bet": false,
-     "book": "DraftKings",
-     "ev": -0.1763,
+     "book": "BetMGM",
+     "ev": -0.1435,
      "fair": 222,
      "games": 12,
-     "kelly": -0.1068,
+     "kelly": -0.082,
      "lam": 0.3898,
-     "mkt_prob": 0.303,
+     "mkt_prob": 0.304,
      "n_books": 6,
      "name": "Malik Nabers",
      "note": "no value at market price",
-     "odds": 165.0,
+     "odds": 175.0,
      "p": 0.311,
      "p_model": 0.323,
      "pid": "00-0039337",
@@ -15310,18 +15310,18 @@
     },
     {
      "bet": false,
-     "book": "BetRivers",
-     "ev": -0.1454,
-     "fair": 222,
+     "book": "DraftKings",
+     "ev": -0.1522,
+     "fair": 225,
      "games": 24,
-     "kelly": -0.0831,
+     "kelly": -0.087,
      "lam": 0.4035,
-     "mkt_prob": 0.297,
+     "mkt_prob": 0.293,
      "n_books": 6,
      "name": "Rachaad White",
      "note": "no value at market price",
      "odds": 175.0,
-     "p": 0.311,
+     "p": 0.308,
      "p_model": 0.332,
      "pid": "00-0037256",
      "pos": "RB",
@@ -15330,17 +15330,17 @@
     {
      "bet": false,
      "book": "BetRivers",
-     "ev": -0.1746,
-     "fair": 264,
+     "ev": -0.1727,
+     "fair": 262,
      "games": 19,
-     "kelly": -0.0873,
+     "kelly": -0.0864,
      "lam": 0.3305,
-     "mkt_prob": 0.271,
+     "mkt_prob": 0.272,
      "n_books": 6,
      "name": "Isaiah Likely",
      "note": "no value at market price",
      "odds": 200.0,
-     "p": 0.275,
+     "p": 0.276,
      "p_model": 0.281,
      "pid": "00-0037838",
      "pos": "TE",
@@ -15369,7 +15369,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-12T03:22:09Z",
+   "updated": "2026-11-12T08:47:38Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
