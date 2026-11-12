@@ -709,6 +709,11 @@
    "ou_push": 0.0,
    "ou_tier": "strong",
    "poss": 71.0,
+   "result": {
+    "side": "W",
+    "total": "W"
+   },
+   "score": "70-84",
    "side": "home",
    "side_ev": -0.028,
    "side_prob": 0.509,
@@ -1661,6 +1666,11 @@
    "ou_push": 0.0,
    "ou_tier": "pass",
    "poss": 69.6,
+   "result": {
+    "side": "L",
+    "total": "L"
+   },
+   "score": "62-72",
    "side": "away",
    "side_ev": 0.038,
    "side_prob": 0.543,
@@ -1669,6 +1679,30 @@
    "spread": -8.5,
    "start": "2026-11-12T00:00Z",
    "total": 149.5
+  },
+  "401911013": {
+   "away": "Niagara",
+   "book": "Draft Kings",
+   "gn": 3,
+   "home": "Bowling Green",
+   "id": "401911013",
+   "logged": "2026-11-12T03:34+00:00",
+   "model_m": 16.0,
+   "model_t": 142.4,
+   "ou": "under",
+   "ou_ev": -0.019,
+   "ou_prob": 0.514,
+   "ou_push": 0.0,
+   "ou_tier": "pass",
+   "poss": 65.9,
+   "side": "home",
+   "side_ev": -0.091,
+   "side_prob": 0.476,
+   "side_push": 0.0,
+   "side_tier": "pass",
+   "spread": -15.5,
+   "start": "2026-11-13T00:00Z",
+   "total": 144.5
   },
   "401911186": {
    "away": "Northern Illinois",
@@ -1859,6 +1893,11 @@
    "ou_push": 0.0,
    "ou_tier": "strong",
    "poss": 68.2,
+   "result": {
+    "side": "W",
+    "total": "L"
+   },
+   "score": "93-107",
    "side": "home",
    "side_ev": -0.005,
    "side_prob": 0.521,
@@ -1896,6 +1935,30 @@
    "spread": 1.5,
    "start": "2026-11-08T22:00Z",
    "total": 151.5
+  },
+  "401911239": {
+   "away": "Richmond",
+   "book": "Draft Kings",
+   "gn": 3,
+   "home": "Southern Illinois",
+   "id": "401911239",
+   "logged": "2026-11-12T03:34+00:00",
+   "model_m": -3.5,
+   "model_t": 150.3,
+   "ou": "under",
+   "ou_ev": -0.002,
+   "ou_prob": 0.523,
+   "ou_push": 0.0,
+   "ou_tier": "pass",
+   "poss": 70.1,
+   "side": "home",
+   "side_ev": -0.066,
+   "side_prob": 0.489,
+   "side_push": 0.0,
+   "side_tier": "pass",
+   "spread": 4.5,
+   "start": "2026-11-13T01:00Z",
+   "total": 156.5
   },
   "401911249": {
    "away": "Saint Louis",
@@ -1999,6 +2062,11 @@
    "ou_push": 0.0,
    "ou_tier": "pass",
    "poss": 71.0,
+   "result": {
+    "side": "L",
+    "total": "L"
+   },
+   "score": "64-88",
    "side": "away",
    "side_ev": -0.04,
    "side_prob": 0.503,
@@ -2123,6 +2191,30 @@
    "spread": -5.5,
    "start": "2026-11-08T19:00Z",
    "total": 139.5
+  },
+  "401911307": {
+   "away": "Canisius",
+   "book": "Draft Kings",
+   "gn": 4,
+   "home": "Brown",
+   "id": "401911307",
+   "logged": "2026-11-12T03:34+00:00",
+   "model_m": 10.7,
+   "model_t": 132.9,
+   "ou": "under",
+   "ou_ev": 0.013,
+   "ou_prob": 0.531,
+   "ou_push": 0.0,
+   "ou_tier": "lean",
+   "poss": 66.0,
+   "side": "away",
+   "side_ev": -0.043,
+   "side_prob": 0.501,
+   "side_push": 0.0,
+   "side_tier": "pass",
+   "spread": -13.5,
+   "start": "2026-11-13T00:00Z",
+   "total": 138.5
   },
   "401911335": {
    "away": "Idaho State",
@@ -2288,6 +2380,30 @@
    "start": "2026-11-08T03:00Z",
    "total": 145.5
   },
+  "401911471": {
+   "away": "UC Riverside",
+   "book": "Draft Kings",
+   "gn": 3,
+   "home": "San Jos\u00e9 State",
+   "id": "401911471",
+   "logged": "2026-11-12T03:34+00:00",
+   "model_m": 0.5,
+   "model_t": 151.0,
+   "ou": "under",
+   "ou_ev": 0.01,
+   "ou_prob": 0.529,
+   "ou_push": 0.0,
+   "ou_tier": "lean",
+   "poss": 68.4,
+   "side": "away",
+   "side_ev": 0.03,
+   "side_prob": 0.539,
+   "side_push": 0.0,
+   "side_tier": "play",
+   "spread": -8.5,
+   "start": "2026-11-13T03:00Z",
+   "total": 153.5
+  },
   "401911519": {
    "away": "Incarnate Word",
    "book": "DraftKings",
@@ -2303,6 +2419,11 @@
    "ou_push": 0.0,
    "ou_tier": "pass",
    "poss": 69.7,
+   "result": {
+    "side": "L",
+    "total": "L"
+   },
+   "score": "69-81",
    "side": "away",
    "side_ev": -0.017,
    "side_prob": 0.515,
@@ -2311,6 +2432,30 @@
    "spread": -11.5,
    "start": "2026-11-11T19:00Z",
    "total": 145.5
+  },
+  "401911533": {
+   "away": "New Mexico State",
+   "book": "Draft Kings",
+   "gn": 3,
+   "home": "UTEP",
+   "id": "401911533",
+   "logged": "2026-11-12T03:34+00:00",
+   "model_m": 5.1,
+   "model_t": 145.3,
+   "ou": "over",
+   "ou_ev": -0.068,
+   "ou_prob": 0.488,
+   "ou_push": 0.0,
+   "ou_tier": "pass",
+   "poss": 66.0,
+   "side": "home",
+   "side_ev": -0.03,
+   "side_prob": 0.508,
+   "side_push": 0.0,
+   "side_tier": "pass",
+   "spread": -4.5,
+   "start": "2026-11-13T02:00Z",
+   "total": 143.5
   },
   "401912208": {
    "away": "American University",
@@ -2356,6 +2501,11 @@
    "ou_push": 0.0,
    "ou_tier": "pass",
    "poss": 67.4,
+   "result": {
+    "side": "L",
+    "total": "L"
+   },
+   "score": "66-64",
    "side": "home",
    "side_ev": 0.027,
    "side_prob": 0.538,
@@ -2539,6 +2689,30 @@
    "start": "2026-11-05T23:00Z",
    "total": 153.5
   },
+  "401916288": {
+   "away": "Tennessee Tech",
+   "book": "Draft Kings",
+   "gn": 4,
+   "home": "Indiana",
+   "id": "401916288",
+   "logged": "2026-11-12T03:34+00:00",
+   "model_m": 17.1,
+   "model_t": 165.9,
+   "ou": "under",
+   "ou_ev": -0.034,
+   "ou_prob": 0.506,
+   "ou_push": 0.0,
+   "ou_tier": "pass",
+   "poss": 71.7,
+   "side": "away",
+   "side_ev": 0.083,
+   "side_prob": 0.568,
+   "side_push": 0.0,
+   "side_tier": "strong",
+   "spread": -25.5,
+   "start": "2026-11-12T23:30Z",
+   "total": 168.5
+  },
   "401916304": {
    "away": "St. Thomas",
    "book": "DraftKings",
@@ -2597,6 +2771,30 @@
    "start": "2026-11-10T00:00Z",
    "total": 143.5
   },
+  "401916306": {
+   "away": "Southern",
+   "book": "Draft Kings",
+   "gn": 4,
+   "home": "Minnesota",
+   "id": "401916306",
+   "logged": "2026-11-12T03:34+00:00",
+   "model_m": 20.0,
+   "model_t": 138.1,
+   "ou": "under",
+   "ou_ev": -0.03,
+   "ou_prob": 0.508,
+   "ou_push": 0.0,
+   "ou_tier": "pass",
+   "poss": 67.4,
+   "side": "away",
+   "side_ev": 0.025,
+   "side_prob": 0.537,
+   "side_push": 0.0,
+   "side_tier": "play",
+   "spread": -24.5,
+   "start": "2026-11-13T01:00Z",
+   "total": 140.5
+  },
   "401916314": {
    "away": "Youngstown State",
    "book": "DraftKings",
@@ -2654,6 +2852,30 @@
    "spread": -25.5,
    "start": "2026-11-09T23:00Z",
    "total": 162.5
+  },
+  "401917176": {
+   "away": "Mercyhurst",
+   "book": "Draft Kings",
+   "gn": 4,
+   "home": "Penn State",
+   "id": "401917176",
+   "logged": "2026-11-12T03:34+00:00",
+   "model_m": 13.2,
+   "model_t": 148.4,
+   "ou": "over",
+   "ou_ev": -0.047,
+   "ou_prob": 0.499,
+   "ou_push": 0.0,
+   "ou_tier": "pass",
+   "poss": 68.1,
+   "side": "away",
+   "side_ev": 0.044,
+   "side_prob": 0.547,
+   "side_push": 0.0,
+   "side_tier": "strong",
+   "spread": -20.5,
+   "start": "2026-11-12T23:30Z",
+   "total": 147.5
   },
   "401917177": {
    "away": "Chattanooga",
@@ -2926,6 +3148,11 @@
    "ou_push": 0.0,
    "ou_tier": "pass",
    "poss": 71.5,
+   "result": {
+    "side": "L",
+    "total": "L"
+   },
+   "score": "76-71",
    "side": "home",
    "side_ev": -0.043,
    "side_prob": 0.501,
@@ -2959,6 +3186,30 @@
    "start": "2026-11-12T03:00Z",
    "total": 139.5
   },
+  "401917524": {
+   "away": "Loyola Marymount",
+   "book": "Draft Kings",
+   "gn": 4,
+   "home": "South Alabama",
+   "id": "401917524",
+   "logged": "2026-11-12T03:34+00:00",
+   "model_m": -0.7,
+   "model_t": 149.7,
+   "ou": "over",
+   "ou_ev": -0.052,
+   "ou_prob": 0.496,
+   "ou_push": 0.0,
+   "ou_tier": "pass",
+   "poss": 68.6,
+   "side": "home",
+   "side_ev": -0.082,
+   "side_prob": 0.481,
+   "side_push": 0.0,
+   "side_tier": "pass",
+   "spread": 1.5,
+   "start": "2026-11-13T01:00Z",
+   "total": 142.5
+  },
   "401917901": {
    "away": "UNC Asheville",
    "book": "DraftKings",
@@ -2974,6 +3225,11 @@
    "ou_push": 0.0,
    "ou_tier": "pass",
    "poss": 69.9,
+   "result": {
+    "side": "W",
+    "total": "L"
+   },
+   "score": "73-70",
    "side": "away",
    "side_ev": -0.102,
    "side_prob": 0.47,
@@ -3085,6 +3341,11 @@
    "ou_push": 0.0,
    "ou_tier": "pass",
    "poss": 68.0,
+   "result": {
+    "side": "L",
+    "total": "W"
+   },
+   "score": "76-71",
    "side": "away",
    "side_ev": -0.008,
    "side_prob": 0.52,
@@ -3212,27 +3473,27 @@
   },
   "401918054": {
    "away": "USC",
-   "book": "DraftKings",
+   "book": "Draft Kings",
    "gn": 3,
    "home": "California",
    "id": "401918054",
-   "logged": "2026-11-11T18:24+00:00",
-   "model_m": -1.8,
-   "model_t": 166.3,
+   "logged": "2026-11-12T03:34+00:00",
+   "model_m": -1.9,
+   "model_t": 166.0,
    "ou": "over",
-   "ou_ev": -0.035,
-   "ou_prob": 0.506,
+   "ou_ev": -0.014,
+   "ou_prob": 0.517,
    "ou_push": 0.0,
    "ou_tier": "pass",
-   "poss": 74.1,
+   "poss": 74.2,
    "side": "home",
-   "side_ev": -0.002,
-   "side_prob": 0.523,
+   "side_ev": 0.01,
+   "side_prob": 0.529,
    "side_push": 0.0,
-   "side_tier": "pass",
+   "side_tier": "lean",
    "spread": 8.5,
    "start": "2026-11-12T04:00Z",
-   "total": 161.5
+   "total": 159.5
   },
   "401918074": {
    "away": "North Dakota",
@@ -3278,6 +3539,11 @@
    "ou_push": 0.0,
    "ou_tier": "pass",
    "poss": 73.3,
+   "result": {
+    "side": "L",
+    "total": "L"
+   },
+   "score": "90-95",
    "side": "away",
    "side_ev": -0.0,
    "side_prob": 0.524,
@@ -3476,6 +3742,11 @@
    "ou_push": 0.0,
    "ou_tier": "pass",
    "poss": 70.3,
+   "result": {
+    "side": "W",
+    "total": "L"
+   },
+   "score": "67-72",
    "side": "away",
    "side_ev": 0.054,
    "side_prob": 0.552,
@@ -3558,6 +3829,11 @@
    "ou_push": 0.0,
    "ou_tier": "pass",
    "poss": 73.0,
+   "result": {
+    "side": "L",
+    "total": "W"
+   },
+   "score": "80-83",
    "side": "home",
    "side_ev": -0.029,
    "side_prob": 0.509,
@@ -3867,6 +4143,11 @@
    "ou_push": 0.0,
    "ou_tier": "pass",
    "poss": 65.9,
+   "result": {
+    "side": "L",
+    "total": "W"
+   },
+   "score": "80-76",
    "side": "home",
    "side_ev": -0.034,
    "side_prob": 0.506,
@@ -4108,6 +4389,30 @@
    "start": "2026-11-11T00:00Z",
    "total": 140.5
   },
+  "401920064": {
+   "away": "Maryland Eastern Shore",
+   "book": "Draft Kings",
+   "gn": 4,
+   "home": "Rhode Island",
+   "id": "401920064",
+   "logged": "2026-11-12T03:34+00:00",
+   "model_m": 17.6,
+   "model_t": 136.5,
+   "ou": "under",
+   "ou_ev": -0.006,
+   "ou_prob": 0.521,
+   "ou_push": 0.0,
+   "ou_tier": "pass",
+   "poss": 66.4,
+   "side": "away",
+   "side_ev": 0.066,
+   "side_prob": 0.558,
+   "side_push": 0.0,
+   "side_tier": "strong",
+   "spread": -24.5,
+   "start": "2026-11-13T00:00Z",
+   "total": 143.5
+  },
   "401920072": {
    "away": "Coppin State",
    "book": "DraftKings",
@@ -4137,6 +4442,30 @@
    "start": "2026-11-07T00:00Z",
    "total": 140.5
   },
+  "401920073": {
+   "away": "Kansas City",
+   "book": "Draft Kings",
+   "gn": 3,
+   "home": "George Mason",
+   "id": "401920073",
+   "logged": "2026-11-12T03:34+00:00",
+   "model_m": 12.2,
+   "model_t": 140.0,
+   "ou": "under",
+   "ou_ev": -0.006,
+   "ou_prob": 0.521,
+   "ou_push": 0.0,
+   "ou_tier": "pass",
+   "poss": 66.8,
+   "side": "away",
+   "side_ev": -0.023,
+   "side_prob": 0.512,
+   "side_push": 0.0,
+   "side_tier": "pass",
+   "spread": -14.5,
+   "start": "2026-11-12T20:00Z",
+   "total": 141.5
+  },
   "401920134": {
    "away": "North Dakota State",
    "book": "DraftKings",
@@ -4165,6 +4494,30 @@
    "spread": 2.5,
    "start": "2026-11-08T23:00Z",
    "total": 152.5
+  },
+  "401920135": {
+   "away": "Cal State Bakersfield",
+   "book": "Draft Kings",
+   "gn": 3,
+   "home": "Western Illinois",
+   "id": "401920135",
+   "logged": "2026-11-12T03:34+00:00",
+   "model_m": -2.5,
+   "model_t": 148.9,
+   "ou": "under",
+   "ou_ev": 0.008,
+   "ou_prob": 0.528,
+   "ou_push": 0.0,
+   "ou_tier": "lean",
+   "poss": 70.4,
+   "side": "home",
+   "side_ev": -0.002,
+   "side_prob": 0.523,
+   "side_push": 0.0,
+   "side_tier": "pass",
+   "spread": 7.5,
+   "start": "2026-11-13T00:00Z",
+   "total": 149.5
   },
   "401920155": {
    "away": "Cal State Fullerton",
@@ -4297,6 +4650,11 @@
    "ou_push": 0.0,
    "ou_tier": "pass",
    "poss": 68.2,
+   "result": {
+    "side": "L",
+    "total": "W"
+   },
+   "score": "49-87",
    "side": "away",
    "side_ev": 0.061,
    "side_prob": 0.556,
@@ -4350,6 +4708,11 @@
    "ou_push": 0.0,
    "ou_tier": "pass",
    "poss": 68.6,
+   "result": {
+    "side": "W",
+    "total": "W"
+   },
+   "score": "85-76",
    "side": "away",
    "side_ev": 0.029,
    "side_prob": 0.539,
@@ -4707,6 +5070,30 @@
    "start": "2026-11-07T22:00Z",
    "total": 156.5
   },
+  "401920412": {
+   "away": "Southern Utah",
+   "book": "Draft Kings",
+   "gn": 4,
+   "home": "High Point",
+   "id": "401920412",
+   "logged": "2026-11-12T03:34+00:00",
+   "model_m": 4.6,
+   "model_t": 161.8,
+   "ou": "over",
+   "ou_ev": 0.001,
+   "ou_prob": 0.524,
+   "ou_push": 0.0,
+   "ou_tier": "lean",
+   "poss": 72.1,
+   "side": "away",
+   "side_ev": 0.073,
+   "side_prob": 0.562,
+   "side_push": 0.0,
+   "side_tier": "strong",
+   "spread": -21.5,
+   "start": "2026-11-13T00:00Z",
+   "total": 151.5
+  },
   "401920422": {
    "away": "Drexel",
    "book": "Draft Kings",
@@ -4852,6 +5239,30 @@
    "start": "2026-11-08T02:00Z",
    "total": 156.5
   },
+  "401920566": {
+   "away": "Loyola Maryland",
+   "book": "Draft Kings",
+   "gn": 4,
+   "home": "Towson",
+   "id": "401920566",
+   "logged": "2026-11-12T03:34+00:00",
+   "model_m": 9.5,
+   "model_t": 136.9,
+   "ou": "under",
+   "ou_ev": -0.015,
+   "ou_prob": 0.516,
+   "ou_push": 0.0,
+   "ou_tier": "pass",
+   "poss": 66.4,
+   "side": "away",
+   "side_ev": 0.02,
+   "side_prob": 0.534,
+   "side_push": 0.0,
+   "side_tier": "play",
+   "spread": -13.5,
+   "start": "2026-11-13T00:00Z",
+   "total": 138.5
+  },
   "401920680": {
    "away": "Colgate",
    "book": "DraftKings",
@@ -4867,6 +5278,11 @@
    "ou_push": 0.0,
    "ou_tier": "pass",
    "poss": 70.6,
+   "result": {
+    "side": "L",
+    "total": "W"
+   },
+   "score": "59-90",
    "side": "away",
    "side_ev": 0.085,
    "side_prob": 0.568,
@@ -5268,6 +5684,11 @@
    "ou_push": 0.0,
    "ou_tier": "pass",
    "poss": 65.2,
+   "result": {
+    "side": "W",
+    "total": "L"
+   },
+   "score": "53-68",
    "side": "home",
    "side_ev": -0.001,
    "side_prob": 0.523,
@@ -5756,6 +6177,11 @@
    "ou_push": 0.0,
    "ou_tier": "play",
    "poss": 65.4,
+   "result": {
+    "side": "L",
+    "total": "W"
+   },
+   "score": "71-61",
    "side": "home",
    "side_ev": 0.019,
    "side_prob": 0.534,
@@ -5867,6 +6293,11 @@
    "ou_push": 0.0,
    "ou_tier": "pass",
    "poss": 71.4,
+   "result": {
+    "side": "L",
+    "total": "W"
+   },
+   "score": "87-65",
    "side": "home",
    "side_ev": -0.058,
    "side_prob": 0.493,
@@ -6015,6 +6446,30 @@
    "spread": -4.5,
    "start": "2026-11-06T00:00Z",
    "total": 136.5
+  },
+  "401921086": {
+   "away": "Morgan State",
+   "book": "Draft Kings",
+   "gn": 4,
+   "home": "UMBC",
+   "id": "401921086",
+   "logged": "2026-11-12T03:34+00:00",
+   "model_m": 5.8,
+   "model_t": 154.2,
+   "ou": "under",
+   "ou_ev": 0.006,
+   "ou_prob": 0.527,
+   "ou_push": 0.0,
+   "ou_tier": "lean",
+   "poss": 74.6,
+   "side": "away",
+   "side_ev": -0.035,
+   "side_prob": 0.505,
+   "side_push": 0.0,
+   "side_tier": "pass",
+   "spread": -6.5,
+   "start": "2026-11-12T23:00Z",
+   "total": 161.5
   },
   "401921094": {
    "away": "East Texas A&M",
@@ -6263,6 +6718,11 @@
    "ou_push": 0.0,
    "ou_tier": "pass",
    "poss": 70.7,
+   "result": {
+    "side": "W",
+    "total": "L"
+   },
+   "score": "76-81",
    "side": "home",
    "side_ev": 0.03,
    "side_prob": 0.539,
@@ -6345,6 +6805,11 @@
    "ou_push": 0.0,
    "ou_tier": "pass",
    "poss": 67.2,
+   "result": {
+    "side": "W",
+    "total": "L"
+   },
+   "score": "80-67",
    "side": "away",
    "side_ev": -0.007,
    "side_prob": 0.52,
@@ -6876,6 +7341,30 @@
    "start": "2026-11-07T02:00Z",
    "total": 161.5
   },
+  "401921741": {
+   "away": "Montana State",
+   "book": "Draft Kings",
+   "gn": 3,
+   "home": "BYU",
+   "id": "401921741",
+   "logged": "2026-11-12T03:34+00:00",
+   "model_m": 12.3,
+   "model_t": 162.1,
+   "ou": "under",
+   "ou_ev": -0.001,
+   "ou_prob": 0.523,
+   "ou_push": 0.0,
+   "ou_tier": "pass",
+   "poss": 68.9,
+   "side": "away",
+   "side_ev": 0.097,
+   "side_prob": 0.575,
+   "side_push": 0.0,
+   "side_tier": "strong",
+   "spread": -24.5,
+   "start": "2026-11-13T02:00Z",
+   "total": 164.5
+  },
   "401921747": {
    "away": "Green Bay",
    "book": "DraftKings",
@@ -6991,6 +7480,30 @@
    "spread": -27.5,
    "start": "2026-11-07T00:00Z",
    "total": 140.5
+  },
+  "401921768": {
+   "away": "Mercer",
+   "book": "Draft Kings",
+   "gn": 3,
+   "home": "West Virginia",
+   "id": "401921768",
+   "logged": "2026-11-12T03:34+00:00",
+   "model_m": 15.7,
+   "model_t": 149.7,
+   "ou": "under",
+   "ou_ev": 0.006,
+   "ou_prob": 0.527,
+   "ou_push": 0.0,
+   "ou_tier": "lean",
+   "poss": 69.2,
+   "side": "away",
+   "side_ev": 0.048,
+   "side_prob": 0.549,
+   "side_push": 0.0,
+   "side_tier": "strong",
+   "spread": -27.5,
+   "start": "2026-11-13T00:00Z",
+   "total": 151.5
   },
   "401921774": {
    "away": "La Salle",
@@ -7268,6 +7781,11 @@
    "ou_push": 0.0,
    "ou_tier": "pass",
    "poss": 62.0,
+   "result": {
+    "side": "L",
+    "total": "L"
+   },
+   "score": "41-77",
    "side": "away",
    "side_ev": 0.072,
    "side_prob": 0.562,
@@ -7422,6 +7940,30 @@
    "start": "2026-11-07T03:30Z",
    "total": 156.5
   },
+  "401922239": {
+   "away": "Stetson",
+   "book": "Draft Kings",
+   "gn": 4,
+   "home": "Howard",
+   "id": "401922239",
+   "logged": "2026-11-12T03:34+00:00",
+   "model_m": 9.8,
+   "model_t": 149.9,
+   "ou": "under",
+   "ou_ev": 0.029,
+   "ou_prob": 0.539,
+   "ou_push": 0.0,
+   "ou_tier": "play",
+   "poss": 67.8,
+   "side": "away",
+   "side_ev": -0.008,
+   "side_prob": 0.52,
+   "side_push": 0.0,
+   "side_tier": "pass",
+   "spread": -10.5,
+   "start": "2026-11-13T00:00Z",
+   "total": 152.5
+  },
   "401922248": {
    "away": "West Florida",
    "book": "DraftKings",
@@ -7450,6 +7992,30 @@
    "spread": -16.5,
    "start": "2026-11-06T22:00Z",
    "total": 161.5
+  },
+  "401922250": {
+   "away": "West Florida",
+   "book": "Draft Kings",
+   "gn": 4,
+   "home": "Alabama A&M",
+   "id": "401922250",
+   "logged": "2026-11-12T03:34+00:00",
+   "model_m": -5.5,
+   "model_t": 147.8,
+   "ou": "under",
+   "ou_ev": -0.019,
+   "ou_prob": 0.514,
+   "ou_push": 0.0,
+   "ou_tier": "pass",
+   "poss": 71.2,
+   "side": "away",
+   "side_ev": 0.007,
+   "side_prob": 0.527,
+   "side_push": 0.0,
+   "side_tier": "lean",
+   "spread": -7.5,
+   "start": "2026-11-13T01:00Z",
+   "total": 148.5
   },
   "401922261": {
    "away": "Idaho",
@@ -7698,6 +8264,11 @@
    "ou_push": 0.0,
    "ou_tier": "strong",
    "poss": 63.7,
+   "result": {
+    "side": "L",
+    "total": "W"
+   },
+   "score": "59-69",
    "side": "away",
    "side_ev": -0.034,
    "side_prob": 0.506,
@@ -7735,6 +8306,54 @@
    "spread": -3.5,
    "start": "2026-11-07T23:30Z",
    "total": 149.5
+  },
+  "401924857": {
+   "away": "Monmouth",
+   "book": "Draft Kings",
+   "gn": 3,
+   "home": "Quinnipiac",
+   "id": "401924857",
+   "logged": "2026-11-12T03:34+00:00",
+   "model_m": 2.2,
+   "model_t": 148.1,
+   "ou": "over",
+   "ou_ev": -0.076,
+   "ou_prob": 0.484,
+   "ou_push": 0.0,
+   "ou_tier": "pass",
+   "poss": 69.6,
+   "side": "home",
+   "side_ev": -0.012,
+   "side_prob": 0.517,
+   "side_push": 0.0,
+   "side_tier": "pass",
+   "spread": -1.5,
+   "start": "2026-11-13T00:00Z",
+   "total": 146.5
+  },
+  "401924876": {
+   "away": "Central Connecticut",
+   "book": "Draft Kings",
+   "gn": 4,
+   "home": "Sacred Heart",
+   "id": "401924876",
+   "logged": "2026-11-12T03:34+00:00",
+   "model_m": 10.3,
+   "model_t": 151.2,
+   "ou": "over",
+   "ou_ev": -0.048,
+   "ou_prob": 0.498,
+   "ou_push": 0.0,
+   "ou_tier": "pass",
+   "poss": 70.2,
+   "side": "home",
+   "side_ev": 0.019,
+   "side_prob": 0.534,
+   "side_push": 0.0,
+   "side_tier": "play",
+   "spread": -4.5,
+   "start": "2026-11-13T00:00Z",
+   "total": 147.5
   },
   "401924895": {
    "away": "Northern Arizona",
@@ -8084,6 +8703,30 @@
    "start": "2026-11-11T00:30Z",
    "total": 138.5
   },
+  "401925631": {
+   "away": "Bradley",
+   "book": "Draft Kings",
+   "gn": 4,
+   "home": "Coppin State",
+   "id": "401925631",
+   "logged": "2026-11-12T03:34+00:00",
+   "model_m": -11.2,
+   "model_t": 134.4,
+   "ou": "under",
+   "ou_ev": -0.011,
+   "ou_prob": 0.518,
+   "ou_push": 0.0,
+   "ou_tier": "pass",
+   "poss": 68.3,
+   "side": "away",
+   "side_ev": -0.069,
+   "side_prob": 0.487,
+   "side_push": 0.0,
+   "side_tier": "pass",
+   "spread": 10.5,
+   "start": "2026-11-12T23:00Z",
+   "total": 134.5
+  },
   "401925681": {
    "away": "Eastern Illinois",
    "book": "Draft Kings",
@@ -8128,6 +8771,11 @@
    "ou_push": 0.0,
    "ou_tier": "lean",
    "poss": 70.4,
+   "result": {
+    "side": "L",
+    "total": "L"
+   },
+   "score": "59-99",
    "side": "away",
    "side_ev": 0.072,
    "side_prob": 0.561,
@@ -8210,6 +8858,11 @@
    "ou_push": 0.0,
    "ou_tier": "pass",
    "poss": 67.4,
+   "result": {
+    "side": "L",
+    "total": "W"
+   },
+   "score": "46-92",
    "side": "away",
    "side_ev": 0.025,
    "side_prob": 0.537,
@@ -8292,6 +8945,11 @@
    "ou_push": 0.0,
    "ou_tier": "pass",
    "poss": 72.4,
+   "result": {
+    "side": "W",
+    "total": "W"
+   },
+   "score": "75-88",
    "side": "away",
    "side_ev": -0.007,
    "side_prob": 0.52,
@@ -8543,6 +9201,11 @@
    "ou_push": 0.0,
    "ou_tier": "strong",
    "poss": 68.6,
+   "result": {
+    "side": "W",
+    "total": "L"
+   },
+   "score": "91-81",
    "side": "away",
    "side_ev": 0.038,
    "side_prob": 0.543,
@@ -8567,6 +9230,11 @@
    "ou_push": 0.0,
    "ou_tier": "pass",
    "poss": 68.3,
+   "result": {
+    "side": "W",
+    "total": "W"
+   },
+   "score": "71-80",
    "side": "away",
    "side_ev": 0.008,
    "side_prob": 0.528,
@@ -8620,6 +9288,11 @@
    "ou_push": 0.0,
    "ou_tier": "lean",
    "poss": 67.8,
+   "result": {
+    "side": "W",
+    "total": "L"
+   },
+   "score": "71-60",
    "side": "away",
    "side_ev": -0.005,
    "side_prob": 0.521,
@@ -8871,6 +9544,11 @@
    "ou_push": 0.0,
    "ou_tier": "pass",
    "poss": 70.3,
+   "result": {
+    "side": "L",
+    "total": "W"
+   },
+   "score": "51-65",
    "side": "away",
    "side_ev": 0.049,
    "side_prob": 0.55,
@@ -9040,6 +9718,11 @@
    "ou_push": 0.0,
    "ou_tier": "pass",
    "poss": 71.8,
+   "result": {
+    "side": "L",
+    "total": "W"
+   },
+   "score": "73-91",
    "side": "away",
    "side_ev": -0.03,
    "side_prob": 0.508,
@@ -9064,6 +9747,11 @@
    "ou_push": 0.0,
    "ou_tier": "lean",
    "poss": 70.3,
+   "result": {
+    "side": "W",
+    "total": "L"
+   },
+   "score": "82-73",
    "side": "away",
    "side_ev": -0.051,
    "side_prob": 0.497,
@@ -9233,6 +9921,11 @@
    "ou_push": 0.0,
    "ou_tier": "pass",
    "poss": 72.8,
+   "result": {
+    "side": "W",
+    "total": "L"
+   },
+   "score": "77-85",
    "side": "home",
    "side_ev": -0.004,
    "side_prob": 0.522,
@@ -9295,6 +9988,30 @@
    "start": "2026-11-12T02:00Z",
    "total": 161.5
   },
+  "401928818": {
+   "away": "Western Michigan",
+   "book": "Draft Kings",
+   "gn": 3,
+   "home": "Purdue Fort Wayne",
+   "id": "401928818",
+   "logged": "2026-11-12T03:34+00:00",
+   "model_m": 1.9,
+   "model_t": 149.1,
+   "ou": "under",
+   "ou_ev": -0.036,
+   "ou_prob": 0.505,
+   "ou_push": 0.0,
+   "ou_tier": "pass",
+   "poss": 68.2,
+   "side": "home",
+   "side_ev": -0.01,
+   "side_prob": 0.519,
+   "side_push": 0.0,
+   "side_tier": "pass",
+   "spread": 3.5,
+   "start": "2026-11-13T00:00Z",
+   "total": 150.5
+  },
   "401928823": {
    "away": "Robert Morris",
    "book": "DraftKings",
@@ -9339,6 +10056,11 @@
    "ou_push": 0.0,
    "ou_tier": "pass",
    "poss": 69.3,
+   "result": {
+    "side": "W",
+    "total": "W"
+   },
+   "score": "53-76",
    "side": "away",
    "side_ev": 0.069,
    "side_prob": 0.56,
@@ -9392,6 +10114,11 @@
    "ou_push": 0.0,
    "ou_tier": "pass",
    "poss": 67.0,
+   "result": {
+    "side": "W",
+    "total": "L"
+   },
+   "score": "69-81",
    "side": "home",
    "side_ev": -0.102,
    "side_prob": 0.47,
@@ -9631,97 +10358,97 @@
  },
  "summary": {
   "plays": {
-   "L": 113,
+   "L": 124,
    "P": 0,
-   "W": 107,
-   "pct": 0.486,
-   "units": -15.7,
-   "z": -1.11
+   "W": 115,
+   "pct": 0.481,
+   "units": -19.5,
+   "z": -1.32
   },
   "sides": {
    "all": {
-    "L": 152,
+    "L": 171,
     "P": 0,
-    "W": 142,
-    "pct": 0.483,
-    "units": -22.9,
-    "z": -1.4
+    "W": 158,
+    "pct": 0.48,
+    "units": -27.4,
+    "z": -1.58
    },
    "lean": {
     "L": 11,
     "P": 0,
-    "W": 14,
-    "pct": 0.56,
-    "units": 1.7,
-    "z": 0.36
+    "W": 15,
+    "pct": 0.577,
+    "units": 2.6,
+    "z": 0.54
    },
    "pass": {
-    "L": 52,
+    "L": 62,
     "P": 0,
-    "W": 50,
-    "pct": 0.49,
-    "units": -6.5,
-    "z": -0.68
+    "W": 60,
+    "pct": 0.492,
+    "units": -7.5,
+    "z": -0.71
    },
    "play": {
-    "L": 15,
+    "L": 18,
     "P": 0,
-    "W": 7,
-    "pct": 0.318,
-    "units": -8.6,
-    "z": -1.93
+    "W": 9,
+    "pct": 0.333,
+    "units": -9.8,
+    "z": -1.98
    },
    "strong": {
-    "L": 74,
+    "L": 80,
     "P": 0,
-    "W": 71,
-    "pct": 0.49,
-    "units": -9.5,
-    "z": -0.82
+    "W": 74,
+    "pct": 0.481,
+    "units": -12.7,
+    "z": -1.07
    }
   },
   "totals": {
    "all": {
-    "L": 134,
+    "L": 153,
     "P": 0,
-    "W": 160,
-    "pct": 0.544,
-    "units": 11.4,
-    "z": 0.7
+    "W": 176,
+    "pct": 0.535,
+    "units": 7.0,
+    "z": 0.4
    },
    "lean": {
-    "L": 13,
+    "L": 16,
     "P": 0,
     "W": 20,
-    "pct": 0.606,
-    "units": 5.2,
-    "z": 0.95
+    "pct": 0.556,
+    "units": 2.2,
+    "z": 0.38
    },
    "pass": {
-    "L": 97,
+    "L": 111,
     "P": 0,
-    "W": 111,
-    "pct": 0.534,
-    "units": 3.9,
-    "z": 0.28
+    "W": 124,
+    "pct": 0.528,
+    "units": 1.7,
+    "z": 0.12
    },
    "play": {
     "L": 8,
     "P": 0,
-    "W": 13,
-    "pct": 0.619,
-    "units": 3.8,
-    "z": 0.87
+    "W": 14,
+    "pct": 0.636,
+    "units": 4.7,
+    "z": 1.06
    },
    "strong": {
-    "L": 16,
+    "L": 18,
     "P": 0,
-    "W": 16,
+    "W": 18,
     "pct": 0.5,
-    "units": -1.5,
-    "z": -0.27
+    "units": -1.6,
+    "z": -0.29
    }
   }
  },
- "updated": "2026-11-11T18:24+00:00"
+ "updated": "2026-11-12T03:34+00:00"
 }
