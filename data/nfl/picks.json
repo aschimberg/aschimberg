@@ -13662,7 +13662,7 @@
     "epa": -12.19
    },
    "edge": 4.2,
-   "ev": -0.072,
+   "ev": -0.085,
    "fair_line": 9.0,
    "hfa_flag": 1,
    "home": "New York Jets",
@@ -13739,7 +13739,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-13T18:02:42Z",
+   "updated": "2026-11-14T01:26:38Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -13863,7 +13863,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-11-13T18:02:42Z",
+   "updated": "2026-11-14T01:26:38Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -13987,7 +13987,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-11-13T18:02:42Z",
+   "updated": "2026-11-14T01:26:38Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -14111,7 +14111,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-13T18:02:42Z",
+   "updated": "2026-11-14T01:26:38Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -14158,7 +14158,7 @@
     "epa": -6.16
    },
    "edge": 1.4,
-   "ev": -0.07,
+   "ev": -0.063,
    "fair_line": 2.8,
    "hfa_flag": 1,
    "home": "Atlanta Falcons",
@@ -14235,7 +14235,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-13T18:02:42Z",
+   "updated": "2026-11-14T01:26:38Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -14359,7 +14359,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-11-13T18:02:42Z",
+   "updated": "2026-11-14T01:26:38Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -14483,7 +14483,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-13T18:02:42Z",
+   "updated": "2026-11-14T01:26:38Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -14607,7 +14607,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-13T18:02:42Z",
+   "updated": "2026-11-14T01:26:38Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -14654,7 +14654,7 @@
     "epa": 7.94
    },
    "edge": 4.4,
-   "ev": -0.025,
+   "ev": -0.014,
    "fair_line": -1.9,
    "hfa_flag": 1,
    "home": "Green Bay Packers",
@@ -14697,16 +14697,16 @@
     },
     {
      "bet": false,
-     "fair": 318,
-     "games": 23,
-     "lam": 0.273,
-     "name": "Jauan Jennings",
+     "fair": 348,
+     "games": 24,
+     "lam": 0.252,
+     "name": "Matthew Golden",
      "note": "no market price yet",
-     "p": 0.239,
-     "p_model": 0.239,
-     "pid": "00-0036259",
+     "p": 0.223,
+     "p_model": 0.223,
+     "pid": "00-0040667",
      "pos": "WR",
-     "team": "MIN"
+     "team": "GB"
     }
    ],
    "push_prob": 0.071,
@@ -14731,7 +14731,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-11-13T18:02:42Z",
+   "updated": "2026-11-14T01:26:38Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -14739,7 +14739,7 @@
    }
   },
   "2026_10_NE_DET": {
-   "ats_line": 3.0,
+   "ats_line": 2.5,
    "ats_side": "away",
    "ats_team": "New England Patriots",
    "away": "New England Patriots",
@@ -14748,20 +14748,20 @@
    "bet_line": -2.5,
    "book": "nflverse consensus",
    "conf_label": "Medium",
-   "confidence": 59,
+   "confidence": 57,
    "confidence_detail": {
     "agree": 2,
     "components": {
      "agreement": 1.0,
      "consistency": 0.803,
      "data": 1.0,
-     "edge": 0.505,
+     "edge": 0.394,
      "market": 0.0,
      "trends": 0.25
     },
     "label": "Medium",
     "n_sources": 2,
-    "score": 59,
+    "score": 57,
     "side": "away",
     "source_names": {
      "elo": "Elo",
@@ -14777,15 +14777,15 @@
     "elo": 1.05,
     "epa": -1.71
    },
-   "edge": 2.3,
-   "ev": -0.051,
-   "fair_line": -2.3,
+   "edge": 1.8,
+   "ev": 0.015,
+   "fair_line": -1.5,
    "hfa_flag": 0,
    "home": "Detroit Lions",
    "home_abbr": "DET",
    "home_field": 1.444,
    "id": "2026_10_NE_DET",
-   "line": -3.0,
+   "line": -2.5,
    "model_spread": -0.7,
    "model_total": 52.4,
    "neutral": true,
@@ -14833,14 +14833,14 @@
      "team": "NE"
     }
    ],
-   "push_prob": 0.071,
+   "push_prob": 0.0,
    "result": null,
    "season": 2026,
    "season_type": "regular",
    "start": "2026-11-15T14:30:00Z",
    "su_team": "Detroit Lions",
    "su_wp": 0.517,
-   "tier": "pass",
+   "tier": "lean",
    "total_line": 49.5,
    "total_pick": {
     "edge": 2.9,
@@ -14855,7 +14855,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-13T18:02:42Z",
+   "updated": "2026-11-14T01:26:38Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -14979,7 +14979,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-13T18:02:42Z",
+   "updated": "2026-11-14T01:26:38Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -15103,7 +15103,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-13T18:02:42Z",
+   "updated": "2026-11-14T01:26:38Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -15150,7 +15150,7 @@
     "epa": -8.89
    },
    "edge": 2.6,
-   "ev": -0.054,
+   "ev": -0.002,
    "fair_line": 4.3,
    "hfa_flag": 1,
    "home": "Dallas Cowboys",
@@ -15227,7 +15227,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-13T18:02:42Z",
+   "updated": "2026-11-14T01:26:38Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
