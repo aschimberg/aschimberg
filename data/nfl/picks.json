@@ -13739,7 +13739,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-14T01:26:38Z",
+   "updated": "2026-11-14T02:41:04Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -13863,7 +13863,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-11-14T01:26:38Z",
+   "updated": "2026-11-14T02:41:04Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -13987,7 +13987,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-11-14T01:26:38Z",
+   "updated": "2026-11-14T02:41:04Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -14111,7 +14111,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-14T01:26:38Z",
+   "updated": "2026-11-14T02:41:04Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -14235,7 +14235,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-14T01:26:38Z",
+   "updated": "2026-11-14T02:41:04Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -14359,7 +14359,7 @@
     "side": "under",
     "tier": "lean"
    },
-   "updated": "2026-11-14T01:26:38Z",
+   "updated": "2026-11-14T02:41:04Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -14483,7 +14483,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-14T01:26:38Z",
+   "updated": "2026-11-14T02:41:04Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -14607,7 +14607,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-14T01:26:38Z",
+   "updated": "2026-11-14T02:41:04Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -14731,7 +14731,7 @@
     "side": "under",
     "tier": "strong"
    },
-   "updated": "2026-11-14T01:26:38Z",
+   "updated": "2026-11-14T02:41:04Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -14795,12 +14795,18 @@
    "props": [
     {
      "bet": false,
-     "fair": -140,
+     "book": "BetMGM",
+     "ev": -0.1786,
+     "fair": -136,
      "games": 25,
+     "kelly": -0.4196,
      "lam": 0.8772,
+     "mkt_prob": 0.571,
+     "n_books": 6,
      "name": "Jahmyr Gibbs",
-     "note": "no market price yet",
-     "p": 0.584,
+     "note": "no value at market price",
+     "odds": -235.0,
+     "p": 0.576,
      "p_model": 0.584,
      "pid": "00-0039139",
      "pos": "RB",
@@ -14808,12 +14814,18 @@
     },
     {
      "bet": false,
-     "fair": 133,
+     "book": "DraftKings",
+     "ev": -0.2097,
+     "fair": 147,
      "games": 25,
+     "kelly": -0.2202,
      "lam": 0.5601,
+     "mkt_prob": 0.389,
+     "n_books": 6,
      "name": "Amon-Ra St. Brown",
-     "note": "no market price yet",
-     "p": 0.429,
+     "note": "no value at market price",
+     "odds": -105.0,
+     "p": 0.405,
      "p_model": 0.429,
      "pid": "00-0036963",
      "pos": "WR",
@@ -14821,12 +14833,18 @@
     },
     {
      "bet": false,
-     "fair": 161,
+     "book": "DraftKings",
+     "ev": -0.2222,
+     "fair": 164,
      "games": 27,
+     "kelly": -0.2116,
      "lam": 0.483,
+     "mkt_prob": 0.377,
+     "n_books": 5,
      "name": "Rhamondre Stevenson",
-     "note": "no market price yet",
-     "p": 0.383,
+     "note": "no value at market price",
+     "odds": 105.0,
+     "p": 0.379,
      "p_model": 0.383,
      "pid": "00-0036875",
      "pos": "RB",
@@ -14855,7 +14873,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-14T01:26:38Z",
+   "updated": "2026-11-14T02:41:04Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -14979,7 +14997,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-14T01:26:38Z",
+   "updated": "2026-11-14T02:41:04Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -15103,7 +15121,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-14T01:26:38Z",
+   "updated": "2026-11-14T02:41:04Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -15227,7 +15245,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-14T01:26:38Z",
+   "updated": "2026-11-14T02:41:04Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
