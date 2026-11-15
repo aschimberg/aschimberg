@@ -14350,12 +14350,18 @@
    "props": [
     {
      "bet": false,
-     "fair": -101,
+     "book": "FanDuel",
+     "ev": -0.1428,
+     "fair": -100,
      "games": 26,
+     "kelly": -0.1999,
      "lam": 0.6963,
+     "mkt_prob": 0.499,
+     "n_books": 6,
      "name": "Derrick Henry",
-     "note": "no market price yet",
-     "p": 0.502,
+     "note": "no value at market price",
+     "odds": -140.0,
+     "p": 0.5,
      "p_model": 0.502,
      "pid": "00-0032764",
      "pos": "RB",
@@ -14363,27 +14369,39 @@
     },
     {
      "bet": false,
-     "fair": 178,
-     "games": 18,
-     "lam": 0.4459,
-     "name": "Omarion Hampton",
-     "note": "no market price yet",
-     "p": 0.36,
-     "p_model": 0.36,
-     "pid": "00-0040666",
-     "pos": "RB",
-     "team": "LAC"
+     "book": "FanDuel",
+     "ev": -0.2704,
+     "fair": 256,
+     "games": 25,
+     "kelly": -0.169,
+     "lam": 0.266,
+     "mkt_prob": 0.315,
+     "n_books": 6,
+     "name": "Zay Flowers",
+     "note": "no value at market price",
+     "odds": 160.0,
+     "p": 0.281,
+     "p_model": 0.234,
+     "pid": "00-0039064",
+     "pos": "WR",
+     "team": "BAL"
     },
     {
      "bet": false,
-     "fair": 288,
-     "games": 19,
-     "lam": 0.299,
-     "name": "Kimani Vidal",
-     "note": "no market price yet",
-     "p": 0.258,
-     "p_model": 0.258,
-     "pid": "00-0039391",
+     "book": "DraftKings",
+     "ev": 0.0265,
+     "fair": 300,
+     "games": 18,
+     "kelly": 0.0085,
+     "lam": 0.4459,
+     "mkt_prob": 0.191,
+     "n_books": 6,
+     "name": "Omarion Hampton",
+     "note": "no value at market price",
+     "odds": 310.0,
+     "p": 0.25,
+     "p_model": 0.36,
+     "pid": "00-0040666",
      "pos": "RB",
      "team": "LAC"
     }
@@ -14410,7 +14428,7 @@
     "side": "under",
     "tier": "pass"
    },
-   "updated": "2026-11-15T19:44:38Z",
+   "updated": "2026-11-15T21:04:40Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -14552,7 +14570,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-15T19:44:38Z",
+   "updated": "2026-11-15T21:04:40Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -15129,7 +15147,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-15T19:44:38Z",
+   "updated": "2026-11-15T21:04:40Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -15271,7 +15289,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-15T19:44:38Z",
+   "updated": "2026-11-15T21:04:40Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
@@ -15413,7 +15431,7 @@
     "side": "over",
     "tier": "pass"
    },
-   "updated": "2026-11-15T19:44:38Z",
+   "updated": "2026-11-15T21:04:40Z",
    "week": 10,
    "weights": {
     "elo": 0.883,
