@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-15T17:15:33Z",
+ "generated_at": "2026-11-16T02:12:59Z",
  "poll": "Playoff Committee Rankings",
  "season": 2026,
  "season_type": "regular",
@@ -27,13 +27,13 @@
   "strong_edge": 7.0,
   "trend_min_games": 8,
   "weights": {
-   "elo": 0.05,
-   "fpi": 0.588,
-   "sp": 0.363
+   "elo": 0.136,
+   "fpi": 0.681,
+   "sp": 0.183
   }
  },
  "site_url": "https://aschimberg.github.io/aschimberg/",
- "slate_label": "Week 11",
+ "slate_label": "Week 12",
  "splits": {
   "provider": "none",
   "source": null
@@ -217,5 +217,5 @@
    "sp": 0.183
   }
  },
- "week": 11
+ "week": 12
 }
